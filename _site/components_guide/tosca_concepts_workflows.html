@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    <meta charset="utf-8">
+    <title>Workflows</title>
+    <meta property="st:info" content="section:'Components Guide'"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/docs.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/syntax.css">
+    <link rel="stylesheet" href="../css/swiftype-autocomplete.css"/>
+</head>
+
+  <body>
+    <script type="text/javascript">
+      var tocheaders = {};
+      var tocheadersz = {};
+    </script>
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../js/jquery.fancybox.pack.js"></script>
+
+<script type="text/javascript" src="../js/search-swiftype.js"></script>
+<script type="text/javascript" src="../js/jquery.swiftype.autocomplete.js"></script>
+<script type="text/javascript" src="../js/jquery.ba-hashchange.min.js"></script>
+<script type="text/javascript" src="../js/jquery.swiftype.search.js"></script>
+    <div id="wrapper">
+      <div id="header">
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../index.html">
+        <img src="../images/cloudalien.png" style="height:21px;" class="pull-left">
+      </a>
+    </div>
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <ul class="nav navbar-nav">
+        <li>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">ALIEN user guide <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="../getting_started/">Getting Started (tutorials)</a></li>
+            <li><a href="../admin_guide/">Administration guide</a></li>
+            <li><a href="../components_guide/">Components guide</a></li>
+            <li><a href="../app_guide/">Application guide</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="../developer_guide/">ALIEN developer guide</a>
+        </li>
+        <li>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Drivers <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="../cloudify2_driver/">Cloudify 2 driver</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="../release_notes/">Release notes</a>
+        </li>
+        <li>
+          <a id="git-icon" href="https://fastconnect.org/gitblit/summary/?r=calm/calm-documentation.git" target="_blank" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="View the GitBlit!" data-original-title="View the GitBlit!">
+          <i class="fa fa-code-fork fa-lg fa-rotate-90"></i>
+          </a>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <button type="button" onclick="location.href='https://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource-snapshot&g=calm&a=calm-ui&v=LATEST&p=war'" class="btn btn-warning navbar-btn download-button"><i class="fa fa-download"></i> latest build</button>
+        </li>
+        <li>
+          <button type="button" onclick="location.href='https://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource&g=calm&a=calm-ui&v=LATEST&p=war'" class="btn btn-success navbar-btn download-button"><i class="fa fa-download"></i> stable</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script>
+$('[target=_blank]').append(" <i class=\"icon-external-link\" style=\"font-size:10px\"></i>");
+
+$('#git-icon').tooltip();
+</script>
+
+      </div>
+
+      <div id="content-parent">
+        <div class="container" style="padding-top: 80px;">
+          <div class="row">
+            <div id="breadcrumbs"></div>
+            
+              <div class="col-md-3">
+                <div id="sidebar_menu" class="well tree" role="complementary">
+</div>
+
+<script type="text/javascript" src="../js/sidebar.js"></script>
+
+<script>
+$(document).ready(function () {
+  makeSideBar('COMPONENTS_GUIDE');
+  createBreadcrumbs('COMPONENTS_GUIDE', 'Components Guide');
+});
+</script>
+
+              </div>
+              <div id="content" class="col-md-9" data-swiftype-index="true">
+            
+                <h1 style="margin-top: 0px;">Workflows</h1>
+                <p>TOSCA Specification defines the notion of <em>Plans</em>. Plans are basically workflows that the tosca container will be able to leverage to administrate the defined tosca application.</p>
+
+<p>The specification defines two basic workflow (plans):</p>
+
+<ul>
+  <li><strong>build</strong>: Used to instanciate and start a topology.</li>
+  <li><strong>terminate</strong>: Used to tear down a topology.</li>
+</ul>
+
+<div class="bs-callout bs-callout-info">
+<p>In order to ease TOSCA usage the normative types specification include default lifecycle operations on node types and relationship types that can be used in order to automatically generate workflows (plans). This is why most of users won’t have to define plans.</p>
+</div>
+
+<h1 id="workflow-definition">Workflow definition</h1>
+
+<p>Workflow definition is inspired by BPMN2 but focus on required events, gateways and activities for TOSCA. The following section defines the available elements and the way to define them in a TOSCA Simple profile in YAML.
+Definition of elements is also adapted to match the TOSCA Simple profile in YAML concepts.</p>
+
+<h2 id="events">Events</h2>
+
+<h3 id="start-event">Start event</h3>
+
+<p>Every plan should start with the start event, if omitted the container will automatically add it as first element of the workflow.</p>
+
+<h4 id="graphical-representation">Graphical representation</h4>
+
+<p>The following symbol represents the start event.</p>
+
+<svg width="32px" height="32px">
+  <circle cx="16" cy="16" r="12" style="fill:none; stroke:green; stroke-width:3" />
+</svg>
+
+<h4 id="grammar">Grammar</h4>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">workflows</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">&lt;flow_id&gt;</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">&lt;id&gt;</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">startEvent</span></code></pre></div>
+
+<h3 id="end-event">End event</h3>
+
+<p>Every plan should finish with the end event, if omitted the container will automatically add it as last element of the workflow.</p>
+
+<h4 id="graphical-representation-1">Graphical representation</h4>
+
+<p>The following symbol represents the end event.</p>
+
+<svg width="32px" height="32px">
+  <g>
+    <circle cx="16" cy="16" r="12" style="fill:none; stroke:firebrick; stroke-width:2" />
+    <circle cx="16" cy="16" r="9" style="fill:firebrick; stroke:firebrick; stroke-width:1" />
+  </g>
+</svg>
+
+<h4 id="grammar-1">Grammar</h4>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">workflows</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">&lt;flow_id&gt;</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">&lt;id&gt;</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">endEvent</span></code></pre></div>
+
+<h3 id="update-state-send-message-event">Update State send message event</h3>
+
+<p>Update the state of a node template or relationship template.</p>
+
+<h4 id="graphical-representation-2">Graphical representation</h4>
+
+<p>The following symbol represents the end event.</p>
+
+<svg width="300px" height="32px">
+  <g>
+    <circle cx="16" cy="16" r="12" style="fill:none; stroke:blue; stroke-width:2" />
+    <circle cx="16" cy="16" r="9" style="fill:none; stroke:blue; stroke-width:2" />
+    <rect x="11" y="12" width="10" height="8" style="fill:none; stroke:blue; stroke-width:1" />
+    <path d="M11 12 L16 16 L21 12 Z" style="fill:none; stroke:blue; stroke-width:1" />
+    <text x="34" y="20" font-family="Verdana" font-size="12" fill="blue">
+      target: state
+    </text>
+  </g>
+</svg>
+
+<h4 id="grammar-2">Grammar</h4>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">workflows</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">&lt;flow_id&gt;</span><span class="p-Indicator">:</span>
+    <span class="c1"># Simple notation</span>
+    <span class="l-Scalar-Plain">&lt;id&gt;</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">stateUpdate:&lt;target&gt;#&lt;state&gt;</span>
+    <span class="c1"># Detailed notation</span>
+    <span class="l-Scalar-Plain">&lt;id&gt;</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">stateUpdate</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">target</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;target&gt;</span>
+        <span class="l-Scalar-Plain">state</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;state&gt;</span></code></pre></div>
+
+<h3 id="update-state-receive-message-event">Update State receive message event</h3>
+
+<p>Receive a state update to trigger next operation.</p>
+
+<h4 id="graphical-representation-3">Graphical representation</h4>
+
+<p>The following symbol represents the end event.</p>
+
+<svg width="300px" height="32px">
+  <g>
+    <circle cx="16" cy="16" r="12" style="fill:none; stroke:blue; stroke-width:2" />
+    <circle cx="16" cy="16" r="9" style="fill:none; stroke:blue; stroke-width:2" />
+    <rect x="11" y="12" width="10" height="8" style="fill:lightblue; stroke:blue; stroke-width:1" />
+    <path d="M11 12 L16 16 L21 12 Z" style="fill:none; stroke:blue; stroke-width:1" />
+    <text x="34" y="20" font-family="Verdana" font-size="12" fill="blue">
+      target: state
+    </text>
+  </g>
+</svg>
+
+<h4 id="grammar-3">Grammar</h4>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">workflows</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">&lt;flow_id&gt;</span><span class="p-Indicator">:</span>
+    <span class="c1"># Simple notation</span>
+    <span class="l-Scalar-Plain">&lt;id&gt;</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">receiveStateUpdate:&lt;target&gt;#&lt;state&gt;</span>
+    <span class="c1"># Detailed notation</span>
+    <span class="l-Scalar-Plain">&lt;id&gt;</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">receiveStateUpdate</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">target</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;target&gt;</span>
+        <span class="l-Scalar-Plain">state</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;state&gt;</span></code></pre></div>
+
+<h2 id="activities">Activities</h2>
+
+<p>The single activity a TOSCA plan can contains is a specific execute operation Task activity.</p>
+
+<h3 id="execute-task">Execute task</h3>
+
+<p>Execute allows to execute an operation defined on an entity’s (node or relationship) interface.</p>
+
+<h4 id="graphical-representation-4">Graphical representation</h4>
+
+<h4 id="grammar-4">Grammar</h4>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">workflows</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">&lt;flow_id&gt;</span><span class="p-Indicator">:</span>
+   <span class="c1"># Simple notation</span>
+     <span class="l-Scalar-Plain">&lt;id&gt;</span><span class="p-Indicator">:</span>
+       <span class="l-Scalar-Plain">execute</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;target&gt;#&lt;interface&gt;#&lt;operation&gt;</span>
+   <span class="c1"># Detailed notation</span>
+     <span class="l-Scalar-Plain">&lt;id&gt;</span><span class="p-Indicator">:</span>
+       <span class="l-Scalar-Plain">execute</span><span class="p-Indicator">:</span>
+         <span class="l-Scalar-Plain">target</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;target&gt;</span>
+         <span class="l-Scalar-Plain">interface</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;interface&gt;</span>
+         <span class="l-Scalar-Plain">operation</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;operation&gt;</span></code></pre></div>
+
+<h2 id="gateways">Gateways</h2>
+
+<p>The only gateways used to define the TOSCA workflows is the parallel gateway. A parallel gateway can be diverging or converging.
+To ease configuration of the flow the two gateways are considered here a separate elements.</p>
+
+<h3 id="parallel-diverging-gateway">Parallel Diverging gateway</h3>
+
+<p>A parallel diverging gateway allows to specify subflows that will run concurrently. Note that if a task is specified in the flow after a Parallel Diverging Gateway, a Parallel Converging Gateway including all elements from the previous converging gateway is automatically added to the flow.</p>
+
+<h4 id="graphical-representation-5">Graphical representation</h4>
+
+<h4 id="grammar-5">Grammar</h4>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">workflows</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">&lt;flow_id&gt;</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">&lt;id&gt;</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">divergingGateway</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">&lt;subflow_id_1&gt;</span><span class="p-Indicator">:</span>
+          <span class="l-Scalar-Plain">&lt;task_id&gt;...</span>
+        <span class="l-Scalar-Plain">&lt;subflow_id_2&gt;</span>
+          <span class="l-Scalar-Plain">&lt;task_id&gt;...</span>
+        <span class="l-Scalar-Plain">...</span>
+        <span class="l-Scalar-Plain">&lt;subflow_id_n&gt;</span>
+          <span class="l-Scalar-Plain">&lt;task_id&gt;...</span></code></pre></div>
+
+<h3 id="parallel-converging-gateway">Parallel Converging gateway</h3>
+
+<p>A Parallel Converging gateway allows</p>
+
+<h4 id="graphical-representation-6">Graphical representation</h4>
+
+<h4 id="grammar-6">Grammar</h4>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">workflows</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">&lt;flow_id&gt;</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">&lt;id&gt;</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">convergingGateway</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">&lt;id_1&gt;</span>
+        <span class="l-Scalar-Plain">&lt;id_2&gt;</span>
+        <span class="l-Scalar-Plain">...</span>
+        <span class="l-Scalar-Plain">&lt;id_n&gt;</span></code></pre></div>
+
+
+              </div>
+            </div>
+          </div><!-- /container -->
+        </div>
+      </div>
+      <div class="push"></div>
+    </div>
+    <div id="footer">
+  <div class="container">
+    <p style="text-align:center;margin: 20px 0" class="text-muted credit">&copy; FastConnect SAS, 2014. Powered by <a href="http://jekyllrb.com/">Jekyll</a>.</p>
+  </div>
+</div>
+
+    <script type="text/javascript" src="../js/post-layout.js"></script>
+  </body>
+</html>

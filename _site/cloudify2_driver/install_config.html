@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    <meta charset="utf-8">
+    <title>Installing and configuring</title>
+    <meta property="st:info" content="section:'Cloudify 2 driver'"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/docs.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/syntax.css">
+    <link rel="stylesheet" href="../css/swiftype-autocomplete.css"/>
+</head>
+
+  <body>
+    <script type="text/javascript">
+      var tocheaders = {};
+      var tocheadersz = {};
+    </script>
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../js/jquery.fancybox.pack.js"></script>
+
+<script type="text/javascript" src="../js/search-swiftype.js"></script>
+<script type="text/javascript" src="../js/jquery.swiftype.autocomplete.js"></script>
+<script type="text/javascript" src="../js/jquery.ba-hashchange.min.js"></script>
+<script type="text/javascript" src="../js/jquery.swiftype.search.js"></script>
+    <div id="wrapper">
+      <div id="header">
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../index.html">
+        <img src="../images/cloudalien.png" style="height:21px;" class="pull-left">
+      </a>
+    </div>
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <ul class="nav navbar-nav">
+        <li>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">ALIEN user guide <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="../getting_started/">Getting Started (tutorials)</a></li>
+            <li><a href="../admin_guide/">Administration guide</a></li>
+            <li><a href="../components_guide/">Components guide</a></li>
+            <li><a href="../app_guide/">Application guide</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="../developer_guide/">ALIEN developer guide</a>
+        </li>
+        <li>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Drivers <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="../cloudify2_driver/">Cloudify 2 driver</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="../release_notes/">Release notes</a>
+        </li>
+        <li>
+          <a id="git-icon" href="https://fastconnect.org/gitblit/summary/?r=calm/calm-documentation.git" target="_blank" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="View the GitBlit!" data-original-title="View the GitBlit!">
+          <i class="fa fa-code-fork fa-lg fa-rotate-90"></i>
+          </a>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <button type="button" onclick="location.href='https://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource-snapshot&g=calm&a=calm-ui&v=LATEST&p=war'" class="btn btn-warning navbar-btn download-button"><i class="fa fa-download"></i> latest build</button>
+        </li>
+        <li>
+          <button type="button" onclick="location.href='https://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource&g=calm&a=calm-ui&v=LATEST&p=war'" class="btn btn-success navbar-btn download-button"><i class="fa fa-download"></i> stable</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script>
+$('[target=_blank]').append(" <i class=\"icon-external-link\" style=\"font-size:10px\"></i>");
+
+$('#git-icon').tooltip();
+</script>
+
+      </div>
+
+      <div id="content-parent">
+        <div class="container" style="padding-top: 80px;">
+          <div class="row">
+            <div id="breadcrumbs"></div>
+            
+              <div class="col-md-3">
+                <div id="sidebar_menu" class="well tree" role="complementary">
+</div>
+
+<script type="text/javascript" src="../js/sidebar.js"></script>
+
+<script>
+$(document).ready(function () {
+  makeSideBar('CLOUDIFY2_DRIVER');
+  createBreadcrumbs('CLOUDIFY2_DRIVER', 'Cloudify 2 driver');
+});
+</script>
+
+              </div>
+              <div id="content" class="col-md-9" data-swiftype-index="true">
+            
+                <h1 style="margin-top: 0px;">Installing and configuring</h1>
+                <p>Find here how to install and configure the Cloudify 2 driver.</p>
+
+<h2 id="download">Download</h2>
+<p>First step of course is to download the plugin.</p>
+
+<ul>
+  <li><a href="https://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource&amp;g=calm&amp;a=calm-cloudify2-driver&amp;v=LATEST&amp;p=zip">last stable version</a> works with the latest stable alien version.</li>
+  <li><a href="https://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource-snapshot&amp;g=calm&amp;a=calm-cloudify2-driver&amp;v=LATEST&amp;p=zip">last build version</a>.</li>
+</ul>
+
+<h2 id="install">Install</h2>
+<p>The driver is packaged as an ALIEN plugin. Therefore, follow the <a href="../admin_guide/plugins.html" title="how to  manage plugins">plugin management documentation</a> for how to install and enable the plugin in your running instance of ALIEN.</p>
+
+<h2 id="configure">Configure</h2>
+<p>You need to create a cloud and configure it.</p>
+
+<h3 id="creating-the-cloud">Creating the cloud</h3>
+<ol>
+  <li>Login as an admin, and create a cloud: <code>admin &gt; clouds &gt; New Cloud</code>.</li>
+  <li>As <code>PaaS provider</code> for this cloud, make sure to select <strong><em>Cloudify 2 PaaS Provider</em></strong> from the list. Validate</li>
+</ol>
+
+<h3 id="configuring-the-cloud">Configuring the cloud</h3>
+<p>On the cloud list, select and click on the newly created cloud, then go to the <code>configuration</code> tab.</p>
+
+<ol>
+  <li>
+    <p><strong><u>Conection Configuration</u></strong>: Remember the REST API URL you were told to note when bootstraping your cloud with Cloudify, here is the place you’ll need it. Fill the “Cloudify URL” with it, and eventually provide a login (username / password) for the access.<br /><br />
+<a href="../images/cloudify2_driver/config_cloud_clouifyConUrl.png" title="Connection configuration"><img src="../images/cloudify2_driver/config_cloud_clouifyConUrl.png" alt="Connection configuration" title="Connection configuration" /></a><br /></p>
+  </li>
+  <li>
+    <p><strong><u>Compute templates</u></strong>: Here you have to configure the computes templates avalaibles in your cloud. Make sure the <code>Identifier</code> match exactly one computes defined in your Cloudify clouds’s computes templates.<br /><br />
+<a href="../images/cloudify2_driver/config_cloud_clouifyComputes.png" title="Connection configuration"><img src="../images/cloudify2_driver/config_cloud_clouifyComputes.png" alt="Connection configuration" title="Connection configuration" /></a><br /></p>
+  </li>
+</ol>
+
+<p>You can save the configuration, switch back to the <code>Details</code> tab and enable the cloud by clicking on the <code>Enable cloud</code> button.
+The cloud can now be used to deploy an application. You might want to know <a href="tosca_archive.html" title="impacts on TOSCA archive">how the driver impacts the TOSCA archives</a>.</p>
+
+
+              </div>
+            </div>
+          </div><!-- /container -->
+        </div>
+      </div>
+      <div class="push"></div>
+    </div>
+    <div id="footer">
+  <div class="container">
+    <p style="text-align:center;margin: 20px 0" class="text-muted credit">&copy; FastConnect SAS, 2014. Powered by <a href="http://jekyllrb.com/">Jekyll</a>.</p>
+  </div>
+</div>
+
+    <script type="text/javascript" src="../js/post-layout.js"></script>
+  </body>
+</html>

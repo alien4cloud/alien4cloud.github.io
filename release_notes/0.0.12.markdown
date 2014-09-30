@@ -1,0 +1,11 @@
+---
+layout: post
+title:  ALIEN for Cloud 0.0.12
+root: ../
+categories: RELEASE_NOTES
+parent: none
+weight: 10000
+---
+
+
+{%children%}

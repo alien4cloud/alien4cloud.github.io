@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% include root %}
+  {% include head.html %}
+  <body>
+    <script type="text/javascript">
+      var tocheaders = {};
+      var tocheadersz = {};
+    </script>
+    {% include scripts.html %}
+    <div id="wrapper">
+      <div id="header">
+        {% include navbar.html %}
+      </div>
+      <div id="content-parent">
+        <div class="container" style="padding-top: 80px;">
+          <div class='row'>
+            <div class='col-md-3'>
+              {% include nav.html %}
+            </div>
+            <div id="content" class='col-md-9'>
+              {{ content }}
+            </div>
+          </div>
+          <hr/>
+        </div> <!-- /container -->
+      </div>
+      <div class="push"></div>
+    </div>
+    {% include footer.html %}
+    <script type="text/javascript" src="{{root}}js/post-layout.js"></script>
+
+    <script>
+      $("#navigation").treeview({
+        persist: "location"
+      });
+    </script>
+  </body>
+</html>

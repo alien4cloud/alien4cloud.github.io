@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% include root %}
+  {% include head.html %}
+  <body>
+    <script type="text/javascript">
+      var tocheaders = {};
+      var tocheadersz = {};
+    </script>
+    {% include scripts.html %}
+    <div id="wrapper">
+      <div id="header">
+        {% include navbar.html %}
+      </div>
+
+      <div id="content-parent">
+        <div class="container" style="padding-top: 80px;">
+          <div class="row">
+            <div id="breadcrumbs"></div>
+            {% if page.categories == null %}
+              <div id="content" class="col-md-12">
+            {% else %}
+              <div class="col-md-3">
+                {% include nav.html %}
+              </div>
+              <div id="content" class="col-md-9" data-swiftype-index="true">
+            {% endif %}
+                <h1 style="margin-top: 0px;">{{ page.title }}</h1>
+                {{ content }}
+              </div>
+            </div>
+          </div><!-- /container -->
+        </div>
+      </div>
+      <div class="push"></div>
+    </div>
+    {% include footer.html %}
+    <script type="text/javascript" src="{{root}}js/post-layout.js"></script>
+  </body>
+</html>

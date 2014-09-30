@@ -1,0 +1,22 @@
+---
+layout: post
+title:  Fixed Issues
+root: ../
+categories: RELEASE_NOTES
+parent: 0.0.13.html
+weight: 200
+---
+
+{%summary%}{%endsummary%}
+
+# Alien 4 Cloud fixed issues
+
+* CALM-395: fixed an issue that causes runtime events lost when ALIEN was crashing
+* CALM-402: Runtime view for an application not working
+* CALM-403: Fixed a missing translation missing in application / users TAB
+* CALM-409: Fixed an issue with the display of output attributes.
+
+
+# Cloudify 2 PaaS Provider fixed issues
+
+

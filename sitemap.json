@@ -1,0 +1,16 @@
+---
+layout: nil
+---
+ 
+
+[
+{% for page in site.pages %}
+	{
+		"url": "{{ page.url }}", 
+		"section": "{% currentsectionblock %}{{ page.url }}{% endcurrentsectionblock %}", 
+		"value": "{{ page.title }}",
+		"tokens": [ {% tokenize %}{{page.title}}{% endtokenize %}]
+	}{% unless forloop.last %},{% endunless %}
+{% endfor %}
+]
+

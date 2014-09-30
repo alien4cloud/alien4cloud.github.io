@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    <meta charset="utf-8">
+    <title>User management</title>
+    <meta property="st:info" content="section:'Admin Guide'"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/docs.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/syntax.css">
+    <link rel="stylesheet" href="../css/swiftype-autocomplete.css"/>
+</head>
+
+  <body>
+    <script type="text/javascript">
+      var tocheaders = {};
+      var tocheadersz = {};
+    </script>
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../js/jquery.fancybox.pack.js"></script>
+
+<script type="text/javascript" src="../js/search-swiftype.js"></script>
+<script type="text/javascript" src="../js/jquery.swiftype.autocomplete.js"></script>
+<script type="text/javascript" src="../js/jquery.ba-hashchange.min.js"></script>
+<script type="text/javascript" src="../js/jquery.swiftype.search.js"></script>
+    <div id="wrapper">
+      <div id="header">
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../index.html">
+        <img src="../images/cloudalien.png" style="height:21px;" class="pull-left">
+      </a>
+    </div>
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <ul class="nav navbar-nav">
+        <li>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">ALIEN user guide <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="../getting_started/">Getting Started (tutorials)</a></li>
+            <li><a href="../admin_guide/">Administration guide</a></li>
+            <li><a href="../components_guide/">Components guide</a></li>
+            <li><a href="../app_guide/">Application guide</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="../developer_guide/">ALIEN developer guide</a>
+        </li>
+        <li>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Drivers <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="../cloudify2_driver/">Cloudify 2 driver</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="../release_notes/">Release notes</a>
+        </li>
+        <li>
+          <a id="git-icon" href="https://fastconnect.org/gitblit/summary/?r=calm/calm-documentation.git" target="_blank" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="View the GitBlit!" data-original-title="View the GitBlit!">
+          <i class="fa fa-code-fork fa-lg fa-rotate-90"></i>
+          </a>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <button type="button" onclick="location.href='https://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource-snapshot&g=calm&a=calm-ui&v=LATEST&p=war'" class="btn btn-warning navbar-btn download-button"><i class="fa fa-download"></i> latest build</button>
+        </li>
+        <li>
+          <button type="button" onclick="location.href='https://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource&g=calm&a=calm-ui&v=LATEST&p=war'" class="btn btn-success navbar-btn download-button"><i class="fa fa-download"></i> stable</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script>
+$('[target=_blank]').append(" <i class=\"icon-external-link\" style=\"font-size:10px\"></i>");
+
+$('#git-icon').tooltip();
+</script>
+
+      </div>
+
+      <div id="content-parent">
+        <div class="container" style="padding-top: 80px;">
+          <div class="row">
+            <div id="breadcrumbs"></div>
+            
+              <div class="col-md-3">
+                <div id="sidebar_menu" class="well tree" role="complementary">
+</div>
+
+<script type="text/javascript" src="../js/sidebar.js"></script>
+
+<script>
+$(document).ready(function () {
+  makeSideBar('ADMIN_GUIDE');
+  createBreadcrumbs('ADMIN_GUIDE', 'Admin Guide');
+});
+</script>
+
+              </div>
+              <div id="content" class="col-md-9" data-swiftype-index="true">
+            
+                <h1 style="margin-top: 0px;">User management</h1>
+                <p>This section details CALM’s <em>ROLES</em> and <em>permissions</em> by role.</p>
+
+<h1 id="general-calm-roles">General CALM roles</h1>
+
+<p>This role list describes basic roles you can grant to a user. From his/her roles CALM willl display and
+allow some operations. For example, the navigation bar on top is configured regarding the user roles :</p>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Role</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">ADMIN</td>
+      <td style="text-align: left">Manages users, plugins, configure clouds + all other roles.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">APPLICATIONS_MANAGER</td>
+      <td style="text-align: left">Create new application(s).</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ARCHITECT</td>
+      <td style="text-align: left">Create and edit topology template(s).</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">COMPONENTS_BROWSER</td>
+      <td style="text-align: left">Can list components and see details for any of them</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">COMPONENTS_MANAGER</td>
+      <td style="text-align: left"><em>COMPONENTS_BROWSER</em> rights + upload a CSAR archive to add components</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="bs-callout bs-callout-info">
+<p>A user with no roles can log-in and view the resources for which he has been granted. For example a user with no roles but being listed as user in an application, can look at this application and do any operations he is authorized to perform for the application.</p>
+</div>
+
+<h1 id="applications-roles">Application’s roles</h1>
+
+<p>This role list defines actions allowed by <em>role</em> on a given application :</p>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Role</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">APPLICATION_MANAGER</td>
+      <td style="text-align: left">Almost all operations on his proper application. By default an application manager will also have  <em>deploy</em> / <em>undeploy</em> right</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">APPLICATION_USER</td>
+      <td style="text-align: left">Basic access like read (see details), search and get application’s status</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">APPLICATION_DEVOPS</td>
+      <td style="text-align: left"><em>APPLICATION_USER</em> rights + topology handling</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">DEPLOYMENT_MANAGER</td>
+      <td style="text-align: left">Mainly  <em>deploy</em> / <em>undeploy</em> an application and basic access to a topology</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="applications-rights-grid-a">Application’s rights grid (<strong>A</strong>)</h2>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left">APPLICATION_MANAGER</th>
+      <th style="text-align: left">APPLICATION_USER</th>
+      <th style="text-align: left">APPLICATION_DEVOPS</th>
+      <th style="text-align: left">DEPLOYMENT_MANAGER</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>create</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>read</strong></td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left">X</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>search</strong></td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left">X</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>delete</strong></td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>updateImage</strong></td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>upsertTag</strong></td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>deleteTag</strong></td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>deploy</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">X</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>undeploy</strong></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">X</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>getDeploymentStatus</strong></td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left">X</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>addApplicationUserRole</strong></td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>removeApplicationUserRole</strong></td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="topologiess-rights-grid-t">Topologies’s rights grid (<strong>T</strong>)</h2>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left">APPLICATION_MANAGER</th>
+      <th style="text-align: left">APPLICATION_USER</th>
+      <th style="text-align: left">APPLICATION_DEVOPS</th>
+      <th style="text-align: left">DEPLOYMENT_MANAGER</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>create</strong></td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>get</strong></td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left">X</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>addNodeTemplate</strong></td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>updateNodeTemplateName</strong></td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>addRelationshipTemplate</strong></td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>deleteNodeTemplate</strong></td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>updatePropertyValue</strong></td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>isDeployable</strong></td>
+      <td style="text-align: left">X</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">X</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="operations-list">Operations list</h2>
+
+<p>A. Application’s operations</p>
+
+<ol>
+  <li><strong>create</strong> : Create a new application in the system</li>
+  <li><strong>read</strong> : Get an application based from its id</li>
+  <li><strong>search</strong> : Search for applications</li>
+  <li><strong>delete</strong> : Delete an application from its id</li>
+  <li><strong>updateImage</strong> : Application’s image update</li>
+  <li><strong>upsertTag</strong> : Update/Create a tag for the application</li>
+  <li><strong>deleteTag</strong> : Delete a tag for the application</li>
+  <li><strong>deploy</strong> : Deploys the application on the configured PaaS</li>
+  <li><strong>undeploy</strong> : Un-Deploys the application on the configured PaaS.</li>
+  <li><strong>getDeploymentStatus</strong> : Get the current status of the application on the PaaS</li>
+  <li><strong>addApplicationUserRole</strong> : Add a role to a user on a specific application</li>
+  <li><strong>removeApplicationUserRole</strong> : Remove a role to a user on a specific application</li>
+</ol>
+
+<p>T. Topologies’s operations</p>
+
+<ol>
+  <li><strong>create</strong> :  Create a new empty topology</li>
+  <li><strong>get</strong> : Retrieve a topology from its id</li>
+  <li><strong>addNodeTemplate</strong> : Add a new node template in a topology</li>
+  <li><strong>updateNodeTemplateName</strong> : Change the name of a node template in a topology</li>
+  <li><strong>addRelationshipTemplate</strong> :  Add a relationship to a node template</li>
+  <li><strong>deleteNodeTemplate</strong> : Delete a node tempalte from a topology</li>
+  <li><strong>updatePropertyValue</strong> : Update properties values</li>
+  <li><strong>isDeployable</strong> : Check if a topology is deployable or not</li>
+</ol>
+
+              </div>
+            </div>
+          </div><!-- /container -->
+        </div>
+      </div>
+      <div class="push"></div>
+    </div>
+    <div id="footer">
+  <div class="container">
+    <p style="text-align:center;margin: 20px 0" class="text-muted credit">&copy; FastConnect SAS, 2014. Powered by <a href="http://jekyllrb.com/">Jekyll</a>.</p>
+  </div>
+</div>
+
+    <script type="text/javascript" src="../js/post-layout.js"></script>
+  </body>
+</html>
