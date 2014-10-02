@@ -67,7 +67,7 @@
           <a href="../release_notes/">Release notes</a>
         </li>
         <li>
-          <a id="git-icon" href="https://fastconnect.org/gitblit/summary/?r=calm/calm-documentation.git" target="_blank" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="View the GitBlit!" data-original-title="View the GitBlit!">
+          <a id="git-icon" href="https://github.com/alien4cloud/alien4cloud.github.io" target="_blank" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Documentation's GitHub!" data-original-title="Documentation's GitHub!">
           <i class="fa fa-code-fork fa-lg fa-rotate-90"></i>
           </a>
         </li>
@@ -194,15 +194,15 @@ $(document).ready(function () {
 
 <div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="c1"># Configuration of Calm&#39;s CSAR repository, temporary folder and upload settings.</span>
 <span class="l-Scalar-Plain">directories</span><span class="p-Indicator">:</span>
-  <span class="c1"># calm main directory (other directories are relative path to this one)</span>
+  <span class="c1"># Alien 4 cloud main directory (other directories are relative path to this one)</span>
   <span class="l-Scalar-Plain">calm</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">${user.home}/.calm</span>
-  <span class="c1"># directory in which calm stores Cloud Service Archives</span>
+  <span class="c1"># directory in which alien 4 cloud stores Cloud Service Archives</span>
   <span class="l-Scalar-Plain">csar_repository</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">csar</span>
-  <span class="c1"># directory in which calm stores uploaded artifacts (war etc.).</span>
+  <span class="c1"># directory in which alien 4 cloud stores uploaded artifacts (war etc.).</span>
   <span class="l-Scalar-Plain">artifact_repository</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">artifacts</span>
-  <span class="c1"># temporary directory for calm</span>
+  <span class="c1"># temporary directory for alien 4 cloud</span>
   <span class="l-Scalar-Plain">upload_temp</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">upload</span>
-  <span class="c1"># directory in which calm unzip loaded plugins.</span>
+  <span class="c1"># directory in which alien 4 cloud unzips loaded plugins.</span>
   <span class="l-Scalar-Plain">plugins</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">plugins</span></code></pre></div>
 
 <h1 id="admin-user-initialization">Admin user initialization</h1>
@@ -212,7 +212,7 @@ $(document).ready(function () {
 <div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="c1"># Configuration of default admin ensurer, if true it creates a default admin user if no admin can be found in the system.</span>
 <span class="l-Scalar-Plain">users</span><span class="p-Indicator">:</span>
   <span class="l-Scalar-Plain">admin</span><span class="p-Indicator">:</span>
-    <span class="c1"># CALM checks that an admin user is defined at the application launch.</span>
+    <span class="c1"># Alien 4 cloud checks that an admin user is defined at the application launch.</span>
     <span class="l-Scalar-Plain">ensure</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
     <span class="l-Scalar-Plain">username</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">admin</span>
     <span class="l-Scalar-Plain">password</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">admin</span>

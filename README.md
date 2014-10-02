@@ -10,7 +10,7 @@ This section guides you on how to run and browse the documentation website local
 
  * Second step is to install the [Kramdown markdown converter](http://kramdown.gettalong.org/installation.html) that jekyll will leverage to generate the site.
 
- * Next clone [ALIEN's documentation](http://fcrack7.fastconnect.fr:8081/gitblit/git/calm/calm-documentation.git) git project (if not done already).
+ * Next clone ALIEN's documentation sources branch (if not done already).
 
  * You can now run the site using `jekyll serve` command to start the site. If you want to update the doc you can run `jekyll serve -w` that will automatically refresh the site when you update the markup.
 

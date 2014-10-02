@@ -67,7 +67,7 @@
           <a href="../release_notes/">Release notes</a>
         </li>
         <li>
-          <a id="git-icon" href="https://fastconnect.org/gitblit/summary/?r=calm/calm-documentation.git" target="_blank" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="View the GitBlit!" data-original-title="View the GitBlit!">
+          <a id="git-icon" href="https://github.com/alien4cloud/alien4cloud.github.io" target="_blank" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Documentation's GitHub!" data-original-title="Documentation's GitHub!">
           <i class="fa fa-code-fork fa-lg fa-rotate-90"></i>
           </a>
         </li>
@@ -114,7 +114,7 @@ $(document).ready(function () {
               <div id="content" class="col-md-9" data-swiftype-index="true">
             
                 <h1 style="margin-top: 0px;">Tests with jenkins plugin</h1>
-                <p>We’ve seen in  <a href="/developer_guide/snapshot-topology-test.htmml">this section</a> that we can use the ALIEN REST API to archive tests. Based on it, a <a href="https://fastconnect.org/gitblit/summary/?r=calm/alien-jenkins-plugin.git" title="A4C IT jenkins plugin">jenkins plugin</a> has been developed (and still being improved) to automate all the test routine.</p>
+                <p>We’ve seen in  <a href="/developer_guide/snapshot-topology-test.htmml">this section</a> that we can use the ALIEN REST API to archive tests. Based on it, a jenkins plugin has been developed (and still being improved) to automate all the test routine.</p>
 
 <p>The plugin is written in JAVA language, and can ca lunch a serie of  <a href="http://fr.wikipedia.org/wiki/Behavior_Driven_Development" title="Behaviour Driven Development">BDD (Behaviour Driven Development)</a> tests with the help of <a href="http://cukes.info/" title="Cucumber">Cucumber</a> framework.</p>
 
@@ -150,7 +150,7 @@ Currently, we only support a few steps:</p>
 <span class="nf">    </span><span class="k">Then </span><span class="nf">i have application &quot;</span><span class="s">deployed</span><span class="nf">&quot; within </span><span class="s">10000</span><span class="nf"> milliseconds</span></code></pre></div>
 
 <h3 id="package-and-install-the-plugin">Package and Install the plugin</h3>
-<p>Fist you need  to clone the <a href="https://fastconnect.org/gitblit/summary/?r=calm/alien-jenkins-plugin.git" title="A4C IT jenkins plugin">repository</a> and package the plugin to have a <em>.hpi</em> file. <br />
+<p>Fist you need  to clone the repository and package the plugin to have a <em>.hpi</em> file. <br />
 Then install the plugin in your running instance of Jenkins. (For more information, see the <em>Readme file</em> in the plugin repository).</p>
 
 <h2 id="how-to-test-your-topology">How to test your topology</h2>
@@ -177,7 +177,7 @@ Then install the plugin in your running instance of Jenkins. (For more informati
 <a href="../images/developer_guide/a4c-jenkins-freestyleJob-buildEnv-step.png"><img src="../images/developer_guide/a4c-jenkins-freestyleJob-buildEnv-step.png" alt="build environment setup" title="build environment setup" /></a><br /><br /></p>
   </li>
   <li>
-    <p>Add a build step. From the lists, Select “ALIEN 4 Cloud arhives tests”. 
+    <p>Add a build step. From the lists, Select “ALIEN 4 Cloud arhives tests”.
 <a href="../images/developer_guide/a4c-jenkins-freestyleJob-build-select-step.png"><img src="../images/developer_guide/a4c-jenkins-freestyleJob-build-select-step.png" alt="build step selction" title="build step selction" /></a><br />
 And configure the parameters. Note that some of them might be required for the job to run well.
 <a href="../images/developer_guide/a4c-jenkins-freestyleJob-build-config-step.png"><img src="../images/developer_guide/a4c-jenkins-freestyleJob-build-config-step.png" alt="build configuration" title="build configuration" /></a><br /></p>
