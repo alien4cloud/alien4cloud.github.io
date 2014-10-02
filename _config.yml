@@ -1,9 +1,0 @@
-name: CALM Documentation Portal
-markdown: kramdown
-redcarpet:
-  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data"]
-pygments: true
-#highligter: pygments
-encoding: UTF-8
-
-categories-list: ["ALIEN_ABOUT", "ADMIN_GUIDE", "COMPONENTS_GUIDE", "APP_GUIDE", "DEVELOPER_GUIDE", "RELEASE_NOTES", "GETTING_STARTED", "CLOUDIFY2_DRIVER"]
