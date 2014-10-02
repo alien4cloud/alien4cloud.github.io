@@ -7,7 +7,7 @@ parent: snapshot-topology-test.html
 weight: 100
 ---
 
-We've seen in  [this section](/developer_guide/snapshot-topology-test.htmml) that we can use the ALIEN REST API to archive tests. Based on it, a [jenkins plugin](https://fastconnect.org/gitblit/summary/?r=calm/alien-jenkins-plugin.git "A4C IT jenkins plugin") has been developed (and still being improved) to automate all the test routine.
+We've seen in  [this section](/developer_guide/snapshot-topology-test.htmml) that we can use the ALIEN REST API to archive tests. Based on it, a jenkins plugin has been developed (and still being improved) to automate all the test routine.
 
 The plugin is written in JAVA language, and can ca lunch a serie of  [BDD (Behaviour Driven Development)](http://fr.wikipedia.org/wiki/Behavior_Driven_Development "Behaviour Driven Development") tests with the help of [Cucumber](http://cukes.info/ "Cucumber") framework.
 
@@ -41,11 +41,11 @@ Feature: Install Tomcat application and test status
   Scenario: I install an application
     Given a cloud "cloud" created
     When i deploy the test application
-    Then i have application "deployed" within 10000 milliseconds 
+    Then i have application "deployed" within 10000 milliseconds
 {% endhighlight %}
 
 ### Package and Install the plugin
-Fist you need  to clone the [repository](https://fastconnect.org/gitblit/summary/?r=calm/alien-jenkins-plugin.git "A4C IT jenkins plugin") and package the plugin to have a *.hpi* file. <br>
+Fist you need  to clone the repository and package the plugin to have a *.hpi* file. <br>
 Then install the plugin in your running instance of Jenkins. (For more information, see the *Readme file* in the plugin repository).
 
 ## How to test your topology
@@ -67,7 +67,7 @@ For the next steps, you should make sure you have a running instance of Alien 4 
 3. Next, configure the build environment, by checking the option Setup Alien4Cloud test environment. This will set up some variables for the tests. Also optionnaly check the sub-option if you want the job to automatically undeploy the test application at the end.<br>
 [![build environment setup](../images/developer_guide/a4c-jenkins-freestyleJob-buildEnv-step.png  "build environment setup")](../images/developer_guide/a4c-jenkins-freestyleJob-buildEnv-step.png)<br><br>
 
-4. Add a build step. From the lists, Select "ALIEN 4 Cloud arhives tests". 
+4. Add a build step. From the lists, Select "ALIEN 4 Cloud arhives tests".
 [![build step selction](../images/developer_guide/a4c-jenkins-freestyleJob-build-select-step.png  "build step selction")](../images/developer_guide/a4c-jenkins-freestyleJob-build-select-step.png)<br>
 And configure the parameters. Note that some of them might be required for the job to run well.
 [![build configuration](../images/developer_guide/a4c-jenkins-freestyleJob-build-config-step.png  "build configuration")](../images/developer_guide/a4c-jenkins-freestyleJob-build-config-step.png)<br>

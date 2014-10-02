@@ -17,7 +17,7 @@ A Node Type is a reusable entity that defines the type of the entities that can 
 | abstract        | boolean             | no       | Flag to now if the type is instanciable (meaning it defines it's implementation) or if this is an abstract meta-type. Defaults to false. |
 | derived_from    | string              | no       | Name of the node type from which the defined node type derives (i.e. it's parent type). |
 | documentation   | string              | no       | Description of the capability. |
-| tags            | Map with string key and string value | no       | Optional additional meta-informations that can be added. In CALM the specific _calm-icon_ tag allows to specify the location of the icon image for the node. |
+| tags            | Map with string key and string value | no       | Optional additional meta-informations that can be added. In Alien 4 Cloud the specific _calm-icon_ tag allows to specify the location of the icon image for the node. |
 | properties      | list of [property definitions](tosca_concepts_types_custom_properties.html).    | no       | Optional list of properties that the node type defines. |
 | requirements    | list of [requirement definitions](tosca_concepts_types_custom_requirements.html). | no       | Optional list of requirements for the Node Type. |
 | capabilities    | list of [capability definitions](tosca_concepts_types_custom_capabilities.html).  | no       | Optional list of capabilities for the Node Type. |

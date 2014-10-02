@@ -16,7 +16,7 @@ A Relationship Type is a reusable entity that defines the type of one or more re
 |:----------------|:--------------------|:---------|:------------|
 | derived_from    | string              | no       | Parent Relationship Type name the Relationship Type derives from. |
 | documentation   | string              | no       | Description for the Relationship Type. |
-| tags            | Map with string key and string value | no       | Optional additional meta-informations that can be added. In CALM the specific _calm-icon_ tag allows to specify the location of the icon image for the node. |
+| tags            | Map with string key and string value | no       | Optional additional meta-informations that can be added. In Alien 4 Cloud the specific _calm-icon_ tag allows to specify the location of the icon image for the node. |
 | properties      | list of [property definitions](tosca_concepts_types_custom_properties.html).    | no       | List of property definitions for the Relationship Type. |
 | interfaces      | list of [interfaces definitions](tosca_concepts_types_custom_properties.html).  | no       | List of named interfaces for the Relationship Type. |
 | valid_sources   | List of strings.    | no       | A list of named Node Types or Capability Types. |

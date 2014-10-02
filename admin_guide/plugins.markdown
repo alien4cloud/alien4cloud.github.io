@@ -7,7 +7,7 @@ parent: none
 weight: 200
 ---
 
-This section details CALM's *Plugins* management. For more information about what is a plugin, please see [ALIEN plugins](/developer_guide/plugin.html)
+This section details Alien 4 Cloud's *Plugins* management. For more information about what is a plugin, please see [ALIEN plugins](/developer_guide/plugin.html)
 
 # How to navigate to Plugins Management view
 
@@ -47,7 +47,7 @@ Actions available to manage plugins can be found in the button group on the righ
 
 ### Delete
 
-Click on the button below to delete the plugin. 
+Click on the button below to delete the plugin.
 
 ![Plugin delete action](../images/admin_guide/plugins-delete.png)
 
@@ -55,7 +55,7 @@ Click on the button below to delete the plugin.
 
 ### Disable
 
-Click on the button below to disable a plugin. 
+Click on the button below to disable a plugin.
 
 ![Plugin disable action](../images/admin_guide/plugins-disable.png)
 

@@ -89,15 +89,15 @@ By default, ALIEN 4 Cloud stores data in the user home directory in a .calm fold
 {% highlight yaml %}
 # Configuration of Calm's CSAR repository, temporary folder and upload settings.
 directories:
-  # calm main directory (other directories are relative path to this one)
+  # Alien 4 cloud main directory (other directories are relative path to this one)
   calm: ${user.home}/.calm
-  # directory in which calm stores Cloud Service Archives
+  # directory in which alien 4 cloud stores Cloud Service Archives
   csar_repository: csar
-  # directory in which calm stores uploaded artifacts (war etc.).
+  # directory in which alien 4 cloud stores uploaded artifacts (war etc.).
   artifact_repository: artifacts
-  # temporary directory for calm
+  # temporary directory for alien 4 cloud
   upload_temp: upload
-  # directory in which calm unzip loaded plugins.
+  # directory in which alien 4 cloud unzips loaded plugins.
   plugins: plugins
 {% endhighlight %}
 
@@ -109,7 +109,7 @@ In case there is no admin user in it's repository, ALIEN 4 Cloud can automatical
 # Configuration of default admin ensurer, if true it creates a default admin user if no admin can be found in the system.
 users:
   admin:
-    # CALM checks that an admin user is defined at the application launch.
+    # Alien 4 cloud checks that an admin user is defined at the application launch.
     ensure: true
     username: admin
     password: admin

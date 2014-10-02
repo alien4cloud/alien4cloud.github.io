@@ -7,7 +7,7 @@ parent: none
 weight: 200
 ---
 
-CALM allow users to import their TOSCA Cloud Service Archive. CALM manages an archive repository as well as an index of TOSCA types.
+Alien 4 Cloud allow users to import their TOSCA Cloud Service Archive. Alien 4 Cloud manages an archive repository as well as an index of TOSCA types.
 
 ## Uploading your archives in **ALIEN**
 

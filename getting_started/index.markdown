@@ -49,7 +49,7 @@ Collaboration in a TOSCA model is easy as someone that want's to build an applic
 
 # Application lifecycle enablement
 
-Features related to lifecycle management are currently not implemented in ALIEN 4 cloud. The september release will contain full management of application lifecycle enablement.
+Features related to lifecycle management are currently not implemented in ALIEN 4 cloud. We will soon pusblish some roadmap informations.
 
 # Cloud governance
 

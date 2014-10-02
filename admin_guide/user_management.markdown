@@ -7,11 +7,11 @@ parent: none
 weight: 200
 ---
 
-This section details CALM's *ROLES* and *permissions* by role.
+This section details Alien 4 Cloud's *ROLES* and *permissions* by role.
 
-# General CALM roles
+# General Alien 4 Cloud roles
 
-This role list describes basic roles you can grant to a user. From his/her roles CALM willl display and
+This role list describes basic roles you can grant to a user. From his/her roles Alien 4 Cloud will display and
 allow some operations. For example, the navigation bar on top is configured regarding the user roles :
 
 {: .table .table-bordered}
