@@ -19,29 +19,30 @@ Feel free to improve the documentation!
 ## Adding a section ##
 Follow the following steps to add a documentation section. The example will be based on the *ALIEN user guide* section.
 ### Category name ###
-* First of all, pick a name for a category, and create at the project root a folder in which you'll put your mardown files. In this case, our category will be **GETTING_STARTED**, and the related folder will be named ***getting_started***. 
+* First of all, pick a name for a category, and create at the project root a folder in which you'll put your mardown files. In this case, our category will be **GETTING_STARTED**, and the related folder will be named ***getting_started***.
 * Go to the project root folder and edit the *_config.yml* file to add your category
-{% highlight yaml %}
+
+```yaml
 categories-list: ["OTHERS_CAT...", **"GETTING_STARTED"**, ... ]
-{% endhighlight %}
+```
 
 ### Nav Bar menu ###
 * Go to the *_includes* folder, edit the *navbar.html* file to your menu, and if needed your sub-menu
-{% highlight html %}
+```html
 <li>
   <a href="#" class="dropdown-toggle" data-toggle="dropdown">ALIEN user guide <b class="caret"></b></a>
   <ul class="dropdown-menu">
     <li><a href="{{root}}getting_started/">Getting Started (tutorials)</a></li>
   </ul>
 </li>
-{% endhighlight %}
+```
 
 * In the *_plugin* folder, edit the file *docutils.rb* to add a title to display in the cumbar for your section
 
-{% highlight ruby %}
+```ruby
 elsif sectionPath == "getting_started"
         "Getting Started"
-{% endhighlight %}
+```
 
 ### Files ###
 Now you can create your files in the previously created folder. We recommend to create an index.markdown file which will serve as the index page for the menu. Check the *getting_started* folder and files to see how to write your own. Note the followings parameters:
