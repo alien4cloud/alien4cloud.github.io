@@ -59,7 +59,7 @@ fastconnect.relationships.cloudify.WarHostedOnTomcat:
   [...]
 {% endhighlight %}
 
-This snippet shows how to access arguments inside a relationship implementation script:
+This code snippet shows how to access arguments inside a relationship implementation script:
 {% highlight groovy %}
 def context = ServiceContextFactory.getServiceContext()
 
