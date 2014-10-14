@@ -197,10 +197,16 @@ root["CLOUDIFY2_DRIVER"] = "../";
 sidebar["CLOUDIFY2_DRIVER"].push({relativeurl:"/cloudify2_driver/lifecycle_spec.html", url:"../cloudify2_driver/lifecycle_spec.html", parent: "tosca_archive.html", weight: 200, title: "Lifecycles specifics for Cloudify"});
 root["CLOUDIFY2_DRIVER"] = "../";
 
+sidebar["CLOUDIFY2_DRIVER"].push({relativeurl:"/cloudify2_driver/node_properties.html", url:"../cloudify2_driver/node_properties.html", parent: "none", weight: 30000, title: "Nodes properties"});
+root["CLOUDIFY2_DRIVER"] = "../";
+
 sidebar["CLOUDIFY2_DRIVER"].push({relativeurl:"/cloudify2_driver/other_interfaces.html", url:"../cloudify2_driver/other_interfaces.html", parent: "tosca_archive.html", weight: 300, title: "Other specifics interfaces"});
 root["CLOUDIFY2_DRIVER"] = "../";
 
 sidebar["CLOUDIFY2_DRIVER"].push({relativeurl:"/cloudify2_driver/prerequisites.html", url:"../cloudify2_driver/prerequisites.html", parent: "none", weight: 1000, title: "Prerequisites"});
+root["CLOUDIFY2_DRIVER"] = "../";
+
+sidebar["CLOUDIFY2_DRIVER"].push({relativeurl:"/cloudify2_driver/relationships.html", url:"../cloudify2_driver/relationships.html", parent: "tosca_archive.html", weight: 400, title: "Relationships"});
 root["CLOUDIFY2_DRIVER"] = "../";
 
 sidebar["CLOUDIFY2_DRIVER"].push({relativeurl:"/cloudify2_driver/tosca_archive.html", url:"../cloudify2_driver/tosca_archive.html", parent: "none", weight: 10000, title: "TOSCA archive"});

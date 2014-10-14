@@ -190,17 +190,17 @@
 	},
 
 	{
-		"url": "/release_notes/index.html", 
-		"section": "Release Notes", 
-		"value": "Release Notes",
-		"tokens": [ "Release","Notes"]
-	},
-
-	{
 		"url": "/alien_about/index.html", 
 		"section": "About ALIEN 4 Cloud", 
 		"value": "About ALIEN for Cloud",
 		"tokens": [ "About","ALIEN","for","Cloud"]
+	},
+
+	{
+		"url": "/release_notes/index.html", 
+		"section": "Release Notes", 
+		"value": "Release Notes",
+		"tokens": [ "Release","Notes"]
 	},
 
 	{
@@ -211,20 +211,6 @@
 	},
 
 	{
-		"url": "/developer_guide/index.html", 
-		"section": "Developer Guide", 
-		"value": "Developer Guide",
-		"tokens": [ "Developer","Guide"]
-	},
-
-	{
-		"url": "/admin_guide/index.html", 
-		"section": "Admin Guide", 
-		"value": "Admin Guide",
-		"tokens": [ "Admin","Guide"]
-	},
-
-	{
 		"url": "/calm_about/index.html", 
 		"section": "", 
 		"value": "About ALIEN for Cloud",
@@ -232,10 +218,24 @@
 	},
 
 	{
+		"url": "/developer_guide/index.html", 
+		"section": "Developer Guide", 
+		"value": "Developer Guide",
+		"tokens": [ "Developer","Guide"]
+	},
+
+	{
 		"url": "/cloudify2_driver/index.html", 
 		"section": "Cloudify 2 driver", 
 		"value": "Cloudify 2 driver",
 		"tokens": [ "Cloudify","2","driver"]
+	},
+
+	{
+		"url": "/admin_guide/index.html", 
+		"section": "Admin Guide", 
+		"value": "Admin Guide",
+		"tokens": [ "Admin","Guide"]
 	},
 
 	{
@@ -264,6 +264,13 @@
 		"section": "Cloudify 2 driver", 
 		"value": "Lifecycles specifics for Cloudify",
 		"tokens": [ "Lifecycles","specifics","for","Cloudify"]
+	},
+
+	{
+		"url": "/cloudify2_driver/node_properties.html", 
+		"section": "Cloudify 2 driver", 
+		"value": "Nodes properties",
+		"tokens": [ "Nodes","properties"]
 	},
 
 	{
@@ -306,6 +313,13 @@
 		"section": "Cloudify 2 driver", 
 		"value": "Prerequisites",
 		"tokens": [ "Prerequisites"]
+	},
+
+	{
+		"url": "/cloudify2_driver/relationships.html", 
+		"section": "Cloudify 2 driver", 
+		"value": "Relationships",
+		"tokens": [ "Relationships"]
 	},
 
 	{
