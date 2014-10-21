@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    <meta charset="utf-8">
+    <title>ALIEN plugins</title>
+    <meta property="st:info" content="section:'Developer Guide'"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/docs.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/syntax.css">
+</head>
+
+  <body>
+    <script type="text/javascript">
+      var tocheaders = {};
+      var tocheadersz = {};
+    </script>
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../js/jquery.fancybox.pack.js"></script>
+
+<script type="text/javascript" src="../js/jquery.ba-hashchange.min.js"></script>
+
+    <div id="wrapper">
+      <div id="header">
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../index.html">
+        <img src="../images/cloudalien.png" style="height:21px;" class="pull-left"> ALIEN 4 Cloud
+      </a>
+    </div>
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <ul class="nav navbar-nav">
+        <li>
+          <a href="../community/">Community</a>
+        </li>
+        <li>
+          <a href="../documentation/">Documentation</a>
+        </li>
+        <li>
+          <a href="../developer_guide/">Contribute</a>
+        </li>
+        <li>
+          <a href="../release_notes/">Release notes</a>
+        </li>
+        <li>
+          <a id="git-icon" href="https://github.com/alien4cloud/alien4cloud.github.io" target="_blank" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Documentation's GitHub!" data-original-title="Documentation's GitHub!">
+          <i class="fa fa-code-fork fa-lg fa-rotate-90"></i>
+          </a>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <button type="button" onclick="location.href='https://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource-snapshot&g=alien4cloud&a=alien4cloud-ui&v=LATEST&p=war&c=standalone'" class="btn btn-warning navbar-btn download-button"><i class="fa fa-download"></i> latest build</button>
+        </li>
+        <li>
+          <button type="button" onclick="location.href='https://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource&g=alien4cloud&a=alien4cloud-ui&v=LATEST&p=war&c=standalone'" class="btn btn-success navbar-btn download-button"><i class="fa fa-download"></i> stable</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script>
+$('[target=_blank]').append(" <i class=\"icon-external-link\" style=\"font-size:10px\"></i>");
+
+$('#git-icon').tooltip();
+</script>
+
+      </div>
+
+      <div id="content-parent" class="content">
+        <div class="container">
+          <div class="row">
+            <div id="breadcrumbs"></div>
+            
+              <div class="col-md-3">
+                <div id="sidebar_menu" class="well tree" role="complementary">
+</div>
+
+<script type="text/javascript" src="../js/sidebar.js"></script>
+
+<script>
+$(document).ready(function () {
+  makeSideBar('DEVELOPER_GUIDE', '');
+  createBreadcrumbs('DEVELOPER_GUIDE', 'Developer Guide');
+});
+</script>
+
+              </div>
+              <div id="content" class="col-md-9">
+            
+                <h1 style="margin-top: 0px;">ALIEN plugins</h1>
+                <p>An ALIEN plugin is a zip archive that contains the following structure:</p>
+
+<h2 id="directory-hierarchy">Directory hierarchy</h2>
+
+<p>An ALIEN plugin is an archive (zip) that must contains the following hierarchy:</p>
+
+<ul>
+  <li>The root folder contains java classes and resources (basically it will be added to the classpath of the plugin).</li>
+  <li>The lib folder (optional) must contain all java archives (jar) required for the plugin to run. They will be added to the plugin classloader. Of course you should not add ALIEN 4 cloud jars here as they will be loaded through the plugin parent classloader.</li>
+  <li>Finally the META-INF/plugin.yml contains the plugin description and entry point informations (the plugin descriptor).</li>
+</ul>
+
+<div class="indent0">
+<p><img src="../../images/plugin-content.png" alt="plugin-content.png" /></p>
+</div>
+<p><em>Example of a plugin content.</em></p>
+
+<h2 id="the-plugin-descriptor">The plugin descriptor</h2>
+
+<p>The plugin descriptor is mandatory and is the entry point of the plugin for ALIEN. As many other configuration elements it is a YAML file that allows to describe your plugin.</p>
+
+<h3 id="grammar">grammar</h3>
+
+<p>As detailed in the architecture section, a ALIEN plugin is actually a Spring sub-context; As so it requires a Spring context configuration entry point. For ALIEN plugins we have decided to allow only java based configuration and thus a plugin must specify a configuration class in it’s descriptor.
+The configuration class is the only mandatory class in a plugin so it can be loaded by ALIEN.</p>
+
+<h3 id="example">example</h3>
+
+<h2 id="plugin-context-entry-point">Plugin context entry point</h2>
+
+<p>As described higher, a plugin in ALIEN is a spring context that inherits from ALIEN context. This allows you to build plugin that have full access to the repository or any other component in ALIEN.</p>
+
+<p>When loading a plugin, ALIEN for cloud will create the spring context based on the spring java configuration class defined in the plugin descriptor. It will then lookup the spring context for plugin beans matching one of a supported plugin type (like a bean that implements IPaaSProvider for example).</p>
+
+<p>Below is an example of a plugin spring context java configuration that acts as an entry point for the cloudify plugin.</p>
+
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="nd">@Configuration</span>
+<span class="nd">@ComponentScan</span><span class="o">(</span><span class="s">&quot;alien.paas.cloudify&quot;</span><span class="o">)</span>
+<span class="nd">@ImportResource</span><span class="o">(</span><span class="s">&quot;classpath:properties-config.xml&quot;</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">PluginContextConfiguration</span> <span class="o">{</span>
+<span class="o">}</span></code></pre></div>
+
+<h2 id="plugin-configuration">Plugin configuration</h2>
+
+<p>ALIEN provides an easy way to configure a plugin by generating the UI based on a configuration object using introspection. It also manages persistency of the configuration.</p>
+
+<p>In order to enable plugin configuration, one of the bean in your spring context must implements the IPluginConfigurator<t> interface. This interface (see signature below) allow to provide a POJO that will act as the configuration object for the whole plugin.</t></p>
+
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="cm">/** Interface for plugin configuration objects. */</span>
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">IPluginConfigurator</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="o">{</span>
+    <span class="cm">/**</span>
+<span class="cm">     * Get an instance of T that is the default configuration object of the plugin.</span>
+<span class="cm">     *</span>
+<span class="cm">     * @return A configuration object of type T.</span>
+<span class="cm">     */</span>
+    <span class="n">T</span> <span class="nf">getDefaultConfiguration</span><span class="o">();</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * Set / apply a configuration for a plugin.</span>
+<span class="cm">     *</span>
+<span class="cm">     * @param configuration The configuration object as edited by the user.</span>
+<span class="cm">     */</span>
+    <span class="kt">void</span> <span class="nf">setConfiguration</span><span class="o">(</span><span class="n">T</span> <span class="n">configuration</span><span class="o">);</span>
+<span class="o">}</span></code></pre></div>
+
+<div class="bs-callout bs-callout-danger">
+<p>Current version of ALIEN 4 Cloud does not supports more than a single configuration. Thus you should make sure that a single IPluginConfigurator exists in your plugin spring context.</p>
+</div>
+
+              </div>
+            </div>
+          </div><!-- /container -->
+        </div>
+      </div>
+      <div class="push"></div>
+    </div>
+    <div id="footer">
+  <div class="container">
+    <p style="text-align:center;margin: 20px 0" class="text-muted credit">&copy; FastConnect SAS, 2014. Powered by <a href="http://jekyllrb.com/">Jekyll</a>.</p>
+  </div>
+</div>
+
+    <script type="text/javascript" src="../js/post-layout.js"></script>
+  </body>
+</html>

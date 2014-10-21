@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
-
-<head>
+  
+  <head>
     <meta charset="utf-8">
-    <title>ALIEN 4 Cloud</title>
-    <meta property="st:info" content="section:''"/>
+    <title>Fixed Issues</title>
+    <meta property="st:info" content="section:'Release Notes'"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="../css/bootstrap.min.css">
@@ -15,8 +14,11 @@
     <link rel="stylesheet" href="../css/syntax.css">
 </head>
 
-
   <body>
+    <script type="text/javascript">
+      var tocheaders = {};
+      var tocheadersz = {};
+    </script>
     <script type="text/javascript" src="../js/jquery.min.js"></script>
 <script type="text/javascript" src="../js/bootstrap.min.js"></script>
 <script type="text/javascript" src="../js/jquery.fancybox.pack.js"></script>
@@ -24,8 +26,8 @@
 <script type="text/javascript" src="../js/jquery.ba-hashchange.min.js"></script>
 
     <div id="wrapper">
-    	<div id="header">
-    	<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div id="header">
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -76,58 +78,69 @@ $('[target=_blank]').append(" <i class=\"icon-external-link\" style=\"font-size:
 $('#git-icon').tooltip();
 </script>
 
-    	</div>
-    	<div id="content-parent" class="content">
-    	<div class="container">
-  <div class="row">
-    <div class="col-md-2 community-icons">
-      <i class="fa fa-twitter fa-5x"></i>
-    </div>
-    <div class="col-md-10">
-      <h2>Twitter</h2>
-      <p>We are on on <a href="https://twitter.com/alien4cloud">twitter</a>, so feel free to follow us and get the latest news on Alien 4 Cloud.</p>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-2 community-icons">
-      <i class="fa fa-github fa-5x"></i>
-    </div>
-    <div class="col-md-10">
-      <h2>Source code</h2>
-      <p>ALIEN 4 Cloud is open source under the Apache 2 License. The code is hosted on <a href="https://github.com/alien4cloud/alien4cloud">GitHub</a>. You are welcome to clone, fork and submit pull-requets.</p>
-      <p>The documentation is also hosted on <a href="https://github.com/alien4cloud/alien4cloud.github.io">github</a> and you can also help us to improve it.</p>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-2 community-icons">
-      <i class="fa fa-slack fa-5x"></i>
-    </div>
-    <div class="col-md-10">
-      <h2>IRC channel</h2>
-      <p>If you need help now, or want to discuss matters in real time, use the <a href="irc://irc.freenode.net/alien4cloud">#alien4cloud</a> channel on irc.freenode.net (<a href="http://webchat.freenode.net/">webchat.freenode</a>).</p>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-2 community-icons">
-      <i class="fa fa-bug fa-5x"></i>
-    </div>
-    <div class="col-md-10">
-      <h2>Issues</h2>
-      <p>Issues and feature requests can be filled in directly on the project's <a href="https://github.com/alien4cloud/alien4cloud/issues">GitHub issue management</a>.</p>
-    </div>
-  </div>
+      </div>
+
+      <div id="content-parent" class="content">
+        <div class="container">
+          <div class="row">
+            <div id="breadcrumbs"></div>
+            
+              <div class="col-md-3">
+                <div id="sidebar_menu" class="well tree" role="complementary">
 </div>
 
-    	</div>
-    	<div class="push"></div>
-	</div>
+<script type="text/javascript" src="../js/sidebar.js"></script>
 
+<script>
+$(document).ready(function () {
+  makeSideBar('RELEASE_NOTES', '0.0.12_fixed');
+  createBreadcrumbs('RELEASE_NOTES', 'Release Notes');
+});
+</script>
+
+              </div>
+              <div id="content" class="col-md-9">
+            
+                <h1 style="margin-top: 0px;">Fixed Issues</h1>
+                
+<hr style="margin-top:5px; margin-bottom:5px;" />
+<div class="row"><ul class="nav nav-pills" id="summarypanel"></ul></div>
+<hr style="margin-top:5px; margin-bottom:5px;" />
+
+<h1 id="alien-4-cloud-fixed-issues">Alien 4 Cloud fixed issues</h1>
+
+<ul>
+  <li>ALIEN-283: Download button in the UI now points to the latest version.</li>
+  <li>ALIEN-330: When updating group informations and the update fails (e-mail not correct for example) the ui was keeping the updated value. The old version (that is the one on server) is now reverted in the UI for more consistency.</li>
+  <li>ALIEN-343: Fixed topology template name unicity</li>
+  <li>ALIEN-344: An issue was removing deployment informations after an un-deployment. This is now fixed and admin can view informations on past-deployments.</li>
+  <li>ALIEN-372: Fixed a bug creating issues with CSAR dependencies management when uploading an archive.</li>
+  <li>ALIEN-374: Fixed an issue with plugins re-loading on windows. This is related to Classloader management in JVM.</li>
+  <li>ALIEN-283: Download button in the UI now points to the latest version.</li>
+  <li>ALIEN-339: Application user can now see application details page without issues.</li>
+  <li>ALIEN-375: Remove a user and related links in secured resources</li>
+</ul>
+
+<h1 id="cloudify-2-paas-provider-fixed-issues">Cloudify 2 PaaS Provider fixed issues</h1>
+
+<ul>
+  <li>ALIEN-361: Integration of start detection script in the driver has been improved to be more respectful of cloudify mechanisms. This will allow to define timeout on operations later on.</li>
+</ul>
+
+
+              </div>
+            </div>
+          </div><!-- /container -->
+        </div>
+      </div>
+      <div class="push"></div>
+    </div>
     <div id="footer">
   <div class="container">
     <p style="text-align:center;margin: 20px 0" class="text-muted credit">&copy; FastConnect SAS, 2014. Powered by <a href="http://jekyllrb.com/">Jekyll</a>.</p>
   </div>
 </div>
 
-
+    <script type="text/javascript" src="../js/post-layout.js"></script>
   </body>
 </html>

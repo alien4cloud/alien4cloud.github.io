@@ -1,8 +1,0 @@
-name: ALIEN 4 Cloud Documentation Portal
-markdown: kramdown
-redcarpet:
-  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data"]
-highligter: pygments
-encoding: UTF-8
-
-categories-list: ["DOCUMENTATION", "ALIEN_ABOUT", "RELEASE_NOTES"]

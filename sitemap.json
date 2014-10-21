@@ -1,16 +1,536 @@
----
-layout: null
----
- 
-
 [
-{% for page in site.pages %}
+
 	{
-		"url": "{{ page.url }}", 
-		"section": "{% currentsectionblock %}{{ page.url }}{% endcurrentsectionblock %}", 
-		"value": "{{ page.title }}",
-		"tokens": [ {% tokenize %}{{page.title}}{% endtokenize %}]
-	}{% unless forloop.last %},{% endunless %}
-{% endfor %}
+		"url": "/release_notes/0.0.10-fixed-issues.html", 
+		"section": "Release Notes", 
+		"value": "Fixed Issues",
+		"tokens": [ "Fixed","Issues"]
+	},
+
+	{
+		"url": "/release_notes/0.0.10-whats-new.html", 
+		"section": "Release Notes", 
+		"value": "What's New",
+		"tokens": [ "What's","New"]
+	},
+
+	{
+		"url": "/release_notes/0.0.10.html", 
+		"section": "Release Notes", 
+		"value": "ALIEN for Cloud 0.0.10",
+		"tokens": [ "ALIEN","for","Cloud","0.0.10"]
+	},
+
+	{
+		"url": "/release_notes/0.0.11-fixed-issues.html", 
+		"section": "Release Notes", 
+		"value": "Fixed Issues",
+		"tokens": [ "Fixed","Issues"]
+	},
+
+	{
+		"url": "/release_notes/0.0.11-whats-new.html", 
+		"section": "Release Notes", 
+		"value": "What's New",
+		"tokens": [ "What's","New"]
+	},
+
+	{
+		"url": "/release_notes/0.0.11.html", 
+		"section": "Release Notes", 
+		"value": "ALIEN for Cloud 0.0.11",
+		"tokens": [ "ALIEN","for","Cloud","0.0.11"]
+	},
+
+	{
+		"url": "/release_notes/0.0.12-fixed-issues.html", 
+		"section": "Release Notes", 
+		"value": "Fixed Issues",
+		"tokens": [ "Fixed","Issues"]
+	},
+
+	{
+		"url": "/release_notes/0.0.12-whats-new.html", 
+		"section": "Release Notes", 
+		"value": "What's New",
+		"tokens": [ "What's","New"]
+	},
+
+	{
+		"url": "/release_notes/0.0.12.html", 
+		"section": "Release Notes", 
+		"value": "ALIEN for Cloud 0.0.12",
+		"tokens": [ "ALIEN","for","Cloud","0.0.12"]
+	},
+
+	{
+		"url": "/release_notes/0.0.13-fixed-issues.html", 
+		"section": "Release Notes", 
+		"value": "Fixed Issues",
+		"tokens": [ "Fixed","Issues"]
+	},
+
+	{
+		"url": "/release_notes/0.0.13-whats-new.html", 
+		"section": "Release Notes", 
+		"value": "What's New",
+		"tokens": [ "What's","New"]
+	},
+
+	{
+		"url": "/release_notes/0.0.13.html", 
+		"section": "Release Notes", 
+		"value": "ALIEN for Cloud 0.0.13",
+		"tokens": [ "ALIEN","for","Cloud","0.0.13"]
+	},
+
+	{
+		"url": "/release_notes/0.0.14-fixed-issues.html", 
+		"section": "Release Notes", 
+		"value": "Fixed Issues",
+		"tokens": [ "Fixed","Issues"]
+	},
+
+	{
+		"url": "/release_notes/0.0.14-whats-new.html", 
+		"section": "Release Notes", 
+		"value": "What's New",
+		"tokens": [ "What's","New"]
+	},
+
+	{
+		"url": "/release_notes/0.0.14.html", 
+		"section": "Release Notes", 
+		"value": "ALIEN for Cloud 0.0.14",
+		"tokens": [ "ALIEN","for","Cloud","0.0.14"]
+	},
+
+	{
+		"url": "/release_notes/0.0.9-fixed-issues.html", 
+		"section": "Release Notes", 
+		"value": "Fixed Issues",
+		"tokens": [ "Fixed","Issues"]
+	},
+
+	{
+		"url": "/release_notes/0.0.9-whats-new.html", 
+		"section": "Release Notes", 
+		"value": "What's New",
+		"tokens": [ "What's","New"]
+	},
+
+	{
+		"url": "/release_notes/0.0.9.html", 
+		"section": "Release Notes", 
+		"value": "ALIEN for Cloud 0.0.9",
+		"tokens": [ "ALIEN","for","Cloud","0.0.9"]
+	},
+
+	{
+		"url": "/documentation/getting_started/adding_components.html", 
+		"section": "Documentation", 
+		"value": "Components catalog",
+		"tokens": [ "Components","catalog"]
+	},
+
+	{
+		"url": "/documentation/advanced_configuration/advanced_configuration.html", 
+		"section": "Documentation", 
+		"value": "Advanced configuration",
+		"tokens": [ "Advanced","configuration"]
+	},
+
+	{
+		"url": "/documentation/cloudify2_driver/blockstorage.html", 
+		"section": "Documentation", 
+		"value": "Blockstorage",
+		"tokens": [ "Blockstorage"]
+	},
+
+	{
+		"url": "/documentation/tosca_ref/calm_components_repo.html", 
+		"section": "Documentation", 
+		"value": "ALIEN Components repository",
+		"tokens": [ "ALIEN","Components","repository"]
+	},
+
+	{
+		"url": "/documentation/tosca_ref/calm_components_repo_uploadarchive.html", 
+		"section": "Documentation", 
+		"value": "Components archive",
+		"tokens": [ "Components","archive"]
+	},
+
+	{
+		"url": "/documentation/cloudify2_driver/cloudify.html", 
+		"section": "Documentation", 
+		"value": "Customizing Cloudify",
+		"tokens": [ "Customizing","Cloudify"]
+	},
+
+	{
+		"url": "/documentation/tosca_ref/components_browse_search.html", 
+		"section": "Documentation", 
+		"value": "Components browsing and searching",
+		"tokens": [ "Components","browsing","and","searching"]
+	},
+
+	{
+		"url": "/documentation/getting_started/creating_cloud.html", 
+		"section": "Documentation", 
+		"value": "Cloud(s) configuration",
+		"tokens": [ "Cloud(s)","configuration"]
+	},
+
+	{
+		"url": "/documentation/getting_started/getting_started.html", 
+		"section": "Documentation", 
+		"value": "Getting started",
+		"tokens": [ "Getting","started"]
+	},
+
+	{
+		"url": "/index.html", 
+		"section": "", 
+		"value": "ALIEN 4 Cloud",
+		"tokens": [ "ALIEN","4","Cloud"]
+	},
+
+	{
+		"url": "/community/index.html", 
+		"section": "", 
+		"value": "ALIEN 4 Cloud",
+		"tokens": [ "ALIEN","4","Cloud"]
+	},
+
+	{
+		"url": "/release_notes/index.html", 
+		"section": "Release Notes", 
+		"value": "Release Notes",
+		"tokens": [ "Release","Notes"]
+	},
+
+	{
+		"url": "/documentation/index.html", 
+		"section": "Documentation", 
+		"value": "ALIEN 4 Cloud - Documentation",
+		"tokens": [ "ALIEN","4","Cloud","","Documentation"]
+	},
+
+	{
+		"url": "/documentation/cloudify2_driver/index.html", 
+		"section": "Documentation", 
+		"value": "Cloudify 2 PaaS Provider",
+		"tokens": [ "Cloudify","2","PaaS","Provider"]
+	},
+
+	{
+		"url": "/developer_guide/index.html", 
+		"section": "Developer Guide", 
+		"value": "Developer Guide",
+		"tokens": [ "Developer","Guide"]
+	},
+
+	{
+		"url": "/getting_started/index.html", 
+		"section": "Getting Started", 
+		"value": "Getting Started",
+		"tokens": [ "Getting","Started"]
+	},
+
+	{
+		"url": "/documentation/tosca_ref/index.html", 
+		"section": "Documentation", 
+		"value": "Components and TOSCA ref.",
+		"tokens": [ "Components","and","TOSCA","ref."]
+	},
+
+	{
+		"url": "/alien_about/index.html", 
+		"section": "About ALIEN 4 Cloud", 
+		"value": "About ALIEN for Cloud",
+		"tokens": [ "About","ALIEN","for","Cloud"]
+	},
+
+	{
+		"url": "/documentation/cloudify2_driver/install_config.html", 
+		"section": "Documentation", 
+		"value": "Installing and configuring",
+		"tokens": [ "Installing","and","configuring"]
+	},
+
+	{
+		"url": "/developer_guide/internal-architecture.html", 
+		"section": "Developer Guide", 
+		"value": "ALIEN internal architecture",
+		"tokens": [ "ALIEN","internal","architecture"]
+	},
+
+	{
+		"url": "/documentation/cloudify2_driver/lifecycle_spec.html", 
+		"section": "Documentation", 
+		"value": "Lifecycles specifics for Cloudify",
+		"tokens": [ "Lifecycles","specifics","for","Cloudify"]
+	},
+
+	{
+		"url": "/documentation/cloudify2_driver/node_properties.html", 
+		"section": "Documentation", 
+		"value": "Nodes properties",
+		"tokens": [ "Nodes","properties"]
+	},
+
+	{
+		"url": "/documentation/cloudify2_driver/other_interfaces.html", 
+		"section": "Documentation", 
+		"value": "Other specifics interfaces",
+		"tokens": [ "Other","specifics","interfaces"]
+	},
+
+	{
+		"url": "/developer_guide/plugin-paas-provider.html", 
+		"section": "Developer Guide", 
+		"value": "PaaS provider plugins",
+		"tokens": [ "PaaS","provider","plugins"]
+	},
+
+	{
+		"url": "/developer_guide/plugin.html", 
+		"section": "Developer Guide", 
+		"value": "ALIEN plugins",
+		"tokens": [ "ALIEN","plugins"]
+	},
+
+	{
+		"url": "/admin_guide/plugins.html", 
+		"section": "Admin Guide", 
+		"value": "Plugins Management",
+		"tokens": [ "Plugins","Management"]
+	},
+
+	{
+		"url": "/js/post-layout.js", 
+		"section": "", 
+		"value": "",
+		"tokens": [ ]
+	},
+
+	{
+		"url": "/documentation/cloudify2_driver/prerequisites.html", 
+		"section": "Documentation", 
+		"value": "Prerequisites",
+		"tokens": [ "Prerequisites"]
+	},
+
+	{
+		"url": "/documentation/cloudify2_driver/relationships.html", 
+		"section": "Documentation", 
+		"value": "Relationships",
+		"tokens": [ "Relationships"]
+	},
+
+	{
+		"url": "/documentation/advanced_configuration/roles.html", 
+		"section": "Documentation", 
+		"value": "Role in Alien 4 Cloud",
+		"tokens": [ "Role","in","Alien","4","Cloud"]
+	},
+
+	{
+		"url": "/js/sidebar.js", 
+		"section": "", 
+		"value": "",
+		"tokens": [ ]
+	},
+
+	{
+		"url": "/sitemap.json", 
+		"section": "", 
+		"value": "",
+		"tokens": [ ]
+	},
+
+	{
+		"url": "/documentation/getting_started/snapshot-topology-test-jenkins-plugin.html", 
+		"section": "Documentation", 
+		"value": "Tests with jenkins plugin",
+		"tokens": [ "Tests","with","jenkins","plugin"]
+	},
+
+	{
+		"url": "/documentation/getting_started/snapshot-topology-test.html", 
+		"section": "Documentation", 
+		"value": "Testing custom components",
+		"tokens": [ "Testing","custom","components"]
+	},
+
+	{
+		"url": "/documentation/cloudify2_driver/tosca_archive.html", 
+		"section": "Documentation", 
+		"value": "TOSCA archive",
+		"tokens": [ "TOSCA","archive"]
+	},
+
+	{
+		"url": "/documentation/cloudify2_driver/tosca_archive_definitions.html", 
+		"section": "Documentation", 
+		"value": "TOSCA definitions",
+		"tokens": [ "TOSCA","definitions"]
+	},
+
+	{
+		"url": "/documentation/tosca_ref/tosca_concepts.html", 
+		"section": "Documentation", 
+		"value": "TOSCA concepts",
+		"tokens": [ "TOSCA","concepts"]
+	},
+
+	{
+		"url": "/documentation/tosca_ref/tosca_concepts_csar.html", 
+		"section": "Documentation", 
+		"value": "Cloud Service Archive",
+		"tokens": [ "Cloud","Service","Archive"]
+	},
+
+	{
+		"url": "/documentation/tosca_ref/tosca_concepts_types.html", 
+		"section": "Documentation", 
+		"value": "Types in TOSCA",
+		"tokens": [ "Types","in","TOSCA"]
+	},
+
+	{
+		"url": "/documentation/tosca_ref/tosca_concepts_types_custom.html", 
+		"section": "Documentation", 
+		"value": "Writing custom types",
+		"tokens": [ "Writing","custom","types"]
+	},
+
+	{
+		"url": "/documentation/tosca_ref/tosca_concepts_types_custom_artifacts.html", 
+		"section": "Documentation", 
+		"value": "Artifact definition",
+		"tokens": [ "Artifact","definition"]
+	},
+
+	{
+		"url": "/documentation/tosca_ref/tosca_concepts_types_custom_capabilities.html", 
+		"section": "Documentation", 
+		"value": "Capabilities",
+		"tokens": [ "Capabilities"]
+	},
+
+	{
+		"url": "/documentation/tosca_ref/tosca_concepts_types_custom_capability_def.html", 
+		"section": "Documentation", 
+		"value": "Capability definition",
+		"tokens": [ "Capability","definition"]
+	},
+
+	{
+		"url": "/documentation/tosca_ref/tosca_concepts_types_custom_constraints.html", 
+		"section": "Documentation", 
+		"value": "Constraint definition",
+		"tokens": [ "Constraint","definition"]
+	},
+
+	{
+		"url": "/documentation/tosca_ref/tosca_concepts_types_custom_nodes.html", 
+		"section": "Documentation", 
+		"value": "Nodes",
+		"tokens": [ "Nodes"]
+	},
+
+	{
+		"url": "/documentation/tosca_ref/tosca_concepts_types_custom_properties.html", 
+		"section": "Documentation", 
+		"value": "Property definition",
+		"tokens": [ "Property","definition"]
+	},
+
+	{
+		"url": "/documentation/tosca_ref/tosca_concepts_types_custom_relationships.html", 
+		"section": "Documentation", 
+		"value": "Relationships",
+		"tokens": [ "Relationships"]
+	},
+
+	{
+		"url": "/documentation/tosca_ref/tosca_concepts_types_custom_requirements.html", 
+		"section": "Documentation", 
+		"value": "Requirement definition",
+		"tokens": [ "Requirement","definition"]
+	},
+
+	{
+		"url": "/documentation/tosca_ref/tosca_concepts_types_normative.html", 
+		"section": "Documentation", 
+		"value": "Normative Types",
+		"tokens": [ "Normative","Types"]
+	},
+
+	{
+		"url": "/documentation/tosca_ref/tosca_concepts_types_normative_capabilities.html", 
+		"section": "Documentation", 
+		"value": "Capabilities",
+		"tokens": [ "Capabilities"]
+	},
+
+	{
+		"url": "/documentation/tosca_ref/tosca_concepts_types_normative_nodes.html", 
+		"section": "Documentation", 
+		"value": "Nodes",
+		"tokens": [ "Nodes"]
+	},
+
+	{
+		"url": "/documentation/tosca_ref/tosca_concepts_types_normative_relationships.html", 
+		"section": "Documentation", 
+		"value": "Relationships",
+		"tokens": [ "Relationships"]
+	},
+
+	{
+		"url": "/documentation/tosca_ref/tosca_concepts_workflows.html", 
+		"section": "Documentation", 
+		"value": "Workflows",
+		"tokens": [ "Workflows"]
+	},
+
+	{
+		"url": "/documentation/tosca_ref/tosca_concepts_workflows_default.html", 
+		"section": "Documentation", 
+		"value": "Workflow generation",
+		"tokens": [ "Workflow","generation"]
+	},
+
+	{
+		"url": "/documentation/getting_started/tutorials.html", 
+		"section": "Documentation", 
+		"value": "Create your own components",
+		"tokens": [ "Create","your","own","components"]
+	},
+
+	{
+		"url": "/documentation/getting_started/tutorials_component_design.html", 
+		"section": "Documentation", 
+		"value": "Component design",
+		"tokens": [ "Component","design"]
+	},
+
+	{
+		"url": "/documentation/getting_started/tutorials_component_implementation.html", 
+		"section": "Documentation", 
+		"value": "Component implementation",
+		"tokens": [ "Component","implementation"]
+	},
+
+	{
+		"url": "/admin_guide/user_management.html", 
+		"section": "Admin Guide", 
+		"value": "User management",
+		"tokens": [ "User","management"]
+	}
+
 ]
 
