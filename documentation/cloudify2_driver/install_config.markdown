@@ -13,8 +13,8 @@ Find here how to install and configure the Cloudify 2 driver.
 ## Download ##
 First step of course is to download the plugin.
 
-* [last stable version](https://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource&g=calm&a=calm-cloudify2-driver&v=LATEST&p=zip) works with the latest stable alien version.
-* [last build version](https://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource-snapshot&g=calm&a=calm-cloudify2-driver&v=LATEST&p=zip).
+* [last stable versionhttps://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource&g=alien4cloud&a=alien4cloud-cloudify2-provider&v=LATEST&p=zip) works with the latest stable alien version.
+* [last build version](https://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource-snapshot&g=alien4cloud&a=alien4cloud-cloudify2-provider&v=LATEST&p=zip).
 
 ## Install ##
 The driver is packaged as an ALIEN plugin. Therefore, follow the [plugin management documentation](../admin_guide/plugins.html "how to  manage plugins") for how to install and enable the plugin in your running instance of ALIEN.
