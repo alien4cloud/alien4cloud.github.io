@@ -1,8 +1,9 @@
 ---
 layout: post
 title:  Developer Guide
-categories: DEVELOPER_GUIDE
 root: ../
+node_name: index
+categories: DEVELOPER_GUIDE
 ---
 
 ALIEN has been designed to be easily extended and integrated with other systems. It uses a plugin mechanism in order to provide extensions, and the REST API makes it easy to integrate.

@@ -3,7 +3,8 @@ layout: post
 title:  PaaS provider plugins
 root: ../
 categories: DEVELOPER_GUIDE
-parent: none
+parent: []
+node_name: plugin_paas_provider
 weight: 400
 ---
 

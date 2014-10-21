@@ -3,7 +3,8 @@ layout: post
 title:  ALIEN internal architecture
 root: ../
 categories: DEVELOPER_GUIDE
-parent: none
+parent: []
+node_name: internal_arch
 weight: 100
 ---
 

@@ -3,7 +3,8 @@ layout: post
 title:  ALIEN plugins
 root: ../
 categories: DEVELOPER_GUIDE
-parent: none
+parent: []
+node_name: plugins
 weight: 200
 ---
 
