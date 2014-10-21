@@ -3845,6 +3845,254 @@ var node, children;
     
   
 
+  sidebarTree["DEVELOPER_GUIDE"] = {
+    'name': "DEVELOPER_GUIDE",
+    'children': []
+  };
+
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      var parent = sidebarTree["DEVELOPER_GUIDE"];
+      
+        node = parent;
+      
+
+      node.name = "index";
+      node.title = "Developer Guide";
+      node.url = "developer_guide/index.html";
+      node.weight =  0;
+      node.root = "../";
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      var parent = sidebarTree["DEVELOPER_GUIDE"];
+      
+        
+
+        children = parent.children;
+        // try to find the node if exists already
+        node = null;
+        for (var i=0; i<children.length; i++) {
+          if(children[i].name === 'internal_arch') {
+            node = children[i];
+          }
+        }
+        if(node === null) {
+          node = {
+            'children': []
+          };
+          children.push(node);
+        }
+      
+
+      node.name = "internal_arch";
+      node.title = "ALIEN internal architecture";
+      node.url = "developer_guide/internal-architecture.html";
+      node.weight =  100;
+      node.root = "../";
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      var parent = sidebarTree["DEVELOPER_GUIDE"];
+      
+        
+
+        children = parent.children;
+        // try to find the node if exists already
+        node = null;
+        for (var i=0; i<children.length; i++) {
+          if(children[i].name === 'plugin_paas_provider') {
+            node = children[i];
+          }
+        }
+        if(node === null) {
+          node = {
+            'children': []
+          };
+          children.push(node);
+        }
+      
+
+      node.name = "plugin_paas_provider";
+      node.title = "PaaS provider plugins";
+      node.url = "developer_guide/plugin-paas-provider.html";
+      node.weight =  400;
+      node.root = "../";
+    
+  
+    
+      var parent = sidebarTree["DEVELOPER_GUIDE"];
+      
+        
+
+        children = parent.children;
+        // try to find the node if exists already
+        node = null;
+        for (var i=0; i<children.length; i++) {
+          if(children[i].name === 'plugins') {
+            node = children[i];
+          }
+        }
+        if(node === null) {
+          node = {
+            'children': []
+          };
+          children.push(node);
+        }
+      
+
+      node.name = "plugins";
+      node.title = "ALIEN plugins";
+      node.url = "developer_guide/plugin.html";
+      node.weight =  200;
+      node.root = "../";
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
 
 function doSort(tree) {
   console.log(tree);
@@ -3865,6 +4113,8 @@ function doSort(tree) {
   doSort(sidebarTree["ALIEN_ABOUT"].children);
 
   doSort(sidebarTree["RELEASE_NOTES"].children);
+
+  doSort(sidebarTree["DEVELOPER_GUIDE"].children);
 
 
 function makeSideBar(categoryName, currentNodeName) {
