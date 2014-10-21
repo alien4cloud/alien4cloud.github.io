@@ -3,7 +3,8 @@ layout: post
 title:  Fixed Issues
 root: ../
 categories: RELEASE_NOTES
-parent: 0.0.9.html
+parent: [release_note, 0.0.9]
+node_name: 0.0.9_fixed
 weight: 200
 ---
 

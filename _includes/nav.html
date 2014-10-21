@@ -5,7 +5,7 @@
 
 <script>
 $(document).ready(function () {
-  makeSideBar('{{ page.categories }}');
+  makeSideBar('{{ page.categories }}', '{{page.node_name}}');
   createBreadcrumbs('{{ page.categories }}', '{% currentsection %}');
 });
 </script>

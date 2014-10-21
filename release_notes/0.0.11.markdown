@@ -3,8 +3,9 @@ layout: post
 title:  ALIEN for Cloud 0.0.11
 root: ../
 categories: RELEASE_NOTES
-parent: none
-weight: 10000
+parent: [release_note]
+node_name: 0.0.11
+weight: 9999
 ---
 
 

@@ -2,50 +2,118 @@
 layout: null
 ---
 
-var sidebar = {};
-var root={};
+var sidebarTree = {};
+
+var node, children;
 
 {% for cat in site.categories-list %}
-sidebar["{{ cat }}"] = [];
-root["{{ cat }}"] = "";
-{% for page in site.pages %}{% if page.categories == cat %}{% if page.parent != null %}
-sidebar["{{ cat }}"].push({relativeurl:"{{ page.url }}", url:"{{page.root}}{{ page.url | remove_first:'/' }}", parent: "{{ page.parent }}", weight:{% if page.weight != null %} {{ page.weight }}{% else %} 0{% endif %}, title: "{{ page.title }}"});
-root["{{ cat }}"] = "{{page.root}}";
-{% endif %}{% endif %}{% endfor %}{% endfor %}
+  sidebarTree["{{ cat }}"] = {
+    'name': "{{cat}}",
+    'children': []
+  };
 
+  {% for page in site.pages %}
+    {% if page.categories == cat && page.parent != null %}
+      var parent = sidebarTree["{{cat}}"];
+      {% if page.node_name != "index" %}
+        {% for nextParentName in page.parent %}
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === '{{nextParentName}}') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': '{{nextParentName}}',
+              'title': '-',
+              'children': []
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        {% endfor %}
 
-function addChildren(categoryName, categoryPages, categoryRoot, parentUrl) {
-  var tree = [];
-  var children = categoryPages.filter(function(x) {
-    return (parentUrl == x.parent) ||
-    (parentUrl == (categoryRoot + categoryName.toLowerCase() + "/" + x.parent));
-  });
-  if (children == null || children.length == 0) return null;
-  for (var i=0; i<children.length; i++) {
-    tree.push({"title":children[i].title, "url":children[i].url, "weight":children[i].weight,
-     "children":addChildren(categoryName, categoryPages, categoryRoot, children[i].url)});
-  }
+        children = parent.children;
+        // try to find the node if exists already
+        node = null;
+        for (var i=0; i<children.length; i++) {
+          if(children[i].name === '{{page.node_name}}') {
+            node = children[i];
+          }
+        }
+        if(node === null) {
+          node = {
+            'children': []
+          };
+          children.push(node);
+        }
+      {% else %}
+        node = parent;
+      {% endif %}
+
+      node.name = "{{page.node_name}}";
+      node.title = "{{ page.title }}";
+      node.url = "{{ page.url | remove_first:'/' }}";
+      node.weight = {% if page.weight != null %} {{ page.weight }}{% else %} 0{% endif %};
+      node.root = "{{page.root}}";
+    {% endif %}
+  {% endfor %}
+{% endfor %}
+
+function doSort(tree) {
+  console.log(tree);
   tree.sort(function(a,b) {
+    console.log(a, b);
     return(a.weight - b.weight);
   });
-  return tree;
+  for(var i=0; i<tree.length; i++) {
+    if(tree[i].children && tree[i].children.length > 0) {
+      doSort(tree[i].children);
+    }
+  }
 }
 
-function makeSideBar(categoryName) {
-  var tree = addChildren(categoryName, sidebar[categoryName], root[categoryName], 'none');
-  return treeToDom(tree);
+{% for cat in site.categories-list %}
+  doSort(sidebarTree["{{ cat }}"].children);
+{% endfor %}
+
+function makeSideBar(categoryName, currentNodeName) {
+  var categoryTree = sidebarTree[categoryName];
+  var root = getRoot(categoryTree, currentNodeName);
+  if(root === null) {
+    root = categoryTree.root;
+  }
+  return treeToDom(categoryTree.children, root);
 }
 
-function treeToDom(tree) {
+function getRoot(tree, currentNodeName) {
+  for(var i=0; i<tree.children.length; i++) {
+    var child = tree.children[i];
+    if(child.name === currentNodeName) {
+      return child.root;
+    } else if(child.children) {
+
+      var root = getRoot(child, currentNodeName);
+      if(root !== null) {
+        return root;
+      }
+    }
+  }
+  return null;
+}
+
+function treeToDom(tree, root) {
   var rootUl = document.createElement("ul");
   $("#sidebar_menu").append(rootUl);
-  appendChildrenToDom(rootUl, tree);
+  appendChildrenToDom(rootUl, tree, root);
 }
 
-function appendChildrenToDom(currentDomElement, tree) {
+function appendChildrenToDom(currentDomElement, tree, root) {
   for (var i=0; i<tree.length; i++) {
     var li = document.createElement("li");
-    if (tree[i].children) {
+    if (tree[i].children && tree[i].children.length > 0) {
       li.className="parent_li";
       var icon = document.createElement("i");
       icon.className= "fa fa-minus-square-o";
@@ -63,19 +131,20 @@ function appendChildrenToDom(currentDomElement, tree) {
       li.appendChild(icon);
     }
     var a = document.createElement("a");
-    a.href=tree[i].url;
+    a.href=root+tree[i].url;
     a.appendChild(document.createTextNode(' '+tree[i].title));
     li.appendChild(a);
     currentDomElement.appendChild(li);
     if (tree[i].children) {
       var innerUl = document.createElement("ul");
       li.appendChild(innerUl);
-      appendChildrenToDom(innerUl, tree[i].children);
+      appendChildrenToDom(innerUl, tree[i].children, root);
     }
   }
 }
 
 function createBreadcrumbs(category, currentSection) {
+  return;
   var pageRoot = root[category];
   if (sidebar[category]) {
     var locations = [];

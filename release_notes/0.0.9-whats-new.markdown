@@ -3,7 +3,8 @@ layout: post
 title:  What's New
 root: ../
 categories: RELEASE_NOTES
-parent: 0.0.9.html
+parent: [release_note, 0.0.9]
+node_name: 0.0.9_new
 weight: 100
 ---
 

@@ -3,7 +3,8 @@ layout: post
 title:  Fixed Issues
 root: ../
 categories: RELEASE_NOTES
-parent: 0.0.12.html
+parent: [release_note, 0.0.12]
+node_name: 0.0.12_fixed
 weight: 200
 ---
 
@@ -11,18 +12,18 @@ weight: 200
 
 # Alien 4 Cloud fixed issues
 
-* CALM-283: Download button in the UI now points to the latest version.
-* CALM-330: When updating group informations and the update fails (e-mail not correct for example) the ui was keeping the updated value. The old version (that is the one on server) is now reverted in the UI for more consistency.
-* CALM-343: Fixed topology template name unicity
-* CALM-344: An issue was removing deployment informations after an un-deployment. This is now fixed and admin can view informations on past-deployments.
-* CALM-372: Fixed a bug creating issues with CSAR dependencies management when uploading an archive.
-* CALM-374: Fixed an issue with plugins re-loading on windows. This is related to Classloader management in JVM.
-* CALM-283: Download button in the UI now points to the latest version.
-* CALM-339: Application user can now see application details page without issues.
-* CALM-375: Remove a user and related links in secured resources
+* ALIEN-283: Download button in the UI now points to the latest version.
+* ALIEN-330: When updating group informations and the update fails (e-mail not correct for example) the ui was keeping the updated value. The old version (that is the one on server) is now reverted in the UI for more consistency.
+* ALIEN-343: Fixed topology template name unicity
+* ALIEN-344: An issue was removing deployment informations after an un-deployment. This is now fixed and admin can view informations on past-deployments.
+* ALIEN-372: Fixed a bug creating issues with CSAR dependencies management when uploading an archive.
+* ALIEN-374: Fixed an issue with plugins re-loading on windows. This is related to Classloader management in JVM.
+* ALIEN-283: Download button in the UI now points to the latest version.
+* ALIEN-339: Application user can now see application details page without issues.
+* ALIEN-375: Remove a user and related links in secured resources
 
 
 # Cloudify 2 PaaS Provider fixed issues
 
-* CALM-361: Integration of start detection script in the driver has been improved to be more respectful of cloudify mechanisms. This will allow to define timeout on operations later on.
+* ALIEN-361: Integration of start detection script in the driver has been improved to be more respectful of cloudify mechanisms. This will allow to define timeout on operations later on.
 

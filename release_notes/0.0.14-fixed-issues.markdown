@@ -1,0 +1,27 @@
+---
+layout: post
+title:  Fixed Issues
+root: ../
+categories: RELEASE_NOTES
+parent: [release_note, 0.0.14]
+node_name: 0.0.14_fixed
+weight: 200
+---
+
+{%summary%}{%endsummary%}
+
+# Alien 4 Cloud fixed issues
+
+* ALIEN-422: Fixed a rendering issue of the plans in firefox.
+* ALIEN-423: Fix issues in plan view generation with complex topologies including cross compute dependencies
+* ALIEN-433: Delete the right node in a topology view through "Confirm" button
+* ALIEN-435: Display long property name without overflow on their value
+* ALIEN-454: Fixed an issue with components that specified requirements on node type rather than capability type.
+* ALIEN-455: CSAR explorer editor is now readonly
+
+
+# Cloudify 2 PaaS Provider fixed issues
+
+* ALIEN-357: TODO
+* ALIEN-453: Fixed an issue with class loader management in groovy script implying too many thread pools and gigaspaces proxies creation.
+

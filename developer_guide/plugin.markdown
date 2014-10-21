@@ -18,7 +18,7 @@ An ALIEN plugin is an archive (zip) that must contains the following hierarchy:
 * Finally the META-INF/plugin.yml contains the plugin description and entry point informations (the plugin descriptor).
 
 {% indent %}
-![plugin-content.png](../images/plugin-content.png)
+![plugin-content.png](../../images/plugin-content.png)
 {% endindent %}
 _Example of a plugin content._
 

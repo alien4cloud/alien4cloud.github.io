@@ -30,6 +30,19 @@ code {
   padding: 0 0 60px;
 }
 
+.content {
+  padding-top: 80px;
+}
+
+.download-button {
+  margin-right: 10px;
+}
+
+.community-icons {
+  text-align: center;
+  padding-top: 20px;
+}
+
 /* YAML styles */
 .yaml .l-Scalar-Plain { color: #008000; }
 .yaml .p-Indicator { color: #666666; font-weight: bold; } /* Operator */
@@ -73,4 +86,10 @@ code {
 }
 .tree>ul>li::before, .tree>ul>li::after {
     border:0
+}
+
+i.fa-slack {
+    -ms-transform: rotate(19deg);
+    -webkit-transform: rotate(19deg);
+    transform: rotate(19deg);
 }

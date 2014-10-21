@@ -5,4 +5,4 @@ redcarpet:
 highligter: pygments
 encoding: UTF-8
 
-categories-list: ["ALIEN_ABOUT", "ADMIN_GUIDE", "COMPONENTS_GUIDE", "APP_GUIDE", "DEVELOPER_GUIDE", "RELEASE_NOTES", "GETTING_STARTED", "CLOUDIFY2_DRIVER"]
+categories-list: ["DOCUMENTATION", "ALIEN_ABOUT", "RELEASE_NOTES"]

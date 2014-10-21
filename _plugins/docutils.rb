@@ -4,6 +4,8 @@ module DocUtils
     if !sectionPath.nil?
       if sectionPath == "admin_guide"
         "Admin Guide"
+      elsif sectionPath == "documentation"
+        "Documentation"
       elsif sectionPath == "components_guide"
         "Components Guide"
       elsif sectionPath == "app_guide"

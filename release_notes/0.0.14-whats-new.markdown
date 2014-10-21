@@ -1,0 +1,33 @@
+---
+layout: post
+title:  What's New
+root: ../
+categories: RELEASE_NOTES
+parent: [release_note, 0.0.14]
+node_name: 0.0.14_new
+weight: 100
+---
+
+{%summary%}{%endsummary%}
+
+# Alien 4 Cloud new features
+
+* ALIEN-383: It is now possible to configure Images and Flavors as cloud resources to be associated with a given cloud.
+* ALIEN-384: Cloud resources can be limited to some users.
+* ALIEN-407: Cloud admin can now specifies the Images that can be used on the cloud.
+* ALIEN-408: Can configure flavors to be associated with a cloud.
+* ALIEN-445: Deployment now allows to find matches for cloud resources.
+
+# Alien 4 Cloud feature improvements
+
+* ALIEN-447: Documentation improvement with tour for application creation.
+* ALIEN-449: Documentation improvement with tour for topology edition
+* ALIEN-450: Documentation tour complete for Administration
+
+
+# Cloudify 2 PaaS Provider new features
+
+
+# Cloudify 2 PaaS Provider feature improvements
+
+
