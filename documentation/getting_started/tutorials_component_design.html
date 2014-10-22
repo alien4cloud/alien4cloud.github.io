@@ -119,7 +119,7 @@ This tutorial doesn’t focus on the grammar but on the methodology to define co
 <p>Definition of abstract types is also a good way also to provide separation of concern and to let an Architect define a middleware and let the implementation to the experts.</p>
 </div>
 
-<p>Second step when defining a node is to find from which parent type it should extends, it can be an existing type already uploaded in ALIEN or one of TOSCA <a href="../components_guide/tosca_concepts_types_normative_nodes.html">normative type</a>. There is multiple reasons to extends from the normative types (or another type that itself extends from a normative type):</p>
+<p>Second step when defining a node is to find from which parent type it should extends, it can be an existing type already uploaded in ALIEN or one of TOSCA <a href="../tosca_ref/tosca_concepts_types_normative_nodes.html">normative type</a>. There is multiple reasons to extends from the normative types (or another type that itself extends from a normative type):</p>
 
 <ul>
   <li>Workflow automatic generation is based on the fact that the node uses the default lifecycle interfaces that are defined on the normative types.</li>
@@ -150,7 +150,7 @@ This tutorial doesn’t focus on the grammar but on the methodology to define co
 
 <p>The first property we want to define is the version of tomcat that this tomcat definition supports. Indeed all the tomcat versions doesn’t have the same capabilities, for example tomcat 7.x supports web-sockets while this is not supported in tomcat 5.x for example.</p>
 
-<p>Version property as stated earlier is already defined in SoftwareComponent, it is possible however to override it to add an additional constraint. In this example we want to describe a tomcat node for all versions 7 so we will redefine the version property (with the same version type) and add <a href="../components_guide/tosca_concepts_types_custom_constraints.html">constraints</a>.</p>
+<p>Version property as stated earlier is already defined in SoftwareComponent, it is possible however to override it to add an additional constraint. In this example we want to describe a tomcat node for all versions 7 so we will redefine the version property (with the same version type) and add <a href="../tosca_ref/tosca_concepts_types_custom_constraints.html">constraints</a>.</p>
 
 <p>Second property that we want to add in this tutorial is the java options to use to startup the Tomcat server. This will allow users to specify the java memory requirements and garbage collection settings.</p>
 
