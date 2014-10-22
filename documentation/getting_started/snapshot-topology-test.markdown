@@ -15,7 +15,7 @@ and then run the deployment test on this archive.
 
 ### Prepare your archive
 
-* You need first to correctly create your archive (more details about archive [here](/components_guide/tosca_concepts_csar.html))
+* You need first to correctly create your archive (more details about archive [here](/documentation/tosca_ref/tosca_concepts_csar.html))
 * Just add a specific **test** folder to this archive to have a tree as follow
 
 {% highlight bash %}
@@ -28,7 +28,7 @@ and then run the deployment test on this archive.
 ├── test
 │   └── sample-application.yaml
 └── TOSCA-Metadata
-    └── CALM-META.yaml
+    └── ALIEN-META.yaml
 {% endhighlight %}
 
 * This **test** folder should contain at least one yaml file  topology description
@@ -39,7 +39,7 @@ and then run the deployment test on this archive.
 
 ### Archive naming
 
-Another important file in this test archive is the **CALM-META.yaml**. In fact in this file you have 2 informations used to run the topology deployment test :
+Another important file in this test archive is the **ALIEN-META.yaml**. In fact in this file you have 2 informations used to run the topology deployment test :
 
 * **name**
 * **version**
@@ -58,7 +58,7 @@ Only **SNAPSHOT** archive version can be used to run test. We suppose that in "d
 
 ## How to test your topology
 
-For this section we'll use our "hello world" topology archive test : [hello-world-topology.zip](../files/hello-world-topology.zip)
+For this section we'll use our "hello world" topology archive test : [hello-world-topology.zip](../../files/hello-world-topology.zip)
 
 This archive contains a yaml file corresponding to the following topology in test directory :
 

@@ -8,7 +8,7 @@ node_name: component_test_jenkins
 weight: 400
 ---
 
-We have seen [here](/developer_guide/tosca_ref/snapshot-topology-test.htmml) that we can use the ALIEN REST API to archive tests. Based on it, a jenkins plugin has been developed (and still being improved) to automate all the test routine.
+We have seen [here](/documentation/getting_started/snapshot-topology-test.html) that we can use the ALIEN REST API to archive tests. Based on it, a jenkins plugin has been developed (and still being improved) to automate all the test routine.
 
 The plugin is written in JAVA language, and can ca lunch a serie of  [BDD (Behaviour Driven Development)](http://fr.wikipedia.org/wiki/Behavior_Driven_Development "Behaviour Driven Development") tests with the help of [Cucumber](http://cukes.info/ "Cucumber") framework.
 
@@ -18,7 +18,7 @@ The tests are lunched via configurables Jenkins "FreeStyle" jobs. You can then c
 
 ### Prepare your archive
 
-Follow the same instructions as the ones explained [here](/documentation/tosca_ref/snapshot-topology-test.html). in addition, add in the "**test**" folder your cucumbr file (a .feature file). Your archive should look like:
+Follow the same instructions as the ones explained [here](/documentation/getting_started/snapshot-topology-test.html). in addition, add in the "**test**" folder your cucumbr file (a .feature file). Your archive should look like:
 {% highlight bash %}
 ├── Definitions
 │   ├── java-types.yaml
@@ -30,7 +30,7 @@ Follow the same instructions as the ones explained [here](/documentation/tosca_r
 │   ├── sample-application.yaml
 	└── tests.feature
 └── TOSCA-Metadata
-    └── CALM-META.yaml
+    └── ALIEN-META.yaml
 {% endhighlight %}
 
 ### The cucumber (.feature) file

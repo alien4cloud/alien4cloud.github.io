@@ -8,7 +8,7 @@ node_name: cloudify_2_tosca_definitions
 weight: 100
 ---
 
-The Cloudify driver for ALEIN 4 CLOUD allows you to deploy applications on several clouds, using Cloudify 2.7.  Thus you have to [design TOSCA archives containing nodes](../components_guide/tosca_concepts_types_custom_nodes.html "TOSCA custom node"), and upload them in your ALIEN instance. If your archive contains deployable nodes, you might have to add to their definitions some artifacts and interfaces.
+The Cloudify driver for ALEIN 4 CLOUD allows you to deploy applications on several clouds, using Cloudify 2.7.  Thus you have to [design TOSCA archives containing nodes](../tosca_ref/tosca_concepts_types_custom_nodes.html "TOSCA custom node"), and upload them in your ALIEN instance. If your archive contains deployable nodes, you might have to add to their definitions some artifacts and interfaces.
 
 ## Your scripts folder ##
 If you provides some relative files in your node, you might want then to be copied along with the node when deploying it. You can define an artifact in your TOSCA definition file, referencing the folder containing those files.<br>

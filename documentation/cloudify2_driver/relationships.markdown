@@ -16,7 +16,7 @@ We will have for illustrations purposes a topology consisting of one Compute nod
 
 ## `tosca.interfaces.relationship.Configure` interface ##
 When defining a relationship type, you can provide implementation scripts.  
-See [Relationships documentation](http://alien4cloud.github.io/components_guide/tosca_concepts_types_normative_relationships.html) for more details.  
+See [Relationships documentation](/documentation/tosca_ref/tosca_concepts_types_normative_relationships.html) for more details.  
 
 ###Arguments of your script ###
 The driver collects some data and pass them into the scripts when triggering execution. You can access these via the `args` variable, which is an array, usually of String data. The followings are the data sent:
