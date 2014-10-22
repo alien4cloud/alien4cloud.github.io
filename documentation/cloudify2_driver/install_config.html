@@ -108,12 +108,12 @@ $(document).ready(function () {
 <p>First step of course is to download the plugin.</p>
 
 <ul>
-  <li>[last stable versionhttps://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource&amp;g=alien4cloud&amp;a=alien4cloud-cloudify2-provider&amp;v=LATEST&amp;p=zip) works with the latest stable alien version.</li>
+  <li><a href="https://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource&amp;g=alien4cloud&amp;a=alien4cloud-cloudify2-provider&amp;v=LATEST&amp;p=zip">last stable version</a> works with the latest stable alien version.</li>
   <li><a href="https://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource-snapshot&amp;g=alien4cloud&amp;a=alien4cloud-cloudify2-provider&amp;v=LATEST&amp;p=zip">last build version</a>.</li>
 </ul>
 
 <h2 id="install">Install</h2>
-<p>The driver is packaged as an ALIEN plugin. Therefore, follow the <a href="../admin_guide/plugins.html" title="how to  manage plugins">plugin management documentation</a> for how to install and enable the plugin in your running instance of ALIEN.</p>
+<p>The driver is packaged as an ALIEN plugin, install it in <code>admin &gt; plugins</code> of your running instance of ALIEN.</p>
 
 <h2 id="configure">Configure</h2>
 <p>You need to create a cloud and configure it.</p>
@@ -130,11 +130,11 @@ $(document).ready(function () {
 <ol>
   <li>
     <p><strong><u>Conection Configuration</u></strong>: Remember the REST API URL you were told to note when bootstraping your cloud with Cloudify, here is the place you’ll need it. Fill the “Cloudify URL” with it, and eventually provide a login (username / password) for the access.<br /><br />
-<a href="../images/cloudify2_driver/config_cloud_clouifyConUrl.png" title="Connection configuration"><img src="../images/cloudify2_driver/config_cloud_clouifyConUrl.png" alt="Connection configuration" title="Connection configuration" /></a><br /></p>
+<a href="../../images/cloudify2_driver/config_cloud_clouifyConUrl.png" title="Connection configuration"><img src="../../images/cloudify2_driver/config_cloud_clouifyConUrl.png" alt="Connection configuration" title="Connection configuration" /></a><br /></p>
   </li>
   <li>
     <p><strong><u>Compute templates</u></strong>: Here you have to configure the computes templates avalaibles in your cloud. Make sure the <code>Identifier</code> match exactly one computes defined in your Cloudify clouds’s computes templates.<br /><br />
-<a href="../images/cloudify2_driver/config_cloud_clouifyComputes.png" title="Connection configuration"><img src="../images/cloudify2_driver/config_cloud_clouifyComputes.png" alt="Connection configuration" title="Connection configuration" /></a><br /></p>
+<a href="../../images/cloudify2_driver/config_cloud_clouifyComputes.png" title="Compute templates"><img src="../../images/cloudify2_driver/config_cloud_clouifyComputes.png" alt="Connection configuration" title="Compute templates" /></a><br /></p>
   </li>
 </ol>
 
