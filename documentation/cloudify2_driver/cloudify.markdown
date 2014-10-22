@@ -20,7 +20,7 @@ Now for this driver to work, you have to customize your instaled Cloudify.
 ### Custom events ###
 In order to handle Cloudify lifecycle events, and to emit our own events, we need the **cloudify-custom-events**. This provides a REST API and uses the Gigaspace management space to store the events.
 
-1. [Download the zip archive][cdfy-custom-events_zip-link] and unzip it into the `upload` folder of your prefered cloud driver (e.g. `gigaspaces-cloudify-2.7.0-ga/clouds/openstack-havana/upload`)
+1. [Download the zip archive](../../files/cloudify2_driver/cloudify-events-rest-distrib.zip) and unzip it into the `upload` folder of your prefered cloud driver (e.g. `gigaspaces-cloudify-2.7.0-ga/clouds/openstack-havana/upload`)
 2. In the same `upload` folder, edit the `bootstrap-management.sh`:
 
 * Locate the ligne
@@ -53,4 +53,4 @@ Now that you have a *JAVA_HOME* set and a customized running instance of Cloudif
 
 [cloudify-custom-events-repo]: # "not yet accessible"
 
-[cdfy-custom-events_zip-link]: ../files/cloudify2_driver/cloudify-events-rest-distrib.zip "Cloudify custom events archive"
+
