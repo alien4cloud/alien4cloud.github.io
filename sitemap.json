@@ -190,13 +190,6 @@
 	},
 
 	{
-		"url": "/community/index.html", 
-		"section": "", 
-		"value": "ALIEN 4 Cloud",
-		"tokens": [ "ALIEN","4","Cloud"]
-	},
-
-	{
 		"url": "/index.html", 
 		"section": "", 
 		"value": "ALIEN 4 Cloud",
@@ -204,38 +197,10 @@
 	},
 
 	{
-		"url": "/developer_guide/index.html", 
-		"section": "Developer Guide", 
-		"value": "Developer Guide",
-		"tokens": [ "Developer","Guide"]
-	},
-
-	{
-		"url": "/getting_started/index.html", 
-		"section": "Getting Started", 
-		"value": "Getting Started",
-		"tokens": [ "Getting","Started"]
-	},
-
-	{
-		"url": "/alien_about/index.html", 
-		"section": "About ALIEN 4 Cloud", 
-		"value": "About ALIEN for Cloud",
-		"tokens": [ "About","ALIEN","for","Cloud"]
-	},
-
-	{
-		"url": "/documentation/cloudify2_driver/index.html", 
-		"section": "Documentation", 
-		"value": "Cloudify 2 PaaS Provider",
-		"tokens": [ "Cloudify","2","PaaS","Provider"]
-	},
-
-	{
-		"url": "/documentation/tosca_ref/index.html", 
-		"section": "Documentation", 
-		"value": "Components and TOSCA ref.",
-		"tokens": [ "Components","and","TOSCA","ref."]
+		"url": "/community/index.html", 
+		"section": "", 
+		"value": "ALIEN 4 Cloud",
+		"tokens": [ "ALIEN","4","Cloud"]
 	},
 
 	{
@@ -246,10 +211,45 @@
 	},
 
 	{
+		"url": "/alien_about/index.html", 
+		"section": "About ALIEN 4 Cloud", 
+		"value": "About ALIEN for Cloud",
+		"tokens": [ "About","ALIEN","for","Cloud"]
+	},
+
+	{
+		"url": "/developer_guide/index.html", 
+		"section": "Developer Guide", 
+		"value": "Developer Guide",
+		"tokens": [ "Developer","Guide"]
+	},
+
+	{
+		"url": "/documentation/cloudify2_driver/index.html", 
+		"section": "Documentation", 
+		"value": "Cloudify 2 PaaS Provider",
+		"tokens": [ "Cloudify","2","PaaS","Provider"]
+	},
+
+	{
 		"url": "/release_notes/index.html", 
 		"section": "Release Notes", 
 		"value": "Release Notes",
 		"tokens": [ "Release","Notes"]
+	},
+
+	{
+		"url": "/documentation/tosca_ref/index.html", 
+		"section": "Documentation", 
+		"value": "Components and TOSCA ref.",
+		"tokens": [ "Components","and","TOSCA","ref."]
+	},
+
+	{
+		"url": "/getting_started/index.html", 
+		"section": "Getting Started", 
+		"value": "Getting Started",
+		"tokens": [ "Getting","Started"]
 	},
 
 	{
