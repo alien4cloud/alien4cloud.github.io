@@ -204,24 +204,17 @@
 	},
 
 	{
+		"url": "/release_notes/index.html", 
+		"section": "Release Notes", 
+		"value": "Release Notes",
+		"tokens": [ "Release","Notes"]
+	},
+
+	{
 		"url": "/documentation/index.html", 
 		"section": "Documentation", 
 		"value": "ALIEN 4 Cloud - Documentation",
 		"tokens": [ "ALIEN","4","Cloud","","Documentation"]
-	},
-
-	{
-		"url": "/alien_about/index.html", 
-		"section": "About ALIEN 4 Cloud", 
-		"value": "About ALIEN for Cloud",
-		"tokens": [ "About","ALIEN","for","Cloud"]
-	},
-
-	{
-		"url": "/developer_guide/index.html", 
-		"section": "Developer Guide", 
-		"value": "Developer Guide",
-		"tokens": [ "Developer","Guide"]
 	},
 
 	{
@@ -232,10 +225,17 @@
 	},
 
 	{
-		"url": "/release_notes/index.html", 
-		"section": "Release Notes", 
-		"value": "Release Notes",
-		"tokens": [ "Release","Notes"]
+		"url": "/developer_guide/index.html", 
+		"section": "Developer Guide", 
+		"value": "Developer Guide",
+		"tokens": [ "Developer","Guide"]
+	},
+
+	{
+		"url": "/getting_started/index.html", 
+		"section": "Getting Started", 
+		"value": "Getting Started",
+		"tokens": [ "Getting","Started"]
 	},
 
 	{
@@ -246,10 +246,10 @@
 	},
 
 	{
-		"url": "/getting_started/index.html", 
-		"section": "Getting Started", 
-		"value": "Getting Started",
-		"tokens": [ "Getting","Started"]
+		"url": "/alien_about/index.html", 
+		"section": "About ALIEN 4 Cloud", 
+		"value": "About ALIEN for Cloud",
+		"tokens": [ "About","ALIEN","for","Cloud"]
 	},
 
 	{

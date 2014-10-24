@@ -472,6 +472,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DOCUMENTATION"];
       
         node = parent;
@@ -482,10 +484,6 @@ var node, children;
       node.url = "documentation/index.html";
       node.weight =  0;
       node.root = "../";
-    
-  
-    
-  
     
   
     
@@ -514,6 +512,8 @@ var node, children;
       node.url = "documentation/cloudify2_driver/index.html";
       node.weight =  1000;
       node.root = "../../";
+    
+  
     
   
     
@@ -2564,6 +2564,16 @@ var node, children;
     
   
     
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
       var parent = sidebarTree["ALIEN_ABOUT"];
       
         
@@ -2589,16 +2599,6 @@ var node, children;
       node.url = "alien_about/index.html";
       node.weight =  0;
       node.root = "../";
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
     
   
     
@@ -3725,14 +3725,6 @@ var node, children;
     
   
     
-  
-    
-  
-    
-  
-    
-  
-    
       var parent = sidebarTree["RELEASE_NOTES"];
       
         
@@ -3758,6 +3750,14 @@ var node, children;
       node.url = "release_notes/index.html";
       node.weight =  0;
       node.root = "../";
+    
+  
+    
+  
+    
+  
+    
+  
     
   
     
@@ -3914,6 +3914,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DEVELOPER_GUIDE"];
       
         node = parent;
@@ -3924,8 +3926,6 @@ var node, children;
       node.url = "developer_guide/index.html";
       node.weight =  0;
       node.root = "../";
-    
-  
     
   
     
