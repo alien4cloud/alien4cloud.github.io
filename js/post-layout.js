@@ -43,6 +43,4 @@ $(function () {
   if ($("#gallery").length !== 0) {
     $("#gallery a").fancybox();
   }
-
-  $('tooltip-test').tooltip();
 })

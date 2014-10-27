@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>ALIEN 4 Cloud Documentation Portal</title>
+    <title>ALIEN 4 Cloud</title>
     <meta property="st:info" content="section:''"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -13,7 +13,6 @@
     <link rel="stylesheet" href="css/docs.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/syntax.css">
-    <link rel="stylesheet" href="css/swiftype-autocomplete.css"/>
 </head>
 
 
@@ -22,10 +21,8 @@
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/jquery.fancybox.pack.js"></script>
 
-<script type="text/javascript" src="js/search-swiftype.js"></script>
-<script type="text/javascript" src="js/jquery.swiftype.autocomplete.js"></script>
 <script type="text/javascript" src="js/jquery.ba-hashchange.min.js"></script>
-<script type="text/javascript" src="js/jquery.swiftype.search.js"></script>
+
     <div id="wrapper">
     	<div id="header">
     	<div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -38,28 +35,19 @@
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href="index.html">
-        <img src="images/cloudalien.png" style="height:21px;" class="pull-left">
+        <img src="images/cloudalien.png" style="height:21px;" class="pull-left"> ALIEN 4 Cloud
       </a>
     </div>
     <div class="collapse navbar-collapse navbar-ex1-collapse">
       <ul class="nav navbar-nav">
         <li>
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">ALIEN user guide <b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <li><a href="getting_started/">Getting Started (tutorials)</a></li>
-            <li><a href="admin_guide/">Administration guide</a></li>
-            <li><a href="components_guide/">Components guide</a></li>
-            <li><a href="app_guide/">Application guide</a></li>
-          </ul>
+          <a href="community/">Community</a>
         </li>
         <li>
-          <a href="developer_guide/">ALIEN developer guide</a>
+          <a href="documentation/">Documentation</a>
         </li>
         <li>
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Drivers <b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <li><a href="cloudify2_driver/">Cloudify 2 driver</a></li>
-          </ul>
+          <a href="developer_guide/">Contribute</a>
         </li>
         <li>
           <a href="release_notes/">Release notes</a>
@@ -72,10 +60,10 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-          <button type="button" onclick="location.href='https://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource-snapshot&g=calm&a=calm-ui&v=LATEST&p=war'" class="btn btn-warning navbar-btn download-button"><i class="fa fa-download"></i> latest build</button>
+          <button type="button" onclick="location.href='https://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource-snapshot&g=alien4cloud&a=alien4cloud-ui&v=LATEST&p=war&c=standalone'" class="btn btn-warning navbar-btn download-button"><i class="fa fa-download"></i> latest build</button>
         </li>
         <li>
-          <button type="button" onclick="location.href='https://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource&g=calm&a=calm-ui&v=LATEST&p=war'" class="btn btn-success navbar-btn download-button"><i class="fa fa-download"></i> stable</button>
+          <button type="button" onclick="location.href='https://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource&g=alien4cloud&a=alien4cloud-ui&v=LATEST&p=war&c=standalone'" class="btn btn-success navbar-btn download-button"><i class="fa fa-download"></i> stable</button>
         </li>
       </ul>
     </div>
@@ -89,27 +77,29 @@ $('#git-icon').tooltip();
 </script>
 
     	</div>
-    	<div id="content-parent">
-    	<div class="row" style="padding-top: 80px;min-height: 730px;">
-  <div id="content" class="container">
-    <div class="jumbotron">
-      <div class="row">
-        <div class="col-md-8 headerDivider">
-          <p>
-            Welcome to ALIEN for Cloud documentation portal!
-          </p>
-          <br/>
-          <div class="row">
-            <div class="col-md-1"></div>
-            <div class="col-md-8">
-              <a href="alien_about/" class="btn btn-default btn-block btn-lg">More about ALIEN for Cloud &raquo;</a>
-            </div>
-            <div class="col-md-3"></div>
+    	<div id="content-parent" class="content">
+    	<div class="row">
+  <div id="content" class="jumbotron">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-md-offset-1 col-md-8">
+            <p>
+              Application LIfecycle ENabler 4 Cloud:
+            </p>
+            <p>
+              Application Management on the cloud for enterprise.
+            </p>
           </div>
         </div>
-        <div class="col-md-4">
-          <img src="images/cloudalien.png" class="img-responsive">
+        <div class="row">
+          <div class="col-md-offset-1 col-md-8">
+            <a href="alien_about/" class="btn btn-default btn-block btn-lg">More about ALIEN for Cloud &raquo;</a>
+          </div>
         </div>
+      </div>
+      <div class="col-md-4">
+        <img src="images/cloudalien.png" class="img-responsive">
       </div>
     </div>
   </div>

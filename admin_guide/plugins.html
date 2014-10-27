@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="../css/docs.css">
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/syntax.css">
-    <link rel="stylesheet" href="../css/swiftype-autocomplete.css"/>
 </head>
 
   <body>
@@ -24,10 +23,8 @@
 <script type="text/javascript" src="../js/bootstrap.min.js"></script>
 <script type="text/javascript" src="../js/jquery.fancybox.pack.js"></script>
 
-<script type="text/javascript" src="../js/search-swiftype.js"></script>
-<script type="text/javascript" src="../js/jquery.swiftype.autocomplete.js"></script>
 <script type="text/javascript" src="../js/jquery.ba-hashchange.min.js"></script>
-<script type="text/javascript" src="../js/jquery.swiftype.search.js"></script>
+
     <div id="wrapper">
       <div id="header">
         <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -40,28 +37,19 @@
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href="../index.html">
-        <img src="../images/cloudalien.png" style="height:21px;" class="pull-left">
+        <img src="../images/cloudalien.png" style="height:21px;" class="pull-left"> ALIEN 4 Cloud
       </a>
     </div>
     <div class="collapse navbar-collapse navbar-ex1-collapse">
       <ul class="nav navbar-nav">
         <li>
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">ALIEN user guide <b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <li><a href="../getting_started/">Getting Started (tutorials)</a></li>
-            <li><a href="../admin_guide/">Administration guide</a></li>
-            <li><a href="../components_guide/">Components guide</a></li>
-            <li><a href="../app_guide/">Application guide</a></li>
-          </ul>
+          <a href="../community/">Community</a>
         </li>
         <li>
-          <a href="../developer_guide/">ALIEN developer guide</a>
+          <a href="../documentation/">Documentation</a>
         </li>
         <li>
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Drivers <b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <li><a href="../cloudify2_driver/">Cloudify 2 driver</a></li>
-          </ul>
+          <a href="../developer_guide/">Contribute</a>
         </li>
         <li>
           <a href="../release_notes/">Release notes</a>
@@ -74,10 +62,10 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-          <button type="button" onclick="location.href='https://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource-snapshot&g=calm&a=calm-ui&v=LATEST&p=war'" class="btn btn-warning navbar-btn download-button"><i class="fa fa-download"></i> latest build</button>
+          <button type="button" onclick="location.href='https://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource-snapshot&g=alien4cloud&a=alien4cloud-ui&v=LATEST&p=war&c=standalone'" class="btn btn-warning navbar-btn download-button"><i class="fa fa-download"></i> latest build</button>
         </li>
         <li>
-          <button type="button" onclick="location.href='https://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource&g=calm&a=calm-ui&v=LATEST&p=war'" class="btn btn-success navbar-btn download-button"><i class="fa fa-download"></i> stable</button>
+          <button type="button" onclick="location.href='https://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource&g=alien4cloud&a=alien4cloud-ui&v=LATEST&p=war&c=standalone'" class="btn btn-success navbar-btn download-button"><i class="fa fa-download"></i> stable</button>
         </li>
       </ul>
     </div>
@@ -92,8 +80,8 @@ $('#git-icon').tooltip();
 
       </div>
 
-      <div id="content-parent">
-        <div class="container" style="padding-top: 80px;">
+      <div id="content-parent" class="content">
+        <div class="container">
           <div class="row">
             <div id="breadcrumbs"></div>
             
@@ -105,13 +93,13 @@ $('#git-icon').tooltip();
 
 <script>
 $(document).ready(function () {
-  makeSideBar('ADMIN_GUIDE');
+  makeSideBar('ADMIN_GUIDE', '');
   createBreadcrumbs('ADMIN_GUIDE', 'Admin Guide');
 });
 </script>
 
               </div>
-              <div id="content" class="col-md-9" data-swiftype-index="true">
+              <div id="content" class="col-md-9">
             
                 <h1 style="margin-top: 0px;">Plugins Management</h1>
                 <p>This section details Alien 4 Cloud’s <em>Plugins</em> management. For more information about what is a plugin, please see <a href="/developer_guide/plugin.html">ALIEN plugins</a></p>
@@ -120,25 +108,25 @@ $(document).ready(function () {
 
 <p>Log in with admin credentials &gt; Click on your user’s name on the right top corner &gt; Click on drop-down link <strong>Plugins</strong>.</p>
 
-<p><img src="../images/admin_guide/plugins-management-link.png" alt="Navigate to plugins management view" /></p>
+<p><img src="../../images/admin_guide/plugins-management-link.png" alt="Navigate to plugins management view" /></p>
 
 <p>You’ll arrive to the plugins management view, for the moment the page is empty as you haven’t uploaded any plugin yet.</p>
 
-<p><img src="../images/admin_guide/plugins-empty.png" alt="Empty plugins management view" />
-<a href="../images/admin_guide/plugins-empty.png">Empty plugins management view</a></p>
+<p><img src="../../images/admin_guide/plugins-empty.png" alt="Empty plugins management view" />
+<a href="../../images/admin_guide/plugins-empty.png">Empty plugins management view</a></p>
 
 <h1 id="upload-a-new-plugin">Upload a new plugin</h1>
 
 <p>Drag plugin archive into the below dash dotted area.</p>
 
-<p><img src="../images/admin_guide/plugins-drop-zone.png" alt="Plugin upload drop zone" /></p>
+<p><img src="../../images/admin_guide/plugins-drop-zone.png" alt="Plugin upload drop zone" /></p>
 
 <p>For browser which does not support drag &amp; drop feature, you’ll see a button instead to choose the archive to upload.</p>
 
 <p>Once plugin uploaded, you’ll be able to see it in the browser.</p>
 
-<p><img src="../images/admin_guide/plugins-full.png" alt="Plugins list" />
-<a href="../images/admin_guide/plugins-full.png">Plugins list</a></p>
+<p><img src="../../images/admin_guide/plugins-full.png" alt="Plugins list" />
+<a href="../../images/admin_guide/plugins-full.png">Plugins list</a></p>
 
 <ul>
   <li><strong>Id</strong> : unique identifier of the plugin</li>
@@ -152,13 +140,13 @@ $(document).ready(function () {
 
 <p>Actions available to manage plugins can be found in the button group on the right hand side : delete, disable, configure. When you hover the mouse cursor on these buttons you’ll have tooltips explaining their functionality.</p>
 
-<p><img src="../images/admin_guide/plugins-action.png" alt="Plugin configuration actions" /></p>
+<p><img src="../../images/admin_guide/plugins-action.png" alt="Plugin configuration actions" /></p>
 
 <h3 id="delete">Delete</h3>
 
 <p>Click on the button below to delete the plugin.</p>
 
-<p><img src="../images/admin_guide/plugins-delete.png" alt="Plugin delete action" /></p>
+<p><img src="../../images/admin_guide/plugins-delete.png" alt="Plugin delete action" /></p>
 
 <div class="bs-callout bs-callout-info"><p>All related resources to the plugin will be cleaned up.</p>
 </div>
@@ -167,25 +155,25 @@ $(document).ready(function () {
 
 <p>Click on the button below to disable a plugin.</p>
 
-<p><img src="../images/admin_guide/plugins-disable.png" alt="Plugin disable action" /></p>
+<p><img src="../../images/admin_guide/plugins-disable.png" alt="Plugin disable action" /></p>
 
 <div class="bs-callout bs-callout-info"><p>The plugin resource will not be cleaned up, this action will just make the plugin unavailable for deployment, you can always re-enable the plugin later.</p>
 </div>
 
 <p>Click again on the button to enable the plugin.</p>
 
-<p><img src="../images/admin_guide/plugins-enable.png" alt="Plugin enable action" /></p>
+<p><img src="../../images/admin_guide/plugins-enable.png" alt="Plugin enable action" /></p>
 
 <h3 id="configure">Configure</h3>
 
 <p>Click on the button below to open configuration modal dialog.</p>
 
-<p><img src="../images/admin_guide/plugins-configure.png" alt="Plugin configure action" /></p>
+<p><img src="../../images/admin_guide/plugins-configure.png" alt="Plugin configure action" /></p>
 
 <p>You can begin to edit the plugin configuration</p>
 
-<p><img src="../images/admin_guide/plugins-configuration.png" alt="Plugin configure action" />
-<a href="../images/admin_guide/plugins-configuration.png">Plugin configure action</a></p>
+<p><img src="../../images/admin_guide/plugins-configuration.png" alt="Plugin configure action" />
+<a href="../../images/admin_guide/plugins-configuration.png">Plugin configure action</a></p>
 
 <div class="bs-callout bs-callout-info"><p>This view is specific to each plugin, the above image is just a mock. For more information on how to configure your plugin, please refer to the specific section concerning your plugin.</p>
 </div>

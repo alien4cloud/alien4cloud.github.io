@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    <meta charset="utf-8">
+    <title>Testing custom components</title>
+    <meta property="st:info" content="section:'Documentation'"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../css/docs.css">
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/syntax.css">
+</head>
+
+  <body>
+    <script type="text/javascript">
+      var tocheaders = {};
+      var tocheadersz = {};
+    </script>
+    <script type="text/javascript" src="../../js/jquery.min.js"></script>
+<script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../js/jquery.fancybox.pack.js"></script>
+
+<script type="text/javascript" src="../../js/jquery.ba-hashchange.min.js"></script>
+
+    <div id="wrapper">
+      <div id="header">
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../../index.html">
+        <img src="../../images/cloudalien.png" style="height:21px;" class="pull-left"> ALIEN 4 Cloud
+      </a>
+    </div>
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <ul class="nav navbar-nav">
+        <li>
+          <a href="../../community/">Community</a>
+        </li>
+        <li>
+          <a href="../../documentation/">Documentation</a>
+        </li>
+        <li>
+          <a href="../../developer_guide/">Contribute</a>
+        </li>
+        <li>
+          <a href="../../release_notes/">Release notes</a>
+        </li>
+        <li>
+          <a id="git-icon" href="https://github.com/alien4cloud/alien4cloud.github.io" target="_blank" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Documentation's GitHub!" data-original-title="Documentation's GitHub!">
+          <i class="fa fa-code-fork fa-lg fa-rotate-90"></i>
+          </a>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <button type="button" onclick="location.href='https://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource-snapshot&g=alien4cloud&a=alien4cloud-ui&v=LATEST&p=war&c=standalone'" class="btn btn-warning navbar-btn download-button"><i class="fa fa-download"></i> latest build</button>
+        </li>
+        <li>
+          <button type="button" onclick="location.href='https://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource&g=alien4cloud&a=alien4cloud-ui&v=LATEST&p=war&c=standalone'" class="btn btn-success navbar-btn download-button"><i class="fa fa-download"></i> stable</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script>
+$('[target=_blank]').append(" <i class=\"icon-external-link\" style=\"font-size:10px\"></i>");
+
+$('#git-icon').tooltip();
+</script>
+
+      </div>
+
+      <div id="content-parent" class="content">
+        <div class="container">
+          <div class="row">
+            <div id="breadcrumbs"></div>
+            
+              <div class="col-md-3">
+                <div id="sidebar_menu" class="well tree" role="complementary">
+</div>
+
+<script type="text/javascript" src="../../js/sidebar.js"></script>
+
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION', 'component_test');
+  createBreadcrumbs('DOCUMENTATION', 'Documentation');
+});
+</script>
+
+              </div>
+              <div id="content" class="col-md-9">
+            
+                <h1 style="margin-top: 0px;">Testing custom components</h1>
+                <p>ALIEN rest api provides methods to test your topology during development. In fact you can package a CSAR file with a topology test
+and then run the deployment test on this archive.</p>
+
+<h2 id="prerequisites">Prerequisites</h2>
+
+<h3 id="prepare-your-archive">Prepare your archive</h3>
+
+<ul>
+  <li>You need first to correctly create your archive (more details about archive <a href="/documentation/tosca_ref/tosca_concepts_csar.html">here</a>)</li>
+  <li>Just add a specific <strong>test</strong> folder to this archive to have a tree as follow</li>
+</ul>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">├── Definitions
+│   ├── java-types.yaml
+│   └── tosca-base-types.yaml
+├── images
+│   ├── compute.png
+│   └── ...
+├── <span class="nb">test</span>
+│   └── sample-application.yaml
+└── TOSCA-Metadata
+    └── ALIEN-META.yaml</code></pre></div>
+
+<ul>
+  <li>This <strong>test</strong> folder should contain at least one yaml file  topology description
+    <ul>
+      <li>Only the first found yaml file is tested</li>
+    </ul>
+  </li>
+  <li>In your topology written in yaml format, you can use components already integrated in ALIEN or put yours in the snapshot archive
+    <ul>
+      <li>Like for other CSAR file, yaml files under <strong>Definitions</strong> folder will be loaded into ALIEN at archive upload</li>
+      <li>For example, in this demo archive we bring our own <em>java-types</em> and <em>tosca-base-types</em> components (self-sufficient archive)</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="archive-naming">Archive naming</h3>
+
+<p>Another important file in this test archive is the <strong>ALIEN-META.yaml</strong>. In fact in this file you have 2 informations used to run the topology deployment test :</p>
+
+<ul>
+  <li><strong>name</strong></li>
+  <li><strong>version</strong></li>
+</ul>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="s">&quot;topology-test&quot;</span>
+<span class="l-Scalar-Plain">version</span><span class="p-Indicator">:</span> <span class="s">&quot;2.0-SNAPSHOT&quot;</span>
+<span class="l-Scalar-Plain">license</span><span class="p-Indicator">:</span> <span class="s">&quot;Apache</span><span class="nv"> </span><span class="s">v2.0&quot;</span>
+<span class="l-Scalar-Plain">created_by</span><span class="p-Indicator">:</span> <span class="s">&quot;FastConnect&quot;</span>
+<span class="nn">...</span></code></pre></div>
+
+<div class="bs-callout bs-callout-info">
+<p>Only <strong>SNAPSHOT</strong> archive version can be used to run test. We suppose that in “development mode” we only handle snapshot version which we can override at anytime and then run other test.</p>
+</div>
+
+<h2 id="how-to-test-your-topology">How to test your topology</h2>
+
+<p>For this section we’ll use our “hello world” topology archive test : <a href="../../files/hello-world-topology.zip">hello-world-topology.zip</a></p>
+
+<p>This archive contains a yaml file corresponding to the following topology in test directory :</p>
+
+<p><a href="../../images/developer_guide/hello-world-topology.png"><img src="../../images/developer_guide/hello-world-topology.png" alt="Hello world topology" /></a></p>
+
+<ol>
+  <li>
+    <p>You need first an actived cloud</p>
+
+    <ul>
+      <li>A “cloud” is based on a plugin (driver), so first upload your plugin jar with the <strong>ADMIN</strong> role</li>
+    </ul>
+
+    <p><a href="../../images/developer_guide/plugin-management-admin.png"><img src="../../images/developer_guide/plugin-management-admin.png" alt="Manage plugins" /></a></p>
+
+    <ul>
+      <li>Then you will have the following plugin administration page where you can create a <strong>cloud</strong> and activate it</li>
+    </ul>
+
+    <p><a href="../../images/developer_guide/cloud-management-admin.png"><img src="../../images/developer_guide/cloud-management-admin.png" alt="Manage clouds" /></a></p>
+
+    <ul>
+      <li>From the cloud details page you want to target, you have to get the <strong>cloud id</strong></li>
+    </ul>
+  </li>
+  <li>
+    <p>Upload your snapshot archive</p>
+
+    <ul>
+      <li>Just upload your snapshot archive in the <strong>components</strong> view</li>
+    </ul>
+
+    <p><a href="../../images/developer_guide/components-snapshot-archive.png"><img src="../../images/developer_guide/components-snapshot-archive.png" alt="Upload snapshot archive" /></a></p>
+
+    <ul>
+      <li>After the upload you’ll see all components contained in the snapshot archive listed in the components view</li>
+    </ul>
+  </li>
+  <li>
+    <p>Run rest command to test</p>
+
+    <ul>
+      <li>Get any REST client or just go on the api document <em>http://localhost:8080/</em><strong>api-docs</strong> from where you can send request</li>
+      <li>Look for <strong>cloud-service-archive-controller</strong> and the operation :
+   <a href="../../images/developer_guide/apidosc-deployment-command.png"><img src="../../images/developer_guide/apidosc-deployment-command.png" alt="Run REST command" /></a></li>
+      <li>You need 3 parameters to run the test : <strong>csarId</strong>, <strong>csarVersion</strong>, <strong>cloudId</strong> (id recovered from cloud details page)</li>
+      <li>Final request example : <em>http://localhost:8080/rest/csars/</em><strong>topology-test</strong><em>/version/</em><strong>2.0-SNAPSHOT</strong><em>/cloudid/</em><strong>7ede236c-0456-478b-b68c-502474c45987</strong></li>
+    </ul>
+  </li>
+  <li>
+    <p>Test the result</p>
+
+    <ul>
+      <li>From the step 3 you’ll obtain a deployment id <strong>only</strong> if your deployment test is successful (UUID form, e.g : 391e5d07-e2b0-44ea-bf87-81cdc080a9e1)</li>
+      <li>Errors from the deployment are not really “meaningful” in the version (to improve)</li>
+      <li>You have 2 other services you must use during your topology test process in <strong>deployment-controller</strong>
+ <a href="../../images/developer_guide/deployment-ctrl-operations.png"><img src="../../images/developer_guide/deployment-ctrl-operations.png" alt="Deployment test" /></a></li>
+      <li>You can recover the <strong>status</strong> from your deployment id, the same way you’ve launched the test in step 3
+        <ul>
+          <li>Example : <em>http://localhost:8080/rest/deployments/</em><strong>391e5d07-e2b0-44ea-bf87-81cdc080a9e1</strong><em>/status</em></li>
+          <li>Possible results : ‘DEPLOYED’ or ‘UNDEPLOYED’ or ‘DEPLOYMENT_IN_PROGRESS’ or ‘UNDEPLOYMENT_IN_PROGRESS’ or ‘WARNING’ or ‘FAILURE’ or ‘UNKNOWN’</li>
+          <li>The status should be at state <strong>DEPLOYED</strong> for a correct deployment</li>
+          <li>To finish we advice you to clean your deployment “stack” <strong>manually</strong> with the <strong>undeploy</strong> request</li>
+          <li>Example : <em>http://localhost:8080/rest/deployments/</em><strong>391e5d07-e2b0-44ea-bf87-81cdc080a9e1</strong><em>/undeploy</em></li>
+          <li>Undeployment success : no result</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ol>
+
+<div class="bs-callout bs-callout-info">
+<p>You might have different states of your deployment regarding the moment you launch the <strong>status</strong> request.</p>
+</div>
+
+              </div>
+            </div>
+          </div><!-- /container -->
+        </div>
+      </div>
+      <div class="push"></div>
+    </div>
+    <div id="footer">
+  <div class="container">
+    <p style="text-align:center;margin: 20px 0" class="text-muted credit">&copy; FastConnect SAS, 2014. Powered by <a href="http://jekyllrb.com/">Jekyll</a>.</p>
+  </div>
+</div>
+
+    <script type="text/javascript" src="../../js/post-layout.js"></script>
+  </body>
+</html>
