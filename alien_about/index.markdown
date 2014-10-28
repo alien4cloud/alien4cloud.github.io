@@ -11,4 +11,4 @@ ALIEN leverages [OASIS TOSCA](https://www.oasis-open.org/committees/tc_home.php?
 
 For the same reasons we decided to provide ALIEN with a full-backend-featured community edition.
 
-ALIEN leverage some other existing opensources projects that help orchestrating cloud applications such as GigaSpaces Cloudify.
+ALIEN leverage some other existing opensources projects that help orchestrating cloud applications such as GigaSpaces Cloudify 2 and soon 3.
