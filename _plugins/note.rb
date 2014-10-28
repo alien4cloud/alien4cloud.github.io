@@ -24,14 +24,14 @@ module Jekyll
       end
 
       def add_note(context, content)
-        output = "<div class=\"bs-callout bs-callout-warning\">"
+        output = "<div class=\"note\">"
         unless @title.empty?
           output << "<strong>"
           output << Kramdown::Document.new(@title).to_html
           output << "</strong>"
         end
         output << Kramdown::Document.new(content).to_html
-        output << "</div>"      	
+        output << "</div>"
       end
     end
   end

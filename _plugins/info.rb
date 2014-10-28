@@ -25,7 +25,7 @@ module Jekyll
 
 
       def add_info(context, content)
-      	output = "<div class=\"bs-callout bs-callout-info\">"
+      	output = "<div class=\"note info\">"
         unless @title.empty?
           output << "<strong>"
           output << Kramdown::Document.new(@title).to_html

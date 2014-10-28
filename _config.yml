@@ -5,4 +5,4 @@ redcarpet:
 highligter: pygments
 encoding: UTF-8
 
-categories-list: ["DOCUMENTATION", "ALIEN_ABOUT", "RELEASE_NOTES", "DEVELOPER_GUIDE"]
+categories-list: ["DOCUMENTATION", "ALIEN_ABOUT", "RELEASE_NOTES", "DEVELOPER_GUIDE", "ROADMAP"]

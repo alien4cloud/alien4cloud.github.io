@@ -24,11 +24,13 @@ module Jekyll
       end
 
       def add_warning(context, content)
-        output = "<div class=\"bs-callout bs-callout-danger\">"
+        output = "<div class=\"note warning\">"
         unless @title.empty?
+          output << "<span style=\"color:white;font-family:Georgia;font-size:14px;\">"
           output << "<strong>"
           output << Kramdown::Document.new(@title).to_html
           output << "</strong>"
+          output << "</span>"
         end
         output << Kramdown::Document.new(content).to_html
         output << "</div>"
