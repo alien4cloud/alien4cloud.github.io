@@ -28,10 +28,10 @@ Knowing the investment term in the Applications from development to deployment (
 {%info%}
   <h5>Alien4Cloud aims at addressing some of these problems by providing the following capabilities :</h5>
 * Ease the design and portability of Applications by leveraging TOSCA (an emerging standard driven by OASIS foundation)
-* Isolate the application evolution from deployment technologies and infrastructures, allowing to integrate with any deployment layer and infrastructure</li>
-* Accelerate Application Infrastructure Design and improve reusability by providing a Components and Blueprints catalog</li>
+* Isolate the application evolution from deployment technologies and infrastructures, allowing to integrate with any deployment layer and infrastructure
+* Accelerate Application Infrastructure Design and improve reusability by providing a Components and Blueprints catalog
 * Ease collaboration between Development and Deployment teams across the Application lifecycle in creating the Components and Blueprints to fill the catalog
-* Integrate with existing Enterprise systems (Dev and Ops) through REST API and pluggable strategies, in order to leverage
+* Integrate with existing Enterprise systems (Dev and Ops) through REST API and pluggable strategies
 {%endinfo%}
 </p>
 
@@ -73,8 +73,8 @@ Alien4Cloud focuses on Design, Collaboration, Application Lifecycle Management a
 Alien4Cloud does not aim to provide applications deployment runtime.
 {%endwarning%}
 
-We believe that there are already a number of viable options there, some of them not being TOSCA compliant, and we want to integrate more than replace.
-We do it in an open way through plug-in approach to allow you to leverage your best tools or skills.
+We believe that there are already a number of viable options there (some of them not being TOSCA compliant, btw) and we want to integrate more than replace.
+We do it in an open way through [plug-in approach](../developer_guide/plugin.html){:target="_blank"} to allow you to leverage your best tools or skills.
 
 # Status
 Even if the project is still in its BETA phase, we already use Alien4Cloud, in real-life projects inside [FastConnect](http://www.fastconnect.fr){:target="_blank"} in order to provide self-service, industrialisation and collaboration in the design and management of applications blueprints.
