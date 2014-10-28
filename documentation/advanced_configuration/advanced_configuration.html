@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="../../css/docs.css">
     <link rel="stylesheet" href="../../css/main.css">
     <link rel="stylesheet" href="../../css/syntax.css">
+    <link rel="stylesheet" href="../../css/note.css">
 </head>
 
   <body>
@@ -50,6 +51,9 @@
         </li>
         <li>
           <a href="../../developer_guide/">Contribute</a>
+        </li>
+        <li>
+          <a href="../../roadmap/">Roadmap</a>
         </li>
         <li>
           <a href="../../release_notes/">Release notes</a>
@@ -121,7 +125,7 @@ $(document).ready(function () {
 
 <p>Common configuration allows you to configure the name of the elasticsearch cluster (<em>clusterName</em>), as well as the <em>prefix_max_expansions</em> (performance setting used for prefix queries).</p>
 
-<div class="bs-callout bs-callout-warning">
+<div class="note">
 <p>We recommend that you don’t change the default <em>prefix_max_expansions</em> value.</p>
 </div>
 
@@ -134,7 +138,7 @@ $(document).ready(function () {
   <span class="l-Scalar-Plain">resetData</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">false</span>
   <span class="l-Scalar-Plain">prefix_max_expansions</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">10</span></code></pre></div>
 
-<div class="bs-callout bs-callout-info">
+<div class="note info">
 <p>local and resetData should be left to false.</p>
 </div>
 

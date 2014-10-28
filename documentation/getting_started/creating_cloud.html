@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="../../css/docs.css">
     <link rel="stylesheet" href="../../css/main.css">
     <link rel="stylesheet" href="../../css/syntax.css">
+    <link rel="stylesheet" href="../../css/note.css">
 </head>
 
   <body>
@@ -50,6 +51,9 @@
         </li>
         <li>
           <a href="../../developer_guide/">Contribute</a>
+        </li>
+        <li>
+          <a href="../../roadmap/">Roadmap</a>
         </li>
         <li>
           <a href="../../release_notes/">Release notes</a>
@@ -110,7 +114,7 @@ $(document).ready(function () {
 
 <p>Using some PaaS Providers like Cloudify 2 you can even configure a set of running machines (that doesn’t have to be VMs) to create a logical set of available resources that Alien 4 Cloud can use to deploy applications.</p>
 
-<div class="bs-callout bs-callout-info">
+<div class="note info">
 <p>You can create and configure as many clouds as you like to have as many deployment environment as required.</p>
 </div>
 
@@ -130,7 +134,7 @@ $(document).ready(function () {
 
 <p>If you want to try out Alien 4 Cloud but not use a real cloud for deployments you can use the mock PaaS Provider plugin. This is a plugin that we use for our tests and that mock the PaaS orchestrator.</p>
 
-<div class="bs-callout bs-callout-danger">
+<div class="note warning">
 <p>The mock plugin does not allow you to test any of your components as it do not deploy anything or even call your scripts. To do so you should use a real PaaS Provider plugin like cloudify plugin and deploy on a local cloud technology like Virtua Box or Docker (note that docker support will come with support of cloudify 3).</p>
 </div>
 

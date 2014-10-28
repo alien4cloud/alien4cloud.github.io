@@ -190,13 +190,6 @@
 	},
 
 	{
-		"url": "/index.html", 
-		"section": "", 
-		"value": "ALIEN 4 Cloud",
-		"tokens": [ "ALIEN","4","Cloud"]
-	},
-
-	{
 		"url": "/community/index.html", 
 		"section": "", 
 		"value": "ALIEN 4 Cloud",
@@ -204,10 +197,17 @@
 	},
 
 	{
-		"url": "/release_notes/index.html", 
-		"section": "Release Notes", 
-		"value": "Release Notes",
-		"tokens": [ "Release","Notes"]
+		"url": "/index.html", 
+		"section": "", 
+		"value": "ALIEN 4 Cloud",
+		"tokens": [ "ALIEN","4","Cloud"]
+	},
+
+	{
+		"url": "/documentation/tosca_ref/index.html", 
+		"section": "Documentation", 
+		"value": "Components and TOSCA ref.",
+		"tokens": [ "Components","and","TOSCA","ref."]
 	},
 
 	{
@@ -239,17 +239,24 @@
 	},
 
 	{
-		"url": "/documentation/tosca_ref/index.html", 
-		"section": "Documentation", 
-		"value": "Components and TOSCA ref.",
-		"tokens": [ "Components","and","TOSCA","ref."]
+		"url": "/roadmap/index.html", 
+		"section": "", 
+		"value": "Roadmap",
+		"tokens": [ "Roadmap"]
+	},
+
+	{
+		"url": "/release_notes/index.html", 
+		"section": "Release Notes", 
+		"value": "Release Notes",
+		"tokens": [ "Release","Notes"]
 	},
 
 	{
 		"url": "/alien_about/index.html", 
 		"section": "About ALIEN 4 Cloud", 
-		"value": "About ALIEN for Cloud",
-		"tokens": [ "About","ALIEN","for","Cloud"]
+		"value": "About Alien4Cloud",
+		"tokens": [ "About","Alien4Cloud"]
 	},
 
 	{
@@ -285,6 +292,13 @@
 		"section": "Documentation", 
 		"value": "Other specifics interfaces",
 		"tokens": [ "Other","specifics","interfaces"]
+	},
+
+	{
+		"url": "/roadmap/past.html", 
+		"section": "", 
+		"value": "Previous versions",
+		"tokens": [ "Previous","versions"]
 	},
 
 	{

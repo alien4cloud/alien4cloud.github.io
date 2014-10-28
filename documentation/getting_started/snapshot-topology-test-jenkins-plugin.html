@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="../../css/docs.css">
     <link rel="stylesheet" href="../../css/main.css">
     <link rel="stylesheet" href="../../css/syntax.css">
+    <link rel="stylesheet" href="../../css/note.css">
 </head>
 
   <body>
@@ -50,6 +51,9 @@
         </li>
         <li>
           <a href="../../developer_guide/">Contribute</a>
+        </li>
+        <li>
+          <a href="../../roadmap/">Roadmap</a>
         </li>
         <li>
           <a href="../../release_notes/">Release notes</a>
@@ -146,7 +150,7 @@ Then install the plugin in your running instance of Jenkins. (For more informati
 <h3 id="archive-and-location">Archive and location</h3>
 <p>After preparing the archive, you have to put it at jenkins disposal. For now the solution is to upload the folder content (unzipped) on a git or svn.</p>
 
-<div class="bs-callout bs-callout-info">
+<div class="note info">
 <p>For the next steps, you should make sure you have a running instance of Alien 4 Cloud (copy its URL), and a cloud created and activated (note its name)</p>
 </div>
 
@@ -175,11 +179,11 @@ And configure the parameters. Note that some of them might be required for the j
   </li>
 </ol>
 
-<div class="bs-callout bs-callout-warning">
+<div class="note">
 <p>If you didn’t check the option to automatically undeploy the application at the end, you might have to do it manually. Thus, you need the deployment Id, which you can find checking the job logs.</p>
 </div>
 
-<div class="bs-callout bs-callout-warning">
+<div class="note">
 <p>Actually, we only support deployment and checking of it status. More steps will be added later.</p>
 </div>
 

@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="../../css/docs.css">
     <link rel="stylesheet" href="../../css/main.css">
     <link rel="stylesheet" href="../../css/syntax.css">
+    <link rel="stylesheet" href="../../css/note.css">
 </head>
 
   <body>
@@ -50,6 +51,9 @@
         </li>
         <li>
           <a href="../../developer_guide/">Contribute</a>
+        </li>
+        <li>
+          <a href="../../roadmap/">Roadmap</a>
         </li>
         <li>
           <a href="../../release_notes/">Release notes</a>
@@ -113,7 +117,7 @@ This tutorial doesn’t focus on the grammar but on the methodology to define co
 
 <p>The first step to define the component is to define it’s id. In our case, we will define a ‘fastconnect.nodes.Tomcat’ node. This component will be abstract as we don’t plan to include an implementation for now (another member of the team may provide an implementation). More, while an implementation may not be compliant with any Operating System (Linux shell scripts that won’t run on windows) or PaaS (Cloudify specific scripts) etc. The abstract type allows to define an agnostic view of the middleware.</p>
 
-<div class="bs-callout bs-callout-info">
+<div class="note info">
 <p>A same node may have different implementations, for example a Tomcat Node may have an implementation based on puppet and another based on chef, or even pure shell script.</p>
 
 <p>Definition of abstract types is also a good way also to provide separation of concern and to let an Architect define a middleware and let the implementation to the experts.</p>
@@ -140,7 +144,7 @@ This tutorial doesn’t focus on the grammar but on the methodology to define co
   <span class="l-Scalar-Plain">derived_from</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.nodes.ApplicationServer</span>
   <span class="l-Scalar-Plain">documentation</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Tomcat application server is an application server that supports deployment of java web applications (war).</span></code></pre></div>
 
-<div class="bs-callout bs-callout-warning">
+<div class="note">
 <p>It is possible here to create another parent abstract type that supports any Java Application Server. This would allow for any Java Application Server to just extends from the node and leverage common properties, requirements and capabilties (Java requirement, War capability, Java arguments properties etc.).</p>
 
 <p>Extension is not mandatory as this will just allow to simplify the definition of multiple bean but will not impact the topology creation. In order to keep this tutorial simple we will just extend our Tomcat from the tosca.nodes.ApplicationServer node type.</p>
@@ -197,7 +201,7 @@ This tutorial doesn’t focus on the grammar but on the methodology to define co
 
 <p><em>Tomcat node with the version between [7 and 8)</em></p>
 
-<div class="bs-callout bs-callout-warning">
+<div class="note">
 <p>Of course we could add more properties to the tomcat node in order to allow configuration of other server related properties. In this tutorial we will just use the properties mentioned above.</p>
 
 <p>Note that as ALIEN supports the versioning of the archives it is easy to add properties later in a next version of the component.</p>
@@ -259,7 +263,7 @@ The other requirement for a Tomcat node is to have a java installed. We will mod
       <span class="l-Scalar-Plain">constraints</span><span class="p-Indicator">:</span>
         <span class="l-Scalar-Plain">version</span><span class="p-Indicator">:</span> <span class="p-Indicator">{</span> <span class="nv">greater_or_equal</span><span class="p-Indicator">:</span> <span class="nv">1.7</span> <span class="p-Indicator">}</span></code></pre></div>
 
-<div class="bs-callout bs-callout-warning">
+<div class="note">
 <p>Tomcat node inherit from the requirement on a hosting compute node that is defined by the SoftwareComponent TOSCA normative node. Here we define an abstract Tomcat node that doesn’t have any specific requirement for the compute node (os type etc.) so we don’t have to override the parent requirement. Of course it is possible to override a parent requirement to specify more advanced constraints.</p>
 </div>
 

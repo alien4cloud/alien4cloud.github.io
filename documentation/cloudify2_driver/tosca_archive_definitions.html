@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="../../css/docs.css">
     <link rel="stylesheet" href="../../css/main.css">
     <link rel="stylesheet" href="../../css/syntax.css">
+    <link rel="stylesheet" href="../../css/note.css">
 </head>
 
   <body>
@@ -50,6 +51,9 @@
         </li>
         <li>
           <a href="../../developer_guide/">Contribute</a>
+        </li>
+        <li>
+          <a href="../../roadmap/">Roadmap</a>
         </li>
         <li>
           <a href="../../release_notes/">Release notes</a>
@@ -179,7 +183,7 @@ For example, we can define an artifact of type <strong><code>fastconnect.artifac
           <span class="l-Scalar-Plain">artifact_type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.artifacts.ShellScript</span>
           <span class="l-Scalar-Plain">artifact_ref</span><span class="p-Indicator">:</span> <span class="s">&quot;scripts/tomcat_stop.sh&quot;</span></code></pre></div>
 
-<div class="bs-callout bs-callout-warning">
+<div class="note">
 <p>The <em>artifact_type</em>s <strong><code>tosca.artifacts.GroovyScript</code></strong>, <strong><code>tosca.artifacts.ShellScript</code></strong> and <strong><code>fastconnect.artifacts.ResourceDirectory</code></strong> are provided by ALIEN in a base package. For the lifecycle interface, you can use both Groovy and Shell scripts. Just make sure to define the proper artifact type.</p>
 </div>
 
@@ -192,7 +196,7 @@ For example, we can define an artifact of type <strong><code>fastconnect.artifac
   <li><strong><code>locator</code></strong></li>
 </ul>
 
-<div class="bs-callout bs-callout-danger">
+<div class="note warning">
 <p>Note that the driver only supports groovy scripts for this interface’s operations .</p>
 </div>
 

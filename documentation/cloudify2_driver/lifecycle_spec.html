@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="../../css/docs.css">
     <link rel="stylesheet" href="../../css/main.css">
     <link rel="stylesheet" href="../../css/syntax.css">
+    <link rel="stylesheet" href="../../css/note.css">
 </head>
 
   <body>
@@ -50,6 +51,9 @@
         </li>
         <li>
           <a href="../../developer_guide/">Contribute</a>
+        </li>
+        <li>
+          <a href="../../roadmap/">Roadmap</a>
         </li>
         <li>
           <a href="../../release_notes/">Release notes</a>
@@ -137,7 +141,7 @@ The routine will be executed as a Cloudify closure, in the service descriptor fi
 <span class="kt">def</span> <span class="n">result</span> <span class="o">=</span> <span class="n">ServiceUtils</span><span class="o">.</span><span class="na">arePortsOccupied</span><span class="o">([</span><span class="n">config</span><span class="o">.</span><span class="na">port</span><span class="o">,</span> <span class="n">config</span><span class="o">.</span><span class="na">ajpPort</span><span class="o">])</span>
 <span class="k">return</span> <span class="n">result</span></code></pre></div>
 
-<div class="bs-callout bs-callout-warning">
+<div class="note">
 <p>In general, when you want to provide a script to be executed as a closure in Cloudify service descriptor file, you <strong>MUST NOT</strong> use the <strong>ServiceContextFactory</strong> class. Directly use the injected variable <strong>context</strong></p>
 </div>
 

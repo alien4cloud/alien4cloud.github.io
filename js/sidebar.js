@@ -472,6 +472,32 @@ var node, children;
     
   
     
+      var parent = sidebarTree["DOCUMENTATION"];
+      
+        
+
+        children = parent.children;
+        // try to find the node if exists already
+        node = null;
+        for (var i=0; i<children.length; i++) {
+          if(children[i].name === 'tosca_ref_root') {
+            node = children[i];
+          }
+        }
+        if(node === null) {
+          node = {
+            'children': []
+          };
+          children.push(node);
+        }
+      
+
+      node.name = "tosca_ref_root";
+      node.title = "Components and TOSCA ref.";
+      node.url = "documentation/tosca_ref/index.html";
+      node.weight =  100;
+      node.root = "../../";
+    
   
     
       var parent = sidebarTree["DOCUMENTATION"];
@@ -519,31 +545,7 @@ var node, children;
     
   
     
-      var parent = sidebarTree["DOCUMENTATION"];
-      
-        
-
-        children = parent.children;
-        // try to find the node if exists already
-        node = null;
-        for (var i=0; i<children.length; i++) {
-          if(children[i].name === 'tosca_ref_root') {
-            node = children[i];
-          }
-        }
-        if(node === null) {
-          node = {
-            'children': []
-          };
-          children.push(node);
-        }
-      
-
-      node.name = "tosca_ref_root";
-      node.title = "Components and TOSCA ref.";
-      node.url = "documentation/tosca_ref/index.html";
-      node.weight =  100;
-      node.root = "../../";
+  
     
   
     
@@ -762,6 +764,8 @@ var node, children;
       node.url = "documentation/cloudify2_driver/other_interfaces.html";
       node.weight =  300;
       node.root = "../../";
+    
+  
     
   
     
@@ -2574,6 +2578,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["ALIEN_ABOUT"];
       
         
@@ -2595,10 +2601,12 @@ var node, children;
       
 
       node.name = "";
-      node.title = "About ALIEN for Cloud";
+      node.title = "About Alien4Cloud";
       node.url = "alien_about/index.html";
       node.weight =  0;
       node.root = "../";
+    
+  
     
   
     
@@ -3725,6 +3733,18 @@ var node, children;
     
   
     
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
       var parent = sidebarTree["RELEASE_NOTES"];
       
         
@@ -3750,14 +3770,6 @@ var node, children;
       node.url = "release_notes/index.html";
       node.weight =  0;
       node.root = "../";
-    
-  
-    
-  
-    
-  
-    
-  
     
   
     
@@ -3937,6 +3949,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DEVELOPER_GUIDE"];
       
         
@@ -3962,6 +3976,8 @@ var node, children;
       node.url = "developer_guide/internal-architecture.html";
       node.weight =  100;
       node.root = "../";
+    
+  
     
   
     
@@ -4093,6 +4109,206 @@ var node, children;
     
   
 
+  sidebarTree["ROADMAP"] = {
+    'name': "ROADMAP",
+    'children': []
+  };
+
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      var parent = sidebarTree["ROADMAP"];
+      
+        node = parent;
+      
+
+      node.name = "index";
+      node.title = "Roadmap";
+      node.url = "roadmap/index.html";
+      node.weight =  0;
+      node.root = "../";
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      var parent = sidebarTree["ROADMAP"];
+      
+        
+
+        children = parent.children;
+        // try to find the node if exists already
+        node = null;
+        for (var i=0; i<children.length; i++) {
+          if(children[i].name === '') {
+            node = children[i];
+          }
+        }
+        if(node === null) {
+          node = {
+            'children': []
+          };
+          children.push(node);
+        }
+      
+
+      node.name = "";
+      node.title = "Previous versions";
+      node.url = "roadmap/past.html";
+      node.weight =  0;
+      node.root = "../";
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
 
 function doSort(tree) {
   console.log(tree);
@@ -4115,6 +4331,8 @@ function doSort(tree) {
   doSort(sidebarTree["RELEASE_NOTES"].children);
 
   doSort(sidebarTree["DEVELOPER_GUIDE"].children);
+
+  doSort(sidebarTree["ROADMAP"].children);
 
 
 function makeSideBar(categoryName, currentNodeName) {
