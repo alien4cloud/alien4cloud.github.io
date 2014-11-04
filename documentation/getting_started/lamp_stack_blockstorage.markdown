@@ -1,10 +1,10 @@
 ---
 layout: post
-title:  Component MySQL
+title:  Component BlockStorage
 root: ../../
 categories: DOCUMENTATION
 parent: [getting_started, lamp_stack]
-node_name: lamp_stack_mysql
+node_name: lamp_stack_blockstorage
 weight: 200
 ---
 
