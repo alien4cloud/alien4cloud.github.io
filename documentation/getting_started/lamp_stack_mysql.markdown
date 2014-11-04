@@ -8,20 +8,28 @@ node_name: lamp_stack_mysql
 weight: 200
 ---
 
-This component will install the MySQL RDBMS on the host server
+This component will install the MySQL RDBMS on the host server.
+
+Used version for this tutorial : [MySQL WD02](https://github.com/alien4cloud/samples/tree/wd02/mysql )
 
 {% note %}
 This installation is based on Ubuntu distribution with apt-get command.
 {% endnote %}
 
-# Prepare MySQL with blockstorage
+# Configuration
+
+Component properties image with configuration details
 
 {% note %}
 Give right on volumes, mounted stuff...
 {% endnote %}
 
-# Installation
+# Installation steps
 
-[InstallMysql](https://github.com/alien4cloud/samples/blob/wd02/mysql/scripts/installMysql.sh)
+Main stps to install the component..
+
+- Install MySQL
+- Configure the MySQl and the BlockStorage
+- Start mysql
 
 <script src="https://gist.github.com/cmourouvin/7b9544312c285ce9cb2f.js"></script>

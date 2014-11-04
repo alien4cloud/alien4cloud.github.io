@@ -8,9 +8,13 @@ node_name: lamp_stack
 weight: 400
 ---
 
-This tutorial is based on the well known opensource stack [LAMP](http://fr.wikipedia.org/wiki/LAMP){:target="_blank"} and aims at make get started with a "real case".
+This tutorial is based on the well known opensource stack [LAMP](http://fr.wikipedia.org/wiki/LAMP){:target="_blank"} and aims at getting started with a "real application case".
 
 We will see all steps to go through the stack component definition and have a runnable example.
+
+{% info %}
+We're
+{% endinfo %}
 
 # Components
 
