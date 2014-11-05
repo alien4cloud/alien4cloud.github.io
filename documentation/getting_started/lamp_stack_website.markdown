@@ -7,22 +7,21 @@ parent: [getting_started, lamp_stack]
 node_name: lamp_stack_website
 weight: 200
 ---
+The Website is a special component of our LAMP stack. This component will allow to take any zip file or link to any zip to be uploaded on the Apache HTTP Server and then be served. On this page, we will describe the recipe. To begin, see the META file of the website :
+<script src="https://gist.github.com/OresteVisari/8a8eb059f431f322af8d.js"></script>
 
-In Alien 4 Cloud you can design your applications by adding multiple components to a topology and defining relationships between them. The definition of components and topologies is based on TOSCA standard.
+Like Apache, Website derives from a node, the node of the parent of the Website is WebApplication. The first property is a URL to a zip file. If you set the value, our script we will download the file. If you leave this property empty, we will test the presence of an artifact.The artifact is a zip file, you can upload a zip file present on your computer with this method.
 
-Alien 4 Cloud allow you to add components into an indexed catalog that users can browser, search and filter to find the components they need.
+The context path property is the name of folder present in the folder monitor by Apache. The default value is 'html', according to Apache. If you want a specific path to your site, you can change this value.
 
-{% note %}
-Adding components require ADMIN or COMPONENTS_MANAGER roles.
-{% endnote %}
+<script src="https://gist.github.com/OresteVisari/6ec415bbd4d0838ab518.js"></script>
 
-# TOSCA Normative types
+To conclude, we defined in the same file a new relationship. Website need an Apache server up before her deployment. The valid source is the HttpEndpoint, provided by heritage for Website by WebApplication. The valid target is a Container, provide by Apache.
 
-TOSCA standard defines some normative types that are the one you should leverage to get started. You can read more about TOSCA and the normative types in the TOSCA section of the documentation.
-
-In order to add Normative types in Alien 4 Cloud you must download the content of the tosca normative types repository as a Zip and drag and drop it in the Components view of Alien 4 Cloud.
+<script src="https://gist.github.com/OresteVisari/5ab382e66a4eece65077.js"></script>
 
 {% note %}
-Alien 4 Cloud leverage TOSCA Simple Profile in YAML with a few changes allowing to support versioning of the components as well as imports based on the components catalog.
-We will soon allow however to export your components and topologies as pure TOSCA archives.
+When you define a topology, make sure to select a WebSiteHostedOn relation between Website and Apache.
 {% endnote %}
+
+If you want, you can read all the Website recipe for an Ubuntu on Github : [https://github.com/alien4cloud/samples/tree/master/website](https://github.com/alien4cloud/samples/tree/master/website){:target="_blank"}
