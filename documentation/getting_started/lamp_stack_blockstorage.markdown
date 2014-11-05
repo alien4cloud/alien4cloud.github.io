@@ -8,21 +8,34 @@ node_name: lamp_stack_blockstorage
 weight: 200
 ---
 
-In Alien 4 Cloud you can design your applications by adding multiple components to a topology and defining relationships between them. The definition of components and topologies is based on TOSCA standard.
+This component represents a storage space / a volume. This volume __has to be__ *attached* to a compute to be used.
 
-Alien 4 Cloud allow you to add components into an indexed catalog that users can browser, search and filter to find the components they need.
+For more details about this custom component : [BlockStorage](../cloudify2_driver/blockstorage.html)
+
+Used version for this tutorial (defined in normative types): [BlockStorage](https://github.com/alien4cloud/tosca-normative-types/blob/1.0.0.wd02/normative-types.yml){:target="_blank"}
+
+<script src="https://gist.github.com/cmourouvin/ec7eb7b782e1da647cae.js"></script>
+
+# Definition
+
+## Namming / description
+
+<script src="https://gist.github.com/cmourouvin/c6eb9df89eda149c41f5.js"></script>
 
 {% note %}
-Adding components require ADMIN or COMPONENTS_MANAGER roles.
+Every component should at least inherite from *tosca.nodes.Root*. As a default normative type it's the case for *BlockStorage*.
 {% endnote %}
 
-# TOSCA Normative types
+## Properties
 
-TOSCA standard defines some normative types that are the one you should leverage to get started. You can read more about TOSCA and the normative types in the TOSCA section of the documentation.
+<script src="https://gist.github.com/cmourouvin/561ca4ce50e1eb1f673b.js"></script>
 
-In order to add Normative types in Alien 4 Cloud you must download the content of the tosca normative types repository as a Zip and drag and drop it in the Components view of Alien 4 Cloud.
+Check details : [BlockStorage](../cloudify2_driver/blockstorage.html)
 
-{% note %}
-Alien 4 Cloud leverage TOSCA Simple Profile in YAML with a few changes allowing to support versioning of the components as well as imports based on the components catalog.
-We will soon allow however to export your components and topologies as pure TOSCA archives.
-{% endnote %}
+{% info %}
+For the application you will need **volume_id** or **size** to be defined.
+{% endinfo %}
+
+## Lifecycle and related scripts
+
+There is no lifecycle operation for this component in the default version.
