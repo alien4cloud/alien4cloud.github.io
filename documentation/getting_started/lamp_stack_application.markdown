@@ -7,22 +7,30 @@ parent: [getting_started, lamp_stack]
 node_name: lamp_stack_application
 weight: 800
 ---
+# Create the topology of our Wordpress application
+We have explained all components of a LAMP stack. Now, we will use these components to deploy a Wordpress on a cloud. To begin, upload all recipes into Alien and create an empty application.
 
-In Alien 4 Cloud you can design your applications by adding multiple components to a topology and defining relationships between them. The definition of components and topologies is based on TOSCA standard.
+## Step 1 : The Compute
+After this, drag and drop a compute into the plan. You need to specify two properties of the compute : her architecture and her type. Select the correct architecture of your image (probably x86_64) and the linux type.
 
-Alien 4 Cloud allow you to add components into an indexed catalog that users can browser, search and filter to find the components they need.
+[![Compute](../../images/developer_guide/wordpress-topology-step-1.png)](../../images/developer_guide/wordpress-topology-step-1.png)
 
-{% note %}
-Adding components require ADMIN or COMPONENTS_MANAGER roles.
-{% endnote %}
+## Step 2 : The BlockStorage
+Now, drag and drop a BlockStorage into the plan. Select the new element to attach it to compute. Make sure to select the relation with 1..1 contraint. In these properties, set the size value to 1.
 
-# TOSCA Normative types
+[![Compute, BlockStorage](../../images/developer_guide/wordpress-topology-step-2.png)](../../images/developer_guide/wordpress-topology-step-2.png)
 
-TOSCA standard defines some normative types that are the one you should leverage to get started. You can read more about TOSCA and the normative types in the TOSCA section of the documentation.
+## Step 2 : Apache, MySQL, PHP
+Now, drag and drop a MySQL, a PHP and an Apache to the compute. Change the default value of MySQL or Apache if you want a custom install. On PHP, checked the two options to install the Apache 2 and PHP module.
 
-In order to add Normative types in Alien 4 Cloud you must download the content of the tosca normative types repository as a Zip and drag and drop it in the Components view of Alien 4 Cloud.
+[![Compute, BlockStorage, Apache, MySQL, PHP](../../images/developer_guide/wordpress-topology-step-3.png)](../../images/developer_guide/wordpress-topology-step-3.png)
 
-{% note %}
-Alien 4 Cloud leverage TOSCA Simple Profile in YAML with a few changes allowing to support versioning of the components as well as imports based on the components catalog.
-We will soon allow however to export your components and topologies as pure TOSCA archives.
-{% endnote %}
+## Step 3 : The Website
+The last component is the website. Add it to the plan and create a WebSiteHostedOn
+ relationship between Website and Apache. On the property, set the URL of the last zip of Wordpress.
+
+[![Compute, BlockStorage, Apache, MySQL, PHP, Website](../../images/developer_guide/wordpress-topology-step-4.png)](../../images/developer_guide/wordpress-topology-step-4.png)
+
+
+# Deploiement
+Now you can deploy our topology into the cloud. To configure your Wordpress, open your web browser and go to IP_OF_YOUR_SERVER/wordpress
