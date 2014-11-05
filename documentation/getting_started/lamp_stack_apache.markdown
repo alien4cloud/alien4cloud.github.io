@@ -9,7 +9,9 @@ weight: 200
 ---
 Apache HTTP server is a free software of the Apache software Foundation, created in 1995. Apache is the most popular web server on internet and the web server of LAMP bundle.
 
-You can create your own Apache recipe and upload it to Alien. A recipe is an archive file with some contents.  To explain the creation of a recipe, we will create a simple Apache recipe.
+Used version for this tutorial : [Apache HTTP Server WD02](https://github.com/alien4cloud/samples/tree/wd02/apache){:target="_blank"}
+
+You can create your own Apache recipe and upload it to Alien. A recipe is an archive file with some contents. To explain the creation of a recipe, we will create a simple Apache recipe.
 
 The first step is to create the TOSCA-Metadata folder. In this folder we need a « ALIEN-META.yaml » file. Below, the content of this file :
 
@@ -33,7 +35,7 @@ To conclude, we have the interfaces and the artifacts. In the interfaces we defi
 
 <script src="https://gist.github.com/OresteVisari/34eac7137dbcf5a60c05.js"></script>
 
-That's it for the YAML ! Now, you need to create the scripts. All scripts are specific of the target compute so we don't explain this part on this tutorial. If you want, you can read the content of our scripts for an Ubuntu on Github : [https://github.com/alien4cloud/samples/tree/master/apache](https://github.com/alien4cloud/samples/tree/master/apache){:target="_blank"} 
+That's it for the YAML ! Now, you need to create the scripts. All scripts are specific of the target compute so we don't explain this part on this tutorial. If you want, you can read the content of our scripts for an Ubuntu on Github : [https://github.com/alien4cloud/samples/tree/master/apache](https://github.com/alien4cloud/samples/tree/master/apache){:target="_blank"}
 
 To test the recipe, you can create a Topology with a compute and the Apache.
 [![Apache Topology](../../images/developer_guide/small-apache-topology.png)](../../images/developer_guide/small-apache-topology.png)

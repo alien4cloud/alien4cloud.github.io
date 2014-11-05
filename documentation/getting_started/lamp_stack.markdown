@@ -13,10 +13,33 @@ This tutorial is based on the well known opensource stack [LAMP](http://fr.wikip
 We will see all steps to go through the stack component definition and have a runnable example.
 
 {% info %}
-We're
+Regarding TOSCA component definition we are using the WD02 version for this tutorial.
 {% endinfo %}
 
+There is our full alien context to give a try to this tutorial :
+
+{: .table .table-bordered}
+|A4C element  | Usage |
+|:---------|:------------|
+|TOSCA base types **1.0.0-WD02** | [A4C WD02 tosca-notmative-types](https://github.com/alien4cloud/tosca-normative-types/tree/1.0.0.wd02){:target="_blank"} |
+|A4C Release **0.0.15**  | [Standalone WAR](https://fastconnect.org/maven/content/repositories/opensource/alien4cloud/alien4cloud-ui/0.0.15/alien4cloud-ui-0.0.15-standalone.war){:target="_blank"} or [WAR](https://fastconnect.org/maven/content/repositories/opensource/alien4cloud/alien4cloud-ui/0.0.15/alien4cloud-ui-0.0.15.war){:target="_blank"} |
+|A4C Cloudify2 Driver **0.2.3**| [alien4cloud-cloudify2-provider 0.2.3](https://fastconnect.org/maven/content/repositories/opensource/alien4cloud/alien4cloud-cloudify2-provider/0.2.3/alien4cloud-cloudify2-provider-0.2.3.jar){:target="_blank"} |
+
+
+# TOSCA base types
+
+Basicly to build our full application (topology), we will have a set of basic components defined in TOSCA. You will have to inject first
+this set of components in A4C and then inject your own.
+
+More details about [normative types](../tosca_ref/tosca_concepts_types_normative_nodes.html).
+
+{% warning %}
+TOSCA definition is in constant evolution, so be sure you are using our fixed implementation given just above.
+{% endwarning %}
+
 # Components
+
+We will basicly define our components and other "relational" items to link those components. This is the main component list :
 
 * [APACHE HTTP Server](http://en.wikipedia.org/wiki/Apache_HTTP_Server){:target="_blank"} : http webserver to serve your website
 * [MySQL](http://en.wikipedia.org/wiki/MySQL){:target="_blank"} : relational datbase management system (RDBMS)
@@ -34,7 +57,7 @@ The **L** in LAMP stand for Linux, so for our tutorial we assume that we're work
 image on your targeted cloud based on it.
 
 {% note %}
-Please be sure you have an image on your cloud based on Ubuntu 14.04.
+We assume that you have an image on your cloud based on Ubuntu 14.04 distribution.
 {% endnote %}
 
 # BlockStorage
