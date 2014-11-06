@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    <meta charset="utf-8">
+    <title>LAMP Stack Tutorial</title>
+    <meta property="st:info" content="section:'Documentation'"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../css/docs.css">
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/syntax.css">
+    <link rel="stylesheet" href="../../css/note.css">
+</head>
+
+  <body>
+    <script type="text/javascript">
+      var tocheaders = {};
+      var tocheadersz = {};
+    </script>
+    <script type="text/javascript" src="../../js/jquery.min.js"></script>
+<script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../js/jquery.fancybox.pack.js"></script>
+
+<script type="text/javascript" src="../../js/jquery.ba-hashchange.min.js"></script>
+
+    <div id="wrapper">
+      <div id="header">
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../../index.html">
+        <img src="../../images/cloudalien.png" style="height:21px;" class="pull-left"> ALIEN 4 Cloud
+      </a>
+    </div>
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <ul class="nav navbar-nav">
+        <li>
+          <a href="../../community/">Community</a>
+        </li>
+        <li>
+          <a href="../../documentation/">Documentation</a>
+        </li>
+        <li>
+          <a href="../../developer_guide/">Contribute</a>
+        </li>
+        <li>
+          <a href="../../roadmap/">Roadmap</a>
+        </li>
+        <li>
+          <a href="../../release_notes/">Release notes</a>
+        </li>
+        <li>
+          <a id="git-icon" href="https://github.com/alien4cloud/alien4cloud.github.io" target="_blank" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Documentation's GitHub!" data-original-title="Documentation's GitHub!">
+          <i class="fa fa-code-fork fa-lg fa-rotate-90"></i>
+          </a>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <button type="button" onclick="location.href='https://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource-snapshot&g=alien4cloud&a=alien4cloud-ui&v=LATEST&p=war&c=standalone'" class="btn btn-warning navbar-btn download-button"><i class="fa fa-download"></i> latest build</button>
+        </li>
+        <li>
+          <button type="button" onclick="location.href='https://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource&g=alien4cloud&a=alien4cloud-ui&v=LATEST&p=war&c=standalone'" class="btn btn-success navbar-btn download-button"><i class="fa fa-download"></i> stable</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script>
+$('[target=_blank]').append(" <i class=\"icon-external-link\" style=\"font-size:10px\"></i>");
+
+$('#git-icon').tooltip();
+</script>
+
+      </div>
+
+      <div id="content-parent" class="content">
+        <div class="container">
+          <div class="row">
+            <div id="breadcrumbs"></div>
+            
+              <div class="col-md-3">
+                <div id="sidebar_menu" class="well tree" role="complementary">
+</div>
+
+<script type="text/javascript" src="../../js/sidebar.js"></script>
+
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION', 'lamp_stack');
+  createBreadcrumbs('DOCUMENTATION', 'Documentation');
+});
+</script>
+
+              </div>
+              <div id="content" class="col-md-9">
+            
+                <h1 style="margin-top: 0px;">LAMP Stack Tutorial</h1>
+                <div class="note warning">
+<p>This full stack application is still under <strong>construction</strong> / <strong>definition</strong>. You can follow it right now for a first jump into A4C but it will surely change in next weeks. We will enhance it trying to show the <em>best way</em> and the recommended <em>granularity</em> to target the best component <strong>reusability</strong>.</p>
+</div>
+
+<p>This tutorial is based on the well known opensource stack <a href="http://fr.wikipedia.org/wiki/LAMP" target="_blank">LAMP</a> and aims at getting started with a “real application case”.</p>
+
+<p>We will see all steps to go through the stack component definition and have a runnable example.</p>
+
+<div class="note info">
+<p>Regarding TOSCA component definition we are using the WD02 version for this tutorial.</p>
+</div>
+
+<p>There is our full alien context to give a try to this tutorial :</p>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">A4C element</th>
+      <th style="text-align: left">Usage</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">TOSCA base types <strong>1.0.0.WD02</strong></td>
+      <td style="text-align: left"><a href="https://github.com/alien4cloud/tosca-normative-types/tree/1.0.0.wd02" target="_blank">A4C WD02 tosca-notmative-types</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">A4C Release <strong>0.0.15</strong></td>
+      <td style="text-align: left"><a href="https://fastconnect.org/maven/content/repositories/opensource/alien4cloud/alien4cloud-ui/0.0.15/alien4cloud-ui-0.0.15-standalone.war" target="_blank">Standalone WAR</a> or <a href="https://fastconnect.org/maven/content/repositories/opensource/alien4cloud/alien4cloud-ui/0.0.15/alien4cloud-ui-0.0.15.war" target="_blank">WAR</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">A4C Cloudify2 Driver <strong>0.2.3</strong></td>
+      <td style="text-align: left"><a href="https://fastconnect.org/maven/content/repositories/opensource/alien4cloud/alien4cloud-cloudify2-provider/0.2.3/alien4cloud-cloudify2-provider-0.2.3.jar" target="_blank">alien4cloud-cloudify2-provider 0.2.3</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="tosca-base-types">TOSCA base types</h1>
+
+<p>Basicly to build our full application (topology), we will have a set of basic components defined in TOSCA. You will have to inject first
+this set of components in A4C and then inject your own.</p>
+
+<p>More details about <a href="../tosca_ref/tosca_concepts_types_normative_nodes.html">normative types</a>.</p>
+
+<div class="note warning">
+<p>TOSCA definition is in constant evolution, so be sure you are using our fixed implementation given just above.</p>
+</div>
+
+<h1 id="our-components">Our components</h1>
+
+<p>We will basicly define our components and other “relational” items to link those components. This is the main component list :</p>
+
+<ul>
+  <li><a href="http://en.wikipedia.org/wiki/Apache_HTTP_Server" target="_blank">APACHE HTTP Server</a> : http webserver to serve your website</li>
+  <li><a href="http://en.wikipedia.org/wiki/MySQL" target="_blank">MySQL</a> : relational datbase management system (RDBMS)</li>
+  <li><a href="http://en.wikipedia.org/wiki/PHP" target="_blank">PHP</a> : server-side language used to interact with the database working with your html files</li>
+</ul>
+
+<p>This is the basic stack for a LAMP environment and in A4C context we will add one more components :</p>
+
+<ul>
+  <li><a href="https://github.com/alien4cloud/samples/tree/wd02/website" target="_blank">WebSite</a> : this components will allow to  take any zip file or link to any zip to be uploaded on the Apache HTTP Server and then be served.</li>
+</ul>
+
+<p>For our example the well knwon CMS <a href="http://wordpress.org/wordpress-4.0.zip" target="_blank">Wordpress</a> will be used. Wordpress is written in PHP and needs MySQL to run.</p>
+
+<div class="note warning">
+<p>In this tutorial you will not explain how to create since it’s already described <a href="../getting_started/tutorials_component_design.html">here</a>.</p>
+</div>
+
+<h1 id="server-hosting">Server hosting</h1>
+
+<p>The <strong>L</strong> in LAMP stand for Linux, so for our tutorial we assume that we’re working with <a href="http://cdimage.ubuntu.com/netboot/14.04/" target="_blank">Ubuntu 14.04</a> distribution as server. You must have an
+image on your targeted cloud based on it.</p>
+
+<div class="note">
+<p>We assume that you have an image in your cloud based on Ubuntu 14.04 distribution.</p>
+</div>
+
+<h1 id="blockstoragecloudify2driverblockstoragehtml"><a href="../cloudify2_driver/blockstorage.html">BlockStorage</a></h1>
+
+<p>To persist your data even after your application is undeployed, we will use this default component described in tosca base type wd02 and that allow us to have a volume created, mounted and attached to our server host. MySQL data will be stored on this volume.</p>
+
+              </div>
+            </div>
+          </div><!-- /container -->
+        </div>
+      </div>
+      <div class="push"></div>
+    </div>
+    <div id="footer">
+  <div class="container">
+    <p style="text-align:center;margin: 20px 0" class="text-muted credit">&copy; FastConnect SAS, 2014. Powered by <a href="http://jekyllrb.com/">Jekyll</a>.</p>
+  </div>
+</div>
+
+    <script type="text/javascript" src="../../js/post-layout.js"></script>
+  </body>
+</html>
