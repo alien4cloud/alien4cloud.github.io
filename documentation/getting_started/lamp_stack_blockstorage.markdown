@@ -8,7 +8,7 @@ node_name: lamp_stack_blockstorage
 weight: 200
 ---
 
-This component represents a storage space / a volume. This volume __has to be__ *attached* to a compute to be used.
+This component represents a storage space / volume. This volume __has to be__ *attached* to a compute to be used.
 
 For more details about this custom component : [BlockStorage](../cloudify2_driver/blockstorage.html)
 

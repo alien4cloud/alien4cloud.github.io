@@ -28,7 +28,7 @@ PHP inherite from the tosca base type **tosca.nodes.SoftwareComponent**
 
 ## Properties
 
-The PHP recipe is not so complicated, it has only three properties. The first property is the version, like for Apache recipe, it's just to be mentioned. The two other properties are booleans to install the Apache 2 module or the MySQL module., two packages specific to this software.
+The PHP recipe is not so complicated, it has only three properties. The first property is the version, like for Apache recipe, it's just to be mentioned. The two other properties are booleans to install the PHP Apache 2 module or the PHP MySQL module.
 
 {: .table .table-bordered}
 |Property  | Usage | Comment |

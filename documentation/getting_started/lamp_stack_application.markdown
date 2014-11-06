@@ -18,6 +18,8 @@ To be more concret we will use the [WebSite](../getting_started/lamp_stack_websi
 2. Import all components in **A4C**
   * We assume that you are running the A4C you have downloaded in [standalone version](../getting_started/getting_started.html)  
   * Once you are logged as *admin*, you will have the menu on top, select then the **Components** item
+  * You can also see here how to [upload your component](../tosca_ref/calm_components_repo_uploadarchive.html)  
+
 3. Configure your cloud plugin [PaaS Provider](../cloudify2_driver/index.html)
 4. Then compose you topology following the next steps
 
@@ -68,8 +70,14 @@ On the property, set the URL of the last zip of Wordpress.
 
 Now we can deploy our topology into the cloud we've defined in prerequisite. The *Deploy* button is accessible in the Application sub-menu *Deployments*.
 
-To configure your *Wordpress* at your first run, open your web browser and go to **IP_OF_YOUR_SERVER/wordpress**.
+To configure your *Wordpress* at your first run, open your web browser and go to **IP_SERVER/wordpress**.
 
 {% info %}
 To configure your *Wordpress*, specifically for the **MySQL** settings, be sure you enter the settings you defined in your *MySQL* configuration.
 {% endinfo %}
+
+{% note %}
+To check you running application, go on application *Runtime* sub-menu an select the node you want. In the *Details* tab automatically selected, you just need to select the instance line you want to have more details like *ip_address* and *public_ip_address* an try you application.
+
+Here we can select the *Compute* node and get the *public IP* to run Wordpress for the first time and later.
+{% endnote %}
