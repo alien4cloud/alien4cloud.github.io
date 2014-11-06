@@ -20,12 +20,20 @@ PHP is the programming language of the LAMP stack, it's a server-side scripting.
 
 ## Namming / description
 
+<script src="https://gist.github.com/cmourouvin/acf626b8df0fb8bc1df1.js"></script>
+
+{% note %}
+PHP inherite from the tosca base type **tosca.nodes.SoftwareComponent**
+{% endnote %}
+
+## Properties
+
 The PHP recipe is not so complicated, it has only three properties. The first property is the version, like for Apache recipe, it's just to be mentioned. The two other properties are booleans to install the Apache 2 module or the MySQL module., two packages specific to this software.
 
 {: .table .table-bordered}
 |Property  | Usage | Comment |
 |:---------|:------------|:------------|
-|version  | Mention the php version | Constant version in our example (2.4)|
+|version  | Mention the php version | Constant version in our example (v5)|
 |add_apache2_module  | Boolean to activate the PHP module for Apache HTTP Server | False by default |
 |add_mysql_module  | Boolean to activate the MySQL module for Apache HTTP Server | False by default |
 
@@ -33,8 +41,11 @@ The PHP recipe is not so complicated, it has only three properties. The first pr
 For our stack you must activate this two modules for Apache.
 {% endnote %}
 
-## Properties
+## Lifecycle and related scripts
 
-<script src="https://gist.github.com/OresteVisari/daa3239160c074e7c0cb.js"></script>
+<script src="https://gist.github.com/cmourouvin/3f81ddf20aa2cbc907ac.js"></script>
 
-If you want, you can read all the PHP recipe for an Ubuntu on Github : [https://github.com/alien4cloud/samples/tree/master/php](https://github.com/alien4cloud/samples/tree/master/php){:target="_blank"}
+{: .table .table-bordered}
+|Operation  | Usage | Comment |
+|:---------|:------------|:------------|
+|create  | Executed script to install PHP on the Compute | Through apt-get on ubuntu image |

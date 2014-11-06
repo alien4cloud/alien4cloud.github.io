@@ -30,7 +30,7 @@ The Apache recipe has only 2 properties :
 {: .table .table-bordered}
 |Property  | Usage | Comment |
 |:---------|:------------|:------------|
-|version  | Mention the apache http server version | Constant version in our example |
+|version  | Mention the apache http server version | Constant version in our example (v2.4) |
 |port  | Port where to expose the apache http service | 80 is the default port, you can change it |
 
 ## Lifecycle and related scripts

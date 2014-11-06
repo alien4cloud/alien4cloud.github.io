@@ -8,6 +8,10 @@ node_name: lamp_stack
 weight: 400
 ---
 
+{% warning %}
+This full stack application is still under **construction** / **definition**. You can follow it right now for a first jump into A4C but it will surely change in next weeks. We will enhance it trying to show the *best way* and the recommended *granularity* to target the best component **reusability**.
+{% endwarning %}
+
 This tutorial is based on the well known opensource stack [LAMP](http://fr.wikipedia.org/wiki/LAMP){:target="_blank"} and aims at getting started with a "real application case".
 
 We will see all steps to go through the stack component definition and have a runnable example.

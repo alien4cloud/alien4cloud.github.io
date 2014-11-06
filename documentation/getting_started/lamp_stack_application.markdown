@@ -7,30 +7,69 @@ parent: [getting_started, lamp_stack]
 node_name: lamp_stack_application
 weight: 800
 ---
-# Create the topology of our Wordpress application
-We have explained all components of a LAMP stack. Now, we will use these components to deploy a Wordpress on a cloud. To begin, upload all recipes into Alien and create an empty application.
+
+On this page we will create our topology representing the LAMP stack. Follow instructions step by step and at the end you will have your stack up and running.
+
+To be more concret we will use the [WebSite](../getting_started/lamp_stack_website.html) component to install a real and well known CMS : [Wordpress](https://wordpress.com){:target="_blank"}
+
+# Prerequisites
+
+1. Get, checkout, download all components listed in the [main page](../getting_started/lamp_stack.html) of this tutorial
+2. Import all components in **A4C**
+  * We assume that you are running the A4C you have downloaded in [standalone version](../getting_started/getting_started.html)  
+  * Once you are logged as *admin*, you will have the menu on top, select then the **Components** item
+3. Configure your cloud plugin [PaaS Provider](../cloudify2_driver/index.html)
+4. Then compose you topology following the next steps
+
+{% info %}
+Point 2 : on each page on the right top corner you have a button with a question mark [?]. Click to start a *tour* to explain what you can do in the current page and how to do it.
+{% endinfo %}
+
+# Create the topology for the Wordpress application
+
+We have explained all components of our LAMP stack. Now, we will use these components to deploy a Wordpress on a cloud. To begin just for on *Applications* menu and create a **New application** then go on the application sub-menu **Topology**.
+
+You are now ready to compose you application. Let's do it !
 
 ## Step 1 : The Compute
-After this, drag and drop a compute into the plan. You need to specify two properties of the compute : her architecture and her type. Select the correct architecture of your image (probably x86_64) and the linux type.
+
+In this step, drag and drop a **Compute** into the topology design view. You need to specify two properties for this compute :
+
+* os_arch : **x86_64**
+* os_type : **linux**
 
 [![Compute](../../images/developer_guide/wordpress-topology-step-1.png)](../../images/developer_guide/wordpress-topology-step-1.png)
 
 ## Step 2 : The BlockStorage
-Now, drag and drop a BlockStorage into the plan. Select the new element to attach it to compute. Make sure to select the relation with 1..1 contraint. In these properties, set the size value to 1.
+
+Now, drag and drop a **BlockStorage** into the view. Select it by click and then attach it the **Compute** in the right *Properties* tab. Make sure to select the relation *attachment* with 1..1 constraint.
+
+In these properties tab view, set also the *size* value to 1 (GB by default).
 
 [![Compute, BlockStorage](../../images/developer_guide/wordpress-topology-step-2.png)](../../images/developer_guide/wordpress-topology-step-2.png)
 
-## Step 2 : Apache, MySQL, PHP
-Now, drag and drop a MySQL, a PHP and an Apache to the compute. Change the default value of MySQL or Apache if you want a custom install. On PHP, checked the two options to install the Apache 2 and PHP module.
+## Step 3 : Apache, MySQL, PHP
+
+Then, drag and drop a **MySQL**, a **PHP** and an **Apache** onto the **Compute** existing node. For each new node droped onto **Compute** you will have to decide a target for the *HostedOn* relationship (generally just check the relationship name and click *Finish*). Change the default value of **MySQL** or **Apache** if you want a custom install.
+
+For the **PHP** node, check the *two options* to install the PHP module in *Apache* and the PHP module for *MySQL*.
 
 [![Compute, BlockStorage, Apache, MySQL, PHP](../../images/developer_guide/wordpress-topology-step-3.png)](../../images/developer_guide/wordpress-topology-step-3.png)
 
-## Step 3 : The Website
-The last component is the website. Add it to the plan and create a WebSiteHostedOn
- relationship between Website and Apache. On the property, set the URL of the last zip of Wordpress.
+## Step 4 : The Website
+
+The last component to add is the **WebSite**. Add it to the view and create *WebSiteHostedOn* relationship between **Website** and **Apache**.
+
+On the property, set the URL of the last zip of Wordpress.
 
 [![Compute, BlockStorage, Apache, MySQL, PHP, Website](../../images/developer_guide/wordpress-topology-step-4.png)](../../images/developer_guide/wordpress-topology-step-4.png)
 
+# Deployment
 
-# Deploiement
-Now you can deploy our topology into the cloud. To configure your Wordpress, open your web browser and go to IP_OF_YOUR_SERVER/wordpress
+Now we can deploy our topology into the cloud we've defined in prerequisite. The *Deploy* button is accessible in the Application sub-menu *Deployments*.
+
+To configure your *Wordpress* at your first run, open your web browser and go to **IP_OF_YOUR_SERVER/wordpress**.
+
+{% info %}
+To configure your *Wordpress*, specifically for the **MySQL** settings, be sure you enter the settings you defined in your *MySQL* configuration.
+{% endinfo %}
