@@ -40,7 +40,7 @@ In this step, drag and drop a **Compute** into the topology design view. You nee
 * os_arch : **x86_64**
 * os_type : **linux**
 
-[![Compute](../../images/developer_guide/wordpress-topology-step-1.png)](../../images/developer_guide/wordpress-topology-step-1.png)
+[![Compute](../../images/getting_started/wordpress-topology-step-1.png)](../../images/getting_started/wordpress-topology-step-1.png)
 
 ## Step 2 : The BlockStorage
 
@@ -48,7 +48,7 @@ Now, drag and drop a **BlockStorage** into the view. Select it by click and then
 
 In these properties tab view, set also the *size* value to 1 (GB by default).
 
-[![Compute, BlockStorage](../../images/developer_guide/wordpress-topology-step-2.png)](../../images/developer_guide/wordpress-topology-step-2.png)
+[![Compute, BlockStorage](../../images/getting_started/wordpress-topology-step-2.png)](../../images/getting_started/wordpress-topology-step-2.png)
 
 ## Step 3 : Apache, MySQL, PHP
 
@@ -56,7 +56,7 @@ Then, drag and drop a **MySQL**, a **PHP** and an **Apache** onto the **Compute*
 
 For the **PHP** node, check the *two options* to install the PHP module in *Apache* and the PHP module for *MySQL*.
 
-[![Compute, BlockStorage, Apache, MySQL, PHP](../../images/developer_guide/wordpress-topology-step-3.png)](../../images/developer_guide/wordpress-topology-step-3.png)
+[![Compute, BlockStorage, Apache, MySQL, PHP](../../images/getting_started/wordpress-topology-step-3.png)](../../images/getting_started/wordpress-topology-step-3.png)
 
 ## Step 4 : The Website
 
@@ -64,7 +64,7 @@ The last component to add is the **WebSite**. Add it to the view and create *Web
 
 On the property, set the URL of the last zip of Wordpress.
 
-[![Compute, BlockStorage, Apache, MySQL, PHP, Website](../../images/developer_guide/wordpress-topology-step-4.png)](../../images/developer_guide/wordpress-topology-step-4.png)
+[![Compute, BlockStorage, Apache, MySQL, PHP, Website](../../images/getting_started/wordpress-topology-step-4.png)](../../images/getting_started/wordpress-topology-step-4.png)
 
 # Deployment
 
