@@ -23,7 +23,7 @@ Used version for this tutorial : [WebSite WD02](https://github.com/alien4cloud/s
 {: .table .table-bordered}
 |Property  | Usage | Comment |
 |:---------|:------------|:------------|
-|context_path  | Name of folder in /var/www to extract the zip file | *html* as default |
+|folder_to_unzip  | Name of folder to extract the zip file | */var/www/html* as default |
 |zip_url  | URL from where you download the application zip | Empty as default |
 |website_zip  | An artifact to upload your zip into cap and then unzip it in the *context_path* | Empty as default |
 
