@@ -106,6 +106,48 @@
 	},
 
 	{
+		"url": "/release_notes/0.0.15-fixed-issues.html", 
+		"section": "Release Notes", 
+		"value": "Fixed Issues",
+		"tokens": [ "Fixed","Issues"]
+	},
+
+	{
+		"url": "/release_notes/0.0.15-whats-new.html", 
+		"section": "Release Notes", 
+		"value": "What's New",
+		"tokens": [ "What's","New"]
+	},
+
+	{
+		"url": "/release_notes/0.0.15.html", 
+		"section": "Release Notes", 
+		"value": "ALIEN for Cloud 0.0.15",
+		"tokens": [ "ALIEN","for","Cloud","0.0.15"]
+	},
+
+	{
+		"url": "/release_notes/0.0.16-fixed-issues.html", 
+		"section": "Release Notes", 
+		"value": "Fixed Issues",
+		"tokens": [ "Fixed","Issues"]
+	},
+
+	{
+		"url": "/release_notes/0.0.16-whats-new.html", 
+		"section": "Release Notes", 
+		"value": "What's New",
+		"tokens": [ "What's","New"]
+	},
+
+	{
+		"url": "/release_notes/0.0.16.html", 
+		"section": "Release Notes", 
+		"value": "ALIEN for Cloud 0.0.16",
+		"tokens": [ "ALIEN","for","Cloud","0.0.16"]
+	},
+
+	{
 		"url": "/release_notes/0.0.9-fixed-issues.html", 
 		"section": "Release Notes", 
 		"value": "Fixed Issues",
@@ -190,14 +232,14 @@
 	},
 
 	{
-		"url": "/community/index.html", 
+		"url": "/index.html", 
 		"section": "", 
 		"value": "ALIEN 4 Cloud",
 		"tokens": [ "ALIEN","4","Cloud"]
 	},
 
 	{
-		"url": "/index.html", 
+		"url": "/community/index.html", 
 		"section": "", 
 		"value": "ALIEN 4 Cloud",
 		"tokens": [ "ALIEN","4","Cloud"]
@@ -208,27 +250,6 @@
 		"section": "About ALIEN 4 Cloud", 
 		"value": "About Alien4Cloud",
 		"tokens": [ "About","Alien4Cloud"]
-	},
-
-	{
-		"url": "/release_notes/index.html", 
-		"section": "Release Notes", 
-		"value": "Release Notes",
-		"tokens": [ "Release","Notes"]
-	},
-
-	{
-		"url": "/documentation/tosca_ref/index.html", 
-		"section": "Documentation", 
-		"value": "Components and TOSCA ref.",
-		"tokens": [ "Components","and","TOSCA","ref."]
-	},
-
-	{
-		"url": "/documentation/index.html", 
-		"section": "Documentation", 
-		"value": "ALIEN 4 Cloud - Documentation",
-		"tokens": [ "ALIEN","4","Cloud","","Documentation"]
 	},
 
 	{
@@ -246,10 +267,24 @@
 	},
 
 	{
-		"url": "/getting_started/index.html", 
-		"section": "Getting Started", 
-		"value": "Getting Started",
-		"tokens": [ "Getting","Started"]
+		"url": "/documentation/index.html", 
+		"section": "Documentation", 
+		"value": "ALIEN 4 Cloud - Documentation",
+		"tokens": [ "ALIEN","4","Cloud","","Documentation"]
+	},
+
+	{
+		"url": "/documentation/tosca_ref/index.html", 
+		"section": "Documentation", 
+		"value": "Components and TOSCA ref.",
+		"tokens": [ "Components","and","TOSCA","ref."]
+	},
+
+	{
+		"url": "/release_notes/index.html", 
+		"section": "Release Notes", 
+		"value": "Release Notes",
+		"tokens": [ "Release","Notes"]
 	},
 
 	{
@@ -257,6 +292,13 @@
 		"section": "", 
 		"value": "Roadmap",
 		"tokens": [ "Roadmap"]
+	},
+
+	{
+		"url": "/getting_started/index.html", 
+		"section": "Getting Started", 
+		"value": "Getting Started",
+		"tokens": [ "Getting","Started"]
 	},
 
 	{
