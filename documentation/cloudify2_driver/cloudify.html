@@ -108,7 +108,7 @@ $(document).ready(function () {
                 <h1 style="margin-top: 0px;">Customizing Cloudify</h1>
                 <p>Before everything, you need a running instance of Cloudify. The instance can be launched wherever you want, but make sure to have access to the REST API’s URL, which will be needed later on.</p>
 
-<h3 id="setup">SETUP</h3>
+<h3 id="setup">Setup</h3>
 
 <ol>
   <li>Make sure you have installed a Java JDK 1.6 or higher and set your JAVA_HOME properly. The recommended version is <a href="http://www.oracle.com/technetwork/java/javase/downloads/java-archive-downloads-javase7-521261.html#jdk-7u45-oth-JPR" title="JDK7u45 Download">JDK 7u45</a></li>
@@ -148,6 +148,10 @@ chmod +x <span class="k">${</span><span class="nv">WORKING_HOME_DIRECTORY</span>
 <p>Typing <code>http://management_ip:8081/events/test</code> in a web browser should display the message : <code>is running</code></p>
 
 <p>Now that you have a <em>JAVA_HOME</em> set and a customized running instance of Cloudify, you can move to the next step, <a href="install_config.html" title="install and configure">how to install and configure the driver</a>.</p>
+
+<div class="note warning">
+<p>If you want to use the provider’s blockStorage feature, in addition to the <a href="http://getcloudify.org/guide/2.7/developing/storage.html" title="cloudify storage">storage configuration</a> of you cloud, you must make sure to have the property <code>privileged true</code> in all of your compute templates’ definitions.</p>
+</div>
 
 <!-- Links -->
 
