@@ -8,7 +8,7 @@ node_name: cloudify_2_blockstorage_custom
 weight: 200
 ---
 
-Some times you might need to provide your own way to manage the storage. This is for example if you have a custom way to create, attach, format and mount it. For that, you can provide every node of type `tosca.nodes.BlockStorage` with the `lifcycle` operation **`create`** and **`configure`**.
+Some times you might need to provide your own way to manage the storage lifecycle. This is for example if you have a custom way to create, attach, format, mount it. For that, you can provide every node of type `tosca.nodes.BlockStorage` with the `lifcycle` operation **`create`** and **`configure`**. And for the destroy process, you'll use the **`delete`** operation.
 
 {% highlight yaml %}
 alien.test.nodes.UbuntuBlockStorage:
@@ -26,6 +26,11 @@ alien.test.nodes.UbuntuBlockStorage:
 	        implementation_artifact:
 	          artifact_type: tosca.artifacts.GroovyScript
 	          artifact_ref: "scripts/formatMount.groovy"
+          delete:
+             implementation_artifact:
+              artifact_type: tosca.artifacts.GroovyScript
+              artifact_ref: "scripts/unmountDelete.groovy"
+
   [...]
 {% endhighlight %}
 
@@ -112,4 +117,38 @@ denew AntBuilder().sequential {
 
 //return the mounted path name
 return storagePath
+{% endhighlight %}
+
+
+## Unmount and delete ##
+Provide your custom way to **unmount** and/or **delete** the storage in the **`delete`** TOSCA lifecycle's operation. 
+
+### Arguments ###
+
+{: .table .table-bordered}
+| Argument | Access | Description |
+|:---------|:-------|:------------|
+| *volumeId*  | `args[0]` |  if provided, the Id of the volume to attach. This is never null. |
+| *device*  | `args[0]` |  device name on which the volume is attached. |
+
+### Return ###
+No need to return anything for this script.  
+
+
+### Example ###
+
+{% highlight groovy %}
+import org.cloudifysource.utilitydomain.context.ServiceContextFactory
+
+def context = ServiceContextFactory.getServiceContext()
+
+//getting args
+def volumeId = args[0]
+def device = args[1]
+
+println "Storage volume: volumeId <${volumeId}>, device <${device}>"
+println "deletable-unmountDelete.groovy: unmounting storage volume... "
+context.storage.unmount(device)
+println "deletable-unmountDelete.groovy: detaching storage volume... "
+context.storage.detachVolume(volumeId) 
 {% endhighlight %}
