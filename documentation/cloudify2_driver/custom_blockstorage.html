@@ -106,7 +106,7 @@ $(document).ready(function () {
               <div id="content" class="col-md-9">
             
                 <h1 style="margin-top: 0px;">Customised Blockstorage</h1>
-                <p>Some times you might need to provide your own way to manage the storage. This is for example if you have a custom way to create, attach, format and mount it. For that, you can provide every node of type <code>tosca.nodes.BlockStorage</code> with the <code>lifcycle</code> operation <strong><code>create</code></strong> and <strong><code>configure</code></strong>.</p>
+                <p>Some times you might need to provide your own way to manage the storage lifecycle. This is for example if you have a custom way to create, attach, format, mount it. For that, you can provide every node of type <code>tosca.nodes.BlockStorage</code> with the <code>lifcycle</code> operation <strong><code>create</code></strong> and <strong><code>configure</code></strong>. And for the destroy process, you’ll use the <strong><code>delete</code></strong> operation.</p>
 
 <div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">alien.test.nodes.UbuntuBlockStorage</span><span class="p-Indicator">:</span>
 <span class="err">	</span><span class="l-Scalar-Plain">derived_from</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.nodes.BlockStorage</span>
@@ -123,6 +123,11 @@ $(document).ready(function () {
 <span class="err">	</span>        <span class="l-Scalar-Plain">implementation_artifact</span><span class="p-Indicator">:</span>
 <span class="err">	</span>          <span class="l-Scalar-Plain">artifact_type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.artifacts.GroovyScript</span>
 <span class="err">	</span>          <span class="l-Scalar-Plain">artifact_ref</span><span class="p-Indicator">:</span> <span class="s">&quot;scripts/formatMount.groovy&quot;</span>
+          <span class="l-Scalar-Plain">delete</span><span class="p-Indicator">:</span>
+             <span class="l-Scalar-Plain">implementation_artifact</span><span class="p-Indicator">:</span>
+              <span class="l-Scalar-Plain">artifact_type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.artifacts.GroovyScript</span>
+              <span class="l-Scalar-Plain">artifact_ref</span><span class="p-Indicator">:</span> <span class="s">&quot;scripts/unmountDelete.groovy&quot;</span>
+
   <span class="p-Indicator">[</span><span class="nv">...</span><span class="p-Indicator">]</span></code></pre></div>
 
 <h2 id="create-and-attach">Create and attach</h2>
@@ -236,6 +241,51 @@ $(document).ready(function () {
 <span class="c1">//return the mounted path name</span>
 <span class="k">return</span> <span class="n">storagePath</span></code></pre></div>
 
+<h2 id="unmount-and-delete">Unmount and delete</h2>
+<p>Provide your custom way to <strong>unmount</strong> and/or <strong>delete</strong> the storage in the <strong><code>delete</code></strong> TOSCA lifecycle’s operation. </p>
+
+<h3 id="arguments-2">Arguments</h3>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Argument</th>
+      <th style="text-align: left">Access</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><em>volumeId</em></td>
+      <td style="text-align: left"><code>args[0]</code></td>
+      <td style="text-align: left">if provided, the Id of the volume to attach. This is never null.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><em>device</em></td>
+      <td style="text-align: left"><code>args[0]</code></td>
+      <td style="text-align: left">device name on which the volume is attached.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-2">Return</h3>
+<p>No need to return anything for this script.  </p>
+
+<h3 id="example-2">Example</h3>
+
+<div class="highlight"><pre><code class="language-groovy" data-lang="groovy"><span class="kn">import</span> <span class="nn">org.cloudifysource.utilitydomain.context.ServiceContextFactory</span>
+
+<span class="kt">def</span> <span class="n">context</span> <span class="o">=</span> <span class="n">ServiceContextFactory</span><span class="o">.</span><span class="na">getServiceContext</span><span class="o">()</span>
+
+<span class="c1">//getting args</span>
+<span class="kt">def</span> <span class="n">volumeId</span> <span class="o">=</span> <span class="n">args</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span>
+<span class="kt">def</span> <span class="n">device</span> <span class="o">=</span> <span class="n">args</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span>
+
+<span class="n">println</span> <span class="s2">&quot;Storage volume: volumeId &lt;${volumeId}&gt;, device &lt;${device}&gt;&quot;</span>
+<span class="n">println</span> <span class="s2">&quot;deletable-unmountDelete.groovy: unmounting storage volume... &quot;</span>
+<span class="n">context</span><span class="o">.</span><span class="na">storage</span><span class="o">.</span><span class="na">unmount</span><span class="o">(</span><span class="n">device</span><span class="o">)</span>
+<span class="n">println</span> <span class="s2">&quot;deletable-unmountDelete.groovy: detaching storage volume... &quot;</span>
+<span class="n">context</span><span class="o">.</span><span class="na">storage</span><span class="o">.</span><span class="na">detachVolume</span><span class="o">(</span><span class="n">volumeId</span><span class="o">)</span></code></pre></div>
 
               </div>
             </div>
