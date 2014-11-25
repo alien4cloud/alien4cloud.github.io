@@ -185,8 +185,8 @@
 	{
 		"url": "/documentation/cloudify2_driver/blockstorage.html", 
 		"section": "Documentation", 
-		"value": "Blockstorage",
-		"tokens": [ "Blockstorage"]
+		"value": "Defaut Blockstorage",
+		"tokens": [ "Defaut","Blockstorage"]
 	},
 
 	{
@@ -225,6 +225,13 @@
 	},
 
 	{
+		"url": "/documentation/cloudify2_driver/custom_blockstorage.html", 
+		"section": "Documentation", 
+		"value": "Customised Blockstorage",
+		"tokens": [ "Customised","Blockstorage"]
+	},
+
+	{
 		"url": "/documentation/getting_started/getting_started.html", 
 		"section": "Documentation", 
 		"value": "Getting started",
@@ -253,10 +260,10 @@
 	},
 
 	{
-		"url": "/documentation/cloudify2_driver/index.html", 
+		"url": "/documentation/index.html", 
 		"section": "Documentation", 
-		"value": "Cloudify 2 PaaS Provider",
-		"tokens": [ "Cloudify","2","PaaS","Provider"]
+		"value": "ALIEN 4 Cloud - Documentation",
+		"tokens": [ "ALIEN","4","Cloud","","Documentation"]
 	},
 
 	{
@@ -267,10 +274,17 @@
 	},
 
 	{
-		"url": "/documentation/index.html", 
+		"url": "/documentation/cloudify2_driver/index.html", 
 		"section": "Documentation", 
-		"value": "ALIEN 4 Cloud - Documentation",
-		"tokens": [ "ALIEN","4","Cloud","","Documentation"]
+		"value": "Cloudify 2 PaaS Provider",
+		"tokens": [ "Cloudify","2","PaaS","Provider"]
+	},
+
+	{
+		"url": "/getting_started/index.html", 
+		"section": "Getting Started", 
+		"value": "Getting Started",
+		"tokens": [ "Getting","Started"]
 	},
 
 	{
@@ -292,13 +306,6 @@
 		"section": "", 
 		"value": "Roadmap",
 		"tokens": [ "Roadmap"]
-	},
-
-	{
-		"url": "/getting_started/index.html", 
-		"section": "Getting Started", 
-		"value": "Getting Started",
-		"tokens": [ "Getting","Started"]
 	},
 
 	{
@@ -467,6 +474,13 @@
 		"section": "Documentation", 
 		"value": "Tests with jenkins plugin",
 		"tokens": [ "Tests","with","jenkins","plugin"]
+	},
+
+	{
+		"url": "/documentation/cloudify2_driver/storage.html", 
+		"section": "Documentation", 
+		"value": "Storage volumes",
+		"tokens": [ "Storage","volumes"]
 	},
 
 	{

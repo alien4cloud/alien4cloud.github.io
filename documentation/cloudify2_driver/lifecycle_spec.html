@@ -131,11 +131,30 @@ The events supported are:</p>
   </tbody>
 </table>
 
+<h4 id="example">Example:</h4>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">interfaces</span><span class="p-Indicator">:</span>
+  <span class="p-Indicator">[</span><span class="nv">...</span><span class="p-Indicator">]</span>
+    <span class="l-Scalar-Plain">fastconnect.cloudify.extensions</span><span class="p-Indicator">:</span>
+<span class="err">	</span><span class="-Error">  </span><span class="l-Scalar-Plain">operations</span><span class="p-Indicator">:</span>
+<span class="err">	</span>    <span class="l-Scalar-Plain">start_detection</span><span class="p-Indicator">:</span>
+<span class="err">	</span>      <span class="l-Scalar-Plain">implementation_artifact</span><span class="p-Indicator">:</span>
+<span class="err">	</span>        <span class="l-Scalar-Plain">artifact_type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.artifacts.GroovyScript</span>
+<span class="err">	</span>        <span class="l-Scalar-Plain">artifact_ref</span><span class="p-Indicator">:</span> <span class="s">&quot;scripts/tomcat_startDetection.groovy&quot;</span>
+<span class="err">	</span>    <span class="l-Scalar-Plain">stop_detection</span><span class="p-Indicator">:</span>
+<span class="err">	</span>      <span class="l-Scalar-Plain">implementation_artifact</span><span class="p-Indicator">:</span>
+<span class="err">	</span>        <span class="l-Scalar-Plain">artifact_type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.artifacts.GroovyScript</span>
+<span class="err">	</span>        <span class="l-Scalar-Plain">artifact_ref</span><span class="p-Indicator">:</span> <span class="s">&quot;scripts/tomcat_stopDetection.groovy&quot;</span>
+<span class="err">	</span>    <span class="l-Scalar-Plain">locator</span><span class="p-Indicator">:</span>
+<span class="err">	</span>      <span class="l-Scalar-Plain">implementation_artifact</span><span class="p-Indicator">:</span>
+<span class="err">	</span>        <span class="l-Scalar-Plain">artifact_type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.artifacts.GroovyScript</span>
+<span class="err">	</span>        <span class="l-Scalar-Plain">artifact_ref</span><span class="p-Indicator">:</span> <span class="s">&quot;scripts/alien_tomcat_locator.groovy&quot;</span></code></pre></div>
+
 <h3 id="startdetection">StartDetection</h3>
 <p>You can provide a start detection routine, and it should be written in a groovy file, and must return a boolean: True if the routine ended well, and false if not.<br />
 The routine will be executed as a Cloudify closure, in the service descriptor file. Therefore, as stated in the Cloudify documentation, you shouldn’t use the <strong><em>ServiceContextFactory</em></strong> class to get the service context. The context has been injected automatically so that you can directly use it via the variable <strong><em>context</em></strong>.</p>
 
-<h4 id="example">Example:</h4>
+<h4 id="example-1">Example:</h4>
 
 <div class="highlight"><pre><code class="language-groovy" data-lang="groovy"><span class="kt">def</span> <span class="n">config</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ConfigSlurper</span><span class="o">().</span><span class="na">parse</span><span class="o">(</span><span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s2">&quot;${context.serviceDirectory}/scripts/tomcat-service.properties&quot;</span><span class="o">).</span><span class="na">toURL</span><span class="o">())</span>
 <span class="kt">def</span> <span class="n">result</span> <span class="o">=</span> <span class="n">ServiceUtils</span><span class="o">.</span><span class="na">arePortsOccupied</span><span class="o">([</span><span class="n">config</span><span class="o">.</span><span class="na">port</span><span class="o">,</span> <span class="n">config</span><span class="o">.</span><span class="na">ajpPort</span><span class="o">])</span>
@@ -148,7 +167,7 @@ The routine will be executed as a Cloudify closure, in the service descriptor fi
 <h3 id="stopdetection">StopDetection</h3>
 <p>Similar to the case of start detection, written in a groovy file, the stopDetection routine will be executed as a closure must and return a boolean value.</p>
 
-<h4 id="example-1">Example:</h4>
+<h4 id="example-2">Example:</h4>
 
 <div class="highlight"><pre><code class="language-groovy" data-lang="groovy"><span class="kt">def</span> <span class="n">config</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ConfigSlurper</span><span class="o">().</span><span class="na">parse</span><span class="o">(</span><span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s2">&quot;${context.serviceDirectory}/scripts/tomcat-service.properties&quot;</span><span class="o">).</span><span class="na">toURL</span><span class="o">())</span>
 <span class="kt">def</span> <span class="n">result</span> <span class="o">=</span> <span class="n">ServiceUtils</span><span class="o">.</span><span class="na">arePortsFree</span><span class="o">([</span><span class="n">config</span><span class="o">.</span><span class="na">port</span><span class="o">,</span> <span class="n">config</span><span class="o">.</span><span class="na">ajpPort</span><span class="o">])</span>
@@ -158,7 +177,7 @@ The routine will be executed as a Cloudify closure, in the service descriptor fi
 <p>The locator allows you to specify the proccesses that Cloudify should monitor to determine if the application is stopped, and therefore perform some actions for the failover.
 Written in a groovy file, the locator will be executed as a closure, and must return a list of processes Pids to monitor.</p>
 
-<h4 id="example-2">Example:</h4>
+<h4 id="example-3">Example:</h4>
 
 <div class="highlight"><pre><code class="language-groovy" data-lang="groovy"><span class="kn">import</span> <span class="nn">org.cloudifysource.dsl.utils.ServiceUtils</span>
 

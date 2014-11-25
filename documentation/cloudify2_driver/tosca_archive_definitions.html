@@ -202,26 +202,6 @@ For example, we can define an artifact of type <strong><code>fastconnect.artifac
 
 <p>See <a href="lifecycle_spec.html" title="Cloudify lifecycle specifics">Cloudify specifics</a>  about them.</p>
 
-<h4 id="example-1">Example:</h4>
-
-<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">interfaces</span><span class="p-Indicator">:</span>
-  <span class="p-Indicator">[</span><span class="nv">...</span><span class="p-Indicator">]</span>
-    <span class="l-Scalar-Plain">fastconnect.cloudify.extensions</span><span class="p-Indicator">:</span>
-<span class="err">	</span><span class="-Error">  </span><span class="l-Scalar-Plain">operations</span><span class="p-Indicator">:</span>
-<span class="err">	</span>    <span class="l-Scalar-Plain">start_detection</span><span class="p-Indicator">:</span>
-<span class="err">	</span>      <span class="l-Scalar-Plain">implementation_artifact</span><span class="p-Indicator">:</span>
-<span class="err">	</span>        <span class="l-Scalar-Plain">artifact_type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.artifacts.GroovyScript</span>
-<span class="err">	</span>        <span class="l-Scalar-Plain">artifact_ref</span><span class="p-Indicator">:</span> <span class="s">&quot;scripts/tomcat_startDetection.groovy&quot;</span>
-<span class="err">	</span>    <span class="l-Scalar-Plain">stop_detection</span><span class="p-Indicator">:</span>
-<span class="err">	</span>      <span class="l-Scalar-Plain">implementation_artifact</span><span class="p-Indicator">:</span>
-<span class="err">	</span>        <span class="l-Scalar-Plain">artifact_type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.artifacts.GroovyScript</span>
-<span class="err">	</span>        <span class="l-Scalar-Plain">artifact_ref</span><span class="p-Indicator">:</span> <span class="s">&quot;scripts/tomcat_stopDetection.groovy&quot;</span>
-<span class="err">	</span>    <span class="l-Scalar-Plain">locator</span><span class="p-Indicator">:</span>
-<span class="err">	</span>      <span class="l-Scalar-Plain">implementation_artifact</span><span class="p-Indicator">:</span>
-<span class="err">	</span>        <span class="l-Scalar-Plain">artifact_type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.artifacts.GroovyScript</span>
-<span class="err">	</span>        <span class="l-Scalar-Plain">artifact_ref</span><span class="p-Indicator">:</span> <span class="s">&quot;scripts/alien_tomcat_locator.groovy&quot;</span></code></pre></div>
-
-
               </div>
             </div>
           </div><!-- /container -->

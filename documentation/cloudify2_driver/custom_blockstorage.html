@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    <meta charset="utf-8">
+    <title>Customised Blockstorage</title>
+    <meta property="st:info" content="section:'Documentation'"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../css/docs.css">
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/syntax.css">
+    <link rel="stylesheet" href="../../css/note.css">
+</head>
+
+  <body>
+    <script type="text/javascript">
+      var tocheaders = {};
+      var tocheadersz = {};
+    </script>
+    <script type="text/javascript" src="../../js/jquery.min.js"></script>
+<script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../js/jquery.fancybox.pack.js"></script>
+
+<script type="text/javascript" src="../../js/jquery.ba-hashchange.min.js"></script>
+
+    <div id="wrapper">
+      <div id="header">
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../../index.html">
+        <img src="../../images/cloudalien.png" style="height:21px;" class="pull-left"> ALIEN 4 Cloud
+      </a>
+    </div>
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <ul class="nav navbar-nav">
+        <li>
+          <a href="../../community/">Community</a>
+        </li>
+        <li>
+          <a href="../../documentation/">Documentation</a>
+        </li>
+        <li>
+          <a href="../../developer_guide/">Contribute</a>
+        </li>
+        <li>
+          <a href="../../roadmap/">Roadmap</a>
+        </li>
+        <li>
+          <a href="../../release_notes/">Release notes</a>
+        </li>
+        <li>
+          <a id="git-icon" href="https://github.com/alien4cloud/alien4cloud.github.io" target="_blank" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Documentation's GitHub!" data-original-title="Documentation's GitHub!">
+          <i class="fa fa-code-fork fa-lg fa-rotate-90"></i>
+          </a>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <button type="button" onclick="location.href='https://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource-snapshot&g=alien4cloud&a=alien4cloud-ui&v=LATEST&p=war&c=standalone'" class="btn btn-warning navbar-btn download-button"><i class="fa fa-download"></i> latest build</button>
+        </li>
+        <li>
+          <button type="button" onclick="location.href='https://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource&g=alien4cloud&a=alien4cloud-ui&v=LATEST&p=war&c=standalone'" class="btn btn-success navbar-btn download-button"><i class="fa fa-download"></i> stable</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script>
+$('[target=_blank]').append(" <i class=\"icon-external-link\" style=\"font-size:10px\"></i>");
+
+$('#git-icon').tooltip();
+</script>
+
+      </div>
+
+      <div id="content-parent" class="content">
+        <div class="container">
+          <div class="row">
+            <div id="breadcrumbs"></div>
+            
+              <div class="col-md-3">
+                <div id="sidebar_menu" class="well tree" role="complementary">
+</div>
+
+<script type="text/javascript" src="../../js/sidebar.js"></script>
+
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION', 'cloudify_2_blockstorage_custom');
+  createBreadcrumbs('DOCUMENTATION', 'Documentation');
+});
+</script>
+
+              </div>
+              <div id="content" class="col-md-9">
+            
+                <h1 style="margin-top: 0px;">Customised Blockstorage</h1>
+                <p>Some times you might need to provide your own way to manage the storage. This is for example if you have a custom way to create, attach, format and mount it. For that, you can provide every node of type <code>tosca.nodes.BlockStorage</code> with the <code>lifcycle</code> operation <strong><code>create</code></strong> and <strong><code>configure</code></strong>.</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">alien.test.nodes.UbuntuBlockStorage</span><span class="p-Indicator">:</span>
+<span class="err">	</span><span class="l-Scalar-Plain">derived_from</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.nodes.BlockStorage</span>
+<span class="err">	</span><span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="p-Indicator">&gt;</span>
+<span class="err">	</span>  <span class="l-Scalar-Plain">A custom storage for Ubuntu OS.</span>
+<span class="err">	</span><span class="l-Scalar-Plain">interfaces</span><span class="p-Indicator">:</span>
+<span class="err">	</span>  <span class="l-Scalar-Plain">lifecycle</span><span class="p-Indicator">:</span>
+<span class="err">	</span>    <span class="l-Scalar-Plain">operations</span><span class="p-Indicator">:</span>
+<span class="err">	</span>      <span class="l-Scalar-Plain">create</span><span class="p-Indicator">:</span>
+<span class="err">	</span>        <span class="l-Scalar-Plain">implementation_artifact</span><span class="p-Indicator">:</span>
+<span class="err">	</span>          <span class="l-Scalar-Plain">artifact_type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.artifacts.GroovyScript</span>
+<span class="err">	</span>          <span class="l-Scalar-Plain">artifact_ref</span><span class="p-Indicator">:</span> <span class="s">&quot;scripts/createAttach.groovy&quot;</span>
+<span class="err">	</span>      <span class="l-Scalar-Plain">configure</span><span class="p-Indicator">:</span>
+<span class="err">	</span>        <span class="l-Scalar-Plain">implementation_artifact</span><span class="p-Indicator">:</span>
+<span class="err">	</span>          <span class="l-Scalar-Plain">artifact_type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.artifacts.GroovyScript</span>
+<span class="err">	</span>          <span class="l-Scalar-Plain">artifact_ref</span><span class="p-Indicator">:</span> <span class="s">&quot;scripts/formatMount.groovy&quot;</span>
+  <span class="p-Indicator">[</span><span class="nv">...</span><span class="p-Indicator">]</span></code></pre></div>
+
+<h2 id="create-and-attach">Create and attach</h2>
+<p>Provide your custom way to <strong>create</strong> and <strong>attach</strong> the storage to your compute in the <strong><code>create</code></strong> TOSCA lifecycle’s operation. </p>
+
+<h3 id="arguments">Arguments</h3>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Argument</th>
+      <th style="text-align: left">Access</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><em>volumeId</em></td>
+      <td style="text-align: left"><code>args[0]</code></td>
+      <td style="text-align: left">if provided, the Id of the volume to attach. This might be null</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><em>storageTemplateId</em></td>
+      <td style="text-align: left"><code>args[1]</code></td>
+      <td style="text-align: left">The Id of the storage template to use to create a volume, base on the size provided. This is never null.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return">Return</h3>
+<p>The script must return a map &lt;String –&gt; String&gt; containing the keys:  </p>
+
+<ul>
+  <li><strong>volumeId</strong>: id of the created (or provided) volume,</li>
+  <li><strong>device</strong>: device name on which the volume is attached </li>
+</ul>
+
+<h3 id="example">Example</h3>
+
+<div class="highlight"><pre><code class="language-groovy" data-lang="groovy"><span class="kn">import</span> <span class="nn">org.cloudifysource.utilitydomain.context.ServiceContextFactory</span>
+
+<span class="kt">def</span> <span class="n">context</span> <span class="o">=</span> <span class="n">ServiceContextFactory</span><span class="o">.</span><span class="na">getServiceContext</span><span class="o">()</span>
+
+<span class="c1">//getting args</span>
+<span class="kt">def</span> <span class="n">volumeId</span> <span class="o">=</span> <span class="n">args</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span>
+<span class="kt">def</span> <span class="n">storageTemplateId</span> <span class="o">=</span> <span class="n">args</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span>
+
+<span class="kt">def</span> <span class="n">device</span> <span class="o">=</span> <span class="s2">&quot;/dev/vdb&quot;</span>
+
+<span class="c1">//Creating the volume</span>
+<span class="k">if</span><span class="o">(</span><span class="n">volumeId</span> <span class="o">==</span> <span class="kc">null</span><span class="o">){</span>
+	<span class="n">volumeId</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="na">storage</span><span class="o">.</span><span class="na">createVolume</span><span class="o">(</span><span class="n">storageTemplateId</span><span class="o">)</span>
+<span class="o">}</span>
+
+<span class="c1">//attaching the volume</span>
+<span class="n">context</span><span class="o">.</span><span class="na">storage</span><span class="o">.</span><span class="na">attachVolume</span><span class="o">(</span><span class="n">volumeId</span><span class="o">,</span> <span class="n">device</span><span class="o">)</span>
+
+<span class="c1">//return the map</span>
+<span class="k">return</span> <span class="o">[</span><span class="nl">volumeId:</span> <span class="n">volumeId</span><span class="o">,</span> <span class="nl">device:</span><span class="n">device</span><span class="o">]</span></code></pre></div>
+
+<h2 id="format-and-mount">Format and mount</h2>
+<p>Provide your custom way to <strong>format</strong> and <strong>mount</strong> the storage on your compute in the <strong><code>configure</code></strong> TOSCA lifecycle’s operation. </p>
+
+<h3 id="arguments-1">Arguments</h3>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Argument</th>
+      <th style="text-align: left">Access</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><em>device</em></td>
+      <td style="text-align: left"><code>args[0]</code></td>
+      <td style="text-align: left">device name on which the volume is attached</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="return-1">Return</h3>
+<p>The script must return a string value:  </p>
+
+<ul>
+  <li><strong>storagePath</strong>: path of the directory where the device is mounted on the compute </li>
+</ul>
+
+<h3 id="example-1">Example</h3>
+
+<div class="highlight"><pre><code class="language-groovy" data-lang="groovy"><span class="kn">import</span> <span class="nn">org.cloudifysource.utilitydomain.context.ServiceContextFactory</span>
+<span class="kt">def</span> <span class="n">context</span> <span class="o">=</span> <span class="n">ServiceContextFactory</span><span class="o">.</span><span class="na">getServiceContext</span><span class="o">()</span>
+
+<span class="c1">//getting the args</span>
+<span class="kt">def</span> <span class="n">device</span> <span class="o">=</span> <span class="n">args</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span>
+
+<span class="kt">def</span> <span class="n">storagePath</span> <span class="o">=</span> <span class="s2">&quot;/mountTest&quot;</span>
+<span class="n">denew</span> <span class="nf">AntBuilder</span><span class="o">().</span><span class="na">sequential</span> <span class="o">{</span>
+  <span class="n">chmod</span><span class="o">(</span><span class="nl">dir:</span><span class="s2">&quot;${context.serviceDirectory}/scripts&quot;</span><span class="o">,</span> <span class="nl">perm:</span><span class="s2">&quot;+x&quot;</span><span class="o">,</span> <span class="nl">includes:</span><span class="s2">&quot;*.sh&quot;</span><span class="o">)</span>
+  <span class="n">exec</span><span class="o">(</span><span class="nl">executable:</span> <span class="s2">&quot;${context.serviceDirectory}/scripts/formatStorage.sh&quot;</span><span class="o">,</span><span class="nl">failonerror:</span> <span class="s2">&quot;true&quot;</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">arg</span><span class="o">(</span><span class="nl">value:</span><span class="s2">&quot;${device}&quot;</span><span class="o">)</span>			
+  <span class="o">}</span>
+  <span class="n">mkdir</span><span class="o">(</span><span class="nl">dir:</span> <span class="n">storagePath</span><span class="o">)</span>
+  <span class="n">exec</span><span class="o">(</span><span class="nl">executable:</span> <span class="s2">&quot;${context.serviceDirectory}/scripts/mountStorage.sh&quot;</span><span class="o">,</span><span class="nl">failonerror:</span> <span class="s2">&quot;true&quot;</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">arg</span><span class="o">(</span><span class="nl">value:</span><span class="s2">&quot;${device}&quot;</span><span class="o">)</span>			
+    <span class="n">arg</span><span class="o">(</span><span class="nl">value:</span><span class="s2">&quot;${storagePath}&quot;</span><span class="o">)</span>			
+  <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="c1">//return the mounted path name</span>
+<span class="k">return</span> <span class="n">storagePath</span></code></pre></div>
+
+
+              </div>
+            </div>
+          </div><!-- /container -->
+        </div>
+      </div>
+      <div class="push"></div>
+    </div>
+    <div id="footer">
+  <div class="container">
+    <p style="text-align:center;margin: 20px 0" class="text-muted credit">&copy; FastConnect SAS, 2014. Powered by <a href="http://jekyllrb.com/">Jekyll</a>.</p>
+  </div>
+</div>
+
+    <script type="text/javascript" src="../../js/post-layout.js"></script>
+  </body>
+</html>
