@@ -14,12 +14,6 @@ We know it may need to be clarified, and this will improve with time.
 
 Please note that we deliver intermediate releases in [Alien4Cloud GitHub repo](https://github.com/alien4cloud/alien4cloud){:target="_blank"}, every 2 weeks, in order to get feedback on features while still in development.
 
-# November 2014, Milestone 3, <span style="color:orange; font-family:Georgia;">In progress</span>
-* [Tosca Simple Profile wd03](https://www.oasis-open.org/apps/org/workgroup/tosca/download.php/54069/latest/TOSCA-Simple-Profile-YAML-v1.0-wd03-Rev03.docx){:target="_blank"}
-* Cloud resources configuration & pluggable matching
-* Network support
-* Block Storage improvements - handling Compute scaling policies properly
-
 # January 2015, Version 1, <span style="color:orange; font-family:Georgia;">In progress</span>
 * Tosca Simple Profile - final
 * Application Lifecycle Management

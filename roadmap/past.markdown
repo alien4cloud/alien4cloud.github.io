@@ -9,6 +9,12 @@ categories: ROADMAP
 
 You will find here details on previous releases.
 
+# November 2014, Milestone 3, <span style="color:orange; font-family:Georgia;">In progress</span>
+* [Tosca Simple Profile wd03](https://www.oasis-open.org/apps/org/workgroup/tosca/download.php/54069/latest/TOSCA-Simple-Profile-YAML-v1.0-wd03-Rev03.docx){:target="_blank"}
+* Cloud resources configuration & pluggable matching
+* Network support
+* Block Storage improvements - handling Compute scaling policies properly
+
 # September 2014, Milestone 2, <span style="color:green; font-family:Georgia;">Done</span>
 * [Tosca Simple Profile wd02](https://www.oasis-open.org/apps/org/workgroup/tosca/download.php/53845/latest/TOSCA-Simple-Profile-YAML-v1.0-wd02%20%28final%29.docx){:target="_blank"}
 * HA & Manual scalability

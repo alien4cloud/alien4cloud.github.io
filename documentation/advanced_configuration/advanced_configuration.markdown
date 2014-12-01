@@ -10,11 +10,20 @@ weight: 300
 
 {% summary %}{% endsummary %}
 
-This section details the configuration parameters for ALIEN 4 Cloud.
+Alien 4 Cloud contains a basic configuration that is good enough for test environment. However in order to move into production or in order to integrate with other systems (as LDAP for example), you need to define an advanced configuration.
 
-In the current version, ALIEN 4 Cloud is configured using two yaml file that must be placed in the classpath. The main configuration file is called _alien4cloud-config.yaml_ and allows to configure several behaviors in ALIEN. The other file _elasticsearch.yml_ allows to configure the embedded ElasticSearch server (in case you wish to use ALIEN 4 Cloud using an embedded ElasticSearch server)
+In order to provide configuration to Alien 4 Cloud, you must place an Alien configuration file along-side to the Alien 4 Cloud war.
 
-A default version of both configuration files exists in the war archive.
+{% highlight bash %}
+├── alien4cloud-ui-{version}-standalone.war
+├── alien4cloud-config.yml
+├── elasticsearch.yml
+{% endhighlight %}
+
+You can find default configurations for both files in the GitHub repository:
+
+* [alien4cloud-config.yml](https://github.com/alien4cloud/alien4cloud/blob/master/alien4cloud-rest-api/src/main/resources/alien4cloud-config.yml)
+* [elasticsearch.yml](https://github.com/alien4cloud/alien4cloud/blob/master/alien4cloud-ui/src/main/resources/elasticsearch.yml)
 
 # Elastic Search configuration
 
@@ -28,7 +37,7 @@ Common configuration allows you to configure the name of the elasticsearch clust
 We recommend that you don't change the default _prefix_max_expansions_ value.
 {% endnote %}
 
-If you wish to change one of the parameters, you should open the _calm-config.yaml_ file and go to the elasticSearch configuration section.
+If you wish to change one of the parameters, you should open the _alien4cloud-config.yml_ file and go to the elasticSearch configuration section.
 
 {% highlight yaml %}
 elasticSearch:
@@ -60,7 +69,7 @@ path:
 
 In order to configure a remote Elastic Search, you should edit the following:
 
-* In _calm-config.yaml_ file, edit the elasticSearch section and change client from false to true:
+* In _alien4cloud-config.yml_ file, edit the elasticSearch section and change client from false to true:
 
 {% highlight yaml %}
 elasticSearch:
@@ -83,7 +92,7 @@ discovery.zen.ping.unicast.hosts: localhost
 
 # Directories configuration
 
-ALIEN 4 Cloud store various files on the hard drive. Cloud Service archives, Artifacts overriden in the topologies, plugins archives etc. Directories can be configured in the _calm-config.yaml_ file.
+ALIEN 4 Cloud store various files on the hard drive. Cloud Service archives, Artifacts overriden in the topologies, plugins archives etc. Directories can be configured in the _alien4cloud-config.yml_ file.
 
 By default, ALIEN 4 Cloud stores data in the user home directory in a .calm folder.
 
@@ -104,7 +113,7 @@ directories:
 
 # Admin user initialization
 
-In case there is no admin user in it's repository, ALIEN 4 Cloud can automatically create a user with ADMIN rights. The user name and password are configured in the _calm-config.yaml_ file. Of course if an ADMIN user already exists in ALIEN then no user is created and this section is ignored.
+In case there is no admin user in it's repository, ALIEN 4 Cloud can automatically create a user with ADMIN rights. The user name and password are configured in the _alien4cloud-config.yml_ file. Of course if an ADMIN user already exists in ALIEN then no user is created and this section is ignored.
 
 {% highlight yaml %}
 # Configuration of default admin ensurer, if true it creates a default admin user if no admin can be found in the system.
@@ -119,7 +128,7 @@ users:
 
 # LDAP configuration
 
-In order to plug-in ALIEN to your LDAP repository, you must configure the ldap section of the _calm-config.yaml_ file.
+In order to plug-in ALIEN to your LDAP repository, you must configure the ldap section of the _alien4cloud-config.yml_ file.
 
 {% highlight yaml %}
 ### Ldap Configuration
