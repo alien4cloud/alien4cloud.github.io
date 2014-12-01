@@ -27,4 +27,12 @@ _Note: TOSCA Simple profile is a working draft and is not released yet to public
 
 # TOSCA in Alien 4 Cloud
 
-In Alien 4 Cloud, TOSCA can be used to define both Types (this is required) and Applications (This is optional as you can use Alien 4 Cloud editor instead). Of course if you choose to define your applications using Alien 4 Cloud's editor you will still be able to export it as a TOSCA archive for portability to other systems.
+In Alien 4 Cloud, TOSCA can be used to define both Types (catalog elements) and Applications topologies (Templates). Alien 4 Cloud tools like the topology editor allows you to create Application topologies that can be exported to Tosca Templates.
+
+{% note %}
+Alien 4 Cloud support a slightly modified version of TOSCA Simple Profile in YAML in order to add features that are specific to Alien 4 Cloud context. However we are able to load pure TOSCA compliant templates and also export topologies as pure TOSCA templates.
+{% endnote %}
+
+{% warning %}
+Export feature will be available in the next release.
+{% endwarning %}

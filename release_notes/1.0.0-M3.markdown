@@ -1,0 +1,12 @@
+---
+layout: post
+title:  ALIEN for Cloud 1.0.0-M3
+root: ../
+categories: RELEASE_NOTES
+parent: [release_note]
+node_name: 1.0.0-M3
+weight: 9993
+---
+
+
+{%children%}

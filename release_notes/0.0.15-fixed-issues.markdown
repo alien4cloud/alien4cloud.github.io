@@ -1,0 +1,28 @@
+---
+layout: post
+title:  Fixed Issues
+root: ../
+categories: RELEASE_NOTES
+parent: [release_note, 0.0.15]
+node_name: 0.0.15_fixed
+weight: 200
+---
+
+{%summary%}{%endsummary%}
+
+# Alien 4 Cloud fixed issues
+
+* ALIEN-432: Fixed an issue that prevented the ability to auto-upload some default components when Alien starts for the first time. Note that the feature is still disabled for now however.
+* ALIEN-488: Fixed an issue that caused the runtime view button in application tab not being updated on deployment.
+* ALIEN-496: Fixed a bug that prevented usage of a single cloudify manager from multiple Alien instances (useful for testing).
+
+
+# Cloudify 2 PaaS Provider fixed issues
+
+* ALIEN-489: Fix an issue in the storage lifecycle: Storage is now created, attached, mounted and formatted just after the compute is created but before any other step.
+* ALIEN-496: Fixed a bug that prevented usage of a single cloudify manager from multiple Alien instances (useful for testing).
+
+
+# Tosca Components fixed issues
+
+

@@ -1,0 +1,43 @@
+---
+layout: post
+title:  What's New
+root: ../
+categories: RELEASE_NOTES
+parent: [release_note, 0.0.15]
+node_name: 0.0.15_new
+weight: 100
+---
+
+{%summary%}{%endsummary%}
+
+# Alien 4 Cloud new features
+
+* ALIEN-458: Resources selected for matching are now persisted.
+* ALIEN-460: Deployment configuration and resource matching is now persisted and used in the PaaS Provider plugins.
+* ALIEN-462: PaaS Providers can now update their configurations when the list of cloud resources (compute templates) changes.
+
+# Alien 4 Cloud feature improvements
+
+* ALIEN-459: Cloud specific properties are now persisted in the deployment setup and users do not have to add them at every deployment.
+
+
+# Cloudify 2 PaaS Provider new features
+
+* ALIEN-461: Cloudify 2 driver now leverage resources matching from the UI.
+
+# Cloudify 2 PaaS Provider feature improvements
+
+* ALIEN-446: Volume Ids when a block storage is created are now pushed to the application topology and displayed also on the runtime view.
+
+
+# Tosca Components new features
+
+* ALIEN-465: Created a sample to deploy an Apache server.
+* ALIEN-466: Created a sample to deploy a MySQL database.
+* ALIEN-467: Created a sample to enable PHP module for Apache.
+* ALIEN-468: Created a sample to deploy PHP application on Apache.
+* ALIEN-469: Created a sample to deploy static application on Apache.
+
+# Tosca Components feature improvements
+
+

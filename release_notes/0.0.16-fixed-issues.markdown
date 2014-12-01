@@ -1,0 +1,30 @@
+---
+layout: post
+title:  Fixed Issues
+root: ../
+categories: RELEASE_NOTES
+parent: [release_note, 0.0.16]
+node_name: 0.0.16_fixed
+weight: 200
+---
+
+{%summary%}{%endsummary%}
+
+# Alien 4 Cloud fixed issues
+
+* ALIEN-346: Fixed an issue that prevented informations to be displayed to users on a cloud misconfiguration (when the cloud is enabled).
+* ALIEN-497: Fixed an issue causing the component's creation date to be set to the current date when an archive is updated.
+* ALIEN-499: Fixed an issue that prevented the ability to add a scaling policy to a type that derived from the tosca normative Compute type.
+* ALIEN-500: Fixed an issue in rights management in Application view.
+* ALIEN-503: Fixed an issue that caused target for a new relationship type not being validated when multiple elements exists in relationship's valid_targets
+* ALIEN-509: Fixed a regression that caused the plan view to appears as blank.
+
+
+# Cloudify 2 PaaS Provider fixed issues
+
+* ALIEN-494: Fixed an issue that prevented the artifacts updated from the UI (upload) to be overriding the default one in the cloudify recipe.
+
+
+# Tosca Components fixed issues
+
+

@@ -1,0 +1,36 @@
+---
+layout: post
+title:  What's New
+root: ../
+categories: RELEASE_NOTES
+parent: [release_note, 0.0.16]
+node_name: 0.0.16_new
+weight: 100
+---
+
+{%summary%}{%endsummary%}
+
+# Alien 4 Cloud new features
+
+
+# Alien 4 Cloud feature improvements
+
+* ALIEN-448: Tour feature is now available for application details view.
+* ALIEN-493: Application name is not displayed on every tab for applications. An info tab has been added to the runtime view to display cloud name and deployment id.
+* ALIEN-508: Version of the PaaS Provider is now visible in the dropdown when creating a cloud.
+
+
+# Cloudify 2 PaaS Provider new features
+
+
+# Cloudify 2 PaaS Provider feature improvements
+
+
+
+# Tosca Components new features
+
+* ALIEN-505: Create sample recipe for wordpress component.
+
+# Tosca Components feature improvements
+
+

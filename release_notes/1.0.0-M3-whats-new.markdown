@@ -1,0 +1,50 @@
+---
+layout: post
+title:  What's New
+root: ../
+categories: RELEASE_NOTES
+parent: [release_note, 1.0.0-M3]
+node_name: 1.0.0-M3_new
+weight: 100
+---
+
+{%summary%}{%endsummary%}
+
+# Alien 4 Cloud new features
+
+* ALIEN-441: In components search page, there is now an abstract filter that is enabled by default.
+* ALIEN-443: User can now access node details page from the topology view (on the node details on node search)
+* ALIEN-456: ALIEN 4 Cloud version is now displayed in the UI.
+* ALIEN-479: TOSCA support is now matching simple profile 1.0.0.wd03
+* ALIEN-483: CSAR parser is now able to support multiple TOSCA versions (starting from 1.0.0.wd03).
+* ALIEN-511: REST API to manage application environments.
+* ALIEN-527: Support a deletable BlockStorage type. This BlockStorage is deleted automatically when undeploying the application
+
+# Alien 4 Cloud feature improvements
+
+* ALIEN-436: The provider version is now displayed when admin create a new cloud.
+* ALIEN-437: The editor that allow to see scripts now doesn't allow users to type text in order to avoid confusions.
+* ALIEN-442: We now display simple names of tosca components rather than full names in search.
+* ALIEN-515: Microsoft AZURE can now be selected from the cloud types list.
+* ALIEN-534: Improves error messages (with line and column numbers) when there is issues on CSAR import.
+
+
+# Cloudify 2 PaaS Provider new features
+
+* ALIEN-510: Network nodes are now managed in Cloudify 2 driver.
+* ALIEN-516: Block Storage management now supports custom format and mount.
+* ALIEN-527: Support a deletable BlockStorage type. This BlockStorage is deleted automatically when undeploying the application
+* ALIEN-530: Ability for the user to provide a custom script for deleting the Block-storage
+
+# Cloudify 2 PaaS Provider feature improvements
+
+
+
+# Tosca Components new features
+
+* ALIEN-527: Support a deletable BlockStorage type. This BlockStorage is deleted automatically when undeploying the application
+
+# Tosca Components feature improvements
+
+* ALIEN-526: Impove our Samples recipes to add support of Ubuntu 12.04
+
