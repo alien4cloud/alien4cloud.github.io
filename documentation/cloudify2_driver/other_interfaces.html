@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="../../css/docs.css">
     <link rel="stylesheet" href="../../css/main.css">
     <link rel="stylesheet" href="../../css/syntax.css">
+    <link rel="stylesheet" href="../../css/note.css">
 </head>
 
   <body>
@@ -50,6 +51,9 @@
         </li>
         <li>
           <a href="../../developer_guide/">Contribute</a>
+        </li>
+        <li>
+          <a href="../../roadmap/">Roadmap</a>
         </li>
         <li>
           <a href="../../release_notes/">Release notes</a>
@@ -125,7 +129,7 @@ $(document).ready(function () {
           <span class="l-Scalar-Plain">artifact_type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.artifacts.GroovyScript</span>
           <span class="l-Scalar-Plain">artifact_ref</span><span class="p-Indicator">:</span> <span class="s">&quot;scripts/updateWarFile.groovy&quot;</span></code></pre></div>
 
-<div class="bs-callout bs-callout-danger">
+<div class="note warning">
 <p>Note that the driver only supports groovy scripts for this interface’s operations.<br />
 Also, you must be aware that the routine will be executed as a goovy closure. Therefore, you shouldn’t use the <strong><em>ServiceContextFactory</em></strong> class to get the service context, it has been injected automatically so that you can directly use it via the variable <strong><em>context</em></strong>.</p>
 </div>

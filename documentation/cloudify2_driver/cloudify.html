@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="../../css/docs.css">
     <link rel="stylesheet" href="../../css/main.css">
     <link rel="stylesheet" href="../../css/syntax.css">
+    <link rel="stylesheet" href="../../css/note.css">
 </head>
 
   <body>
@@ -50,6 +51,9 @@
         </li>
         <li>
           <a href="../../developer_guide/">Contribute</a>
+        </li>
+        <li>
+          <a href="../../roadmap/">Roadmap</a>
         </li>
         <li>
           <a href="../../release_notes/">Release notes</a>
@@ -104,7 +108,7 @@ $(document).ready(function () {
                 <h1 style="margin-top: 0px;">Customizing Cloudify</h1>
                 <p>Before everything, you need a running instance of Cloudify. The instance can be launched wherever you want, but make sure to have access to the REST API’s URL, which will be needed later on.</p>
 
-<h3 id="setup">SETUP</h3>
+<h3 id="setup">Setup</h3>
 
 <ol>
   <li>Make sure you have installed a Java JDK 1.6 or higher and set your JAVA_HOME properly. The recommended version is <a href="http://www.oracle.com/technetwork/java/javase/downloads/java-archive-downloads-javase7-521261.html#jdk-7u45-oth-JPR" title="JDK7u45 Download">JDK 7u45</a></li>
@@ -114,10 +118,10 @@ $(document).ready(function () {
 <p>Now for this driver to work, you have to customize your instaled Cloudify.</p>
 
 <h3 id="custom-events">Custom events</h3>
-<p>In order to handle Cloudify lifecycle events, and to emit our own events, we need the <strong>cloudify-custom-events</strong>. This provides a REST API and uses the Gigaspace management space to store the events.</p>
+<p>In order to handle Cloudify lifecycle events, and to emit our own events, we need the <strong>alien4cloud-cloudify-custom-events</strong>. This provides a REST API and uses the Gigaspace management space to store the events.</p>
 
 <ol>
-  <li><a href="../files/cloudify2_driver/cloudify-events-rest-distrib.zip" title="Cloudify custom events archive">Download the zip archive</a> and unzip it into the <code>upload</code> folder of your prefered cloud driver (e.g. <code>gigaspaces-cloudify-2.7.0-ga/clouds/openstack-havana/upload</code>)</li>
+  <li><a href="../../files/cloudify2_driver/alien4cloud-cloudify-events-assembly-0.0.2-SNAPSHOT-distrib.zip">Download the zip archive</a> and unzip it into the <code>upload</code> folder of your prefered cloud driver (e.g. <code>gigaspaces-cloudify-2.7.0-ga/clouds/openstack-havana/upload</code>)</li>
   <li>In the same <code>upload</code> folder, edit the <code>bootstrap-management.sh</code>:</li>
 </ol>
 
@@ -144,6 +148,10 @@ chmod +x <span class="k">${</span><span class="nv">WORKING_HOME_DIRECTORY</span>
 <p>Typing <code>http://management_ip:8081/events/test</code> in a web browser should display the message : <code>is running</code></p>
 
 <p>Now that you have a <em>JAVA_HOME</em> set and a customized running instance of Cloudify, you can move to the next step, <a href="install_config.html" title="install and configure">how to install and configure the driver</a>.</p>
+
+<div class="note warning">
+<p>If you want to use the provider’s blockStorage feature, in addition to the <a href="http://getcloudify.org/guide/2.7/developing/storage.html" title="cloudify storage">storage configuration</a> of you cloud, you must make sure to have the property <code>privileged true</code> in all of your compute templates’ definitions.</p>
+</div>
 
 <!-- Links -->
 

@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="../../css/docs.css">
     <link rel="stylesheet" href="../../css/main.css">
     <link rel="stylesheet" href="../../css/syntax.css">
+    <link rel="stylesheet" href="../../css/note.css">
 </head>
 
   <body>
@@ -50,6 +51,9 @@
         </li>
         <li>
           <a href="../../developer_guide/">Contribute</a>
+        </li>
+        <li>
+          <a href="../../roadmap/">Roadmap</a>
         </li>
         <li>
           <a href="../../release_notes/">Release notes</a>
@@ -102,7 +106,7 @@ $(document).ready(function () {
               <div id="content" class="col-md-9">
             
                 <h1 style="margin-top: 0px;">TOSCA definitions</h1>
-                <p>The Cloudify driver for ALEIN 4 CLOUD allows you to deploy applications on several clouds, using Cloudify 2.7.  Thus you have to <a href="../components_guide/tosca_concepts_types_custom_nodes.html" title="TOSCA custom node">design TOSCA archives containing nodes</a>, and upload them in your ALIEN instance. If your archive contains deployable nodes, you might have to add to their definitions some artifacts and interfaces.</p>
+                <p>The Cloudify driver for ALEIN 4 CLOUD allows you to deploy applications on several clouds, using Cloudify 2.7.  Thus you have to <a href="../tosca_ref/tosca_concepts_types_custom_nodes.html" title="TOSCA custom node">design TOSCA archives containing nodes</a>, and upload them in your ALIEN instance. If your archive contains deployable nodes, you might have to add to their definitions some artifacts and interfaces.</p>
 
 <h2 id="your-scripts-folder">Your scripts folder</h2>
 <p>If you provides some relative files in your node, you might want then to be copied along with the node when deploying it. You can define an artifact in your TOSCA definition file, referencing the folder containing those files.<br />
@@ -179,7 +183,7 @@ For example, we can define an artifact of type <strong><code>fastconnect.artifac
           <span class="l-Scalar-Plain">artifact_type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.artifacts.ShellScript</span>
           <span class="l-Scalar-Plain">artifact_ref</span><span class="p-Indicator">:</span> <span class="s">&quot;scripts/tomcat_stop.sh&quot;</span></code></pre></div>
 
-<div class="bs-callout bs-callout-warning">
+<div class="note">
 <p>The <em>artifact_type</em>s <strong><code>tosca.artifacts.GroovyScript</code></strong>, <strong><code>tosca.artifacts.ShellScript</code></strong> and <strong><code>fastconnect.artifacts.ResourceDirectory</code></strong> are provided by ALIEN in a base package. For the lifecycle interface, you can use both Groovy and Shell scripts. Just make sure to define the proper artifact type.</p>
 </div>
 
@@ -192,31 +196,11 @@ For example, we can define an artifact of type <strong><code>fastconnect.artifac
   <li><strong><code>locator</code></strong></li>
 </ul>
 
-<div class="bs-callout bs-callout-danger">
+<div class="note warning">
 <p>Note that the driver only supports groovy scripts for this interface’s operations .</p>
 </div>
 
 <p>See <a href="lifecycle_spec.html" title="Cloudify lifecycle specifics">Cloudify specifics</a>  about them.</p>
-
-<h4 id="example-1">Example:</h4>
-
-<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">interfaces</span><span class="p-Indicator">:</span>
-  <span class="p-Indicator">[</span><span class="nv">...</span><span class="p-Indicator">]</span>
-    <span class="l-Scalar-Plain">fastconnect.cloudify.extensions</span><span class="p-Indicator">:</span>
-<span class="err">	</span><span class="-Error">  </span><span class="l-Scalar-Plain">operations</span><span class="p-Indicator">:</span>
-<span class="err">	</span>    <span class="l-Scalar-Plain">start_detection</span><span class="p-Indicator">:</span>
-<span class="err">	</span>      <span class="l-Scalar-Plain">implementation_artifact</span><span class="p-Indicator">:</span>
-<span class="err">	</span>        <span class="l-Scalar-Plain">artifact_type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.artifacts.GroovyScript</span>
-<span class="err">	</span>        <span class="l-Scalar-Plain">artifact_ref</span><span class="p-Indicator">:</span> <span class="s">&quot;scripts/tomcat_startDetection.groovy&quot;</span>
-<span class="err">	</span>    <span class="l-Scalar-Plain">stop_detection</span><span class="p-Indicator">:</span>
-<span class="err">	</span>      <span class="l-Scalar-Plain">implementation_artifact</span><span class="p-Indicator">:</span>
-<span class="err">	</span>        <span class="l-Scalar-Plain">artifact_type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.artifacts.GroovyScript</span>
-<span class="err">	</span>        <span class="l-Scalar-Plain">artifact_ref</span><span class="p-Indicator">:</span> <span class="s">&quot;scripts/tomcat_stopDetection.groovy&quot;</span>
-<span class="err">	</span>    <span class="l-Scalar-Plain">locator</span><span class="p-Indicator">:</span>
-<span class="err">	</span>      <span class="l-Scalar-Plain">implementation_artifact</span><span class="p-Indicator">:</span>
-<span class="err">	</span>        <span class="l-Scalar-Plain">artifact_type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.artifacts.GroovyScript</span>
-<span class="err">	</span>        <span class="l-Scalar-Plain">artifact_ref</span><span class="p-Indicator">:</span> <span class="s">&quot;scripts/alien_tomcat_locator.groovy&quot;</span></code></pre></div>
-
 
               </div>
             </div>

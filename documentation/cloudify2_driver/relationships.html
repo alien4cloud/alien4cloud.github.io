@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="../../css/docs.css">
     <link rel="stylesheet" href="../../css/main.css">
     <link rel="stylesheet" href="../../css/syntax.css">
+    <link rel="stylesheet" href="../../css/note.css">
 </head>
 
   <body>
@@ -50,6 +51,9 @@
         </li>
         <li>
           <a href="../../developer_guide/">Contribute</a>
+        </li>
+        <li>
+          <a href="../../roadmap/">Roadmap</a>
         </li>
         <li>
           <a href="../../release_notes/">Release notes</a>
@@ -109,7 +113,7 @@ We will have for illustrations purposes a topology consisting of one Compute nod
 
 <h2 id="toscainterfacesrelationshipconfigure-interface"><code>tosca.interfaces.relationship.Configure</code> interface</h2>
 <p>When defining a relationship type, you can provide implementation scripts.<br />
-See <a href="http://alien4cloud.github.io/components_guide/tosca_concepts_types_normative_relationships.html">Relationships documentation</a> for more details.  </p>
+See <a href="/documentation/tosca_ref/tosca_concepts_types_normative_relationships.html">Relationships documentation</a> for more details.  </p>
 
 <h3 id="arguments-of-your-script">Arguments of your script</h3>
 <p>The driver collects some data and pass them into the scripts when triggering execution. You can access these via the <code>args</code> variable, which is an array, usually of String data. The followings are the data sent:</p>
@@ -215,7 +219,7 @@ See <a href="http://alien4cloud.github.io/components_guide/tosca_concepts_types_
 <span class="kt">def</span> <span class="n">contextPath</span> <span class="o">=</span> <span class="o">(!</span><span class="n">config</span><span class="o">[</span><span class="n">sourceNodeTemplateId</span><span class="o">]</span> <span class="o">||</span> <span class="o">!</span><span class="n">config</span><span class="o">[</span><span class="n">nodeId</span><span class="o">].</span><span class="na">contextPath</span> <span class="o">)</span> <span class="o">?</span> <span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="n">warRelativePath</span><span class="o">).</span><span class="na">name</span><span class="o">.</span><span class="na">split</span><span class="o">(</span><span class="s2">&quot;\\.&quot;</span><span class="o">)[</span><span class="mi">0</span><span class="o">]</span> <span class="o">:</span> <span class="n">config</span><span class="o">[</span><span class="n">nodeId</span><span class="o">].</span><span class="na">contextPath</span>
 <span class="n">context</span><span class="o">.</span><span class="na">attributes</span><span class="o">.</span><span class="na">thisInstance</span><span class="o">[</span><span class="n">sourceNodeTemplateId</span><span class="o">]</span> <span class="o">=</span> <span class="o">[</span><span class="nl">url:</span><span class="o">(</span><span class="n">warAbsolutePath</span><span class="o">),</span> <span class="nl">contextPath:</span><span class="o">(</span><span class="n">contextPath</span><span class="o">)]</span></code></pre></div>
 
-<div class="bs-callout bs-callout-warning">
+<div class="note">
 <p>Note the usage of <strong><code>${context.serviceDirectory}/../${warRelativePath}</code></strong> as the path given (<em>warRelativePath</em>) is a relative one.</p>
 </div>
 

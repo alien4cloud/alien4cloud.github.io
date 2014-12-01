@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="../../css/docs.css">
     <link rel="stylesheet" href="../../css/main.css">
     <link rel="stylesheet" href="../../css/syntax.css">
+    <link rel="stylesheet" href="../../css/note.css">
 </head>
 
   <body>
@@ -50,6 +51,9 @@
         </li>
         <li>
           <a href="../../developer_guide/">Contribute</a>
+        </li>
+        <li>
+          <a href="../../roadmap/">Roadmap</a>
         </li>
         <li>
           <a href="../../release_notes/">Release notes</a>
@@ -107,11 +111,20 @@ $(document).ready(function () {
 <div class="row"><ul class="nav nav-pills" id="summarypanel"></ul></div>
 <hr style="margin-top:5px; margin-bottom:5px;" />
 
-<p>This section details the configuration parameters for ALIEN 4 Cloud.</p>
+<p>Alien 4 Cloud contains a basic configuration that is good enough for test environment. However in order to move into production or in order to integrate with other systems (as LDAP for example), you need to define an advanced configuration.</p>
 
-<p>In the current version, ALIEN 4 Cloud is configured using two yaml file that must be placed in the classpath. The main configuration file is called <em>alien4cloud-config.yaml</em> and allows to configure several behaviors in ALIEN. The other file <em>elasticsearch.yml</em> allows to configure the embedded ElasticSearch server (in case you wish to use ALIEN 4 Cloud using an embedded ElasticSearch server)</p>
+<p>In order to provide configuration to Alien 4 Cloud, you must place an Alien configuration file along-side to the Alien 4 Cloud war.</p>
 
-<p>A default version of both configuration files exists in the war archive.</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">├── alien4cloud-ui-<span class="o">{</span>version<span class="o">}</span>-standalone.war
+├── alien4cloud-config.yml
+├── elasticsearch.yml</code></pre></div>
+
+<p>You can find default configurations for both files in the GitHub repository:</p>
+
+<ul>
+  <li><a href="https://github.com/alien4cloud/alien4cloud/blob/master/alien4cloud-rest-api/src/main/resources/alien4cloud-config.yml">alien4cloud-config.yml</a></li>
+  <li><a href="https://github.com/alien4cloud/alien4cloud/blob/master/alien4cloud-ui/src/main/resources/elasticsearch.yml">elasticsearch.yml</a></li>
+</ul>
 
 <h1 id="elastic-search-configuration">Elastic Search configuration</h1>
 
@@ -121,11 +134,11 @@ $(document).ready(function () {
 
 <p>Common configuration allows you to configure the name of the elasticsearch cluster (<em>clusterName</em>), as well as the <em>prefix_max_expansions</em> (performance setting used for prefix queries).</p>
 
-<div class="bs-callout bs-callout-warning">
+<div class="note">
 <p>We recommend that you don’t change the default <em>prefix_max_expansions</em> value.</p>
 </div>
 
-<p>If you wish to change one of the parameters, you should open the <em>calm-config.yaml</em> file and go to the elasticSearch configuration section.</p>
+<p>If you wish to change one of the parameters, you should open the <em>alien4cloud-config.yml</em> file and go to the elasticSearch configuration section.</p>
 
 <div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">elasticSearch</span><span class="p-Indicator">:</span>
   <span class="l-Scalar-Plain">clusterName</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">escluster</span>
@@ -134,7 +147,7 @@ $(document).ready(function () {
   <span class="l-Scalar-Plain">resetData</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">false</span>
   <span class="l-Scalar-Plain">prefix_max_expansions</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">10</span></code></pre></div>
 
-<div class="bs-callout bs-callout-info">
+<div class="note info">
 <p>local and resetData should be left to false.</p>
 </div>
 
@@ -154,7 +167,7 @@ $(document).ready(function () {
 <p>In order to configure a remote Elastic Search, you should edit the following:</p>
 
 <ul>
-  <li>In <em>calm-config.yaml</em> file, edit the elasticSearch section and change client from false to true:</li>
+  <li>In <em>alien4cloud-config.yml</em> file, edit the elasticSearch section and change client from false to true:</li>
 </ul>
 
 <div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">elasticSearch</span><span class="p-Indicator">:</span>
@@ -176,7 +189,7 @@ $(document).ready(function () {
 
 <h1 id="directories-configuration">Directories configuration</h1>
 
-<p>ALIEN 4 Cloud store various files on the hard drive. Cloud Service archives, Artifacts overriden in the topologies, plugins archives etc. Directories can be configured in the <em>calm-config.yaml</em> file.</p>
+<p>ALIEN 4 Cloud store various files on the hard drive. Cloud Service archives, Artifacts overriden in the topologies, plugins archives etc. Directories can be configured in the <em>alien4cloud-config.yml</em> file.</p>
 
 <p>By default, ALIEN 4 Cloud stores data in the user home directory in a .calm folder.</p>
 
@@ -195,7 +208,7 @@ $(document).ready(function () {
 
 <h1 id="admin-user-initialization">Admin user initialization</h1>
 
-<p>In case there is no admin user in it’s repository, ALIEN 4 Cloud can automatically create a user with ADMIN rights. The user name and password are configured in the <em>calm-config.yaml</em> file. Of course if an ADMIN user already exists in ALIEN then no user is created and this section is ignored.</p>
+<p>In case there is no admin user in it’s repository, ALIEN 4 Cloud can automatically create a user with ADMIN rights. The user name and password are configured in the <em>alien4cloud-config.yml</em> file. Of course if an ADMIN user already exists in ALIEN then no user is created and this section is ignored.</p>
 
 <div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="c1"># Configuration of default admin ensurer, if true it creates a default admin user if no admin can be found in the system.</span>
 <span class="l-Scalar-Plain">users</span><span class="p-Indicator">:</span>
@@ -208,7 +221,7 @@ $(document).ready(function () {
 
 <h1 id="ldap-configuration">LDAP configuration</h1>
 
-<p>In order to plug-in ALIEN to your LDAP repository, you must configure the ldap section of the <em>calm-config.yaml</em> file.</p>
+<p>In order to plug-in ALIEN to your LDAP repository, you must configure the ldap section of the <em>alien4cloud-config.yml</em> file.</p>
 
 <div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="c1">### Ldap Configuration</span>
 <span class="l-Scalar-Plain">ldap</span><span class="p-Indicator">:</span>

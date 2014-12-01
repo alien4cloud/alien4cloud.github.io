@@ -46,6 +46,24 @@ var node, children;
     
   
     
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
       var parent = sidebarTree["DOCUMENTATION"];
       
         
@@ -139,12 +157,29 @@ var node, children;
           }
           parent = nextParent;
         
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'cloudify_2_blockstorage') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'cloudify_2_blockstorage',
+              'title': '-',
+              'children': []
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
 
         children = parent.children;
         // try to find the node if exists already
         node = null;
         for (var i=0; i<children.length; i++) {
-          if(children[i].name === 'cloudify_2_blockstorage') {
+          if(children[i].name === 'cloudify_2_blockstorage_default') {
             node = children[i];
           }
         }
@@ -156,10 +191,10 @@ var node, children;
         }
       
 
-      node.name = "cloudify_2_blockstorage";
-      node.title = "Blockstorage";
+      node.name = "cloudify_2_blockstorage_default";
+      node.title = "Defaut Blockstorage";
       node.url = "documentation/cloudify2_driver/blockstorage.html";
-      node.weight =  20000;
+      node.weight =  100;
       node.root = "../../";
     
   
@@ -268,6 +303,147 @@ var node, children;
       node.url = "documentation/tosca_ref/calm_components_repo_uploadarchive.html";
       node.weight =  200;
       node.root = "../../";
+    
+  
+    
+      var parent = sidebarTree["DOCUMENTATION"];
+      
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'tosca_ref_root') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'tosca_ref_root',
+              'title': '-',
+              'children': []
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'tosca_ref') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'tosca_ref',
+              'title': '-',
+              'children': []
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'tosca_ref_definitions') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'tosca_ref_definitions',
+              'title': '-',
+              'children': []
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+
+        children = parent.children;
+        // try to find the node if exists already
+        node = null;
+        for (var i=0; i<children.length; i++) {
+          if(children[i].name === 'tosca_ref_capability_definition') {
+            node = children[i];
+          }
+        }
+        if(node === null) {
+          node = {
+            'children': []
+          };
+          children.push(node);
+        }
+      
+
+      node.name = "tosca_ref_capability_definition";
+      node.title = "Capability definition";
+      node.url = "documentation/tosca_ref/tosca_grammar/capability_definition.html";
+      node.weight =  100;
+      node.root = "../../../";
+    
+  
+    
+      var parent = sidebarTree["DOCUMENTATION"];
+      
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'tosca_ref_root') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'tosca_ref_root',
+              'title': '-',
+              'children': []
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'tosca_ref') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'tosca_ref',
+              'title': '-',
+              'children': []
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+
+        children = parent.children;
+        // try to find the node if exists already
+        node = null;
+        for (var i=0; i<children.length; i++) {
+          if(children[i].name === 'tosca_ref_csar') {
+            node = children[i];
+          }
+        }
+        if(node === null) {
+          node = {
+            'children': []
+          };
+          children.push(node);
+        }
+      
+
+      node.name = "tosca_ref_csar";
+      node.title = "Cloud Service Archive";
+      node.url = "documentation/tosca_ref/tosca_grammar/cloud_service_archive.html";
+      node.weight =  100;
+      node.root = "../../../";
     
   
     
@@ -443,6 +619,130 @@ var node, children;
       var parent = sidebarTree["DOCUMENTATION"];
       
         
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'cloudify_2_index') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'cloudify_2_index',
+              'title': '-',
+              'children': []
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'cloudify_2_blockstorage') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'cloudify_2_blockstorage',
+              'title': '-',
+              'children': []
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+
+        children = parent.children;
+        // try to find the node if exists already
+        node = null;
+        for (var i=0; i<children.length; i++) {
+          if(children[i].name === 'cloudify_2_blockstorage_custom') {
+            node = children[i];
+          }
+        }
+        if(node === null) {
+          node = {
+            'children': []
+          };
+          children.push(node);
+        }
+      
+
+      node.name = "cloudify_2_blockstorage_custom";
+      node.title = "Customised Blockstorage";
+      node.url = "documentation/cloudify2_driver/custom_blockstorage.html";
+      node.weight =  200;
+      node.root = "../../";
+    
+  
+    
+      var parent = sidebarTree["DOCUMENTATION"];
+      
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'tosca_ref_root') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'tosca_ref_root',
+              'title': '-',
+              'children': []
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'tosca_ref') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'tosca_ref',
+              'title': '-',
+              'children': []
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+
+        children = parent.children;
+        // try to find the node if exists already
+        node = null;
+        for (var i=0; i<children.length; i++) {
+          if(children[i].name === 'tosca_ref_definitions') {
+            node = children[i];
+          }
+        }
+        if(node === null) {
+          node = {
+            'children': []
+          };
+          children.push(node);
+        }
+      
+
+      node.name = "tosca_ref_definitions";
+      node.title = "Definitions document";
+      node.url = "documentation/tosca_ref/tosca_grammar/definitions_file.html";
+      node.weight =  200;
+      node.root = "../../../";
+    
+  
+    
+      var parent = sidebarTree["DOCUMENTATION"];
+      
+        
 
         children = parent.children;
         // try to find the node if exists already
@@ -472,8 +772,6 @@ var node, children;
     
   
     
-  
-    
       var parent = sidebarTree["DOCUMENTATION"];
       
         node = parent;
@@ -484,6 +782,8 @@ var node, children;
       node.url = "documentation/index.html";
       node.weight =  0;
       node.root = "../";
+    
+  
     
   
     
@@ -515,10 +815,6 @@ var node, children;
     
   
     
-  
-    
-  
-    
       var parent = sidebarTree["DOCUMENTATION"];
       
         
@@ -544,6 +840,12 @@ var node, children;
       node.url = "documentation/tosca_ref/index.html";
       node.weight =  100;
       node.root = "../../";
+    
+  
+    
+  
+    
+  
     
   
     
@@ -593,6 +895,423 @@ var node, children;
       node.root = "../../";
     
   
+    
+  
+    
+      var parent = sidebarTree["DOCUMENTATION"];
+      
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'getting_started') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'getting_started',
+              'title': '-',
+              'children': []
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+
+        children = parent.children;
+        // try to find the node if exists already
+        node = null;
+        for (var i=0; i<children.length; i++) {
+          if(children[i].name === 'lamp_stack') {
+            node = children[i];
+          }
+        }
+        if(node === null) {
+          node = {
+            'children': []
+          };
+          children.push(node);
+        }
+      
+
+      node.name = "lamp_stack";
+      node.title = "LAMP Stack Tutorial";
+      node.url = "documentation/getting_started/lamp_stack.html";
+      node.weight =  400;
+      node.root = "../../";
+    
+  
+    
+      var parent = sidebarTree["DOCUMENTATION"];
+      
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'getting_started') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'getting_started',
+              'title': '-',
+              'children': []
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'lamp_stack') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'lamp_stack',
+              'title': '-',
+              'children': []
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+
+        children = parent.children;
+        // try to find the node if exists already
+        node = null;
+        for (var i=0; i<children.length; i++) {
+          if(children[i].name === 'lamp_stack_apache') {
+            node = children[i];
+          }
+        }
+        if(node === null) {
+          node = {
+            'children': []
+          };
+          children.push(node);
+        }
+      
+
+      node.name = "lamp_stack_apache";
+      node.title = "Component Apache HTTP";
+      node.url = "documentation/getting_started/lamp_stack_apache.html";
+      node.weight =  200;
+      node.root = "../../";
+    
+  
+    
+      var parent = sidebarTree["DOCUMENTATION"];
+      
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'getting_started') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'getting_started',
+              'title': '-',
+              'children': []
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'lamp_stack') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'lamp_stack',
+              'title': '-',
+              'children': []
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+
+        children = parent.children;
+        // try to find the node if exists already
+        node = null;
+        for (var i=0; i<children.length; i++) {
+          if(children[i].name === 'lamp_stack_application') {
+            node = children[i];
+          }
+        }
+        if(node === null) {
+          node = {
+            'children': []
+          };
+          children.push(node);
+        }
+      
+
+      node.name = "lamp_stack_application";
+      node.title = "Stack Application Topology";
+      node.url = "documentation/getting_started/lamp_stack_application.html";
+      node.weight =  800;
+      node.root = "../../";
+    
+  
+    
+      var parent = sidebarTree["DOCUMENTATION"];
+      
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'getting_started') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'getting_started',
+              'title': '-',
+              'children': []
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'lamp_stack') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'lamp_stack',
+              'title': '-',
+              'children': []
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+
+        children = parent.children;
+        // try to find the node if exists already
+        node = null;
+        for (var i=0; i<children.length; i++) {
+          if(children[i].name === 'lamp_stack_blockstorage') {
+            node = children[i];
+          }
+        }
+        if(node === null) {
+          node = {
+            'children': []
+          };
+          children.push(node);
+        }
+      
+
+      node.name = "lamp_stack_blockstorage";
+      node.title = "Component BlockStorage";
+      node.url = "documentation/getting_started/lamp_stack_blockstorage.html";
+      node.weight =  200;
+      node.root = "../../";
+    
+  
+    
+      var parent = sidebarTree["DOCUMENTATION"];
+      
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'getting_started') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'getting_started',
+              'title': '-',
+              'children': []
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'lamp_stack') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'lamp_stack',
+              'title': '-',
+              'children': []
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+
+        children = parent.children;
+        // try to find the node if exists already
+        node = null;
+        for (var i=0; i<children.length; i++) {
+          if(children[i].name === 'lamp_stack_mysql') {
+            node = children[i];
+          }
+        }
+        if(node === null) {
+          node = {
+            'children': []
+          };
+          children.push(node);
+        }
+      
+
+      node.name = "lamp_stack_mysql";
+      node.title = "Component MySQL";
+      node.url = "documentation/getting_started/lamp_stack_mysql.html";
+      node.weight =  200;
+      node.root = "../../";
+    
+  
+    
+      var parent = sidebarTree["DOCUMENTATION"];
+      
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'getting_started') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'getting_started',
+              'title': '-',
+              'children': []
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'lamp_stack') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'lamp_stack',
+              'title': '-',
+              'children': []
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+
+        children = parent.children;
+        // try to find the node if exists already
+        node = null;
+        for (var i=0; i<children.length; i++) {
+          if(children[i].name === 'lamp_stack_php') {
+            node = children[i];
+          }
+        }
+        if(node === null) {
+          node = {
+            'children': []
+          };
+          children.push(node);
+        }
+      
+
+      node.name = "lamp_stack_php";
+      node.title = "Component PHP";
+      node.url = "documentation/getting_started/lamp_stack_php.html";
+      node.weight =  200;
+      node.root = "../../";
+    
+  
+    
+      var parent = sidebarTree["DOCUMENTATION"];
+      
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'getting_started') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'getting_started',
+              'title': '-',
+              'children': []
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'lamp_stack') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'lamp_stack',
+              'title': '-',
+              'children': []
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+
+        children = parent.children;
+        // try to find the node if exists already
+        node = null;
+        for (var i=0; i<children.length; i++) {
+          if(children[i].name === 'lamp_stack_website') {
+            node = children[i];
+          }
+        }
+        if(node === null) {
+          node = {
+            'children': []
+          };
+          children.push(node);
+        }
+      
+
+      node.name = "lamp_stack_website";
+      node.title = "Component WebSite";
+      node.url = "documentation/getting_started/lamp_stack_website.html";
+      node.weight =  200;
+      node.root = "../../";
     
   
     
@@ -762,6 +1481,8 @@ var node, children;
       node.url = "documentation/cloudify2_driver/other_interfaces.html";
       node.weight =  300;
       node.root = "../../";
+    
+  
     
   
     
@@ -954,7 +1675,7 @@ var node, children;
         // try to find the node if exists already
         node = null;
         for (var i=0; i<children.length; i++) {
-          if(children[i].name === 'component_test_jenkins') {
+          if(children[i].name === 'component_test') {
             node = children[i];
           }
         }
@@ -966,10 +1687,10 @@ var node, children;
         }
       
 
-      node.name = "component_test_jenkins";
-      node.title = "Tests with jenkins plugin";
-      node.url = "documentation/getting_started/snapshot-topology-test-jenkins-plugin.html";
-      node.weight =  400;
+      node.name = "component_test";
+      node.title = "Testing custom components";
+      node.url = "documentation/getting_started/snapshot_topology_test.html";
+      node.weight =  300;
       node.root = "../../";
     
   
@@ -1016,7 +1737,7 @@ var node, children;
         // try to find the node if exists already
         node = null;
         for (var i=0; i<children.length; i++) {
-          if(children[i].name === 'component_test') {
+          if(children[i].name === 'component_test_jenkins') {
             node = children[i];
           }
         }
@@ -1028,10 +1749,55 @@ var node, children;
         }
       
 
-      node.name = "component_test";
-      node.title = "Testing custom components";
-      node.url = "documentation/getting_started/snapshot-topology-test.html";
-      node.weight =  300;
+      node.name = "component_test_jenkins";
+      node.title = "Tests with jenkins plugin";
+      node.url = "documentation/getting_started/snapshot_topology_test_jenkins_plugin.html";
+      node.weight =  400;
+      node.root = "../../";
+    
+  
+    
+      var parent = sidebarTree["DOCUMENTATION"];
+      
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'cloudify_2_index') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'cloudify_2_index',
+              'title': '-',
+              'children': []
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+
+        children = parent.children;
+        // try to find the node if exists already
+        node = null;
+        for (var i=0; i<children.length; i++) {
+          if(children[i].name === 'cloudify_2_blockstorage') {
+            node = children[i];
+          }
+        }
+        if(node === null) {
+          node = {
+            'children': []
+          };
+          children.push(node);
+        }
+      
+
+      node.name = "cloudify_2_blockstorage";
+      node.title = "Storage volumes";
+      node.url = "documentation/cloudify2_driver/storage.html";
+      node.weight =  30000;
       node.root = "../../";
     
   
@@ -1184,68 +1950,6 @@ var node, children;
       node.title = "TOSCA concepts";
       node.url = "documentation/tosca_ref/tosca_concepts.html";
       node.weight =  400;
-      node.root = "../../";
-    
-  
-    
-      var parent = sidebarTree["DOCUMENTATION"];
-      
-        
-          var nextParent = null;
-          children = parent.children;
-          for (var i=0; i<children.length; i++) {
-            if(children[i].name === 'tosca_ref_root') {
-              nextParent = children[i];
-            }
-          }
-          if(nextParent === null) {
-            nextParent = {
-              'name': 'tosca_ref_root',
-              'title': '-',
-              'children': []
-            };
-            parent.children.push(nextParent);
-          }
-          parent = nextParent;
-        
-          var nextParent = null;
-          children = parent.children;
-          for (var i=0; i<children.length; i++) {
-            if(children[i].name === 'tosca_ref') {
-              nextParent = children[i];
-            }
-          }
-          if(nextParent === null) {
-            nextParent = {
-              'name': 'tosca_ref',
-              'title': '-',
-              'children': []
-            };
-            parent.children.push(nextParent);
-          }
-          parent = nextParent;
-        
-
-        children = parent.children;
-        // try to find the node if exists already
-        node = null;
-        for (var i=0; i<children.length; i++) {
-          if(children[i].name === 'tosca_ref_csar') {
-            node = children[i];
-          }
-        }
-        if(node === null) {
-          node = {
-            'children': []
-          };
-          children.push(node);
-        }
-      
-
-      node.name = "tosca_ref_csar";
-      node.title = "Cloud Service Archive";
-      node.url = "documentation/tosca_ref/tosca_concepts_csar.html";
-      node.weight =  100;
       node.root = "../../";
     
   
@@ -2574,6 +3278,28 @@ var node, children;
     
   
     
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
       var parent = sidebarTree["ALIEN_ABOUT"];
       
         
@@ -2595,10 +3321,32 @@ var node, children;
       
 
       node.name = "";
-      node.title = "About ALIEN for Cloud";
+      node.title = "About Alien4Cloud";
       node.url = "alien_about/index.html";
       node.weight =  0;
       node.root = "../";
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
     
   
     
@@ -3557,6 +4305,344 @@ var node, children;
           var nextParent = null;
           children = parent.children;
           for (var i=0; i<children.length; i++) {
+            if(children[i].name === '0.0.15') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': '0.0.15',
+              'title': '-',
+              'children': []
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+
+        children = parent.children;
+        // try to find the node if exists already
+        node = null;
+        for (var i=0; i<children.length; i++) {
+          if(children[i].name === '0.0.15_fixed') {
+            node = children[i];
+          }
+        }
+        if(node === null) {
+          node = {
+            'children': []
+          };
+          children.push(node);
+        }
+      
+
+      node.name = "0.0.15_fixed";
+      node.title = "Fixed Issues";
+      node.url = "release_notes/0.0.15-fixed-issues.html";
+      node.weight =  200;
+      node.root = "../";
+    
+  
+    
+      var parent = sidebarTree["RELEASE_NOTES"];
+      
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'release_note') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'release_note',
+              'title': '-',
+              'children': []
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === '0.0.15') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': '0.0.15',
+              'title': '-',
+              'children': []
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+
+        children = parent.children;
+        // try to find the node if exists already
+        node = null;
+        for (var i=0; i<children.length; i++) {
+          if(children[i].name === '0.0.15_new') {
+            node = children[i];
+          }
+        }
+        if(node === null) {
+          node = {
+            'children': []
+          };
+          children.push(node);
+        }
+      
+
+      node.name = "0.0.15_new";
+      node.title = "What's New";
+      node.url = "release_notes/0.0.15-whats-new.html";
+      node.weight =  100;
+      node.root = "../";
+    
+  
+    
+      var parent = sidebarTree["RELEASE_NOTES"];
+      
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'release_note') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'release_note',
+              'title': '-',
+              'children': []
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+
+        children = parent.children;
+        // try to find the node if exists already
+        node = null;
+        for (var i=0; i<children.length; i++) {
+          if(children[i].name === '0.0.15') {
+            node = children[i];
+          }
+        }
+        if(node === null) {
+          node = {
+            'children': []
+          };
+          children.push(node);
+        }
+      
+
+      node.name = "0.0.15";
+      node.title = "ALIEN for Cloud 0.0.15";
+      node.url = "release_notes/0.0.15.html";
+      node.weight =  9995;
+      node.root = "../";
+    
+  
+    
+      var parent = sidebarTree["RELEASE_NOTES"];
+      
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'release_note') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'release_note',
+              'title': '-',
+              'children': []
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === '0.0.16') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': '0.0.16',
+              'title': '-',
+              'children': []
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+
+        children = parent.children;
+        // try to find the node if exists already
+        node = null;
+        for (var i=0; i<children.length; i++) {
+          if(children[i].name === '0.0.16_fixed') {
+            node = children[i];
+          }
+        }
+        if(node === null) {
+          node = {
+            'children': []
+          };
+          children.push(node);
+        }
+      
+
+      node.name = "0.0.16_fixed";
+      node.title = "Fixed Issues";
+      node.url = "release_notes/0.0.16-fixed-issues.html";
+      node.weight =  200;
+      node.root = "../";
+    
+  
+    
+      var parent = sidebarTree["RELEASE_NOTES"];
+      
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'release_note') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'release_note',
+              'title': '-',
+              'children': []
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === '0.0.16') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': '0.0.16',
+              'title': '-',
+              'children': []
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+
+        children = parent.children;
+        // try to find the node if exists already
+        node = null;
+        for (var i=0; i<children.length; i++) {
+          if(children[i].name === '0.0.16_new') {
+            node = children[i];
+          }
+        }
+        if(node === null) {
+          node = {
+            'children': []
+          };
+          children.push(node);
+        }
+      
+
+      node.name = "0.0.16_new";
+      node.title = "What's New";
+      node.url = "release_notes/0.0.16-whats-new.html";
+      node.weight =  100;
+      node.root = "../";
+    
+  
+    
+      var parent = sidebarTree["RELEASE_NOTES"];
+      
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'release_note') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'release_note',
+              'title': '-',
+              'children': []
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+
+        children = parent.children;
+        // try to find the node if exists already
+        node = null;
+        for (var i=0; i<children.length; i++) {
+          if(children[i].name === '0.0.16') {
+            node = children[i];
+          }
+        }
+        if(node === null) {
+          node = {
+            'children': []
+          };
+          children.push(node);
+        }
+      
+
+      node.name = "0.0.16";
+      node.title = "ALIEN for Cloud 0.0.16";
+      node.url = "release_notes/0.0.16.html";
+      node.weight =  9994;
+      node.root = "../";
+    
+  
+    
+      var parent = sidebarTree["RELEASE_NOTES"];
+      
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'release_note') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'release_note',
+              'title': '-',
+              'children': []
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
             if(children[i].name === '0.0.9') {
               nextParent = children[i];
             }
@@ -3703,6 +4789,197 @@ var node, children;
     
   
     
+      var parent = sidebarTree["RELEASE_NOTES"];
+      
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'release_note') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'release_note',
+              'title': '-',
+              'children': []
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === '1.0.0-M3') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': '1.0.0-M3',
+              'title': '-',
+              'children': []
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+
+        children = parent.children;
+        // try to find the node if exists already
+        node = null;
+        for (var i=0; i<children.length; i++) {
+          if(children[i].name === '1.0.0-M3_fixed') {
+            node = children[i];
+          }
+        }
+        if(node === null) {
+          node = {
+            'children': []
+          };
+          children.push(node);
+        }
+      
+
+      node.name = "1.0.0-M3_fixed";
+      node.title = "Fixed Issues";
+      node.url = "release_notes/1.0.0-M3-fixed-issues.html";
+      node.weight =  200;
+      node.root = "../";
+    
+  
+    
+      var parent = sidebarTree["RELEASE_NOTES"];
+      
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'release_note') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'release_note',
+              'title': '-',
+              'children': []
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === '1.0.0-M3') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': '1.0.0-M3',
+              'title': '-',
+              'children': []
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+
+        children = parent.children;
+        // try to find the node if exists already
+        node = null;
+        for (var i=0; i<children.length; i++) {
+          if(children[i].name === '1.0.0-M3_new') {
+            node = children[i];
+          }
+        }
+        if(node === null) {
+          node = {
+            'children': []
+          };
+          children.push(node);
+        }
+      
+
+      node.name = "1.0.0-M3_new";
+      node.title = "What's New";
+      node.url = "release_notes/1.0.0-M3-whats-new.html";
+      node.weight =  100;
+      node.root = "../";
+    
+  
+    
+      var parent = sidebarTree["RELEASE_NOTES"];
+      
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'release_note') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'release_note',
+              'title': '-',
+              'children': []
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+
+        children = parent.children;
+        // try to find the node if exists already
+        node = null;
+        for (var i=0; i<children.length; i++) {
+          if(children[i].name === '1.0.0-M3') {
+            node = children[i];
+          }
+        }
+        if(node === null) {
+          node = {
+            'children': []
+          };
+          children.push(node);
+        }
+      
+
+      node.name = "1.0.0-M3";
+      node.title = "ALIEN for Cloud 1.0.0-M3";
+      node.url = "release_notes/1.0.0-M3.html";
+      node.weight =  9993;
+      node.root = "../";
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
   
     
   
@@ -3750,6 +5027,10 @@ var node, children;
       node.url = "release_notes/index.html";
       node.weight =  0;
       node.root = "../";
+    
+  
+    
+  
     
   
     
@@ -3916,6 +5197,28 @@ var node, children;
     
   
     
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
       var parent = sidebarTree["DEVELOPER_GUIDE"];
       
         node = parent;
@@ -3926,6 +5229,12 @@ var node, children;
       node.url = "developer_guide/index.html";
       node.weight =  0;
       node.root = "../";
+    
+  
+    
+  
+    
+  
     
   
     
@@ -3962,6 +5271,22 @@ var node, children;
       node.url = "developer_guide/internal-architecture.html";
       node.weight =  100;
       node.root = "../";
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
     
   
     
@@ -4093,11 +5418,249 @@ var node, children;
     
   
 
+  sidebarTree["ROADMAP"] = {
+    'name': "ROADMAP",
+    'children': []
+  };
+
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      var parent = sidebarTree["ROADMAP"];
+      
+        node = parent;
+      
+
+      node.name = "index";
+      node.title = "Roadmap";
+      node.url = "roadmap/index.html";
+      node.weight =  0;
+      node.root = "../";
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      var parent = sidebarTree["ROADMAP"];
+      
+        
+
+        children = parent.children;
+        // try to find the node if exists already
+        node = null;
+        for (var i=0; i<children.length; i++) {
+          if(children[i].name === '') {
+            node = children[i];
+          }
+        }
+        if(node === null) {
+          node = {
+            'children': []
+          };
+          children.push(node);
+        }
+      
+
+      node.name = "";
+      node.title = "Previous versions";
+      node.url = "roadmap/past.html";
+      node.weight =  0;
+      node.root = "../";
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
 
 function doSort(tree) {
-  console.log(tree);
   tree.sort(function(a,b) {
-    console.log(a, b);
     return(a.weight - b.weight);
   });
   for(var i=0; i<tree.length; i++) {
@@ -4115,6 +5678,8 @@ function doSort(tree) {
   doSort(sidebarTree["RELEASE_NOTES"].children);
 
   doSort(sidebarTree["DEVELOPER_GUIDE"].children);
+
+  doSort(sidebarTree["ROADMAP"].children);
 
 
 function makeSideBar(categoryName, currentNodeName) {
@@ -4156,6 +5721,8 @@ function appendChildrenToDom(currentDomElement, tree, root) {
       var icon = document.createElement("i");
       icon.className= "fa fa-minus-square-o";
       icon.title="Collapse this branch";
+      // icon.className= "fa fa-plus-square-o";
+      // icon.title="Expand this branch";
       icon.onclick=function() {
         var children = $(this).parent('li.parent_li').find(' > ul > li');
         if (children.is(":visible")) {
@@ -4178,6 +5745,8 @@ function appendChildrenToDom(currentDomElement, tree, root) {
       li.appendChild(innerUl);
       appendChildrenToDom(innerUl, tree[i].children, root);
     }
+    // var children = $(li).find(' > ul > li');
+    // children.hide('fast');
   }
 }
 

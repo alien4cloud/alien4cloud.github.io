@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="../../css/docs.css">
     <link rel="stylesheet" href="../../css/main.css">
     <link rel="stylesheet" href="../../css/syntax.css">
+    <link rel="stylesheet" href="../../css/note.css">
 </head>
 
   <body>
@@ -50,6 +51,9 @@
         </li>
         <li>
           <a href="../../developer_guide/">Contribute</a>
+        </li>
+        <li>
+          <a href="../../roadmap/">Roadmap</a>
         </li>
         <li>
           <a href="../../release_notes/">Release notes</a>
@@ -106,16 +110,16 @@ $(document).ready(function () {
 
 <p>Alien 4 Cloud is designed so you can easily add your own components and leverage your existing scripts, puppet or chef recipes, using a simple YAML based DSL.</p>
 
-<div class="bs-callout bs-callout-danger"><p>Only shellscripts are supported in current version.</p>
-</div>
-
 <h2 id="tosca">TOSCA</h2>
 
 <p>Alien 4 Cloud is compliant with OASIS’s TOSCA standard to model it’s different components (nodes, relationships, capabilities and requirements).</p>
 
 <p>In order to define components in TOSCA you can use the XML or YAML profile (TOSCA Simple Profile). We recommend using the simple profile and thus this documentation describe only the way to configure elements using the simple profile.</p>
 
-<div class="bs-callout bs-callout-danger"><p>We currently only supports TOSCA Simple Profile in YAML.</p>
+<div class="note warning"><p>Alien 4 Cloud only supports TOSCA Simple Profile in YAML.</p>
+</div>
+
+<div class="note info"><p>Latest supported version is TOSCA Simple Profile in YAML working draft 03.</p>
 </div>
 
               </div>

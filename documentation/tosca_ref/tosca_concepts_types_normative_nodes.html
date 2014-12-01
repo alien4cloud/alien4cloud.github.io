@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="../../css/docs.css">
     <link rel="stylesheet" href="../../css/main.css">
     <link rel="stylesheet" href="../../css/syntax.css">
+    <link rel="stylesheet" href="../../css/note.css">
 </head>
 
   <body>
@@ -50,6 +51,9 @@
         </li>
         <li>
           <a href="../../developer_guide/">Contribute</a>
+        </li>
+        <li>
+          <a href="../../roadmap/">Roadmap</a>
         </li>
         <li>
           <a href="../../release_notes/">Release notes</a>
@@ -102,7 +106,7 @@ $(document).ready(function () {
               <div id="content" class="col-md-9">
             
                 <h1 style="margin-top: 0px;">Nodes</h1>
-                <div class="bs-callout bs-callout-danger"><p>The nodes on this page follow the exact TOSCA normative types except the added tags section that we use in ALIEN to specify additional tags on a components. One of them being a specific tag that we use to package the icon that will be used in the UI for a given component.</p>
+                <div class="note warning"><p>The nodes on this page follow the exact TOSCA normative types except the added tags section that we use in ALIEN to specify additional tags on a components. One of them being a specific tag that we use to package the icon that will be used in the UI for a given component.</p>
 </div>
 
 <p class="lead">Normatives node types in TOSCA</p>
@@ -114,7 +118,7 @@ $(document).ready(function () {
 
 <p>This is the Root TOSCA Node Type that other nodes extends from. This allows to have a consistent set of features for modeling and management (e.g., consistent definitions for requirements, capabilities and lifecycle interfaces).</p>
 
-<div class="bs-callout bs-callout-info"><p>All Node Type definitions SHOULD extends from the TOSCA Root Node Type. This allows your custom nodes to be included in the default lifecycle generation (based on the root node lifecycle interface).</p>
+<div class="note info"><p>All Node Type definitions SHOULD extends from the TOSCA Root Node Type. This allows your custom nodes to be included in the default lifecycle generation (based on the root node lifecycle interface).</p>
 </div>
 
 <h2 id="interfaces">Interfaces</h2>
