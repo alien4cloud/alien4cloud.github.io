@@ -71,24 +71,3 @@ Note that the driver only supports groovy scripts for this interface's operation
 {% endwarning %}
 
 See [Cloudify specifics](lifecycle_spec.html "Cloudify lifecycle specifics")  about them.
-
-#### Example: ####
-
-{% highlight yaml %}
-interfaces:
-  [...]
-    fastconnect.cloudify.extensions:
-	  operations:
-	    start_detection:
-	      implementation_artifact:
-	        artifact_type: tosca.artifacts.GroovyScript
-	        artifact_ref: "scripts/tomcat_startDetection.groovy"
-	    stop_detection:
-	      implementation_artifact:
-	        artifact_type: tosca.artifacts.GroovyScript
-	        artifact_ref: "scripts/tomcat_stopDetection.groovy"
-	    locator:
-	      implementation_artifact:
-	        artifact_type: tosca.artifacts.GroovyScript
-	        artifact_ref: "scripts/alien_tomcat_locator.groovy"
-{% endhighlight %}

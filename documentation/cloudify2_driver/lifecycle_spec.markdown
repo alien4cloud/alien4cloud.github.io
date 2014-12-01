@@ -20,6 +20,28 @@ The events supported are:
 | *lifecycle*  | `Install`, `Start`, `Stop`|
 | *fastconnect.cloudify.extensions* | `StartDetection`, `StopDetection`, `locator`|
 
+#### Example: ####
+
+{% highlight yaml %}
+interfaces:
+  [...]
+    fastconnect.cloudify.extensions:
+	  operations:
+	    start_detection:
+	      implementation_artifact:
+	        artifact_type: tosca.artifacts.GroovyScript
+	        artifact_ref: "scripts/tomcat_startDetection.groovy"
+	    stop_detection:
+	      implementation_artifact:
+	        artifact_type: tosca.artifacts.GroovyScript
+	        artifact_ref: "scripts/tomcat_stopDetection.groovy"
+	    locator:
+	      implementation_artifact:
+	        artifact_type: tosca.artifacts.GroovyScript
+	        artifact_ref: "scripts/alien_tomcat_locator.groovy"
+{% endhighlight %}
+
+
 ### StartDetection ###
 You can provide a start detection routine, and it should be written in a groovy file, and must return a boolean: True if the routine ended well, and false if not.  
 The routine will be executed as a Cloudify closure, in the service descriptor file. Therefore, as stated in the Cloudify documentation, you shouldn't use the ***ServiceContextFactory*** class to get the service context. The context has been injected automatically so that you can directly use it via the variable ***context***.
