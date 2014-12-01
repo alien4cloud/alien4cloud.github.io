@@ -12,17 +12,16 @@ The Cloudify driver for ALEIN 4 CLOUD allows you to deploy applications on sever
 
 ## Your scripts folder ##
 If you provides some relative files in your node, you might want then to be copied along with the node when deploying it. You can define an artifact in your TOSCA definition file, referencing the folder containing those files.<br>
-For example, we can define an artifact of type **`fastconnect.artifacts.ResourceDirectory`** referencing the folder in which are stored the lifecycle scripts:
+For example, we can define an artifact of type **`fastconnect.artifacts.ResourceDirectory`** referencing the folder in which are stored the Standard interface's scripts:
 
 {% highlight yaml %}
 artifacts:
-  scripts:
-    artifact_type: fastconnect.artifacts.ResourceDirectory
-    artifact_ref: "scripts"
+  - scripts: scripts
+    type: tosca.artifacts.File
 {% endhighlight %}
 
-## `lifecycle` interface ##
-As its name states, the `lifecyle` interface allows you to define some lifecycle events for your node. Both Cloudify and TOSCA have this iterface in their specifications, with diferent operations names. Yet, it is possible to make a mapping from TOSCA to Cloudify lifecycle.
+## `Standard` interface ##
+As its name states, the `Standard` interface allows you to define some lifecycle events for your node. Both Cloudify and TOSCA have this iterface in their specifications, with diferent operations names. Yet, it is possible to make a mapping from TOSCA to Cloudify lifecycle.
 
 ### Operations ###
 
@@ -39,28 +38,18 @@ As its name states, the `lifecyle` interface allows you to define some lifecycle
 
 {% highlight yaml %}
 interfaces:
-  lifecycle:
-    operations:
-      create:
-        implementation_artifact:
-          artifact_type: tosca.artifacts.GroovyScript
-          artifact_ref: "scripts/tomcat_installCalm.groovy"
-      start:
-        implementation_artifact:
-          artifact_type: tosca.artifacts.GroovyScript
-          artifact_ref: "scripts/tomcat_start.groovy"
-      stop:
-        implementation_artifact:
-          artifact_type: tosca.artifacts.ShellScript
-          artifact_ref: "scripts/tomcat_stop.sh"
+  Standard:
+    create: scripts/tomcat_installCalm.groovy
+    start: scripts/tomcat_start.groovy
+    stop: scripts/tomcat_stop.sh
 {% endhighlight %}
 
 {% note %}
-The *artifact_type*s **`tosca.artifacts.GroovyScript`**, **`tosca.artifacts.ShellScript`** and **`fastconnect.artifacts.ResourceDirectory`** are provided by ALIEN in a base package. For the lifecycle interface, you can use both Groovy and Shell scripts. Just make sure to define the proper artifact type.
+The *artifact_type*s **`tosca.artifacts.GroovyScript`**, **`tosca.artifacts.ShellScript`** and **`fastconnect.artifacts.ResourceDirectory`** are provided by ALIEN in a base package. For the Standard interface, you can use both Groovy and Shell scripts.
 {% endnote %}
 
 ## `fastconnect.cloudify.extensions` interface ##
-Aside of the above operations, Cloudify also provides various lifecycle events. All of them are not mappable to a TOSCA lifecycle event. Therefore, ALIEN defined an interface, **`fastconnect.cloudify.extensions`** to help handling some of those operations. The ones currently supported by ALIEN are:
+Aside of the above operations, Cloudify also provides various lifecycle events. All of them are not mappable to a TOSCA Standard event. Therefore, ALIEN defined an interface, **`fastconnect.cloudify.extensions`** to help handling some of those operations. The ones currently supported by ALIEN are:
 
 * **`StartDetection`**
 * **`StopDetection`**

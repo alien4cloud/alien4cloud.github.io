@@ -17,7 +17,7 @@ The events supported are:
 {: .table .table-bordered}
 | Archive Interface | operation |
 |:-----|:---------|
-| *lifecycle*  | `Install`, `Start`, `Stop`|
+| *Standard*  | `Install`, `Start`, `Stop`|
 | *fastconnect.cloudify.extensions* | `StartDetection`, `StopDetection`, `locator`|
 
 #### Example: ####
@@ -26,19 +26,9 @@ The events supported are:
 interfaces:
   [...]
     fastconnect.cloudify.extensions:
-	  operations:
-	    start_detection:
-	      implementation_artifact:
-	        artifact_type: tosca.artifacts.GroovyScript
-	        artifact_ref: "scripts/tomcat_startDetection.groovy"
-	    stop_detection:
-	      implementation_artifact:
-	        artifact_type: tosca.artifacts.GroovyScript
-	        artifact_ref: "scripts/tomcat_stopDetection.groovy"
-	    locator:
-	      implementation_artifact:
-	        artifact_type: tosca.artifacts.GroovyScript
-	        artifact_ref: "scripts/alien_tomcat_locator.groovy"
+	    start_detection: scripts/tomcat_startDetection.groovy
+	    stop_detection: scripts/tomcat_stopDetection.groovy
+	    locator: scripts/alien_tomcat_locator.groovy
 {% endhighlight %}
 
 

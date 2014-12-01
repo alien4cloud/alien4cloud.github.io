@@ -18,18 +18,12 @@ Cloudify allows user to interact with their deployment via custom commands. This
 interfaces:
   [...]
   custom:
-    operations:
-      updateWar:
-        input_parameters:
-          warUrl:
-            type: string
-        implementation_artifact:
-          artifact_type: tosca.artifacts.GroovyScript
-          artifact_ref: "scripts/updateWarUrl.groovy"
-      updateWarFile:
-        implementation_artifact:
-          artifact_type: tosca.artifacts.GroovyScript
-          artifact_ref: "scripts/updateWarFile.groovy"
+    updateWar:
+      inputs:
+        warUrl:
+          type: string
+      implementation: scripts/updateWarUrl.groovy
+    updateWarFile: scripts/updateWarFile.groovy
 {% endhighlight %}
 
 {% warning %}

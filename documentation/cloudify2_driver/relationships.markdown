@@ -14,7 +14,7 @@ We will have for illustrations purposes a topology consisting of one Compute nod
 [![Connection configuration][tomcat_war_topology_img]][tomcat_war_topology_img]
 
 
-## `tosca.interfaces.relationship.Configure` interface ##
+## `configure` interface ##
 When defining a relationship type, you can provide implementation scripts.  
 See [Relationships documentation](/documentation/tosca_ref/tosca_concepts_types_normative_relationships.html) for more details.  
 
@@ -39,9 +39,8 @@ Let see the example of the the node War_2: it has an overridable artifact named 
 fastconnect.nodes.War
   [...]
   artifacts:
-    war_file:
-      artifact_type: fastconnect.artifacts.WarFile
-      artifact_ref: "warFiles/helloWorld.war"
+    - war_file: warFiles/helloWorld.war
+      type: fastconnect.artifacts.WarFile
   [...]
 {% endhighlight %}
 
@@ -51,12 +50,9 @@ and is hosted on Tomcat node and bound to it via the a relationship type `fastco
 fastconnect.relationships.cloudify.WarHostedOnTomcat:
   [...]
   interfaces:
-    tosca.interfaces.relationship.Configure:
-      operations:
-        post_configure_source:
-          implementation_artifact:
-            artifact_type: tosca.artifacts.GroovyScript
-            artifact_ref: "relationshipScripts/war_hostedon_tomcat_postsource.groovy"
+    configure:
+      post_configure_source:
+        implementation_artifact:relationshipScripts/war_hostedon_tomcat_postsource.groovy
   [...]
 {% endhighlight %}
 

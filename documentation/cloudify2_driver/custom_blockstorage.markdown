@@ -12,30 +12,19 @@ Some times you might need to provide your own way to manage the storage lifecycl
 
 {% highlight yaml %}
 alien.test.nodes.UbuntuBlockStorage:
-	derived_from: tosca.nodes.BlockStorage
-	description: >
-	  A custom storage for Ubuntu OS.
-	interfaces:
-	  lifecycle:
-	    operations:
-	      create:
-	        implementation_artifact:
-	          artifact_type: tosca.artifacts.GroovyScript
-	          artifact_ref: "scripts/createAttach.groovy"
-	      configure:
-	        implementation_artifact:
-	          artifact_type: tosca.artifacts.GroovyScript
-	          artifact_ref: "scripts/formatMount.groovy"
-          delete:
-             implementation_artifact:
-              artifact_type: tosca.artifacts.GroovyScript
-              artifact_ref: "scripts/unmountDelete.groovy"
-
+  derived_from: tosca.nodes.BlockStorage
+  description: >
+    A custom storage for Ubuntu OS.
+  interfaces:
+    Standard:
+      create: scripts/createAttach.groovy
+      configure: scripts/formatMount.groovy
+      delete: scripts/unmountDelete.groovy
   [...]
 {% endhighlight %}
 
 ## Create and attach ##
-Provide your custom way to **create** and **attach** the storage to your compute in the **`create`** TOSCA lifecycle's operation. 
+Provide your custom way to **create** and **attach** the storage to your compute in the **`create`** TOSCA Standard's operation. 
 
 ### Arguments ###
 
@@ -78,7 +67,7 @@ return [volumeId: volumeId, device:device]
 {% endhighlight %}
 
 ## Format and mount ##
-Provide your custom way to **format** and **mount** the storage on your compute in the **`configure`** TOSCA lifecycle's operation. 
+Provide your custom way to **format** and **mount** the storage on your compute in the **`configure`** TOSCA Standard's operation. 
 
 ### Arguments ###
 
@@ -121,7 +110,7 @@ return storagePath
 
 
 ## Unmount and delete ##
-Provide your custom way to **unmount** and/or **delete** the storage in the **`delete`** TOSCA lifecycle's operation. 
+Provide your custom way to **unmount** and/or **delete** the storage in the **`delete`** TOSCA Standard's operation. 
 
 ### Arguments ###
 
