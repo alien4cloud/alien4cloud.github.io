@@ -218,7 +218,7 @@ var node, children;
       node.name = "tosca_ref_types_artifact_definition";
       node.title = "Artifact definition";
       node.url = "documentation/tosca_ref/tosca_grammar/artifact_definition.html";
-      node.weight =  800;
+      node.weight =  700;
       node.root = "../../../";
     
   
@@ -301,7 +301,7 @@ var node, children;
       node.name = "tosca_ref_types_artifact_type";
       node.title = "Artifact type";
       node.url = "documentation/tosca_ref/tosca_grammar/artifact_type.html";
-      node.weight =  1100;
+      node.weight =  100;
       node.root = "../../../";
     
   
@@ -384,7 +384,7 @@ var node, children;
       node.name = "tosca_ref_types_attribute_definition";
       node.title = "Attribute definition";
       node.url = "documentation/tosca_ref/tosca_grammar/attribute_definition.html";
-      node.weight =  300;
+      node.weight =  1200;
       node.root = "../../../";
     
   
@@ -644,7 +644,90 @@ var node, children;
       node.name = "tosca_ref_capability_definition";
       node.title = "Capability definition";
       node.url = "documentation/tosca_ref/tosca_grammar/capability_definition.html";
-      node.weight =  900;
+      node.weight =  600;
+      node.root = "../../../";
+    
+  
+    
+      var parent = sidebarTree["DOCUMENTATION"];
+      
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'tosca_ref_root') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'tosca_ref_root',
+              'title': '-',
+              'children': [],
+              'collapsed': true
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'tosca_ref') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'tosca_ref',
+              'title': '-',
+              'children': [],
+              'collapsed': true
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'tosca_ref_definitions') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'tosca_ref_definitions',
+              'title': '-',
+              'children': [],
+              'collapsed': true
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+
+        children = parent.children;
+        // try to find the node if exists already
+        node = null;
+        for (var i=0; i<children.length; i++) {
+          if(children[i].name === 'tosca_ref_types_capability_type') {
+            node = children[i];
+          }
+        }
+        if(node === null) {
+          node = {
+            'children': [],
+            'collapsed': true
+          };
+          children.push(node);
+        }
+      
+
+      node.name = "tosca_ref_types_capability_type";
+      node.title = "Capability type";
+      node.url = "documentation/tosca_ref/tosca_grammar/capability_type.html";
+      node.weight =  200;
       node.root = "../../../";
     
   
@@ -922,7 +1005,7 @@ var node, children;
       node.name = "tosca_ref_types_constraints";
       node.title = "Constraint clause";
       node.url = "documentation/tosca_ref/tosca_grammar/constraints.html";
-      node.weight =  100;
+      node.weight =  1400;
       node.root = "../../";
     
   
@@ -1182,7 +1265,7 @@ var node, children;
       node.name = "tosca_ref_types_function_definition";
       node.title = "Function definition";
       node.url = "documentation/tosca_ref/tosca_grammar/function_definition.html";
-      node.weight =  400;
+      node.weight =  1100;
       node.root = "../../../";
     
   
@@ -1220,7 +1303,16 @@ var node, children;
     
   
     
-  
+      var parent = sidebarTree["DOCUMENTATION"];
+      
+        node = parent;
+      
+
+      node.name = "index";
+      node.title = "ALIEN 4 Cloud - Documentation";
+      node.url = "documentation/index.html";
+      node.weight =  0;
+      node.root = "../";
     
   
     
@@ -1286,16 +1378,7 @@ var node, children;
     
   
     
-      var parent = sidebarTree["DOCUMENTATION"];
-      
-        node = parent;
-      
-
-      node.name = "index";
-      node.title = "ALIEN 4 Cloud - Documentation";
-      node.url = "documentation/index.html";
-      node.weight =  0;
-      node.root = "../";
+  
     
   
     
@@ -1424,7 +1507,7 @@ var node, children;
       node.name = "tosca_ref_types_interface_definition";
       node.title = "Interface definition";
       node.url = "documentation/tosca_ref/tosca_grammar/interface_definition.html";
-      node.weight =  700;
+      node.weight =  800;
       node.root = "../../../";
     
   
@@ -2042,6 +2125,89 @@ var node, children;
         // try to find the node if exists already
         node = null;
         for (var i=0; i<children.length; i++) {
+          if(children[i].name === 'tosca_ref_types_node_type') {
+            node = children[i];
+          }
+        }
+        if(node === null) {
+          node = {
+            'children': [],
+            'collapsed': true
+          };
+          children.push(node);
+        }
+      
+
+      node.name = "tosca_ref_types_node_type";
+      node.title = "Node type";
+      node.url = "documentation/tosca_ref/tosca_grammar/node_type.html";
+      node.weight =  300;
+      node.root = "../../../";
+    
+  
+    
+      var parent = sidebarTree["DOCUMENTATION"];
+      
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'tosca_ref_root') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'tosca_ref_root',
+              'title': '-',
+              'children': [],
+              'collapsed': true
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'tosca_ref') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'tosca_ref',
+              'title': '-',
+              'children': [],
+              'collapsed': true
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'tosca_ref_definitions') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'tosca_ref_definitions',
+              'title': '-',
+              'children': [],
+              'collapsed': true
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+
+        children = parent.children;
+        // try to find the node if exists already
+        node = null;
+        for (var i=0; i<children.length; i++) {
           if(children[i].name === 'tosca_ref_types_operation_definition') {
             node = children[i];
           }
@@ -2058,7 +2224,7 @@ var node, children;
       node.name = "tosca_ref_types_operation_definition";
       node.title = "Operation definition";
       node.url = "documentation/tosca_ref/tosca_grammar/operation_definition.html";
-      node.weight =  600;
+      node.weight =  900;
       node.root = "../../../";
     
   
@@ -2206,7 +2372,7 @@ var node, children;
       node.name = "tosca_ref_types_parameter_definition";
       node.title = "Parameter definition";
       node.url = "documentation/tosca_ref/tosca_grammar/parameter_definition.html";
-      node.weight =  500;
+      node.weight =  1000;
       node.root = "../../../";
     
   
@@ -2346,7 +2512,90 @@ var node, children;
       node.name = "tosca_ref_types_property_definition";
       node.title = "Property definition";
       node.url = "documentation/tosca_ref/tosca_grammar/property_definition.html";
-      node.weight =  200;
+      node.weight =  1300;
+      node.root = "../../../";
+    
+  
+    
+      var parent = sidebarTree["DOCUMENTATION"];
+      
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'tosca_ref_root') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'tosca_ref_root',
+              'title': '-',
+              'children': [],
+              'collapsed': true
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'tosca_ref') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'tosca_ref',
+              'title': '-',
+              'children': [],
+              'collapsed': true
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'tosca_ref_definitions') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'tosca_ref_definitions',
+              'title': '-',
+              'children': [],
+              'collapsed': true
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+
+        children = parent.children;
+        // try to find the node if exists already
+        node = null;
+        for (var i=0; i<children.length; i++) {
+          if(children[i].name === 'tosca_ref_types_relationship_type') {
+            node = children[i];
+          }
+        }
+        if(node === null) {
+          node = {
+            'children': [],
+            'collapsed': true
+          };
+          children.push(node);
+        }
+      
+
+      node.name = "tosca_ref_types_relationship_type";
+      node.title = "Relationship type";
+      node.url = "documentation/tosca_ref/tosca_grammar/relationship_type.html";
+      node.weight =  400;
       node.root = "../../../";
     
   
@@ -2494,7 +2743,7 @@ var node, children;
       node.name = "tosca_ref_requirement_definition";
       node.title = "Requirement definition";
       node.url = "documentation/tosca_ref/tosca_grammar/requirement_definition.html";
-      node.weight =  1000;
+      node.weight =  500;
       node.root = "../../../";
     
   
@@ -3564,6 +3813,12 @@ var node, children;
       node.url = "alien_about/index.html";
       node.weight =  0;
       node.root = "../";
+    
+  
+    
+  
+    
+  
     
   
     
@@ -5430,6 +5685,12 @@ var node, children;
   
     
   
+    
+  
+    
+  
+    
+  
 
   sidebarTree["DEVELOPER_GUIDE"] = {
     'name': "DEVELOPER_GUIDE",
@@ -5437,6 +5698,18 @@ var node, children;
     'collapsed': true
   };
 
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
   
     
   
@@ -5552,16 +5825,6 @@ var node, children;
     
   
     
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
       var parent = sidebarTree["DEVELOPER_GUIDE"];
       
         
@@ -5588,6 +5851,8 @@ var node, children;
       node.url = "developer_guide/internal-architecture.html";
       node.weight =  100;
       node.root = "../";
+    
+  
     
   
     
@@ -5672,6 +5937,8 @@ var node, children;
       node.url = "developer_guide/plugin.html";
       node.weight =  200;
       node.root = "../";
+    
+  
     
   
     
@@ -5831,6 +6098,18 @@ var node, children;
     
   
     
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
       var parent = sidebarTree["ROADMAP"];
       
         node = parent;
@@ -5841,14 +6120,6 @@ var node, children;
       node.url = "roadmap/index.html";
       node.weight =  0;
       node.root = "../";
-    
-  
-    
-  
-    
-  
-    
-  
     
   
     
@@ -5910,6 +6181,8 @@ var node, children;
       node.url = "roadmap/past.html";
       node.weight =  0;
       node.root = "../";
+    
+  
     
   
     

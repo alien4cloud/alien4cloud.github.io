@@ -253,6 +253,13 @@
 	},
 
 	{
+		"url": "/documentation/tosca_ref/tosca_grammar/capability_type.html", 
+		"section": "Documentation", 
+		"value": "Capability type",
+		"tokens": [ "Capability","type"]
+	},
+
+	{
 		"url": "/documentation/tosca_ref/cloud_service_archive.html", 
 		"section": "Documentation", 
 		"value": "Cloud Service Archive",
@@ -330,17 +337,10 @@
 	},
 
 	{
-		"url": "/developer_guide/index.html", 
-		"section": "Developer Guide", 
-		"value": "Developer Guide",
-		"tokens": [ "Developer","Guide"]
-	},
-
-	{
-		"url": "/roadmap/index.html", 
-		"section": "", 
-		"value": "Roadmap",
-		"tokens": [ "Roadmap"]
+		"url": "/documentation/index.html", 
+		"section": "Documentation", 
+		"value": "ALIEN 4 Cloud - Documentation",
+		"tokens": [ "ALIEN","4","Cloud","","Documentation"]
 	},
 
 	{
@@ -372,10 +372,17 @@
 	},
 
 	{
-		"url": "/documentation/index.html", 
-		"section": "Documentation", 
-		"value": "ALIEN 4 Cloud - Documentation",
-		"tokens": [ "ALIEN","4","Cloud","","Documentation"]
+		"url": "/developer_guide/index.html", 
+		"section": "Developer Guide", 
+		"value": "Developer Guide",
+		"tokens": [ "Developer","Guide"]
+	},
+
+	{
+		"url": "/roadmap/index.html", 
+		"section": "", 
+		"value": "Roadmap",
+		"tokens": [ "Roadmap"]
 	},
 
 	{
@@ -463,6 +470,13 @@
 	},
 
 	{
+		"url": "/documentation/tosca_ref/tosca_grammar/node_type.html", 
+		"section": "Documentation", 
+		"value": "Node type",
+		"tokens": [ "Node","type"]
+	},
+
+	{
 		"url": "/documentation/tosca_ref/tosca_grammar/operation_definition.html", 
 		"section": "Documentation", 
 		"value": "Operation definition",
@@ -530,6 +544,13 @@
 		"section": "Documentation", 
 		"value": "Property definition",
 		"tokens": [ "Property","definition"]
+	},
+
+	{
+		"url": "/documentation/tosca_ref/tosca_grammar/relationship_type.html", 
+		"section": "Documentation", 
+		"value": "Relationship type",
+		"tokens": [ "Relationship","type"]
 	},
 
 	{
