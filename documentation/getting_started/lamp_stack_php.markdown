@@ -16,11 +16,11 @@ Used version for this tutorial : [PHP WD02](https://github.com/alien4cloud/sampl
 
 PHP is the programming language of the LAMP stack, it's a server-side scripting. On this page, we just explain the recipe of this component. Below, the content of this META file :
 
-<script src="https://gist.github.com/OresteVisari/a7858be0865af14f9830.js"></script>
+<div data-gist="https://gist.github.com/OresteVisari/a7858be0865af14f9830.js"></div>
 
 ## Namming / description
 
-<script src="https://gist.github.com/cmourouvin/acf626b8df0fb8bc1df1.js"></script>
+<div data-gist="https://gist.github.com/cmourouvin/acf626b8df0fb8bc1df1.js"></div>
 
 {% note %}
 PHP inherite from the tosca base type **tosca.nodes.SoftwareComponent**
@@ -43,7 +43,7 @@ For our stack you must activate this two modules for Apache.
 
 ## Lifecycle and related scripts
 
-<script src="https://gist.github.com/cmourouvin/3f81ddf20aa2cbc907ac.js"></script>
+<div data-gist="https://gist.github.com/cmourouvin/3f81ddf20aa2cbc907ac.js"></div>
 
 {: .table .table-bordered}
 |Operation  | Usage | Comment |

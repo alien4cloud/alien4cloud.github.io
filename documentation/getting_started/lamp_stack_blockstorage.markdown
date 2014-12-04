@@ -14,13 +14,11 @@ For more details about this custom component : [BlockStorage](../cloudify2_drive
 
 Used version for this tutorial (defined in normative types): [BlockStorage](https://github.com/alien4cloud/tosca-normative-types/blob/1.0.0.wd02/normative-types.yml){:target="_blank"}
 
-<script src="https://gist.github.com/cmourouvin/ec7eb7b782e1da647cae.js"></script>
-
 # Definition
 
 ## Namming / description
 
-<script src="https://gist.github.com/cmourouvin/c6eb9df89eda149c41f5.js"></script>
+<div data-gist="https://gist.github.com/cmourouvin/c6eb9df89eda149c41f5.js"></div>
 
 {% note %}
 Every component should at least inherite from *tosca.nodes.Root*. As a default normative type it's the case for *BlockStorage*.
@@ -28,7 +26,7 @@ Every component should at least inherite from *tosca.nodes.Root*. As a default n
 
 ## Properties
 
-<script src="https://gist.github.com/cmourouvin/561ca4ce50e1eb1f673b.js"></script>
+<div data-gist="https://gist.github.com/cmourouvin/561ca4ce50e1eb1f673b.js"></div>
 
 Check details : [BlockStorage](../cloudify2_driver/blockstorage.html)
 

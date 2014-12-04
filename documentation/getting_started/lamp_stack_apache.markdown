@@ -17,7 +17,7 @@ In the definitions folder, we need to write the TOSCA description of our compone
 
 ## Namming / description
 
-<script src="https://gist.github.com/OresteVisari/fadc6e7504c804922f8d.js"></script>
+<div data-gist="https://gist.github.com/OresteVisari/fadc6e7504c804922f8d.js"></div>
 
 TOSCA assumes the existence of a normative base type set. The TOSCA type of **Apache** is the *tosca.nodes.WebServer*.
 
@@ -25,7 +25,7 @@ TOSCA assumes the existence of a normative base type set. The TOSCA type of **Ap
 
 The **Apache** recipe has only two properties :
 
-<script src="https://gist.github.com/OresteVisari/050034534980988a21e1.js"></script>
+<div data-gist="https://gist.github.com/OresteVisari/050034534980988a21e1.js"></div>
 
 {: .table .table-bordered}
 |Property  | Usage | Comment |
@@ -37,7 +37,7 @@ The **Apache** recipe has only two properties :
 
 In the interfaces we defined the script used to create the node. In our case we just use the create operation, see the documentation to see all possible operations. In the artifact, we define the folder that contains the script. As we are using Groovy artifact, we defined this artifact at the end of file.
 
-<script src="https://gist.github.com/OresteVisari/34eac7137dbcf5a60c05.js"></script>
+<div data-gist="https://gist.github.com/OresteVisari/34eac7137dbcf5a60c05.js"></div>
 
 {: .table .table-bordered}
 |Operation  | Usage | Comment |

@@ -16,7 +16,7 @@ Used version for this tutorial : [WebSite WD02](https://github.com/alien4cloud/s
 
 ## Properties
 
-<script src="https://gist.github.com/OresteVisari/6ec415bbd4d0838ab518.js"></script>
+<div data-gist="https://gist.github.com/OresteVisari/6ec415bbd4d0838ab518.js"></div>
 
 **WebSite** properties :
 
@@ -33,7 +33,7 @@ You need to specify a *zip_url* **or** a *website_zip* for the application / web
 
 ## Relationship and related scripts
 
-<script src="https://gist.github.com/OresteVisari/5ab382e66a4eece65077.js"></script>
+<div data-gist="https://gist.github.com/OresteVisari/5ab382e66a4eece65077.js"></div>
 
 {: .table .table-bordered}
 |Relationship  | Usage | Comment |
