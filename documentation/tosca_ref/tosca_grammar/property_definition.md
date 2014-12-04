@@ -5,7 +5,7 @@ root: ../../../
 categories: DOCUMENTATION
 parent: [tosca_ref_root, tosca_ref, tosca_ref_definitions]
 node_name: tosca_ref_types_property_definition
-weight: 200
+weight: 1300
 ---
 
 A property definition defines a named, typed value that can be associated with an entity defined in this specification.  It is used to associate a transparent property or characteristic of that entity which can either be set (configured) on or retrieved from it.

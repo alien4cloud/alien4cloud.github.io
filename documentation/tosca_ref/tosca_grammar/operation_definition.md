@@ -5,7 +5,7 @@ root: ../../../
 categories: DOCUMENTATION
 parent: [tosca_ref_root, tosca_ref, tosca_ref_definitions]
 node_name: tosca_ref_types_operation_definition
-weight: 600
+weight: 900
 ---
 
 An operation definition defines a named function or procedure that can be bound to an implementation artifact (e.g., a script).

@@ -5,7 +5,7 @@ root: ../../
 categories: DOCUMENTATION
 parent: [tosca_ref_root, tosca_ref, tosca_ref_definitions]
 node_name: tosca_ref_types_constraints
-weight: 100
+weight: 1400
 ---
 
 A constraint clause defines an operation along with one or more compatible values that can be used to define a constraint on a property’s or parameter’s allowed values.

@@ -5,7 +5,7 @@ root: ../../../
 categories: DOCUMENTATION
 parent: [tosca_ref_root, tosca_ref, tosca_ref_definitions]
 node_name: tosca_ref_types_attribute_definition
-weight: 300
+weight: 1200
 ---
 
 An attribute definition defines a named, typed value that can be associated with an entity defined in this specification (e.g., a Node Type or Relationship Type).  Specifically, it is used to expose a value that is set by the orchestrator after the entity has been instantiated (as part of an instance model).  Typically, this value can be retrieved via a function from the instance model and used as inputs to other entities or implementation artifacts.

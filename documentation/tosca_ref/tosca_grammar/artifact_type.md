@@ -5,7 +5,7 @@ root: ../../../
 categories: DOCUMENTATION
 parent: [tosca_ref_root, tosca_ref, tosca_ref_definitions]
 node_name: tosca_ref_types_artifact_type
-weight: 1100
+weight: 100
 ---
 
 An Artifact Type is a reusable entity that defines the type of one or more files which Node Types or Node Templates can have dependent relationships and used during operations such as during installation or deployment.

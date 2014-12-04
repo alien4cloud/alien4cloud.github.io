@@ -5,7 +5,7 @@ root: ../../../
 categories: DOCUMENTATION
 parent: [tosca_ref_root, tosca_ref, tosca_ref_definitions]
 node_name: tosca_ref_types_interface_definition
-weight: 700
+weight: 800
 ---
 
 An interface definition defines a named interface that can be associated with a Node or Relationship Type.

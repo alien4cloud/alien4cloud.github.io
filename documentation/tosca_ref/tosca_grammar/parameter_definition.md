@@ -5,7 +5,7 @@ root: ../../../
 categories: DOCUMENTATION
 parent: [tosca_ref_root, tosca_ref, tosca_ref_definitions]
 node_name: tosca_ref_types_parameter_definition
-weight: 500
+weight: 1000
 ---
 
 A parameter definition is map used to declare a name for a parameter along with its value to be used as inputs for operations. This value can either be a fixed value or one that is evaluated from a function or expression.

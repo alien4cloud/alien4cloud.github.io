@@ -5,7 +5,7 @@ root: ../../../
 categories: DOCUMENTATION
 parent: [tosca_ref_root, tosca_ref, tosca_ref_definitions]
 node_name: tosca_ref_requirement_definition
-weight: 1000
+weight: 500
 ---
 
 A requirement definition allows specification of a requirement that a node need to fulfill to be instanciated.
