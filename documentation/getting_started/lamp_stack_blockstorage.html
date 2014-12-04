@@ -14,13 +14,11 @@
 
 <p>Used version for this tutorial (defined in normative types): <a href="https://github.com/alien4cloud/tosca-normative-types/blob/1.0.0.wd02/normative-types.yml" target="_blank">BlockStorage</a></p>
 
-<script src="https://gist.github.com/cmourouvin/ec7eb7b782e1da647cae.js"></script>
-
 <h1 id="definition">Definition</h1>
 
 <h2 id="namming--description">Namming / description</h2>
 
-<script src="https://gist.github.com/cmourouvin/c6eb9df89eda149c41f5.js"></script>
+<div data-gist="https://gist.github.com/cmourouvin/c6eb9df89eda149c41f5.js"></div>
 
 <div class="note">
 <p>Every component should at least inherite from <em>tosca.nodes.Root</em>. As a default normative type it’s the case for <em>BlockStorage</em>.</p>
@@ -28,7 +26,7 @@
 
 <h2 id="properties">Properties</h2>
 
-<script src="https://gist.github.com/cmourouvin/561ca4ce50e1eb1f673b.js"></script>
+<div data-gist="https://gist.github.com/cmourouvin/561ca4ce50e1eb1f673b.js"></div>
 
 <p>Check details : <a href="../cloudify2_driver/blockstorage.html">BlockStorage</a></p>
 
@@ -50,4 +48,8 @@ $(document).ready(function () {
   makeSideBar('DOCUMENTATION', 'lamp_stack_blockstorage');
   createBreadcrumbs('DOCUMENTATION', 'Documentation');
 });
+</script>
+
+<script>
+$("div[data-gist]").gist();
 </script>

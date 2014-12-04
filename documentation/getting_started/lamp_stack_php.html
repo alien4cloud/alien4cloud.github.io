@@ -16,11 +16,11 @@
 
 <p>PHP is the programming language of the LAMP stack, it’s a server-side scripting. On this page, we just explain the recipe of this component. Below, the content of this META file :</p>
 
-<script src="https://gist.github.com/OresteVisari/a7858be0865af14f9830.js"></script>
+<div data-gist="https://gist.github.com/OresteVisari/a7858be0865af14f9830.js"></div>
 
 <h2 id="namming--description">Namming / description</h2>
 
-<script src="https://gist.github.com/cmourouvin/acf626b8df0fb8bc1df1.js"></script>
+<div data-gist="https://gist.github.com/cmourouvin/acf626b8df0fb8bc1df1.js"></div>
 
 <div class="note">
 <p>PHP inherite from the tosca base type <strong>tosca.nodes.SoftwareComponent</strong></p>
@@ -63,7 +63,7 @@
 
 <h2 id="lifecycle-and-related-scripts">Lifecycle and related scripts</h2>
 
-<script src="https://gist.github.com/cmourouvin/3f81ddf20aa2cbc907ac.js"></script>
+<div data-gist="https://gist.github.com/cmourouvin/3f81ddf20aa2cbc907ac.js"></div>
 
 <table class="table table-bordered">
   <thead>
@@ -92,4 +92,8 @@ $(document).ready(function () {
   makeSideBar('DOCUMENTATION', 'lamp_stack_php');
   createBreadcrumbs('DOCUMENTATION', 'Documentation');
 });
+</script>
+
+<script>
+$("div[data-gist]").gist();
 </script>

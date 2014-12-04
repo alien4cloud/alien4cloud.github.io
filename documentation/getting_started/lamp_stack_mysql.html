@@ -16,8 +16,6 @@
 <p>This installation is based on Ubuntu distribution with apt-get command.</p>
 </div>
 
-<script src="https://gist.github.com/cmourouvin/ec7eb7b782e1da647cae.js"></script>
-
 <h1 id="definition">Definition</h1>
 
 <p>Let’s describe important parts of this full <a href="https://github.com/alien4cloud/samples/blob/master/mysql/definition/mysql-types.yml" target="_blank">MySQL definition</a> description.</p>
@@ -26,7 +24,7 @@
 
 <p>The node name is important since it’s unique. We follow this template in A4C recipe development : <strong>[organisation].nodes.Name</strong></p>
 
-<script src="https://gist.github.com/cmourouvin/c7e5f3eddb8cd8ab9c7e.js"></script>
+<div data-gist="https://gist.github.com/cmourouvin/c7e5f3eddb8cd8ab9c7e.js"></div>
 
 <ul>
   <li><strong>tosca_simple_yaml_1_0_0</strong> : version of toasca used in the definition, let it as is it for the moment</li>
@@ -42,7 +40,7 @@
 
 <p>All properties required or optional to use the component.</p>
 
-<script src="https://gist.github.com/cmourouvin/f204281637148221bdc6.js"></script>
+<div data-gist="https://gist.github.com/cmourouvin/f204281637148221bdc6.js"></div>
 
 <p>MySQL proper properperties :</p>
 
@@ -101,7 +99,7 @@
 
 <h2 id="lifecycle-and-related-scripts">Lifecycle and related scripts</h2>
 
-<script src="https://gist.github.com/cmourouvin/f8c78acb81b69e42d6ba.js"></script>
+<div data-gist="https://gist.github.com/cmourouvin/f8c78acb81b69e42d6ba.js"></div>
 
 <p>The real script you will run during you different component life steps. Two main steps here in <em>operations</em> bloc :</p>
 
@@ -137,4 +135,8 @@ $(document).ready(function () {
   makeSideBar('DOCUMENTATION', 'lamp_stack_mysql');
   createBreadcrumbs('DOCUMENTATION', 'Documentation');
 });
+</script>
+
+<script>
+$("div[data-gist]").gist();
 </script>

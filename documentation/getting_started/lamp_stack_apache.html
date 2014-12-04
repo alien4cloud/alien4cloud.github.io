@@ -18,7 +18,7 @@
 
 <h2 id="namming--description">Namming / description</h2>
 
-<script src="https://gist.github.com/OresteVisari/fadc6e7504c804922f8d.js"></script>
+<div data-gist="https://gist.github.com/OresteVisari/fadc6e7504c804922f8d.js"></div>
 
 <p>TOSCA assumes the existence of a normative base type set. The TOSCA type of <strong>Apache</strong> is the <em>tosca.nodes.WebServer</em>.</p>
 
@@ -26,7 +26,7 @@
 
 <p>The <strong>Apache</strong> recipe has only two properties :</p>
 
-<script src="https://gist.github.com/OresteVisari/050034534980988a21e1.js"></script>
+<div data-gist="https://gist.github.com/OresteVisari/050034534980988a21e1.js"></div>
 
 <table class="table table-bordered">
   <thead>
@@ -54,7 +54,7 @@
 
 <p>In the interfaces we defined the script used to create the node. In our case we just use the create operation, see the documentation to see all possible operations. In the artifact, we define the folder that contains the script. As we are using Groovy artifact, we defined this artifact at the end of file.</p>
 
-<script src="https://gist.github.com/OresteVisari/34eac7137dbcf5a60c05.js"></script>
+<div data-gist="https://gist.github.com/OresteVisari/34eac7137dbcf5a60c05.js"></div>
 
 <table class="table table-bordered">
   <thead>
@@ -89,4 +89,8 @@ $(document).ready(function () {
   makeSideBar('DOCUMENTATION', 'lamp_stack_apache');
   createBreadcrumbs('DOCUMENTATION', 'Documentation');
 });
+</script>
+
+<script>
+$("div[data-gist]").gist();
 </script>
