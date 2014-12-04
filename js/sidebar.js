@@ -1,11 +1,11 @@
 var sidebarTree = {};
-
 var node, children;
 
 
   sidebarTree["DOCUMENTATION"] = {
     'name': "DOCUMENTATION",
-    'children': []
+    'children': [],
+    'collapsed': true
   };
 
   
@@ -78,7 +78,8 @@ var node, children;
             nextParent = {
               'name': 'getting_started',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -95,7 +96,8 @@ var node, children;
         }
         if(node === null) {
           node = {
-            'children': []
+            'children': [],
+            'collapsed': true
           };
           children.push(node);
         }
@@ -123,7 +125,8 @@ var node, children;
         }
         if(node === null) {
           node = {
-            'children': []
+            'children': [],
+            'collapsed': true
           };
           children.push(node);
         }
@@ -143,6 +146,255 @@ var node, children;
           var nextParent = null;
           children = parent.children;
           for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'tosca_ref_root') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'tosca_ref_root',
+              'title': '-',
+              'children': [],
+              'collapsed': true
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'tosca_ref') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'tosca_ref',
+              'title': '-',
+              'children': [],
+              'collapsed': true
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'tosca_ref_definitions') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'tosca_ref_definitions',
+              'title': '-',
+              'children': [],
+              'collapsed': true
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+
+        children = parent.children;
+        // try to find the node if exists already
+        node = null;
+        for (var i=0; i<children.length; i++) {
+          if(children[i].name === 'tosca_ref_types_artifact_definition') {
+            node = children[i];
+          }
+        }
+        if(node === null) {
+          node = {
+            'children': [],
+            'collapsed': true
+          };
+          children.push(node);
+        }
+      
+
+      node.name = "tosca_ref_types_artifact_definition";
+      node.title = "Artifact definition";
+      node.url = "documentation/tosca_ref/tosca_grammar/artifact_definition.html";
+      node.weight =  800;
+      node.root = "../../../";
+    
+  
+    
+      var parent = sidebarTree["DOCUMENTATION"];
+      
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'tosca_ref_root') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'tosca_ref_root',
+              'title': '-',
+              'children': [],
+              'collapsed': true
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'tosca_ref') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'tosca_ref',
+              'title': '-',
+              'children': [],
+              'collapsed': true
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'tosca_ref_definitions') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'tosca_ref_definitions',
+              'title': '-',
+              'children': [],
+              'collapsed': true
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+
+        children = parent.children;
+        // try to find the node if exists already
+        node = null;
+        for (var i=0; i<children.length; i++) {
+          if(children[i].name === 'tosca_ref_types_artifact_type') {
+            node = children[i];
+          }
+        }
+        if(node === null) {
+          node = {
+            'children': [],
+            'collapsed': true
+          };
+          children.push(node);
+        }
+      
+
+      node.name = "tosca_ref_types_artifact_type";
+      node.title = "Artifact type";
+      node.url = "documentation/tosca_ref/tosca_grammar/artifact_type.html";
+      node.weight =  1100;
+      node.root = "../../../";
+    
+  
+    
+      var parent = sidebarTree["DOCUMENTATION"];
+      
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'tosca_ref_root') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'tosca_ref_root',
+              'title': '-',
+              'children': [],
+              'collapsed': true
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'tosca_ref') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'tosca_ref',
+              'title': '-',
+              'children': [],
+              'collapsed': true
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'tosca_ref_definitions') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'tosca_ref_definitions',
+              'title': '-',
+              'children': [],
+              'collapsed': true
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+
+        children = parent.children;
+        // try to find the node if exists already
+        node = null;
+        for (var i=0; i<children.length; i++) {
+          if(children[i].name === 'tosca_ref_types_attribute_definition') {
+            node = children[i];
+          }
+        }
+        if(node === null) {
+          node = {
+            'children': [],
+            'collapsed': true
+          };
+          children.push(node);
+        }
+      
+
+      node.name = "tosca_ref_types_attribute_definition";
+      node.title = "Attribute definition";
+      node.url = "documentation/tosca_ref/tosca_grammar/attribute_definition.html";
+      node.weight =  300;
+      node.root = "../../../";
+    
+  
+    
+      var parent = sidebarTree["DOCUMENTATION"];
+      
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
             if(children[i].name === 'cloudify_2_index') {
               nextParent = children[i];
             }
@@ -151,7 +403,8 @@ var node, children;
             nextParent = {
               'name': 'cloudify_2_index',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -168,7 +421,8 @@ var node, children;
             nextParent = {
               'name': 'cloudify_2_blockstorage',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -185,7 +439,8 @@ var node, children;
         }
         if(node === null) {
           node = {
-            'children': []
+            'children': [],
+            'collapsed': true
           };
           children.push(node);
         }
@@ -213,7 +468,8 @@ var node, children;
             nextParent = {
               'name': 'tosca_ref_root',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -230,7 +486,8 @@ var node, children;
         }
         if(node === null) {
           node = {
-            'children': []
+            'children': [],
+            'collapsed': true
           };
           children.push(node);
         }
@@ -258,7 +515,8 @@ var node, children;
             nextParent = {
               'name': 'tosca_ref_root',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -275,7 +533,8 @@ var node, children;
             nextParent = {
               'name': 'components_repo',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -292,7 +551,8 @@ var node, children;
         }
         if(node === null) {
           node = {
-            'children': []
+            'children': [],
+            'collapsed': true
           };
           children.push(node);
         }
@@ -320,7 +580,8 @@ var node, children;
             nextParent = {
               'name': 'tosca_ref_root',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -337,7 +598,8 @@ var node, children;
             nextParent = {
               'name': 'tosca_ref',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -354,7 +616,8 @@ var node, children;
             nextParent = {
               'name': 'tosca_ref_definitions',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -371,7 +634,8 @@ var node, children;
         }
         if(node === null) {
           node = {
-            'children': []
+            'children': [],
+            'collapsed': true
           };
           children.push(node);
         }
@@ -380,7 +644,7 @@ var node, children;
       node.name = "tosca_ref_capability_definition";
       node.title = "Capability definition";
       node.url = "documentation/tosca_ref/tosca_grammar/capability_definition.html";
-      node.weight =  100;
+      node.weight =  900;
       node.root = "../../../";
     
   
@@ -399,7 +663,8 @@ var node, children;
             nextParent = {
               'name': 'tosca_ref_root',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -416,7 +681,8 @@ var node, children;
             nextParent = {
               'name': 'tosca_ref',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -433,7 +699,8 @@ var node, children;
         }
         if(node === null) {
           node = {
-            'children': []
+            'children': [],
+            'collapsed': true
           };
           children.push(node);
         }
@@ -441,7 +708,7 @@ var node, children;
 
       node.name = "tosca_ref_csar";
       node.title = "Cloud Service Archive";
-      node.url = "documentation/tosca_ref/tosca_grammar/cloud_service_archive.html";
+      node.url = "documentation/tosca_ref/cloud_service_archive.html";
       node.weight =  100;
       node.root = "../../../";
     
@@ -461,7 +728,8 @@ var node, children;
             nextParent = {
               'name': 'cloudify_2_index',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -478,7 +746,8 @@ var node, children;
             nextParent = {
               'name': 'cloudify_2_prerequisites',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -495,7 +764,8 @@ var node, children;
         }
         if(node === null) {
           node = {
-            'children': []
+            'children': [],
+            'collapsed': true
           };
           children.push(node);
         }
@@ -523,7 +793,8 @@ var node, children;
             nextParent = {
               'name': 'tosca_ref_root',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -540,7 +811,8 @@ var node, children;
             nextParent = {
               'name': 'components_repo',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -557,7 +829,8 @@ var node, children;
         }
         if(node === null) {
           node = {
-            'children': []
+            'children': [],
+            'collapsed': true
           };
           children.push(node);
         }
@@ -577,6 +850,89 @@ var node, children;
           var nextParent = null;
           children = parent.children;
           for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'tosca_ref_root') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'tosca_ref_root',
+              'title': '-',
+              'children': [],
+              'collapsed': true
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'tosca_ref') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'tosca_ref',
+              'title': '-',
+              'children': [],
+              'collapsed': true
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'tosca_ref_definitions') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'tosca_ref_definitions',
+              'title': '-',
+              'children': [],
+              'collapsed': true
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+
+        children = parent.children;
+        // try to find the node if exists already
+        node = null;
+        for (var i=0; i<children.length; i++) {
+          if(children[i].name === 'tosca_ref_types_constraints') {
+            node = children[i];
+          }
+        }
+        if(node === null) {
+          node = {
+            'children': [],
+            'collapsed': true
+          };
+          children.push(node);
+        }
+      
+
+      node.name = "tosca_ref_types_constraints";
+      node.title = "Constraint clause";
+      node.url = "documentation/tosca_ref/tosca_grammar/constraints.html";
+      node.weight =  100;
+      node.root = "../../";
+    
+  
+    
+      var parent = sidebarTree["DOCUMENTATION"];
+      
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
             if(children[i].name === 'getting_started') {
               nextParent = children[i];
             }
@@ -585,7 +941,8 @@ var node, children;
             nextParent = {
               'name': 'getting_started',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -602,7 +959,8 @@ var node, children;
         }
         if(node === null) {
           node = {
-            'children': []
+            'children': [],
+            'collapsed': true
           };
           children.push(node);
         }
@@ -630,7 +988,8 @@ var node, children;
             nextParent = {
               'name': 'cloudify_2_index',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -647,7 +1006,8 @@ var node, children;
             nextParent = {
               'name': 'cloudify_2_blockstorage',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -664,7 +1024,8 @@ var node, children;
         }
         if(node === null) {
           node = {
-            'children': []
+            'children': [],
+            'collapsed': true
           };
           children.push(node);
         }
@@ -692,7 +1053,8 @@ var node, children;
             nextParent = {
               'name': 'tosca_ref_root',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -709,7 +1071,8 @@ var node, children;
             nextParent = {
               'name': 'tosca_ref',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -726,7 +1089,8 @@ var node, children;
         }
         if(node === null) {
           node = {
-            'children': []
+            'children': [],
+            'collapsed': true
           };
           children.push(node);
         }
@@ -735,7 +1099,90 @@ var node, children;
       node.name = "tosca_ref_definitions";
       node.title = "Definitions document";
       node.url = "documentation/tosca_ref/tosca_grammar/definitions_file.html";
-      node.weight =  200;
+      node.weight =  300;
+      node.root = "../../../";
+    
+  
+    
+      var parent = sidebarTree["DOCUMENTATION"];
+      
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'tosca_ref_root') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'tosca_ref_root',
+              'title': '-',
+              'children': [],
+              'collapsed': true
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'tosca_ref') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'tosca_ref',
+              'title': '-',
+              'children': [],
+              'collapsed': true
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'tosca_ref_definitions') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'tosca_ref_definitions',
+              'title': '-',
+              'children': [],
+              'collapsed': true
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+
+        children = parent.children;
+        // try to find the node if exists already
+        node = null;
+        for (var i=0; i<children.length; i++) {
+          if(children[i].name === 'tosca_ref_types_function_definition') {
+            node = children[i];
+          }
+        }
+        if(node === null) {
+          node = {
+            'children': [],
+            'collapsed': true
+          };
+          children.push(node);
+        }
+      
+
+      node.name = "tosca_ref_types_function_definition";
+      node.title = "Function definition";
+      node.url = "documentation/tosca_ref/tosca_grammar/function_definition.html";
+      node.weight =  400;
       node.root = "../../../";
     
   
@@ -754,7 +1201,8 @@ var node, children;
         }
         if(node === null) {
           node = {
-            'children': []
+            'children': [],
+            'collapsed': true
           };
           children.push(node);
         }
@@ -772,16 +1220,9 @@ var node, children;
     
   
     
-      var parent = sidebarTree["DOCUMENTATION"];
-      
-        node = parent;
-      
-
-      node.name = "index";
-      node.title = "ALIEN 4 Cloud - Documentation";
-      node.url = "documentation/index.html";
-      node.weight =  0;
-      node.root = "../";
+  
+    
+  
     
   
     
@@ -801,7 +1242,8 @@ var node, children;
         }
         if(node === null) {
           node = {
-            'children': []
+            'children': [],
+            'collapsed': true
           };
           children.push(node);
         }
@@ -829,7 +1271,8 @@ var node, children;
         }
         if(node === null) {
           node = {
-            'children': []
+            'children': [],
+            'collapsed': true
           };
           children.push(node);
         }
@@ -843,11 +1286,16 @@ var node, children;
     
   
     
-  
-    
-  
-    
-  
+      var parent = sidebarTree["DOCUMENTATION"];
+      
+        node = parent;
+      
+
+      node.name = "index";
+      node.title = "ALIEN 4 Cloud - Documentation";
+      node.url = "documentation/index.html";
+      node.weight =  0;
+      node.root = "../";
     
   
     
@@ -865,7 +1313,8 @@ var node, children;
             nextParent = {
               'name': 'cloudify_2_index',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -882,7 +1331,8 @@ var node, children;
         }
         if(node === null) {
           node = {
-            'children': []
+            'children': [],
+            'collapsed': true
           };
           children.push(node);
         }
@@ -893,6 +1343,89 @@ var node, children;
       node.url = "documentation/cloudify2_driver/install_config.html";
       node.weight =  2000;
       node.root = "../../";
+    
+  
+    
+      var parent = sidebarTree["DOCUMENTATION"];
+      
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'tosca_ref_root') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'tosca_ref_root',
+              'title': '-',
+              'children': [],
+              'collapsed': true
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'tosca_ref') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'tosca_ref',
+              'title': '-',
+              'children': [],
+              'collapsed': true
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'tosca_ref_definitions') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'tosca_ref_definitions',
+              'title': '-',
+              'children': [],
+              'collapsed': true
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+
+        children = parent.children;
+        // try to find the node if exists already
+        node = null;
+        for (var i=0; i<children.length; i++) {
+          if(children[i].name === 'tosca_ref_types_interface_definition') {
+            node = children[i];
+          }
+        }
+        if(node === null) {
+          node = {
+            'children': [],
+            'collapsed': true
+          };
+          children.push(node);
+        }
+      
+
+      node.name = "tosca_ref_types_interface_definition";
+      node.title = "Interface definition";
+      node.url = "documentation/tosca_ref/tosca_grammar/interface_definition.html";
+      node.weight =  700;
+      node.root = "../../../";
     
   
     
@@ -912,7 +1445,8 @@ var node, children;
             nextParent = {
               'name': 'getting_started',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -929,7 +1463,8 @@ var node, children;
         }
         if(node === null) {
           node = {
-            'children': []
+            'children': [],
+            'collapsed': true
           };
           children.push(node);
         }
@@ -957,7 +1492,8 @@ var node, children;
             nextParent = {
               'name': 'getting_started',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -974,7 +1510,8 @@ var node, children;
             nextParent = {
               'name': 'lamp_stack',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -991,7 +1528,8 @@ var node, children;
         }
         if(node === null) {
           node = {
-            'children': []
+            'children': [],
+            'collapsed': true
           };
           children.push(node);
         }
@@ -1019,7 +1557,8 @@ var node, children;
             nextParent = {
               'name': 'getting_started',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -1036,7 +1575,8 @@ var node, children;
             nextParent = {
               'name': 'lamp_stack',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -1053,7 +1593,8 @@ var node, children;
         }
         if(node === null) {
           node = {
-            'children': []
+            'children': [],
+            'collapsed': true
           };
           children.push(node);
         }
@@ -1081,7 +1622,8 @@ var node, children;
             nextParent = {
               'name': 'getting_started',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -1098,7 +1640,8 @@ var node, children;
             nextParent = {
               'name': 'lamp_stack',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -1115,7 +1658,8 @@ var node, children;
         }
         if(node === null) {
           node = {
-            'children': []
+            'children': [],
+            'collapsed': true
           };
           children.push(node);
         }
@@ -1143,7 +1687,8 @@ var node, children;
             nextParent = {
               'name': 'getting_started',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -1160,7 +1705,8 @@ var node, children;
             nextParent = {
               'name': 'lamp_stack',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -1177,7 +1723,8 @@ var node, children;
         }
         if(node === null) {
           node = {
-            'children': []
+            'children': [],
+            'collapsed': true
           };
           children.push(node);
         }
@@ -1205,7 +1752,8 @@ var node, children;
             nextParent = {
               'name': 'getting_started',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -1222,7 +1770,8 @@ var node, children;
             nextParent = {
               'name': 'lamp_stack',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -1239,7 +1788,8 @@ var node, children;
         }
         if(node === null) {
           node = {
-            'children': []
+            'children': [],
+            'collapsed': true
           };
           children.push(node);
         }
@@ -1267,7 +1817,8 @@ var node, children;
             nextParent = {
               'name': 'getting_started',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -1284,7 +1835,8 @@ var node, children;
             nextParent = {
               'name': 'lamp_stack',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -1301,7 +1853,8 @@ var node, children;
         }
         if(node === null) {
           node = {
-            'children': []
+            'children': [],
+            'collapsed': true
           };
           children.push(node);
         }
@@ -1329,7 +1882,8 @@ var node, children;
             nextParent = {
               'name': 'cloudify_2_index',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -1346,7 +1900,8 @@ var node, children;
             nextParent = {
               'name': 'cloudify_2_tosca',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -1363,7 +1918,8 @@ var node, children;
         }
         if(node === null) {
           node = {
-            'children': []
+            'children': [],
+            'collapsed': true
           };
           children.push(node);
         }
@@ -1391,7 +1947,8 @@ var node, children;
             nextParent = {
               'name': 'cloudify_2_index',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -1408,7 +1965,8 @@ var node, children;
         }
         if(node === null) {
           node = {
-            'children': []
+            'children': [],
+            'collapsed': true
           };
           children.push(node);
         }
@@ -1428,6 +1986,89 @@ var node, children;
           var nextParent = null;
           children = parent.children;
           for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'tosca_ref_root') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'tosca_ref_root',
+              'title': '-',
+              'children': [],
+              'collapsed': true
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'tosca_ref') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'tosca_ref',
+              'title': '-',
+              'children': [],
+              'collapsed': true
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'tosca_ref_definitions') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'tosca_ref_definitions',
+              'title': '-',
+              'children': [],
+              'collapsed': true
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+
+        children = parent.children;
+        // try to find the node if exists already
+        node = null;
+        for (var i=0; i<children.length; i++) {
+          if(children[i].name === 'tosca_ref_types_operation_definition') {
+            node = children[i];
+          }
+        }
+        if(node === null) {
+          node = {
+            'children': [],
+            'collapsed': true
+          };
+          children.push(node);
+        }
+      
+
+      node.name = "tosca_ref_types_operation_definition";
+      node.title = "Operation definition";
+      node.url = "documentation/tosca_ref/tosca_grammar/operation_definition.html";
+      node.weight =  600;
+      node.root = "../../../";
+    
+  
+    
+      var parent = sidebarTree["DOCUMENTATION"];
+      
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
             if(children[i].name === 'cloudify_2_index') {
               nextParent = children[i];
             }
@@ -1436,7 +2077,8 @@ var node, children;
             nextParent = {
               'name': 'cloudify_2_index',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -1453,7 +2095,8 @@ var node, children;
             nextParent = {
               'name': 'cloudify_2_tosca',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -1470,7 +2113,8 @@ var node, children;
         }
         if(node === null) {
           node = {
-            'children': []
+            'children': [],
+            'collapsed': true
           };
           children.push(node);
         }
@@ -1481,6 +2125,89 @@ var node, children;
       node.url = "documentation/cloudify2_driver/other_interfaces.html";
       node.weight =  300;
       node.root = "../../";
+    
+  
+    
+      var parent = sidebarTree["DOCUMENTATION"];
+      
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'tosca_ref_root') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'tosca_ref_root',
+              'title': '-',
+              'children': [],
+              'collapsed': true
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'tosca_ref') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'tosca_ref',
+              'title': '-',
+              'children': [],
+              'collapsed': true
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'tosca_ref_definitions') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'tosca_ref_definitions',
+              'title': '-',
+              'children': [],
+              'collapsed': true
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+
+        children = parent.children;
+        // try to find the node if exists already
+        node = null;
+        for (var i=0; i<children.length; i++) {
+          if(children[i].name === 'tosca_ref_types_parameter_definition') {
+            node = children[i];
+          }
+        }
+        if(node === null) {
+          node = {
+            'children': [],
+            'collapsed': true
+          };
+          children.push(node);
+        }
+      
+
+      node.name = "tosca_ref_types_parameter_definition";
+      node.title = "Parameter definition";
+      node.url = "documentation/tosca_ref/tosca_grammar/parameter_definition.html";
+      node.weight =  500;
+      node.root = "../../../";
     
   
     
@@ -1508,7 +2235,8 @@ var node, children;
             nextParent = {
               'name': 'cloudify_2_index',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -1525,7 +2253,8 @@ var node, children;
         }
         if(node === null) {
           node = {
-            'children': []
+            'children': [],
+            'collapsed': true
           };
           children.push(node);
         }
@@ -1545,6 +2274,89 @@ var node, children;
           var nextParent = null;
           children = parent.children;
           for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'tosca_ref_root') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'tosca_ref_root',
+              'title': '-',
+              'children': [],
+              'collapsed': true
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'tosca_ref') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'tosca_ref',
+              'title': '-',
+              'children': [],
+              'collapsed': true
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'tosca_ref_definitions') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'tosca_ref_definitions',
+              'title': '-',
+              'children': [],
+              'collapsed': true
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+
+        children = parent.children;
+        // try to find the node if exists already
+        node = null;
+        for (var i=0; i<children.length; i++) {
+          if(children[i].name === 'tosca_ref_types_property_definition') {
+            node = children[i];
+          }
+        }
+        if(node === null) {
+          node = {
+            'children': [],
+            'collapsed': true
+          };
+          children.push(node);
+        }
+      
+
+      node.name = "tosca_ref_types_property_definition";
+      node.title = "Property definition";
+      node.url = "documentation/tosca_ref/tosca_grammar/property_definition.html";
+      node.weight =  200;
+      node.root = "../../../";
+    
+  
+    
+      var parent = sidebarTree["DOCUMENTATION"];
+      
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
             if(children[i].name === 'cloudify_2_index') {
               nextParent = children[i];
             }
@@ -1553,7 +2365,8 @@ var node, children;
             nextParent = {
               'name': 'cloudify_2_index',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -1570,7 +2383,8 @@ var node, children;
             nextParent = {
               'name': 'cloudify_2_tosca',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -1587,7 +2401,8 @@ var node, children;
         }
         if(node === null) {
           node = {
-            'children': []
+            'children': [],
+            'collapsed': true
           };
           children.push(node);
         }
@@ -1598,6 +2413,89 @@ var node, children;
       node.url = "documentation/cloudify2_driver/relationships.html";
       node.weight =  400;
       node.root = "../../";
+    
+  
+    
+      var parent = sidebarTree["DOCUMENTATION"];
+      
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'tosca_ref_root') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'tosca_ref_root',
+              'title': '-',
+              'children': [],
+              'collapsed': true
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'tosca_ref') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'tosca_ref',
+              'title': '-',
+              'children': [],
+              'collapsed': true
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'tosca_ref_definitions') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'tosca_ref_definitions',
+              'title': '-',
+              'children': [],
+              'collapsed': true
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+
+        children = parent.children;
+        // try to find the node if exists already
+        node = null;
+        for (var i=0; i<children.length; i++) {
+          if(children[i].name === 'tosca_ref_requirement_definition') {
+            node = children[i];
+          }
+        }
+        if(node === null) {
+          node = {
+            'children': [],
+            'collapsed': true
+          };
+          children.push(node);
+        }
+      
+
+      node.name = "tosca_ref_requirement_definition";
+      node.title = "Requirement definition";
+      node.url = "documentation/tosca_ref/tosca_grammar/requirement_definition.html";
+      node.weight =  1000;
+      node.root = "../../../";
     
   
     
@@ -1615,7 +2513,8 @@ var node, children;
         }
         if(node === null) {
           node = {
-            'children': []
+            'children': [],
+            'collapsed': true
           };
           children.push(node);
         }
@@ -1647,7 +2546,8 @@ var node, children;
             nextParent = {
               'name': 'getting_started',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -1664,7 +2564,8 @@ var node, children;
             nextParent = {
               'name': 'tutorials',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -1681,7 +2582,8 @@ var node, children;
         }
         if(node === null) {
           node = {
-            'children': []
+            'children': [],
+            'collapsed': true
           };
           children.push(node);
         }
@@ -1709,7 +2611,8 @@ var node, children;
             nextParent = {
               'name': 'getting_started',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -1726,7 +2629,8 @@ var node, children;
             nextParent = {
               'name': 'tutorials',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -1743,7 +2647,8 @@ var node, children;
         }
         if(node === null) {
           node = {
-            'children': []
+            'children': [],
+            'collapsed': true
           };
           children.push(node);
         }
@@ -1771,7 +2676,8 @@ var node, children;
             nextParent = {
               'name': 'cloudify_2_index',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -1788,7 +2694,8 @@ var node, children;
         }
         if(node === null) {
           node = {
-            'children': []
+            'children': [],
+            'collapsed': true
           };
           children.push(node);
         }
@@ -1816,7 +2723,8 @@ var node, children;
             nextParent = {
               'name': 'cloudify_2_index',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -1833,7 +2741,8 @@ var node, children;
         }
         if(node === null) {
           node = {
-            'children': []
+            'children': [],
+            'collapsed': true
           };
           children.push(node);
         }
@@ -1861,7 +2770,8 @@ var node, children;
             nextParent = {
               'name': 'cloudify_2_index',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -1878,7 +2788,8 @@ var node, children;
             nextParent = {
               'name': 'cloudify_2_tosca',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -1895,7 +2806,8 @@ var node, children;
         }
         if(node === null) {
           node = {
-            'children': []
+            'children': [],
+            'collapsed': true
           };
           children.push(node);
         }
@@ -1923,7 +2835,8 @@ var node, children;
             nextParent = {
               'name': 'tosca_ref_root',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -1940,7 +2853,8 @@ var node, children;
         }
         if(node === null) {
           node = {
-            'children': []
+            'children': [],
+            'collapsed': true
           };
           children.push(node);
         }
@@ -1968,7 +2882,8 @@ var node, children;
             nextParent = {
               'name': 'tosca_ref_root',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -1985,7 +2900,8 @@ var node, children;
             nextParent = {
               'name': 'tosca_ref',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -2002,86 +2918,8 @@ var node, children;
         }
         if(node === null) {
           node = {
-            'children': []
-          };
-          children.push(node);
-        }
-      
-
-      node.name = "tosca_ref_types";
-      node.title = "Types in TOSCA";
-      node.url = "documentation/tosca_ref/tosca_concepts_types.html";
-      node.weight =  100;
-      node.root = "../../";
-    
-  
-    
-      var parent = sidebarTree["DOCUMENTATION"];
-      
-        
-          var nextParent = null;
-          children = parent.children;
-          for (var i=0; i<children.length; i++) {
-            if(children[i].name === 'tosca_ref_root') {
-              nextParent = children[i];
-            }
-          }
-          if(nextParent === null) {
-            nextParent = {
-              'name': 'tosca_ref_root',
-              'title': '-',
-              'children': []
-            };
-            parent.children.push(nextParent);
-          }
-          parent = nextParent;
-        
-          var nextParent = null;
-          children = parent.children;
-          for (var i=0; i<children.length; i++) {
-            if(children[i].name === 'tosca_ref') {
-              nextParent = children[i];
-            }
-          }
-          if(nextParent === null) {
-            nextParent = {
-              'name': 'tosca_ref',
-              'title': '-',
-              'children': []
-            };
-            parent.children.push(nextParent);
-          }
-          parent = nextParent;
-        
-          var nextParent = null;
-          children = parent.children;
-          for (var i=0; i<children.length; i++) {
-            if(children[i].name === 'tosca_ref_types') {
-              nextParent = children[i];
-            }
-          }
-          if(nextParent === null) {
-            nextParent = {
-              'name': 'tosca_ref_types',
-              'title': '-',
-              'children': []
-            };
-            parent.children.push(nextParent);
-          }
-          parent = nextParent;
-        
-
-        children = parent.children;
-        // try to find the node if exists already
-        node = null;
-        for (var i=0; i<children.length; i++) {
-          if(children[i].name === 'tosca_ref_types') {
-            node = children[i];
-          }
-        }
-        if(node === null) {
-          node = {
-            'children': []
+            'children': [],
+            'collapsed': true
           };
           children.push(node);
         }
@@ -2109,7 +2947,8 @@ var node, children;
             nextParent = {
               'name': 'tosca_ref_root',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -2126,639 +2965,8 @@ var node, children;
             nextParent = {
               'name': 'tosca_ref',
               'title': '-',
-              'children': []
-            };
-            parent.children.push(nextParent);
-          }
-          parent = nextParent;
-        
-          var nextParent = null;
-          children = parent.children;
-          for (var i=0; i<children.length; i++) {
-            if(children[i].name === 'tosca_ref_types') {
-              nextParent = children[i];
-            }
-          }
-          if(nextParent === null) {
-            nextParent = {
-              'name': 'tosca_ref_types',
-              'title': '-',
-              'children': []
-            };
-            parent.children.push(nextParent);
-          }
-          parent = nextParent;
-        
-
-        children = parent.children;
-        // try to find the node if exists already
-        node = null;
-        for (var i=0; i<children.length; i++) {
-          if(children[i].name === 'tosca_ref_types_artifacts') {
-            node = children[i];
-          }
-        }
-        if(node === null) {
-          node = {
-            'children': []
-          };
-          children.push(node);
-        }
-      
-
-      node.name = "tosca_ref_types_artifacts";
-      node.title = "Artifact definition";
-      node.url = "documentation/tosca_ref/tosca_concepts_types_custom_artifacts.html";
-      node.weight =  800;
-      node.root = "../../";
-    
-  
-    
-      var parent = sidebarTree["DOCUMENTATION"];
-      
-        
-          var nextParent = null;
-          children = parent.children;
-          for (var i=0; i<children.length; i++) {
-            if(children[i].name === 'tosca_ref_root') {
-              nextParent = children[i];
-            }
-          }
-          if(nextParent === null) {
-            nextParent = {
-              'name': 'tosca_ref_root',
-              'title': '-',
-              'children': []
-            };
-            parent.children.push(nextParent);
-          }
-          parent = nextParent;
-        
-          var nextParent = null;
-          children = parent.children;
-          for (var i=0; i<children.length; i++) {
-            if(children[i].name === 'tosca_ref') {
-              nextParent = children[i];
-            }
-          }
-          if(nextParent === null) {
-            nextParent = {
-              'name': 'tosca_ref',
-              'title': '-',
-              'children': []
-            };
-            parent.children.push(nextParent);
-          }
-          parent = nextParent;
-        
-          var nextParent = null;
-          children = parent.children;
-          for (var i=0; i<children.length; i++) {
-            if(children[i].name === 'tosca_ref_types') {
-              nextParent = children[i];
-            }
-          }
-          if(nextParent === null) {
-            nextParent = {
-              'name': 'tosca_ref_types',
-              'title': '-',
-              'children': []
-            };
-            parent.children.push(nextParent);
-          }
-          parent = nextParent;
-        
-
-        children = parent.children;
-        // try to find the node if exists already
-        node = null;
-        for (var i=0; i<children.length; i++) {
-          if(children[i].name === 'tosca_ref_types_capabilities') {
-            node = children[i];
-          }
-        }
-        if(node === null) {
-          node = {
-            'children': []
-          };
-          children.push(node);
-        }
-      
-
-      node.name = "tosca_ref_types_capabilities";
-      node.title = "Capabilities";
-      node.url = "documentation/tosca_ref/tosca_concepts_types_custom_capabilities.html";
-      node.weight =  100;
-      node.root = "../../";
-    
-  
-    
-      var parent = sidebarTree["DOCUMENTATION"];
-      
-        
-          var nextParent = null;
-          children = parent.children;
-          for (var i=0; i<children.length; i++) {
-            if(children[i].name === 'tosca_ref_root') {
-              nextParent = children[i];
-            }
-          }
-          if(nextParent === null) {
-            nextParent = {
-              'name': 'tosca_ref_root',
-              'title': '-',
-              'children': []
-            };
-            parent.children.push(nextParent);
-          }
-          parent = nextParent;
-        
-          var nextParent = null;
-          children = parent.children;
-          for (var i=0; i<children.length; i++) {
-            if(children[i].name === 'tosca_ref') {
-              nextParent = children[i];
-            }
-          }
-          if(nextParent === null) {
-            nextParent = {
-              'name': 'tosca_ref',
-              'title': '-',
-              'children': []
-            };
-            parent.children.push(nextParent);
-          }
-          parent = nextParent;
-        
-          var nextParent = null;
-          children = parent.children;
-          for (var i=0; i<children.length; i++) {
-            if(children[i].name === 'tosca_ref_types') {
-              nextParent = children[i];
-            }
-          }
-          if(nextParent === null) {
-            nextParent = {
-              'name': 'tosca_ref_types',
-              'title': '-',
-              'children': []
-            };
-            parent.children.push(nextParent);
-          }
-          parent = nextParent;
-        
-
-        children = parent.children;
-        // try to find the node if exists already
-        node = null;
-        for (var i=0; i<children.length; i++) {
-          if(children[i].name === 'tosca_ref_types_capability_def') {
-            node = children[i];
-          }
-        }
-        if(node === null) {
-          node = {
-            'children': []
-          };
-          children.push(node);
-        }
-      
-
-      node.name = "tosca_ref_types_capability_def";
-      node.title = "Capability definition";
-      node.url = "documentation/tosca_ref/tosca_concepts_types_custom_capability_def.html";
-      node.weight =  700;
-      node.root = "../../";
-    
-  
-    
-      var parent = sidebarTree["DOCUMENTATION"];
-      
-        
-          var nextParent = null;
-          children = parent.children;
-          for (var i=0; i<children.length; i++) {
-            if(children[i].name === 'tosca_ref_root') {
-              nextParent = children[i];
-            }
-          }
-          if(nextParent === null) {
-            nextParent = {
-              'name': 'tosca_ref_root',
-              'title': '-',
-              'children': []
-            };
-            parent.children.push(nextParent);
-          }
-          parent = nextParent;
-        
-          var nextParent = null;
-          children = parent.children;
-          for (var i=0; i<children.length; i++) {
-            if(children[i].name === 'tosca_ref') {
-              nextParent = children[i];
-            }
-          }
-          if(nextParent === null) {
-            nextParent = {
-              'name': 'tosca_ref',
-              'title': '-',
-              'children': []
-            };
-            parent.children.push(nextParent);
-          }
-          parent = nextParent;
-        
-          var nextParent = null;
-          children = parent.children;
-          for (var i=0; i<children.length; i++) {
-            if(children[i].name === 'tosca_ref_types') {
-              nextParent = children[i];
-            }
-          }
-          if(nextParent === null) {
-            nextParent = {
-              'name': 'tosca_ref_types',
-              'title': '-',
-              'children': []
-            };
-            parent.children.push(nextParent);
-          }
-          parent = nextParent;
-        
-
-        children = parent.children;
-        // try to find the node if exists already
-        node = null;
-        for (var i=0; i<children.length; i++) {
-          if(children[i].name === 'tosca_ref_types_constraints') {
-            node = children[i];
-          }
-        }
-        if(node === null) {
-          node = {
-            'children': []
-          };
-          children.push(node);
-        }
-      
-
-      node.name = "tosca_ref_types_constraints";
-      node.title = "Constraint definition";
-      node.url = "documentation/tosca_ref/tosca_concepts_types_custom_constraints.html";
-      node.weight =  500;
-      node.root = "../../";
-    
-  
-    
-      var parent = sidebarTree["DOCUMENTATION"];
-      
-        
-          var nextParent = null;
-          children = parent.children;
-          for (var i=0; i<children.length; i++) {
-            if(children[i].name === 'tosca_ref_root') {
-              nextParent = children[i];
-            }
-          }
-          if(nextParent === null) {
-            nextParent = {
-              'name': 'tosca_ref_root',
-              'title': '-',
-              'children': []
-            };
-            parent.children.push(nextParent);
-          }
-          parent = nextParent;
-        
-          var nextParent = null;
-          children = parent.children;
-          for (var i=0; i<children.length; i++) {
-            if(children[i].name === 'tosca_ref') {
-              nextParent = children[i];
-            }
-          }
-          if(nextParent === null) {
-            nextParent = {
-              'name': 'tosca_ref',
-              'title': '-',
-              'children': []
-            };
-            parent.children.push(nextParent);
-          }
-          parent = nextParent;
-        
-          var nextParent = null;
-          children = parent.children;
-          for (var i=0; i<children.length; i++) {
-            if(children[i].name === 'tosca_ref_types') {
-              nextParent = children[i];
-            }
-          }
-          if(nextParent === null) {
-            nextParent = {
-              'name': 'tosca_ref_types',
-              'title': '-',
-              'children': []
-            };
-            parent.children.push(nextParent);
-          }
-          parent = nextParent;
-        
-
-        children = parent.children;
-        // try to find the node if exists already
-        node = null;
-        for (var i=0; i<children.length; i++) {
-          if(children[i].name === 'tosca_ref_types_nodes') {
-            node = children[i];
-          }
-        }
-        if(node === null) {
-          node = {
-            'children': []
-          };
-          children.push(node);
-        }
-      
-
-      node.name = "tosca_ref_types_nodes";
-      node.title = "Nodes";
-      node.url = "documentation/tosca_ref/tosca_concepts_types_custom_nodes.html";
-      node.weight =  200;
-      node.root = "../../";
-    
-  
-    
-      var parent = sidebarTree["DOCUMENTATION"];
-      
-        
-          var nextParent = null;
-          children = parent.children;
-          for (var i=0; i<children.length; i++) {
-            if(children[i].name === 'tosca_ref_root') {
-              nextParent = children[i];
-            }
-          }
-          if(nextParent === null) {
-            nextParent = {
-              'name': 'tosca_ref_root',
-              'title': '-',
-              'children': []
-            };
-            parent.children.push(nextParent);
-          }
-          parent = nextParent;
-        
-          var nextParent = null;
-          children = parent.children;
-          for (var i=0; i<children.length; i++) {
-            if(children[i].name === 'tosca_ref') {
-              nextParent = children[i];
-            }
-          }
-          if(nextParent === null) {
-            nextParent = {
-              'name': 'tosca_ref',
-              'title': '-',
-              'children': []
-            };
-            parent.children.push(nextParent);
-          }
-          parent = nextParent;
-        
-          var nextParent = null;
-          children = parent.children;
-          for (var i=0; i<children.length; i++) {
-            if(children[i].name === 'tosca_ref_types') {
-              nextParent = children[i];
-            }
-          }
-          if(nextParent === null) {
-            nextParent = {
-              'name': 'tosca_ref_types',
-              'title': '-',
-              'children': []
-            };
-            parent.children.push(nextParent);
-          }
-          parent = nextParent;
-        
-
-        children = parent.children;
-        // try to find the node if exists already
-        node = null;
-        for (var i=0; i<children.length; i++) {
-          if(children[i].name === 'tosca_ref_types_properties') {
-            node = children[i];
-          }
-        }
-        if(node === null) {
-          node = {
-            'children': []
-          };
-          children.push(node);
-        }
-      
-
-      node.name = "tosca_ref_types_properties";
-      node.title = "Property definition";
-      node.url = "documentation/tosca_ref/tosca_concepts_types_custom_properties.html";
-      node.weight =  400;
-      node.root = "../../";
-    
-  
-    
-      var parent = sidebarTree["DOCUMENTATION"];
-      
-        
-          var nextParent = null;
-          children = parent.children;
-          for (var i=0; i<children.length; i++) {
-            if(children[i].name === 'tosca_ref_root') {
-              nextParent = children[i];
-            }
-          }
-          if(nextParent === null) {
-            nextParent = {
-              'name': 'tosca_ref_root',
-              'title': '-',
-              'children': []
-            };
-            parent.children.push(nextParent);
-          }
-          parent = nextParent;
-        
-          var nextParent = null;
-          children = parent.children;
-          for (var i=0; i<children.length; i++) {
-            if(children[i].name === 'tosca_ref') {
-              nextParent = children[i];
-            }
-          }
-          if(nextParent === null) {
-            nextParent = {
-              'name': 'tosca_ref',
-              'title': '-',
-              'children': []
-            };
-            parent.children.push(nextParent);
-          }
-          parent = nextParent;
-        
-          var nextParent = null;
-          children = parent.children;
-          for (var i=0; i<children.length; i++) {
-            if(children[i].name === 'tosca_ref_types') {
-              nextParent = children[i];
-            }
-          }
-          if(nextParent === null) {
-            nextParent = {
-              'name': 'tosca_ref_types',
-              'title': '-',
-              'children': []
-            };
-            parent.children.push(nextParent);
-          }
-          parent = nextParent;
-        
-
-        children = parent.children;
-        // try to find the node if exists already
-        node = null;
-        for (var i=0; i<children.length; i++) {
-          if(children[i].name === 'tosca_ref_types_relationships') {
-            node = children[i];
-          }
-        }
-        if(node === null) {
-          node = {
-            'children': []
-          };
-          children.push(node);
-        }
-      
-
-      node.name = "tosca_ref_types_relationships";
-      node.title = "Relationships";
-      node.url = "documentation/tosca_ref/tosca_concepts_types_custom_relationships.html";
-      node.weight =  300;
-      node.root = "../../";
-    
-  
-    
-      var parent = sidebarTree["DOCUMENTATION"];
-      
-        
-          var nextParent = null;
-          children = parent.children;
-          for (var i=0; i<children.length; i++) {
-            if(children[i].name === 'tosca_ref_root') {
-              nextParent = children[i];
-            }
-          }
-          if(nextParent === null) {
-            nextParent = {
-              'name': 'tosca_ref_root',
-              'title': '-',
-              'children': []
-            };
-            parent.children.push(nextParent);
-          }
-          parent = nextParent;
-        
-          var nextParent = null;
-          children = parent.children;
-          for (var i=0; i<children.length; i++) {
-            if(children[i].name === 'tosca_ref') {
-              nextParent = children[i];
-            }
-          }
-          if(nextParent === null) {
-            nextParent = {
-              'name': 'tosca_ref',
-              'title': '-',
-              'children': []
-            };
-            parent.children.push(nextParent);
-          }
-          parent = nextParent;
-        
-          var nextParent = null;
-          children = parent.children;
-          for (var i=0; i<children.length; i++) {
-            if(children[i].name === 'tosca_ref_types') {
-              nextParent = children[i];
-            }
-          }
-          if(nextParent === null) {
-            nextParent = {
-              'name': 'tosca_ref_types',
-              'title': '-',
-              'children': []
-            };
-            parent.children.push(nextParent);
-          }
-          parent = nextParent;
-        
-
-        children = parent.children;
-        // try to find the node if exists already
-        node = null;
-        for (var i=0; i<children.length; i++) {
-          if(children[i].name === 'tosca_ref_types_requirements') {
-            node = children[i];
-          }
-        }
-        if(node === null) {
-          node = {
-            'children': []
-          };
-          children.push(node);
-        }
-      
-
-      node.name = "tosca_ref_types_requirements";
-      node.title = "Requirement definition";
-      node.url = "documentation/tosca_ref/tosca_concepts_types_custom_requirements.html";
-      node.weight =  600;
-      node.root = "../../";
-    
-  
-    
-      var parent = sidebarTree["DOCUMENTATION"];
-      
-        
-          var nextParent = null;
-          children = parent.children;
-          for (var i=0; i<children.length; i++) {
-            if(children[i].name === 'tosca_ref_root') {
-              nextParent = children[i];
-            }
-          }
-          if(nextParent === null) {
-            nextParent = {
-              'name': 'tosca_ref_root',
-              'title': '-',
-              'children': []
-            };
-            parent.children.push(nextParent);
-          }
-          parent = nextParent;
-        
-          var nextParent = null;
-          children = parent.children;
-          for (var i=0; i<children.length; i++) {
-            if(children[i].name === 'tosca_ref') {
-              nextParent = children[i];
-            }
-          }
-          if(nextParent === null) {
-            nextParent = {
-              'name': 'tosca_ref',
-              'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -2775,7 +2983,8 @@ var node, children;
         }
         if(node === null) {
           node = {
-            'children': []
+            'children': [],
+            'collapsed': true
           };
           children.push(node);
         }
@@ -2783,7 +2992,7 @@ var node, children;
 
       node.name = "tosca_ref_types_normative";
       node.title = "Normative Types";
-      node.url = "documentation/tosca_ref/tosca_concepts_types_normative.html";
+      node.url = "documentation/tosca_ref/normative_types/tosca_concepts_types_normative.html";
       node.weight =  200;
       node.root = "../../";
     
@@ -2803,7 +3012,8 @@ var node, children;
             nextParent = {
               'name': 'tosca_ref_root',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -2820,7 +3030,8 @@ var node, children;
             nextParent = {
               'name': 'tosca_ref',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -2837,7 +3048,8 @@ var node, children;
             nextParent = {
               'name': 'tosca_ref_types_normative',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -2854,7 +3066,8 @@ var node, children;
         }
         if(node === null) {
           node = {
-            'children': []
+            'children': [],
+            'collapsed': true
           };
           children.push(node);
         }
@@ -2862,7 +3075,7 @@ var node, children;
 
       node.name = "tosca_ref_types_normative_capa";
       node.title = "Capabilities";
-      node.url = "documentation/tosca_ref/tosca_concepts_types_normative_capabilities.html";
+      node.url = "documentation/tosca_ref/normative_types/tosca_concepts_types_normative_capabilities.html";
       node.weight =  100;
       node.root = "../../";
     
@@ -2882,7 +3095,8 @@ var node, children;
             nextParent = {
               'name': 'tosca_ref_root',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -2899,7 +3113,8 @@ var node, children;
             nextParent = {
               'name': 'tosca_ref',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -2916,7 +3131,8 @@ var node, children;
             nextParent = {
               'name': 'tosca_ref_types_normative',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -2933,7 +3149,8 @@ var node, children;
         }
         if(node === null) {
           node = {
-            'children': []
+            'children': [],
+            'collapsed': true
           };
           children.push(node);
         }
@@ -2941,7 +3158,7 @@ var node, children;
 
       node.name = "tosca_ref_types_normative_nodes";
       node.title = "Nodes";
-      node.url = "documentation/tosca_ref/tosca_concepts_types_normative_nodes.html";
+      node.url = "documentation/tosca_ref/normative_types/tosca_concepts_types_normative_nodes.html";
       node.weight =  200;
       node.root = "../../";
     
@@ -2961,7 +3178,8 @@ var node, children;
             nextParent = {
               'name': 'tosca_ref_root',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -2978,7 +3196,8 @@ var node, children;
             nextParent = {
               'name': 'tosca_ref',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -2995,7 +3214,8 @@ var node, children;
             nextParent = {
               'name': 'tosca_ref_types_normative',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -3012,7 +3232,8 @@ var node, children;
         }
         if(node === null) {
           node = {
-            'children': []
+            'children': [],
+            'collapsed': true
           };
           children.push(node);
         }
@@ -3020,7 +3241,7 @@ var node, children;
 
       node.name = "tosca_ref_types_normative_relationships";
       node.title = "Relationships";
-      node.url = "documentation/tosca_ref/tosca_concepts_types_normative_relationships.html";
+      node.url = "documentation/tosca_ref/normative_types/tosca_concepts_types_normative_relationships.html";
       node.weight =  300;
       node.root = "../../";
     
@@ -3044,7 +3265,8 @@ var node, children;
             nextParent = {
               'name': 'getting_started',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -3061,7 +3283,8 @@ var node, children;
         }
         if(node === null) {
           node = {
-            'children': []
+            'children': [],
+            'collapsed': true
           };
           children.push(node);
         }
@@ -3089,7 +3312,8 @@ var node, children;
             nextParent = {
               'name': 'getting_started',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -3106,7 +3330,8 @@ var node, children;
             nextParent = {
               'name': 'tutorials',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -3123,7 +3348,8 @@ var node, children;
         }
         if(node === null) {
           node = {
-            'children': []
+            'children': [],
+            'collapsed': true
           };
           children.push(node);
         }
@@ -3151,7 +3377,8 @@ var node, children;
             nextParent = {
               'name': 'getting_started',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -3168,7 +3395,8 @@ var node, children;
             nextParent = {
               'name': 'tutorials',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -3185,7 +3413,8 @@ var node, children;
         }
         if(node === null) {
           node = {
-            'children': []
+            'children': [],
+            'collapsed': true
           };
           children.push(node);
         }
@@ -3203,9 +3432,18 @@ var node, children;
 
   sidebarTree["ALIEN_ABOUT"] = {
     'name': "ALIEN_ABOUT",
-    'children': []
+    'children': [],
+    'collapsed': true
   };
 
+  
+    
+  
+    
+  
+    
+  
+    
   
     
   
@@ -3314,7 +3552,8 @@ var node, children;
         }
         if(node === null) {
           node = {
-            'children': []
+            'children': [],
+            'collapsed': true
           };
           children.push(node);
         }
@@ -3421,18 +3660,11 @@ var node, children;
   
     
   
-    
-  
-    
-  
-    
-  
-    
-  
 
   sidebarTree["RELEASE_NOTES"] = {
     'name': "RELEASE_NOTES",
-    'children': []
+    'children': [],
+    'collapsed': true
   };
 
   
@@ -3451,7 +3683,8 @@ var node, children;
             nextParent = {
               'name': 'release_note',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -3468,7 +3701,8 @@ var node, children;
             nextParent = {
               'name': '0.0.10',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -3485,7 +3719,8 @@ var node, children;
         }
         if(node === null) {
           node = {
-            'children': []
+            'children': [],
+            'collapsed': true
           };
           children.push(node);
         }
@@ -3513,7 +3748,8 @@ var node, children;
             nextParent = {
               'name': 'release_note',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -3530,7 +3766,8 @@ var node, children;
             nextParent = {
               'name': '0.0.10',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -3547,7 +3784,8 @@ var node, children;
         }
         if(node === null) {
           node = {
-            'children': []
+            'children': [],
+            'collapsed': true
           };
           children.push(node);
         }
@@ -3575,7 +3813,8 @@ var node, children;
             nextParent = {
               'name': 'release_note',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -3592,7 +3831,8 @@ var node, children;
         }
         if(node === null) {
           node = {
-            'children': []
+            'children': [],
+            'collapsed': true
           };
           children.push(node);
         }
@@ -3620,7 +3860,8 @@ var node, children;
             nextParent = {
               'name': 'release_note',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -3637,7 +3878,8 @@ var node, children;
             nextParent = {
               'name': '0.0.11',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -3654,7 +3896,8 @@ var node, children;
         }
         if(node === null) {
           node = {
-            'children': []
+            'children': [],
+            'collapsed': true
           };
           children.push(node);
         }
@@ -3682,7 +3925,8 @@ var node, children;
             nextParent = {
               'name': 'release_note',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -3699,7 +3943,8 @@ var node, children;
             nextParent = {
               'name': '0.0.11',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -3716,7 +3961,8 @@ var node, children;
         }
         if(node === null) {
           node = {
-            'children': []
+            'children': [],
+            'collapsed': true
           };
           children.push(node);
         }
@@ -3744,7 +3990,8 @@ var node, children;
             nextParent = {
               'name': 'release_note',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -3761,7 +4008,8 @@ var node, children;
         }
         if(node === null) {
           node = {
-            'children': []
+            'children': [],
+            'collapsed': true
           };
           children.push(node);
         }
@@ -3789,7 +4037,8 @@ var node, children;
             nextParent = {
               'name': 'release_note',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -3806,7 +4055,8 @@ var node, children;
             nextParent = {
               'name': '0.0.12',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -3823,7 +4073,8 @@ var node, children;
         }
         if(node === null) {
           node = {
-            'children': []
+            'children': [],
+            'collapsed': true
           };
           children.push(node);
         }
@@ -3851,7 +4102,8 @@ var node, children;
             nextParent = {
               'name': 'release_note',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -3868,7 +4120,8 @@ var node, children;
             nextParent = {
               'name': '0.0.12',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -3885,7 +4138,8 @@ var node, children;
         }
         if(node === null) {
           node = {
-            'children': []
+            'children': [],
+            'collapsed': true
           };
           children.push(node);
         }
@@ -3913,7 +4167,8 @@ var node, children;
             nextParent = {
               'name': 'release_note',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -3930,7 +4185,8 @@ var node, children;
         }
         if(node === null) {
           node = {
-            'children': []
+            'children': [],
+            'collapsed': true
           };
           children.push(node);
         }
@@ -3958,7 +4214,8 @@ var node, children;
             nextParent = {
               'name': 'release_note',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -3975,7 +4232,8 @@ var node, children;
             nextParent = {
               'name': '0.0.13',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -3992,7 +4250,8 @@ var node, children;
         }
         if(node === null) {
           node = {
-            'children': []
+            'children': [],
+            'collapsed': true
           };
           children.push(node);
         }
@@ -4020,7 +4279,8 @@ var node, children;
             nextParent = {
               'name': 'release_note',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -4037,7 +4297,8 @@ var node, children;
             nextParent = {
               'name': '0.0.13',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -4054,7 +4315,8 @@ var node, children;
         }
         if(node === null) {
           node = {
-            'children': []
+            'children': [],
+            'collapsed': true
           };
           children.push(node);
         }
@@ -4082,7 +4344,8 @@ var node, children;
             nextParent = {
               'name': 'release_note',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -4099,7 +4362,8 @@ var node, children;
         }
         if(node === null) {
           node = {
-            'children': []
+            'children': [],
+            'collapsed': true
           };
           children.push(node);
         }
@@ -4127,7 +4391,8 @@ var node, children;
             nextParent = {
               'name': 'release_note',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -4144,7 +4409,8 @@ var node, children;
             nextParent = {
               'name': '0.0.14',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -4161,7 +4427,8 @@ var node, children;
         }
         if(node === null) {
           node = {
-            'children': []
+            'children': [],
+            'collapsed': true
           };
           children.push(node);
         }
@@ -4189,7 +4456,8 @@ var node, children;
             nextParent = {
               'name': 'release_note',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -4206,7 +4474,8 @@ var node, children;
             nextParent = {
               'name': '0.0.14',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -4223,7 +4492,8 @@ var node, children;
         }
         if(node === null) {
           node = {
-            'children': []
+            'children': [],
+            'collapsed': true
           };
           children.push(node);
         }
@@ -4251,7 +4521,8 @@ var node, children;
             nextParent = {
               'name': 'release_note',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -4268,7 +4539,8 @@ var node, children;
         }
         if(node === null) {
           node = {
-            'children': []
+            'children': [],
+            'collapsed': true
           };
           children.push(node);
         }
@@ -4296,7 +4568,8 @@ var node, children;
             nextParent = {
               'name': 'release_note',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -4313,7 +4586,8 @@ var node, children;
             nextParent = {
               'name': '0.0.15',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -4330,7 +4604,8 @@ var node, children;
         }
         if(node === null) {
           node = {
-            'children': []
+            'children': [],
+            'collapsed': true
           };
           children.push(node);
         }
@@ -4358,7 +4633,8 @@ var node, children;
             nextParent = {
               'name': 'release_note',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -4375,7 +4651,8 @@ var node, children;
             nextParent = {
               'name': '0.0.15',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -4392,7 +4669,8 @@ var node, children;
         }
         if(node === null) {
           node = {
-            'children': []
+            'children': [],
+            'collapsed': true
           };
           children.push(node);
         }
@@ -4420,7 +4698,8 @@ var node, children;
             nextParent = {
               'name': 'release_note',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -4437,7 +4716,8 @@ var node, children;
         }
         if(node === null) {
           node = {
-            'children': []
+            'children': [],
+            'collapsed': true
           };
           children.push(node);
         }
@@ -4465,7 +4745,8 @@ var node, children;
             nextParent = {
               'name': 'release_note',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -4482,7 +4763,8 @@ var node, children;
             nextParent = {
               'name': '0.0.16',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -4499,7 +4781,8 @@ var node, children;
         }
         if(node === null) {
           node = {
-            'children': []
+            'children': [],
+            'collapsed': true
           };
           children.push(node);
         }
@@ -4527,7 +4810,8 @@ var node, children;
             nextParent = {
               'name': 'release_note',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -4544,7 +4828,8 @@ var node, children;
             nextParent = {
               'name': '0.0.16',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -4561,7 +4846,8 @@ var node, children;
         }
         if(node === null) {
           node = {
-            'children': []
+            'children': [],
+            'collapsed': true
           };
           children.push(node);
         }
@@ -4589,7 +4875,8 @@ var node, children;
             nextParent = {
               'name': 'release_note',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -4606,7 +4893,8 @@ var node, children;
         }
         if(node === null) {
           node = {
-            'children': []
+            'children': [],
+            'collapsed': true
           };
           children.push(node);
         }
@@ -4634,7 +4922,8 @@ var node, children;
             nextParent = {
               'name': 'release_note',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -4651,7 +4940,8 @@ var node, children;
             nextParent = {
               'name': '0.0.9',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -4668,7 +4958,8 @@ var node, children;
         }
         if(node === null) {
           node = {
-            'children': []
+            'children': [],
+            'collapsed': true
           };
           children.push(node);
         }
@@ -4696,7 +4987,8 @@ var node, children;
             nextParent = {
               'name': 'release_note',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -4713,7 +5005,8 @@ var node, children;
             nextParent = {
               'name': '0.0.9',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -4730,7 +5023,8 @@ var node, children;
         }
         if(node === null) {
           node = {
-            'children': []
+            'children': [],
+            'collapsed': true
           };
           children.push(node);
         }
@@ -4758,7 +5052,8 @@ var node, children;
             nextParent = {
               'name': 'release_note',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -4775,7 +5070,8 @@ var node, children;
         }
         if(node === null) {
           node = {
-            'children': []
+            'children': [],
+            'collapsed': true
           };
           children.push(node);
         }
@@ -4803,7 +5099,8 @@ var node, children;
             nextParent = {
               'name': 'release_note',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -4820,7 +5117,8 @@ var node, children;
             nextParent = {
               'name': '1.0.0-M3',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -4837,7 +5135,8 @@ var node, children;
         }
         if(node === null) {
           node = {
-            'children': []
+            'children': [],
+            'collapsed': true
           };
           children.push(node);
         }
@@ -4865,7 +5164,8 @@ var node, children;
             nextParent = {
               'name': 'release_note',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -4882,7 +5182,8 @@ var node, children;
             nextParent = {
               'name': '1.0.0-M3',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -4899,7 +5200,8 @@ var node, children;
         }
         if(node === null) {
           node = {
-            'children': []
+            'children': [],
+            'collapsed': true
           };
           children.push(node);
         }
@@ -4927,7 +5229,8 @@ var node, children;
             nextParent = {
               'name': 'release_note',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -4944,7 +5247,8 @@ var node, children;
         }
         if(node === null) {
           node = {
-            'children': []
+            'children': [],
+            'collapsed': true
           };
           children.push(node);
         }
@@ -5016,7 +5320,8 @@ var node, children;
         }
         if(node === null) {
           node = {
-            'children': []
+            'children': [],
+            'collapsed': true
           };
           children.push(node);
         }
@@ -5128,9 +5433,18 @@ var node, children;
 
   sidebarTree["DEVELOPER_GUIDE"] = {
     'name': "DEVELOPER_GUIDE",
-    'children': []
+    'children': [],
+    'collapsed': true
   };
 
+  
+    
+  
+    
+  
+    
+  
+    
   
     
   
@@ -5246,6 +5560,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DEVELOPER_GUIDE"];
       
         
@@ -5260,7 +5576,8 @@ var node, children;
         }
         if(node === null) {
           node = {
-            'children': []
+            'children': [],
+            'collapsed': true
           };
           children.push(node);
         }
@@ -5271,6 +5588,10 @@ var node, children;
       node.url = "developer_guide/internal-architecture.html";
       node.weight =  100;
       node.root = "../";
+    
+  
+    
+  
     
   
     
@@ -5310,7 +5631,8 @@ var node, children;
         }
         if(node === null) {
           node = {
-            'children': []
+            'children': [],
+            'collapsed': true
           };
           children.push(node);
         }
@@ -5338,7 +5660,8 @@ var node, children;
         }
         if(node === null) {
           node = {
-            'children': []
+            'children': [],
+            'collapsed': true
           };
           children.push(node);
         }
@@ -5403,24 +5726,11 @@ var node, children;
   
     
   
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
 
   sidebarTree["ROADMAP"] = {
     'name': "ROADMAP",
-    'children': []
+    'children': [],
+    'collapsed': true
   };
 
   
@@ -5560,6 +5870,20 @@ var node, children;
     
   
     
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
       var parent = sidebarTree["ROADMAP"];
       
         
@@ -5574,7 +5898,8 @@ var node, children;
         }
         if(node === null) {
           node = {
-            'children': []
+            'children': [],
+            'collapsed': true
           };
           children.push(node);
         }
@@ -5585,20 +5910,6 @@ var node, children;
       node.url = "roadmap/past.html";
       node.weight =  0;
       node.root = "../";
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
     
   
     
@@ -5688,7 +5999,7 @@ function makeSideBar(categoryName, currentNodeName) {
   if(root === null) {
     root = categoryTree.root;
   }
-  return treeToDom(categoryTree.children, root);
+  return treeToDom(categoryTree.children, "/");
 }
 
 function getRoot(tree, currentNodeName) {
@@ -5710,43 +6021,80 @@ function getRoot(tree, currentNodeName) {
 function treeToDom(tree, root) {
   var rootUl = document.createElement("ul");
   $("#sidebar_menu").append(rootUl);
-  appendChildrenToDom(rootUl, tree, root);
+  treeCurrent(tree, root);
+  appendChildrenToDom(rootUl, tree, root, false);
 }
 
-function appendChildrenToDom(currentDomElement, tree, root) {
+function treeCurrent(tree, root) {
+  var hasCurrent = false;
   for (var i=0; i<tree.length; i++) {
+    var treeNode = tree[i];
+    if (treeNode.children) {
+      var isCurrent = treeCurrent(treeNode.children, root);
+      if(isCurrent) {
+        hasCurrent = true;
+        treeNode.collapsed = false;
+      }
+      treeNode.isCurrent = isCurrent;
+    }
+    var hashUrl = '#'+root + treeNode.url;
+    if(location.hash === hashUrl) {
+      hasCurrent = true;
+      treeNode.isCurrent = true;
+    }
+  }
+  return hasCurrent;
+}
+
+function appendChildrenToDom(currentDomElement, tree, root, hidden) {
+  for (var i=0; i<tree.length; i++) {
+    var treeNode = tree[i];
     var li = document.createElement("li");
-    if (tree[i].children && tree[i].children.length > 0) {
+    if (treeNode.children && treeNode.children.length > 0) {
       li.className="parent_li";
       var icon = document.createElement("i");
-      icon.className= "fa fa-minus-square-o";
-      icon.title="Collapse this branch";
-      // icon.className= "fa fa-plus-square-o";
-      // icon.title="Expand this branch";
-      icon.onclick=function() {
+      if(treeNode.collapsed) {
+        icon.className= "fa fa-plus-square-o";
+        icon.title="Expand this branch";
+      } else {
+        icon.className= "fa fa-minus-square-o";
+        icon.title="Collapse this branch";
+      }
+      icon.dataTree = treeNode;
+      icon.onclick = function() {
         var children = $(this).parent('li.parent_li').find(' > ul > li');
-        if (children.is(":visible")) {
-          children.hide('fast');
-          $(this).attr('title', 'Expand this branch').addClass('fa-plus-square-o').removeClass('fa-minus-square-o');
-        } else {
+        if (this.dataTree.collapsed) {
+          this.dataTree.collapsed = false;
           children.show('fast');
           $(this).attr('title', 'Collapse this branch').addClass('fa-minus-square-o').removeClass('fa-plus-square-o');
+        } else {
+          this.dataTree.collapsed = true;
+          children.hide('fast');
+          $(this).attr('title', 'Expand this branch').addClass('fa-plus-square-o').removeClass('fa-minus-square-o');
         }
       };
       li.appendChild(icon);
     }
     var a = document.createElement("a");
-    a.href=root+tree[i].url;
-    a.appendChild(document.createTextNode(' '+tree[i].title));
+    a.href = '#' + root + treeNode.url;
+    var titleNode = document.createTextNode(' ' + treeNode.title);
+    if(treeNode.isCurrent) {
+      var b = document.createElement("b");
+      b.appendChild(titleNode);
+      a.appendChild(b);
+    } else {
+      a.appendChild(titleNode);
+    }
     li.appendChild(a);
+    if(hidden) {
+      li.style.display = "none"
+    }
     currentDomElement.appendChild(li);
-    if (tree[i].children) {
+    if (treeNode.children) {
       var innerUl = document.createElement("ul");
       li.appendChild(innerUl);
-      appendChildrenToDom(innerUl, tree[i].children, root);
+      appendChildrenToDom(innerUl, treeNode.children, root, treeNode.collapsed);
     }
-    // var children = $(li).find(' > ul > li');
-    // children.hide('fast');
   }
 }
 

@@ -93,3 +93,15 @@ i.fa-slack {
     -webkit-transform: rotate(19deg);
     transform: rotate(19deg);
 }
+
+.search-results-section {
+  position: absolute;
+  right: 0px;
+  top: 50px;
+  background-color: #f8f8f8;
+  border-left: 1px solid #e7e7e7;
+  border-bottom: 1px solid #e7e7e7;
+  width: 400px;
+  z-index: 1000;
+  padding: 10px;
+}

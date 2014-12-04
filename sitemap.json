@@ -204,6 +204,27 @@
 	},
 
 	{
+		"url": "/documentation/tosca_ref/tosca_grammar/artifact_definition.html", 
+		"section": "Documentation", 
+		"value": "Artifact definition",
+		"tokens": [ "Artifact","definition"]
+	},
+
+	{
+		"url": "/documentation/tosca_ref/tosca_grammar/artifact_type.html", 
+		"section": "Documentation", 
+		"value": "Artifact type",
+		"tokens": [ "Artifact","type"]
+	},
+
+	{
+		"url": "/documentation/tosca_ref/tosca_grammar/attribute_definition.html", 
+		"section": "Documentation", 
+		"value": "Attribute definition",
+		"tokens": [ "Attribute","definition"]
+	},
+
+	{
 		"url": "/documentation/cloudify2_driver/blockstorage.html", 
 		"section": "Documentation", 
 		"value": "Defaut Blockstorage",
@@ -232,7 +253,7 @@
 	},
 
 	{
-		"url": "/documentation/tosca_ref/tosca_grammar/cloud_service_archive.html", 
+		"url": "/documentation/tosca_ref/cloud_service_archive.html", 
 		"section": "Documentation", 
 		"value": "Cloud Service Archive",
 		"tokens": [ "Cloud","Service","Archive"]
@@ -250,6 +271,13 @@
 		"section": "Documentation", 
 		"value": "Components browsing and searching",
 		"tokens": [ "Components","browsing","and","searching"]
+	},
+
+	{
+		"url": "/documentation/tosca_ref/tosca_grammar/constraints.html", 
+		"section": "Documentation", 
+		"value": "Constraint clause",
+		"tokens": [ "Constraint","clause"]
 	},
 
 	{
@@ -274,6 +302,13 @@
 	},
 
 	{
+		"url": "/documentation/tosca_ref/tosca_grammar/function_definition.html", 
+		"section": "Documentation", 
+		"value": "Function definition",
+		"tokens": [ "Function","definition"]
+	},
+
+	{
 		"url": "/documentation/getting_started/getting_started.html", 
 		"section": "Documentation", 
 		"value": "Getting started",
@@ -295,45 +330,10 @@
 	},
 
 	{
-		"url": "/documentation/index.html", 
-		"section": "Documentation", 
-		"value": "ALIEN 4 Cloud - Documentation",
-		"tokens": [ "ALIEN","4","Cloud","","Documentation"]
-	},
-
-	{
 		"url": "/developer_guide/index.html", 
 		"section": "Developer Guide", 
 		"value": "Developer Guide",
 		"tokens": [ "Developer","Guide"]
-	},
-
-	{
-		"url": "/documentation/cloudify2_driver/index.html", 
-		"section": "Documentation", 
-		"value": "Cloudify 2 PaaS Provider",
-		"tokens": [ "Cloudify","2","PaaS","Provider"]
-	},
-
-	{
-		"url": "/documentation/tosca_ref/index.html", 
-		"section": "Documentation", 
-		"value": "Components and TOSCA ref.",
-		"tokens": [ "Components","and","TOSCA","ref."]
-	},
-
-	{
-		"url": "/alien_about/index.html", 
-		"section": "About ALIEN 4 Cloud", 
-		"value": "About Alien4Cloud",
-		"tokens": [ "About","Alien4Cloud"]
-	},
-
-	{
-		"url": "/getting_started/index.html", 
-		"section": "Getting Started", 
-		"value": "Getting Started",
-		"tokens": [ "Getting","Started"]
 	},
 
 	{
@@ -351,10 +351,45 @@
 	},
 
 	{
+		"url": "/alien_about/index.html", 
+		"section": "About ALIEN 4 Cloud", 
+		"value": "About Alien4Cloud",
+		"tokens": [ "About","Alien4Cloud"]
+	},
+
+	{
+		"url": "/documentation/cloudify2_driver/index.html", 
+		"section": "Documentation", 
+		"value": "Cloudify 2 PaaS Provider",
+		"tokens": [ "Cloudify","2","PaaS","Provider"]
+	},
+
+	{
+		"url": "/documentation/tosca_ref/index.html", 
+		"section": "Documentation", 
+		"value": "Components and TOSCA ref.",
+		"tokens": [ "Components","and","TOSCA","ref."]
+	},
+
+	{
+		"url": "/documentation/index.html", 
+		"section": "Documentation", 
+		"value": "ALIEN 4 Cloud - Documentation",
+		"tokens": [ "ALIEN","4","Cloud","","Documentation"]
+	},
+
+	{
 		"url": "/documentation/cloudify2_driver/install_config.html", 
 		"section": "Documentation", 
 		"value": "Installing and configuring",
 		"tokens": [ "Installing","and","configuring"]
+	},
+
+	{
+		"url": "/documentation/tosca_ref/tosca_grammar/interface_definition.html", 
+		"section": "Documentation", 
+		"value": "Interface definition",
+		"tokens": [ "Interface","definition"]
 	},
 
 	{
@@ -428,10 +463,24 @@
 	},
 
 	{
+		"url": "/documentation/tosca_ref/tosca_grammar/operation_definition.html", 
+		"section": "Documentation", 
+		"value": "Operation definition",
+		"tokens": [ "Operation","definition"]
+	},
+
+	{
 		"url": "/documentation/cloudify2_driver/other_interfaces.html", 
 		"section": "Documentation", 
 		"value": "Other specifics interfaces",
 		"tokens": [ "Other","specifics","interfaces"]
+	},
+
+	{
+		"url": "/documentation/tosca_ref/tosca_grammar/parameter_definition.html", 
+		"section": "Documentation", 
+		"value": "Parameter definition",
+		"tokens": [ "Parameter","definition"]
 	},
 
 	{
@@ -477,10 +526,24 @@
 	},
 
 	{
+		"url": "/documentation/tosca_ref/tosca_grammar/property_definition.html", 
+		"section": "Documentation", 
+		"value": "Property definition",
+		"tokens": [ "Property","definition"]
+	},
+
+	{
 		"url": "/documentation/cloudify2_driver/relationships.html", 
 		"section": "Documentation", 
 		"value": "Relationships",
 		"tokens": [ "Relationships"]
+	},
+
+	{
+		"url": "/documentation/tosca_ref/tosca_grammar/requirement_definition.html", 
+		"section": "Documentation", 
+		"value": "Requirement definition",
+		"tokens": [ "Requirement","definition"]
 	},
 
 	{
@@ -547,13 +610,6 @@
 	},
 
 	{
-		"url": "/documentation/tosca_ref/tosca_concepts_types.html", 
-		"section": "Documentation", 
-		"value": "Types in TOSCA",
-		"tokens": [ "Types","in","TOSCA"]
-	},
-
-	{
 		"url": "/documentation/tosca_ref/tosca_concepts_types_custom.html", 
 		"section": "Documentation", 
 		"value": "Writing custom types",
@@ -561,84 +617,28 @@
 	},
 
 	{
-		"url": "/documentation/tosca_ref/tosca_concepts_types_custom_artifacts.html", 
-		"section": "Documentation", 
-		"value": "Artifact definition",
-		"tokens": [ "Artifact","definition"]
-	},
-
-	{
-		"url": "/documentation/tosca_ref/tosca_concepts_types_custom_capabilities.html", 
-		"section": "Documentation", 
-		"value": "Capabilities",
-		"tokens": [ "Capabilities"]
-	},
-
-	{
-		"url": "/documentation/tosca_ref/tosca_concepts_types_custom_capability_def.html", 
-		"section": "Documentation", 
-		"value": "Capability definition",
-		"tokens": [ "Capability","definition"]
-	},
-
-	{
-		"url": "/documentation/tosca_ref/tosca_concepts_types_custom_constraints.html", 
-		"section": "Documentation", 
-		"value": "Constraint definition",
-		"tokens": [ "Constraint","definition"]
-	},
-
-	{
-		"url": "/documentation/tosca_ref/tosca_concepts_types_custom_nodes.html", 
-		"section": "Documentation", 
-		"value": "Nodes",
-		"tokens": [ "Nodes"]
-	},
-
-	{
-		"url": "/documentation/tosca_ref/tosca_concepts_types_custom_properties.html", 
-		"section": "Documentation", 
-		"value": "Property definition",
-		"tokens": [ "Property","definition"]
-	},
-
-	{
-		"url": "/documentation/tosca_ref/tosca_concepts_types_custom_relationships.html", 
-		"section": "Documentation", 
-		"value": "Relationships",
-		"tokens": [ "Relationships"]
-	},
-
-	{
-		"url": "/documentation/tosca_ref/tosca_concepts_types_custom_requirements.html", 
-		"section": "Documentation", 
-		"value": "Requirement definition",
-		"tokens": [ "Requirement","definition"]
-	},
-
-	{
-		"url": "/documentation/tosca_ref/tosca_concepts_types_normative.html", 
+		"url": "/documentation/tosca_ref/normative_types/tosca_concepts_types_normative.html", 
 		"section": "Documentation", 
 		"value": "Normative Types",
 		"tokens": [ "Normative","Types"]
 	},
 
 	{
-		"url": "/documentation/tosca_ref/tosca_concepts_types_normative_capabilities.html", 
+		"url": "/documentation/tosca_ref/normative_types/tosca_concepts_types_normative_capabilities.html", 
 		"section": "Documentation", 
 		"value": "Capabilities",
 		"tokens": [ "Capabilities"]
 	},
 
 	{
-		"url": "/documentation/tosca_ref/tosca_concepts_types_normative_nodes.html", 
+		"url": "/documentation/tosca_ref/normative_types/tosca_concepts_types_normative_nodes.html", 
 		"section": "Documentation", 
 		"value": "Nodes",
 		"tokens": [ "Nodes"]
 	},
 
 	{
-		"url": "/documentation/tosca_ref/tosca_concepts_types_normative_relationships.html", 
+		"url": "/documentation/tosca_ref/normative_types/tosca_concepts_types_normative_relationships.html", 
 		"section": "Documentation", 
 		"value": "Relationships",
 		"tokens": [ "Relationships"]

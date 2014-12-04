@@ -1,0 +1,95 @@
+<div class="container">
+  <div class="row">
+    <div id="breadcrumbs"></div>
+    
+      <div class="col-md-3">
+        <div id="sidebar_menu" class="well tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-md-9">
+    
+        <h1 style="margin-top: 0px;">Artifact type</h1>
+        <p>An Artifact Type is a reusable entity that defines the type of one or more files which Node Types or Node Templates can have dependent relationships and used during operations such as during installation or deployment.</p>
+
+<h2 id="keynames">Keynames</h2>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Keyname</th>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Required</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">derived_from</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">An optional parent Artifact Type name the Artifact Type derives from.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">description</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">An optional description for the Artifact Type.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">mime_type</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">yes</td>
+      <td style="text-align: left">The required mime type property for the Artifact Type.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">file_ext</td>
+      <td style="text-align: left">string[]</td>
+      <td style="text-align: left">yes</td>
+      <td style="text-align: left">The required file extension property for the Artifact Type.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">properties</td>
+      <td style="text-align: left"><a href="#/documentation/tosca_ref/tosca_grammar/property_definition.html">property definitions</a></td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">An optional list of property definitions for the Artifact Type.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="grammar">Grammar</h2>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">&lt;artifact_type_name&gt;</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">derived_from</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;parent_artifact_type_name&gt;</span>
+  <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;artifact_description&gt;</span>
+  <span class="l-Scalar-Plain">mime_type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;mime_type_string&gt;</span>
+  <span class="l-Scalar-Plain">file_ext</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span> <span class="nv">&lt;file_extension_1&gt;</span><span class="p-Indicator">,</span> <span class="nv">...</span><span class="p-Indicator">,</span> <span class="nv">&lt;file_extension_n&gt;</span> <span class="p-Indicator">]</span>
+  <span class="l-Scalar-Plain">properties</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">&lt;property_definitions&gt;</span></code></pre></div>
+
+<p>See:</p>
+
+<ul>
+  <li><a href="#/documentation/tosca_ref/tosca_grammar/property_definition.html">property_definitions</a></li>
+</ul>
+
+<h2 id="example">Example</h2>
+
+<p>The following example shows how to define a node type with operation:</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">my_artifact_type</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Java Archive artifact type</span>
+  <span class="l-Scalar-Plain">derived_from</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.artifact.Root</span>
+  <span class="l-Scalar-Plain">mime_type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">application/java-archive</span>
+  <span class="l-Scalar-Plain">file_ext</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span> <span class="nv">jar</span> <span class="p-Indicator">]</span></code></pre></div>
+
+
+      </div>
+    </div>
+  </div>
+</div><!-- /container -->
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION', 'tosca_ref_types_artifact_type');
+  createBreadcrumbs('DOCUMENTATION', 'Documentation');
+});
+</script>
