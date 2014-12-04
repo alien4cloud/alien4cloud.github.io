@@ -11,7 +11,7 @@ weight: 100
 Every elements in TOSCA must be contained into a Cloud Service Archive (CSAR). A Cloud Service Archive is a folder or a zip file that contains types and templates definitions and any other files required for elements implementations.
 
 {% highlight bash %}
-├── my-definition-file.yaml
+├── my-definition-file.yml
 ├── images
 │   ├── component-icon.png
 │   └── ...

@@ -6,6 +6,7 @@ categories: RELEASE_NOTES
 parent: [release_note]
 node_name: 0.0.10
 weight: 10000
+exclude_from_search: true
 ---
 
 

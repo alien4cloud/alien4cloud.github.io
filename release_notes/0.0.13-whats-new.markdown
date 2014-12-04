@@ -6,6 +6,7 @@ categories: RELEASE_NOTES
 parent: [release_note, 0.0.13]
 node_name: 0.0.13_new
 weight: 100
+exclude_from_search: true
 ---
 
 {%summary%}{%endsummary%}

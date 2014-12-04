@@ -1,11 +1,11 @@
 ---
 layout: post
 title:  Property definition
-root: ../../
+root: ../../../
 categories: DOCUMENTATION
-parent: [tosca_ref_root, tosca_ref, tosca_ref_types]
-node_name: tosca_ref_types_properties
-weight: 400
+parent: [tosca_ref_root, tosca_ref, tosca_ref_definitions]
+node_name: tosca_ref_types_property_definition
+weight: 200
 ---
 
 A property definition defines a named, typed value that can be associated with an entity defined in this specification.  It is used to associate a transparent property or characteristic of that entity which can either be set (configured) on or retrieved from it.
@@ -16,28 +16,28 @@ A property definition defines a named, typed value that can be associated with a
 | Keyname         | Type                | Required | Description |
 |:----------------|:--------------------|:---------|:------------|
 | type            | string              | yes      | The required data type for the property. |
-| scope           | string              | no       | Declares a property as required, optional or provided (meaning that the property will be available at runtime). Valid values are "required", "optional" and "provided". If this key is not declared for property definition, then the property is considered required by default. |
+| description     | string              | no       | The optional description for the property. |
+| required        | boolean             | no (default true) | Optional key to define if the property is requied (true) or not (false). If this key is not declared for the property definition, then the property SHALL be considered required by default. |
 | default         | N/A                 | no | An optional key that may provide a value to be used as a default if not provided by another means. This value SHALL be type compatible with the type declared by the property definition’s type keyname. |
-| description     | string              | no | The optional description for the property. |
-| constraints     | [list of constraints](tosca_concepts_types_custom_constraints.html) | no | The optional list of sequenced constraints for the property. |
+| constraints     | [list of constraints](#/documentation/tosca_ref/tosca_grammar/constraints.html) | no | The optional list of sequenced constraints for the property. |
 
 ## Grammar
 
 {% highlight yaml %}
 <property_name>:
   type: <property_type>
-  scope: <property_scope>
-  default: <property_default_value>
   description: <property_description>
+  required: <property_required>
+  default: <property_default_value>
   constraints:
     - <property_constraint_1>
     - ...
     - <property_constraint_n>
 {% endhighlight %}
 
-{% info %}
-More informations on available constraints can be found [here](tosca_concepts_types_custom_constraints.html).
-{% endinfo %}
+See:
+
+- [constraints](#/documentation/tosca_ref/tosca_grammar/constraints.html)
 
 ## Example
 
@@ -51,7 +51,7 @@ node_types:
         type: string
       property_2:
         type: string
-        scope: optional
+        required: false
         default: This is the default value of the property
         description: this is the second property of the node
         constraints:

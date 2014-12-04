@@ -5,7 +5,7 @@ root: ../../../
 categories: DOCUMENTATION
 parent: [tosca_ref_root, tosca_ref]
 node_name: tosca_ref_definitions
-weight: 200
+weight: 300
 ---
 
 The root element of a definition file is called the Service Template.
@@ -23,9 +23,9 @@ A TOSCA Definitions file contains the following element keynames:
 |:---------|:------------|:---------|
 | tosca_definitions_version | <b>yes</b> | Defines the version of the TOSCA Simple Profile specification the template (grammar) complies with. |
 | tosca_default_namespace | no | Defines the namespace of the TOSCA schema to use for validation. |
-| template_name | <b>no*</b> | Declares the name of the template. |
+| template_name | <b>yes*</b> | Declares the name of the template. |
 | template_author | no | Declares the author(s) of the template. |
-| template_version | <b>no*</b> | Declares the version string for the template. |
+| template_version | <b>yes*</b> | Declares the version string for the template. |
 | description | no | Declares a description for this Service Template and its contents. |
 | imports | no | Declares import statements external TOSCA Definitions documents (files). |
 | dsl_defintions | no | Declares optional DSL-specific definitions and conventions. For example, in YAML, this allows defining reusable YAML macros (i.e., YAML alias anchors) for use throughout the TOSCA Service Template. |
@@ -40,7 +40,7 @@ A TOSCA Definitions file contains the following element keynames:
 | groups | no | This is an optional section that contains grouping definition for node templates. |
 
 {% warning %}
-(*) In Alien 4 Cloud the template name and versions are required as we supports versioning of the templates and indexing of elements in a catalog.
+(*) In Alien 4 Cloud the template name and versions are required as we supports versioning of the templates and indexing of elements in a catalog. In TOSCA specification they are optional.
 {% endwarning %}
 
 ## Grammar
@@ -442,10 +442,4 @@ outputs:
   server_ip:
     description: The IP address of the provisioned server.
     value: { get_attribute: [ my_server, ip_address ] }
-{% endhighlight %}
-
-## Example
-
-{% highlight yaml %}
-
 {% endhighlight %}

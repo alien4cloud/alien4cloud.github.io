@@ -3,13 +3,13 @@ layout: null
 ---
 
 var sidebarTree = {};
-
 var node, children;
 
 {% for cat in site.categories-list %}
   sidebarTree["{{ cat }}"] = {
     'name': "{{cat}}",
-    'children': []
+    'children': [],
+    'collapsed': true
   };
 
   {% for page in site.pages %}
@@ -28,7 +28,8 @@ var node, children;
             nextParent = {
               'name': '{{nextParentName}}',
               'title': '-',
-              'children': []
+              'children': [],
+              'collapsed': true
             };
             parent.children.push(nextParent);
           }
@@ -45,7 +46,8 @@ var node, children;
         }
         if(node === null) {
           node = {
-            'children': []
+            'children': [],
+            'collapsed': true
           };
           children.push(node);
         }
@@ -63,9 +65,7 @@ var node, children;
 {% endfor %}
 
 function doSort(tree) {
-  console.log(tree);
   tree.sort(function(a,b) {
-    console.log(a, b);
     return(a.weight - b.weight);
   });
   for(var i=0; i<tree.length; i++) {
@@ -85,7 +85,7 @@ function makeSideBar(categoryName, currentNodeName) {
   if(root === null) {
     root = categoryTree.root;
   }
-  return treeToDom(categoryTree.children, root);
+  return treeToDom(categoryTree.children, "/");
 }
 
 function getRoot(tree, currentNodeName) {
@@ -107,38 +107,79 @@ function getRoot(tree, currentNodeName) {
 function treeToDom(tree, root) {
   var rootUl = document.createElement("ul");
   $("#sidebar_menu").append(rootUl);
-  appendChildrenToDom(rootUl, tree, root);
+  treeCurrent(tree, root);
+  appendChildrenToDom(rootUl, tree, root, false);
 }
 
-function appendChildrenToDom(currentDomElement, tree, root) {
+function treeCurrent(tree, root) {
+  var hasCurrent = false;
   for (var i=0; i<tree.length; i++) {
+    var treeNode = tree[i];
+    if (treeNode.children) {
+      var isCurrent = treeCurrent(treeNode.children, root);
+      if(isCurrent) {
+        hasCurrent = true;
+        treeNode.collapsed = false;
+      }
+      treeNode.isCurrent = isCurrent;
+    }
+    var hashUrl = '#'+root + treeNode.url;
+    if(location.hash === hashUrl) {
+      hasCurrent = true;
+      treeNode.isCurrent = true;
+    }
+  }
+  return hasCurrent;
+}
+
+function appendChildrenToDom(currentDomElement, tree, root, hidden) {
+  for (var i=0; i<tree.length; i++) {
+    var treeNode = tree[i];
     var li = document.createElement("li");
-    if (tree[i].children && tree[i].children.length > 0) {
+    if (treeNode.children && treeNode.children.length > 0) {
       li.className="parent_li";
       var icon = document.createElement("i");
-      icon.className= "fa fa-minus-square-o";
-      icon.title="Collapse this branch";
-      icon.onclick=function() {
+      if(treeNode.collapsed) {
+        icon.className= "fa fa-plus-square-o";
+        icon.title="Expand this branch";
+      } else {
+        icon.className= "fa fa-minus-square-o";
+        icon.title="Collapse this branch";
+      }
+      icon.dataTree = treeNode;
+      icon.onclick = function() {
         var children = $(this).parent('li.parent_li').find(' > ul > li');
-        if (children.is(":visible")) {
-          children.hide('fast');
-          $(this).attr('title', 'Expand this branch').addClass('fa-plus-square-o').removeClass('fa-minus-square-o');
-        } else {
+        if (this.dataTree.collapsed) {
+          this.dataTree.collapsed = false;
           children.show('fast');
           $(this).attr('title', 'Collapse this branch').addClass('fa-minus-square-o').removeClass('fa-plus-square-o');
+        } else {
+          this.dataTree.collapsed = true;
+          children.hide('fast');
+          $(this).attr('title', 'Expand this branch').addClass('fa-plus-square-o').removeClass('fa-minus-square-o');
         }
       };
       li.appendChild(icon);
     }
     var a = document.createElement("a");
-    a.href=root+tree[i].url;
-    a.appendChild(document.createTextNode(' '+tree[i].title));
+    a.href = '#' + root + treeNode.url;
+    var titleNode = document.createTextNode(' ' + treeNode.title);
+    if(treeNode.isCurrent) {
+      var b = document.createElement("b");
+      b.appendChild(titleNode);
+      a.appendChild(b);
+    } else {
+      a.appendChild(titleNode);
+    }
     li.appendChild(a);
+    if(hidden) {
+      li.style.display = "none"
+    }
     currentDomElement.appendChild(li);
-    if (tree[i].children) {
+    if (treeNode.children) {
       var innerUl = document.createElement("ul");
       li.appendChild(innerUl);
-      appendChildrenToDom(innerUl, tree[i].children, root);
+      appendChildrenToDom(innerUl, treeNode.children, root, treeNode.collapsed);
     }
   }
 }

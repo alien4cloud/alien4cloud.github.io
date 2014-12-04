@@ -1,16 +1,14 @@
 ---
 layout: post
-title:  Constraint definition
+title:  Constraint clause
 root: ../../
 categories: DOCUMENTATION
-parent: [tosca_ref_root, tosca_ref, tosca_ref_types]
+parent: [tosca_ref_root, tosca_ref, tosca_ref_definitions]
 node_name: tosca_ref_types_constraints
-weight: 500
+weight: 100
 ---
 
 A constraint clause defines an operation along with one or more compatible values that can be used to define a constraint on a property’s or parameter’s allowed values.
-
- - properties
 
 ## Available constraints
 
@@ -32,7 +30,11 @@ The following is the list of recognized operators (keynames) when defining const
 | pattern          | regex       | string     | Constrains the property or parameter to a value that is allowed by the provided regular expression. |
 
 {% info %}
-Note: The value type comparable refers to integer, float , timestamp and version types, while all refers to any type allowed in the TOSCA simple profile in YAML.
+The value type comparable refers to integer, float , timestamp and version types, while all refers to any type allowed in the TOSCA simple profile in YAML.
+{% endinfo %}
+
+{% info %}
+Regular expression language in Alien 4 Cloud (not specified in TOSCA currently) is Java regex.
 {% endinfo %}
 
 ## Grammar

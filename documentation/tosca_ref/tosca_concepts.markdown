@@ -8,7 +8,7 @@ node_name: tosca_ref
 weight: 400
 ---
 
-TOSCA specification allows users to speciy a cloud application's topology by defining a set of nodes that are connected to other using relationships.
+TOSCA specification allows users to specify a cloud application's topology by defining a set of nodes that are connected to other using relationships.
 
 The goal of the TOSCA specification is to focus on a good meta-definition of cloud applications and their components and focus on the following goals:
 

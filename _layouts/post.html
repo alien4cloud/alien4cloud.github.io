@@ -1,40 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-  {% include root %}
-  {% include head.html %}
-  <body>
-    <script type="text/javascript">
-      var tocheaders = {};
-      var tocheadersz = {};
-    </script>
-    {% include scripts.html %}
-    <div id="wrapper">
-      <div id="header">
-        {% include navbar.html %}
+<div class="container">
+  <div class="row">
+    <div id="breadcrumbs"></div>
+    {% if page.categories == null %}
+      <div id="content" class="col-md-12">
+    {% else %}
+      <div class="col-md-3">
+        <div id="sidebar_menu" class="well tree" role="complementary"></div>
       </div>
-
-      <div id="content-parent" class="content">
-        <div class="container">
-          <div class="row">
-            <div id="breadcrumbs"></div>
-            {% if page.categories == null %}
-              <div id="content" class="col-md-12">
-            {% else %}
-              <div class="col-md-3">
-                {% include nav.html %}
-              </div>
-              <div id="content" class="col-md-9">
-            {% endif %}
-                <h1 style="margin-top: 0px;">{{ page.title }}</h1>
-                {{ content }}
-              </div>
-            </div>
-          </div><!-- /container -->
-        </div>
+      <div id="content" class="col-md-9">
+    {% endif %}
+        <h1 style="margin-top: 0px;">{{ page.title }}</h1>
+        {{ content }}
       </div>
-      <div class="push"></div>
     </div>
-    {% include footer.html %}
-    <script type="text/javascript" src="{{root}}js/post-layout.js"></script>
-  </body>
-</html>
+  </div>
+</div><!-- /container -->
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('{{ page.categories }}', '{{page.node_name}}');
+  createBreadcrumbs('{{ page.categories }}', '{% currentsection %}');
+});
+</script>

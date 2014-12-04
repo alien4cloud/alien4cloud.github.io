@@ -1,2 +1,31 @@
-<script type="text/javascript" src="{{root}}js/jquery.min.js"></script>
-<script type="text/javascript" src="{{root}}js/bootstrap.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="{{root}}js/search.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="{{root}}js/bootstrap.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="{{root}}js/jquery.ba-hashchange.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="{{root}}js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="{{root}}js/sidebar.js"></script>
+
+{% raw %}
+<script id="search-results-template" type="text/mustache">
+{{#entries}}
+<div><a href="#{{url}}">{{title}}</a></div>
+{{/entries}}
+</script>
+{% endraw %}
+
+<script type="text/javascript">
+var lunrIndexLoaded = false;
+function loadLunrIndex() {
+  if(lunrIndexLoaded) {
+    return;
+  }
+  console.log("loading index...");
+  $('#search-query').lunrSearch({
+    indexUrl: '/search.json',
+    results:  '#search-results',
+    entries:  '.entries',
+    template: '#search-results-template'
+  });
+  console.log("loaded");
+  lunrIndexLoaded = true;
+}
+</script>
