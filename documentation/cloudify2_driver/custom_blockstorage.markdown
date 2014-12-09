@@ -31,8 +31,10 @@ Provide your custom way to **create** and **attach** the storage to your compute
 {: .table .table-bordered}
 | Argument | Access | Description |
 |:---------|:-------|:------------|
-| *volumeId*  | `args[0]` |  if provided, the Id of the volume to attach. This might be null |
-| *storageTemplateId*  | `args[1]` |  The Id of the storage template to use to create a volume, base on the size provided. This is never null. |
+| *sourceNodeTemplateId*  | `args[0]` |  Generated Id of the source node of the relationship (the node name without spaces and in lowercase). | war, war_2, compute  |
+| *sourceServiceId* | `args[1]` | ***Cloudify service name*** in which the source node is hosted (the compute nodeId). | for the nodes War and War_2: compute |
+| *volumeId*  | `args[2]` |  if provided, the Id of the volume to attach. This might be null |
+| *storageTemplateId*  | `args[3]` |  The Id of the storage template to use to create a volume, base on the size provided. This is never null. |
 
 
 ### Return ###
@@ -74,7 +76,9 @@ Provide your custom way to **format** and **mount** the storage on your compute 
 {: .table .table-bordered}
 | Argument | Access | Description |
 |:---------|:-------|:------------|
-| *device*  | `args[0]` |  device name on which the volume is attached |
+| *sourceNodeTemplateId*  | `args[0]` |  Generated Id of the source node of the relationship (the node name without spaces and in lowercase). | war, war_2, compute  |
+| *sourceServiceId* | `args[1]` | ***Cloudify service name*** in which the source node is hosted (the compute nodeId). | for the nodes War and War_2: compute |
+| *device*  | `args[2]` |  device name on which the volume is attached |
 
 ### Return ###
 The script must return a string value:  
@@ -89,7 +93,7 @@ import org.cloudifysource.utilitydomain.context.ServiceContextFactory
 def context = ServiceContextFactory.getServiceContext()
 
 //getting the args
-def device = args[0]
+def device = args[2]
 
 def storagePath = "/mountTest"
 denew AntBuilder().sequential {
@@ -117,8 +121,10 @@ Provide your custom way to **unmount** and/or **delete** the storage in the **`d
 {: .table .table-bordered}
 | Argument | Access | Description |
 |:---------|:-------|:------------|
-| *volumeId*  | `args[0]` |  if provided, the Id of the volume to attach. This is never null. |
-| *device*  | `args[0]` |  device name on which the volume is attached. |
+| *sourceNodeTemplateId*  | `args[0]` |  Generated Id of the source node of the relationship (the node name without spaces and in lowercase). | war, war_2, compute  |
+| *sourceServiceId* | `args[1]` | ***Cloudify service name*** in which the source node is hosted (the compute nodeId). | for the nodes War and War_2: compute |
+| *volumeId*  | `args[2]` |  if provided, the Id of the volume to attach. This is never null. |
+| *device*  | `args[3]` |  device name on which the volume is attached. |
 
 ### Return ###
 No need to return anything for this script.  
@@ -132,8 +138,8 @@ import org.cloudifysource.utilitydomain.context.ServiceContextFactory
 def context = ServiceContextFactory.getServiceContext()
 
 //getting args
-def volumeId = args[0]
-def device = args[1]
+def volumeId = args[2]
+def device = args[3]
 
 println "Storage volume: volumeId <${volumeId}>, device <${device}>"
 println "deletable-unmountDelete.groovy: unmounting storage volume... "
