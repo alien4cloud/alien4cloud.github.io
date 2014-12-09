@@ -32,18 +32,33 @@
       <th style="text-align: left">Argument</th>
       <th style="text-align: left">Access</th>
       <th style="text-align: left">Description</th>
+      <th> </th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><em>volumeId</em></td>
+      <td style="text-align: left"><em>sourceNodeTemplateId</em></td>
       <td style="text-align: left"><code>args[0]</code></td>
+      <td style="text-align: left">Generated Id of the source node of the relationship (the node name without spaces and in lowercase).</td>
+      <td>war, war_2, compute</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><em>sourceServiceId</em></td>
+      <td style="text-align: left"><code>args[1]</code></td>
+      <td style="text-align: left"><strong><em>Cloudify service name</em></strong> in which the source node is hosted (the compute nodeId).</td>
+      <td>for the nodes War and War_2: compute</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><em>volumeId</em></td>
+      <td style="text-align: left"><code>args[2]</code></td>
       <td style="text-align: left">if provided, the Id of the volume to attach. This might be null</td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><em>storageTemplateId</em></td>
-      <td style="text-align: left"><code>args[1]</code></td>
+      <td style="text-align: left"><code>args[3]</code></td>
       <td style="text-align: left">The Id of the storage template to use to create a volume, base on the size provided. This is never null.</td>
+      <td> </td>
     </tr>
   </tbody>
 </table>
@@ -90,13 +105,27 @@
       <th style="text-align: left">Argument</th>
       <th style="text-align: left">Access</th>
       <th style="text-align: left">Description</th>
+      <th> </th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><em>device</em></td>
+      <td style="text-align: left"><em>sourceNodeTemplateId</em></td>
       <td style="text-align: left"><code>args[0]</code></td>
+      <td style="text-align: left">Generated Id of the source node of the relationship (the node name without spaces and in lowercase).</td>
+      <td>war, war_2, compute</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><em>sourceServiceId</em></td>
+      <td style="text-align: left"><code>args[1]</code></td>
+      <td style="text-align: left"><strong><em>Cloudify service name</em></strong> in which the source node is hosted (the compute nodeId).</td>
+      <td>for the nodes War and War_2: compute</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><em>device</em></td>
+      <td style="text-align: left"><code>args[2]</code></td>
       <td style="text-align: left">device name on which the volume is attached</td>
+      <td> </td>
     </tr>
   </tbody>
 </table>
@@ -114,7 +143,7 @@
 <span class="kt">def</span> <span class="n">context</span> <span class="o">=</span> <span class="n">ServiceContextFactory</span><span class="o">.</span><span class="na">getServiceContext</span><span class="o">()</span>
 
 <span class="c1">//getting the args</span>
-<span class="kt">def</span> <span class="n">device</span> <span class="o">=</span> <span class="n">args</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span>
+<span class="kt">def</span> <span class="n">device</span> <span class="o">=</span> <span class="n">args</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span>
 
 <span class="kt">def</span> <span class="n">storagePath</span> <span class="o">=</span> <span class="s2">&quot;/mountTest&quot;</span>
 <span class="n">denew</span> <span class="nf">AntBuilder</span><span class="o">().</span><span class="na">sequential</span> <span class="o">{</span>
@@ -143,18 +172,33 @@
       <th style="text-align: left">Argument</th>
       <th style="text-align: left">Access</th>
       <th style="text-align: left">Description</th>
+      <th> </th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><em>volumeId</em></td>
+      <td style="text-align: left"><em>sourceNodeTemplateId</em></td>
       <td style="text-align: left"><code>args[0]</code></td>
+      <td style="text-align: left">Generated Id of the source node of the relationship (the node name without spaces and in lowercase).</td>
+      <td>war, war_2, compute</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><em>sourceServiceId</em></td>
+      <td style="text-align: left"><code>args[1]</code></td>
+      <td style="text-align: left"><strong><em>Cloudify service name</em></strong> in which the source node is hosted (the compute nodeId).</td>
+      <td>for the nodes War and War_2: compute</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><em>volumeId</em></td>
+      <td style="text-align: left"><code>args[2]</code></td>
       <td style="text-align: left">if provided, the Id of the volume to attach. This is never null.</td>
+      <td> </td>
     </tr>
     <tr>
       <td style="text-align: left"><em>device</em></td>
-      <td style="text-align: left"><code>args[0]</code></td>
+      <td style="text-align: left"><code>args[3]</code></td>
       <td style="text-align: left">device name on which the volume is attached.</td>
+      <td> </td>
     </tr>
   </tbody>
 </table>
@@ -169,8 +213,8 @@
 <span class="kt">def</span> <span class="n">context</span> <span class="o">=</span> <span class="n">ServiceContextFactory</span><span class="o">.</span><span class="na">getServiceContext</span><span class="o">()</span>
 
 <span class="c1">//getting args</span>
-<span class="kt">def</span> <span class="n">volumeId</span> <span class="o">=</span> <span class="n">args</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span>
-<span class="kt">def</span> <span class="n">device</span> <span class="o">=</span> <span class="n">args</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span>
+<span class="kt">def</span> <span class="n">volumeId</span> <span class="o">=</span> <span class="n">args</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span>
+<span class="kt">def</span> <span class="n">device</span> <span class="o">=</span> <span class="n">args</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span>
 
 <span class="n">println</span> <span class="s2">&quot;Storage volume: volumeId &lt;${volumeId}&gt;, device &lt;${device}&gt;&quot;</span>
 <span class="n">println</span> <span class="s2">&quot;deletable-unmountDelete.groovy: unmounting storage volume... &quot;</span>
@@ -182,6 +226,14 @@
     </div>
   </div>
 </div><!-- /container -->
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
 <script type="text/javascript" src="/js/post-layout.js"></script>
 <script>
 $(document).ready(function () {

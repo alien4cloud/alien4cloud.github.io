@@ -86,6 +86,14 @@ This refers directly to the artifact types file_ext property that may have been 
     </div>
   </div>
 </div><!-- /container -->
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
 <script type="text/javascript" src="/js/post-layout.js"></script>
 <script>
 $(document).ready(function () {

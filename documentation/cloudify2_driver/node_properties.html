@@ -27,6 +27,14 @@ The folowing snippet shows how to access and read the value of a known property:
     </div>
   </div>
 </div><!-- /container -->
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
 <script type="text/javascript" src="/js/post-layout.js"></script>
 <script>
 $(document).ready(function () {
