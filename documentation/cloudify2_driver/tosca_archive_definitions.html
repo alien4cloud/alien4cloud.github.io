@@ -8,15 +8,7 @@
       <div id="content" class="col-md-9">
     
         <h1 style="margin-top: 0px;">TOSCA definitions</h1>
-        <p>The Cloudify driver for ALEIN 4 CLOUD allows you to deploy applications on several clouds, using Cloudify 2.7.  Thus you have to <a href="../tosca_ref/tosca_concepts_types_custom_nodes.html" title="TOSCA custom node">design TOSCA archives containing nodes</a>, and upload them in your ALIEN instance. If your archive contains deployable nodes, you might have to add to their definitions some artifacts and interfaces.</p>
-
-<h2 id="your-scripts-folder">Your scripts folder</h2>
-<p>If you provides some relative files in your node, you might want then to be copied along with the node when deploying it. You can define an artifact in your TOSCA definition file, referencing the folder containing those files.<br />
-For example, we can define an artifact of type <strong><code>fastconnect.artifacts.ResourceDirectory</code></strong> referencing the folder in which are stored the Standard interface’s scripts:</p>
-
-<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">artifacts</span><span class="p-Indicator">:</span>
-  <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">scripts</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">scripts</span>
-    <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.artifacts.File</span></code></pre></div>
+        <p>The Cloudify driver for ALEIN 4 CLOUD allows you to deploy applications on several clouds, using Cloudify 2.7.  Thus you have to <a href="#/documentation/tosca_ref/tosca_concepts_types_custom.html" title="TOSCA custom node">design TOSCA archives containing nodes</a>, and upload them in your ALIEN instance. If your archive contains deployable nodes, you might have to add to their definitions some artifacts and interfaces.</p>
 
 <h2 id="standard-interface"><code>Standard</code> interface</h2>
 <p>As its name states, the <code>Standard</code> interface allows you to define some lifecycle events for your node. Both Cloudify and TOSCA have this iterface in their specifications, with diferent operations names. Yet, it is possible to make a mapping from TOSCA to Cloudify lifecycle.</p>
@@ -78,6 +70,14 @@ For example, we can define an artifact of type <strong><code>fastconnect.artifac
 <p>The <em>artifact_type</em>s <strong><code>tosca.artifacts.GroovyScript</code></strong>, <strong><code>tosca.artifacts.ShellScript</code></strong> and <strong><code>fastconnect.artifacts.ResourceDirectory</code></strong> are provided by ALIEN in a base package. For the Standard interface, you can use both Groovy and Shell scripts.</p>
 </div>
 
+<h2 id="your-scripts-folder">Your scripts folder</h2>
+<p>The operations implementation’s scripts are automatically copied along with your node on deployment. However, if they are not independant, meaning they rely on, or call other files, you must reference these latest as artifacts.<br />
+The simplest way is to define an artifact of type <strong><code>tosca.artifacts.File</code></strong> referencing the folder where are stored all of your scripts.  </p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">artifacts</span><span class="p-Indicator">:</span>
+  <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">scripts</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">scripts</span>
+    <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.artifacts.File</span></code></pre></div>
+
 <h2 id="fastconnectcloudifyextensions-interface"><code>fastconnect.cloudify.extensions</code> interface</h2>
 <p>Aside of the above operations, Cloudify also provides various lifecycle events. All of them are not mappable to a TOSCA Standard event. Therefore, ALIEN defined an interface, <strong><code>fastconnect.cloudify.extensions</code></strong> to help handling some of those operations. The ones currently supported by ALIEN are:</p>
 
@@ -91,7 +91,7 @@ For example, we can define an artifact of type <strong><code>fastconnect.artifac
 <p>Note that the driver only supports groovy scripts for this interface’s operations .</p>
 </div>
 
-<p>See <a href="lifecycle_spec.html" title="Cloudify lifecycle specifics">Cloudify specifics</a>  about them.</p>
+<p>See <a href="#/documentation/cloudify2_driver/lifecycle_spec.html" title="Cloudify lifecycle specifics">Cloudify specifics</a>  about them.</p>
 
       </div>
     </div>

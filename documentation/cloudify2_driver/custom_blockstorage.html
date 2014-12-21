@@ -8,7 +8,11 @@
       <div id="content" class="col-md-9">
     
         <h1 style="margin-top: 0px;">Customised Blockstorage</h1>
-        <p>Some times you might need to provide your own way to manage the storage lifecycle. This is for example if you have a custom way to create, attach, format, mount it. For that, you can provide every node of type <code>tosca.nodes.BlockStorage</code> with the <code>lifcycle</code> operation <strong><code>create</code></strong> and <strong><code>configure</code></strong>. And for the destroy process, you’ll use the <strong><code>delete</code></strong> operation.</p>
+        <div class="note warning">
+<p>Note that the driver only supports groovy scripts for all these scripts.  </p>
+</div>
+
+<p>Some times you might need to provide your own way to manage the storage lifecycle. This is for example if you have a custom way to create, attach, format, mount it. For that, you can provide every node of type <code>tosca.nodes.BlockStorage</code> with the <code>lifcycle</code> operation <strong><code>create</code></strong> and <strong><code>configure</code></strong>. And for the destroy process, you’ll use the <strong><code>delete</code></strong> operation.</p>
 
 <div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">alien.test.nodes.UbuntuBlockStorage</span><span class="p-Indicator">:</span>
   <span class="l-Scalar-Plain">derived_from</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.nodes.BlockStorage</span>
@@ -24,41 +28,35 @@
 <h2 id="create-and-attach">Create and attach</h2>
 <p>Provide your custom way to <strong>create</strong> and <strong>attach</strong> the storage to your compute in the <strong><code>create</code></strong> TOSCA Standard’s operation. </p>
 
-<h3 id="arguments">Arguments</h3>
+<h3 id="environment-variables">Environment variables</h3>
 
 <table class="table table-bordered">
   <thead>
     <tr>
-      <th style="text-align: left">Argument</th>
-      <th style="text-align: left">Access</th>
+      <th style="text-align: left">Keyword</th>
       <th style="text-align: left">Description</th>
-      <th> </th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><em>sourceNodeTemplateId</em></td>
-      <td style="text-align: left"><code>args[0]</code></td>
-      <td style="text-align: left">Generated Id of the source node of the relationship (the node name without spaces and in lowercase).</td>
-      <td>war, war_2, compute</td>
+      <td style="text-align: left">SELF</td>
+      <td style="text-align: left">Node Name of the blockstorage.).</td>
     </tr>
     <tr>
-      <td style="text-align: left"><em>sourceServiceId</em></td>
-      <td style="text-align: left"><code>args[1]</code></td>
-      <td style="text-align: left"><strong><em>Cloudify service name</em></strong> in which the source node is hosted (the compute nodeId).</td>
-      <td>for the nodes War and War_2: compute</td>
+      <td style="text-align: left">PARENT</td>
+      <td style="text-align: left">Name of the compute on which the storagerage is attached.</td>
     </tr>
     <tr>
-      <td style="text-align: left"><em>volumeId</em></td>
-      <td style="text-align: left"><code>args[2]</code></td>
+      <td style="text-align: left">HOST</td>
+      <td style="text-align: left"><strong><em>Cloudify service name</em></strong> related to the compute on which the storage is attached.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">volumeId</td>
       <td style="text-align: left">if provided, the Id of the volume to attach. This might be null</td>
-      <td> </td>
     </tr>
     <tr>
-      <td style="text-align: left"><em>storageTemplateId</em></td>
-      <td style="text-align: left"><code>args[3]</code></td>
+      <td style="text-align: left">storageTemplate</td>
       <td style="text-align: left">The Id of the storage template to use to create a volume, base on the size provided. This is never null.</td>
-      <td> </td>
     </tr>
   </tbody>
 </table>
@@ -76,16 +74,11 @@
 <div class="highlight"><pre><code class="language-groovy" data-lang="groovy"><span class="kn">import</span> <span class="nn">org.cloudifysource.utilitydomain.context.ServiceContextFactory</span>
 
 <span class="kt">def</span> <span class="n">context</span> <span class="o">=</span> <span class="n">ServiceContextFactory</span><span class="o">.</span><span class="na">getServiceContext</span><span class="o">()</span>
-
-<span class="c1">//getting args</span>
-<span class="kt">def</span> <span class="n">volumeId</span> <span class="o">=</span> <span class="n">args</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span>
-<span class="kt">def</span> <span class="n">storageTemplateId</span> <span class="o">=</span> <span class="n">args</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span>
-
 <span class="kt">def</span> <span class="n">device</span> <span class="o">=</span> <span class="s2">&quot;/dev/vdb&quot;</span>
 
 <span class="c1">//Creating the volume</span>
 <span class="k">if</span><span class="o">(</span><span class="n">volumeId</span> <span class="o">==</span> <span class="kc">null</span><span class="o">){</span>
-	<span class="n">volumeId</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="na">storage</span><span class="o">.</span><span class="na">createVolume</span><span class="o">(</span><span class="n">storageTemplateId</span><span class="o">)</span>
+	<span class="n">volumeId</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="na">storage</span><span class="o">.</span><span class="na">createVolume</span><span class="o">(</span><span class="n">storageTemplate</span><span class="o">)</span>
 <span class="o">}</span>
 
 <span class="c1">//attaching the volume</span>
@@ -97,35 +90,31 @@
 <h2 id="format-and-mount">Format and mount</h2>
 <p>Provide your custom way to <strong>format</strong> and <strong>mount</strong> the storage on your compute in the <strong><code>configure</code></strong> TOSCA Standard’s operation. </p>
 
-<h3 id="arguments-1">Arguments</h3>
+<h3 id="environment-variables-1">Environment variables</h3>
 
 <table class="table table-bordered">
   <thead>
     <tr>
-      <th style="text-align: left">Argument</th>
-      <th style="text-align: left">Access</th>
+      <th style="text-align: left">Keyword</th>
       <th style="text-align: left">Description</th>
-      <th> </th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><em>sourceNodeTemplateId</em></td>
-      <td style="text-align: left"><code>args[0]</code></td>
-      <td style="text-align: left">Generated Id of the source node of the relationship (the node name without spaces and in lowercase).</td>
-      <td>war, war_2, compute</td>
+      <td style="text-align: left">SELF</td>
+      <td style="text-align: left">Node Name of the blockstorage.).</td>
     </tr>
     <tr>
-      <td style="text-align: left"><em>sourceServiceId</em></td>
-      <td style="text-align: left"><code>args[1]</code></td>
-      <td style="text-align: left"><strong><em>Cloudify service name</em></strong> in which the source node is hosted (the compute nodeId).</td>
-      <td>for the nodes War and War_2: compute</td>
+      <td style="text-align: left">PARENT</td>
+      <td style="text-align: left">Name of the compute on which the storagerage is attached.</td>
     </tr>
     <tr>
-      <td style="text-align: left"><em>device</em></td>
-      <td style="text-align: left"><code>args[2]</code></td>
+      <td style="text-align: left">HOST</td>
+      <td style="text-align: left"><strong><em>Cloudify service name</em></strong> related to the compute on which the storage is attached.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">device</td>
       <td style="text-align: left">device name on which the volume is attached</td>
-      <td> </td>
     </tr>
   </tbody>
 </table>
@@ -134,71 +123,61 @@
 <p>The script must return a string value:  </p>
 
 <ul>
-  <li><strong>storagePath</strong>: path of the directory where the device is mounted on the compute </li>
+  <li><strong>location</strong>: location path where the device is mounted on the compute </li>
 </ul>
 
 <h3 id="example-1">Example</h3>
 
 <div class="highlight"><pre><code class="language-groovy" data-lang="groovy"><span class="kn">import</span> <span class="nn">org.cloudifysource.utilitydomain.context.ServiceContextFactory</span>
 <span class="kt">def</span> <span class="n">context</span> <span class="o">=</span> <span class="n">ServiceContextFactory</span><span class="o">.</span><span class="na">getServiceContext</span><span class="o">()</span>
-
-<span class="c1">//getting the args</span>
-<span class="kt">def</span> <span class="n">device</span> <span class="o">=</span> <span class="n">args</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span>
-
-<span class="kt">def</span> <span class="n">storagePath</span> <span class="o">=</span> <span class="s2">&quot;/mountTest&quot;</span>
+<span class="kt">def</span> <span class="n">location</span> <span class="o">=</span> <span class="s2">&quot;/mountTest&quot;</span>
 <span class="n">denew</span> <span class="nf">AntBuilder</span><span class="o">().</span><span class="na">sequential</span> <span class="o">{</span>
   <span class="n">chmod</span><span class="o">(</span><span class="nl">dir:</span><span class="s2">&quot;${context.serviceDirectory}/scripts&quot;</span><span class="o">,</span> <span class="nl">perm:</span><span class="s2">&quot;+x&quot;</span><span class="o">,</span> <span class="nl">includes:</span><span class="s2">&quot;*.sh&quot;</span><span class="o">)</span>
   <span class="n">exec</span><span class="o">(</span><span class="nl">executable:</span> <span class="s2">&quot;${context.serviceDirectory}/scripts/formatStorage.sh&quot;</span><span class="o">,</span><span class="nl">failonerror:</span> <span class="s2">&quot;true&quot;</span><span class="o">)</span> <span class="o">{</span>
     <span class="n">arg</span><span class="o">(</span><span class="nl">value:</span><span class="s2">&quot;${device}&quot;</span><span class="o">)</span>			
   <span class="o">}</span>
-  <span class="n">mkdir</span><span class="o">(</span><span class="nl">dir:</span> <span class="n">storagePath</span><span class="o">)</span>
+  <span class="n">mkdir</span><span class="o">(</span><span class="nl">dir:</span> <span class="n">location</span><span class="o">)</span>
   <span class="n">exec</span><span class="o">(</span><span class="nl">executable:</span> <span class="s2">&quot;${context.serviceDirectory}/scripts/mountStorage.sh&quot;</span><span class="o">,</span><span class="nl">failonerror:</span> <span class="s2">&quot;true&quot;</span><span class="o">)</span> <span class="o">{</span>
     <span class="n">arg</span><span class="o">(</span><span class="nl">value:</span><span class="s2">&quot;${device}&quot;</span><span class="o">)</span>			
-    <span class="n">arg</span><span class="o">(</span><span class="nl">value:</span><span class="s2">&quot;${storagePath}&quot;</span><span class="o">)</span>			
+    <span class="n">arg</span><span class="o">(</span><span class="nl">value:</span><span class="s2">&quot;${location}&quot;</span><span class="o">)</span>			
   <span class="o">}</span>
 <span class="o">}</span>
 
 <span class="c1">//return the mounted path name</span>
-<span class="k">return</span> <span class="n">storagePath</span></code></pre></div>
+<span class="k">return</span> <span class="n">location</span></code></pre></div>
 
 <h2 id="unmount-and-delete">Unmount and delete</h2>
 <p>Provide your custom way to <strong>unmount</strong> and/or <strong>delete</strong> the storage in the <strong><code>delete</code></strong> TOSCA Standard’s operation. </p>
 
-<h3 id="arguments-2">Arguments</h3>
+<h3 id="environment-variables-2">Environment variables</h3>
 
 <table class="table table-bordered">
   <thead>
     <tr>
-      <th style="text-align: left">Argument</th>
-      <th style="text-align: left">Access</th>
+      <th style="text-align: left">Keyword</th>
       <th style="text-align: left">Description</th>
-      <th> </th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><em>sourceNodeTemplateId</em></td>
-      <td style="text-align: left"><code>args[0]</code></td>
-      <td style="text-align: left">Generated Id of the source node of the relationship (the node name without spaces and in lowercase).</td>
-      <td>war, war_2, compute</td>
+      <td style="text-align: left">SELF</td>
+      <td style="text-align: left">Node Name of the blockstorage.).</td>
     </tr>
     <tr>
-      <td style="text-align: left"><em>sourceServiceId</em></td>
-      <td style="text-align: left"><code>args[1]</code></td>
-      <td style="text-align: left"><strong><em>Cloudify service name</em></strong> in which the source node is hosted (the compute nodeId).</td>
-      <td>for the nodes War and War_2: compute</td>
+      <td style="text-align: left">PARENT</td>
+      <td style="text-align: left">Name of the compute on which the storagerage is attached.</td>
     </tr>
     <tr>
-      <td style="text-align: left"><em>volumeId</em></td>
-      <td style="text-align: left"><code>args[2]</code></td>
-      <td style="text-align: left">if provided, the Id of the volume to attach. This is never null.</td>
-      <td> </td>
+      <td style="text-align: left">HOST</td>
+      <td style="text-align: left"><strong><em>Cloudify service name</em></strong> related to the compute on which the storage is attached.</td>
     </tr>
     <tr>
-      <td style="text-align: left"><em>device</em></td>
-      <td style="text-align: left"><code>args[3]</code></td>
-      <td style="text-align: left">device name on which the volume is attached.</td>
-      <td> </td>
+      <td style="text-align: left">volumeId</td>
+      <td style="text-align: left">if provided, the Id of the attached volume.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">device</td>
+      <td style="text-align: left">device name on which the volume is attached</td>
     </tr>
   </tbody>
 </table>
@@ -209,12 +188,7 @@
 <h3 id="example-2">Example</h3>
 
 <div class="highlight"><pre><code class="language-groovy" data-lang="groovy"><span class="kn">import</span> <span class="nn">org.cloudifysource.utilitydomain.context.ServiceContextFactory</span>
-
 <span class="kt">def</span> <span class="n">context</span> <span class="o">=</span> <span class="n">ServiceContextFactory</span><span class="o">.</span><span class="na">getServiceContext</span><span class="o">()</span>
-
-<span class="c1">//getting args</span>
-<span class="kt">def</span> <span class="n">volumeId</span> <span class="o">=</span> <span class="n">args</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span>
-<span class="kt">def</span> <span class="n">device</span> <span class="o">=</span> <span class="n">args</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span>
 
 <span class="n">println</span> <span class="s2">&quot;Storage volume: volumeId &lt;${volumeId}&gt;, device &lt;${device}&gt;&quot;</span>
 <span class="n">println</span> <span class="s2">&quot;deletable-unmountDelete.groovy: unmounting storage volume... &quot;</span>

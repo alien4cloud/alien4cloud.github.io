@@ -316,6 +316,20 @@
 	},
 
 	{
+		"url": "/documentation/tosca_ref/tosca_grammar/get_attribute_definition.html", 
+		"section": "Documentation", 
+		"value": "get_attribute",
+		"tokens": [ "get_attribute"]
+	},
+
+	{
+		"url": "/documentation/tosca_ref/tosca_grammar/get_property_definition.html", 
+		"section": "Documentation", 
+		"value": "get_property",
+		"tokens": [ "get_property"]
+	},
+
+	{
 		"url": "/documentation/getting_started/getting_started.html", 
 		"section": "Documentation", 
 		"value": "Getting started",
@@ -337,24 +351,10 @@
 	},
 
 	{
-		"url": "/documentation/index.html", 
-		"section": "Documentation", 
-		"value": "ALIEN 4 Cloud - Documentation",
-		"tokens": [ "ALIEN","4","Cloud","","Documentation"]
-	},
-
-	{
-		"url": "/release_notes/index.html", 
-		"section": "Release Notes", 
-		"value": "Release Notes",
-		"tokens": [ "Release","Notes"]
-	},
-
-	{
-		"url": "/alien_about/index.html", 
-		"section": "About ALIEN 4 Cloud", 
-		"value": "About Alien4Cloud",
-		"tokens": [ "About","Alien4Cloud"]
+		"url": "/roadmap/index.html", 
+		"section": "", 
+		"value": "Roadmap",
+		"tokens": [ "Roadmap"]
 	},
 
 	{
@@ -372,6 +372,13 @@
 	},
 
 	{
+		"url": "/documentation/index.html", 
+		"section": "Documentation", 
+		"value": "ALIEN 4 Cloud - Documentation",
+		"tokens": [ "ALIEN","4","Cloud","","Documentation"]
+	},
+
+	{
 		"url": "/developer_guide/index.html", 
 		"section": "Developer Guide", 
 		"value": "Developer Guide",
@@ -379,10 +386,24 @@
 	},
 
 	{
-		"url": "/roadmap/index.html", 
-		"section": "", 
-		"value": "Roadmap",
-		"tokens": [ "Roadmap"]
+		"url": "/alien_about/index.html", 
+		"section": "About ALIEN 4 Cloud", 
+		"value": "About Alien4Cloud",
+		"tokens": [ "About","Alien4Cloud"]
+	},
+
+	{
+		"url": "/release_notes/index.html", 
+		"section": "Release Notes", 
+		"value": "Release Notes",
+		"tokens": [ "Release","Notes"]
+	},
+
+	{
+		"url": "/documentation/cloudify2_driver/inputs_env_vars.html", 
+		"section": "Documentation", 
+		"value": "Inputs and others variables",
+		"tokens": [ "Inputs","and","others","variables"]
 	},
 
 	{
@@ -460,13 +481,6 @@
 		"section": "Documentation", 
 		"value": "Lifecycles specifics for Cloudify",
 		"tokens": [ "Lifecycles","specifics","for","Cloudify"]
-	},
-
-	{
-		"url": "/documentation/cloudify2_driver/node_properties.html", 
-		"section": "Documentation", 
-		"value": "Nodes properties",
-		"tokens": [ "Nodes","properties"]
 	},
 
 	{
@@ -551,13 +565,6 @@
 		"section": "Documentation", 
 		"value": "Relationship type",
 		"tokens": [ "Relationship","type"]
-	},
-
-	{
-		"url": "/documentation/cloudify2_driver/relationships.html", 
-		"section": "Documentation", 
-		"value": "Relationships",
-		"tokens": [ "Relationships"]
 	},
 
 	{

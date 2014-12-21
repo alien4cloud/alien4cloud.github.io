@@ -10,6 +10,50 @@
         <h1 style="margin-top: 0px;">Function definition</h1>
         <p>Work in progress, details the functions that can be applied to properties and function input parameters.</p>
 
+<p>A function definition defines a named function to evaluate at runtime, and that can be used as property, attribute or input parameter. It is used to  dynamically retrieve a value from property definition defined on an entity.</p>
+
+<h2 id="reserved-function-keywords">Reserved function keywords</h2>
+<p>The following keywords may be used in some  TOSCA function in place of a TOSCA Node or Relationship Template name. They will be interpreted when evaluation the function at runtime.</p>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Keyword</th>
+      <th style="text-align: left">Valid context</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">SELF</td>
+      <td style="text-align: left">Node Template or Relationship Template</td>
+      <td style="text-align: left">Node or Relationship Template instance that contains the function at the time the function is evaluated.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">SOURCE</td>
+      <td style="text-align: left">Relationship Template only</td>
+      <td style="text-align: left">Node Template instance that  is at the source end of the relationship that contains the referencing function.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TARGET</td>
+      <td style="text-align: left">Relationship Template only</td>
+      <td style="text-align: left">Node Template instance that  is at the target end of the relationship that contains the referencing function.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">HOST</td>
+      <td style="text-align: left">Node Template only</td>
+      <td style="text-align: left">Node that “hosts” the node using this reference (i.e., as identified by its HostedOn relationship).</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Functions are: </p>
+
+<ul>
+  <li><a href="#/documentation/tosca_ref/tosca_grammar/get_property_definition.html">get_porperty</a></li>
+  <li><a href="#/documentation/tosca_ref/tosca_grammar/get_attribute_definition.html">get_attribute</a></li>
+</ul>
+
       </div>
     </div>
   </div>

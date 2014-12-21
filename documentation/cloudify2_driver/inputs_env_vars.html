@@ -1,0 +1,170 @@
+<div class="container">
+  <div class="row">
+    <div id="breadcrumbs"></div>
+    
+      <div class="col-md-3">
+        <div id="sidebar_menu" class="well tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-md-9">
+    
+        <h1 style="margin-top: 0px;">Inputs and others variables</h1>
+        <p>Your implementations scripts can be defined with inputs. Find here how to properly define an input, and what other information is available in the execution environment. <br />
+We will have for illustrations purposes a topology consisting of one Compute node, one Tomcat and two War nodes.  </p>
+
+<p><a href="../../images/cloudify2_driver/tomcat_war_topology.png" title="Tomcat-war topology"><img src="../../images/cloudify2_driver/tomcat_war_topology.png" alt="Connection configuration" title="Tomcat-war topology" /></a></p>
+
+<h2 id="input-parameters">input parameters</h2>
+<p>Follow the <a href="documentation/tosca_ref/tosca_grammar/parameter_definition.html">parameter definition</a> section for how to define your input parameters.<br />
+The defined inputs are evaluated if needed at runtime, and set as environment variables. Thus, you can access them using their defined name.  </p>
+
+<h3 id="other-available-environment-variables">Other available environment variables</h3>
+<p>Prior to the inputs parameters, some useful informations are available in the script execution environment:</p>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Keyword</th>
+      <th style="text-align: left">Node Template</th>
+      <th style="text-align: left">Relationship Template</th>
+      <th>Description</th>
+      <th>Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">SELF</td>
+      <td style="text-align: left">Yes</td>
+      <td style="text-align: left">No</td>
+      <td>Node name .</td>
+      <td>War, serveurWeb</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">PARENT</td>
+      <td style="text-align: left">Yes</td>
+      <td style="text-align: left">No</td>
+      <td>Name of the node that “hosts” the current node.</td>
+      <td>For node War: Tomcat</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">HOST</td>
+      <td style="text-align: left">Yes</td>
+      <td style="text-align: left">No</td>
+      <td><strong><em>Cloudify service name</em></strong> in which the node related to the script is hosted (the root compute node name without spaces and in lowercase).</td>
+      <td>for War and War_2: serveurweb</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">SOURCE</td>
+      <td style="text-align: left">No</td>
+      <td style="text-align: left">Yes</td>
+      <td>Node name of the source of the relationship.</td>
+      <td>War, War_2</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">SOURCE_HOST</td>
+      <td style="text-align: left">No</td>
+      <td style="text-align: left">Yes</td>
+      <td><strong><em>Cloudify service name</em></strong> in which the source node related to the relationship script is hosted (the root compute node name without spaces and in lowercase).</td>
+      <td>for War and War_2: serveurweb</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TARGET</td>
+      <td style="text-align: left">No</td>
+      <td style="text-align: left">Yes</td>
+      <td>Node name of the source of the relationship.</td>
+      <td>Tomcat</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">SOURCE_HOST</td>
+      <td style="text-align: left">No</td>
+      <td style="text-align: left">Yes</td>
+      <td><strong><em>Cloudify service name</em></strong> in which the target node related to the relationship script is hosted (the compute nodeId).</td>
+      <td>for Tomcat: serveurweb</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="note">
+<p>When a source node of a relationship has some defined artifacts (overridable or not), their <strong><code>relative location paths</code></strong> are available as environment variables ( their names ) of the configuration scripts.</p>
+</div>
+
+<h3 id="example">Example</h3>
+<p>Let see the example of the the node War_2: it has an overridable artifact named <em>war_file</em></p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">aline.nodes.cloudify.War</span>
+  <span class="l-Scalar-Plain">[...]</span>
+  <span class="l-Scalar-Plain">artifacts</span><span class="p-Indicator">:</span>
+    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">war_file</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">warFiles/helloWorld.war</span>
+      <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">alien.artifacts.WarFile</span>
+<span class="-Error">  </span><span class="p-Indicator">[</span><span class="nv">...</span><span class="p-Indicator">]</span></code></pre></div>
+
+<p>is hosted on Tomcat node and bound to it via the a relationship type <code>alien.relationships.cloudify.WarHostedOnTomcat</code>, defined with a post_configure_source script:.</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">alien.relationships.cloudify.WarHostedOnTomcat</span><span class="p-Indicator">:</span>
+  <span class="p-Indicator">[</span><span class="nv">...</span><span class="p-Indicator">]</span>
+  <span class="l-Scalar-Plain">interfaces</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">configure</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">post_configure_source</span><span class="p-Indicator">:</span> 
+          <span class="l-Scalar-Plain">inputs</span><span class="p-Indicator">:</span>
+            <span class="l-Scalar-Plain">CONTEXT_PATH</span><span class="p-Indicator">:</span> <span class="p-Indicator">{</span> <span class="nv">get_property</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span><span class="nv">SOURCE</span><span class="p-Indicator">,</span> <span class="nv">contextPath</span><span class="p-Indicator">]</span> <span class="p-Indicator">}</span> 
+            <span class="l-Scalar-Plain">TOMCAT_IP</span><span class="p-Indicator">:</span> <span class="p-Indicator">{</span> <span class="nv">get_attribute</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span><span class="nv">TARGET</span><span class="p-Indicator">,</span> <span class="nv">ip_address</span><span class="p-Indicator">]</span> <span class="p-Indicator">}</span>
+          <span class="l-Scalar-Plain">implementation</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">relationshipScripts/warHostedOnTomcat_post_configure_source.groovy</span>
+  <span class="p-Indicator">[</span><span class="nv">...</span><span class="p-Indicator">]</span></code></pre></div>
+
+<p>This code snippet shows how to use inputs and others informations available in the execution environment of the relationship implementation script (groovy script):</p>
+
+<div class="highlight"><pre><code class="language-groovy" data-lang="groovy"><span class="kt">def</span> <span class="n">context</span> <span class="o">=</span> <span class="n">ServiceContextFactory</span><span class="o">.</span><span class="na">getServiceContext</span><span class="o">()</span>
+
+<span class="c1">//printing the env vars</span>
+<span class="n">println</span> <span class="s2">&quot;warHostedOnTomcat_post_configure_source&lt;${SOURCE}&gt; start.&quot;</span>
+<span class="n">println</span> <span class="s2">&quot;warHostedOnTomcat_post_configure_source&lt;${SOURCE}&gt;: Inputs are:&quot;</span>
+<span class="n">println</span> <span class="s2">&quot;contextPath : ${CONTEXT_PATH}}; tomcatIp : ${TOMCAT_IP}&quot;</span>
+<span class="n">println</span> <span class="s2">&quot;Target: ${TARGET}; Target_Host: ${TARGET_HOST},\n Source: ${SOURCE}, Source_Host: ${SOURCE_HOST}&quot;</span>
+<span class="n">prinln</span> <span class="s2">&quot;war_file Artiact path: ${war_file}&quot;</span>
+
+<span class="c1">//checking and using the war_file source artifact</span>
+<span class="k">if</span> <span class="o">(!</span> <span class="n">war_file</span><span class="o">)</span> <span class="k">return</span> <span class="s2">&quot;warUrl is null. So we do nothing.&quot;</span>
+<span class="kt">def</span> <span class="n">warUrl</span> <span class="o">=</span> <span class="s2">&quot;${context.serviceDirectory}/../${war_file}&quot;</span>
+
+<span class="kt">def</span> <span class="n">command</span> <span class="o">=</span> <span class="s2">&quot;${TARGET}_updateWarOnTomcat&quot;</span>
+<span class="n">println</span> <span class="s2">&quot;warHostedOnTomcat_post_configure_source&lt;${SOURCE}&gt; invoking ${command} custom command on target tomcat...&quot;</span>
+<span class="kt">def</span> <span class="n">service</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="na">waitForService</span><span class="o">(</span><span class="n">TARGET_HOST</span><span class="o">,</span> <span class="mi">60</span><span class="o">,</span> <span class="n">TimeUnit</span><span class="o">.</span><span class="na">SECONDS</span><span class="o">)</span>
+<span class="kt">def</span> <span class="n">currentInstance</span> <span class="o">=</span> <span class="n">service</span><span class="o">.</span><span class="na">getInstances</span><span class="o">().</span><span class="na">find</span><span class="o">{</span> <span class="n">it</span><span class="o">.</span><span class="na">instanceId</span> <span class="o">==</span> <span class="n">context</span><span class="o">.</span><span class="na">instanceId</span> <span class="o">}</span>
+<span class="n">currentInstance</span><span class="o">.</span><span class="na">invoke</span><span class="o">(</span><span class="n">command</span><span class="o">,</span> <span class="s2">&quot;url=${warUrl}&quot;</span> <span class="k">as</span> <span class="n">String</span><span class="o">,</span> <span class="s2">&quot;contextPath=${CONTEXT_PATH}&quot;</span> <span class="k">as</span> <span class="n">String</span><span class="o">)</span>
+
+<span class="n">println</span> <span class="s2">&quot;warHostedOnTomcat_post_configure_source&lt;${SOURCE}&gt; end&quot;</span>
+<span class="k">return</span> <span class="kc">true</span></code></pre></div>
+
+<div class="note">
+<p>Note that for groovy case, the inputs and others are set to the script binding, rather than into the execution environment. This makes them available by typing their names as if they where some groovy var already declared(ex: TOMCAT_IP, war_file).
+If you want to check the existence of any of them, just use the snippet: <code>binding.variables.containsKey(env_var_name_to_check)</code>.<br />
+In sh case, access and use them as environment variables.</p>
+</div>
+
+<div class="note">
+<p>Note the usage of <strong><code>${context.serviceDirectory}/../${war_file}</code></strong> as the artifact path given (<em>war_file</em>) is a relative one.</p>
+</div>
+
+
+      </div>
+    </div>
+  </div>
+</div><!-- /container -->
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION', 'cloudify_2_inputs');
+  createBreadcrumbs('DOCUMENTATION', 'Documentation');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>
