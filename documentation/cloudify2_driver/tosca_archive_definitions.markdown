@@ -8,17 +8,7 @@ node_name: cloudify_2_tosca_definitions
 weight: 100
 ---
 
-The Cloudify driver for ALEIN 4 CLOUD allows you to deploy applications on several clouds, using Cloudify 2.7.  Thus you have to [design TOSCA archives containing nodes](../tosca_ref/tosca_concepts_types_custom_nodes.html "TOSCA custom node"), and upload them in your ALIEN instance. If your archive contains deployable nodes, you might have to add to their definitions some artifacts and interfaces.
-
-## Your scripts folder ##
-If you provides some relative files in your node, you might want then to be copied along with the node when deploying it. You can define an artifact in your TOSCA definition file, referencing the folder containing those files.<br>
-For example, we can define an artifact of type **`fastconnect.artifacts.ResourceDirectory`** referencing the folder in which are stored the Standard interface's scripts:
-
-{% highlight yaml %}
-artifacts:
-  - scripts: scripts
-    type: tosca.artifacts.File
-{% endhighlight %}
+The Cloudify driver for ALEIN 4 CLOUD allows you to deploy applications on several clouds, using Cloudify 2.7.  Thus you have to [design TOSCA archives containing nodes](#/documentation/tosca_ref/tosca_concepts_types_custom.html "TOSCA custom node"), and upload them in your ALIEN instance. If your archive contains deployable nodes, you might have to add to their definitions some artifacts and interfaces.
 
 ## `Standard` interface ##
 As its name states, the `Standard` interface allows you to define some lifecycle events for your node. Both Cloudify and TOSCA have this iterface in their specifications, with diferent operations names. Yet, it is possible to make a mapping from TOSCA to Cloudify lifecycle.
@@ -48,6 +38,16 @@ interfaces:
 The *artifact_type*s **`tosca.artifacts.GroovyScript`**, **`tosca.artifacts.ShellScript`** and **`fastconnect.artifacts.ResourceDirectory`** are provided by ALIEN in a base package. For the Standard interface, you can use both Groovy and Shell scripts.
 {% endnote %}
 
+## Your scripts folder ##
+The operations implementation's scripts are automatically copied along with your node on deployment. However, if they are not independant, meaning they rely on, or call other files, you must reference these latest as artifacts.  
+The simplest way is to define an artifact of type **`tosca.artifacts.File`** referencing the folder where are stored all of your scripts.  
+
+{% highlight yaml %}
+artifacts:
+  - scripts: scripts
+    type: tosca.artifacts.File
+{% endhighlight %}
+
 ## `fastconnect.cloudify.extensions` interface ##
 Aside of the above operations, Cloudify also provides various lifecycle events. All of them are not mappable to a TOSCA Standard event. Therefore, ALIEN defined an interface, **`fastconnect.cloudify.extensions`** to help handling some of those operations. The ones currently supported by ALIEN are:
 
@@ -59,4 +59,4 @@ Aside of the above operations, Cloudify also provides various lifecycle events. 
 Note that the driver only supports groovy scripts for this interface's operations .
 {% endwarning %}
 
-See [Cloudify specifics](lifecycle_spec.html "Cloudify lifecycle specifics")  about them.
+See [Cloudify specifics](#/documentation/cloudify2_driver/lifecycle_spec.html "Cloudify lifecycle specifics")  about them.

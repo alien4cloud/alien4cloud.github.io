@@ -17,8 +17,10 @@ Alien 4 Cloud allow users to specify also a property definition as the parameter
 ## Grammar
 
 {% highlight yaml %}
-<parameter_name>: <value> | [<function_definition>](#/documentation/tosca_ref/tosca_grammar/function_definition.html)
+<parameter_name>: <value> | <function_definition>
 {% endhighlight %}
+
+See [function_definition](#/documentation/tosca_ref/tosca_grammar/function_definition.html).
 
 {% info %}
 For Alien 4 Cloud property definition syntax support you can refer to the [property_definition page](#/documentation/tosca_ref/tosca_grammar/property_definition.html).

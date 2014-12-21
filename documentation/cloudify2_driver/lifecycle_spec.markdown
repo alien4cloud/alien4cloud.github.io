@@ -11,14 +11,19 @@ weight: 200
 There are some specifics concerning some lifecycle events when developing a Cloudify recipe for the ALIEN driver.
 
 ## Supported lifecycles events ##
-This plugin does not yet support the implentation of all of the Cloudify livecycle events, but it is constantly evolving.
+This provider does not yet support the implementation of all of the Cloudify livecycle events, but it is constantly evolving.
 The events supported are:
 
 {: .table .table-bordered}
 | Archive Interface | operation |
 |:-----|:---------|
-| *Standard*  | `Install`, `Start`, `Stop`|
-| *fastconnect.cloudify.extensions* | `StartDetection`, `StopDetection`, `locator`|
+| *Standard*  | `install` (as *create*), `start`, `stop`|
+| *fastconnect.cloudify.extensions* | `startDetection` (as *start_detection*), `StopDetection` (as *stop_detection*), `locator`|
+
+{% warning %}
+Note that the driver only supports groovy scripts for the *fastconnect.cloudify.extensions* interface's operations.  
+Also, you must be aware that the routine will be executed as a goovy closure. Therefore, you **MUST NOT** use the ***ServiceContextFactory*** class to get the service context, it has been injected automatically so that you can directly use it via the variable ***context***.
+{% endwarning %}
 
 #### Example: ####
 
@@ -32,7 +37,7 @@ interfaces:
 {% endhighlight %}
 
 
-### StartDetection ###
+### startDetection ###
 You can provide a start detection routine, and it should be written in a groovy file, and must return a boolean: True if the routine ended well, and false if not.  
 The routine will be executed as a Cloudify closure, in the service descriptor file. Therefore, as stated in the Cloudify documentation, you shouldn't use the ***ServiceContextFactory*** class to get the service context. The context has been injected automatically so that you can directly use it via the variable ***context***.
 
@@ -43,12 +48,7 @@ def result = ServiceUtils.arePortsOccupied([config.port, config.ajpPort])
 return result
 {% endhighlight %}
 
-
-{% note %}
-In general, when you want to provide a script to be executed as a closure in Cloudify service descriptor file, you **MUST NOT** use the **ServiceContextFactory** class. Directly use the injected variable **context**
-{% endnote %}
-
-### StopDetection ###
+### stopDetection ###
 Similar to the case of start detection, written in a groovy file, the stopDetection routine will be executed as a closure must and return a boolean value.
 
 #### Example: ####

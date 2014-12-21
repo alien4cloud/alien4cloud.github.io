@@ -7,6 +7,9 @@ parent: [cloudify_2_index, cloudify_2_blockstorage]
 node_name: cloudify_2_blockstorage_custom
 weight: 200
 ---
+{% warning %}
+Note that the driver only supports groovy scripts for all these scripts.  
+{% endwarning %}
 
 Some times you might need to provide your own way to manage the storage lifecycle. This is for example if you have a custom way to create, attach, format, mount it. For that, you can provide every node of type `tosca.nodes.BlockStorage` with the `lifcycle` operation **`create`** and **`configure`**. And for the destroy process, you'll use the **`delete`** operation.
 
@@ -26,15 +29,16 @@ alien.test.nodes.UbuntuBlockStorage:
 ## Create and attach ##
 Provide your custom way to **create** and **attach** the storage to your compute in the **`create`** TOSCA Standard's operation. 
 
-### Arguments ###
+### Environment variables ###
 
 {: .table .table-bordered}
-| Argument | Access | Description |
-|:---------|:-------|:------------|
-| *sourceNodeTemplateId*  | `args[0]` |  Generated Id of the source node of the relationship (the node name without spaces and in lowercase). | war, war_2, compute  |
-| *sourceServiceId* | `args[1]` | ***Cloudify service name*** in which the source node is hosted (the compute nodeId). | for the nodes War and War_2: compute |
-| *volumeId*  | `args[2]` |  if provided, the Id of the volume to attach. This might be null |
-| *storageTemplateId*  | `args[3]` |  The Id of the storage template to use to create a volume, base on the size provided. This is never null. |
+| Keyword |  Description |
+|:---------|:-------|
+| SELF  |  Node Name of the blockstorage.). |
+| PARENT | Name of the compute on which the storagerage is attached. |
+| HOST | ***Cloudify service name*** related to the compute on which the storage is attached. |
+| volumeId  |  if provided, the Id of the volume to attach. This might be null |
+| storageTemplate |  The Id of the storage template to use to create a volume, base on the size provided. This is never null. |
 
 
 ### Return ###
@@ -49,16 +53,11 @@ The script must return a map <String --> String> containing the keys:
 import org.cloudifysource.utilitydomain.context.ServiceContextFactory
 
 def context = ServiceContextFactory.getServiceContext()
-
-//getting args
-def volumeId = args[0]
-def storageTemplateId = args[1]
-
 def device = "/dev/vdb"
 
 //Creating the volume
 if(volumeId == null){
-	volumeId = context.storage.createVolume(storageTemplateId)
+	volumeId = context.storage.createVolume(storageTemplate)
 }
 
 //attaching the volume
@@ -71,19 +70,20 @@ return [volumeId: volumeId, device:device]
 ## Format and mount ##
 Provide your custom way to **format** and **mount** the storage on your compute in the **`configure`** TOSCA Standard's operation. 
 
-### Arguments ###
+### Environment variables ###
 
 {: .table .table-bordered}
-| Argument | Access | Description |
-|:---------|:-------|:------------|
-| *sourceNodeTemplateId*  | `args[0]` |  Generated Id of the source node of the relationship (the node name without spaces and in lowercase). | war, war_2, compute  |
-| *sourceServiceId* | `args[1]` | ***Cloudify service name*** in which the source node is hosted (the compute nodeId). | for the nodes War and War_2: compute |
-| *device*  | `args[2]` |  device name on which the volume is attached |
+| Keyword | Description |
+|:---------|:-------|
+| SELF  |  Node Name of the blockstorage.). |
+| PARENT | Name of the compute on which the storagerage is attached. |
+| HOST | ***Cloudify service name*** related to the compute on which the storage is attached. |
+| device  |  device name on which the volume is attached |
 
 ### Return ###
 The script must return a string value:  
 
-- **storagePath**: path of the directory where the device is mounted on the compute 
+- **location**: location path where the device is mounted on the compute 
 
 
 ### Example ###
@@ -91,40 +91,37 @@ The script must return a string value:
 {% highlight groovy %}
 import org.cloudifysource.utilitydomain.context.ServiceContextFactory
 def context = ServiceContextFactory.getServiceContext()
-
-//getting the args
-def device = args[2]
-
-def storagePath = "/mountTest"
+def location = "/mountTest"
 denew AntBuilder().sequential {
   chmod(dir:"${context.serviceDirectory}/scripts", perm:"+x", includes:"*.sh")
   exec(executable: "${context.serviceDirectory}/scripts/formatStorage.sh",failonerror: "true") {
     arg(value:"${device}")			
   }
-  mkdir(dir: storagePath)
+  mkdir(dir: location)
   exec(executable: "${context.serviceDirectory}/scripts/mountStorage.sh",failonerror: "true") {
     arg(value:"${device}")			
-    arg(value:"${storagePath}")			
+    arg(value:"${location}")			
   }
 }
 
 //return the mounted path name
-return storagePath
+return location
 {% endhighlight %}
 
 
 ## Unmount and delete ##
 Provide your custom way to **unmount** and/or **delete** the storage in the **`delete`** TOSCA Standard's operation. 
 
-### Arguments ###
+### Environment variables ###
 
 {: .table .table-bordered}
-| Argument | Access | Description |
-|:---------|:-------|:------------|
-| *sourceNodeTemplateId*  | `args[0]` |  Generated Id of the source node of the relationship (the node name without spaces and in lowercase). | war, war_2, compute  |
-| *sourceServiceId* | `args[1]` | ***Cloudify service name*** in which the source node is hosted (the compute nodeId). | for the nodes War and War_2: compute |
-| *volumeId*  | `args[2]` |  if provided, the Id of the volume to attach. This is never null. |
-| *device*  | `args[3]` |  device name on which the volume is attached. |
+| Keyword |  Description |
+|:---------|:-------|
+| SELF  |  Node Name of the blockstorage.). |
+| PARENT | Name of the compute on which the storagerage is attached. |
+| HOST | ***Cloudify service name*** related to the compute on which the storage is attached. |
+| volumeId  |  if provided, the Id of the attached volume. |
+| device  |  device name on which the volume is attached |
 
 ### Return ###
 No need to return anything for this script.  
@@ -134,12 +131,7 @@ No need to return anything for this script.
 
 {% highlight groovy %}
 import org.cloudifysource.utilitydomain.context.ServiceContextFactory
-
 def context = ServiceContextFactory.getServiceContext()
-
-//getting args
-def volumeId = args[2]
-def device = args[3]
 
 println "Storage volume: volumeId <${volumeId}>, device <${device}>"
 println "deletable-unmountDelete.groovy: unmounting storage volume... "
