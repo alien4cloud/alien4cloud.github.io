@@ -1,38 +1,10 @@
 [
 
 	{
-		"url": "/release_notes/0.0.10-fixed-issues.html", 
-		"section": "Release Notes", 
-		"value": "Fixed Issues",
-		"tokens": [ "Fixed","Issues"]
-	},
-
-	{
-		"url": "/release_notes/0.0.10-whats-new.html", 
-		"section": "Release Notes", 
-		"value": "What's New",
-		"tokens": [ "What's","New"]
-	},
-
-	{
 		"url": "/release_notes/0.0.10.html", 
 		"section": "Release Notes", 
 		"value": "ALIEN for Cloud 0.0.10",
 		"tokens": [ "ALIEN","for","Cloud","0.0.10"]
-	},
-
-	{
-		"url": "/release_notes/0.0.11-fixed-issues.html", 
-		"section": "Release Notes", 
-		"value": "Fixed Issues",
-		"tokens": [ "Fixed","Issues"]
-	},
-
-	{
-		"url": "/release_notes/0.0.11-whats-new.html", 
-		"section": "Release Notes", 
-		"value": "What's New",
-		"tokens": [ "What's","New"]
 	},
 
 	{
@@ -43,38 +15,10 @@
 	},
 
 	{
-		"url": "/release_notes/0.0.12-fixed-issues.html", 
-		"section": "Release Notes", 
-		"value": "Fixed Issues",
-		"tokens": [ "Fixed","Issues"]
-	},
-
-	{
-		"url": "/release_notes/0.0.12-whats-new.html", 
-		"section": "Release Notes", 
-		"value": "What's New",
-		"tokens": [ "What's","New"]
-	},
-
-	{
 		"url": "/release_notes/0.0.12.html", 
 		"section": "Release Notes", 
 		"value": "ALIEN for Cloud 0.0.12",
 		"tokens": [ "ALIEN","for","Cloud","0.0.12"]
-	},
-
-	{
-		"url": "/release_notes/0.0.13-fixed-issues.html", 
-		"section": "Release Notes", 
-		"value": "Fixed Issues",
-		"tokens": [ "Fixed","Issues"]
-	},
-
-	{
-		"url": "/release_notes/0.0.13-whats-new.html", 
-		"section": "Release Notes", 
-		"value": "What's New",
-		"tokens": [ "What's","New"]
 	},
 
 	{
@@ -85,38 +29,10 @@
 	},
 
 	{
-		"url": "/release_notes/0.0.14-fixed-issues.html", 
-		"section": "Release Notes", 
-		"value": "Fixed Issues",
-		"tokens": [ "Fixed","Issues"]
-	},
-
-	{
-		"url": "/release_notes/0.0.14-whats-new.html", 
-		"section": "Release Notes", 
-		"value": "What's New",
-		"tokens": [ "What's","New"]
-	},
-
-	{
 		"url": "/release_notes/0.0.14.html", 
 		"section": "Release Notes", 
 		"value": "ALIEN for Cloud 0.0.14",
 		"tokens": [ "ALIEN","for","Cloud","0.0.14"]
-	},
-
-	{
-		"url": "/release_notes/0.0.15-fixed-issues.html", 
-		"section": "Release Notes", 
-		"value": "Fixed Issues",
-		"tokens": [ "Fixed","Issues"]
-	},
-
-	{
-		"url": "/release_notes/0.0.15-whats-new.html", 
-		"section": "Release Notes", 
-		"value": "What's New",
-		"tokens": [ "What's","New"]
 	},
 
 	{
@@ -127,20 +43,6 @@
 	},
 
 	{
-		"url": "/release_notes/0.0.16-fixed-issues.html", 
-		"section": "Release Notes", 
-		"value": "Fixed Issues",
-		"tokens": [ "Fixed","Issues"]
-	},
-
-	{
-		"url": "/release_notes/0.0.16-whats-new.html", 
-		"section": "Release Notes", 
-		"value": "What's New",
-		"tokens": [ "What's","New"]
-	},
-
-	{
 		"url": "/release_notes/0.0.16.html", 
 		"section": "Release Notes", 
 		"value": "ALIEN for Cloud 0.0.16",
@@ -148,45 +50,17 @@
 	},
 
 	{
-		"url": "/release_notes/0.0.9-fixed-issues.html", 
-		"section": "Release Notes", 
-		"value": "Fixed Issues",
-		"tokens": [ "Fixed","Issues"]
-	},
-
-	{
-		"url": "/release_notes/0.0.9-whats-new.html", 
-		"section": "Release Notes", 
-		"value": "What's New",
-		"tokens": [ "What's","New"]
-	},
-
-	{
-		"url": "/release_notes/0.0.9.html", 
-		"section": "Release Notes", 
-		"value": "ALIEN for Cloud 0.0.9",
-		"tokens": [ "ALIEN","for","Cloud","0.0.9"]
-	},
-
-	{
-		"url": "/release_notes/1.0.0-M3-fixed-issues.html", 
-		"section": "Release Notes", 
-		"value": "Fixed Issues",
-		"tokens": [ "Fixed","Issues"]
-	},
-
-	{
-		"url": "/release_notes/1.0.0-M3-whats-new.html", 
-		"section": "Release Notes", 
-		"value": "What's New",
-		"tokens": [ "What's","New"]
-	},
-
-	{
 		"url": "/release_notes/1.0.0-M3.html", 
 		"section": "Release Notes", 
 		"value": "ALIEN for Cloud 1.0.0-M3",
 		"tokens": [ "ALIEN","for","Cloud","1.0.0M3"]
+	},
+
+	{
+		"url": "/release_notes/1.0.0-SM18.html", 
+		"section": "Release Notes", 
+		"value": "ALIEN for Cloud 1.0.0-SM18",
+		"tokens": [ "ALIEN","for","Cloud","1.0.0SM18"]
 	},
 
 	{
@@ -337,14 +211,14 @@
 	},
 
 	{
-		"url": "/index.html", 
+		"url": "/community/index.html", 
 		"section": "", 
 		"value": "ALIEN 4 Cloud",
 		"tokens": [ "ALIEN","4","Cloud"]
 	},
 
 	{
-		"url": "/community/index.html", 
+		"url": "/index.html", 
 		"section": "", 
 		"value": "ALIEN 4 Cloud",
 		"tokens": [ "ALIEN","4","Cloud"]
@@ -365,24 +239,10 @@
 	},
 
 	{
-		"url": "/documentation/tosca_ref/index.html", 
-		"section": "Documentation", 
-		"value": "Components and TOSCA ref.",
-		"tokens": [ "Components","and","TOSCA","ref."]
-	},
-
-	{
 		"url": "/documentation/index.html", 
 		"section": "Documentation", 
 		"value": "ALIEN 4 Cloud - Documentation",
 		"tokens": [ "ALIEN","4","Cloud","","Documentation"]
-	},
-
-	{
-		"url": "/developer_guide/index.html", 
-		"section": "Developer Guide", 
-		"value": "Developer Guide",
-		"tokens": [ "Developer","Guide"]
 	},
 
 	{
@@ -393,10 +253,24 @@
 	},
 
 	{
+		"url": "/documentation/tosca_ref/index.html", 
+		"section": "Documentation", 
+		"value": "Components and TOSCA ref.",
+		"tokens": [ "Components","and","TOSCA","ref."]
+	},
+
+	{
 		"url": "/release_notes/index.html", 
 		"section": "Release Notes", 
 		"value": "Release Notes",
 		"tokens": [ "Release","Notes"]
+	},
+
+	{
+		"url": "/developer_guide/index.html", 
+		"section": "Developer Guide", 
+		"value": "Developer Guide",
+		"tokens": [ "Developer","Guide"]
 	},
 
 	{
@@ -684,6 +558,13 @@
 		"section": "Documentation", 
 		"value": "Workflow generation",
 		"tokens": [ "Workflow","generation"]
+	},
+
+	{
+		"url": "/documentation/tosca_ref/tosca_normative_lifecycle.html", 
+		"section": "Documentation", 
+		"value": "Normative Lifecycle",
+		"tokens": [ "Normative","Lifecycle"]
 	},
 
 	{
