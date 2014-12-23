@@ -9,18 +9,28 @@ weight: 10000
 exclude_from_search: true
 ---
 
+
+
+### Alien 4 Cloud
+
 {: .table .table-bordered}
-| Component        | Type        | Id         | Description |
-|:-----------------|:------------|:-----------|:------------|
-| <span class="text-success"> Alien 4 Cloud</span> | <i class="fa fa-plus text-success"></i> | ALIEN-142 | Ability to execute operations defined on interfaces other than lifecycle on node runtime instances. |
-| <span class="text-success"> Alien 4 Cloud</span> | <i class="fa fa-plus text-success"></i> | ALIEN-202 | Ability for Admin user to remove plugins |
-| <span class="text-success"> Alien 4 Cloud</span> | <i class="fa fa-plus text-success"></i> | ALIEN-211 | In the topology edition view, users can now select properties to be exposed to application users on runtime. |
-| <span class="text-success"> Alien 4 Cloud</span> | <i class="fa fa-plus text-success"></i> | ALIEN-213 | When ALIEN for cloud starts for the first time it is automatically initialized with default components archives. |
-| <span class="text-success"> Alien 4 Cloud</span> | <i class="fa fa-level-up text-primary"></i> | ALIEN-225 | Node type score (position in query result list) is now updated automatically at a defined interval rather than performed on startup (impact on the startup time of the server). |
-| <span class="text-success"> Alien 4 Cloud</span> | <i class="fa fa-bug text-danger"></i> | ALIEN-214 | When a plugin configuration contains lists and maps, the edition of the configuration in the UI cannot be applied in case the plugin default configuration do not initialize a non-null List/Map. |
-| <span class="text-success"> Alien 4 Cloud</span> | <i class="fa fa-bug text-danger"></i> | ALIEN-220 | Renaming a node that has relationships in a topology fails because of a concurrency on a Map manipulation. |
-| <span class="text-success"> Alien 4 Cloud</span> | <i class="fa fa-bug text-danger"></i> | ALIEN-221 | Admin didn’t had full access to all resources/API operations. |
-| <span class="text-success"> Alien 4 Cloud</span> | <i class="fa fa-bug text-danger"></i> | ALIEN-223 | ALIEN 4 Cloud was silently failing when a plugin that already exists is uploaded. |
-| <span class="text-primary"> Cloudify 2 PaaS Provider</span> | <i class="fa fa-plus text-success"></i> | ALIEN-226 | node service id and node tempalte id are now passed as a parameter when calling node operation's groovy scripts. Same is done for relationship with source service id, source node template id, target service id, target node template id. |
-| <span class="text-primary"> Cloudify 2 PaaS Provider</span> | <i class="fa fa-plus text-success"></i> | ALIEN-227 | Generation of stop workflows. |
-| <span class="text-primary"> Cloudify 2 PaaS Provider</span> | <i class="fa fa-level-up text-primary"></i> | ALIEN-188 | Runtime stats of instances are now retrieved correctly. |
+| Type        | Id         | Description |
+|:------------|:-----------|:------------|
+| <i class="fa fa-plus text-success"></i> | ALIEN-142 | Ability to execute operations defined on interfaces other than lifecycle on node runtime instances. |
+| <i class="fa fa-plus text-success"></i> | ALIEN-202 | Ability for Admin user to remove plugins |
+| <i class="fa fa-plus text-success"></i> | ALIEN-211 | In the topology edition view, users can now select properties to be exposed to application users on runtime. |
+| <i class="fa fa-plus text-success"></i> | ALIEN-213 | When ALIEN for cloud starts for the first time it is automatically initialized with default components archives. |
+| <i class="fa fa-level-up text-primary"></i> | ALIEN-225 | Node type score (position in query result list) is now updated automatically at a defined interval rather than performed on startup (impact on the startup time of the server). |
+| <i class="fa fa-bug text-danger"></i> | ALIEN-214 | When a plugin configuration contains lists and maps, the edition of the configuration in the UI cannot be applied in case the plugin default configuration do not initialize a non-null List/Map. |
+| <i class="fa fa-bug text-danger"></i> | ALIEN-220 | Renaming a node that has relationships in a topology fails because of a concurrency on a Map manipulation. |
+| <i class="fa fa-bug text-danger"></i> | ALIEN-221 | Admin didn’t had full access to all resources/API operations. |
+| <i class="fa fa-bug text-danger"></i> | ALIEN-223 | ALIEN 4 Cloud was silently failing when a plugin that already exists is uploaded. |
+
+### Cloudify 2 PaaS Provider
+
+{: .table .table-bordered}
+| Type        | Id         | Description |
+|:------------|:-----------|:------------|
+| <i class="fa fa-plus text-success"></i> | ALIEN-226 | node service id and node tempalte id are now passed as a parameter when calling node operation's groovy scripts. Same is done for relationship with source service id, source node template id, target service id, target node template id. |
+| <i class="fa fa-plus text-success"></i> | ALIEN-227 | Generation of stop workflows. |
+| <i class="fa fa-level-up text-primary"></i> | ALIEN-188 | Runtime stats of instances are now retrieved correctly. |
