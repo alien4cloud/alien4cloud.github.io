@@ -64,13 +64,6 @@
 	},
 
 	{
-		"url": "/release_notes/1.0.0-SM19.html", 
-		"section": "Release Notes", 
-		"value": "ALIEN for Cloud 1.0.0-SM19",
-		"tokens": [ "ALIEN","for","Cloud","1.0.0SM19"]
-	},
-
-	{
 		"url": "/documentation/getting_started/adding_components.html", 
 		"section": "Documentation", 
 		"value": "Components catalog",
@@ -218,13 +211,6 @@
 	},
 
 	{
-		"url": "/index.html", 
-		"section": "", 
-		"value": "ALIEN 4 Cloud",
-		"tokens": [ "ALIEN","4","Cloud"]
-	},
-
-	{
 		"url": "/community/index.html", 
 		"section": "", 
 		"value": "ALIEN 4 Cloud",
@@ -232,17 +218,24 @@
 	},
 
 	{
-		"url": "/developer_guide/index.html", 
-		"section": "Developer Guide", 
-		"value": "Developer Guide",
-		"tokens": [ "Developer","Guide"]
+		"url": "/index.html", 
+		"section": "", 
+		"value": "ALIEN 4 Cloud",
+		"tokens": [ "ALIEN","4","Cloud"]
 	},
 
 	{
-		"url": "/documentation/tosca_ref/index.html", 
+		"url": "/roadmap/index.html", 
+		"section": "", 
+		"value": "Roadmap",
+		"tokens": [ "Roadmap"]
+	},
+
+	{
+		"url": "/documentation/cloudify2_driver/index.html", 
 		"section": "Documentation", 
-		"value": "Components and TOSCA ref.",
-		"tokens": [ "Components","and","TOSCA","ref."]
+		"value": "Cloudify 2 PaaS Provider",
+		"tokens": [ "Cloudify","2","PaaS","Provider"]
 	},
 
 	{
@@ -260,10 +253,10 @@
 	},
 
 	{
-		"url": "/documentation/cloudify2_driver/index.html", 
+		"url": "/documentation/tosca_ref/index.html", 
 		"section": "Documentation", 
-		"value": "Cloudify 2 PaaS Provider",
-		"tokens": [ "Cloudify","2","PaaS","Provider"]
+		"value": "Components and TOSCA ref.",
+		"tokens": [ "Components","and","TOSCA","ref."]
 	},
 
 	{
@@ -274,10 +267,10 @@
 	},
 
 	{
-		"url": "/roadmap/index.html", 
-		"section": "", 
-		"value": "Roadmap",
-		"tokens": [ "Roadmap"]
+		"url": "/developer_guide/index.html", 
+		"section": "Developer Guide", 
+		"value": "Developer Guide",
+		"tokens": [ "Developer","Guide"]
 	},
 
 	{
