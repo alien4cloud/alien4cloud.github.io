@@ -9,7 +9,7 @@ weight: 200
 ---
 Apache HTTP server is a free software of the Apache software Foundation, created in 1995. Apache is the most popular web server on internet and the web server of LAMP bundle.
 
-Used version for this tutorial : [Apache HTTP Server WD02](https://github.com/alien4cloud/samples/tree/wd02/apache){:target="_blank"}
+Used version for this tutorial : [Apache HTTP Server](https://github.com/alien4cloud/samples/tree/master/apache){:target="_blank"}
 
 # Definition
 
@@ -30,8 +30,9 @@ The **Apache** recipe has only two properties :
 {: .table .table-bordered}
 |Property  | Usage | Comment |
 |:---------|:------------|:------------|
-|version  | Mention the Apache HTTP Server version | Constant version in our example (v2.4) |
-|port  | Port where to expose the Apache HTTP service | 80 is the default port, you can change it of course without using an already used one |
+|version  | Mention the Apache HTTP Server version | Constant version in our example (v2.4). |
+|port  | Port where to expose the Apache HTTP service | The default port is : **80**. You can change it of course without using an already used one. |
+|document_root | The Root Directory of apache2 | The default value is : **/var/www** |
 
 ## Lifecycle and related scripts
 
@@ -43,6 +44,8 @@ In the interfaces we defined the script used to create the node. In our case we 
 |Operation  | Usage | Comment |
 |:---------|:------------|:------------|
 |create  | Executed script to install your apache http server on the Compute | Through apt-get on ubuntu image |
+|start | Start apache2 | Restart apache2 if it's already launched |
+|start_detection | Detect if apache2 is running | Test the port of apache2 |
 
 **Optional** : To test this *Apache* recipe, you could create a simple Topology with a **Compute** and an **Apache** :
 
