@@ -211,13 +211,6 @@
 	},
 
 	{
-		"url": "/community/index.html", 
-		"section": "", 
-		"value": "ALIEN 4 Cloud",
-		"tokens": [ "ALIEN","4","Cloud"]
-	},
-
-	{
 		"url": "/index.html", 
 		"section": "", 
 		"value": "ALIEN 4 Cloud",
@@ -225,17 +218,24 @@
 	},
 
 	{
+		"url": "/community/index.html", 
+		"section": "", 
+		"value": "ALIEN 4 Cloud",
+		"tokens": [ "ALIEN","4","Cloud"]
+	},
+
+	{
+		"url": "/documentation/tosca_ref/index.html", 
+		"section": "Documentation", 
+		"value": "Components and TOSCA ref.",
+		"tokens": [ "Components","and","TOSCA","ref."]
+	},
+
+	{
 		"url": "/roadmap/index.html", 
 		"section": "", 
 		"value": "Roadmap",
 		"tokens": [ "Roadmap"]
-	},
-
-	{
-		"url": "/documentation/cloudify2_driver/index.html", 
-		"section": "Documentation", 
-		"value": "Cloudify 2 PaaS Provider",
-		"tokens": [ "Cloudify","2","PaaS","Provider"]
 	},
 
 	{
@@ -253,10 +253,10 @@
 	},
 
 	{
-		"url": "/documentation/tosca_ref/index.html", 
+		"url": "/documentation/cloudify2_driver/index.html", 
 		"section": "Documentation", 
-		"value": "Components and TOSCA ref.",
-		"tokens": [ "Components","and","TOSCA","ref."]
+		"value": "Cloudify 2 PaaS Provider",
+		"tokens": [ "Cloudify","2","PaaS","Provider"]
 	},
 
 	{
@@ -344,10 +344,10 @@
 	},
 
 	{
-		"url": "/documentation/getting_started/lamp_stack_website.html", 
+		"url": "/documentation/getting_started/lamp_stack_wordpress.html", 
 		"section": "Documentation", 
-		"value": "Component WebSite",
-		"tokens": [ "Component","WebSite"]
+		"value": "Component Wordpress",
+		"tokens": [ "Component","Wordpress"]
 	},
 
 	{

@@ -10,7 +10,7 @@
         <h1 style="margin-top: 0px;">Component MySQL</h1>
         <p>This component will install the MySQL RDBMS on the host server.</p>
 
-<p>Used version for this tutorial : <a href="https://github.com/alien4cloud/samples/tree/wd02/mysql" target="_blank">MySQL WD02</a></p>
+<p>Used version for this tutorial : <a href="https://github.com/alien4cloud/samples/tree/master/mysql" target="_blank">MySQL</a></p>
 
 <div class="note">
 <p>This installation is based on Ubuntu distribution with apt-get command.</p>
@@ -24,10 +24,10 @@
 
 <p>The node name is important since it’s unique. We follow this template in A4C recipe development : <strong>[organisation].nodes.Name</strong></p>
 
-<div data-gist="https://gist.github.com/cmourouvin/c7e5f3eddb8cd8ab9c7e.js"></div>
+<div data-gist="https://gist.github.com/OresteVisari/71722e4e98dfd501606b.js"></div>
 
 <ul>
-  <li><strong>tosca_simple_yaml_1_0_0</strong> : version of toasca used in the definition, let it as is it for the moment</li>
+  <li><strong>tosca_simple_yaml_1_0_0_wd03</strong> : version of tosca used in the definition, let it as is it for the moment</li>
   <li>Our node name / id : <strong>alien.nodes.Mysql</strong></li>
   <li>The parent : <strong>tosca.nodes.Database</strong></li>
 </ul>
@@ -40,9 +40,9 @@
 
 <p>All properties required or optional to use the component.</p>
 
-<div data-gist="https://gist.github.com/cmourouvin/f204281637148221bdc6.js"></div>
+<div data-gist="https://gist.github.com/OresteVisari/c99550fb9b4e54eb38b1.js"></div>
 
-<p>MySQL proper properperties :</p>
+<p>MySQL proper properties :</p>
 
 <table class="table table-bordered">
   <thead>
@@ -56,12 +56,17 @@
     <tr>
       <td style="text-align: left">port</td>
       <td style="text-align: left">port number injected in the MySQL installation</td>
-      <td style="text-align: left">3306</td>
+      <td style="text-align: left">Default : <strong>3306</strong></td>
     </tr>
     <tr>
       <td style="text-align: left">storage_path</td>
       <td style="text-align: left">path where the blockstorage is mounted in the compute</td>
       <td style="text-align: left">Constant value with the Cloudify Driver version we use in this tutorial. All blockstorage attached to a compute will have this mounted volume.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">bind_address</td>
+      <td style="text-align: left">Allow remote access to your server</td>
+      <td style="text-align: left">Default : <strong>true</strong></td>
     </tr>
   </tbody>
 </table>
@@ -99,7 +104,7 @@
 
 <h2 id="lifecycle-and-related-scripts">Lifecycle and related scripts</h2>
 
-<div data-gist="https://gist.github.com/cmourouvin/f8c78acb81b69e42d6ba.js"></div>
+<div data-gist="https://gist.github.com/OresteVisari/521640547934b1f8ee39.js"></div>
 
 <p>The real script you will run during you different component life steps. Two main steps here in <em>operations</em> bloc :</p>
 
@@ -121,6 +126,11 @@
       <td style="text-align: left">start</td>
       <td style="text-align: left">Executed script to configure MySQL to use a specific storage path (the blockstorage)</td>
       <td style="text-align: left">Configured and started with specific ubuntu hints (rights concerns)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">start_detection</td>
+      <td style="text-align: left">Detects if Mysql is started</td>
+      <td style="text-align: left">Test the port</td>
     </tr>
   </tbody>
 </table>
