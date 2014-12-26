@@ -25,7 +25,7 @@ There is our full alien context to give a try to this tutorial :
 {: .table .table-bordered}
 |A4C element  | Usage |
 |:---------|:------------|
-|TOSCA base types **1.0.0.WD03** | [A4C WD02 tosca-notmative-types](https://github.com/alien4cloud/alien4cloud-extended-types){:target="_blank"} |
+|TOSCA base types **1.0.0.WD03** | [A4C WD03 tosca-notmative-types](https://github.com/alien4cloud/alien4cloud-extended-types){:target="_blank"} |
 |A4C Release **1.0.0-SM18**  | [Standalone WAR](https://fastconnect.org/maven/content/repositories/opensource/alien4cloud/alien4cloud-ui/1.0.0-SM18/alien4cloud-ui-1.0.0-SM18-standalone.war){:target="_blank"} or [WAR](https://fastconnect.org/maven/content/repositories/opensource/alien4cloud/alien4cloud-ui/1.0.0-SM18/alien4cloud-ui-1.0.0-SM18.war){:target="_blank"} |
 |A4C Cloudify2 Driver **1.0.0-SM18**| [alien4cloud-cloudify2-provider 1.0.0-SM18](https://fastconnect.org/maven/content/repositories/opensource/alien4cloud/alien4cloud-cloudify2-provider/1.0.0-SM18/alien4cloud-cloudify2-provider-1.0.0-SM18.jar){:target="_blank"} |
 
