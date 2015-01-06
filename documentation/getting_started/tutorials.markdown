@@ -5,10 +5,12 @@ root: ../../
 categories: DOCUMENTATION
 parent: [getting_started]
 node_name: tutorials
-weight: 300
+weight: 500
 ---
 
-This section provide links to the various tutorials for ALIEN for cloud.
+{% warning %}
+This documentation section is not complete. We recommend you to start with the lamp stack tutorials that have been upgraded more recently.
+{% endwarning %}
 
 # Components
 

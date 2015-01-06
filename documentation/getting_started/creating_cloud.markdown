@@ -30,7 +30,7 @@ The current recommended plugin to start is leveraging Cloudify as the PaaS Orche
 
 ## Installing Cloudify 2.7 plugin
 
-Follow [this link](../cloudify2_driver/index.html) in order to find more on installation and configuration of your coud environment using cloudify 2.
+Follow [this link](#/documentation/cloudify2_driver/index.html) in order to find more on installation and configuration of your coud environment using cloudify 2.
 
 ## Using mock plugin
 

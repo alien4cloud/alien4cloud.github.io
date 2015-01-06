@@ -18,10 +18,10 @@ Lifecycle is based on the normative node interface (tosca.interfaces.node.lifecy
 
 ## Node Lifecycle generation
 
-1. call the node's _create_ operation
-2. wait for all node that is a _DependsOn_ target (current node being source of the relationship) to reach the _started_ state.
-3. wait for all node that is a _ConnectsTo_ source (current node being target of the relationship) to reach the _created_ state.
+1. wait for all node that is a target of a _DependsOn_ relationship to reach the _started_ state (current node being source of the relationship).
+2. call the node's _create_ operation
 4. call the relationships _pre_configure_source_ (if the node is the relationship source) or _pre_configure_target_ (if the node is the relationship target)
 5. call the node's _configure_ operation
 6. call the relationships _post_configure_source_ (if the node is the relationship source) or _post_configure_target_ (if the node is the relationship target)
-7.
+7. call the node's _start_ operation
+8. call the relationships _add_target_ (on the nodes sources) and _add_source_ (on the nodes targets) operations.

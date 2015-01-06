@@ -3,9 +3,9 @@ layout: post
 title:  Role in Alien 4 Cloud
 categories: DOCUMENTATION
 root: ../../
-parent: []
+parent: [getting_started]
 node_name: roles
-weight: 200
+weight: 300
 ---
 
 This section details Alien 4 Cloud's *ROLES* and *permissions* by role.

@@ -35,7 +35,7 @@ There is our full alien context to give a try to this tutorial :
 Basicly to build our full application (topology), we will have a set of basic components defined in TOSCA. You will have to inject first
 this set of components in A4C and then inject your own.
 
-More details about [normative types](../tosca_ref/tosca_concepts_types_normative_nodes.html).
+More details about [normative types](#/documentation/tosca_ref/normative_types/tosca_concepts_types_normative_nodes.html).
 
 {% warning %}
 TOSCA definition is in constant evolution, so be sure you are using our fixed implementation given just above.
@@ -55,10 +55,6 @@ This is the basic stack for a LAMP environment and in A4C context we will add on
 
 For our example the well knwon CMS [Wordpress](http://wordpress.org/wordpress-4.0.zip){:target="_blank"} will be used. Wordpress is written in PHP and needs MySQL to run.
 
-{% warning %}
-In this tutorial you will not explain how to create since it's already described [here](../getting_started/tutorials_component_design.html).
-{% endwarning %}
-
 # Server hosting
 
 The **L** in LAMP stand for Linux, so for our tutorial we assume that we're working with [Ubuntu 14.04](http://cdimage.ubuntu.com/netboot/14.04/){:target="_blank"} distribution as server. You must have an
@@ -68,6 +64,6 @@ image on your targeted cloud based on it.
 We assume that you have an image in your cloud based on Ubuntu 14.04 distribution.
 {% endnote %}
 
-# [BlockStorage](../cloudify2_driver/blockstorage.html)
+# [BlockStorage](#/documentation/cloudify2_driver/blockstorage.html)
 
 To persist your data even after your application is undeployed, we will use this default component described in tosca base type wd02 and that allow us to have a volume created, mounted and attached to our server host. MySQL data will be stored on this volume.

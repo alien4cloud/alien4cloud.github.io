@@ -10,6 +10,6 @@ weight: 10000
 
 Here are informations about how to adapt your TOSCA archives.
 
-You might first want to go check about [Component guide](../components_guide "Component guide") before continuing, as we assume here that you are familiar with those concepts.
+You might first want to go check about [TOSCA guide](#/documentation/tosca_ref/tosca_concepts.html "TOSCA guide") before continuing, as we assume here that you are familiar with those concepts.
 
 {% children %}

@@ -10,17 +10,17 @@ weight: 800
 
 On this page we will create our topology representing the LAMP stack. Follow instructions step by step and at the end you will have your stack up and running.
 
-To be more concret we will use the [WebSite](../getting_started/lamp_stack_website.html) component to install a real and well known CMS : [Wordpress](https://wordpress.com){:target="_blank"}
+To be more concret we will use the [WebSite](#/documentation/getting_started/lamp_stack_website.html) component to install a real and well known CMS : [Wordpress](https://wordpress.com){:target="_blank"}
 
 # Prerequisites
 
-1. Get, checkout, download all components listed in the [main page](../getting_started/lamp_stack.html) of this tutorial
+1. Get, checkout, download all components listed in the [main page](#/documentation/getting_started/lamp_stack.html) of this tutorial
 2. Import all components in **A4C**
-  * We assume that you are running the A4C you have downloaded in [standalone version](../getting_started/getting_started.html)  
+  * We assume that you are running the A4C you have downloaded in [standalone version](#/documentation/getting_started/getting_started.html)  
   * Once you are logged as *admin*, you will have the menu on top, select then the **Components** item
-  * You can also see here how to [upload your component](../tosca_ref/calm_components_repo_uploadarchive.html)  
+  * You can also see here how to [upload your component](#/documentation/tosca_ref/calm_components_repo_uploadarchive.html)  
 
-3. Configure your cloud plugin [PaaS Provider](../cloudify2_driver/index.html)
+3. Configure your cloud plugin [PaaS Provider](#/documentation/cloudify2_driver/index.html)
 4. Then compose you topology following the next steps
 
 {% info %}

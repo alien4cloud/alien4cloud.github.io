@@ -10,7 +10,7 @@ weight: 200
 
 This component represents a storage space / volume. This volume __has to be__ *attached* to a compute to be used.
 
-For more details about this custom component : [BlockStorage](../cloudify2_driver/blockstorage.html)
+For more details about this custom component : [BlockStorage](#/documentation/cloudify2_driver/blockstorage.html)
 
 Used version for this tutorial (defined in normative types): [BlockStorage](https://github.com/alien4cloud/tosca-normative-types/blob/1.0.0.wd02/normative-types.yml){:target="_blank"}
 
@@ -28,7 +28,7 @@ Every component should at least inherite from *tosca.nodes.Root*. As a default n
 
 <div data-gist="https://gist.github.com/cmourouvin/561ca4ce50e1eb1f673b.js"></div>
 
-Check details : [BlockStorage](../cloudify2_driver/blockstorage.html)
+Check details : [BlockStorage](#/documentation/cloudify2_driver/blockstorage.html)
 
 {% info %}
 For the application you will need **volume_id** or **size** to be defined.

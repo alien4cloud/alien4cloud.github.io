@@ -32,5 +32,5 @@ Default administrator user is *admin* and password *admin*.
 {% endinfo %}
 
 {% warning %}
-For production settings we recommend you to read the [advanced configuration](../advanced_configuration/advanced_configuration.html) section.
+For production settings we recommend you to read the [advanced configuration](#/documentation/admin/advanced_configuration.html) section.
 {% endwarning %}
