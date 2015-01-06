@@ -10,7 +10,7 @@ weight: 800
 
 On this page we will create our topology representing the LAMP stack. Follow instructions step by step and at the end you will have your stack up and running.
 
-To be more concret we will use the [WebSite](#/documentation/getting_started/lamp_stack_website.html) component to install a real and well known CMS : [Wordpress](https://wordpress.com){:target="_blank"}
+To be more concret we will use the [Wordpress](#/documentation/getting_started/lamp_stack_wordpress.html) component to install a real CMS.
 
 # Prerequisites
 
@@ -54,23 +54,21 @@ In these properties tab view, set also the *size* value to 1 (GB by default).
 
 Then, drag and drop a **MySQL**, a **PHP** and an **Apache** onto the **Compute** existing node. For each new node droped onto **Compute** you will have to decide a target for the *HostedOn* relationship (generally just check the relationship name and click *Finish*). Change the default value of **MySQL** or **Apache** if you want a custom install.
 
-For the **PHP** node, check the *two options* to install the PHP module in *Apache* and the PHP module for *MySQL*.
-
 [![Compute, BlockStorage, Apache, MySQL, PHP](../../images/getting_started/wordpress-topology-step-3.png)](../../images/getting_started/wordpress-topology-step-3.png)
 
-## Step 4 : The Website
+## Step 4 : The Wordpress
 
-The last component to add is the **WebSite**. Add it to the view and create *WebSiteHostedOn* relationship between **Website** and **Apache**.
+The last component to add is the **Wordpress**. Drag and drop it to the **Apache** and select the *WordpressHostedOn* relationship between **Wordpress** and **Apache**.
 
-On the property, set the URL of the last zip of Wordpress.
+After this, create the relationship between **Wordpress** and **MySQL** and between **Wordpress** and **PHP**.
 
-[![Compute, BlockStorage, Apache, MySQL, PHP, Website](../../images/getting_started/wordpress-topology-step-4.png)](../../images/getting_started/wordpress-topology-step-4.png)
+[![Compute, BlockStorage, Apache, MySQL, PHP,  Wordpress](../../images/getting_started/wordpress-topology-step-4.png)](../../images/getting_started/wordpress-topology-step-4.png)
 
 # Deployment
 
 Now we can deploy our topology into the cloud we've defined in prerequisite. The *Deploy* button is accessible in the Application sub-menu *Deployments*.
 
-To configure your *Wordpress* at your first run, open your web browser and go to **IP_SERVER/wordpress**.
+To configure your *Wordpress* at your first run, open your web browser and go to **IP_SERVER/CONTEXT_PATH**.
 
 {% info %}
 To configure your *Wordpress*, specifically for the **MySQL** settings, be sure you enter the settings you defined in your *MySQL* configuration.

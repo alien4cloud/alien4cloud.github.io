@@ -17,7 +17,7 @@ This tutorial is based on the well known opensource stack [LAMP](http://fr.wikip
 We will see all steps to go through the stack component definition and have a runnable example.
 
 {% info %}
-Regarding TOSCA component definition we are using the WD02 version for this tutorial.
+Regarding TOSCA component definition we are using the WD03 version for this tutorial.
 {% endinfo %}
 
 There is our full alien context to give a try to this tutorial :
@@ -25,9 +25,9 @@ There is our full alien context to give a try to this tutorial :
 {: .table .table-bordered}
 |A4C element  | Usage |
 |:---------|:------------|
-|TOSCA base types **1.0.0.WD02** | [A4C WD02 tosca-notmative-types](https://github.com/alien4cloud/tosca-normative-types/tree/1.0.0.wd02){:target="_blank"} |
-|A4C Release **0.0.15**  | [Standalone WAR](https://fastconnect.org/maven/content/repositories/opensource/alien4cloud/alien4cloud-ui/0.0.15/alien4cloud-ui-0.0.15-standalone.war){:target="_blank"} or [WAR](https://fastconnect.org/maven/content/repositories/opensource/alien4cloud/alien4cloud-ui/0.0.15/alien4cloud-ui-0.0.15.war){:target="_blank"} |
-|A4C Cloudify2 Driver **0.2.3**| [alien4cloud-cloudify2-provider 0.2.3](https://fastconnect.org/maven/content/repositories/opensource/alien4cloud/alien4cloud-cloudify2-provider/0.2.3/alien4cloud-cloudify2-provider-0.2.3.jar){:target="_blank"} |
+|TOSCA base types **1.0.0.WD03** | [A4C WD03 tosca-notmative-types](https://github.com/alien4cloud/alien4cloud-extended-types){:target="_blank"} |
+|A4C Release **1.0.0-SM18**  | [Standalone WAR](https://fastconnect.org/maven/content/repositories/opensource/alien4cloud/alien4cloud-ui/1.0.0-SM18/alien4cloud-ui-1.0.0-SM18-standalone.war){:target="_blank"} or [WAR](https://fastconnect.org/maven/content/repositories/opensource/alien4cloud/alien4cloud-ui/1.0.0-SM18/alien4cloud-ui-1.0.0-SM18.war){:target="_blank"} |
+|A4C Cloudify2 Driver **1.0.0-SM18**| [alien4cloud-cloudify2-provider 1.0.0-SM18](https://fastconnect.org/maven/content/repositories/opensource/alien4cloud/alien4cloud-cloudify2-provider/1.0.0-SM18/alien4cloud-cloudify2-provider-1.0.0-SM18.jar){:target="_blank"} |
 
 
 # TOSCA base types
@@ -51,9 +51,7 @@ We will basicly define our components and other "relational" items to link those
 
 This is the basic stack for a LAMP environment and in A4C context we will add one more components :
 
-* [WebSite](https://github.com/alien4cloud/samples/tree/wd02/website){:target="_blank"} : this components will allow to  take any zip file or link to any zip to be uploaded on the Apache HTTP Server and then be served.
-
-For our example the well knwon CMS [Wordpress](http://wordpress.org/wordpress-4.0.zip){:target="_blank"} will be used. Wordpress is written in PHP and needs MySQL to run.
+* [Wordpress](http://wordpress.org/){:target="_blank"} : this components will allow to  install the Wordpress CMS on the Apache HTTP Server. Wordpress also need a PHP and a Mysql database.
 
 # Server hosting
 
@@ -61,7 +59,7 @@ The **L** in LAMP stand for Linux, so for our tutorial we assume that we're work
 image on your targeted cloud based on it.
 
 {% note %}
-We assume that you have an image in your cloud based on Ubuntu 14.04 distribution.
+We assume that you have an image in your cloud based on Ubuntu 12.04 or 14.04.
 {% endnote %}
 
 # [BlockStorage](#/documentation/cloudify2_driver/blockstorage.html)
