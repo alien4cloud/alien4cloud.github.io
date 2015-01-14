@@ -57,13 +57,13 @@ Also, you must be aware that the routine will be executed as a goovy closure. Th
 
 <div class="highlight"><pre><code class="language-groovy" data-lang="groovy"><span class="k">assert</span> <span class="n">warUrl</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">warUrl</span><span class="o">.</span><span class="na">trim</span><span class="o">().</span><span class="na">isEmpty</span><span class="o">(),</span> <span class="s2">&quot;requires warUrl parameter&quot;</span>
 
-<span class="c1">//when invoking a command defined in another node, prefix it with his name. Here, War is hosted on Tomcat, thus the PARENT env var has the Tomcat node name.</span>
-<span class="kt">def</span> <span class="n">command</span> <span class="o">=</span> <span class="s2">&quot;${PARENT}_updateWarOnTomcat&quot;</span>
+<span class="c1">//when invoking a command defined in another node, prefix it with his name. Here, War is hosted on Tomcat, thus the HOST env var has the Tomcat node name.</span>
+<span class="kt">def</span> <span class="n">command</span> <span class="o">=</span> <span class="s2">&quot;${HOST}_updateWarOnTomcat&quot;</span>
 <span class="n">println</span> <span class="s2">&quot;updateWarFile.groovy: warUrl is ${warUrl} and contextPath is ${contextPath}...&quot;</span>
 <span class="n">println</span> <span class="s2">&quot;updateWarFile.groovy: invoking ${command} custom command ...&quot;</span>
 
-<span class="c1">//HOST env var represent the cloudify service name</span>
-<span class="kt">def</span> <span class="n">service</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="na">waitForService</span><span class="o">(</span><span class="n">HOST</span><span class="o">,</span> <span class="mi">60</span><span class="o">,</span> <span class="n">TimeUnit</span><span class="o">.</span><span class="na">SECONDS</span><span class="o">)</span>
+<span class="c1">//SERVICE_NAME env var represent the cloudify service name</span>
+<span class="kt">def</span> <span class="n">service</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="na">waitForService</span><span class="o">(</span><span class="n">SERVICE_NAME</span><span class="o">,</span> <span class="mi">60</span><span class="o">,</span> <span class="n">TimeUnit</span><span class="o">.</span><span class="na">SECONDS</span><span class="o">)</span>
 <span class="kt">def</span> <span class="n">currentInstance</span> <span class="o">=</span> <span class="n">service</span><span class="o">.</span><span class="na">getInstances</span><span class="o">().</span><span class="na">find</span><span class="o">{</span> <span class="n">it</span><span class="o">.</span><span class="na">instanceId</span> <span class="o">==</span> <span class="n">context</span><span class="o">.</span><span class="na">instanceId</span> <span class="o">}</span>
 
 <span class="c1">//as the inputs are no more accessible via args[], but rather named and available in the env var, we should trigger the custom command with a &quot;name=value&quot; instead of &quot;value&quot; argument syntax </span>

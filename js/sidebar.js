@@ -1469,50 +1469,6 @@ var node, children;
     
   
     
-      var parent = sidebarTree["DOCUMENTATION"];
-      
-        
-
-        children = parent.children;
-        // try to find the node if exists already
-        node = null;
-        for (var i=0; i<children.length; i++) {
-          if(children[i].name === 'tosca_ref_root') {
-            node = children[i];
-          }
-        }
-        if(node === null) {
-          node = {
-            'children': [],
-            'collapsed': true
-          };
-          children.push(node);
-        }
-      
-
-      node.name = "tosca_ref_root";
-      node.title = "Components and TOSCA ref.";
-      node.url = "documentation/tosca_ref/index.html";
-      node.weight =  100;
-      node.root = "../../";
-    
-  
-    
-  
-    
-      var parent = sidebarTree["DOCUMENTATION"];
-      
-        node = parent;
-      
-
-      node.name = "index";
-      node.title = "ALIEN 4 Cloud - Documentation";
-      node.url = "documentation/index.html";
-      node.weight =  0;
-      node.root = "../";
-    
-  
-    
   
     
       var parent = sidebarTree["DOCUMENTATION"];
@@ -1540,6 +1496,50 @@ var node, children;
       node.title = "Cloudify 2 PaaS Provider";
       node.url = "documentation/cloudify2_driver/index.html";
       node.weight =  1000;
+      node.root = "../../";
+    
+  
+    
+      var parent = sidebarTree["DOCUMENTATION"];
+      
+        node = parent;
+      
+
+      node.name = "index";
+      node.title = "ALIEN 4 Cloud - Documentation";
+      node.url = "documentation/index.html";
+      node.weight =  0;
+      node.root = "../";
+    
+  
+    
+  
+    
+      var parent = sidebarTree["DOCUMENTATION"];
+      
+        
+
+        children = parent.children;
+        // try to find the node if exists already
+        node = null;
+        for (var i=0; i<children.length; i++) {
+          if(children[i].name === 'tosca_ref_root') {
+            node = children[i];
+          }
+        }
+        if(node === null) {
+          node = {
+            'children': [],
+            'collapsed': true
+          };
+          children.push(node);
+        }
+      
+
+      node.name = "tosca_ref_root";
+      node.title = "Components and TOSCA ref.";
+      node.url = "documentation/tosca_ref/index.html";
+      node.weight =  100;
       node.root = "../../";
     
   
@@ -5020,8 +5020,6 @@ var node, children;
     
   
     
-  
-    
       var parent = sidebarTree["ROADMAP"];
       
         node = parent;
@@ -5032,6 +5030,8 @@ var node, children;
       node.url = "roadmap/index.html";
       node.weight =  0;
       node.root = "../";
+    
+  
     
   
     
