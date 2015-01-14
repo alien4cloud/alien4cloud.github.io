@@ -30,13 +30,11 @@ alien.test.nodes.UbuntuBlockStorage:
 Provide your custom way to **create** and **attach** the storage to your compute in the **`create`** TOSCA Standard's operation. 
 
 ### Environment variables ###
+In addition to the provided base node environment variables [SELF, HOST, SERVICE_NAME](documentation/cloudify2_driver/inputs_env_vars.html):
 
 {: .table .table-bordered}
 | Keyword |  Description |
 |:---------|:-------|
-| SELF  |  Node Name of the blockstorage.). |
-| PARENT | Name of the compute on which the storagerage is attached. |
-| HOST | ***Cloudify service name*** related to the compute on which the storage is attached. |
 | volumeId  |  if provided, the Id of the volume to attach. This might be null |
 | storageTemplate |  The Id of the storage template to use to create a volume, base on the size provided. This is never null. |
 
@@ -71,13 +69,11 @@ return [volumeId: volumeId, device:device]
 Provide your custom way to **format** and **mount** the storage on your compute in the **`configure`** TOSCA Standard's operation. 
 
 ### Environment variables ###
+In addition to the provided base node environment variables [SELF, HOST, SERVICE_NAME](documentation/cloudify2_driver/inputs_env_vars.html):
 
 {: .table .table-bordered}
 | Keyword | Description |
 |:---------|:-------|
-| SELF  |  Node Name of the blockstorage.). |
-| PARENT | Name of the compute on which the storagerage is attached. |
-| HOST | ***Cloudify service name*** related to the compute on which the storage is attached. |
 | device  |  device name on which the volume is attached |
 
 ### Return ###
@@ -113,13 +109,11 @@ return location
 Provide your custom way to **unmount** and/or **delete** the storage in the **`delete`** TOSCA Standard's operation. 
 
 ### Environment variables ###
+In addition to the provided base node environment variables [SELF, HOST, SERVICE_NAME](documentation/cloudify2_driver/inputs_env_vars.html):
 
 {: .table .table-bordered}
 | Keyword |  Description |
 |:---------|:-------|
-| SELF  |  Node Name of the blockstorage.). |
-| PARENT | Name of the compute on which the storagerage is attached. |
-| HOST | ***Cloudify service name*** related to the compute on which the storage is attached. |
 | volumeId  |  if provided, the Id of the attached volume. |
 | device  |  device name on which the volume is attached |
 
