@@ -123,31 +123,7 @@
 
 <h1 id="ldap-configuration">LDAP configuration</h1>
 
-<p>In order to plug-in ALIEN to your LDAP repository, you must configure the ldap section of the <em>alien4cloud-config.yml</em> file.</p>
-
-<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="c1">### Ldap Configuration</span>
-<span class="l-Scalar-Plain">ldap</span><span class="p-Indicator">:</span>
-  <span class="l-Scalar-Plain">enabled</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">false</span>
-  <span class="l-Scalar-Plain">anonymousReadOnly</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
-  <span class="l-Scalar-Plain">url</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">ldap://ldap.fastconnect.fr:389</span>
-  <span class="l-Scalar-Plain">userDn</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">uid=admin,ou=system</span>
-  <span class="l-Scalar-Plain">password</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">secret</span>
-  <span class="l-Scalar-Plain">base</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">ou=People,dc=fastconnect,dc=fr</span>
-  <span class="l-Scalar-Plain">defaultRoles</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">COMPONENTS_BROWSER,COMPONENTS_MANAGER</span>
-
-  <span class="c1"># will join all objectClasses with &amp; to get users</span>
-  <span class="l-Scalar-Plain">objectClassesInclude</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">person,hordePerson</span>
-  <span class="l-Scalar-Plain">objectClassesExclude</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">CalendarResource</span>
-
-  <span class="c1"># user field import mapping</span>
-  <span class="l-Scalar-Plain">userIdKey</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">uid</span>
-  <span class="l-Scalar-Plain">userFirstNameKey</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">givenName</span>
-  <span class="l-Scalar-Plain">userLastNameKey</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">sn</span>
-  <span class="l-Scalar-Plain">userEmailKey</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">mail</span>
-
-  <span class="c1"># field to dertermine if the user is active</span>
-  <span class="l-Scalar-Plain">userActiveKey</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">accountStatus</span>
-  <span class="l-Scalar-Plain">userActiveValue</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">active</span></code></pre></div>
+<p>See specific <a href="#/documentation/admin/ldap.html">sub-section</a>.</p>
 
 <h1 id="component-search-boost">Component search boost</h1>
 

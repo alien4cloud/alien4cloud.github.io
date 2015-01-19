@@ -19,13 +19,13 @@
 <h2 id="node-lifecycle-generation">Node Lifecycle generation</h2>
 
 <ol>
+  <li>wait for all node that is a target of a <em>DependsOn</em> relationship to reach the <em>started</em> state (current node being source of the relationship).</li>
   <li>call the node’s <em>create</em> operation</li>
-  <li>wait for all node that is a <em>DependsOn</em> target (current node being source of the relationship) to reach the <em>started</em> state.</li>
-  <li>wait for all node that is a <em>ConnectsTo</em> source (current node being target of the relationship) to reach the <em>created</em> state.</li>
   <li>call the relationships <em>pre_configure_source</em> (if the node is the relationship source) or <em>pre_configure_target</em> (if the node is the relationship target)</li>
   <li>call the node’s <em>configure</em> operation</li>
-  <li>call the relationships <em>post_configure_source</em> (if the node is the relationship source) or <em>post_configure_target</em> (if the node is the relationship target)
-7.</li>
+  <li>call the relationships <em>post_configure_source</em> (if the node is the relationship source) or <em>post_configure_target</em> (if the node is the relationship target)</li>
+  <li>call the node’s <em>start</em> operation</li>
+  <li>call the relationships <em>add_target</em> (on the nodes sources) and <em>add_source</em> (on the nodes targets) operations.</li>
 </ol>
 
       </div>

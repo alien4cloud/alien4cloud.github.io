@@ -64,6 +64,13 @@
 	},
 
 	{
+		"url": "/release_notes/1.0.0-SM19.html", 
+		"section": "Release Notes", 
+		"value": "ALIEN for Cloud 1.0.0-SM19",
+		"tokens": [ "ALIEN","for","Cloud","1.0.0SM19"]
+	},
+
+	{
 		"url": "/documentation/getting_started/adding_components.html", 
 		"section": "Documentation", 
 		"value": "Components catalog",
@@ -71,7 +78,14 @@
 	},
 
 	{
-		"url": "/documentation/advanced_configuration/advanced_configuration.html", 
+		"url": "/documentation/admin/admin.html", 
+		"section": "Documentation", 
+		"value": "Administration",
+		"tokens": [ "Administration"]
+	},
+
+	{
+		"url": "/documentation/admin/advanced_configuration.html", 
 		"section": "Documentation", 
 		"value": "Advanced configuration",
 		"tokens": [ "Advanced","configuration"]
@@ -211,13 +225,6 @@
 	},
 
 	{
-		"url": "/community/index.html", 
-		"section": "", 
-		"value": "ALIEN 4 Cloud",
-		"tokens": [ "ALIEN","4","Cloud"]
-	},
-
-	{
 		"url": "/index.html", 
 		"section": "", 
 		"value": "ALIEN 4 Cloud",
@@ -225,31 +232,17 @@
 	},
 
 	{
-		"url": "/roadmap/index.html", 
+		"url": "/community/index.html", 
 		"section": "", 
-		"value": "Roadmap",
-		"tokens": [ "Roadmap"]
+		"value": "ALIEN 4 Cloud",
+		"tokens": [ "ALIEN","4","Cloud"]
 	},
 
 	{
-		"url": "/documentation/cloudify2_driver/index.html", 
-		"section": "Documentation", 
-		"value": "Cloudify 2 PaaS Provider",
-		"tokens": [ "Cloudify","2","PaaS","Provider"]
-	},
-
-	{
-		"url": "/documentation/index.html", 
-		"section": "Documentation", 
-		"value": "ALIEN 4 Cloud - Documentation",
-		"tokens": [ "ALIEN","4","Cloud","","Documentation"]
-	},
-
-	{
-		"url": "/alien_about/index.html", 
-		"section": "About ALIEN 4 Cloud", 
-		"value": "About Alien4Cloud",
-		"tokens": [ "About","Alien4Cloud"]
+		"url": "/developer_guide/index.html", 
+		"section": "Developer Guide", 
+		"value": "Developer Guide",
+		"tokens": [ "Developer","Guide"]
 	},
 
 	{
@@ -260,6 +253,27 @@
 	},
 
 	{
+		"url": "/alien_about/index.html", 
+		"section": "About ALIEN 4 Cloud", 
+		"value": "About Alien4Cloud",
+		"tokens": [ "About","Alien4Cloud"]
+	},
+
+	{
+		"url": "/documentation/index.html", 
+		"section": "Documentation", 
+		"value": "ALIEN 4 Cloud - Documentation",
+		"tokens": [ "ALIEN","4","Cloud","","Documentation"]
+	},
+
+	{
+		"url": "/documentation/cloudify2_driver/index.html", 
+		"section": "Documentation", 
+		"value": "Cloudify 2 PaaS Provider",
+		"tokens": [ "Cloudify","2","PaaS","Provider"]
+	},
+
+	{
 		"url": "/release_notes/index.html", 
 		"section": "Release Notes", 
 		"value": "Release Notes",
@@ -267,10 +281,10 @@
 	},
 
 	{
-		"url": "/developer_guide/index.html", 
-		"section": "Developer Guide", 
-		"value": "Developer Guide",
-		"tokens": [ "Developer","Guide"]
+		"url": "/roadmap/index.html", 
+		"section": "", 
+		"value": "Roadmap",
+		"tokens": [ "Roadmap"]
 	},
 
 	{
@@ -348,6 +362,13 @@
 		"section": "Documentation", 
 		"value": "Component Wordpress",
 		"tokens": [ "Component","Wordpress"]
+	},
+
+	{
+		"url": "/documentation/admin/ldap.html", 
+		"section": "Documentation", 
+		"value": "LDAP integration",
+		"tokens": [ "LDAP","integration"]
 	},
 
 	{
@@ -449,7 +470,7 @@
 	},
 
 	{
-		"url": "/documentation/advanced_configuration/roles.html", 
+		"url": "/documentation/getting_started/roles.html", 
 		"section": "Documentation", 
 		"value": "Role in Alien 4 Cloud",
 		"tokens": [ "Role","in","Alien","4","Cloud"]
