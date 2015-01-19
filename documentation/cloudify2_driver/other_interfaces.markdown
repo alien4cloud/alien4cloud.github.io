@@ -59,13 +59,13 @@ alien.nodes.cloudify.War updateWarFile:
 {% highlight groovy%}
 assert warUrl && !warUrl.trim().isEmpty(), "requires warUrl parameter"
 
-//when invoking a command defined in another node, prefix it with his name. Here, War is hosted on Tomcat, thus the PARENT env var has the Tomcat node name.
-def command = "${PARENT}_updateWarOnTomcat"
+//when invoking a command defined in another node, prefix it with his name. Here, War is hosted on Tomcat, thus the HOST env var has the Tomcat node name.
+def command = "${HOST}_updateWarOnTomcat"
 println "updateWarFile.groovy: warUrl is ${warUrl} and contextPath is ${contextPath}..."
 println "updateWarFile.groovy: invoking ${command} custom command ..."
 
-//HOST env var represent the cloudify service name
-def service = context.waitForService(HOST, 60, TimeUnit.SECONDS)
+//SERVICE_NAME env var represent the cloudify service name
+def service = context.waitForService(SERVICE_NAME, 60, TimeUnit.SECONDS)
 def currentInstance = service.getInstances().find{ it.instanceId == context.instanceId }
 
 //as the inputs are no more accessible via args[], but rather named and available in the env var, we should trigger the custom command with a "name=value" instead of "value" argument syntax 
