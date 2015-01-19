@@ -11,6 +11,8 @@ exclude_from_search: true
 
 
 
+
+
 ### Jenkins plugin
 
 {: .table .table-bordered}
@@ -71,7 +73,6 @@ exclude_from_search: true
 | <i class="fa fa-bug text-danger"></i> | ALIEN-232 | Fix a bug in the validation of relationships target upper bound (was actually checking from the requirement's bound instead). |
 | <i class="fa fa-bug text-danger"></i> | ALIEN-244 | When a relationship is added to a topology, a dependency on the CSAR that contains the relationship is now added. This prevented to generate workflows in some situations. |
 | <i class="fa fa-bug text-danger"></i> | ALIEN-246 | Relationships are now linked to a capability so we can manage bounds correctly. |
-| <i class="fa fa-bug text-danger"></i> | ALIEN-266 | Fix issues in components inheritance (some properties, attributes and artifacts where not merged from parent nodes). |
 | <i class="fa fa-bug text-danger"></i> | ALIEN-268 | Fix an issue in topology graph generation that failed to render correctly some inherited hosted_on or depends_on relationships. |
 | <i class="fa fa-bug text-danger"></i> | ALIEN-269 | Fix issues in management of topology dependency when nodes are removed. Dependencies where never removed if not used anymore. |
 | <i class="fa fa-bug text-danger"></i> | ALIEN-274 | Fix an issue that allowed to delete an application even if a deployment was running. |

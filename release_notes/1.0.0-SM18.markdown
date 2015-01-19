@@ -11,6 +11,8 @@ exclude_from_search: true
 
 
 
+
+
 ### Alien 4 Cloud
 
 {: .table .table-bordered}
@@ -40,11 +42,6 @@ exclude_from_search: true
 {: .table .table-bordered}
 | Type        | Id         | Description |
 |:------------|:-----------|:------------|
-| <i class="fa fa-level-up text-primary"></i> | ALIEN-529 | Improve documentation for requirements TOSCA definitions handling. |
-
-### samples
-
-{: .table .table-bordered}
-| Type        | Id         | Description |
-|:------------|:-----------|:------------|
 | <i class="fa fa-plus text-success"></i> | ALIEN-584 | New Tomcat - War sample for Cloudify2 (groovy based implementation) |
+| <i class="fa fa-plus text-success"></i> | ALIEN-585 | New github repository that contains the TOSCA types specific to Alien 4 Cloud (extensions). |
+| <i class="fa fa-level-up text-primary"></i> | ALIEN-529 | Improve documentation for requirements TOSCA definitions handling. |
