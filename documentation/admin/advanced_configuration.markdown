@@ -3,9 +3,9 @@ layout: post
 title:  Advanced configuration
 categories: DOCUMENTATION
 root: ../../
-parent: []
+parent: [admin]
 node_name: advanced_configuration
-weight: 300
+weight: 100
 ---
 
 {% summary %}{% endsummary %}
@@ -128,33 +128,7 @@ users:
 
 # LDAP configuration
 
-In order to plug-in ALIEN to your LDAP repository, you must configure the ldap section of the _alien4cloud-config.yml_ file.
-
-{% highlight yaml %}
-### Ldap Configuration
-ldap:
-  enabled: false
-  anonymousReadOnly: true
-  url: ldap://ldap.fastconnect.fr:389
-  userDn: uid=admin,ou=system
-  password: secret
-  base: ou=People,dc=fastconnect,dc=fr
-  defaultRoles: COMPONENTS_BROWSER,COMPONENTS_MANAGER
-
-  # will join all objectClasses with & to get users
-  objectClassesInclude: person,hordePerson
-  objectClassesExclude: CalendarResource
-
-  # user field import mapping
-  userIdKey: uid
-  userFirstNameKey: givenName
-  userLastNameKey: sn
-  userEmailKey: mail
-
-  # field to dertermine if the user is active
-  userActiveKey: accountStatus
-  userActiveValue: active
-{% endhighlight %}
+See specific [sub-section](#/documentation/admin/ldap.html).
 
 # Component search boost
 

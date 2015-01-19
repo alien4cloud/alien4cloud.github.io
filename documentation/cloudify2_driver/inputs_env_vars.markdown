@@ -8,7 +8,7 @@ node_name: cloudify_2_inputs
 weight: 101
 ---
 
-Your implementations scripts can be defined with inputs. Find here how to properly define an input, and what other information is available in the execution environment.   
+Your implementations scripts can be defined with inputs. Find here how to properly define an input, and what other information is available in the execution environment.
 We will have for illustrations purposes a topology consisting of one Compute node, one Tomcat and two War nodes.  
 
 [![Connection configuration][tomcat_war_topology_img]][tomcat_war_topology_img]
@@ -38,7 +38,7 @@ When a source node of a relationship has some defined artifacts (overridable or 
 ### Example ###
 Let see the example of the the node War_2: it has an overridable artifact named *war_file*
 {% highlight yaml %}
-aline.nodes.cloudify.War
+alien.nodes.cloudify.War
   [...]
   artifacts:
     - war_file: warFiles/helloWorld.war
@@ -53,9 +53,9 @@ alien.relationships.cloudify.WarHostedOnTomcat:
   [...]
   interfaces:
     configure:
-        post_configure_source: 
+        post_configure_source:
           inputs:
-            CONTEXT_PATH: { get_property: [SOURCE, contextPath] } 
+            CONTEXT_PATH: { get_property: [SOURCE, contextPath] }
             TOMCAT_IP: { get_attribute: [TARGET, ip_address] }
           implementation: relationshipScripts/warHostedOnTomcat_post_configure_source.groovy
   [...]

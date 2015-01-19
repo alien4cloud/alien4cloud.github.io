@@ -4,6 +4,6 @@ title:  Administration
 categories: DOCUMENTATION
 root: ../../
 parent: []
-node_name: advanced_configuration
+node_name: admin
 weight: 300
 ---
