@@ -55,7 +55,7 @@ Collaboration in a TOSCA model is easy as someone that want's to build an applic
 
 # Application lifecycle enablement
 
-Features related to lifecycle management are currently not implemented in ALIEN 4 cloud. We will soon pusblish some roadmap informations.
+Alien 4 Cloud allows users to define multiple versions and environments for an application, each environment has an associated version allowing you to move a version from a development environment to the production environment through all required environments in your lifecycle.
 
 # Cloud governance
 
