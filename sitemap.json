@@ -113,6 +113,13 @@
 	},
 
 	{
+		"url": "/documentation/admin/backup_restore.html", 
+		"section": "Documentation", 
+		"value": "Backup and restore",
+		"tokens": [ "Backup","and","restore"]
+	},
+
+	{
 		"url": "/documentation/cloudify2_driver/blockstorage.html", 
 		"section": "Documentation", 
 		"value": "Defaut Blockstorage",
@@ -225,6 +232,13 @@
 	},
 
 	{
+		"url": "/community/index.html", 
+		"section": "", 
+		"value": "ALIEN 4 Cloud",
+		"tokens": [ "ALIEN","4","Cloud"]
+	},
+
+	{
 		"url": "/index.html", 
 		"section": "", 
 		"value": "ALIEN 4 Cloud",
@@ -232,10 +246,10 @@
 	},
 
 	{
-		"url": "/community/index.html", 
-		"section": "", 
-		"value": "ALIEN 4 Cloud",
-		"tokens": [ "ALIEN","4","Cloud"]
+		"url": "/alien_about/index.html", 
+		"section": "About ALIEN 4 Cloud", 
+		"value": "About Alien4Cloud",
+		"tokens": [ "About","Alien4Cloud"]
 	},
 
 	{
@@ -253,24 +267,10 @@
 	},
 
 	{
-		"url": "/alien_about/index.html", 
-		"section": "About ALIEN 4 Cloud", 
-		"value": "About Alien4Cloud",
-		"tokens": [ "About","Alien4Cloud"]
-	},
-
-	{
 		"url": "/documentation/index.html", 
 		"section": "Documentation", 
 		"value": "ALIEN 4 Cloud - Documentation",
 		"tokens": [ "ALIEN","4","Cloud","","Documentation"]
-	},
-
-	{
-		"url": "/documentation/cloudify2_driver/index.html", 
-		"section": "Documentation", 
-		"value": "Cloudify 2 PaaS Provider",
-		"tokens": [ "Cloudify","2","PaaS","Provider"]
 	},
 
 	{
@@ -285,6 +285,13 @@
 		"section": "", 
 		"value": "Roadmap",
 		"tokens": [ "Roadmap"]
+	},
+
+	{
+		"url": "/documentation/cloudify2_driver/index.html", 
+		"section": "Documentation", 
+		"value": "Cloudify 2 PaaS Provider",
+		"tokens": [ "Cloudify","2","PaaS","Provider"]
 	},
 
 	{
