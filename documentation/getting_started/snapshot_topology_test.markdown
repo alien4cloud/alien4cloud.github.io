@@ -86,7 +86,7 @@ This archive contains a yaml file corresponding to the following topology in tes
 
 3. Run rest command to test
 
-    *  Get any REST client or just go on the api document *http://localhost:8080/***api-docs** from where you can send request
+    *  Get any REST client or just go on the api document *http://localhost:8080/***api-doc/index.html** from where you can send request
       -  Look for **cloud-service-archive-controller** and the operation :
       [![Run REST command](../../images/developer_guide/apidosc-deployment-command.png)](../../images/developer_guide/apidosc-deployment-command.png)
     *  You need 3 parameters to run the test : **csarId**, **csarVersion**, **cloudId** (id recovered from cloud details page)
