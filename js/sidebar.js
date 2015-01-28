@@ -179,7 +179,7 @@ var node, children;
         // try to find the node if exists already
         node = null;
         for (var i=0; i<children.length; i++) {
-          if(children[i].name === 'getting_started_create_cloud') {
+          if(children[i].name === 'getting_started_application_configuration') {
             node = children[i];
           }
         }
@@ -192,7 +192,7 @@ var node, children;
         }
       
 
-      node.name = "getting_started_create_cloud";
+      node.name = "getting_started_application_configuration";
       node.title = "Application(s) configuration";
       node.url = "documentation/getting_started/application_configuration.html";
       node.weight =  100;
@@ -3115,7 +3115,7 @@ var node, children;
       
 
       node.name = "roles";
-      node.title = "Role in Alien 4 Cloud";
+      node.title = "Roles in Alien 4 Cloud";
       node.url = "documentation/getting_started/roles.html";
       node.weight =  300;
       node.root = "../../";
