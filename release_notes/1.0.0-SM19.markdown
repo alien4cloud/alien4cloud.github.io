@@ -21,9 +21,9 @@ exclude_from_search: true
 | <i class="fa fa-plus text-success"></i> | ALIEN-519 | Deployments are now managed per environment. |
 | <i class="fa fa-plus text-success"></i> | ALIEN-539 | LDAP configuration now allows optional definition of rôles in LDAP rather than Alien 4 Cloud for LDAP users. |
 | <i class="fa fa-plus text-success"></i> | ALIEN-574 | Applications can now have multiple versions that can be managed from the UI by application managers or admin |
+| <i class="fa fa-level-up text-primary"></i> | ALIEN-621 | Workflow view is now visible from the Topology view and available in both Applications and Topology template views. |
 | <i class="fa fa-bug text-danger"></i> | ALIEN-266 | Fix issues in components inheritance when parent type is in a different archive than child type. |
 | <i class="fa fa-bug text-danger"></i> | ALIEN-266 | Fix issues in components inheritance when parent type is in a different archive than child type. |
-| <i class="fa fa-bug text-danger"></i> | ALIEN-577 | Fixed an issue causing a 403 error in runtime view due to Cloud Name not retrieved appropriately. |
 | <i class="fa fa-bug text-danger"></i> | ALIEN-583 | Fixed a bug that prevented node types to contains more than 3 dots in their name (alien.node.cloudify.Tomcat for example) |
 | <i class="fa fa-bug text-danger"></i> | ALIEN-611 | Fixed issues when removing a CSAR from Alien (Add usage validations, delete artifacts from disk, update available versions in index) |
 
