@@ -18,8 +18,8 @@
 <p>In order to provide configuration to Alien 4 Cloud, you must place an Alien configuration file along-side to the Alien 4 Cloud war.</p>
 
 <div class="highlight"><pre><code class="language-bash" data-lang="bash">├── alien4cloud-ui-<span class="o">{</span>version<span class="o">}</span>-standalone.war
-├── alien4cloud-config.yml
-├── elasticsearch.yml</code></pre></div>
+├── config/alien4cloud-config.yml
+├── config/elasticsearch.yml</code></pre></div>
 
 <p>You can find default configurations for both files in the GitHub repository:</p>
 
@@ -60,9 +60,9 @@
 <p>However the main element you may wish to configure is elastic search storage directories:</p>
 
 <div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">path</span><span class="p-Indicator">:</span>
-  <span class="l-Scalar-Plain">data</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">${user.home}/.calm/elasticsearch/data</span>
-  <span class="l-Scalar-Plain">work</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">${user.home}/.calm/elasticsearch/work</span>
-  <span class="l-Scalar-Plain">logs</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">${user.home}/.calm/elasticsearch/logs</span></code></pre></div>
+  <span class="l-Scalar-Plain">data</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">${user.home}/.alien/elasticsearch/data</span>
+  <span class="l-Scalar-Plain">work</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">${user.home}/.alien/elasticsearch/work</span>
+  <span class="l-Scalar-Plain">logs</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">${user.home}/.alien/elasticsearch/logs</span></code></pre></div>
 
 <h2 id="configure-a-remote-elastic-search">Configure a remote Elastic Search</h2>
 
@@ -93,12 +93,12 @@
 
 <p>ALIEN 4 Cloud store various files on the hard drive. Cloud Service archives, Artifacts overriden in the topologies, plugins archives etc. Directories can be configured in the <em>alien4cloud-config.yml</em> file.</p>
 
-<p>By default, ALIEN 4 Cloud stores data in the user home directory in a .calm folder.</p>
+<p>By default, ALIEN 4 Cloud stores data in the user home directory in a .alien folder.</p>
 
-<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="c1"># Configuration of Calm&#39;s CSAR repository, temporary folder and upload settings.</span>
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="c1"># Configuration of Alien 4 Cloud&#39;s CSAR repository, temporary folder and upload settings.</span>
 <span class="l-Scalar-Plain">directories</span><span class="p-Indicator">:</span>
   <span class="c1"># Alien 4 cloud main directory (other directories are relative path to this one)</span>
-  <span class="l-Scalar-Plain">calm</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">${user.home}/.calm</span>
+  <span class="l-Scalar-Plain">alien</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">${user.home}/.alien</span>
   <span class="c1"># directory in which alien 4 cloud stores Cloud Service Archives</span>
   <span class="l-Scalar-Plain">csar_repository</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">csar</span>
   <span class="c1"># directory in which alien 4 cloud stores uploaded artifacts (war etc.).</span>
