@@ -34,7 +34,7 @@ node_types:
       This allows all TOSCA nodes to have a consistent set of features for modeling and management
       (e.g, consistent definitions for requirements, capabilities, and lifecycle interfaces).
     tags:
-      calm_icon: /images/root.png
+      icon: /images/root.png
     requirements:
       dependency:
         type: tosca.capabilities.Root
@@ -173,7 +173,7 @@ node_types:
       The TOSCA BlockStorage node currently represents a server-local block storage device (i.e., not shared)
       offering evenly sized blocks of data from which raw storage volumes can be created.
     tags:
-      calm_icon: /images/volume.png
+      icon: /images/volume.png
     properties:
       size:
         type: integer
@@ -220,7 +220,7 @@ node_types:
       The TOSCA ObjectStorage node represents storage that provides the ability to store data as objects (or BLOBs of data)
       without consideration for the underlying filesystem or devices.
     tags:
-      calm_icon: /images/objectstore.png
+      icon: /images/objectstore.png
     properties:
       store_name:
         type: string
@@ -266,7 +266,7 @@ node_types:
         type: tosca.nodes.Compute
         relationship_type: tosca.relationships.HostedOn
     tags:
-      calm_icon: /images/software.png
+      icon: /images/software.png
 {% endhighlight %}
 
 # tosca.nodes.WebServer
@@ -336,7 +336,7 @@ node_types:
     description: >
       The TOSCA DBMS node represents a typical relational, SQL Database Management System software component or service.
     tags:
-      calm_icon: /images/relational_db.png
+      icon: /images/relational_db.png
     properties:
       dbms_root_password:
         type: string
@@ -377,7 +377,7 @@ node_types:
       Base type for the schema and content associated with a DBMS.
       The TOSCA Database node represents a logical database that can be managed and hosted by a TOSCA DBMS node.
     tags:
-      calm_icon: /images/relational_db.png
+      icon: /images/relational_db.png
     properties:
       db_user:
         type: string

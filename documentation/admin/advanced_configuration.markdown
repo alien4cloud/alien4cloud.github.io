@@ -16,8 +16,8 @@ In order to provide configuration to Alien 4 Cloud, you must place an Alien conf
 
 {% highlight bash %}
 ├── alien4cloud-ui-{version}-standalone.war
-├── alien4cloud-config.yml
-├── elasticsearch.yml
+├── config/alien4cloud-config.yml
+├── config/elasticsearch.yml
 {% endhighlight %}
 
 You can find default configurations for both files in the GitHub repository:
@@ -60,9 +60,9 @@ However the main element you may wish to configure is elastic search storage dir
 
 {% highlight yaml %}
 path:
-  data: ${user.home}/.calm/elasticsearch/data
-  work: ${user.home}/.calm/elasticsearch/work
-  logs: ${user.home}/.calm/elasticsearch/logs
+  data: ${user.home}/.alien/elasticsearch/data
+  work: ${user.home}/.alien/elasticsearch/work
+  logs: ${user.home}/.alien/elasticsearch/logs
 {% endhighlight %}
 
 ## Configure a remote Elastic Search
@@ -94,13 +94,13 @@ discovery.zen.ping.unicast.hosts: localhost
 
 ALIEN 4 Cloud store various files on the hard drive. Cloud Service archives, Artifacts overriden in the topologies, plugins archives etc. Directories can be configured in the _alien4cloud-config.yml_ file.
 
-By default, ALIEN 4 Cloud stores data in the user home directory in a .calm folder.
+By default, ALIEN 4 Cloud stores data in the user home directory in a .alien folder.
 
 {% highlight yaml %}
-# Configuration of Calm's CSAR repository, temporary folder and upload settings.
+# Configuration of Alien 4 Cloud's CSAR repository, temporary folder and upload settings.
 directories:
   # Alien 4 cloud main directory (other directories are relative path to this one)
-  calm: ${user.home}/.calm
+  alien: ${user.home}/.alien
   # directory in which alien 4 cloud stores Cloud Service Archives
   csar_repository: csar
   # directory in which alien 4 cloud stores uploaded artifacts (war etc.).
