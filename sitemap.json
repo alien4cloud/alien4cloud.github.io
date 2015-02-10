@@ -78,13 +78,6 @@
 	},
 
 	{
-		"url": "/release_notes/1.0.0-SM21.html", 
-		"section": "Release Notes", 
-		"value": "ALIEN for Cloud 1.0.0-SM21",
-		"tokens": [ "ALIEN","for","Cloud","1.0.0SM21"]
-	},
-
-	{
 		"url": "/documentation/getting_started/adding_components.html", 
 		"section": "Documentation", 
 		"value": "Components catalog",
@@ -253,13 +246,6 @@
 	},
 
 	{
-		"url": "/index.html", 
-		"section": "", 
-		"value": "ALIEN 4 Cloud",
-		"tokens": [ "ALIEN","4","Cloud"]
-	},
-
-	{
 		"url": "/community/index.html", 
 		"section": "", 
 		"value": "ALIEN 4 Cloud",
@@ -267,10 +253,17 @@
 	},
 
 	{
-		"url": "/documentation/tosca_ref/index.html", 
+		"url": "/index.html", 
+		"section": "", 
+		"value": "ALIEN 4 Cloud",
+		"tokens": [ "ALIEN","4","Cloud"]
+	},
+
+	{
+		"url": "/documentation/index.html", 
 		"section": "Documentation", 
-		"value": "Components and TOSCA ref.",
-		"tokens": [ "Components","and","TOSCA","ref."]
+		"value": "ALIEN 4 Cloud - Documentation",
+		"tokens": [ "ALIEN","4","Cloud","","Documentation"]
 	},
 
 	{
@@ -281,17 +274,17 @@
 	},
 
 	{
-		"url": "/documentation/cloudify2_driver/index.html", 
-		"section": "Documentation", 
-		"value": "Cloudify 2 PaaS Provider",
-		"tokens": [ "Cloudify","2","PaaS","Provider"]
+		"url": "/developer_guide/index.html", 
+		"section": "Developer Guide", 
+		"value": "Developer Guide",
+		"tokens": [ "Developer","Guide"]
 	},
 
 	{
-		"url": "/documentation/index.html", 
+		"url": "/documentation/tosca_ref/index.html", 
 		"section": "Documentation", 
-		"value": "ALIEN 4 Cloud - Documentation",
-		"tokens": [ "ALIEN","4","Cloud","","Documentation"]
+		"value": "Components and TOSCA ref.",
+		"tokens": [ "Components","and","TOSCA","ref."]
 	},
 
 	{
@@ -309,10 +302,10 @@
 	},
 
 	{
-		"url": "/developer_guide/index.html", 
-		"section": "Developer Guide", 
-		"value": "Developer Guide",
-		"tokens": [ "Developer","Guide"]
+		"url": "/documentation/cloudify2_driver/index.html", 
+		"section": "Documentation", 
+		"value": "Cloudify 2 PaaS Provider",
+		"tokens": [ "Cloudify","2","PaaS","Provider"]
 	},
 
 	{
