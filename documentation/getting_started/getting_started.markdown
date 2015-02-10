@@ -10,8 +10,8 @@ weight: 100
 
 In order to start using alien 4 cloud you have to download Alien. Two versions are available:
 
-* [standalone](https://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource-snapshot&g=alien4cloud&a=alien4cloud-ui&v=LATEST&p=war&c=standalone): starts an embedded jetty server.
-* [deployable](https://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource-snapshot&g=alien4cloud&a=alien4cloud-ui&v=LATEST&p=war): war file that can be deployed within a war container.
+* [standalone](https://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource&g=alien4cloud&a=alien4cloud-ui&v=LATEST&p=war&c=standalone): starts an embedded jetty server.
+* [deployable](https://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource&g=alien4cloud&a=alien4cloud-ui&v=LATEST&p=war): war file that can be deployed within a war container.
 
 {% note %}
 We recommend using the standalone version.
