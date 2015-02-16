@@ -34,12 +34,15 @@
 <div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="k">cat</span> <(crontab -l) <(<span class="k">echo</span> <span class="s2">&quot;@reboot export EXT_JAVA_OPTIONS=$EXT_JAVA_OPTIONS; nohup ~/gigaspaces/tools/cli/cloudify.sh $START_COMMAND $START_COMMAND_ARGS&quot;</span>) | crontab - </code></pre></div>
 
 <ul>
-  <li>add right after that line, add the following snippet</li>
+  <li>right after that line, add the following snippet</li>
 </ul>
 
 <div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;$GSA_MODE&quot;</span> <span class="o">=</span> <span class="s2">&quot;lus&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
 <span class="k">cat</span> <(crontab -l) <(<span class="k">echo</span> <span class="s2">&quot;@reboot export LUS_IP_ADDRESS=$LUS_IP_ADDRESS; chmod +x ${WORKING_HOME_DIRECTORY}/events/bin/gsDeployEventsWar.sh; nohup ${WORKING_HOME_DIRECTORY}/events/bin/gsDeployEventsWar.sh&quot;</span>) | crontab -
 <span class="k">fi</span></code></pre></div>
+<div class="note warning">
+<p>If you want the manager to restart on reboot, make sure your /tmp folder is not cleaned on reboot (On Ubuntu, edit /etc/default/rcS and change TMPTIME to -1)</p>
+</div>
 
 <ul>
   <li>Locate the line</li>
@@ -48,7 +51,7 @@
 <div class="highlight"><pre><code class="language-sh" data-lang="sh">./cloudify.sh <span class="nv">$START_COMMAND</span> <span class="nv">$START_COMMAND_ARGS</span></code></pre></div>
 
 <ul>
-  <li>add right after that line, add the following snippet</li>
+  <li>right after that line, add the following snippet</li>
 </ul>
 
 <div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;$GSA_MODE&quot;</span> <span class="o">=</span> <span class="s2">&quot;lus&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
