@@ -13,14 +13,15 @@ Before everything, you need a running instance of Cloudify. The instance can be 
 ### Setup ###
 
 1. Make sure you have installed a Java JDK 1.6 or higher and set your JAVA_HOME properly. The recommended version is [JDK 7u45][jdk7u45-link]
-2. [Download][CDFY_archive-link] and unzip the Cloudify distribution file.
+2. [Download][CDFY_archive-link] and unzip the Cloudify distribution file.  
 
 Now for this driver to work, you have to customize your instaled Cloudify.
 
 ### Custom events ###
 In order to handle Cloudify lifecycle events, and to emit our own events, we need the **alien4cloud-cloudify-custom-events**. This provides a REST API and uses the Gigaspace management space to store the events.
 
-1. [Download the zip archive](../../files/cloudify2_driver/alien4cloud-cloudify-events-assembly-0.0.2-SNAPSHOT-distrib.zip) and unzip it into the `upload` folder of your prefered cloud driver (e.g. `gigaspaces-cloudify-2.7.0-ga/clouds/openstack-havana/upload`)
+1. Download the zip archive and unzip it into the `upload` folder of your prefered cloud driver (e.g. `gigaspaces-cloudify-2.7.0-ga/clouds/openstack-havana/upload`)
+	* [last stable](https://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource&g=alien4cloud&a=alien4cloud-cloudify-events-assembly&c=distrib&v=LATEST&p=zip){: .btn}{: .btn-success}{: .download-button}{: .navbar-btn}  [last build](https://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource-snapshot&g=alien4cloud&a=alien4cloud-cloudify-events-assembly&c=distrib&v=LATEST&p=zip){: .btn}{: .btn-warning}{: .download-button}{: .navbar-btn}
 2. In the same `upload` folder, edit the `bootstrap-management.sh`:
 
 * Locate the ligne

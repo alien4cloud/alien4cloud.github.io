@@ -51,7 +51,9 @@ Prior to the inputs parameters, some useful informations are available in the sc
 | TARGETS               | No  | Yes | Comma-separated list of Node id of all the nodes currently target of the relationship. | tomcat_1,tomcat_2,tomcat_n|
 
 {%note%}
-When a node (source node in case of a relationship) has some defined artifacts (overridable or not), their **`relative location paths`** are available as environment variables ( their names ) of the operations scripts.
+When a node has some defined artifacts (overridable or not), their **`absolute location paths`** are available as environment variables ( their names ) of the operations scripts.
+
+Limitation: artifacts paths are not availables when working with a relationship binding two node in differents compute.
 {%endnote%}
 
 ### Relationships and get_attribute inputs ###
@@ -98,14 +100,13 @@ println "SOURCES: ${SOURCES}, TARGETS: ${TARGETS}"
 println "war_file Artifact path: ${war_file}"
 
 //checking and using the war_file source artifact
-if (! war_file) return "warUrl is null. So we do nothing."
-def warUrl = "${context.serviceDirectory}/../${war_file}"
+if (! war_file) return "war_file is null. So we do nothing."
 
 def command = "${TARGET_NAME}_updateWarOnTomcat"
 println "warHostedOnTomcat_post_configure_source<${SOURCE}> invoking ${command} custom command on target tomcat..."
 def service = context.waitForService(TARGET_SERVICE_NAME, 60, TimeUnit.SECONDS)
 def currentInstance = service.getInstances().find{ it.instanceId == context.instanceId }
-currentInstance.invoke(command, "url=${warUrl}" as String, "contextPath=${CONTEXT_PATH}" as String)
+currentInstance.invoke(command, "url=${war_file}" as String, "contextPath=${CONTEXT_PATH}" as String)
 
 println "warHostedOnTomcat_post_configure_source<${SOURCE}> end"
 return true
@@ -115,10 +116,6 @@ return true
 Note that for groovy case, the inputs and others are set to the script binding, rather than into the execution environment. This makes them available by typing their names as if they where some groovy var already declared(ex: TOMCAT_IP, war_file).
 If you want to check the existence of any of them, just use the snippet: `binding.variables.containsKey(env_var_name_to_check)`.  
 In sh case, access and use them as environment variables.
-{%endnote%}
-
-{%note%}
-Note the usage of **`${context.serviceDirectory}/../${war_file}`** as the artifact path given (*war_file*) is a relative one.
 {%endnote%}
 
 
