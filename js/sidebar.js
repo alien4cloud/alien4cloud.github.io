@@ -32,6 +32,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DOCUMENTATION"];
       
         
@@ -1616,23 +1618,6 @@ var node, children;
     
       var parent = sidebarTree["DOCUMENTATION"];
       
-        node = parent;
-      
-
-      node.name = "index";
-      node.title = "ALIEN 4 Cloud - Documentation";
-      node.url = "documentation/index.html";
-      node.weight =  0;
-      node.root = "../";
-    
-  
-    
-  
-    
-  
-    
-      var parent = sidebarTree["DOCUMENTATION"];
-      
         
 
         children = parent.children;
@@ -1657,8 +1642,6 @@ var node, children;
       node.url = "documentation/tosca_ref/index.html";
       node.weight =  100;
       node.root = "../../";
-    
-  
     
   
     
@@ -1690,6 +1673,25 @@ var node, children;
       node.url = "documentation/cloudify2_driver/index.html";
       node.weight =  1000;
       node.root = "../../";
+    
+  
+    
+      var parent = sidebarTree["DOCUMENTATION"];
+      
+        node = parent;
+      
+
+      node.name = "index";
+      node.title = "ALIEN 4 Cloud - Documentation";
+      node.url = "documentation/index.html";
+      node.weight =  0;
+      node.root = "../";
+    
+  
+    
+  
+    
+  
     
   
     
@@ -4175,6 +4177,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["ALIEN_ABOUT"];
       
         
@@ -4833,6 +4837,53 @@ var node, children;
     
   
     
+      var parent = sidebarTree["RELEASE_NOTES"];
+      
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'release_note') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'release_note',
+              'title': '-',
+              'children': [],
+              'collapsed': true
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+
+        children = parent.children;
+        // try to find the node if exists already
+        node = null;
+        for (var i=0; i<children.length; i++) {
+          if(children[i].name === '1.0.0-SM21') {
+            node = children[i];
+          }
+        }
+        if(node === null) {
+          node = {
+            'children': [],
+            'collapsed': true
+          };
+          children.push(node);
+        }
+      
+
+      node.name = "1.0.0-SM21";
+      node.title = "ALIEN for Cloud 1.0.0-SM21";
+      node.url = "release_notes/1.0.0-SM21.html";
+      node.weight =  9989;
+      node.root = "../";
+    
+  
+    
   
     
   
@@ -5106,6 +5157,16 @@ var node, children;
     
   
     
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
       var parent = sidebarTree["DEVELOPER_GUIDE"];
       
         node = parent;
@@ -5116,14 +5177,6 @@ var node, children;
       node.url = "developer_guide/index.html";
       node.weight =  0;
       node.root = "../";
-    
-  
-    
-  
-    
-  
-    
-  
     
   
     
@@ -5308,6 +5361,8 @@ var node, children;
     'collapsed': true
   };
 
+  
+    
   
     
   
