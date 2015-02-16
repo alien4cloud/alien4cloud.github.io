@@ -24,11 +24,22 @@ In order to handle Cloudify lifecycle events, and to emit our own events, we nee
 	* [last stable](https://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource&g=alien4cloud&a=alien4cloud-cloudify-events-assembly&c=distrib&v=LATEST&p=zip){: .btn}{: .btn-success}{: .download-button}{: .navbar-btn}  [last build](https://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource-snapshot&g=alien4cloud&a=alien4cloud-cloudify-events-assembly&c=distrib&v=LATEST&p=zip){: .btn}{: .btn-warning}{: .download-button}{: .navbar-btn}
 2. In the same `upload` folder, edit the `bootstrap-management.sh`:
 
-* Locate the ligne
+* Locate the line
+{%highlight sh%}
+	cat <(crontab -l) <(echo "@reboot export EXT_JAVA_OPTIONS=$EXT_JAVA_OPTIONS; nohup ~/gigaspaces/tools/cli/cloudify.sh $START_COMMAND $START_COMMAND_ARGS") | crontab -
+{%endhighlight%}
+* Right after that line, add the following snippet
+{%highlight sh%}
+	if [ "$GSA_MODE" = "lus" ]; then
+		cat <(crontab -l) <(echo "@reboot export LUS_IP_ADDRESS=$LUS_IP_ADDRESS; chmod +x ${WORKING_HOME_DIRECTORY}/events/bin/gsDeployEventsWar.sh; nohup ${WORKING_HOME_DIRECTORY}/events/bin/gsDeployEventsWar.sh") | crontab -
+	fi
+{%endhighlight%}
+
+* Locate the line
 {%highlight sh%}
 ./cloudify.sh $START_COMMAND $START_COMMAND_ARGS
 {%endhighlight%}
-* add right after that line, add the following snippet
+* Right after that line, add the following snippet
 {%highlight sh%}
 if [ "$GSA_MODE" = "lus" ]; then
 chmod +x ${WORKING_HOME_DIRECTORY}/events/bin/gsDeployEventsWar.sh
