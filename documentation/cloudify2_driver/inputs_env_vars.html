@@ -125,7 +125,9 @@ The defined inputs are evaluated if needed at runtime, and set as environment va
 </table>
 
 <div class="note">
-<p>When a node (source node in case of a relationship) has some defined artifacts (overridable or not), their <strong><code>relative location paths</code></strong> are available as environment variables ( their names ) of the operations scripts.</p>
+<p>When a node has some defined artifacts (overridable or not), their <strong><code>absolute location paths</code></strong> are available as environment variables ( their names ) of the operations scripts.</p>
+
+<p>Limitation: artifacts paths are not availables when working with a relationship binding two node in differents compute.</p>
 </div>
 
 <h3 id="relationships-and-getattribute-inputs">Relationships and get_attribute inputs</h3>
@@ -167,14 +169,13 @@ Assuming that the aplication is deployed with 5 instances and the instance 5 is 
 <span class="n">println</span> <span class="s2">&quot;war_file Artifact path: ${war_file}&quot;</span>
 
 <span class="c1">//checking and using the war_file source artifact</span>
-<span class="k">if</span> <span class="o">(!</span> <span class="n">war_file</span><span class="o">)</span> <span class="k">return</span> <span class="s2">&quot;warUrl is null. So we do nothing.&quot;</span>
-<span class="kt">def</span> <span class="n">warUrl</span> <span class="o">=</span> <span class="s2">&quot;${context.serviceDirectory}/../${war_file}&quot;</span>
+<span class="k">if</span> <span class="o">(!</span> <span class="n">war_file</span><span class="o">)</span> <span class="k">return</span> <span class="s2">&quot;war_file is null. So we do nothing.&quot;</span>
 
 <span class="kt">def</span> <span class="n">command</span> <span class="o">=</span> <span class="s2">&quot;${TARGET_NAME}_updateWarOnTomcat&quot;</span>
 <span class="n">println</span> <span class="s2">&quot;warHostedOnTomcat_post_configure_source&lt;${SOURCE}&gt; invoking ${command} custom command on target tomcat...&quot;</span>
 <span class="kt">def</span> <span class="n">service</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="na">waitForService</span><span class="o">(</span><span class="n">TARGET_SERVICE_NAME</span><span class="o">,</span> <span class="mi">60</span><span class="o">,</span> <span class="n">TimeUnit</span><span class="o">.</span><span class="na">SECONDS</span><span class="o">)</span>
 <span class="kt">def</span> <span class="n">currentInstance</span> <span class="o">=</span> <span class="n">service</span><span class="o">.</span><span class="na">getInstances</span><span class="o">().</span><span class="na">find</span><span class="o">{</span> <span class="n">it</span><span class="o">.</span><span class="na">instanceId</span> <span class="o">==</span> <span class="n">context</span><span class="o">.</span><span class="na">instanceId</span> <span class="o">}</span>
-<span class="n">currentInstance</span><span class="o">.</span><span class="na">invoke</span><span class="o">(</span><span class="n">command</span><span class="o">,</span> <span class="s2">&quot;url=${warUrl}&quot;</span> <span class="k">as</span> <span class="n">String</span><span class="o">,</span> <span class="s2">&quot;contextPath=${CONTEXT_PATH}&quot;</span> <span class="k">as</span> <span class="n">String</span><span class="o">)</span>
+<span class="n">currentInstance</span><span class="o">.</span><span class="na">invoke</span><span class="o">(</span><span class="n">command</span><span class="o">,</span> <span class="s2">&quot;url=${war_file}&quot;</span> <span class="k">as</span> <span class="n">String</span><span class="o">,</span> <span class="s2">&quot;contextPath=${CONTEXT_PATH}&quot;</span> <span class="k">as</span> <span class="n">String</span><span class="o">)</span>
 
 <span class="n">println</span> <span class="s2">&quot;warHostedOnTomcat_post_configure_source&lt;${SOURCE}&gt; end&quot;</span>
 <span class="k">return</span> <span class="kc">true</span></code></pre></div>
@@ -183,10 +184,6 @@ Assuming that the aplication is deployed with 5 instances and the instance 5 is 
 <p>Note that for groovy case, the inputs and others are set to the script binding, rather than into the execution environment. This makes them available by typing their names as if they where some groovy var already declared(ex: TOMCAT_IP, war_file).
 If you want to check the existence of any of them, just use the snippet: <code>binding.variables.containsKey(env_var_name_to_check)</code>.<br />
 In sh case, access and use them as environment variables.</p>
-</div>
-
-<div class="note">
-<p>Note the usage of <strong><code>${context.serviceDirectory}/../${war_file}</code></strong> as the artifact path given (<em>war_file</em>) is a relative one.</p>
 </div>
 
 
