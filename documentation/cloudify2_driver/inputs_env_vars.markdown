@@ -51,9 +51,9 @@ Prior to the inputs parameters, some useful informations are available in the sc
 | TARGETS               | No  | Yes | Comma-separated list of Node id of all the nodes currently target of the relationship. | tomcat_1,tomcat_2,tomcat_n|
 
 {%note%}
-When a node has some defined artifacts (overridable or not), their **`absolute location paths`** are available as environment variables ( their names ) of the operations scripts.
+When a node has some defined artifacts (overridable or not), their **`absolute location paths`** are available as environment variables ( their names ) of the operations scripts.  
 
-Limitation: artifacts paths are not availables when working with a relationship binding two node in differents compute.
+Limitation: artifacts paths are not available when working with a relationship binding two nodes each on different compute.
 {%endnote%}
 
 ### Relationships and get_attribute inputs ###
