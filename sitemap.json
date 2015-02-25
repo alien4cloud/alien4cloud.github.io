@@ -253,6 +253,13 @@
 	},
 
 	{
+		"url": "/community/index.html", 
+		"section": "", 
+		"value": "ALIEN 4 Cloud",
+		"tokens": [ "ALIEN","4","Cloud"]
+	},
+
+	{
 		"url": "/index.html", 
 		"section": "", 
 		"value": "ALIEN 4 Cloud",
@@ -260,10 +267,24 @@
 	},
 
 	{
-		"url": "/community/index.html", 
+		"url": "/documentation/cloudify2_driver/index.html", 
+		"section": "Documentation", 
+		"value": "Cloudify 2 PaaS Provider",
+		"tokens": [ "Cloudify","2","PaaS","Provider"]
+	},
+
+	{
+		"url": "/roadmap/index.html", 
 		"section": "", 
-		"value": "ALIEN 4 Cloud",
-		"tokens": [ "ALIEN","4","Cloud"]
+		"value": "Roadmap",
+		"tokens": [ "Roadmap"]
+	},
+
+	{
+		"url": "/release_notes/index.html", 
+		"section": "Release Notes", 
+		"value": "Release Notes",
+		"tokens": [ "Release","Notes"]
 	},
 
 	{
@@ -281,31 +302,10 @@
 	},
 
 	{
-		"url": "/documentation/cloudify2_driver/index.html", 
-		"section": "Documentation", 
-		"value": "Cloudify 2 PaaS Provider",
-		"tokens": [ "Cloudify","2","PaaS","Provider"]
-	},
-
-	{
 		"url": "/documentation/index.html", 
 		"section": "Documentation", 
 		"value": "ALIEN 4 Cloud - Documentation",
 		"tokens": [ "ALIEN","4","Cloud","","Documentation"]
-	},
-
-	{
-		"url": "/roadmap/index.html", 
-		"section": "", 
-		"value": "Roadmap",
-		"tokens": [ "Roadmap"]
-	},
-
-	{
-		"url": "/release_notes/index.html", 
-		"section": "Release Notes", 
-		"value": "Release Notes",
-		"tokens": [ "Release","Notes"]
 	},
 
 	{
@@ -404,6 +404,13 @@
 		"section": "Documentation", 
 		"value": "Lifecycles specifics for Cloudify",
 		"tokens": [ "Lifecycles","specifics","for","Cloudify"]
+	},
+
+	{
+		"url": "/documentation/tosca_ref/tosca_grammar/node_template.html", 
+		"section": "Documentation", 
+		"value": "Node template",
+		"tokens": [ "Node","template"]
 	},
 
 	{
@@ -537,6 +544,13 @@
 		"section": "Documentation", 
 		"value": "Storage volumes",
 		"tokens": [ "Storage","volumes"]
+	},
+
+	{
+		"url": "/documentation/tosca_ref/tosca_grammar/topology_template.html", 
+		"section": "Documentation", 
+		"value": "Topology template",
+		"tokens": [ "Topology","template"]
 	},
 
 	{

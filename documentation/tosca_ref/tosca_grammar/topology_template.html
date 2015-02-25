@@ -1,0 +1,250 @@
+<div class="container">
+  <div class="row">
+    <div id="breadcrumbs"></div>
+    
+      <div class="col-md-3">
+        <div id="sidebar_menu" class="well tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-md-9">
+    
+        <h1 style="margin-top: 0px;">Topology template</h1>
+        <p>This section defines the topology template of a cloud application. The main ingredients of the Topology Template are node templates representing components of the application.</p>
+
+<h2 id="keynames">Keynames</h2>
+
+<p>A Topology Template contains the following element keynames:</p>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Keyname</th>
+      <th style="text-align: left">Required</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">description</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">Declares a description for this Service Template and its contents.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">inputs</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">Defines a set of global input parameters passed to the template when its instantiated. This provides a means for template authors to provide points of variability to users of the template in order to customize each instance within certain constraints.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">node_templates</td>
+      <td style="text-align: left">yes</td>
+      <td style="text-align: left">Defines a list of <a href="#/documentation/tosca_ref/tosca_grammar/node_template.html">Node template</a>s that model the components of an application or service’s topology within the Service Template.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">relationship_templates</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">Defines a list of Relationship Templates that are used to model the relationships (e.g., dependencies, links, etc.) between components (i.e., Node Templates) of an application or service’s topology within the Service Template.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">outputs</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">This optional section allows for defining a set of output parameters provided to users of the template. For example, this can be used for exposing the URL for logging into a web application that has been set up during the instantiation of a template.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">groups</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">This is an optional section that contains grouping definition for node templates.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="grammar">Grammar</h2>
+
+<p>The overall structure of a TOSCA Topology Template and its top-level key collations using the TOSCA Simple Profile is shown below:</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">topology_template</span>
+
+  <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">a description of the topology template</span>
+
+  <span class="l-Scalar-Plain">inputs</span><span class="p-Indicator">:</span>
+    <span class="c1"># list of global input parameters</span>
+
+  <span class="l-Scalar-Plain">node_templates</span><span class="p-Indicator">:</span>
+    <span class="c1"># list of node templates</span>
+
+  <span class="l-Scalar-Plain">relationship_templates</span><span class="p-Indicator">:</span>
+    <span class="c1"># list of relationship templates</span>
+
+  <span class="l-Scalar-Plain">groups</span><span class="p-Indicator">:</span>
+    <span class="c1"># list of groups defined in service template</span>
+
+  <span class="l-Scalar-Plain">outputs</span><span class="p-Indicator">:</span>
+    <span class="c1"># list of output parameters</span></code></pre></div>
+
+<h3 id="description">description</h3>
+<p>This optional element provides a means to include single or multiline descriptions within a TOSCA Simple Profile template as a scalar string value.</p>
+
+<h3 id="inputs">inputs</h3>
+
+<div class="note warning">
+<p>Not yet supported In Alien 4 Cloud</p>
+</div>
+
+<p>This optional element provides a means to define parameters, their allowed values via constraints and default values within a TOSCA Simple Profile template.</p>
+
+<p>This section defines template-level input parameter section.
+*	Inputs here would ideally be mapped to BoundaryDefinitions in TOSCA v1.0.
+*	Treat input parameters as fixed global variables (not settable within template)
+*	If not in input take default (nodes use default)</p>
+
+<h4 id="grammar-1">Grammar</h4>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">inputs</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">&lt;property_definition_1&gt;</span>
+  <span class="l-Scalar-Plain">...</span>
+  <span class="l-Scalar-Plain">&lt;property_definition_n&gt;</span></code></pre></div>
+
+<h4 id="examples">Examples</h4>
+<p>Simple example without any constraints:</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">inputs</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">fooName</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">string</span>
+    <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Simple string typed property definition with no constraints.</span>
+    <span class="l-Scalar-Plain">default</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">bar</span></code></pre></div>
+
+<p>Example with constraints:</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">inputs</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">SiteName</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">string</span>
+    <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">string typed property definition with constraints</span>
+    <span class="l-Scalar-Plain">default</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">My Site</span>
+    <span class="l-Scalar-Plain">constraints</span><span class="p-Indicator">:</span>
+      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">min_length</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">9</span></code></pre></div>
+
+<div class="note">
+<p>The parameters (properties) that are listed as part of the inputs block could be mapped to PropertyMappings provided as part of BoundaryDefinitions as described by the TOSCA v1.0 specification.</p>
+</div>
+
+<h3 id="nodetemplates">node_templates</h3>
+
+<p>This element lists the Node Templates that describe the (software) components that are used to compose cloud applications.</p>
+
+<h4 id="grammar-2">Grammar</h4>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">node_templates</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">&lt;node_template_defn_1&gt;</span>
+  <span class="l-Scalar-Plain">...</span>
+  <span class="l-Scalar-Plain">&lt;node_template_defn_n&gt;</span></code></pre></div>
+
+<h4 id="example">Example</h4>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">node_templates</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">my_webapp_node_template</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">WebApplication</span>
+
+  <span class="l-Scalar-Plain">my_database_node_template</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Database</span></code></pre></div>
+
+<div class="note">
+<p>The node templates listed as part of the node_templates block can be mapped to the list of NodeTemplate definitions provided as part of TopologyTemplate of a ServiceTemplate as described by the TOSCA v1.0 specification.  </p>
+</div>
+
+<p>see:</p>
+
+<ul>
+  <li><a href="#/documentation/tosca_ref/tosca_grammar/node_template.html">Node template</a></li>
+</ul>
+
+<h3 id="relationshiptemplates">relationship_templates</h3>
+
+<div class="note warning">
+<p>Not yet supported In Alien 4 Cloud</p>
+</div>
+
+<h3 id="groups">groups</h3>
+
+<div class="note warning">
+<p>Not yet supported In Alien 4 Cloud</p>
+</div>
+
+<p>The group construct is a composition element used to group one or more node templates within a TOSCA Service Template.</p>
+
+<h4 id="grammar-3">Grammar</h4>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">groups</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">&lt;group_name_A&gt;</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">&lt;node_template_defn_A_1&gt;</span>
+    <span class="l-Scalar-Plain">...</span>
+    <span class="l-Scalar-Plain">&lt;node_template_defn_A_n&gt;</span>
+
+  <span class="l-Scalar-Plain">&lt;group_name_B&gt;</span>
+    <span class="l-Scalar-Plain">&lt;node_template_defn_B_1&gt;</span>
+    <span class="l-Scalar-Plain">...</span>
+    <span class="l-Scalar-Plain">&lt;node_template_defn_B_n&gt;</span></code></pre></div>
+
+<h4 id="example-1">Example</h4>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">node_templates</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">server1</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.nodes.Compute</span>
+    <span class="c1"># more details ...</span>
+
+  <span class="l-Scalar-Plain">server2</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.nodes.Compute</span>
+    <span class="c1"># more details ...</span>
+
+  <span class="l-Scalar-Plain">server3</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.nodes.Compute</span>
+    <span class="c1"># more details ...</span>
+
+<span class="l-Scalar-Plain">groups</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">server_group_1</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">members</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span> <span class="nv">server1</span><span class="p-Indicator">,</span> <span class="nv">server2</span> <span class="p-Indicator">]</span>
+    <span class="l-Scalar-Plain">policies</span><span class="p-Indicator">:</span>
+      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">anti_collocation_policy</span><span class="p-Indicator">:</span>
+          <span class="c1"># specific policy declarations omitted, as this is not yet specified</span></code></pre></div>
+
+<h3 id="outputs">outputs</h3>
+
+<div class="note warning">
+<p>Not yet supported In Alien 4 Cloud</p>
+</div>
+
+<p>This optional element provides a means to define the output parameters that are available from a TOSCA Simple Profile service template.</p>
+
+<h4 id="grammar-4">Grammar</h4>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">outputs</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">&lt;property_definitions&gt;</span></code></pre></div>
+
+<h4 id="example-2">Example</h4>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">outputs</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">server_ip</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">The IP address of the provisioned server.</span>
+    <span class="l-Scalar-Plain">value</span><span class="p-Indicator">:</span> <span class="p-Indicator">{</span> <span class="nv">get_attribute</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span> <span class="nv">my_server</span><span class="p-Indicator">,</span> <span class="nv">ip_address</span> <span class="p-Indicator">]</span> <span class="p-Indicator">}</span></code></pre></div>
+
+
+      </div>
+    </div>
+  </div>
+</div><!-- /container -->
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION', 'tosca_ref_topology_template');
+  createBreadcrumbs('DOCUMENTATION', 'Documentation');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>
