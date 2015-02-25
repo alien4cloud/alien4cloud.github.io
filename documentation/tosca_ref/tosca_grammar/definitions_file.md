@@ -28,16 +28,12 @@ A TOSCA Definitions file contains the following element keynames:
 | template_version | <b>yes*</b> | Declares the version string for the template. |
 | description | no | Declares a description for this Service Template and its contents. |
 | imports | no | Declares import statements external TOSCA Definitions documents (files). |
-| dsl_defintions | no | Declares optional DSL-specific definitions and conventions. For example, in YAML, this allows defining reusable YAML macros (i.e., YAML alias anchors) for use throughout the TOSCA Service Template. |
-| inputs | no | Defines a set of global input parameters passed to the template when its instantiated. This provides a means for template authors to provide points of variability to users of the template in order to customize each instance within certain constraints. |
-| node_templates | no | Defines a list of Node Templates that model the components of an application or service’s topology within the Service Template. |
-| relationship_templates | no | Defines a list of Relationship Templates that are used to model the relationships (e.g., dependencies, links, etc.) between components (i.e., Node Templates) of an application or service’s topology within the Service Template. |
+| dsl_definitions | no | Declares optional DSL-specific definitions and conventions. For example, in YAML, this allows defining reusable YAML macros (i.e., YAML alias anchors) for use throughout the TOSCA Service Template. |
 | node_types | no | This section contains a set of node type definitions for use in service templates. Such type definitions may be used within the node_templates section of the same file, or a TOSCA Definitions file may also just contain node type definitions for use in other files. |
 | relationship_types | no | This section contains a set of relationship type definitions for use in service templates. Such type definitions may be used within the same file, or a TOSCA Definitions file may also just contain relationship type definitions for use in other files. |
 | capability_types | no | This section contains an optional list of capability type definitions for use in service templates. Such type definitions may be used within the same file, or a TOSCA Definitions file may also just contain capability type definitions for use in other files. |
-| artifact_types | no | This section contains an optional list of artifact type definitions for use in service templates. Such type definitions may be used within the same file, or a TOSCA Definitions file may also just contain capability type definitions for use in other files.|
-| outputs | no | This optional section allows for defining a set of output parameters provided to users of the template. For example, this can be used for exposing the URL for logging into a web application that has been set up during the instantiation of a template. |
-| groups | no | This is an optional section that contains grouping definition for node templates. |
+| artifact_types | no | This section contains an optional list of artifact type definitions for use in service templates. Such type definitions may be used within the same file, or a TOSCA Definitions file may also just contain capability type definitions for use in other files. |
+| topology_template | no | Defines the topology template of an application or service, consisting of node templates that represent the application’s or service’s components, as well as relationship templates representing relations between the components. |
 
 {% warning %}
 (*) In Alien 4 Cloud the template name and versions are required as we supports versioning of the templates and indexing of elements in a catalog. In TOSCA specification they are optional.
@@ -62,15 +58,6 @@ imports:
 dsl_definitions:
   # list of YAML alias anchors (or macros)
 
-inputs:
-  # list of global input parameters
-
-node_templates:
-  # list of node templates
-
-relationship_templates:
-  # list of relationship templates
-
 node_types:
   # list of node type definitions
 
@@ -85,9 +72,6 @@ artifact_types:
 
 groups:
   # list of groups defined in service template
-
-outputs:
-  # list of output parameters
 
 {% endhighlight %}
 
@@ -225,76 +209,6 @@ imports:
 {% endhighlight %}
 {% endinfo %}
 
-### inputs
-This optional element provides a means to define parameters, their allowed values via constraints and default values within a TOSCA Simple Profile template.
-
-This section defines template-level input parameter section.
-*	Inputs here would ideally be mapped to BoundaryDefinitions in TOSCA v1.0.
-*	Treat input parameters as fixed global variables (not settable within template)
-*	If not in input take default (nodes use default)
-
-#### Grammar
-
-{% highlight yaml %}
-inputs:
-  <property_definition_1>
-  ...
-  <property_definition_n>
-{% endhighlight %}
-
-#### Examples
-Simple example without any constraints:
-
-{% highlight yaml %}
-inputs:
-  fooName:
-    type: string
-    description: Simple string typed property definition with no constraints.
-    default: bar
-{% endhighlight %}
-
-Example with constraints:
-
-{% highlight yaml %}
-inputs:
-  SiteName:
-    type: string
-    description: string typed property definition with constraints
-    default: My Site
-    constraints:
-      - min_length: 9
-{% endhighlight %}
-
-{% note %}
-The parameters (properties) that are listed as part of the inputs block could be mapped to PropertyMappings provided as part of BoundaryDefinitions as described by the TOSCA v1.0 specification.
-{% endnote %}
-
-### node_templates
-This element lists the Node Templates that describe the (software) components that are used to compose cloud applications.
-#### Grammar
-
-{% highlight yaml %}
-node_templates:
-  <node_template_defn_1>
-  ...
-  <node_template_defn_n>
-{% endhighlight %}
-
-A.5.3.8.3 Example
-node_templates:
-
-{% highlight yaml %}
-  my_webapp_node_template:
-    type: WebApplication
-
-  my_database_node_template:
-    type: Database
-{% endhighlight %}
-
-{% note %}
-The node templates listed as part of the node_templates block can be mapped to the list of NodeTemplate definitions provided as part of TopologyTemplate of a ServiceTemplate as described by the TOSCA v1.0 specification.  
-{% endnote %}
-
 ### node_types
 This element lists the Node Types that provide the reusable type definitions for software components that Node Templates can be based upon.
 
@@ -382,64 +296,7 @@ capability_types:
       # more details ...
 {% endhighlight %}
 
-### groups
-The group construct is a composition element used to group one or more node templates within a TOSCA Service Template.
+### topology_template
 
-#### Grammar
-
-{% highlight yaml %}
-groups:
-  <group_name_A>:
-    <node_template_defn_A_1>
-    ...
-    <node_template_defn_A_n>
-
-  <group_name_B>
-    <node_template_defn_B_1>
-    ...
-    <node_template_defn_B_n>
-{% endhighlight %}
-
-#### Example
-
-{% highlight yaml %}
-node_templates:
-  server1:
-    type: tosca.nodes.Compute
-    # more details ...
-
-  server2:
-    type: tosca.nodes.Compute
-    # more details ...
-
-  server3:
-    type: tosca.nodes.Compute
-    # more details ...
-
-groups:
-  server_group_1:
-    members: [ server1, server2 ]
-    policies:
-      - anti_collocation_policy:
-          # specific policy declarations omitted, as this is not yet specified
-{% endhighlight %}
-
-### outputs
-
-This optional element provides a means to define the output parameters that are available from a TOSCA Simple Profile service template.
-
-#### Grammar
-
-{% highlight yaml %}
-outputs:
-  <property_definitions>
-{% endhighlight %}
-
-#### Example
-
-{% highlight yaml %}
-outputs:
-  server_ip:
-    description: The IP address of the provisioned server.
-    value: { get_attribute: [ my_server, ip_address ] }
-{% endhighlight %}
+see:
+- [Topology template](#/documentation/tosca_ref/tosca_grammar/topology_template.html)
