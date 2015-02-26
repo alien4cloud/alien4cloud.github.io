@@ -35,17 +35,39 @@
 
 <ol>
   <li>
-    <p><strong><u>Conection Configuration</u></strong>: Remember the REST API URL you were told to note when bootstraping your cloud with Cloudify, here is the place you’ll need it. Fill the “Cloudify URL” with it, and eventually provide a login (username / password) for the access.<br /><br />
-<a href="../../images/cloudify2_driver/config_cloud_clouifyConUrl.png" title="Connection configuration"><img src="../../images/cloudify2_driver/config_cloud_clouifyConUrl.png" alt="Connection configuration" title="Connection configuration" /></a><br /></p>
+    <p><strong><u>Connection Configuration</u></strong>: Remember the REST API URL you were told to note when bootstrapping your cloud with Cloudify, here is the place you’ll need it. Fill the “Cloudify URL” with it, and eventually provide a login (username / password) for the access.<br /><br />
+<a href="../../images/cloudify2_driver/config_cloud_cloudifyConUrl.png" title="Connection configuration"><img src="../../images/cloudify2_driver/config_cloud_cloudifyConUrl.png" alt="Connection configuration" title="Connection configuration" /></a><br />
+You must save the configuration, switch back to the <code>Details</code> tab and enable the cloud by clicking on the <code>Enable cloud</code> button. Then you should go to <code>Image</code> tab to configure your cloud’s images.</p>
   </li>
   <li>
-    <p><strong><u>Compute templates</u></strong>: Here you have to configure the computes templates avalaibles in your cloud. Make sure the <code>Identifier</code> match exactly one computes defined in your Cloudify clouds’s computes templates.<br /><br />
-<a href="../../images/cloudify2_driver/config_cloud_clouifyComputes.png" title="Compute templates"><img src="../../images/cloudify2_driver/config_cloud_clouifyComputes.png" alt="Connection configuration" title="Compute templates" /></a><br /></p>
+    <p><strong><u>Images Configuration</u></strong>: Here you have to create/configure your cloud’s images. Map your cloud’s created image to the correct identifier on the IaaS (openstack, amazon …)<br /><br />
+<a href="../../images/cloudify2_driver/config_cloud_cloudifyImage.png" title="Images"><img src="../../images/cloudify2_driver/config_cloud_cloudifyImage.png" alt="Images configuration" title="Images" /></a><br />
+You should now go to <code>Flavor</code> tab to configure your cloud’s flavors.</p>
+  </li>
+  <li>
+    <p><strong><u>Flavors Configuration</u></strong>: Here you have to create/configure your cloud’s flavors. Map your cloud’s created flavor to the correct identifier on the IaaS (openstack, amazon …)<br /><br />
+<a href="../../images/cloudify2_driver/config_cloud_cloudifyFlavor.png" title="Flavors"><img src="../../images/cloudify2_driver/config_cloud_cloudifyFlavor.png" alt="Flavors configuration" title="Flavors" /></a><br />
+You should now go to <code>Templates</code> tab to see all your cloud’s compute templates.</p>
+  </li>
+  <li>
+    <p><strong><u>Templates Configuration</u></strong>: Here you can review available templates and disable those that you do not want to use.<br /><br />
+<a href="../../images/cloudify2_driver/config_cloud_cloudifyTemplate.png" title="Templates"><img src="../../images/cloudify2_driver/config_cloud_cloudifyTemplate.png" alt="Templates configuration" title="Templates" /></a><br />
+You should now go to <code>Network</code> tab to configure your cloud’s networks.</p>
+  </li>
+  <li>
+    <p><strong><u>Networks Configuration</u></strong>: Here you have to create/configure your cloud’s network templates. Map your cloud’s created network to the correct identifier of Cloudify 2 (which is defined in the cloudify 2 cloud’s configuration)<br /><br />
+<a href="../../images/cloudify2_driver/config_cloud_cloudifyNetwork.png" title="Networks"><img src="../../images/cloudify2_driver/config_cloud_cloudifyNetwork.png" alt="Networks configuration" title="Networks" /></a><br />
+You must enter the PaaS Resource Id for all created network template or it will not be usable.<br />
+The notion of external network is not necessary for cloudify 2, your cloudify 2 should be configured to auto-associate floating IP, so please set it to false.<br />
+You should now go to <code>Block Storages</code> tab to configure your cloud’s block storages.</p>
+  </li>
+  <li>
+    <p><strong><u>Block Storages Configuration</u></strong>: Here you have to create/configure your cloud’s block storage templates. Map your cloud’s created block storage to the correct identifier of Cloudify 2 (which is defined in the cloudify 2 cloud’s configuration)<br /><br />
+<a href="../../images/cloudify2_driver/config_cloud_cloudifyBlockStorage.png" title="Block Storages"><img src="../../images/cloudify2_driver/config_cloud_cloudifyBlockStorage.png" alt="Block Storages configuration" title="Block Storages" /></a><br />
+You must enter the PaaS Resource Id for all created block storage template or it will not be usable.<br />
+<strong>Congratulation!!</strong> You’ve finished to configure your cloudify2-based cloud. You can now begin to deploy your application with this cloud.</p>
   </li>
 </ol>
-
-<p>You can save the configuration, switch back to the <code>Details</code> tab and enable the cloud by clicking on the <code>Enable cloud</code> button.
-The cloud can now be used to deploy an application. You might want to know <a href="tosca_archive.html" title="impacts on TOSCA archive">how the driver impacts the TOSCA archives</a>.</p>
 
 
       </div>

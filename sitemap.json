@@ -253,13 +253,6 @@
 	},
 
 	{
-		"url": "/community/index.html", 
-		"section": "", 
-		"value": "ALIEN 4 Cloud",
-		"tokens": [ "ALIEN","4","Cloud"]
-	},
-
-	{
 		"url": "/index.html", 
 		"section": "", 
 		"value": "ALIEN 4 Cloud",
@@ -267,31 +260,10 @@
 	},
 
 	{
-		"url": "/documentation/cloudify2_driver/index.html", 
-		"section": "Documentation", 
-		"value": "Cloudify 2 PaaS Provider",
-		"tokens": [ "Cloudify","2","PaaS","Provider"]
-	},
-
-	{
-		"url": "/roadmap/index.html", 
+		"url": "/community/index.html", 
 		"section": "", 
-		"value": "Roadmap",
-		"tokens": [ "Roadmap"]
-	},
-
-	{
-		"url": "/release_notes/index.html", 
-		"section": "Release Notes", 
-		"value": "Release Notes",
-		"tokens": [ "Release","Notes"]
-	},
-
-	{
-		"url": "/documentation/tosca_ref/index.html", 
-		"section": "Documentation", 
-		"value": "Components and TOSCA ref.",
-		"tokens": [ "Components","and","TOSCA","ref."]
+		"value": "ALIEN 4 Cloud",
+		"tokens": [ "ALIEN","4","Cloud"]
 	},
 
 	{
@@ -309,10 +281,38 @@
 	},
 
 	{
+		"url": "/documentation/cloudify2_driver/index.html", 
+		"section": "Documentation", 
+		"value": "Cloudify 2 PaaS Provider",
+		"tokens": [ "Cloudify","2","PaaS","Provider"]
+	},
+
+	{
+		"url": "/release_notes/index.html", 
+		"section": "Release Notes", 
+		"value": "Release Notes",
+		"tokens": [ "Release","Notes"]
+	},
+
+	{
 		"url": "/developer_guide/index.html", 
 		"section": "Developer Guide", 
 		"value": "Developer Guide",
 		"tokens": [ "Developer","Guide"]
+	},
+
+	{
+		"url": "/roadmap/index.html", 
+		"section": "", 
+		"value": "Roadmap",
+		"tokens": [ "Roadmap"]
+	},
+
+	{
+		"url": "/documentation/tosca_ref/index.html", 
+		"section": "Documentation", 
+		"value": "Components and TOSCA ref.",
+		"tokens": [ "Components","and","TOSCA","ref."]
 	},
 
 	{
