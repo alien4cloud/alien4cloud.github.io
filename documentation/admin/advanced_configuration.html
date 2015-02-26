@@ -15,7 +15,7 @@
 
 <p>Alien 4 Cloud contains a basic configuration that is good enough for test environment. However in order to move into production or in order to integrate with other systems (as LDAP for example), you need to define an advanced configuration.</p>
 
-<p>In order to provide configuration to Alien 4 Cloud, you must place an Alien configuration file along-side to the Alien 4 Cloud war.</p>
+<p>In order to provide configuration to Alien 4 Cloud, you must place an Alien configuration file in a config folder along-side to the Alien 4 Cloud war.</p>
 
 <div class="highlight"><pre><code class="language-bash" data-lang="bash">├── alien4cloud-ui-<span class="o">{</span>version<span class="o">}</span>-standalone.war
 ├── config/alien4cloud-config.yml
@@ -27,6 +27,43 @@
   <li><a href="https://github.com/alien4cloud/alien4cloud/blob/master/alien4cloud-rest-api/src/main/resources/alien4cloud-config.yml">alien4cloud-config.yml</a></li>
   <li><a href="https://github.com/alien4cloud/alien4cloud/blob/master/alien4cloud-ui/src/main/resources/elasticsearch.yml">elasticsearch.yml</a></li>
 </ul>
+
+<p>You can also add a simple start script:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">├── start.sh
+├── alien4cloud-ui-<span class="o">{</span>version<span class="o">}</span>-standalone.war
+├── config/alien4cloud-config.yml
+├── config/elasticsearch.yml</code></pre></div>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">cd</span> <span class="sb">`</span>dirname <span class="nv">$0</span><span class="sb">`</span>
+
+<span class="nv">JAVA_OPTIONS</span><span class="o">=</span><span class="s2">&quot;-server -showversion -XX:+AggressiveOpts -Xmx2g -Xms2g -XX:MaxPermSize=512m -XX:+HeapDumpOnOutOfMemoryError&quot;</span>
+
+java <span class="nv">$JAVA_OPTIONS</span> -jar alien4cloud-ui-1.0.0-<span class="o">{</span>version<span class="o">}</span>-standalone.war</code></pre></div>
+
+<h1 id="using-ssl">Using SSL</h1>
+
+<p>By default Alien 4 Cloud starts using http rather than https enabling SSL is however really simple. Just edit the alien4cloud-config.yml and replace:</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">server</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">port</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">8080</span></code></pre></div>
+
+<p>by</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">server</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">port</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">8443</span>
+  <span class="l-Scalar-Plain">ssl</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">key-store</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">keystore.jks</span>
+    <span class="l-Scalar-Plain">key-store-password</span><span class="p-Indicator">:</span> <span class="err">******</span>
+    <span class="l-Scalar-Plain">key-password</span><span class="p-Indicator">:</span> <span class="err">******</span></code></pre></div>
+
+<p>Make sure that you have your key store placed along-side the alien4cloud war file:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">├── start.sh
+├── alien4cloud-ui-<span class="o">{</span>version<span class="o">}</span>-standalone.war
+├── keystore.jks
+├── config/alien4cloud-config.yml
+├── config/elasticsearch.yml</code></pre></div>
 
 <h1 id="elastic-search-configuration">Elastic Search configuration</h1>
 
