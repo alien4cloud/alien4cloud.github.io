@@ -12,7 +12,7 @@ weight: 100
 
 Alien 4 Cloud contains a basic configuration that is good enough for test environment. However in order to move into production or in order to integrate with other systems (as LDAP for example), you need to define an advanced configuration.
 
-In order to provide configuration to Alien 4 Cloud, you must place an Alien configuration file along-side to the Alien 4 Cloud war.
+In order to provide configuration to Alien 4 Cloud, you must place an Alien configuration file in a config folder along-side to the Alien 4 Cloud war.
 
 {% highlight bash %}
 ├── alien4cloud-ui-{version}-standalone.war
@@ -24,6 +24,55 @@ You can find default configurations for both files in the GitHub repository:
 
 * [alien4cloud-config.yml](https://github.com/alien4cloud/alien4cloud/blob/master/alien4cloud-rest-api/src/main/resources/alien4cloud-config.yml)
 * [elasticsearch.yml](https://github.com/alien4cloud/alien4cloud/blob/master/alien4cloud-ui/src/main/resources/elasticsearch.yml)
+
+You can also add a simple start script:
+
+{% highlight bash %}
+├── start.sh
+├── alien4cloud-ui-{version}-standalone.war
+├── config/alien4cloud-config.yml
+├── config/elasticsearch.yml
+{% endhighlight %}
+
+
+
+{% highlight bash %}
+cd `dirname $0`
+
+JAVA_OPTIONS="-server -showversion -XX:+AggressiveOpts -Xmx2g -Xms2g -XX:MaxPermSize=512m -XX:+HeapDumpOnOutOfMemoryError"
+
+java $JAVA_OPTIONS -jar alien4cloud-ui-1.0.0-{version}-standalone.war
+{% endhighlight %}
+
+# Using SSL
+
+By default Alien 4 Cloud starts using http rather than https enabling SSL is however really simple. Just edit the alien4cloud-config.yml and replace:
+
+{% highlight yaml %}
+server:
+  port: 8080
+{% endhighlight %}
+
+by
+
+{% highlight yaml %}
+server:
+  port: 8443
+  ssl:
+    key-store: keystore.jks
+    key-store-password: ******
+    key-password: ******
+{% endhighlight %}
+
+Make sure that you have your key store placed along-side the alien4cloud war file:
+
+{% highlight bash %}
+├── start.sh
+├── alien4cloud-ui-{version}-standalone.war
+├── keystore.jks
+├── config/alien4cloud-config.yml
+├── config/elasticsearch.yml
+{% endhighlight %}
 
 # Elastic Search configuration
 
