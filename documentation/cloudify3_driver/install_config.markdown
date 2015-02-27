@@ -29,7 +29,7 @@ You need to create a cloud and configure it.
 ### Configuring the cloud ###
 On the cloud list, select and click on the newly created cloud, then go to the `configuration` tab.
 
-1. **<u>Connection Configuration</u>**: Remember the REST API URL you were told to note when bootstrapping your cloud with Cloudify, here is the place you'll need it. Fill the "Cloudify URL" with it, and eventually provide a login (username / password) for the access.<br><br>
+1. **<u>Connection Configuration</u>**: Change the URL to use the correct IP of your manager that you obtained after the boostrap operation.<br><br>
 [![Connection configuration][config_cloud_cloudifyConUrl]][config_cloud_cloudifyConUrl]<br>
 You must save the configuration, switch back to the `Details` tab and enable the cloud by clicking on the `Enable cloud` button. Then you should go to `Image` tab to configure your cloud's images.
 

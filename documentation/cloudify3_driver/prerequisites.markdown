@@ -24,6 +24,10 @@ For the moment Alien only supports Openstack.
 
 How to bootstrap cloudify 3.1 is described [here.](http://getcloudify.org/guide/3.1/installation-bootstrapping.html)
 
-You should customize the manager's blueprint in order to at least expose the port 8100 of the management server as it's the entry point for Cloudify Rest API.
+You should customize the manager's blueprint in order to expose the port 8100 of the management server as it's the entry point for Cloudify Rest API.
+
+{%warning%}
+Cloudify 3 only support bootstraping on Ubuntu Precise, if you want to bootstrap on other distribution, [please see Bootstraping using Docker](http://getcloudify.org/guide/3.1/installation-bootstrapping.html#bootstrapping-using-docker)
+{%endwarning%}
 
 An example of Openstack manager blueprint that we use for our test can be found [here.](../../files/cloudify3_driver/openstack-manager-blueprint-example.zip)
