@@ -24,7 +24,11 @@
 
 <p>How to bootstrap cloudify 3.1 is described <a href="http://getcloudify.org/guide/3.1/installation-bootstrapping.html">here.</a></p>
 
-<p>You should customize the manager’s blueprint in order to at least expose the port 8100 of the management server as it’s the entry point for Cloudify Rest API.</p>
+<p>You should customize the manager’s blueprint in order to expose the port 8100 of the management server as it’s the entry point for Cloudify Rest API.</p>
+
+<div class="note warning">
+<p>Cloudify 3 only support bootstraping on Ubuntu Precise, if you want to bootstrap on other distribution, <a href="http://getcloudify.org/guide/3.1/installation-bootstrapping.html#bootstrapping-using-docker">please see Bootstraping using Docker</a></p>
+</div>
 
 <p>An example of Openstack manager blueprint that we use for our test can be found <a href="../../files/cloudify3_driver/openstack-manager-blueprint-example.zip">here.</a></p>
 
