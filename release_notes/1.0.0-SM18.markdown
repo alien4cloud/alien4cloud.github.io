@@ -18,31 +18,31 @@ exclude_from_search: true
 {: .table .table-bordered}
 | Type        | Id         | Description |
 |:------------|:-----------|:------------|
-| <i class="fa fa-plus text-success"></i> | ALIEN-548 | Documentation has now a full text search feature. |
-| <i class="fa fa-level-up text-primary"></i> | ALIEN-378 | Documentation now contains details on TOSCA support (version, differences, etc.) |
-| <i class="fa fa-level-up text-primary"></i> | ALIEN-529 | Improve documentation for requirements TOSCA definitions handling. |
-| <i class="fa fa-level-up text-primary"></i> | ALIEN-536 | The properties description defined in the components TOSCA yaml is now displayed in the UI. |
-| <i class="fa fa-level-up text-primary"></i> | ALIEN-563 | Memory usage and plugin management improvements. |
-| <i class="fa fa-level-up text-primary"></i> | ALIEN-571 | Version of CSARs is now displayed on the CSAR list UI screen. |
-| <i class="fa fa-bug text-danger"></i> | ALIEN-463 | Fix a bug on the stop workflow/plan. |
-| <i class="fa fa-bug text-danger"></i> | ALIEN-523 | Fixed documentation for Alien configuration. |
-| <i class="fa fa-bug text-danger"></i> | ALIEN-573 | Fixed an issue when deploying a single application on cloud, removing it and then going on the cloud details page (caused an NPE when fetching cloud deployments). |
-| <i class="fa fa-bug text-danger"></i> | ALIEN-546 | Fixed an issue causing a long component name to be incorrectly displayed. |
+|  <i class="fa fa-plus text-success"></i> | ALIEN-548 | Documentation has now a full text search feature. |
+|  <i class="fa fa-level-up text-primary"></i> | ALIEN-378 | Documentation now contains details on TOSCA support (version, differences, etc.) |
+|  <i class="fa fa-level-up text-primary"></i> | ALIEN-529 | Improve documentation for requirements TOSCA definitions handling. |
+|  <i class="fa fa-level-up text-primary"></i> | ALIEN-536 | The properties description defined in the components TOSCA yaml is now displayed in the UI. |
+|  <i class="fa fa-level-up text-primary"></i> | ALIEN-563 | Memory usage and plugin management improvements. |
+|  <i class="fa fa-level-up text-primary"></i> | ALIEN-571 | Version of CSARs is now displayed on the CSAR list UI screen. |
+|  <i class="fa fa-bug text-danger"></i> | ALIEN-463 | Fix a bug on the stop workflow/plan. |
+|  <i class="fa fa-bug text-danger"></i> | ALIEN-523 | Fixed documentation for Alien configuration. |
+|  <i class="fa fa-bug text-danger"></i> | ALIEN-573 | Fixed an issue when deploying a single application on cloud, removing it and then going on the cloud details page (caused an NPE when fetching cloud deployments). |
+|  <i class="fa fa-bug text-danger"></i> | ALIEN-546 | Fixed an issue causing a long component name to be incorrectly displayed. |
 
 ### Cloudify 2 PaaS Provider
 
 {: .table .table-bordered}
 | Type        | Id         | Description |
 |:------------|:-----------|:------------|
-| <i class="fa fa-plus text-success"></i> | ALIEN-464 | Cloudify 2 PaaS Provider now leverage TOSCA Simple Profile wd03 convention on parameters and provides values as environment variables before execution. |
-| <i class="fa fa-level-up text-primary"></i> | ALIEN-582 | Custom Command are now prefixed with the Node name, making possible to use functions as inputs parameters (like get_property) |
-| <i class="fa fa-bug text-danger"></i> | ALIEN-544 | Fixed a bug that prevented the nodeId to be provided to the scripts of a custom block storage. This caused unability to actually wire the element using cloudify 2 extensions. |
+|  <i class="fa fa-plus text-success"></i> | ALIEN-464 | Cloudify 2 PaaS Provider now leverage TOSCA Simple Profile wd03 convention on parameters and provides values as environment variables before execution. |
+|  <i class="fa fa-level-up text-primary"></i> | ALIEN-582 | Custom Command are now prefixed with the Node name, making possible to use functions as inputs parameters (like get_property) |
+|  <i class="fa fa-bug text-danger"></i> | ALIEN-544 | Fixed a bug that prevented the nodeId to be provided to the scripts of a custom block storage. This caused unability to actually wire the element using cloudify 2 extensions. |
 
 ### Tosca Components
 
 {: .table .table-bordered}
 | Type        | Id         | Description |
 |:------------|:-----------|:------------|
-| <i class="fa fa-plus text-success"></i> | ALIEN-584 | New Tomcat - War sample for Cloudify2 (groovy based implementation) |
-| <i class="fa fa-plus text-success"></i> | ALIEN-585 | New github repository that contains the TOSCA types specific to Alien 4 Cloud (extensions). |
-| <i class="fa fa-level-up text-primary"></i> | ALIEN-529 | Improve documentation for requirements TOSCA definitions handling. |
+|  <i class="fa fa-plus text-success"></i> | ALIEN-584 | New Tomcat - War sample for Cloudify2 (groovy based implementation) |
+|  <i class="fa fa-plus text-success"></i> | ALIEN-585 | New github repository that contains the TOSCA types specific to Alien 4 Cloud (extensions). |
+|  <i class="fa fa-level-up text-primary"></i> | ALIEN-529 | Improve documentation for requirements TOSCA definitions handling. |
