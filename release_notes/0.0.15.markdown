@@ -12,37 +12,51 @@ exclude_from_search: true
 
 
 
+<i class="fa fa-plus text-success"></i> New feature <i class="fa fa-level-up text-primary"></i> Improvement  <i class="fa fa-bug text-danger"></i> Bug <i class="fa fa-exclamation-triangle text-warning"></i> Breaking change
+
 
 ### Alien 4 Cloud
 
-{: .table .table-bordered}
-| Type        | Id         | Description |
-|:------------|:-----------|:------------|
-|  <i class="fa fa-plus text-success"></i> | ALIEN-458 | Resources selected for matching are now persisted. |
-|  <i class="fa fa-plus text-success"></i> | ALIEN-460 | Deployment configuration and resource matching is now persisted and used in the PaaS Provider plugins. |
-|  <i class="fa fa-plus text-success"></i> | ALIEN-462 | PaaS Providers can now update their configurations when the list of cloud resources (compute templates) changes. |
-|  <i class="fa fa-level-up text-primary"></i> | ALIEN-459 | Cloud specific properties are now persisted in the deployment setup and users do not have to add them at every deployment. |
-|  <i class="fa fa-bug text-danger"></i> | ALIEN-432 | Fixed an issue that prevented the ability to auto-upload some default components when Alien starts for the first time. Note that the feature is still disabled for now however. |
-|  <i class="fa fa-bug text-danger"></i> | ALIEN-488 | Fixed an issue that caused the runtime view button in application tab not being updated on deployment. |
-|  <i class="fa fa-bug text-danger"></i> | ALIEN-496 | Fixed a bug that prevented usage of a single cloudify manager from multiple Alien instances (useful for testing). |
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-458 | Resources selected for matching are now persisted. |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-460 | Deployment configuration and resource matching is now persisted and used in the PaaS Provider plugins. |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-462 | PaaS Providers can now update their configurations when the list of cloud resources (compute templates) changes. |
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-459 | Cloud specific properties are now persisted in the deployment setup and users do not have to add them at every deployment. |
+      |  <i class="fa fa-bug text-danger"></i> | ALIEN-432 | Fixed an issue that prevented the ability to auto-upload some default components when Alien starts for the first time. Note that the feature is still disabled for now however. |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-488 | Fixed an issue that caused the runtime view button in application tab not being updated on deployment. |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-496 | Fixed a bug that prevented usage of a single cloudify manager from multiple Alien instances (useful for testing). |
+  
+
 
 ### Cloudify 2 PaaS Provider
 
-{: .table .table-bordered}
-| Type        | Id         | Description |
-|:------------|:-----------|:------------|
-|  <i class="fa fa-plus text-success"></i> | ALIEN-461 | Cloudify 2 driver now leverage resources matching from the UI. |
-|  <i class="fa fa-level-up text-primary"></i> | ALIEN-446 | Volume Ids when a block storage is created are now pushed to the application topology and displayed also on the runtime view. |
-|  <i class="fa fa-bug text-danger"></i> | ALIEN-489 | Fix an issue in the storage lifecycle: Storage is now created, attached, mounted and formatted just after the compute is created but before any other step. |
-|  <i class="fa fa-bug text-danger"></i> | ALIEN-496 | Fixed a bug that prevented usage of a single cloudify manager from multiple Alien instances (useful for testing). |
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-461 | Cloudify 2 driver now leverage resources matching from the UI. |
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-446 | Volume Ids when a block storage is created are now pushed to the application topology and displayed also on the runtime view. |
+      |  <i class="fa fa-bug text-danger"></i> | ALIEN-489 | Fix an issue in the storage lifecycle: Storage is now created, attached, mounted and formatted just after the compute is created but before any other step. |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-496 | Fixed a bug that prevented usage of a single cloudify manager from multiple Alien instances (useful for testing). |
+  
+
 
 ### Tosca Components
 
-{: .table .table-bordered}
-| Type        | Id         | Description |
-|:------------|:-----------|:------------|
-|  <i class="fa fa-plus text-success"></i> | ALIEN-465 | Created a sample to deploy an Apache server. |
-|  <i class="fa fa-plus text-success"></i> | ALIEN-466 | Created a sample to deploy a MySQL database. |
-|  <i class="fa fa-plus text-success"></i> | ALIEN-467 | Created a sample to enable PHP module for Apache. |
-|  <i class="fa fa-plus text-success"></i> | ALIEN-468 | Created a sample to deploy PHP application on Apache. |
-|  <i class="fa fa-plus text-success"></i> | ALIEN-469 | Created a sample to deploy static application on Apache. |
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-465 | Created a sample to deploy an Apache server. |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-466 | Created a sample to deploy a MySQL database. |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-467 | Created a sample to enable PHP module for Apache. |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-468 | Created a sample to deploy PHP application on Apache. |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-469 | Created a sample to deploy static application on Apache. |
+      
+
