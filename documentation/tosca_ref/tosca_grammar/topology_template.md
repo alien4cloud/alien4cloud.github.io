@@ -55,13 +55,10 @@ This optional element provides a means to include single or multiline descriptio
 
 ### inputs
 
-{% warning %}
-Not yet supported In Alien 4 Cloud
-{% endwarning %}
-
 This optional element provides a means to define parameters, their allowed values via constraints and default values within a TOSCA Simple Profile template.
 
 This section defines template-level input parameter section.
+
 *	Inputs here would ideally be mapped to BoundaryDefinitions in TOSCA v1.0.
 *	Treat input parameters as fixed global variables (not settable within template)
 *	If not in input take default (nodes use default)
@@ -188,10 +185,6 @@ groups:
 {% endhighlight %}
 
 ### outputs
-
-{% warning %}
-Not yet supported In Alien 4 Cloud
-{% endwarning %}
 
 This optional element provides a means to define the output parameters that are available from a TOSCA Simple Profile service template.
 

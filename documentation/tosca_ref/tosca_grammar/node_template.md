@@ -122,3 +122,28 @@ node_templates:
   network:
     type: tosca.nodes.Network
 {% endhighlight %}
+
+### properties
+
+The property values can either be:
+
+- a scalar value
+- a function: a reference to an input
+
+In the following example, 2 properties are defined for the node 'compute1' (1 referencing an input, and the other defined using a scalar value):
+
+{% highlight yaml %}
+topology_template:
+  inputs:
+    os_type:
+      type: string
+      constraints:
+        - valid_values: ["linux", "aix", "mac os", "windows"]
+      description: The host Operating System (OS) type.
+  node_templates:
+    compute1:
+      type: tosca.nodes.Compute
+      properties:
+        os_type: { get_input: os_type }
+        mem_size: 1024
+{% endhighlight %}

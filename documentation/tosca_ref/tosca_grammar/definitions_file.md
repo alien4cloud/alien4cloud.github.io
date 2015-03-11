@@ -70,8 +70,8 @@ relationship_types:
 artifact_types:
   # list of artifact type definitions
 
-groups:
-  # list of groups defined in service template
+topology_template:
+  # Topology template definition
 
 {% endhighlight %}
 
@@ -208,6 +208,27 @@ imports:
    - <apache-server>:<2.0.3>
 {% endhighlight %}
 {% endinfo %}
+
+### dsl_definitions
+This optional element provides a section to define macros. A macro can be reused elsewhere by referencing it.
+
+#### Example
+
+In the following example, we define a 'macro' named 'my_compute_node_props' which defines a property 'os_type' and it's value. It is used for the both nodes compute1 and compute2.
+
+{% highlight yaml %}
+dsl_definitions:
+  my_compute_node_props: &my_compute_node_props
+    os_type: linux
+topology_template:
+  node_templates:
+    compute1:
+      type: tosca.nodes.Compute
+        properties: *my_compute_node_props
+    compute2:
+      type: tosca.nodes.Compute
+      properties: *my_compute_node_props
+{% endhighlight %}
 
 ### node_types
 This element lists the Node Types that provide the reusable type definitions for software components that Node Templates can be based upon.
