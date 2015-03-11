@@ -155,6 +155,31 @@ Named requirement definitions have one of the following grammars:</p>
   <span class="l-Scalar-Plain">network</span><span class="p-Indicator">:</span>
     <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.nodes.Network</span></code></pre></div>
 
+<h3 id="properties">properties</h3>
+
+<p>The property values can either be:</p>
+
+<ul>
+  <li>a scalar value</li>
+  <li>a function: a reference to an input</li>
+</ul>
+
+<p>In the following example, 2 properties are defined for the node ‘compute1’ (1 referencing an input, and the other defined using a scalar value):</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">topology_template</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">inputs</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">os_type</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">string</span>
+      <span class="l-Scalar-Plain">constraints</span><span class="p-Indicator">:</span>
+        <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">valid_values</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span><span class="s">&quot;linux&quot;</span><span class="p-Indicator">,</span> <span class="s">&quot;aix&quot;</span><span class="p-Indicator">,</span> <span class="s">&quot;mac</span><span class="nv"> </span><span class="s">os&quot;</span><span class="p-Indicator">,</span> <span class="s">&quot;windows&quot;</span><span class="p-Indicator">]</span>
+      <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">The host Operating System (OS) type.</span>
+  <span class="l-Scalar-Plain">node_templates</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">compute1</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.nodes.Compute</span>
+      <span class="l-Scalar-Plain">properties</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">os_type</span><span class="p-Indicator">:</span> <span class="p-Indicator">{</span> <span class="nv">get_input</span><span class="p-Indicator">:</span> <span class="nv">os_type</span> <span class="p-Indicator">}</span>
+        <span class="l-Scalar-Plain">mem_size</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">1024</span></code></pre></div>
+
 
       </div>
     </div>
