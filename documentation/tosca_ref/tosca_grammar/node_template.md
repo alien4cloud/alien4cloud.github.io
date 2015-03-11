@@ -20,6 +20,7 @@ The following is the list of recognized keynames recognized for a TOSCA Node Tem
 | type | yes | The required name of the Node Type the Node Template is based upon. |
 | requirements | no | An optional sequenced list of requirement definitions for the Node Template. |
 | properties | no |  An optional list of property values for the node template. |
+| capabilities | no |  An optional map of capabilities for the node template. |
 
 ## Grammar
 
@@ -32,6 +33,8 @@ The overall structure of a TOSCA Node Template and its top-level key collations 
     <property_definitions>
   requirements:
     <requirement_definitions>
+  capabilities:
+    <capability_definitions>    
 {% endhighlight %}
 
 ### type
@@ -146,4 +149,35 @@ topology_template:
       properties:
         os_type: { get_input: os_type }
         mem_size: 1024
+{% endhighlight %}
+
+### capabilities
+
+In the following example, we define the value of the property 'port' for the capability named 'database_endpoint' of the node 'mysql_database':
+
+{% highlight yaml %}
+topology_template:
+  node_templates:
+    mysql_database:
+      type: tosca.nodes.Database
+      capabilities:
+        database_endpoint:
+          properties:
+            port: 3306
+{% endhighlight %}
+
+Note that the property value can also be a *get_input* function:
+
+{% highlight yaml %}
+topology_template:
+  inputs:
+    mysql_port:
+      type: string
+  node_templates:
+    mysql_database:
+      type: tosca.nodes.Database
+      capabilities:
+        database_endpoint:
+          properties:
+            port: { get_input: mysql_port }
 {% endhighlight %}
