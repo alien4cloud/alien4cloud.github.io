@@ -92,6 +92,13 @@
 	},
 
 	{
+		"url": "/release_notes/1.0.0.SM23.html", 
+		"section": "Release Notes", 
+		"value": "ALIEN for Cloud 1.0.0.SM23",
+		"tokens": [ "ALIEN","for","Cloud","1.0.0.SM23"]
+	},
+
+	{
 		"url": "/documentation/getting_started/adding_components.html", 
 		"section": "Documentation", 
 		"value": "Components catalog",
@@ -281,17 +288,10 @@
 	},
 
 	{
-		"url": "/release_notes/index.html", 
-		"section": "Release Notes", 
-		"value": "Release Notes",
-		"tokens": [ "Release","Notes"]
-	},
-
-	{
-		"url": "/documentation/cloudify2_driver/index.html", 
+		"url": "/documentation/tosca_ref/index.html", 
 		"section": "Documentation", 
-		"value": "Cloudify 2 PaaS Provider",
-		"tokens": [ "Cloudify","2","PaaS","Provider"]
+		"value": "Components and TOSCA ref.",
+		"tokens": [ "Components","and","TOSCA","ref."]
 	},
 
 	{
@@ -302,24 +302,10 @@
 	},
 
 	{
-		"url": "/roadmap/index.html", 
-		"section": "", 
-		"value": "Roadmap",
-		"tokens": [ "Roadmap"]
-	},
-
-	{
-		"url": "/documentation/cloudify3_driver/index.html", 
+		"url": "/documentation/cloudify2_driver/index.html", 
 		"section": "Documentation", 
-		"value": "Cloudify 3 PaaS Provider",
-		"tokens": [ "Cloudify","3","PaaS","Provider"]
-	},
-
-	{
-		"url": "/documentation/tosca_ref/index.html", 
-		"section": "Documentation", 
-		"value": "Components and TOSCA ref.",
-		"tokens": [ "Components","and","TOSCA","ref."]
+		"value": "Cloudify 2 PaaS Provider",
+		"tokens": [ "Cloudify","2","PaaS","Provider"]
 	},
 
 	{
@@ -327,6 +313,27 @@
 		"section": "Documentation", 
 		"value": "ALIEN 4 Cloud - Documentation",
 		"tokens": [ "ALIEN","4","Cloud","","Documentation"]
+	},
+
+	{
+		"url": "/roadmap/index.html", 
+		"section": "", 
+		"value": "Roadmap",
+		"tokens": [ "Roadmap"]
+	},
+
+	{
+		"url": "/release_notes/index.html", 
+		"section": "Release Notes", 
+		"value": "Release Notes",
+		"tokens": [ "Release","Notes"]
+	},
+
+	{
+		"url": "/documentation/cloudify3_driver/index.html", 
+		"section": "Documentation", 
+		"value": "Cloudify 3 PaaS Provider",
+		"tokens": [ "Cloudify","3","PaaS","Provider"]
 	},
 
 	{
@@ -498,14 +505,14 @@
 	},
 
 	{
-		"url": "/documentation/cloudify3_driver/prerequisites.html", 
+		"url": "/documentation/cloudify2_driver/prerequisites.html", 
 		"section": "Documentation", 
 		"value": "Prerequisites",
 		"tokens": [ "Prerequisites"]
 	},
 
 	{
-		"url": "/documentation/cloudify2_driver/prerequisites.html", 
+		"url": "/documentation/cloudify3_driver/prerequisites.html", 
 		"section": "Documentation", 
 		"value": "Prerequisites",
 		"tokens": [ "Prerequisites"]
