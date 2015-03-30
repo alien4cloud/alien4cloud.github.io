@@ -55,6 +55,7 @@ exclude_from_search: true
     |  <i class="fa fa-plus text-success"></i> | ALIEN-295 | Users created locally in Alien can be now be removed. |
     |  <i class="fa fa-plus text-success"></i> | ALIEN-296 | Users created locally in Alien can now be updated (first name, last name and e-mail). |
       |  <i class="fa fa-level-up text-primary"></i> | ALIEN-201 | New version of a plugin tries to reuse the previous configuration if possible. |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-222 | Improves the handling of application statuses when the IPaaSProvider fails or is slow to answer. |
     |  <i class="fa fa-level-up text-primary"></i> | ALIEN-239 | documentation field in the recipes has been changed to description to be closer to the TOSCA Simple profile in YAML working draft 1 and 2. |
     |  <i class="fa fa-level-up text-primary"></i> | ALIEN-256 | Mandatory system tags are renamed into important as they don't prevent the application/component from being deployed/used. |
     |  <i class="fa fa-level-up text-primary"></i> | ALIEN-261 | It is now possible to upload a SNAPSHOT version of an archive and update it multiple times (release versions cannot be overridden). |
@@ -72,8 +73,7 @@ exclude_from_search: true
     |  <i class="fa fa-level-up text-primary"></i> | ALIEN-307 | All delete button in Alien now have a confirmation popup. |
     |  <i class="fa fa-level-up text-primary"></i> | ALIEN-324 | An error message is now displayed when renaming a relationship with a name that already exists. |
     |  <i class="fa fa-level-up text-primary"></i> | ALIEN-332 | Improvement of relationship view to have version select more consistent with node type's view and well managed. |
-      |  <i class="fa fa-bug text-danger"></i> | ALIEN-222 | Improves the handling of application statuses when the IPaaSProvider fails or is slow to answer. |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-230 | Unicity of a node template key is now managed lowercase and space independent. |
+      |  <i class="fa fa-bug text-danger"></i> | ALIEN-230 | Unicity of a node template key is now managed lowercase and space independent. |
     |  <i class="fa fa-bug text-danger"></i> | ALIEN-243 | Input properties are now visible only to Application Deployer and Manager. |
     |  <i class="fa fa-bug text-danger"></i> | ALIEN-249 | Fix an issue in Input and Output properties management when a node template was removed or renamed. |
     |  <i class="fa fa-bug text-danger"></i> | ALIEN-250 | Fix an issue in relationships management when a node template is renamed. |

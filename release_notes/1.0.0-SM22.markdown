@@ -29,6 +29,7 @@ exclude_from_search: true
     |  <i class="fa fa-level-up text-primary"></i> | ALIEN-676 | CLONE - URL Output properties should be clickable |
       |  <i class="fa fa-bug text-danger"></i> | ALIEN-680 | CLONE - The Workflow is not visible if we have relationships on BlockStorage |
     |  <i class="fa fa-bug text-danger"></i> | ALIEN-720 | Fixed a limitation that prevented to configure multiple clouds using the Cloudify 3. |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-727 | Fixed an issue that prevented to edit Cloud properties in deployment screen for a second environment under some circumstances. |
   
 
 
