@@ -20,7 +20,7 @@ Use this function for inputs parameters.
 ## Grammar
 
 {% highlight yaml %}
-<input_name>: { get_attribute**: [ <modelable_entity_name | SELF | SOURCE | TARGET | HOST>, <attribute_name>] }
+get_attribute: [ <modelable_entity_name | SELF | SOURCE | TARGET | HOST>, <attribute_name>] 
 {% endhighlight %}
 
 ## Example

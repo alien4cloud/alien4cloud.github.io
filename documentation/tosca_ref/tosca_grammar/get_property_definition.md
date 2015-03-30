@@ -11,16 +11,19 @@ weight: 100
 The **get_property** function  is used to  retrieve property values between  modelable entities defined in the same service template.
 Use this function for inputs parameters.
 
+## Keynames
+
 {: .table .table-bordered}
-| Keyname         | Type                | Required | Description |
-|:----------------|:--------------------|:---------|:------------|
-| modelable_entity_name            | string              | yes      | The  required  name of a modelable entity (e.g., Node Template  or Relationship  Template name) as declared in the service template that contains the named property definition  the function will return the value from.Can be one of the reserved keywords: SELF, SOURCE, TARGET, HOST |
-| property_name     | string              | yes       | Name of the property definition the function will return the value from. |
+| Keyname                   | Type                | Required | Description |
+|:----------------          |:--------------------|:---------|:------------|
+| modelable_entity_name     | string              | yes      | The  required  name of a modelable entity (e.g., Node Template  or Relationship  Template name) as declared in the service template that contains the named property definition  the function will return the value from.Can be one of the reserved keywords: SELF, SOURCE, TARGET, HOST |
+| capability_name           | string              | no       | The  optional name of a capability within the modelable entity that contains the named property definition  the function will return the value from.|
+| property_name             | string              | yes       | Name of the property definition the function will return the value from. |
 
 ## Grammar
 
 {% highlight yaml %}
-<input_name>: { get_property: [ <modelable_entity_name | SELF | SOURCE | TARGET | HOST>, <property_name>] }
+get_property: [ <modelable_entity_name | SELF | SOURCE | TARGET | HOST>, [<capability_name>], <property_name> ] 
 {% endhighlight %}
 
 ## Example
@@ -38,5 +41,7 @@ node_types:
         configure:
           inputs:
             MY_NAME: { get_property: [SELF, myName] }
-            implementation: config-my-name.sh
+            CAPA_PORT: { get_property: [SELF, endpoint, port] }
+          implementation: config.sh
+            
 {% endhighlight %}
