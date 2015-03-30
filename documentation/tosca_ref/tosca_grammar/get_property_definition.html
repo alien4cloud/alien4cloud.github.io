@@ -11,6 +11,8 @@
         <p>The <strong>get_property</strong> function  is used to  retrieve property values between  modelable entities defined in the same service template.
 Use this function for inputs parameters.</p>
 
+<h2 id="keynames">Keynames</h2>
+
 <table class="table table-bordered">
   <thead>
     <tr>
@@ -28,6 +30,12 @@ Use this function for inputs parameters.</p>
       <td style="text-align: left">The  required  name of a modelable entity (e.g., Node Template  or Relationship  Template name) as declared in the service template that contains the named property definition  the function will return the value from.Can be one of the reserved keywords: SELF, SOURCE, TARGET, HOST</td>
     </tr>
     <tr>
+      <td style="text-align: left">capability_name</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">The  optional name of a capability within the modelable entity that contains the named property definition  the function will return the value from.</td>
+    </tr>
+    <tr>
       <td style="text-align: left">property_name</td>
       <td style="text-align: left">string</td>
       <td style="text-align: left">yes</td>
@@ -38,7 +46,7 @@ Use this function for inputs parameters.</p>
 
 <h2 id="grammar">Grammar</h2>
 
-<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">&lt;input_name&gt;</span><span class="p-Indicator">:</span> <span class="p-Indicator">{</span> <span class="nv">get_property</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span> <span class="nv">&lt;modelable_entity_name | SELF | SOURCE | TARGET | HOST&gt;</span><span class="p-Indicator">,</span> <span class="nv">&lt;property_name&gt;</span><span class="p-Indicator">]</span> <span class="p-Indicator">}</span></code></pre></div>
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">get_property</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span> <span class="nv">&lt;modelable_entity_name | SELF | SOURCE | TARGET | HOST&gt;</span><span class="p-Indicator">,</span> <span class="p-Indicator">[</span><span class="nv">&lt;capability_name&gt;</span><span class="p-Indicator">],</span> <span class="nv">&lt;property_name&gt;</span> <span class="p-Indicator">]</span></code></pre></div>
 
 <h2 id="example">Example</h2>
 
@@ -54,7 +62,8 @@ Use this function for inputs parameters.</p>
         <span class="l-Scalar-Plain">configure</span><span class="p-Indicator">:</span>
           <span class="l-Scalar-Plain">inputs</span><span class="p-Indicator">:</span>
             <span class="l-Scalar-Plain">MY_NAME</span><span class="p-Indicator">:</span> <span class="p-Indicator">{</span> <span class="nv">get_property</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span><span class="nv">SELF</span><span class="p-Indicator">,</span> <span class="nv">myName</span><span class="p-Indicator">]</span> <span class="p-Indicator">}</span>
-            <span class="l-Scalar-Plain">implementation</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">config-my-name.sh</span></code></pre></div>
+            <span class="l-Scalar-Plain">CAPA_PORT</span><span class="p-Indicator">:</span> <span class="p-Indicator">{</span> <span class="nv">get_property</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span><span class="nv">SELF</span><span class="p-Indicator">,</span> <span class="nv">endpoint</span><span class="p-Indicator">,</span> <span class="nv">port</span><span class="p-Indicator">]</span> <span class="p-Indicator">}</span>
+          <span class="l-Scalar-Plain">implementation</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">config.sh</span></code></pre></div>
 
 
       </div>
