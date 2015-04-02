@@ -122,7 +122,7 @@ path:
   logs: ${user.home}/.alien/elasticsearch/logs
 {% endhighlight %}
 
-## Configure a remote Elastic Search
+## Configure a remote Elastic Search (throw a no data node)
 
 In order to configure a remote Elastic Search, you should edit the following:
 
@@ -144,7 +144,35 @@ Example:
 {% highlight yaml %}
 discovery.zen.ping.multicast.enabled: false
 discovery.zen.ping.unicast.enabled: true
-discovery.zen.ping.unicast.hosts: localhost
+discovery.zen.ping.unicast.hosts: 129.185.67.112
+{% endhighlight %}
+
+{% note %}
+In this mode, a 'client' node is initialized and joins the cluster. It doesn't store any data and act as a proxy. The machines must be visible for each other (in other words, they should be into the same network).
+{% endnote %}
+
+## Configure a remote Elastic Search (using a standalone transport client)
+
+In this mode, we use a simple standalone client that can be in another network as long as the cluster can be reachable.
+
+* In _alien4cloud-config.yml_ file, edit the elasticSearch section and set 'client' and 'transportClient' to true, and indicate the cluster host and port:
+
+{% highlight yaml %}
+elasticSearch:
+  clusterName: escluster
+  local: false
+  client: true
+  transportClient: true
+  # a comma separated list of host:port couples
+  hosts: 129.185.67.112:9300
+  resetData: false
+  prefix_max_expansions: 10
+{% endhighlight %}
+
+* In the _elasticsearch.yml_ make sure that the cluster name is well defined (should be the same than the cluster).
+
+{% highlight yaml %}
+cluster.name: escluster
 {% endhighlight %}
 
 # Directories configuration
