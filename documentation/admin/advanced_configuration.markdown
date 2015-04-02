@@ -44,6 +44,14 @@ JAVA_OPTIONS="-server -showversion -XX:+AggressiveOpts -Xmx2g -Xms2g -XX:MaxPerm
 java $JAVA_OPTIONS -jar alien4cloud-ui-1.0.0-{version}-standalone.war
 {% endhighlight %}
 
+If you need to customize log4j (in order to activate some loggers, change the log file location ...) add a log4j.properties in the config folder and specify the classpath for java :
+
+{% highlight bash %}
+java $JAVA_OPTIONS -cp config/:alien4cloud-ui-1.0.0-{version}-standalone.war org.springframework.boot.loader.WarLauncher
+{% endhighlight %}
+
+You can find a log4j sample configuration file at [log4j.properties](https://github.com/alien4cloud/alien4cloud/blob/master/alien4cloud-ui/src/main/resources/log4j.properties)
+
 # Using SSL
 
 By default Alien 4 Cloud starts using http rather than https enabling SSL is however really simple. Just edit the alien4cloud-config.yml and replace:
