@@ -67,7 +67,7 @@ If you want to use cloudify in a persistent mode, you should override the clouli
 	{%endhighlight%} 
 
 * Under the `upload` folder of your prefered cloud driver, create (if not exists) the path `cloudify-overrides/tools/management-space`
-* Download the [custom management space jar][custom_management_space_jar-link] and store it into the newly created folder. Rename it if need into `management-space.jar`.  
+* Download the [custom management space jar][custom_management_space_jar-link] and store it into the newly created folder. Rename it if needed into `management-space.jar`.  
 
 
 ### Bootstraping ###
