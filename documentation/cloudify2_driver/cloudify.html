@@ -60,6 +60,30 @@ chmod +x <span class="k">${</span><span class="nv">WORKING_HOME_DIRECTORY</span>
 <span class="k">${</span><span class="nv">WORKING_HOME_DIRECTORY</span><span class="k">}</span>/events/bin/gsDeployEventsWar.sh
 <span class="k">fi</span></code></pre></div>
 
+<h3 id="persistence">Persistence</h3>
+
+<p>If you want to use cloudify in a persistent mode, you should override the cloulify management space:</p>
+
+<ul>
+  <li>in the configure section of your cloud (in the .groovy cloud configuration file)), set a value for the property <code>persistentStoragePath</code>  </li>
+</ul>
+
+<div class="highlight"><pre><code class="language-groovy" data-lang="groovy"><span class="n">cloud</span><span class="o">{</span>
+	  <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;your_cloud_name&quot;</span>
+	  <span class="o">...</span>
+	  <span class="n">configuration</span> <span class="o">{</span>
+	    <span class="o">...</span>
+	    <span class="c1">//for persistence of management space</span>
+	    <span class="n">persistentStoragePath</span> <span class="s2">&quot;path/to/persist/data&quot;</span>
+	  <span class="o">}</span>
+	<span class="o">}</span></code></pre></div>
+
+<ul>
+  <li>Under the <code>upload</code> folder of your prefered cloud driver, create (if not exists) the path <code>cloudify-overrides/tools/management-space</code></li>
+  <li>Download the <a href="https://fastconnect.org/confluence/download/attachments/24478788/management-space.jar?api=v2" title="Custom management-space">custom management space jar</a> and store it into the newly created folder. Rename it if need into <code>management-space.jar</code>.  </li>
+</ul>
+
+<h3 id="bootstraping">Bootstraping</h3>
 <p>Bootstrap your cloud, and when done, note the REST API URL (Rest service bellow)</p>
 
 <div class="highlight"><pre><code class="language-console" data-lang="console"><span class="go">Rest service is avalaible at: http://management_ip:8100</span>

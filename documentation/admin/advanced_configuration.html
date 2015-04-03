@@ -41,6 +41,12 @@
 
 java <span class="nv">$JAVA_OPTIONS</span> -jar alien4cloud-ui-1.0.0-<span class="o">{</span>version<span class="o">}</span>-standalone.war</code></pre></div>
 
+<p>If you need to customize log4j (in order to activate some loggers, change the log file location …) add a log4j.properties in the config folder and specify the classpath for java :</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">java <span class="nv">$JAVA_OPTIONS</span> -cp config/:alien4cloud-ui-1.0.0-<span class="o">{</span>version<span class="o">}</span>-standalone.war org.springframework.boot.loader.WarLauncher</code></pre></div>
+
+<p>You can find a log4j sample configuration file at <a href="https://github.com/alien4cloud/alien4cloud/blob/master/alien4cloud-ui/src/main/resources/log4j.properties">log4j.properties</a></p>
+
 <h1 id="using-ssl">Using SSL</h1>
 
 <p>By default Alien 4 Cloud starts using http rather than https enabling SSL is however really simple. Just edit the alien4cloud-config.yml and replace:</p>
@@ -101,7 +107,7 @@ java <span class="nv">$JAVA_OPTIONS</span> -jar alien4cloud-ui-1.0.0-<span class
   <span class="l-Scalar-Plain">work</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">${user.home}/.alien/elasticsearch/work</span>
   <span class="l-Scalar-Plain">logs</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">${user.home}/.alien/elasticsearch/logs</span></code></pre></div>
 
-<h2 id="configure-a-remote-elastic-search">Configure a remote Elastic Search</h2>
+<h2 id="configure-a-remote-elastic-search-throw-a-no-data-node">Configure a remote Elastic Search (throw a no data node)</h2>
 
 <p>In order to configure a remote Elastic Search, you should edit the following:</p>
 
@@ -124,7 +130,35 @@ java <span class="nv">$JAVA_OPTIONS</span> -jar alien4cloud-ui-1.0.0-<span class
 
 <div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">discovery.zen.ping.multicast.enabled</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">false</span>
 <span class="l-Scalar-Plain">discovery.zen.ping.unicast.enabled</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
-<span class="l-Scalar-Plain">discovery.zen.ping.unicast.hosts</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">localhost</span></code></pre></div>
+<span class="l-Scalar-Plain">discovery.zen.ping.unicast.hosts</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">129.185.67.112</span></code></pre></div>
+
+<div class="note">
+<p>In this mode, a ‘client’ node is initialized and joins the cluster. It doesn’t store any data and act as a proxy. The machines must be visible for each other (in other words, they should be into the same network).</p>
+</div>
+
+<h2 id="configure-a-remote-elastic-search-using-a-standalone-transport-client">Configure a remote Elastic Search (using a standalone transport client)</h2>
+
+<p>In this mode, we use a simple standalone client that can be in another network as long as the cluster can be reachable.</p>
+
+<ul>
+  <li>In <em>alien4cloud-config.yml</em> file, edit the elasticSearch section and set ‘client’ and ‘transportClient’ to true, and indicate the cluster host and port:</li>
+</ul>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">elasticSearch</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">clusterName</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">escluster</span>
+  <span class="l-Scalar-Plain">local</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">false</span>
+  <span class="l-Scalar-Plain">client</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
+  <span class="l-Scalar-Plain">transportClient</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
+  <span class="c1"># a comma separated list of host:port couples</span>
+  <span class="l-Scalar-Plain">hosts</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">129.185.67.112:9300</span>
+  <span class="l-Scalar-Plain">resetData</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">false</span>
+  <span class="l-Scalar-Plain">prefix_max_expansions</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">10</span></code></pre></div>
+
+<ul>
+  <li>In the <em>elasticsearch.yml</em> make sure that the cluster name is well defined (should be the same than the cluster).</li>
+</ul>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">cluster.name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">escluster</span></code></pre></div>
 
 <h1 id="directories-configuration">Directories configuration</h1>
 
