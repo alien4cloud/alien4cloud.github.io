@@ -47,6 +47,30 @@ ${WORKING_HOME_DIRECTORY}/events/bin/gsDeployEventsWar.sh
 fi
 {%endhighlight%} 
 
+
+### Persistence ###
+
+If you want to use cloudify in a persistent mode, you should override the cloulify management space:
+
+* in the configure section of your cloud (in the .groovy cloud configuration file)), set a value for the property `persistentStoragePath`  
+	{%highlight groovy%}
+  
+	cloud{
+	  name = "your_cloud_name"
+	  ...
+	  configuration {
+	    ...
+	    //for persistence of management space
+	    persistentStoragePath "path/to/persist/data"
+	  }
+	}
+	{%endhighlight%} 
+
+* Under the `upload` folder of your prefered cloud driver, create (if not exists) the path `cloudify-overrides/tools/management-space`
+* Download the [custom management space jar][custom_management_space_jar-link] and store it into the newly created folder. Rename it if need into `management-space.jar`.  
+
+
+### Bootstraping ###
 Bootstrap your cloud, and when done, note the REST API URL (Rest service bellow)
 {%highlight console%}
 Rest service is avalaible at: http://management_ip:8100
@@ -67,6 +91,6 @@ If you want to use the provider's blockStorage feature, in addition to the [stor
 
 [CDFY_archive-link]: http://getcloudify.org/downloads/get_cloudify_2x.html
 
-[cloudify-custom-events-repo]: # "not yet accessible"
+[custom_management_space_jar-link]: https://fastconnect.org/confluence/download/attachments/24478788/management-space.jar?api=v2 "Custom management-space"
 
 
