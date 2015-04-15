@@ -10,7 +10,7 @@ weight: 200
 
 In Alien 4 Cloud you can design your applications by adding multiple components to a topology and defining relationships between them. The definition of components and topologies is based on TOSCA standard.
 
-Alien 4 Cloud allow you to add components into an indexed catalog that users can browser, search and filter to find the components they need.
+Alien 4 Cloud allow you to add components into an indexed catalog that users can browse, search and filter to find the components they need.
 
 {% note %}
 Adding components require ADMIN or COMPONENTS_MANAGER roles.

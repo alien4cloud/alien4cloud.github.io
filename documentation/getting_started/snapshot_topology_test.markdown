@@ -15,7 +15,7 @@ and then run the deployment test on this archive.
 
 ### Prepare your archive
 
-* You need first to correctly create your archive (more details about archive [here](/documentation/tosca_ref/tosca_concepts_csar.html))
+* You need first to correctly create your archive (more details about archive [here](/documentation/devops_guide/tosca_concepts_csar.html))
 * Just add a specific **test** folder to this archive to have a tree as follow
 
 {% highlight bash %}

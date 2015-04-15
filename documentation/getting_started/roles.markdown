@@ -10,22 +10,7 @@ weight: 300
 
 This section details Alien 4 Cloud's *ROLES* and *permissions* by role.
 
-# General Alien 4 Cloud roles
 
-These roles describes global roles you can grant to a user. From his/her roles Alien 4 Cloud will display and allow some operations.
-
-{: .table .table-bordered}
-| Role | Description |
-|:---------|:------------|
-| ADMIN                | Manages users, plugins, configure clouds + all other roles. |
-| APPLICATIONS_MANAGER | Create new application(s). |
-| ARCHITECT            | Create and edit topology template(s). |
-| COMPONENTS_BROWSER   | [Deprecated] Not used anymore for validation. Can list components and see details for any of them |
-| COMPONENTS_MANAGER   | Manage TOSCA cloud service archives to add/remove components from the catalog. |
-
-{% info %}
-A user with no roles can log-in and view the resources for which he has been granted. For example a user with no global roles can still access and manage applications on which he has _resources_ roles (see application and environments roles).
-{% endinfo %}
 
 # Application's roles
 

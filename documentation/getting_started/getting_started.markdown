@@ -5,7 +5,7 @@ root: ../../
 categories: DOCUMENTATION
 parent: []
 node_name: getting_started
-weight: 100
+weight: 200
 ---
 
 In order to start using alien 4 cloud you have to download Alien. Two versions are available:

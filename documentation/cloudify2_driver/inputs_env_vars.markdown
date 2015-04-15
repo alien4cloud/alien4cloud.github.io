@@ -14,7 +14,7 @@ We will have for illustrations purposes a topology consisting of one Compute nod
 [![Connection configuration][tomcat_war_topology_img]][tomcat_war_topology_img]
 
 ## input parameters ##
-Follow the [parameter definition](#documentation/tosca_ref/tosca_grammar/parameter_definition.html) section for how to define your input parameters.  
+Follow the [parameter definition](#documentation/devops_guide/tosca_grammar/parameter_definition.html) section for how to define your input parameters.  
 The defined inputs are evaluated if needed at runtime, and set as environment variables. Thus, you can access them using their defined name.  
 
 relationship type `alien.relationships.cloudify.WarHostedOnTomcat`, defined with a post_configure_source script:.
