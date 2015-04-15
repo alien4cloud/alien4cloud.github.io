@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="row">
+    
+      <div class="col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-md-9">
+    
+        <h1 style="margin-top: 0px;">Clouds</h1>
+        <p>In Alien 4 Cloud every deployment is done on what we call a <em>Cloud</em>. Clouds are used to describe a logical deployment target that offers a set of resources (e.g. machines, storage, network, firewalls etc.). A cloud may refer to a real <em>cloud</em>, to a specific <em>tenant on a cloud</em>, to a <em>set of physical machines</em> (BYON), or even <em>docker</em> containers.</p>
+
+<div class="note info">
+<p>You can create and configure as many clouds as you like to have as many deployment targets (environments) as required.</p>
+</div>
+
+<p>For example a cloud can refer to an Amazon configuration using a specific account while another cloud could be configured to work on a specific Tenant on an OpenStack cloud.</p>
+
+<p>To make it simple a cloud is a logical set of available resources that Alien 4 Cloud can use to deploy applications. In order to do so A4C relies on orchestration technologies that are easily pluggable.</p>
+
+<div class="note">
+<h5>Note</h5>
+<p>We are currently supporting the opensource orchestrators cloudify 2 and cloudify 3 (Full re-written engine with new DSL - much better and flexible but that we felt prior to the up-comming 3.2 a bit light for production use).</p>
+</div>
+
+<div class="note info">
+<h5>Role and security</h5>
+<p>Only a user with the global ADMIN role can define, configure, enable and grant deployment role to other users or groups on a cloud.</p>
+</div>
+
+<p>To find more on clouds and how to configure them in Alien 4 Cloud please look at the <a href="deadlink">Getting started</a> guide if you don’t already have an Alien instance running and at the <a href="deadlink">cloud setup guide</a> in order to learn cloud configuration.</p>
+
+      </div>
+    </div>
+  </div>
+</div><!-- /container -->
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION', 'concepts-clouds');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

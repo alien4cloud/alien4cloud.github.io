@@ -1,0 +1,73 @@
+<div class="container">
+  <div class="row">
+    
+      <div class="col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-md-9">
+    
+        <h1 style="margin-top: 0px;">Managing components</h1>
+        <p>In Alien 4 Cloud you can design your applications by adding multiple components to a topology and defining relationships between them. The definition of components and topologies is based on TOSCA standard. Alien 4 Cloud allow you to add components into the indexed catalog.</p>
+
+<div class="note">
+<p>For more informations on TOSCA and supported archive format please go <a href="">here</a>.</p>
+</div>
+
+<h2 id="uploading-new-components">Uploading new components</h2>
+
+<p>You cannot upload the same archive (same id and version) mutliple times. If you changed an archive, you must increment the version number so you can upload it to Alien.</p>
+
+<div class="note warning">
+<h5>Roles and security</h5>
+<p>In order to be able to add components to the repository you must have the <em>COMPONENT_MANAGER</em> role. Note that if the archive you wish to upload contains both nodes and relationship types and both a topology template, then you must have both the <em>COMPONENT_MANAGER</em> and <em>ARCHITECT</em> role</p>
+</div>
+
+<p>There are two ways to upload components descriptions in ALIEN regarding you browser capabilities :</p>
+
+<div class="tabsection"><ul class="nav nav-tabs"></ul><div class="tab-content">
+<div class="tab-pane" id="drag_and_drop_enabled" title="Drag and Drop enabled">
+<p><em>Drag</em> you archile file &gt; <em>Drop</em> it on the <strong>dash dotted</strong> area</p>
+
+<p><a href="../../images/components_guide/upload-components-en.png"><img src="../../images/components_guide/upload-components-en.png" alt="Upload an archive file with D&amp;D" /></a></p>
+</div>
+<div class="tab-pane" id="drag_and_drop_disabled" title="Drag and Drop disabled">
+<p>Click on <em>[Upload CSAR]</em> &gt; <em>Select</em> your archive (The file is automaticly uploaded)</p>
+
+<p><a href="../../images/components_guide/upload-components-button-en.png"><img src="../../images/components_guide/upload-components-button-en.png" alt="Upload an archive file without D&amp;D" /></a></p>
+</div>
+</div></div>
+
+<p>Once upload has been completed successfully you should be able to see the node types contained in the archive in the components browsing panel.</p>
+
+<p><a href="../../images/components_guide/upload-components-finished-en.png"><img src="../../images/components_guide/upload-components-finished-en.png" alt="Completed  archive file upload" /></a></p>
+
+<p>You can now <a href="#/documentation/user_guide/components/components_search.html">browse and search for components</a>.</p>
+
+<h2 id="upload-issues">Upload issues</h2>
+
+<p>Alien 4 Cloud performs validation of your archive agains the TOSCA specification.</p>
+
+<p>TODO show example of upload errors.</p>
+
+      </div>
+    </div>
+  </div>
+</div><!-- /container -->
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION', 'components_upload');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

@@ -1,9 +1,8 @@
 <div class="container">
   <div class="row">
-    <div id="breadcrumbs"></div>
     
       <div class="col-md-3">
-        <div id="sidebar_menu" class="well tree" role="complementary"></div>
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
       </div>
       <div id="content" class="col-md-9">
     
@@ -14,7 +13,7 @@ We will have for illustrations purposes a topology consisting of one Compute nod
 <p><a href="../../images/cloudify2_driver/tomcat_war_topology.png" title="Tomcat-war topology"><img src="../../images/cloudify2_driver/tomcat_war_topology.png" alt="Connection configuration" title="Tomcat-war topology" /></a></p>
 
 <h2 id="input-parameters">input parameters</h2>
-<p>Follow the <a href="#documentation/tosca_ref/tosca_grammar/parameter_definition.html">parameter definition</a> section for how to define your input parameters.<br />
+<p>Follow the <a href="#documentation/devops_guide/tosca_grammar/parameter_definition.html">parameter definition</a> section for how to define your input parameters.<br />
 The defined inputs are evaluated if needed at runtime, and set as environment variables. Thus, you can access them using their defined name.  </p>
 
 <p>relationship type <code>alien.relationships.cloudify.WarHostedOnTomcat</code>, defined with a post_configure_source script:.</p>
@@ -203,7 +202,6 @@ if(hash && hash!== null && hash.match(/html$/)) {
 <script>
 $(document).ready(function () {
   makeSideBar('DOCUMENTATION', 'cloudify_2_inputs');
-  createBreadcrumbs('DOCUMENTATION', 'Documentation');
 });
 </script>
 

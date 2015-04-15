@@ -1,0 +1,104 @@
+<div class="container">
+  <div class="row">
+    
+      <div class="col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-md-9">
+    
+        <h1 style="margin-top: 0px;">User(s) and Roles management</h1>
+        
+<hr style="margin-top:5px; margin-bottom:5px;" />
+<div class="row"><ul class="nav nav-pills" id="summarypanel"></ul></div>
+<hr style="margin-top:5px; margin-bottom:5px;" />
+
+<p>This section describe how you can manage some users within Alien.</p>
+
+<div class="note warning">
+<h5>LDAP integration</h5>
+<p>If you wish to integrate with an LDAP directory please go <a href="">here</a>.</p>
+
+<p>Note that you can use LDAP for users and eventually rôle management. You can also manage roles in Alien even for LDAP user if you wish. In addition you can have users managed in LDAP and create some additional user that will be managed within Alien.</p>
+</div>
+
+<h1 id="users">User(s)</h1>
+
+<h2 id="create-user">Create user</h2>
+
+<h2 id="remove-user">Remove user</h2>
+
+<h2 id="grant-rles-to-a-user">Grant rôle(s) to a user</h2>
+
+<h1 id="groups">Group(s)</h1>
+
+<h2 id="create-a-group">Create a group</h2>
+
+<h2 id="remove-a-group">Remove a group</h2>
+
+<h2 id="grant-rles-to-a-group">Grant rôle(s) to a group</h2>
+
+<h2 id="add-a-user-to-a-group">Add a user to a group</h2>
+
+<h2 id="remove-a-user-from-a-group">Remove a user from a group</h2>
+
+<h1 id="roles-in-alien-4-cloud">Roles in Alien 4 Cloud</h1>
+
+<p>These roles describes global roles you can grant to a user. From his/her roles Alien 4 Cloud will display and allow some operations.</p>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Role</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">ADMIN</td>
+      <td style="text-align: left">Manages users, plugins, configure clouds + all other roles.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">APPLICATIONS_MANAGER</td>
+      <td style="text-align: left">Create new application(s).</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ARCHITECT</td>
+      <td style="text-align: left">Create and edit topology template(s).</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">COMPONENTS_BROWSER</td>
+      <td style="text-align: left">[Deprecated] Not used anymore for validation. Can list components and see details for any of them</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">COMPONENTS_MANAGER</td>
+      <td style="text-align: left">Manage TOSCA cloud service archives to add/remove components from the catalog.</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="note info">
+<p>A user with no roles can log-in and view the resources for which he has been granted. For example a user with no global roles can still access and manage applications on which he has <em>resources</em> roles (see application and environments roles).</p>
+</div>
+
+      </div>
+    </div>
+  </div>
+</div><!-- /container -->
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION', 'user_management');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

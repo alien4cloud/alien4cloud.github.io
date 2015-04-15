@@ -1,0 +1,61 @@
+<div class="container">
+  <div class="row">
+    
+      <div class="col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-md-9">
+    
+        <h1 style="margin-top: 0px;">Component BlockStorage</h1>
+        <p>This component represents a storage space / volume. This volume <strong>has to be</strong> <em>attached</em> to a compute to be used.</p>
+
+<p>For more details about this custom component : <a href="#/documentation/cloudify2_driver/blockstorage.html">BlockStorage</a></p>
+
+<p>Used version for this tutorial (defined in normative types): <a href="https://github.com/alien4cloud/tosca-normative-types/blob/1.0.0.wd02/normative-types.yml" target="_blank">BlockStorage</a></p>
+
+<h1 id="definition">Definition</h1>
+
+<h2 id="namming--description">Namming / description</h2>
+
+<div data-gist="https://gist.github.com/cmourouvin/c6eb9df89eda149c41f5.js"></div>
+
+<div class="note">
+<p>Every component should at least inherite from <em>tosca.nodes.Root</em>. As a default normative type it’s the case for <em>BlockStorage</em>.</p>
+</div>
+
+<h2 id="properties">Properties</h2>
+
+<div data-gist="https://gist.github.com/cmourouvin/561ca4ce50e1eb1f673b.js"></div>
+
+<p>Check details : <a href="#/documentation/cloudify2_driver/blockstorage.html">BlockStorage</a></p>
+
+<div class="note info">
+<p>For the application you will need <strong>volume_id</strong> or <strong>size</strong> to be defined.</p>
+</div>
+
+<h2 id="lifecycle-and-related-scripts">Lifecycle and related scripts</h2>
+
+<p>There is no lifecycle operation for this component in the default version.</p>
+
+      </div>
+    </div>
+  </div>
+</div><!-- /container -->
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION', 'lamp_stack_blockstorage');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

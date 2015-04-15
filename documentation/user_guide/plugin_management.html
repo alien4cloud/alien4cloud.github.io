@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="row">
+    
+      <div class="col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-md-9">
+    
+        <h1 style="margin-top: 0px;">Plugin(s) management</h1>
+        <p>Plugins provides some additional functionalities to Alien 4 Cloud. We currently support paas provider plugins (orchestrators interface with Alien 4 Cloud) but aims to provide much more plugins with various functionalities and even UI components.</p>
+
+<h2 id="installing-plugin-in-alien-4-cloud">Installing plugin in Alien 4 Cloud</h2>
+
+<h2 id="plugin-configuration">Plugin configuration</h2>
+
+<p>Some plugins may requires specific configuration that is global to the plugin.</p>
+
+<h3 id="advanced-plugins-configurations">Advanced plugins configurations</h3>
+
+<p>The configuration detailed in the previous section is global for the plugin. Some plugins may requires some specific configurations that you can find at other places in the application. Your should refer to the plugin specific documentation to know more about it.</p>
+
+<p>For example, PaaS providers plugins actually are able to manage multiple instances of orchestrators, the specific configuration for each instance is managed at the cloud level.</p>
+
+<h2 id="plugin-creation">Plugin creation</h2>
+
+<p>If you want to create new plugins for Alien 4 Cloud please refer to the <a href="">developer guide</a>.</p>
+
+      </div>
+    </div>
+  </div>
+</div><!-- /container -->
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION', 'plugin_management');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

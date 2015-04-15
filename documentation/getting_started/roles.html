@@ -1,53 +1,13 @@
 <div class="container">
   <div class="row">
-    <div id="breadcrumbs"></div>
     
       <div class="col-md-3">
-        <div id="sidebar_menu" class="well tree" role="complementary"></div>
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
       </div>
       <div id="content" class="col-md-9">
     
         <h1 style="margin-top: 0px;">Roles in Alien 4 Cloud</h1>
         <p>This section details Alien 4 Cloud’s <em>ROLES</em> and <em>permissions</em> by role.</p>
-
-<h1 id="general-alien-4-cloud-roles">General Alien 4 Cloud roles</h1>
-
-<p>These roles describes global roles you can grant to a user. From his/her roles Alien 4 Cloud will display and allow some operations.</p>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th style="text-align: left">Role</th>
-      <th style="text-align: left">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left">ADMIN</td>
-      <td style="text-align: left">Manages users, plugins, configure clouds + all other roles.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">APPLICATIONS_MANAGER</td>
-      <td style="text-align: left">Create new application(s).</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">ARCHITECT</td>
-      <td style="text-align: left">Create and edit topology template(s).</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">COMPONENTS_BROWSER</td>
-      <td style="text-align: left">[Deprecated] Not used anymore for validation. Can list components and see details for any of them</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">COMPONENTS_MANAGER</td>
-      <td style="text-align: left">Manage TOSCA cloud service archives to add/remove components from the catalog.</td>
-    </tr>
-  </tbody>
-</table>
-
-<div class="note info">
-<p>A user with no roles can log-in and view the resources for which he has been granted. For example a user with no global roles can still access and manage applications on which he has <em>resources</em> roles (see application and environments roles).</p>
-</div>
 
 <h1 id="applications-roles">Application’s roles</h1>
 
@@ -113,7 +73,6 @@ if(hash && hash!== null && hash.match(/html$/)) {
 <script>
 $(document).ready(function () {
   makeSideBar('DOCUMENTATION', 'roles');
-  createBreadcrumbs('DOCUMENTATION', 'Documentation');
 });
 </script>
 

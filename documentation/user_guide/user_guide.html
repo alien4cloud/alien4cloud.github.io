@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="row">
+    
+      <div class="col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-md-9">
+    
+        <h1 style="margin-top: 0px;">User Guide</h1>
+        <p>Welcome to Alien’s user guide!</p>
+
+<p>This section will explain you how to use Alien 4 Cloud it is organized based on the <a href="#/documentation/concepts/concepts.html">concepts</a> but you can find below links to sections you may be interested in based on the <a href="#/documentation/concepts/roles.html">roles</a> you have.</p>
+
+<ul>
+  <li>As a <strong>Platform admin</strong> you probably should read first the <a href="#/documentation/admin_guide/index.html">Administration Guide</a> in order to install and setup Alien 4 Cloud. Once done you will be interested in <a href="">Plugin management</a> as well a <a href="">Cloud management</a>.</li>
+  <li>As a <strong>Dev-Ops</strong> we suggest you to read the <a href="">Components management</a> section and to get familiar with <a href="">TOSCA reference</a> you can also look at our <a href="">LAMP Stack Tutorial</a> that provides a good kickoff on building components with TOSCA.</li>
+</ul>
+
+      </div>
+    </div>
+  </div>
+</div><!-- /container -->
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION', 'user_guide');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

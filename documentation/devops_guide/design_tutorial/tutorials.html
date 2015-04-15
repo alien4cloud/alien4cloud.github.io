@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="row">
+    
+      <div class="col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-md-9">
+    
+        <h1 style="margin-top: 0px;">Create your own components</h1>
+        <div class="note warning">
+<p>This documentation section is not complete. We recommend you to start with the lamp stack tutorials that have been upgraded more recently.</p>
+</div>
+
+<h1 id="components">Components</h1>
+
+<ul>
+  <li>Design of a component (Tomcat server)</li>
+  <li>Implementation of a component</li>
+</ul>
+
+<h1 id="topologies">Topologies</h1>
+
+<ul>
+  <li>Designing a topology in ALIEN</li>
+</ul>
+
+<h1 id="application">Application</h1>
+
+<ul>
+  <li>Creation of an application and running it on a cloud using cloudify PaaS</li>
+</ul>
+
+      </div>
+    </div>
+  </div>
+</div><!-- /container -->
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION', 'tutorials');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

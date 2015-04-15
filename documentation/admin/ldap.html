@@ -1,9 +1,8 @@
 <div class="container">
   <div class="row">
-    <div id="breadcrumbs"></div>
     
       <div class="col-md-3">
-        <div id="sidebar_menu" class="well tree" role="complementary"></div>
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
       </div>
       <div id="content" class="col-md-9">
     
@@ -156,17 +155,17 @@
     <tr>
       <td style="text-align: left">mapping:<br />  roles:<br />    defaults:</td>
       <td style="text-align: left">yes</td>
-      <td style="text-align: left">Roles to use when importing a user when no rôle mapping is defined.<br />Note: this roles are used only on user import. When no role mapping is defined the rôles of users can be managed in Alien4Cloud.</td>
+      <td style="text-align: left">Roles to use when importing a user when no rôle mapping is defined.<br />Note: this roles are used only on user import. When no role mapping is defined the roles of users can be managed in Alien4Cloud.</td>
     </tr>
     <tr>
       <td style="text-align: left">mapping:<br />  roles:<br />    key:</td>
       <td style="text-align: left">no</td>
-      <td style="text-align: left">Name of the LDAP attribute that contains the user’s rôles. If this key is not specified, user rôles will be managed inside alien.<br />Note: at import users will be created inside alien with the default roles.</td>
+      <td style="text-align: left">Name of the LDAP attribute that contains the user’s roles. If this key is not specified, user roles will be managed inside alien.<br />Note: at import users will be created inside alien with the default roles.</td>
     </tr>
     <tr>
       <td style="text-align: left">mapping:<br />  roles:<br />    key:</td>
       <td style="text-align: left">no</td>
-      <td style="text-align: left">Mapping of a LDAP rôle to an ALIEN rôle. Note that it is not currently possible to map a single LDAP rôle to multiple Alien rôles.</td>
+      <td style="text-align: left">Mapping of a LDAP rôle to an ALIEN rôle. Note that it is not currently possible to map a single LDAP rôle to multiple Alien roles.</td>
     </tr>
   </tbody>
 </table>
@@ -193,7 +192,7 @@
 <h2 id="limitations-and-known-issues">Limitations and known issues</h2>
 
 <div class="note warning">
-<p>Even when a user has rôles managed in LDAP an Alien admin can edit it’s rôles. However when the user will log-in the rôles from LDAP will be reloaded into alien.</p>
+<p>Even when a user has roles managed in LDAP an Alien admin can edit it’s roles. However when the user will log-in the roles from LDAP will be reloaded into alien.</p>
 
 <p>Roles changed in LDAP will not appear in Alien as long as the User doesn’t log-in.</p>
 </div>
@@ -214,7 +213,6 @@ if(hash && hash!== null && hash.match(/html$/)) {
 <script>
 $(document).ready(function () {
   makeSideBar('DOCUMENTATION', 'ldap');
-  createBreadcrumbs('DOCUMENTATION', 'Documentation');
 });
 </script>
 

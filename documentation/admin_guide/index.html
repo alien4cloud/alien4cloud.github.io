@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row">
+    
+      <div class="col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-md-9">
+    
+        <h1 style="margin-top: 0px;">Administration Guide</h1>
+        <p>This section contains the guide for Alien 4 Cloud installation and configuration.</p>
+
+<p>Alien 4 Cloud requires orchestrator(s) in order to deploy on the configured clouds. Orchestrators plugins are currently not able to install the related orchestrator and deploy it on the runtime clouds.</p>
+
+      </div>
+    </div>
+  </div>
+</div><!-- /container -->
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION', 'admin');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>
