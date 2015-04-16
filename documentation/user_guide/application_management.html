@@ -9,6 +9,60 @@
         <h1 style="margin-top: 0px;">Application(s) management</h1>
         <h1 id="create-new-application">Create new application</h1>
 
+<h1 id="configure-application-roles">Configure application roles</h1>
+
+<h2 id="applications-roles">Application’s roles</h2>
+
+<p>These roles defines actions allowed by <em>role</em> on a given application :</p>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Role</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">APPLICATION_MANAGER</td>
+      <td style="text-align: left">Application manager can manage the application configuration, it’s versions and environments as well as user management for the application.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">APPLICATION_DEVOPS</td>
+      <td style="text-align: left">Dev ops role should be given to the applications developer. In ALIEN users with devops role on an application can edit the topologies of every SNAPSHOT versions.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>In addition to the applications roles, Application manager can specify some roles related to every single environment defined for the application.</p>
+
+<h1 id="configure-versions">Configure versions</h1>
+
+<h1 id="configure-environments">Configure environments</h1>
+
+<h2 id="environments-roles">Environment’s roles</h2>
+
+<p>These roles defines actions allowed by <em>role</em> on a given environment :</p>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Role</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">APPLICATION_USER</td>
+      <td style="text-align: left">An application user on an environment is allowed to see the environment status as well as having access to the deployment output properties (URL for example so he can directly reach the deployed application).</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">DEPLOYMENT_MANAGER</td>
+      <td style="text-align: left">Deployment manager for an environment is responsible for configuration and deployment/undeployment of an environment. In order to be able to deploy/undeply the environment the user must also have a CLOUD_DEPLOYER role on the cloud that is associated with the environment. CLOUD_DEPLOYER role is configured on the cloud configuration by any user having the global ADMIN role.</td>
+    </tr>
+  </tbody>
+</table>
+
       </div>
     </div>
   </div>
