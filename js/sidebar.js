@@ -119,14 +119,15 @@ function treeCurrent(tree, root) {
       var isCurrent = treeCurrent(treeNode.children, root);
       if(isCurrent) {
         hasCurrent = true;
-        treeNode.collapsed = false;
       }
+      treeNode.collapsed = !isCurrent;
       treeNode.isCurrent = isCurrent;
     }
     var hashUrl = '#'+root + treeNode.url;
     if(location.hash === hashUrl) {
       hasCurrent = true;
       treeNode.isCurrent = true;
+      treeNode.collapsed = false;
     }
   }
   return hasCurrent;
@@ -175,6 +176,7 @@ function appendChildrenToDom(currentDomElement, tree, root, hidden) {
     if(hidden) {
       li.style.display = "none"
     }
+    li.dataTree = treeNode;
     currentDomElement.appendChild(li);
     if (treeNode.children) {
       var innerUl = document.createElement("ul");
@@ -182,31 +184,4 @@ function appendChildrenToDom(currentDomElement, tree, root, hidden) {
       appendChildrenToDom(innerUl, treeNode.children, root, treeNode.collapsed);
     }
   }
-}
-
-function createBreadcrumbs(category, currentSection) {
-  return;
-  var pageRoot = root[category];
-  if (sidebar[category]) {
-    var locations = [];
-    var currentPath = location.pathname;
-    var currentCrumb = sidebar[category].filter(function(x) {return x.relativeurl == currentPath})[0]
-    while (currentCrumb) {
-      locations.unshift(currentCrumb);
-      if (currentCrumb.parent == "none") break;
-      currentPath = "/" + category.toLowerCase() + "/" + currentCrumb.parent;
-      currentCrumb = sidebar[category].filter(function(x) {return x.relativeurl == currentPath})[0]
-    }
-  }
-
-  var breadcrumbsHtml = "<ol class='breadcrumb'>";
-  breadcrumbsHtml += "<li><a href='" + pageRoot + "'>Home</a></li>";
-  breadcrumbsHtml += "<li><a href='" + pageRoot + category.toLowerCase() + "/'>" + currentSection + "</a></li>";
-  if (locations.length > 0) {
-    for (var i=0; i<locations.length; i++) {
-      breadcrumbsHtml += "<li><a href='" + locations[i].url +"'>" + locations[i].title + "</a></li>";
-    }
-  }
-  breadcrumbsHtml += "</ol>";
-  $("#breadcrumbs").append(breadcrumbsHtml);
 }

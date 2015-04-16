@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  ALIEN 4 Cloud - Documentation
+title: ALIEN 4 Cloud - Documentation
 root: ../
 node_name: index
 categories: DOCUMENTATION

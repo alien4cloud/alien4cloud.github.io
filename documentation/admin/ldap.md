@@ -89,9 +89,9 @@ Now that you can retrieve users from LDAP it is critical to define a Mapping fro
 | mapping:<br>&nbsp;&nbsp;email: | yes | Name of the LDAP attribute that contains the user's email |
 | mapping:<br>&nbsp;&nbsp;active:<br>&nbsp;&nbsp;&nbsp;&nbsp;key: | no | Name of the LDAP attribute that allows to know if a user is active. |
 | mapping:<br>&nbsp;&nbsp;active:<br>&nbsp;&nbsp;&nbsp;&nbsp;value: | no | Value of the LDAP attribute for which the user is considered as active. |
-| mapping:<br>&nbsp;&nbsp;roles:<br>&nbsp;&nbsp;&nbsp;&nbsp;defaults: | yes | Roles to use when importing a user when no rôle mapping is defined.<br>Note: this roles are used only on user import. When no role mapping is defined the rôles of users can be managed in Alien4Cloud. |
-| mapping:<br>&nbsp;&nbsp;roles:<br>&nbsp;&nbsp;&nbsp;&nbsp;key: | no | Name of the LDAP attribute that contains the user's rôles. If this key is not specified, user rôles will be managed inside alien.<br>Note: at import users will be created inside alien with the default roles. |
-| mapping:<br>&nbsp;&nbsp;roles:<br>&nbsp;&nbsp;&nbsp;&nbsp;key: | no | Mapping of a LDAP rôle to an ALIEN rôle. Note that it is not currently possible to map a single LDAP rôle to multiple Alien rôles. |
+| mapping:<br>&nbsp;&nbsp;roles:<br>&nbsp;&nbsp;&nbsp;&nbsp;defaults: | yes | Roles to use when importing a user when no rôle mapping is defined.<br>Note: this roles are used only on user import. When no role mapping is defined the roles of users can be managed in Alien4Cloud. |
+| mapping:<br>&nbsp;&nbsp;roles:<br>&nbsp;&nbsp;&nbsp;&nbsp;key: | no | Name of the LDAP attribute that contains the user's roles. If this key is not specified, user roles will be managed inside alien.<br>Note: at import users will be created inside alien with the default roles. |
+| mapping:<br>&nbsp;&nbsp;roles:<br>&nbsp;&nbsp;&nbsp;&nbsp;key: | no | Mapping of a LDAP rôle to an ALIEN rôle. Note that it is not currently possible to map a single LDAP rôle to multiple Alien roles. |
 
 {% highlight yaml %}
 ### Ldap Configuration
@@ -118,7 +118,7 @@ ldap:
 ## Limitations and known issues
 
 {% warning %}
-Even when a user has rôles managed in LDAP an Alien admin can edit it's rôles. However when the user will log-in the rôles from LDAP will be reloaded into alien.
+Even when a user has roles managed in LDAP an Alien admin can edit it's roles. However when the user will log-in the roles from LDAP will be reloaded into alien.
 
 Roles changed in LDAP will not appear in Alien as long as the User doesn't log-in.
 {% endwarning %}
