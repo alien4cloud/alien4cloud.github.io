@@ -3,7 +3,7 @@ layout: post
 title:  Tests with jenkins plugin
 root: ../../
 categories: DOCUMENTATION
-parent: [getting_started, tutorials]
+parent: [devops, tutorials]
 node_name: component_test_jenkins
 weight: 400
 ---

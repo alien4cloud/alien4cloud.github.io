@@ -3,7 +3,7 @@ layout: post
 title:  Testing custom components
 root: ../../
 categories: DOCUMENTATION
-parent: [getting_started, tutorials]
+parent: [devops, tutorials]
 node_name: component_test
 weight: 300
 ---

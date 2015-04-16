@@ -3,7 +3,7 @@ layout: post
 title:  Component implementation
 root: ../../
 categories: DOCUMENTATION
-parent: [getting_started, tutorials]
+parent: [devops, tutorials]
 node_name: tutorial_component_impl
 weight: 200
 ---
