@@ -26,4 +26,4 @@ For example, PaaS providers plugins actually are able to manage multiple instanc
 
 ## Plugin creation
 
-If you want to create new plugins for Alien 4 Cloud please refer to the [developer guide]().
+If you want to create new plugins for Alien 4 Cloud please refer to the [developer guide](#/developer_guide/index.html).

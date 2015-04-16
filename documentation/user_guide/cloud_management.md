@@ -14,7 +14,7 @@ If you are not familiar with the concept of cloud in Alien 4 Cloud please go [he
 
 Alien 4 cloud is not responsible for actual deployment orchestration but rather interact with existing orchestration technologies. In order to define a cloud you must configure plugins that will be used to actually perform deployment(s) on the defined cloud. Orchestrator plugins are refered in alien as PaaS Provider plugins.
 
-In order to configure a cloud you must have installed a paas provider plugin first see [Plugin management]().
+In order to configure a cloud you must have installed a paas provider plugin first see [Plugin management](#/documentation/user_guide/plugin_management.html).
 
 {%info%}
 <h5>Supported orchestrators</h5>
