@@ -37,11 +37,11 @@
 <div class="highlight"><pre><code class="language-sh" data-lang="sh">cat &lt;<span class="o">(</span>crontab -l<span class="o">)</span> &lt;<span class="o">(</span><span class="nb">echo</span> <span class="s2">&quot;@reboot export EXT_JAVA_OPTIONS=$EXT_JAVA_OPTIONS; nohup ~/gigaspaces/tools/cli/cloudify.sh $START_COMMAND $START_COMMAND_ARGS&quot;</span><span class="o">)</span> <span class="p">|</span> crontab -</code></pre></div>
 
 <ul>
-  <li>Right after that line, add the following snippet</li>
+  <li>Right after that line, add the following snippet (replace “cdfy_username” and  “cdfy_password” by proper values)</li>
 </ul>
 
 <div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;$GSA_MODE&quot;</span> <span class="o">=</span> <span class="s2">&quot;lus&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
-		cat &lt;<span class="o">(</span>crontab -l<span class="o">)</span> &lt;<span class="o">(</span><span class="nb">echo</span> <span class="s2">&quot;@reboot export LUS_IP_ADDRESS=$LUS_IP_ADDRESS; chmod +x ${WORKING_HOME_DIRECTORY}/events/bin/gsDeployEventsWar.sh; nohup ${WORKING_HOME_DIRECTORY}/events/bin/gsDeployEventsWar.sh&quot;</span><span class="o">)</span> <span class="p">|</span> crontab -
+		cat &lt;<span class="o">(</span>crontab -l<span class="o">)</span> &lt;<span class="o">(</span><span class="nb">echo</span> <span class="s2">&quot;@reboot export LUS_IP_ADDRESS=$LUS_IP_ADDRESS; chmod +x ${WORKING_HOME_DIRECTORY}/events/bin/gsDeployEventsWar.sh; nohup ${WORKING_HOME_DIRECTORY}/events/bin/gsDeployEventsWar.sh &lt;cdfy_username&gt; &lt;cdfy_password&gt;&quot;</span><span class="o">)</span> <span class="p">|</span> crontab -
 	<span class="k">fi</span></code></pre></div>
 
 <ul>
@@ -51,13 +51,17 @@
 <div class="highlight"><pre><code class="language-sh" data-lang="sh">./cloudify.sh <span class="nv">$START_COMMAND</span> <span class="nv">$START_COMMAND_ARGS</span></code></pre></div>
 
 <ul>
-  <li>Right after that line, add the following snippet</li>
+  <li>Right after that line, add the following snippet (replace “cdfy_username” and  “cdfy_password” by proper values)</li>
 </ul>
 
 <div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;$GSA_MODE&quot;</span> <span class="o">=</span> <span class="s2">&quot;lus&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
 chmod +x <span class="k">${</span><span class="nv">WORKING_HOME_DIRECTORY</span><span class="k">}</span>/events/bin/gsDeployEventsWar.sh
-<span class="k">${</span><span class="nv">WORKING_HOME_DIRECTORY</span><span class="k">}</span>/events/bin/gsDeployEventsWar.sh
+<span class="k">${</span><span class="nv">WORKING_HOME_DIRECTORY</span><span class="k">}</span>/events/bin/gsDeployEventsWar.sh &lt;cdfy_username&gt; &lt;cdfy_password&gt;
 <span class="k">fi</span></code></pre></div>
+
+<div class="note info">
+<p>The <code>&lt;cdfy_username&gt;</code> and <code>&lt;cdfy_password&gt;</code> are the credentials to provide to the custom events application, used to connect via REST API to the manager. Make sure to provide good credentials if working with a secured manager. If not, they are optional. </p>
+</div>
 
 <h3 id="persistence">Persistence</h3>
 
@@ -79,7 +83,7 @@ chmod +x <span class="k">${</span><span class="nv">WORKING_HOME_DIRECTORY</span>
 
 <ul>
   <li>Under the <code>upload</code> folder of your prefered cloud driver, create (if not exists) the path <code>cloudify-overrides/tools/management-space</code></li>
-  <li>Download the <a href="https://fastconnect.org/confluence/download/attachments/24478788/management-space.jar?api=v2" title="Custom management-space">custom management space jar</a> and store it into the newly created folder. Rename it if need into <code>management-space.jar</code>.  </li>
+  <li>Download the <a href="https://fastconnect.org/confluence/download/attachments/24478788/management-space.jar?api=v2" title="Custom management-space">custom management space jar</a> and store it into the newly created folder. Rename it if needed into <code>management-space.jar</code>.  </li>
 </ul>
 
 <h3 id="bootstraping">Bootstraping</h3>
