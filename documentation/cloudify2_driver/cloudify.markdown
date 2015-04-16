@@ -28,10 +28,10 @@ In order to handle Cloudify lifecycle events, and to emit our own events, we nee
 {%highlight sh%}
 	cat <(crontab -l) <(echo "@reboot export EXT_JAVA_OPTIONS=$EXT_JAVA_OPTIONS; nohup ~/gigaspaces/tools/cli/cloudify.sh $START_COMMAND $START_COMMAND_ARGS") | crontab -
 {%endhighlight%}
-* Right after that line, add the following snippet
+* Right after that line, add the following snippet (replace "cdfy_username" and  "cdfy_password" by proper values)
 {%highlight sh%}
 	if [ "$GSA_MODE" = "lus" ]; then
-		cat <(crontab -l) <(echo "@reboot export LUS_IP_ADDRESS=$LUS_IP_ADDRESS; chmod +x ${WORKING_HOME_DIRECTORY}/events/bin/gsDeployEventsWar.sh; nohup ${WORKING_HOME_DIRECTORY}/events/bin/gsDeployEventsWar.sh") | crontab -
+		cat <(crontab -l) <(echo "@reboot export LUS_IP_ADDRESS=$LUS_IP_ADDRESS; chmod +x ${WORKING_HOME_DIRECTORY}/events/bin/gsDeployEventsWar.sh; nohup ${WORKING_HOME_DIRECTORY}/events/bin/gsDeployEventsWar.sh <cdfy_username> <cdfy_password>") | crontab -
 	fi
 {%endhighlight%}
 
@@ -39,13 +39,18 @@ In order to handle Cloudify lifecycle events, and to emit our own events, we nee
 {%highlight sh%}
 ./cloudify.sh $START_COMMAND $START_COMMAND_ARGS
 {%endhighlight%}
-* Right after that line, add the following snippet
+* Right after that line, add the following snippet (replace "cdfy_username" and  "cdfy_password" by proper values)
 {%highlight sh%}
 if [ "$GSA_MODE" = "lus" ]; then
 chmod +x ${WORKING_HOME_DIRECTORY}/events/bin/gsDeployEventsWar.sh
-${WORKING_HOME_DIRECTORY}/events/bin/gsDeployEventsWar.sh
+${WORKING_HOME_DIRECTORY}/events/bin/gsDeployEventsWar.sh <cdfy_username> <cdfy_password>
 fi
 {%endhighlight%} 
+
+{%info%}
+The `<cdfy_username>` and `<cdfy_password>` are the credentials to provide to the custom events application, used to connect via REST API to the manager. Make sure to provide good credentials if working with a secured manager. If not, they are optional. 
+{%endinfo%}
+
 
 
 ### Persistence ###
