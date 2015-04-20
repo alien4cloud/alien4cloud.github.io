@@ -19,25 +19,66 @@ If you wish to integrate with an LDAP directory please go [here](#/documentation
 Note that you can use LDAP for users and eventually rôle management. You can also manage roles in Alien even for LDAP user if you wish. In addition you can have users managed in LDAP and create some additional user that will be managed within Alien.
 {%endwarning%}
 
+{%info%}
+<h5>Roles</h5>
+In order to edit users in Alien 4 Cloud you must have the ADMIN role. Default username and password when starting alien 4 cloud are _admin_ / _admin_
+{%endinfo%}
+
 # User(s)
+
+In order to manage users go the to page by clicking on the _Administration_ ![Go to admin](../../images/screenshots/admin/admin_button.png){: .inline} button in the navigation bar. Then select the user tab on the administration side navigation bar or on the user main icon.
+
+![Go to user management](../../images/screenshots/admin/users/users_menu.png)
+
+![Go to user management](../../images/screenshots/admin/users/users_menu_side.png)
+
+The user page allows you to manage both users and groups. On the user tab you can search users and see the list of users matching your request.
+
+![User list](../../images/screenshots/admin/users/user_list.png)
 
 ## Create user
 
+In order to create a new user within Alien just click on the _New User_ button ![Create user](../../images/screenshots/admin/users/user_new.png){: .inline}. The create user modal appears and allows you fill-in initial data for your user.
+
+![Create user](../../images/screenshots/admin/users/user_new_modal.png)
+
+Admin is responsible for setting up the username (that will be used for login) and the password of the user.
+
+{%warning%}
+<h5>Limitations</h5>
+We are working on adding the ability for a user to edit it's details but this is currently not an available feature. Changing user details can now be done only by an ADMIN user through the REST API.
+Of course when using LDAP integration the password are managed by LDAP and there is no requirement for any management in Alien.
+{%endwarning%}
+
+## Search user
+
+![Search user](../../images/screenshots/admin/users/user_search.png)
+
 ## Remove user
+
+![Remove user](../../images/screenshots/admin/users/user_remove.png)
 
 ## Grant rôle(s) to a user
 
+![Grant rôle(s) to a user](../../images/screenshots/admin/users/user_edit_roles.png)
+
 # Group(s)
 
+![Group list](../../images/screenshots/admin/users/group_list.png)
+
 ## Create a group
+
+![Create group](../../images/screenshots/admin/users/group_new.png)
+
+![Create group](../../images/screenshots/admin/users/group_new_modal.png)
 
 ## Remove a group
 
 ## Grant rôle(s) to a group
 
-## Add a user to a group
+## Add/Remove a user to/from a group
 
-## Remove a user from a group
+![Add/Remove ](../../images/screenshots/admin/users/user_edit_groups.png)
 
 # Roles in Alien 4 Cloud
 

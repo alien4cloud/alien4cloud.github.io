@@ -1,0 +1,66 @@
+---
+layout: post
+title:  ALIEN for Cloud 1.0.0-SM24
+root: ../
+categories: RELEASE_NOTES
+parent: [release_note]
+node_name: 1.0.0-SM24
+weight: 9987
+exclude_from_search: true
+---
+
+
+
+
+<i class="fa fa-plus text-success"></i> New feature <i class="fa fa-level-up text-primary"></i> Improvement  <i class="fa fa-bug text-danger"></i> Bug <i class="fa fa-exclamation-triangle text-warning"></i> Breaking change
+
+
+### Alien 4 Cloud
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-770 | It is now possible to enable maintenance mode (orchestrator not self-healing instances) from alien 4 cloud. |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-779 | Alien 4 Cloud is now able to manage TOSCA's Scalar unit types. |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-787 | Ids used for deployment on the PaaS Provider (and so for IaaS resources) is more meaningful and can be configured on Cloud configuration. |
+      |  <i class="fa fa-exclamation-triangle text-warning">  <i class="fa fa-level-up text-primary"></i> | ALIEN-669 | Deletable block storage has been removed and replace by orchestrator deployment option to enable/disable removal of block storage based on environments settings (through deployment option). |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-730 | The name of orchestrator deployment is not anymore the deployment id but a configurable generated name (based by default on application name and environment name). |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-805 | All interfaces are now exposed as custom commands. |
+      |  <i class="fa fa-bug text-danger"></i> | ALIEN-759 | Fixed an issue that caused scaling policies to be removed when a compute node was renamed. |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-760 | Fixed an issue that caused relationships to be removed in the UI when a node was renamed. |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-764 | Fixed an issue that prevented A4C to connect to an elastic search located on a remote host. |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-784 | Fixed an issue that caused down scaled compute nodes to stay in suppress state in Alien's runtime view |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-793 | Fixed an issue that prevented from removing the application description. |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-832 | Fixed a bug in the rendering of Network nodes and nodes inheriting from network on the topology view. |
+  
+
+
+### Cloudify 3 PaaS Provider
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-598 | Cloudify 3 PaaS Provider can now execute custom commands. |
+      
+
+
+### Cloudify 2 PaaS Provider
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-798 | Maintenance mode is now available for cloudify 2 PaaS Provider. |
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-368 | Runtime view now immediately reflects expected state when scaling a topology. |
+    |  <i class="fa fa-exclamation-triangle text-warning">  <i class="fa fa-level-up text-primary"></i> | ALIEN-669 | Deletable block storage has been removed and replace by orchestrator deployment option to enable/disable removal of block storage based on environments settings (through deployment option). |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-806 | All interfaces are now exposed as custom commands. |
+      |  <i class="fa fa-bug text-danger"></i> | ALIEN-426 | Runtime view now reflects expected state when un-scaling a topology. |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-786 | Fixed an issue that caused A4C to loose the event status of the deployment and pass in Initial state after the reboot of a persistent Manager |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-789 | Fixed an issue that prevented alien to fetch events from a secured cloudify manager. |
+  
+
