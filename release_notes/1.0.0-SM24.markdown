@@ -5,7 +5,7 @@ root: ../
 categories: RELEASE_NOTES
 parent: [release_note]
 node_name: 1.0.0-SM24
-weight: 9987
+weight: 9986
 exclude_from_search: true
 ---
 
@@ -34,7 +34,7 @@ exclude_from_search: true
     |  <i class="fa fa-bug text-danger"></i> | ALIEN-784 | Fixed an issue that caused down scaled compute nodes to stay in suppress state in Alien's runtime view |
     |  <i class="fa fa-bug text-danger"></i> | ALIEN-793 | Fixed an issue that prevented from removing the application description. |
     |  <i class="fa fa-bug text-danger"></i> | ALIEN-832 | Fixed a bug in the rendering of Network nodes and nodes inheriting from network on the topology view. |
-  
+
 
 
 ### Cloudify 3 PaaS Provider
@@ -45,7 +45,7 @@ exclude_from_search: true
   | Type        | Id         | Description |
   |:------------|:-----------|:------------|
     |  <i class="fa fa-plus text-success"></i> | ALIEN-598 | Cloudify 3 PaaS Provider can now execute custom commands. |
-      
+
 
 
 ### Cloudify 2 PaaS Provider
@@ -62,5 +62,3 @@ exclude_from_search: true
       |  <i class="fa fa-bug text-danger"></i> | ALIEN-426 | Runtime view now reflects expected state when un-scaling a topology. |
     |  <i class="fa fa-bug text-danger"></i> | ALIEN-786 | Fixed an issue that caused A4C to loose the event status of the deployment and pass in Initial state after the reboot of a persistent Manager |
     |  <i class="fa fa-bug text-danger"></i> | ALIEN-789 | Fixed an issue that prevented alien to fetch events from a secured cloudify manager. |
-  
-
