@@ -21,25 +21,66 @@
 <p>Note that you can use LDAP for users and eventually rôle management. You can also manage roles in Alien even for LDAP user if you wish. In addition you can have users managed in LDAP and create some additional user that will be managed within Alien.</p>
 </div>
 
+<div class="note info">
+<h5>Roles</h5>
+<p>In order to edit users in Alien 4 Cloud you must have the ADMIN role. Default username and password when starting alien 4 cloud are <em>admin</em> / <em>admin</em></p>
+</div>
+
 <h1 id="users">User(s)</h1>
+
+<p>In order to manage users go the to page by clicking on the <em>Administration</em> <img src="../../images/screenshots/admin/admin_button.png" alt="Go to admin" class="inline" /> button in the navigation bar. Then select the user tab on the administration side navigation bar or on the user main icon.</p>
+
+<p><img src="../../images/screenshots/admin/users/users_menu.png" alt="Go to user management" /></p>
+
+<p><img src="../../images/screenshots/admin/users/users_menu_side.png" alt="Go to user management" /></p>
+
+<p>The user page allows you to manage both users and groups. On the user tab you can search users and see the list of users matching your request.</p>
+
+<p><img src="../../images/screenshots/admin/users/user_list.png" alt="User list" /></p>
 
 <h2 id="create-user">Create user</h2>
 
+<p>In order to create a new user within Alien just click on the <em>New User</em> button <img src="../../images/screenshots/admin/users/user_new.png" alt="Create user" class="inline" />. The create user modal appears and allows you fill-in initial data for your user.</p>
+
+<p><img src="../../images/screenshots/admin/users/user_new_modal.png" alt="Create user" /></p>
+
+<p>Admin is responsible for setting up the username (that will be used for login) and the password of the user.</p>
+
+<div class="note warning">
+<h5>Limitations</h5>
+<p>We are working on adding the ability for a user to edit it’s details but this is currently not an available feature. Changing user details can now be done only by an ADMIN user through the REST API.
+Of course when using LDAP integration the password are managed by LDAP and there is no requirement for any management in Alien.</p>
+</div>
+
+<h2 id="search-user">Search user</h2>
+
+<p><img src="../../images/screenshots/admin/users/user_search.png" alt="Search user" /></p>
+
 <h2 id="remove-user">Remove user</h2>
+
+<p><img src="../../images/screenshots/admin/users/user_remove.png" alt="Remove user" /></p>
 
 <h2 id="grant-rles-to-a-user">Grant rôle(s) to a user</h2>
 
+<p><img src="../../images/screenshots/admin/users/user_edit_roles.png" alt="Grant rôle(s) to a user" /></p>
+
 <h1 id="groups">Group(s)</h1>
 
+<p><img src="../../images/screenshots/admin/users/group_list.png" alt="Group list" /></p>
+
 <h2 id="create-a-group">Create a group</h2>
+
+<p><img src="../../images/screenshots/admin/users/group_new.png" alt="Create group" /></p>
+
+<p><img src="../../images/screenshots/admin/users/group_new_modal.png" alt="Create group" /></p>
 
 <h2 id="remove-a-group">Remove a group</h2>
 
 <h2 id="grant-rles-to-a-group">Grant rôle(s) to a group</h2>
 
-<h2 id="add-a-user-to-a-group">Add a user to a group</h2>
+<h2 id="addremove-a-user-tofrom-a-group">Add/Remove a user to/from a group</h2>
 
-<h2 id="remove-a-user-from-a-group">Remove a user from a group</h2>
+<p><img src="../../images/screenshots/admin/users/user_edit_groups.png" alt="Add/Remove " /></p>
 
 <h1 id="roles-in-alien-4-cloud">Roles in Alien 4 Cloud</h1>
 

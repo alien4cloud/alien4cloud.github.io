@@ -92,10 +92,17 @@
 	},
 
 	{
-		"url": "/release_notes/1.0.0.SM23.html", 
+		"url": "/release_notes/1.0.0-SM23.html", 
 		"section": "Release Notes", 
-		"value": "ALIEN for Cloud 1.0.0.SM23",
-		"tokens": [ "ALIEN","for","Cloud","1.0.0.SM23"]
+		"value": "ALIEN for Cloud 1.0.0-SM23",
+		"tokens": [ "ALIEN","for","Cloud","1.0.0SM23"]
+	},
+
+	{
+		"url": "/release_notes/1.0.0-SM24.html", 
+		"section": "Release Notes", 
+		"value": "ALIEN for Cloud 1.0.0-SM24",
+		"tokens": [ "ALIEN","for","Cloud","1.0.0SM24"]
 	},
 
 	{
@@ -323,13 +330,6 @@
 	},
 
 	{
-		"url": "/documentation/index.html", 
-		"section": "Documentation", 
-		"value": "ALIEN 4 Cloud - Documentation",
-		"tokens": [ "ALIEN","4","Cloud","","Documentation"]
-	},
-
-	{
 		"url": "/documentation/cloudify2_driver/index.html", 
 		"section": "Documentation", 
 		"value": "Cloudify 2 PaaS Provider",
@@ -351,10 +351,10 @@
 	},
 
 	{
-		"url": "/index.html", 
-		"section": "", 
-		"value": "ALIEN 4 Cloud",
-		"tokens": [ "ALIEN","4","Cloud"]
+		"url": "/documentation/index.html", 
+		"section": "Documentation", 
+		"value": "ALIEN 4 Cloud - Documentation",
+		"tokens": [ "ALIEN","4","Cloud","","Documentation"]
 	},
 
 	{
@@ -362,6 +362,13 @@
 		"section": "Documentation", 
 		"value": "Administration Guide",
 		"tokens": [ "Administration","Guide"]
+	},
+
+	{
+		"url": "/index.html", 
+		"section": "", 
+		"value": "ALIEN 4 Cloud",
+		"tokens": [ "ALIEN","4","Cloud"]
 	},
 
 	{
