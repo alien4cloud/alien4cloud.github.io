@@ -29,6 +29,62 @@
   <li>As <code>PaaS provider</code> for this cloud, make sure to select <strong><em>Cloudify 2 PaaS Provider</em></strong> from the list. Validate</li>
 </ol>
 
+<h3 id="naming-policy">Naming policy</h3>
+
+<p>You may need to define a specific naming policy for your application in the configuration tab :</p>
+
+<p><a href="../../images/cloudify2_driver/config_cloud_naming_policy.png" title="Naming policy"><img src="../../images/cloudify2_driver/config_cloud_naming_policy.png" alt="Naming policy" title="Naming policy" /></a><br /></p>
+
+<p>To compose your own application naming policy, you can use the following entities and properties :</p>
+
+<ul>
+  <li><strong>environment</strong> : the environment link to the deployment
+    <ul>
+      <li><em>id</em></li>
+      <li><em>name</em></li>
+      <li><em>applicationId</em></li>
+      <li><em>cloudId</em></li>
+      <li><em>environmentType</em> : <code>OTHER, DEVELOPMENT, INTEGRATION_TESTS, USER_ACCEPTANCE_TESTS, PRE_PRODUCTION, PRODUCTION</code></li>
+      <li><em>currentVersionId</em></li>
+    </ul>
+  </li>
+  <li><strong>application</strong> : deployed application
+    <ul>
+      <li><em>id</em></li>
+      <li><em>name</em></li>
+      <li><em>creationDate</em></li>
+      <li><em>lastUpdateDate</em></li>
+    </ul>
+  </li>
+  <li><strong>metaProperties</strong> : the administrator can define meta properties linked to an application</li>
+  <li><strong>time</strong> : current date at format <code>yyyyMMddHHmm</code></li>
+</ul>
+
+<p>The default naming policy setting for any cloud is : <code>environment.name + application.name</code></p>
+
+<div class="note warning">
+<p>The administrator is responsible for the naming policy consistency. In cloudify, you can’t have two deployment witht the same name.</p>
+</div>
+
+<p>The main pattern to define a naming policy is to use <code>+</code> to concat different properties or text, for examples :</p>
+
+<ul>
+  <li><code>environment.name + application.name + time</code></li>
+  <li><code>application.id + environment.environmentType + '-US_ZONE'</code></li>
+  <li><code>time + '__' + application.creationDate</code></li>
+  <li><code>'MY_APP' + '-WORDPRESS-' + time</code></li>
+  <li><code>metaProperties['PROPERTY_NAME'] + '-' + time</code></li>
+</ul>
+
+<div class="note warning">
+<p>Any empty property used in the policy expression will cause a deployment failure</p>
+</div>
+
+<div class="note info">
+<p><strong>Advanced use</strong> : the policy expression is based on <a href="http://docs.spring.io/spring/docs/current/spring-framework-reference/html/expressions.html" target="_blank">SpEL</a> (<em>Spring Expression Language</em>) and you could use its capabilities if you are familiar with it.
+<strong>Note</strong> : do not use the <code>#</code></p>
+</div>
+
 <h3 id="configuring-the-cloud">Configuring the cloud</h3>
 <p>On the cloud list, select and click on the newly created cloud, then go to the <code>configuration</code> tab.</p>
 
