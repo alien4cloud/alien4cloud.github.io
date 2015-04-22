@@ -52,7 +52,7 @@ To compose your own application naming policy, you can use the following entitie
 The default naming policy setting for any cloud is : `environment.name + application.name`
 
 {%warning%}
-The administrator is responsible for the naming policy consistency. In cloudify, you can't have two deployment witht the same name.
+The administrator is responsible for the naming policy consistency. In cloudify, you can't have two deployments with the same name.
 {%endwarning%}
 
 The main pattern to define a naming policy is to use `+` to concat different properties or text, for examples :
