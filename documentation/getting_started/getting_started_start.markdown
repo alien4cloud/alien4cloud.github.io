@@ -119,7 +119,7 @@ Those basic settings are required for `Compute` nodes.
 In this part, you will be able to check matching cloud resources and possible
 matching errors. This should not happen if your cloud is well configured.
 
-# Check that your application is p and running
+# Check that your application is up and running
 
 ### Runtime view
 
