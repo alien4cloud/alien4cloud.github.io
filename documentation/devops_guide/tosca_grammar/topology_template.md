@@ -139,25 +139,25 @@ Not yet supported In Alien 4 Cloud
 
 ### groups
 
-{% warning %}
-Not yet supported In Alien 4 Cloud
-{% endwarning %}
-
-The group construct is a composition element used to group one or more node templates within a TOSCA Service Template.
+The group construct is a composition element used to group one or more node templates within a TOSCA Service Template. It is mainly used to apply a [Policy](#/documentation/devops_guide/tosca_grammar/policy.html) onto a group of nodes.
 
 #### Grammar
 
 {% highlight yaml %}
 groups:
   <group_name_A>:
-    <node_template_defn_A_1>
-    ...
-    <node_template_defn_A_n>
+    members: [ node1, ... nodeN ]
+    policies:
+      - <policy_defn_A_1>
+      ...
+      - <policy_defn_A_n>
 
   <group_name_B>
-    <node_template_defn_B_1>
-    ...
-    <node_template_defn_B_n>
+    members: [ node1, ... nodeN ]
+      policies:
+        - <policy_defn_B_1>
+        ...
+        - <policy_defn_B_n>
 {% endhighlight %}
 
 #### Example
@@ -180,9 +180,13 @@ groups:
   server_group_1:
     members: [ server1, server2 ]
     policies:
-      - anti_collocation_policy:
-          # specific policy declarations omitted, as this is not yet specified
+      - name: my_scaling_ha_policy
+        type: tosca.policy.ha
 {% endhighlight %}
+
+see:
+
+- [Policy](#/documentation/devops_guide/tosca_grammar/policy.html)
 
 ### outputs
 
