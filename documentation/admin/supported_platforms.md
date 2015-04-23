@@ -15,28 +15,28 @@ Alien supports these different web browsers :
 {: .table .table-bordered}
 | Name | Version |
 |:----------------|:----------------|
-| Firefox | 31 and higher |
-| Chrome | 37 and higher |
+| ![Firefox](../../images/admin_guide/browsers_logo_firefox.png){: .inline} **Firefox** | 31 and higher |
+| ![Chrome](../../images/admin_guide/browsers_logo_chrome.png){: .inline} **Chrome** | 37 and higher |
 
-{%info%}
-Other browsers like Safari or the lasted IE version may work but are not automatically tested.
-{%endinfo%}
+{%warning%}
+Other browsers like _Safari_ or the lasted _IE_ version may work but **are not automatically tested**.
+{%endwarning%}
 
 ## Server
 
 ### Java virtual machine
 
-Alien 4 Cloud is written in java for the backend and requires a JVM 7 or higher (Oracle or OpenJDK).
+Alien 4 Cloud is written in java for the backend and requires a **JVM 7** or higher (Oracle or OpenJDK).
 
 ### Orchestrators and deployment artefacts
 
 {: .table .table-bordered}
 | Orchestrators | Deployment artefacts |
 |:----------------|:----------------|
-| Cloudify 2 | .bat (_alien.artifacts.BatchScript_), .sh (_tosca.artifacts.ShellScript_), .groovy (_tosca.artifacts.GroovyScript_) |
-| Cloudify 3 | .bat (_alien.artifacts.BatchScript_), .sh (_tosca.artifacts.ShellScript_) |
+| _Cloudify 2_ | **.bat** (_alien.artifacts.BatchScript_), **.sh** (_tosca.artifacts.ShellScript_), **.groovy** (_tosca.artifacts.GroovyScript_) |
+| _Cloudify 3_ | **.bat** (_alien.artifacts.BatchScript_), **.sh** (_tosca.artifacts.ShellScript_) |
 
 
 {%info%}
-Some Alien users deoyed also Puppet artifact through grooving script.
+Some Alien users deployed also **Puppet artifact** through grooving script.
 {%endinfo%}
