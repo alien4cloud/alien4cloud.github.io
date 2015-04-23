@@ -12,6 +12,7 @@ A requirement definition allows specification of a requirement that a node need 
 
 ## Keynames
 
+{: .table .table-bordered}
 | Keyname         | Type                | Required | Description |
 |:----------------|:--------------------|:---------|:------------|
 | type (Alien 4 Cloud supports also relationship_type) | string | no      | The optional reserved keyname used to provide a named Relationship Type to use when fulfilling the associated named requirement. |

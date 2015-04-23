@@ -33,8 +33,8 @@ Alien 4 Cloud is written in java for the backend and requires a JVM 7 or higher 
 {: .table .table-bordered}
 | Orchestrators | Deployment artefacts |
 |:----------------|:----------------|
-| Cloudify 2 | bat, sh, groovy |
-| Cloudify 3 | bat, sh |
+| Cloudify 2 | .bat (_alien.artifacts.BatchScript_), .sh (_tosca.artifacts.ShellScript_), .groovy (_tosca.artifacts.GroovyScript_) |
+| Cloudify 3 | .bat (_alien.artifacts.BatchScript_), .sh (_tosca.artifacts.ShellScript_) |
 
 
 {%info%}
