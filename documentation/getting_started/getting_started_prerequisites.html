@@ -1,0 +1,72 @@
+<div class="container">
+  <div class="row">
+    
+      <div class="col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-md-9">
+    
+        <h1 style="margin-top: 0px;">Prerequisites</h1>
+        
+<p class="lead">Before starting.</p>
+<hr style="margin-top:5px; margin-bottom:5px;" />
+<div class="row"><ul class="nav nav-pills" id="summarypanel"></ul></div>
+<hr style="margin-top:5px; margin-bottom:5px;" />
+
+<h1 id="check-your-java-version">Check your JAVA version</h1>
+
+<p>Ensure that you have at least JAVA version 7 or higher installed on your working station. If not, just install
+java following instructions <a href="https://www.java.com/fr/download/manual.jsp" target="_blank">here</a>.</p>
+
+<h1 id="download-cloudify-2">Download Cloudify 2</h1>
+
+<p>You can get <em>Cloudify</em> in version <strong>2.7.1</strong> <a href="http://getcloudify.org/downloads/get_cloudify_2x.html" target="_blank">here</a>.</p>
+
+<h1 id="download-alien4cloud">Download Alien4Cloud</h1>
+
+<p>In order to start using alien 4 cloud you have to download Alien. Two versions are available :</p>
+
+<ul>
+  <li><a href="https://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource&amp;g=alien4cloud&amp;a=alien4cloud-ui&amp;v=LATEST&amp;p=war&amp;c=standalone">standalone</a> : starts an embedded jetty server</li>
+  <li><a href="https://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource&amp;g=alien4cloud&amp;a=alien4cloud-ui&amp;v=LATEST&amp;p=war">deployable</a> : war file that can be deployed within a war container</li>
+</ul>
+
+<div class="note">
+<p>We recommend using the standalone version.</p>
+</div>
+
+<h1 id="check-your-access-to-a-cloud">Check your access to a cloud</h1>
+
+<p>To try Alien 4 Cloud with provider plugin <em>Cloudify</em> <strong>2.x</strong> or <strong>3.x</strong> you will need a cloud ready to use with your credentials.
+If not, we advice you to use <a href="http://trystack.org/" target="_blank">trystack</a>, a personal an free to use OpenStack.</p>
+
+<div class="note warning">
+<p>To validate your subscription to trystack, you will have to wait few days.</p>
+</div>
+
+<div class="note">
+<p>For this tutorial we recommend to use OpenStack.</p>
+</div>
+
+      </div>
+    </div>
+  </div>
+</div><!-- /container -->
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION', 'getting_started_prerequisites');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

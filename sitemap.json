@@ -309,31 +309,24 @@
 	},
 
 	{
+		"url": "/documentation/getting_started/getting_started_prerequisites.html", 
+		"section": "Documentation", 
+		"value": "Prerequisites",
+		"tokens": [ "Prerequisites"]
+	},
+
+	{
+		"url": "/documentation/getting_started/getting_started_start.html", 
+		"section": "Documentation", 
+		"value": "Quick Start",
+		"tokens": [ "Quick","Start"]
+	},
+
+	{
 		"url": "/community/index.html", 
 		"section": "", 
 		"value": "ALIEN 4 Cloud",
 		"tokens": [ "ALIEN","4","Cloud"]
-	},
-
-	{
-		"url": "/documentation/cloudify3_driver/index.html", 
-		"section": "Documentation", 
-		"value": "Cloudify 3 PaaS Provider",
-		"tokens": [ "Cloudify","3","PaaS","Provider"]
-	},
-
-	{
-		"url": "/roadmap/index.html", 
-		"section": "", 
-		"value": "Roadmap",
-		"tokens": [ "Roadmap"]
-	},
-
-	{
-		"url": "/release_notes/index.html", 
-		"section": "Release Notes", 
-		"value": "Release Notes",
-		"tokens": [ "Release","Notes"]
 	},
 
 	{
@@ -344,10 +337,31 @@
 	},
 
 	{
+		"url": "/release_notes/index.html", 
+		"section": "Release Notes", 
+		"value": "Release Notes",
+		"tokens": [ "Release","Notes"]
+	},
+
+	{
+		"url": "/roadmap/index.html", 
+		"section": "", 
+		"value": "Roadmap",
+		"tokens": [ "Roadmap"]
+	},
+
+	{
 		"url": "/documentation/cloudify2_driver/index.html", 
 		"section": "Documentation", 
 		"value": "Cloudify 2 PaaS Provider",
 		"tokens": [ "Cloudify","2","PaaS","Provider"]
+	},
+
+	{
+		"url": "/documentation/cloudify3_driver/index.html", 
+		"section": "Documentation", 
+		"value": "Cloudify 3 PaaS Provider",
+		"tokens": [ "Cloudify","3","PaaS","Provider"]
 	},
 
 	{
@@ -547,6 +561,13 @@
 	},
 
 	{
+		"url": "/documentation/devops_guide/tosca_grammar/policy.html", 
+		"section": "Documentation", 
+		"value": "Policy",
+		"tokens": [ "Policy"]
+	},
+
+	{
 		"url": "/js/post-layout.js", 
 		"section": "", 
 		"value": "",
@@ -635,6 +656,13 @@
 		"section": "Documentation", 
 		"value": "Storage volumes",
 		"tokens": [ "Storage","volumes"]
+	},
+
+	{
+		"url": "/documentation/admin/supported_platforms.html", 
+		"section": "Documentation", 
+		"value": "Supported platforms",
+		"tokens": [ "Supported","platforms"]
 	},
 
 	{
