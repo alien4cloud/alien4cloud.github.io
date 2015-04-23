@@ -74,6 +74,21 @@ You must have a zip with this file tree :
 └── README.md
 {% endhighlight %}
 
+## Required types for Wordpress
+
+The Wordpress topology is using custom types, we have to upload them first.
+
+Find those types on github here : [samples repository](https://github.com/alien4cloud/samples){:target="_blank"}
+
+* **apache** : the webserver [here](https://github.com/alien4cloud/samples/tree/master/apache){:target="_blank"}
+* **php** : the php interperter [here](https://github.com/alien4cloud/samples/tree/master/php){:target="_blank"}
+* **mysql** : the database required by Wordpress [here](https://github.com/alien4cloud/samples/tree/master/mysql){:target="_blank"}
+* **wordpress** : the blog component [here](https://github.com/alien4cloud/samples/tree/master/wordpress){:target="_blank"}
+
+Zip the content of each folder like you did for _**normative types**_ and upload each zipped file in this order.
+
+![Uploaded components](../../images/user_guide/user_guide_topology_template_components.png)
+
 ## Wordpress topology
 
 In order to have an full application ready to deploy through Alien 4 Cloud, just download the yaml description
