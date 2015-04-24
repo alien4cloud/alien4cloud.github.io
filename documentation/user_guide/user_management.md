@@ -26,21 +26,17 @@ In order to edit users in Alien 4 Cloud you must have the ADMIN role. Default us
 
 # User(s)
 
-In order to manage users go the to page by clicking on the _Administration_ ![Go to admin](../../images/screenshots/admin/admin_button.png){: .inline} button in the navigation bar. Then select the user tab on the administration side navigation bar or on the user main icon.
-
-![Go to user management](../../images/screenshots/admin/users/users_menu.png)
-
-![Go to user management](../../images/screenshots/admin/users/users_menu_side.png)
+In order to manage users go the to page by clicking on the ![Go to admin](../../images/user_guide/admin/admin_button.png){: .inline} button in the navigation bar. Then click on the user tab of the administration side navigation bar ![Go to user management](../../images/user_guide/admin/users/users_menu_side.png){: .inline} or on the user main icon.
 
 The user page allows you to manage both users and groups. On the user tab you can search users and see the list of users matching your request.
 
-![User list](../../images/screenshots/admin/users/user_list.png)
+![User list](../../images/user_guide/admin/users/user_list.png)
 
 ## Create user
 
-In order to create a new user within Alien just click on the _New User_ button ![Create user](../../images/screenshots/admin/users/user_new.png){: .inline}. The create user modal appears and allows you fill-in initial data for your user.
+In order to create a new user within Alien just click on the _New User_ button ![Create user](../../images/user_guide/admin/users/user_new.png){: .inline}. The create user modal appears and allows you fill-in initial data for your user.
 
-![Create user](../../images/screenshots/admin/users/user_new_modal.png)
+![Create user](../../images/user_guide/admin/users/user_new_modal.png)
 
 Admin is responsible for setting up the username (that will be used for login) and the password of the user.
 
@@ -52,25 +48,25 @@ Of course when using LDAP integration the password are managed by LDAP and there
 
 ## Search user
 
-![Search user](../../images/screenshots/admin/users/user_search.png)
+![Search user](../../images/user_guide/admin/users/user_search.png)
 
 ## Remove user
 
-![Remove user](../../images/screenshots/admin/users/user_remove.png)
+![Remove user](../../images/user_guide/admin/users/user_remove.png)
 
 ## Grant rôle(s) to a user
 
-![Grant rôle(s) to a user](../../images/screenshots/admin/users/user_edit_roles.png)
+![Grant rôle(s) to a user](../../images/user_guide/admin/users/user_edit_roles.png)
 
 # Group(s)
 
-![Group list](../../images/screenshots/admin/users/group_list.png)
+![Group list](../../images/user_guide/admin/users/group_list.png)
 
 ## Create a group
 
-![Create group](../../images/screenshots/admin/users/group_new.png)
+![Create group](../../images/user_guide/admin/users/group_new.png)
 
-![Create group](../../images/screenshots/admin/users/group_new_modal.png)
+![Create group](../../images/user_guide/admin/users/group_new_modal.png)
 
 ## Remove a group
 
@@ -78,7 +74,7 @@ Of course when using LDAP integration the password are managed by LDAP and there
 
 ## Add/Remove a user to/from a group
 
-![Add/Remove ](../../images/screenshots/admin/users/user_edit_groups.png)
+![Add/Remove ](../../images/user_guide/admin/users/user_edit_groups.png)
 
 # Roles in Alien 4 Cloud
 

@@ -26,52 +26,6 @@ You need to create a cloud and configure it.
 1. Login as an admin, and create a cloud: `admin > clouds > New Cloud`.
 2. As `PaaS provider` for this cloud, make sure to select ***Cloudify 2 PaaS Provider*** from the list. Validate
 
-### Naming policy ###
-
-You may need to define a specific naming policy for your application in the configuration tab :
-
-[![Naming policy][config_cloud_naming_policy]][config_cloud_naming_policy]<br>
-
-To compose your own application naming policy, you can use the following entities and properties :
-
-- **environment** : the environment link to the deployment
-  * _id_
-  * _name_
-  * _applicationId_
-  * _cloudId_
-  * _environmentType_ : `OTHER, DEVELOPMENT, INTEGRATION_TESTS, USER_ACCEPTANCE_TESTS, PRE_PRODUCTION, PRODUCTION`
-  * _currentVersionId_
-- **application** : deployed application
-  * _id_
-  * _name_
-  * _creationDate_
-  * _lastUpdateDate_
-- **metaProperties** : the administrator can define meta properties linked to an application
-- **time** : current date at format `yyyyMMddHHmm`
-
-The default naming policy setting for any cloud is : `environment.name + application.name`
-
-{%warning%}
-The administrator is responsible for the naming policy consistency. In cloudify, you can't have two deployments with the same name.
-{%endwarning%}
-
-The main pattern to define a naming policy is to use `+` to concat different properties or text, for examples :
-
-- `environment.name + application.name + time`
-- `application.id + environment.environmentType + '-US_ZONE'`
-- `time + '__' + application.creationDate`
-- `'MY_APP' + '-WORDPRESS-' + time`
-- `metaProperties['PROPERTY_NAME'] + '-' + time`
-
-{%warning%}
-Any empty property used in the policy expression will cause a deployment failure
-{%endwarning%}
-
-{%info%}
-**Advanced use** : the policy expression is based on [SpEL](http://docs.spring.io/spring/docs/current/spring-framework-reference/html/expressions.html){:target="_blank"} (_Spring Expression Language_) and you could use its capabilities if you are familiar with it.
-__Note__ : do not use the `#`
-{%endinfo%}
-
 ### Configuring the cloud ###
 On the cloud list, select and click on the newly created cloud, then go to the `configuration` tab.
 
