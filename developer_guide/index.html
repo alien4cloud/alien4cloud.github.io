@@ -13,6 +13,14 @@
 
 <p>This section gives a focus to ALIEN extensions through the plugin mechanism. In order to understand plugins it is important to know how ALIEN is designed and how plugins are managed by ALIEN.</p>
 
+<h3 id="mock-plugin">Mock plugin</h3>
+
+<p>If you want to try out Alien 4 Cloud but not use a real cloud for deployments you can use the mock PaaS Provider plugin. This is a plugin that we use for our tests and that mock the PaaS orchestrator.</p>
+
+<div class="note warning">
+<p>The mock plugin does not allow you to test any of your components as it do not deploy anything or even call your scripts. To do so you should use a real PaaS Provider plugin like cloudify plugin and deploy on a local cloud technology like Virtua Box or Docker (note that docker support will come with support of cloudify 3).</p>
+</div>
+
       </div>
     </div>
   </div>

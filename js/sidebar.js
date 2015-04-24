@@ -1969,6 +1969,37 @@ var node, children;
     
       var parent = sidebarTree["DOCUMENTATION"];
       
+        
+
+        children = parent.children;
+        // try to find the node if exists already
+        node = null;
+        for (var i=0; i<children.length; i++) {
+          if(children[i].name === 'cloudify_3_index') {
+            node = children[i];
+          }
+        }
+        if(node === null) {
+          node = {
+            'children': [],
+            'collapsed': true
+          };
+          children.push(node);
+        }
+      
+
+      node.name = "cloudify_3_index";
+      node.title = "Cloudify 3 PaaS Provider";
+      node.url = "documentation/cloudify3_driver/index.html";
+      node.weight =  1000;
+      node.root = "../../";
+    
+  
+    
+  
+    
+      var parent = sidebarTree["DOCUMENTATION"];
+      
         node = parent;
       
 
@@ -2013,35 +2044,6 @@ var node, children;
     
   
     
-      var parent = sidebarTree["DOCUMENTATION"];
-      
-        
-
-        children = parent.children;
-        // try to find the node if exists already
-        node = null;
-        for (var i=0; i<children.length; i++) {
-          if(children[i].name === 'cloudify_3_index') {
-            node = children[i];
-          }
-        }
-        if(node === null) {
-          node = {
-            'children': [],
-            'collapsed': true
-          };
-          children.push(node);
-        }
-      
-
-      node.name = "cloudify_3_index";
-      node.title = "Cloudify 3 PaaS Provider";
-      node.url = "documentation/cloudify3_driver/index.html";
-      node.weight =  1000;
-      node.root = "../../";
-    
-  
-    
   
     
       var parent = sidebarTree["DOCUMENTATION"];
@@ -2070,8 +2072,6 @@ var node, children;
       node.url = "documentation/admin_guide/index.html";
       node.weight =  400;
       node.root = "../../";
-    
-  
     
   
     
@@ -6215,8 +6215,6 @@ var node, children;
     
   
     
-  
-    
       var parent = sidebarTree["DEVELOPER_GUIDE"];
       
         node = parent;
@@ -6227,6 +6225,8 @@ var node, children;
       node.url = "developer_guide/index.html";
       node.weight =  0;
       node.root = "../";
+    
+  
     
   
     
@@ -6541,6 +6541,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["ROADMAP"];
       
         node = parent;
@@ -6551,8 +6553,6 @@ var node, children;
       node.url = "roadmap/index.html";
       node.weight =  0;
       node.root = "../";
-    
-  
     
   
     

@@ -9,11 +9,19 @@
         <h1 style="margin-top: 0px;">Plugin(s) management</h1>
         <p>Plugins provides some additional functionalities to Alien 4 Cloud. We currently support paas provider plugins (orchestrators interface with Alien 4 Cloud) but aims to provide much more plugins with various functionalities and even UI components.</p>
 
+<h1 id="paas-providers-orchestrators">PaaS Providers (Orchestrators)</h1>
+
+<p>Alien 4 Cloud is not managing actual runtime state of deployments by itself. In order to do so it delegates runtime to orchestrators, as well refered in Alien 4 Cloud as <em>PaaS Providers</em>. A PaaS Provider in A4C is a plugin that will be associated with <em>Clouds</em>. It is possible of course to have multiple clouds using the same PaaS Provider as well a multiple clouds with different PaaS Providers.</p>
+
+<p>We currently support Cloudify 2 and Cloudify 3 orchestrators as PaaS Providers. Cloudify 3 is recommended for new projects while we still recommends using Cloudify 2 as long as the version 3.2 is not released and supported in Alien 4 Cloud.</p>
+
 <h2 id="installing-plugin-in-alien-4-cloud">Installing plugin in Alien 4 Cloud</h2>
+
+<p>TODO explain how to upload a plugin package in A4C.</p>
 
 <h2 id="plugin-configuration">Plugin configuration</h2>
 
-<p>Some plugins may requires specific configuration that is global to the plugin.</p>
+<p>Some plugins may requires specific configuration that is global to the plugin. In case a plugin can be configured you will see the following icon</p>
 
 <h3 id="advanced-plugins-configurations">Advanced plugins configurations</h3>
 
