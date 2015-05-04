@@ -75,6 +75,47 @@ If you want to use cloudify in a persistent mode, you should override the clouli
 * Download the [custom management space jar][custom_management_space_jar-link] and store it into the newly created folder. Rename it if needed into `management-space.jar`.  
 
 
+
+### High Availability (HA) ###
+
+Alien4Cloud has a feature which will allow him to manage HA deploiements: deploy an application on a cloud, but in more than one availability zone (AZ). Currently, it is not possible to generate cloudify compute templates customized with a particular AZ. Thus, you'll have to defined them explicetelly in the cloudCompute templates section of your cloud configuration file.  
+First of all, you should make an inventory of all the AZ you want to be managed.  
+Then, For every template defined in the cloudCompute section of of your cloud, define a HA equivalent for every managed AZ. To do so:  
+
+1. copy & paste the template definition
+2. rename it following the pattern: `_<TEMPLATE_NAME>_AZ_<AZ_name>`
+3. modify (or add if not yet) the property "locationId" and set its value to the name of the AZ.
+
+At the end of the operation, given you have ***n*** cloudify templates and ***m*** AZ to manage, you shoud have  ***n + (n x m)*** entries in the  cloudCompute templates section.
+
+**Exemple**: with a template SMALL_LINUX and two AZ zone1 and zone2, we hould end up with 3 templates entries:
+
+{%highlight groovy%}
+
+cloud{
+  name = "your_cloud_name"
+  ...
+  cloudCompute {
+    templates ([
+		SMALL_LINUX : computeTemplate {
+			...
+		},
+		_SMALL_LINUX_AZ_zone1 : computeTemplate {
+			...
+			locationId zone1
+			...
+		},
+		_SMALL_LINUX_AZ-zone2 : computeTemplate {
+			...
+			locationId zone2
+			...
+		}
+	])
+  }
+}
+{%endhighlight%} 
+ 
+
 ### Bootstraping ###
 Bootstrap your cloud, and when done, note the REST API URL (Rest service bellow)
 {%highlight console%}

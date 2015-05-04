@@ -54,6 +54,12 @@ You should now go to `Block Storages` tab to configure your cloud's block storag
 6. **<u>Block Storages Configuration</u>**: Here you have to create/configure your cloud's block storage templates. Map your cloud's created block storage to the correct identifier of Cloudify 2 (which is defined in the cloudify 2 cloud's configuration)<br><br>
 [![Block Storages configuration][config_cloud_cloudifyBlockStorage]][config_cloud_cloudifyBlockStorage]<br>
 You must enter the PaaS Resource Id for all created block storage template or it will not be usable.<br>
+
+7. **<u>Availability zones Configuration</u>**: Here you have to create/configure your cloud's availability zones. Map your cloud's created zones to the correct identifier of Cloudify 2 (which is defined in the cloudify 2 cloud's configuration)<br><br>
+[![Availability zones configuration][config_cloud_zones]][config_cloud_zones]<br>
+You must enter the PaaS Resource Id for all created zones or it will not be usable.<br>
+**NOTE**: Make sure you have defined the related template for the couple template, (availability zone) in your cloudify 2. see [customizing cloudify2](#/documentation/cloudify2_driver/cloudify.html)
+
 **Congratulation!!** You've finished to configure your cloudify2-based cloud. You can now begin to deploy your application with this cloud.
 
 [config_cloud_cloudifyConUrl]: ../../images/cloudify2_driver/config_cloud_cloudifyConUrl.png  "Connection configuration"
@@ -69,3 +75,5 @@ You must enter the PaaS Resource Id for all created block storage template or it
 [config_cloud_cloudifyBlockStorage]: ../../images/cloudify2_driver/config_cloud_cloudifyBlockStorage.png  "Block Storages"
 
 [config_cloud_naming_policy]: ../../images/cloudify2_driver/config_cloud_naming_policy.png  "Naming policy"
+
+[config_cloud_zones]: ../../images/cloudify2_driver/config_cloud_zones.png  "Availability zones"
