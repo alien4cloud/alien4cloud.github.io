@@ -63,10 +63,17 @@ You should now go to <code>Block Storages</code> tab to configure your cloud’s
   <li>
     <p><strong><u>Block Storages Configuration</u></strong>: Here you have to create/configure your cloud’s block storage templates. Map your cloud’s created block storage to the correct identifier of Cloudify 2 (which is defined in the cloudify 2 cloud’s configuration)<br /><br />
 <a href="../../images/cloudify2_driver/config_cloud_cloudifyBlockStorage.png" title="Block Storages"><img src="../../images/cloudify2_driver/config_cloud_cloudifyBlockStorage.png" alt="Block Storages configuration" title="Block Storages" /></a><br />
-You must enter the PaaS Resource Id for all created block storage template or it will not be usable.<br />
-<strong>Congratulation!!</strong> You’ve finished to configure your cloudify2-based cloud. You can now begin to deploy your application with this cloud.</p>
+You must enter the PaaS Resource Id for all created block storage template or it will not be usable.<br /></p>
+  </li>
+  <li>
+    <p><strong><u>Availability zones Configuration</u></strong>: Here you have to create/configure your cloud’s availability zones. Map your cloud’s created zones to the correct identifier of Cloudify 2 (which is defined in the cloudify 2 cloud’s configuration)<br /><br />
+<a href="../../images/cloudify2_driver/config_cloud_zones.png" title="Availability zones"><img src="../../images/cloudify2_driver/config_cloud_zones.png" alt="Availability zones configuration" title="Availability zones" /></a><br />
+You must enter the PaaS Resource Id for all created zones or it will not be usable.<br />
+<strong>NOTE</strong>: Make sure you have defined the related template for the couple template, (availability zone) in your cloudify 2. see <a href="#/documentation/cloudify2_driver/cloudify.html">customizing cloudify2</a></p>
   </li>
 </ol>
+
+<p><strong>Congratulation!!</strong> You’ve finished to configure your cloudify2-based cloud. You can now begin to deploy your application with this cloud.</p>
 
 
       </div>
