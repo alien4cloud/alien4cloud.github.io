@@ -39,7 +39,7 @@ exclude_from_search: true
     |  <i class="fa fa-bug text-danger"></i> | ALIEN-782 | Fixed the topology validation: The topology is no longer considered as valid in case a relationship and capability required property is not defined. |
     |  <i class="fa fa-bug text-danger"></i> | ALIEN-788 | NPE on runtime views after a restart of the cloudify manager then a restart of A4C |
     |  <i class="fa fa-bug text-danger"></i> | ALIEN-791 | Fixed an issue that caused a very long startup delay in case a cloud was not reachable on alien's startup. |
-
+  
 
 
 ### Cloudify 3 PaaS Provider
@@ -50,7 +50,7 @@ exclude_from_search: true
   | Type        | Id         | Description |
   |:------------|:-----------|:------------|
       |  <i class="fa fa-level-up text-primary"></i> | ALIEN-757 | Deployment artifacts are now managed by cloudify 3 provider. |
-
+    
 
 
 ### Cloudify 2 PaaS Provider
@@ -70,3 +70,5 @@ exclude_from_search: true
     |  <i class="fa fa-bug text-danger"></i> | ALIEN-761 | Unable to restart the cloudify manager in persistent mode |
     |  <i class="fa fa-bug text-danger"></i> | ALIEN-776 | When I deployed an application in A4C, A4C lost track of the deployment, but the application is correctly deployed in Cloudify. |
     |  <i class="fa fa-bug text-danger"></i> | ALIEN-795 | Fixed an issue that caused dependency management to hang under some latency circumstances (network, time for components to start). |
+  
+
