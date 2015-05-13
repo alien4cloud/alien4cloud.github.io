@@ -106,6 +106,13 @@
 	},
 
 	{
+		"url": "/release_notes/1.0.0-SM25.html", 
+		"section": "Release Notes", 
+		"value": "ALIEN for Cloud 1.0.0-SM25",
+		"tokens": [ "ALIEN","for","Cloud","1.0.0SM25"]
+	},
+
+	{
 		"url": "/documentation/about.html", 
 		"section": "Documentation", 
 		"value": "About",
@@ -337,31 +344,10 @@
 	},
 
 	{
-		"url": "/release_notes/index.html", 
-		"section": "Release Notes", 
-		"value": "Release Notes",
-		"tokens": [ "Release","Notes"]
-	},
-
-	{
 		"url": "/documentation/index.html", 
 		"section": "Documentation", 
 		"value": "ALIEN 4 Cloud - Documentation",
 		"tokens": [ "ALIEN","4","Cloud","","Documentation"]
-	},
-
-	{
-		"url": "/roadmap/index.html", 
-		"section": "", 
-		"value": "Roadmap",
-		"tokens": [ "Roadmap"]
-	},
-
-	{
-		"url": "/developer_guide/index.html", 
-		"section": "Developer Guide", 
-		"value": "Developer Guide",
-		"tokens": [ "Developer","Guide"]
 	},
 
 	{
@@ -372,10 +358,24 @@
 	},
 
 	{
-		"url": "/index.html", 
+		"url": "/roadmap/index.html", 
 		"section": "", 
-		"value": "ALIEN 4 Cloud",
-		"tokens": [ "ALIEN","4","Cloud"]
+		"value": "Roadmap",
+		"tokens": [ "Roadmap"]
+	},
+
+	{
+		"url": "/release_notes/index.html", 
+		"section": "Release Notes", 
+		"value": "Release Notes",
+		"tokens": [ "Release","Notes"]
+	},
+
+	{
+		"url": "/developer_guide/index.html", 
+		"section": "Developer Guide", 
+		"value": "Developer Guide",
+		"tokens": [ "Developer","Guide"]
 	},
 
 	{
@@ -386,6 +386,13 @@
 	},
 
 	{
+		"url": "/index.html", 
+		"section": "", 
+		"value": "ALIEN 4 Cloud",
+		"tokens": [ "ALIEN","4","Cloud"]
+	},
+
+	{
 		"url": "/documentation/cloudify2_driver/inputs_env_vars.html", 
 		"section": "Documentation", 
 		"value": "Inputs and others variables",
@@ -393,14 +400,14 @@
 	},
 
 	{
-		"url": "/documentation/cloudify2_driver/install_config.html", 
+		"url": "/documentation/cloudify3_driver/install_config.html", 
 		"section": "Documentation", 
 		"value": "Installing and configuring",
 		"tokens": [ "Installing","and","configuring"]
 	},
 
 	{
-		"url": "/documentation/cloudify3_driver/install_config.html", 
+		"url": "/documentation/cloudify2_driver/install_config.html", 
 		"section": "Documentation", 
 		"value": "Installing and configuring",
 		"tokens": [ "Installing","and","configuring"]
