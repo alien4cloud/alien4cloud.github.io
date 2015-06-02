@@ -22,23 +22,23 @@ exclude_from_search: true
   {: .table .table-bordered}
   | Type        | Id         | Description |
   |:------------|:-----------|:------------|
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-248 | It is now possible to define a capability property as an input or output of the topology. / It is now possible to define a capability property as an input or output of the topology. |
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-568 | Admin has now access to audit informations. / Admin has now access to audit informations. |
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-698 | Yaml view in the topology editor now display a valid tosca model. / Yaml view in the topology editor now display a valid tosca model. |
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-783 | New clouds can now be created by cloning an existing cloud. / New clouds can now be created by cloning an existing cloud. |
-      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-725 | Derived from informations are now visible on component detail view. / Derived from informations are now visible on component detail view. |
-    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-756 | TOSCA parsing now supports node templates capabilities parsing. / TOSCA parsing now supports node templates capabilities parsing. |
-      |  <i class="fa fa-bug text-danger"></i> | ALIEN-580 | Pattern for os version is now checked when creating a cloud image / Pattern for os version is now checked when creating a cloud image |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-726 | Fixed an issue that prevented users to access an application if the cloud associated with one of it's environment was removed. / Fixed an issue that prevented users to access an application if the cloud associated with one of it's environment was removed. |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-736 | Alien 4 Cloud is now able to differentiate templates registered in cloudify 2 even when multiple templates are related to the same image+flavor combination. / Alien 4 Cloud is now able to differentiate templates registered in cloudify 2 even when multiple templates are related to the same image+flavor combination. |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-740 | Fixed an issue that prevented to change user password using REST API as the new password was not encoded. / Fixed an issue that prevented to change user password using REST API as the new password was not encoded. |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-743 | Bug : unable to delete my topolgy's CSAR / Bug : unable to delete my topolgy's CSAR |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-750 | I don't to see error 500 when try to undeploy a cloud while i'm disconnected / I don't to see error 500 when try to undeploy a cloud while i'm disconnected |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-767 | Fixed issues with the new topology layout and provide many improvements. / Fixed issues with the new topology layout and provide many improvements. |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-772 | Fixed issues that caused topology's input renaming to fail. The name is also now checked to be TOSCA compliant (no space in the name). / Fixed issues that caused topology's input renaming to fail. The name is also now checked to be TOSCA compliant (no space in the name). |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-782 | Fixed the topology validation: The topology is no longer considered as valid in case a relationship and capability required property is not defined. / Fixed the topology validation: The topology is no longer considered as valid in case a relationship and capability required property is not defined. |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-788 | NPE on runtime views after a restart of the cloudify manager then a restart of A4C / NPE on runtime views after a restart of the cloudify manager then a restart of A4C |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-791 | Fixed an issue that caused a very long startup delay in case a cloud was not reachable on alien's startup. / Fixed an issue that caused a very long startup delay in case a cloud was not reachable on alien's startup. |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-248 | It is now possible to define a capability property as an input or output of the topology. /  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-568 | Admin has now access to audit informations. /  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-698 | Yaml view in the topology editor now display a valid tosca model. /  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-783 | New clouds can now be created by cloning an existing cloud. /  |
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-725 | Derived from informations are now visible on component detail view. /  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-756 | TOSCA parsing now supports node templates capabilities parsing. /  |
+      |  <i class="fa fa-bug text-danger"></i> | ALIEN-580 | Pattern for os version is now checked when creating a cloud image /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-726 | Fixed an issue that prevented users to access an application if the cloud associated with one of it's environment was removed. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-736 | Alien 4 Cloud is now able to differentiate templates registered in cloudify 2 even when multiple templates are related to the same image+flavor combination. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-740 | Fixed an issue that prevented to change user password using REST API as the new password was not encoded. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-743 | Bug : unable to delete my topolgy's CSAR /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-750 | I don't to see error 500 when try to undeploy a cloud while i'm disconnected /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-767 | Fixed issues with the new topology layout and provide many improvements. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-772 | Fixed issues that caused topology's input renaming to fail. The name is also now checked to be TOSCA compliant (no space in the name). /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-782 | Fixed the topology validation: The topology is no longer considered as valid in case a relationship and capability required property is not defined. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-788 | NPE on runtime views after a restart of the cloudify manager then a restart of A4C /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-791 | Fixed an issue that caused a very long startup delay in case a cloud was not reachable on alien's startup. /  |
   
 
 
@@ -49,7 +49,7 @@ exclude_from_search: true
   {: .table .table-bordered}
   | Type        | Id         | Description |
   |:------------|:-----------|:------------|
-      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-757 | Deployment artifacts are now managed by cloudify 3 provider. / Deployment artifacts are now managed by cloudify 3 provider. |
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-757 | Deployment artifacts are now managed by cloudify 3 provider. /  |
     
 
 
@@ -60,15 +60,15 @@ exclude_from_search: true
   {: .table .table-bordered}
   | Type        | Id         | Description |
   |:------------|:-----------|:------------|
-      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-734 | Passwords for cloudify 2 connection are now configured using password type fields in A4C UI. / Passwords for cloudify 2 connection are now configured using password type fields in A4C UI. |
-    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-785 | Removed the synchronous deployment mode as this was deprecated, buggy and not recommended feature. / Removed the synchronous deployment mode as this was deprecated, buggy and not recommended feature. |
-      |  <i class="fa fa-bug text-danger"></i> | ALIEN-715 | Fixed an issue that prevented to use the get_property function to access a property defined in a capability in the inputs of a relationship script / Fixed an issue that prevented to use the get_property function to access a property defined in a capability in the inputs of a relationship script |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-716 | Fixed an issue that caused get_attribute: [TARGET, ip_address] to fail when used on a node's stop operation. / Fixed an issue that caused get_attribute: [TARGET, ip_address] to fail when used on a node's stop operation. |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-736 | Alien 4 Cloud is now able to differentiate templates registered in cloudify 2 even when multiple templates are related to the same image+flavor combination. / Alien 4 Cloud is now able to differentiate templates registered in cloudify 2 even when multiple templates are related to the same image+flavor combination. |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-749 | Fixed an issue that prevented to use the get_property function to access a property defined in a relationship as the inputs of a relationship script / Fixed an issue that prevented to use the get_property function to access a property defined in a relationship as the inputs of a relationship script |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-753 | Fixed an issue that caused get_attribute: [TARGET, ip_address] to fail when used on a relationship's add_target operation. / Fixed an issue that caused get_attribute: [TARGET, ip_address] to fail when used on a relationship's add_target operation. |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-761 | Unable to restart the cloudify manager in persistent mode / Unable to restart the cloudify manager in persistent mode |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-776 | When I deployed an application in A4C, A4C lost track of the deployment, but the application is correctly deployed in Cloudify. / When I deployed an application in A4C, A4C lost track of the deployment, but the application is correctly deployed in Cloudify. |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-795 | Fixed an issue that caused dependency management to hang under some latency circumstances (network, time for components to start). / Fixed an issue that caused dependency management to hang under some latency circumstances (network, time for components to start). |
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-734 | Passwords for cloudify 2 connection are now configured using password type fields in A4C UI. /  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-785 | Removed the synchronous deployment mode as this was deprecated, buggy and not recommended feature. /  |
+      |  <i class="fa fa-bug text-danger"></i> | ALIEN-715 | Fixed an issue that prevented to use the get_property function to access a property defined in a capability in the inputs of a relationship script /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-716 | Fixed an issue that caused get_attribute: [TARGET, ip_address] to fail when used on a node's stop operation. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-736 | Alien 4 Cloud is now able to differentiate templates registered in cloudify 2 even when multiple templates are related to the same image+flavor combination. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-749 | Fixed an issue that prevented to use the get_property function to access a property defined in a relationship as the inputs of a relationship script /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-753 | Fixed an issue that caused get_attribute: [TARGET, ip_address] to fail when used on a relationship's add_target operation. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-761 | Unable to restart the cloudify manager in persistent mode /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-776 | When I deployed an application in A4C, A4C lost track of the deployment, but the application is correctly deployed in Cloudify. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-795 | Fixed an issue that caused dependency management to hang under some latency circumstances (network, time for components to start). /  |
   
 

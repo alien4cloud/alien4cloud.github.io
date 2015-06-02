@@ -22,13 +22,13 @@ exclude_from_search: true
   {: .table .table-bordered}
   | Type        | Id         | Description |
   |:------------|:-----------|:------------|
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-843 | We now supports the usage of the TOSCA get_operation_output function allowing for your scripts to return values that will be assigned to attributes or reused at other steps of the lifecycle. / We now supports the usage of the TOSCA get_operation_output function allowing for your scripts to return values that will be assigned to attributes or reused at other steps of the lifecycle. |
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-847 | It is now possible to reference inputs that will reference values of meta-properties or tag defined at the cloud or application level (and that won't be displayed to the deployer user). / It is now possible to reference inputs that will reference values of meta-properties or tag defined at the cloud or application level (and that won't be displayed to the deployer user). |
-    |  <i class="fa fa-exclamation-triangle text-warning">  <i class="fa fa-plus text-success"></i> | ALIEN-926 | We now support input artifacts to be linked to multiple components just like classical TOSCA inputs. This is a breaking change in the TOSCA YAML that we support. / We now support input artifacts to be linked to multiple components just like classical TOSCA inputs. This is a breaking change in the TOSCA YAML that we support. |
-      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-892 | It is now possible to refresh the cloud configuration and fetch again the images and flavors from the UI without having to tear down the cloud. / It is now possible to refresh the cloud configuration and fetch again the images and flavors from the UI without having to tear down the cloud. |
-    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-973 | Meta Properties are now unique by name and type (meaning you cannot have two meta-properties with the same name for a target application but you can have two meta with same name - one for cloud and one for application) / Meta Properties are now unique by name and type (meaning you cannot have two meta-properties with the same name for a target application but you can have two meta with same name - one for cloud and one for application) |
-      |  <i class="fa fa-bug text-danger"></i> | ALIEN-922 | Fixed an issue in the display of the meta-properties on application view when values where changed. / Fixed an issue in the display of the meta-properties on application view when values where changed. |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-939 | The last admin user cannot have it's admin role removed. / The last admin user cannot have it's admin role removed. |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-843 | We now supports the usage of the TOSCA get_operation_output function allowing for your scripts to return values that will be assigned to attributes or reused at other steps of the lifecycle. / [Documentation](#/documentation/devops_guide/tosca_grammar/get_operation_output_definition.html) |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-847 | It is now possible to reference inputs that will reference values of meta-properties or tag defined at the cloud or application level (and that won't be displayed to the deployer user). / [Documentation](#/documentation/user_guide/application/application_management_advanced_inputs.html) |
+    |  <i class="fa fa-exclamation-triangle text-warning">  <i class="fa fa-plus text-success"></i> | ALIEN-926 | We now support input artifacts to be linked to multiple components just like classical TOSCA inputs. This is a breaking change in the TOSCA YAML that we support. / [Documentation](#/documentation/devops_guide/tosca_grammar/topology_template.html) |
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-892 | It is now possible to refresh the cloud configuration and fetch again the images and flavors from the UI without having to tear down the cloud. /  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-973 | Meta Properties are now unique by name and type (meaning you cannot have two meta-properties with the same name for a target application but you can have two meta with same name - one for cloud and one for application) /  |
+      |  <i class="fa fa-bug text-danger"></i> | ALIEN-922 | Fixed an issue in the display of the meta-properties on application view when values where changed. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-939 | The last admin user cannot have it's admin role removed. /  |
   
 
 
@@ -39,7 +39,7 @@ exclude_from_search: true
   {: .table .table-bordered}
   | Type        | Id         | Description |
   |:------------|:-----------|:------------|
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-948 | Cloudify 2 driver now supports the get_operation_output functions. / Cloudify 2 driver now supports the get_operation_output functions. |
-        |  <i class="fa fa-bug text-danger"></i> | ALIEN-940 | Fixed a bug that prevented to view the output attributes values of every instances of a node on a deployed application. / Fixed a bug that prevented to view the output attributes values of every instances of a node on a deployed application. |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-948 | Cloudify 2 driver now supports the get_operation_output functions. / [Documentation](#/documentation/cloudify2_driver/operation_outputs.html) |
+        |  <i class="fa fa-bug text-danger"></i> | ALIEN-940 | Fixed a bug that prevented to view the output attributes values of every instances of a node on a deployed application. /  |
   
 
