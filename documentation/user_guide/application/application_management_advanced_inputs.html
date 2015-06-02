@@ -89,14 +89,17 @@ and give the good name to have the good targeted value :</p>
   <li><code>app_meta_</code><strong>MYAPP_META2</strong></li>
 </ul>
 
-<p><strong>Note :</strong> avoid dot (.) caracter in you meta-property name</p>
+<div class="note info">
+<h5>Meta property naming</h5>
+<p><strong>Note :</strong> avoid dot <strong>.</strong> caracter in you meta-property name (e.g. my.meta.1)</p>
+</div>
 
 <div class="note warning">
 <h5>Missing values</h5>
 <p>We have two possible cases regarding an input and the targeted meta-property :</p>
 
 <ul>
-  <li><strong>requirted</strong> property : if the provided value doesn’t exist as input the property will stay marked as <strong>missing</strong></li>
+  <li><strong>requirted</strong> property : if the provided value doesn’t exist as input the property will stay marked as <strong>missing</strong> and the topology not deployable</li>
   <li><strong>optional</strong> property : if the provided value doesn’t exist you will have a <code>warning</code> but the deployment will still be possible</li>
 </ul>
 </div>
