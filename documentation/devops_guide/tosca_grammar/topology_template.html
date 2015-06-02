@@ -66,6 +66,9 @@
   <span class="l-Scalar-Plain">inputs</span><span class="p-Indicator">:</span>
     <span class="c1"># list of global input parameters</span>
 
+  <span class="l-Scalar-Plain">input_artifacts</span><span class="p-Indicator">:</span>
+    <span class="c1"># map of artifacts defined as inputs (non TOSCA)</span>
+
   <span class="l-Scalar-Plain">node_templates</span><span class="p-Indicator">:</span>
     <span class="c1"># list of node templates</span>
 
@@ -122,6 +125,36 @@
 <div class="note">
 <p>The parameters (properties) that are listed as part of the inputs block could be mapped to PropertyMappings provided as part of BoundaryDefinitions as described by the TOSCA v1.0 specification.</p>
 </div>
+
+<h3 id="inputartifacts">input_artifacts</h3>
+
+<p>This section defines template-level input artifacts. Such artifacts can be shared by several nodes. Their content is defined at deployment time.</p>
+
+<div class="note warning">
+<p>The section <em>input_artifacts</em> and the function <em>get_input_artifact</em> are not yet defined in TOSCA.</p>
+</div>
+
+<h4 id="examples-1">Examples</h4>
+
+<p>In this example, an input artifact is defined and shared by two different nodes:</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">topology_template</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">input_artifacts</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">my_war_file</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">alien.artifacts.WarFile</span>
+  <span class="l-Scalar-Plain">node_templates</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">War1</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">alien.nodes.cloudify.War</span>
+      <span class="l-Scalar-Plain">artifacts</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">war_file</span><span class="p-Indicator">:</span>
+          <span class="l-Scalar-Plain">implementation</span><span class="p-Indicator">:</span> <span class="p-Indicator">{</span> <span class="nv">get_input_artifact</span><span class="p-Indicator">:</span> <span class="nv">my_war_file</span> <span class="p-Indicator">}</span>
+          <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">alien.artifacts.WarFile</span>
+    <span class="l-Scalar-Plain">War2</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">alien.nodes.cloudify.War</span>
+      <span class="l-Scalar-Plain">artifacts</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">war_file</span><span class="p-Indicator">:</span>
+          <span class="l-Scalar-Plain">implementation</span><span class="p-Indicator">:</span> <span class="p-Indicator">{</span> <span class="nv">get_input_artifact</span><span class="p-Indicator">:</span> <span class="nv">my_war_file</span> <span class="p-Indicator">}</span>
+          <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">alien.artifacts.WarFile</span></code></pre></div>
 
 <h3 id="nodetemplates">node_templates</h3>
 

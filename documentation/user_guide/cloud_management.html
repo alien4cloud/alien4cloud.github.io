@@ -7,7 +7,12 @@
       <div id="content" class="col-md-9">
     
         <h1 style="margin-top: 0px;">Cloud(s) management</h1>
-        <p>If you are not familiar with the concept of cloud in Alien 4 Cloud please go <a href="#/documentation/concepts/clouds.html">here</a> first.</p>
+        
+<hr style="margin-top:5px; margin-bottom:5px;" />
+<div class="row"><ul class="nav nav-pills" id="summarypanel"></ul></div>
+<hr style="margin-top:5px; margin-bottom:5px;" />
+
+<p>If you are not familiar with the concept of cloud in Alien 4 Cloud please go <a href="#/documentation/concepts/clouds.html">here</a> first.</p>
 
 <h2 id="requirement-for-cloud-creation">Requirement for cloud creation</h2>
 
@@ -30,9 +35,9 @@
 
 <p>Once you have installed a plugin the admin can go on the cloud page and configure cloud. Remember that you can use the Alien 4 Cloud contextual help in order to be guided directly within the application.</p>
 
-<h1 id="cloud-configuration">Cloud configuration</h1>
+<h1 id="cloud-global-configuration">Cloud global configuration</h1>
 
-<h2 id="meta-configuration">Meta configuration</h2>
+<p><img src="../../images/user_guide/admin/clouds/cloud_global_configuration.png" alt="Naming policy" /><br /></p>
 
 <h2 id="naming-policy">Naming policy</h2>
 
@@ -41,8 +46,6 @@
 <div class="note info">
 <p>Most of the PaaS Providers will leverage this naming policy to name the resources used at the IaaS level also.</p>
 </div>
-
-<p><img src="../../images/user_guide/admin/clouds/naming_policy.png" alt="Naming policy" /><br /></p>
 
 <p>To compose your own application naming policy, you can use the following entities and properties :</p>
 
@@ -93,6 +96,26 @@ Note that in we guaranty that an application name is unique across all applicati
 <div class="note info">
 <p><strong>Advanced use</strong> : the policy expression is based on <a href="http://docs.spring.io/spring/docs/current/spring-framework-reference/html/expressions.html" target="_blank">SpEL</a> (<em>Spring Expression Language</em>) and you could use its capabilities if you are familiar with it.
 <strong>Note</strong> : do not use the <code>#</code></p>
+</div>
+
+<h2 id="meta-properties">Meta properties</h2>
+
+<p>This feature allows you to define <strong>meta-properties</strong> on your cloud and then use them in your
+topology as an internal variable defined by your administrator. Obviously as a <em>CLOUD_DELOYER</em>,
+<em>APPLICATION_USER</em> or <em>APPLICATION_MANAGER</em> you won’t be able to change this value.</p>
+
+<div class="note info">
+<p>At this stage, we assume that you’ve read the tutorial part <here> to create global meta-properties as an ADMIN,
+to be more specific you know how to create meta-properties targeting cloud, application or environment.</here></p>
+</div>
+
+<p>In <strong>global configuration</strong> in the meta-properties part you should be able to define a value
+for any cloud targeted meta-properties. Fill the desired values in order to use it later as in
+<strong>get_input</strong> for a property.</p>
+
+<div class="note info">
+<p>Regarding your meta-property definition, you can add constraint on a meta property. In this case you
+must see constraint violation error if any in this cloud meta-properties form.</p>
 </div>
 
 <h2 id="paas-provider-configuration">PaaS Provider configuration</h2>

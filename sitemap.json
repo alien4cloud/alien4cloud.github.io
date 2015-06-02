@@ -127,10 +127,17 @@
 	},
 
 	{
-		"url": "/documentation/user_guide/application_management.html", 
+		"url": "/documentation/user_guide/application/application_management.html", 
 		"section": "Documentation", 
 		"value": "Application(s) management",
 		"tokens": [ "Application(s)","management"]
+	},
+
+	{
+		"url": "/documentation/user_guide/application/application_management_advanced_inputs.html", 
+		"section": "Documentation", 
+		"value": "Advanced inputs",
+		"tokens": [ "Advanced","inputs"]
 	},
 
 	{
@@ -337,10 +344,10 @@
 	},
 
 	{
-		"url": "/documentation/cloudify3_driver/index.html", 
-		"section": "Documentation", 
-		"value": "Cloudify 3 PaaS Provider",
-		"tokens": [ "Cloudify","3","PaaS","Provider"]
+		"url": "/developer_guide/index.html", 
+		"section": "Developer Guide", 
+		"value": "Developer Guide",
+		"tokens": [ "Developer","Guide"]
 	},
 
 	{
@@ -351,13 +358,6 @@
 	},
 
 	{
-		"url": "/documentation/cloudify2_driver/index.html", 
-		"section": "Documentation", 
-		"value": "Cloudify 2 PaaS Provider",
-		"tokens": [ "Cloudify","2","PaaS","Provider"]
-	},
-
-	{
 		"url": "/roadmap/index.html", 
 		"section": "", 
 		"value": "Roadmap",
@@ -365,17 +365,24 @@
 	},
 
 	{
+		"url": "/documentation/cloudify2_driver/index.html", 
+		"section": "Documentation", 
+		"value": "Cloudify 2 PaaS Provider",
+		"tokens": [ "Cloudify","2","PaaS","Provider"]
+	},
+
+	{
+		"url": "/documentation/cloudify3_driver/index.html", 
+		"section": "Documentation", 
+		"value": "Cloudify 3 PaaS Provider",
+		"tokens": [ "Cloudify","3","PaaS","Provider"]
+	},
+
+	{
 		"url": "/release_notes/index.html", 
 		"section": "Release Notes", 
 		"value": "Release Notes",
 		"tokens": [ "Release","Notes"]
-	},
-
-	{
-		"url": "/developer_guide/index.html", 
-		"section": "Developer Guide", 
-		"value": "Developer Guide",
-		"tokens": [ "Developer","Guide"]
 	},
 
 	{
@@ -400,14 +407,14 @@
 	},
 
 	{
-		"url": "/documentation/cloudify3_driver/install_config.html", 
+		"url": "/documentation/cloudify2_driver/install_config.html", 
 		"section": "Documentation", 
 		"value": "Installing and configuring",
 		"tokens": [ "Installing","and","configuring"]
 	},
 
 	{
-		"url": "/documentation/cloudify2_driver/install_config.html", 
+		"url": "/documentation/cloudify3_driver/install_config.html", 
 		"section": "Documentation", 
 		"value": "Installing and configuring",
 		"tokens": [ "Installing","and","configuring"]
