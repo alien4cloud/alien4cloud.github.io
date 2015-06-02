@@ -5,10 +5,10 @@ root: ../../../
 categories: DOCUMENTATION
 parent: [devops, tosca_concepts, tosca_ref_definitions, tosca_ref_types_function_definition]
 node_name: tosca_ref_get_attribute_definition
-weight: 200
+weight: 300
 ---
 
-The **get_attribute** function  is used to retrieve the values of named attributes declared by the referenced  node or relationship template name.
+The **get_attribute** function  is used to retrieve the values of named attributes declared by the referenced  node or relationship template name.  
 Use this function for inputs parameters.
 
 {: .table .table-bordered}

@@ -22,7 +22,9 @@ The following keywords may be used in some  TOSCA function in place of a TOSCA N
 | TARGET          | Relationship Template only |Node Template instance that  is at the target end of the relationship that contains the referencing function. |
 | HOST            | Node Template only |Node that “hosts” the node using this reference (i.e., as identified by its HostedOn relationship). |
 
-Functions are: 
+Supported functions in Alien4Cloud are: 
 
--  [get_porperty](#/documentation/devops_guide/tosca_grammar/get_property_definition.html)
+-  [get_property](#/documentation/devops_guide/tosca_grammar/get_property_definition.html)
 -  [get_attribute](#/documentation/devops_guide/tosca_grammar/get_attribute_definition.html)
+-  [get_operation_output](#/documentation/devops_guide/tosca_grammar/get_operation_output_definition.html)
+-  [concat](#/documentation/devops_guide/tosca_grammar/concat_definition.html)

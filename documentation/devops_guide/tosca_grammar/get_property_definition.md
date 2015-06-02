@@ -5,10 +5,10 @@ root: ../../../
 categories: DOCUMENTATION
 parent: [devops, tosca_concepts, tosca_ref_definitions, tosca_ref_types_function_definition]
 node_name: tosca_ref_get_property_definition
-weight: 100
+weight: 200
 ---
 
-The **get_property** function  is used to  retrieve property values between  modelable entities defined in the same service template.
+The **get_property** function  is used to  retrieve property values between  modelable entities defined in the same service template.  
 Use this function for inputs parameters.
 
 ## Keynames
