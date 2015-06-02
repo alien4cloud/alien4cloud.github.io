@@ -7,6 +7,7 @@ parent: [user_guide]
 node_name: cloud_management
 weight: 100
 ---
+{% summary %}{% endsummary %}
 
 If you are not familiar with the concept of cloud in Alien 4 Cloud please go [here](#/documentation/concepts/clouds.html) first.
 
@@ -33,9 +34,10 @@ Follow [this link](#/documentation/cloudify2_driver/index.html) in order to find
 
 Once you have installed a plugin the admin can go on the cloud page and configure cloud. Remember that you can use the Alien 4 Cloud contextual help in order to be guided directly within the application.
 
-# Cloud configuration
+# Cloud global configuration
 
-## Meta configuration
+
+![Naming policy](../../images/user_guide/admin/clouds/cloud_global_configuration.png)<br>
 
 ## Naming policy
 
@@ -45,7 +47,6 @@ On every cloud, you can configure a naming policy that Alien 4 Cloud will use wh
 Most of the PaaS Providers will leverage this naming policy to name the resources used at the IaaS level also.
 {%endinfo%}
 
-![Naming policy](../../images/user_guide/admin/clouds/naming_policy.png)<br>
 
 To compose your own application naming policy, you can use the following entities and properties :
 
@@ -86,6 +87,26 @@ Any empty property used in the naming policy expression will cause a deployment 
 {%info%}
 **Advanced use** : the policy expression is based on [SpEL](http://docs.spring.io/spring/docs/current/spring-framework-reference/html/expressions.html){:target="_blank"} (_Spring Expression Language_) and you could use its capabilities if you are familiar with it.
 __Note__ : do not use the `#`
+{%endinfo%}
+
+## Meta properties
+
+This feature allows you to define **meta-properties** on your cloud and then use them in your
+topology as an internal variable defined by your administrator. Obviously as a _CLOUD_DELOYER_,
+_APPLICATION_USER_ or _APPLICATION_MANAGER_ you won't be able to change this value.
+
+{%info%}
+At this stage, we assume that you've read the tutorial part <HERE> to create global meta-properties as an ADMIN,
+to be more specific you know how to create meta-properties targeting cloud, application or environment.
+{%endinfo%}
+
+In __global configuration__ in the meta-properties part you should be able to define a value
+for any cloud targeted meta-properties. Fill the desired values in order to use it later as in
+__get_input__ for a property.
+
+{%info%}
+Regarding your meta-property definition, you can add constraint on a meta property. In this case you
+must see constraint violation error if any in this cloud meta-properties form.
 {%endinfo%}
 
 ## PaaS Provider configuration

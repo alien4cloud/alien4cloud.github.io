@@ -3,7 +3,7 @@ layout: post
 title:  Components catalog
 root: ../../
 categories: DOCUMENTATION
-parent: [user_guide ]
+parent: [user_guide]
 node_name: components_repo
 weight: 200
 ---
