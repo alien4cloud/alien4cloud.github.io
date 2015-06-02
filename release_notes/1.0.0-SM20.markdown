@@ -22,18 +22,18 @@ exclude_from_search: true
   {: .table .table-bordered}
   | Type        | Id         | Description |
   |:------------|:-----------|:------------|
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-565 | Backup and restore process is now documented. |
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-623 | Plugins can now provides their own REST services. |
-      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-579 | Cloud images can now be updated after it has been created. If the image is associated to more than one cloud you can only update it's requirement to avoid global impact when working on a single cloud. |
-    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-620 | Documentation update for new environments roles. |
-    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-622 | Cloud images are now managed directly from cloud configuration view to make it easier to manage. |
-      |  <i class="fa fa-bug text-danger"></i> | ALIEN-577 | Fixed an issue causing a 403 error in runtime view due to Cloud Name not retrieved appropriately. |
-    |  <i class="fa fa-exclamation-triangle text-warning">  <i class="fa fa-bug text-danger"></i> | ALIEN-554 | As specified in the TOSCA standard, the properties are now required by default. This impacts recipes as all properties that doesn't specifies a required argument will now be required instead of optional. |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-560 | Fixed an issue that prevented to display tosca archive content (scripts) when Alien was running on windows. |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-577 | Fixed an issue causing a 403 error in runtime view due to Cloud Name not retrieved appropriately. |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-588 | Initial status are now correctly displayed in the UI even when cloud provider still didn't initialized the instance state. |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-618 | Fixed an issue that caused users being able to update topologies associated with a released version. |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-631 | Fixed an issue in LDAP role mapping causing the new roles to be taken in account only on users second connection. |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-565 | Backup and restore process is now documented. / Backup and restore process is now documented. |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-623 | Plugins can now provides their own REST services. / Plugins can now provides their own REST services. |
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-579 | Cloud images can now be updated after it has been created. If the image is associated to more than one cloud you can only update it's requirement to avoid global impact when working on a single cloud. / Cloud images can now be updated after it has been created. If the image is associated to more than one cloud you can only update it's requirement to avoid global impact when working on a single cloud. |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-620 | Documentation update for new environments roles. / Documentation update for new environments roles. |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-622 | Cloud images are now managed directly from cloud configuration view to make it easier to manage. / Cloud images are now managed directly from cloud configuration view to make it easier to manage. |
+      |  <i class="fa fa-bug text-danger"></i> | ALIEN-577 | Fixed an issue causing a 403 error in runtime view due to Cloud Name not retrieved appropriately. / Fixed an issue causing a 403 error in runtime view due to Cloud Name not retrieved appropriately. |
+    |  <i class="fa fa-exclamation-triangle text-warning">  <i class="fa fa-bug text-danger"></i> | ALIEN-554 | As specified in the TOSCA standard, the properties are now required by default. This impacts recipes as all properties that doesn't specifies a required argument will now be required instead of optional. / As specified in the TOSCA standard, the properties are now required by default. This impacts recipes as all properties that doesn't specifies a required argument will now be required instead of optional. |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-560 | Fixed an issue that prevented to display tosca archive content (scripts) when Alien was running on windows. / Fixed an issue that prevented to display tosca archive content (scripts) when Alien was running on windows. |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-577 | Fixed an issue causing a 403 error in runtime view due to Cloud Name not retrieved appropriately. / Fixed an issue causing a 403 error in runtime view due to Cloud Name not retrieved appropriately. |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-588 | Initial status are now correctly displayed in the UI even when cloud provider still didn't initialized the instance state. / Initial status are now correctly displayed in the UI even when cloud provider still didn't initialized the instance state. |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-618 | Fixed an issue that caused users being able to update topologies associated with a released version. / Fixed an issue that caused users being able to update topologies associated with a released version. |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-631 | Fixed an issue in LDAP role mapping causing the new roles to be taken in account only on users second connection. / Fixed an issue in LDAP role mapping causing the new roles to be taken in account only on users second connection. |
   
 
 
@@ -50,9 +50,9 @@ exclude_from_search: true
   {: .table .table-bordered}
   | Type        | Id         | Description |
   |:------------|:-----------|:------------|
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-586 | Supports ".bat" scripts for windows |
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-633 | It is now possible to configure the duration of the timeout for StarDetection from Alien deployment screen. |
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-634 | Allow users to diable self-healing when deploying an application from alien deployment screen. |
-        |  <i class="fa fa-bug text-danger"></i> | ALIEN-628 | Fixed an issue in cloudify 2 driver that could consider a service as started even if all components didn't reached the stated state. |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-586 | Supports ".bat" scripts for windows / Supports ".bat" scripts for windows |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-633 | It is now possible to configure the duration of the timeout for StarDetection from Alien deployment screen. / It is now possible to configure the duration of the timeout for StarDetection from Alien deployment screen. |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-634 | Allow users to diable self-healing when deploying an application from alien deployment screen. / Allow users to diable self-healing when deploying an application from alien deployment screen. |
+        |  <i class="fa fa-bug text-danger"></i> | ALIEN-628 | Fixed an issue in cloudify 2 driver that could consider a service as started even if all components didn't reached the stated state. / Fixed an issue in cloudify 2 driver that could consider a service as started even if all components didn't reached the stated state. |
   
 

@@ -22,7 +22,7 @@ exclude_from_search: true
   {: .table .table-bordered}
   | Type        | Id         | Description |
   |:------------|:-----------|:------------|
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-327 | A jenkins plugin now allows to ease the testing of CSAR directly from the SCM. |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-327 | A jenkins plugin now allows to ease the testing of CSAR directly from the SCM. / A jenkins plugin now allows to ease the testing of CSAR directly from the SCM. |
       
 
 
@@ -33,63 +33,63 @@ exclude_from_search: true
   {: .table .table-bordered}
   | Type        | Id         | Description |
   |:------------|:-----------|:------------|
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-135 | Ability to add users to a group. |
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-136 | Remove users from a group. |
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-236 | Cardinalities for requirements and capabilities are now displayed on components details view. |
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-237 | Applications can be renamed. |
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-238 | PaaS providers can now have deployments parameters that the user can setup in the UI just before the actual deployment. |
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-240 | TOSCA support increased: The scope field on properties is replaced by required (boolean). In order to manage 'runtime' scope for a property we now have a distinct attributes sections. Attributes are runtime properties that are set by the TOSCA container. |
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-241 | Properties for requirements and capabilities are now displayed in the UI. |
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-252 | A single PaaS Provider plugin can now manage multiple Clouds (new concept introduced in Alien 4 Cloud 0.0.11) |
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-253 | Cloud name and properties can be updated. |
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-255 | Enable and disable a cloud. |
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-24 | Remove an existing cloud. |
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-204 | Admin can now specifies system tags for components and applications. |
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-205 | Components manager can view and edit system tags configured by Admin. |
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-206 | Application managers can now view and edit system tags configured by the admin |
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-219 | It is now possible to rename a relationship when editing a topology. |
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-263 | All deployments on a cloud are now listed on the cloud detail view. |
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-257 | Global security can now leverage groups. |
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-262 | A REST service allows to trigger deployment of SNAPSHOT CSAR test recipe. The CSAR  must contain a yaml topology in test folder. This allows automating CSAR testing. |
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-258 | Application security can now leverage groups. |
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-295 | Users created locally in Alien can be now be removed. |
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-296 | Users created locally in Alien can now be updated (first name, last name and e-mail). |
-      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-201 | New version of a plugin tries to reuse the previous configuration if possible. |
-    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-222 | Improves the handling of application statuses when the IPaaSProvider fails or is slow to answer. |
-    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-239 | documentation field in the recipes has been changed to description to be closer to the TOSCA Simple profile in YAML working draft 1 and 2. |
-    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-256 | Mandatory system tags are renamed into important as they don't prevent the application/component from being deployed/used. |
-    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-261 | It is now possible to upload a SNAPSHOT version of an archive and update it multiple times (release versions cannot be overridden). |
-    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-275 | Improves the management and responsiveness of application status. |
-    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-276 | A progress bar and success feedback is now provided for artifacts uploads. |
-    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-278 | Monitoring events from PaaS Providers have a TTL that can be setup in calm-config.yaml. For now the setting must be done before starting Alien for the first time. An improvement will follow so we can update it on restart. |
-    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-289 | Deploy button is now placed before the driver deployment properties so you don't have to scroll through all configuration options when they are already set |
-    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-291 | Same components and relationship from different versions are now displayed in a single row in the components/relationship search, a drop down allows to switch version. |
-    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-292 | In the node template's details on topology view we now display not only the type but also the name and version of the archive containing the type. |
-    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-300 | Group management has been rewritten and you can now create, update, remove and query groups. |
-    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-303 | On the topology graph, long names are now managed correctly and are truncated if too long while a tooltip allows to view the full name when mouse get over the node. |
-    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-282 | Dropdown to select user roles is now placed on the left of the button so it's always visible. |
-    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-290 | Alerts are now displayed in a toast like component and disappears automatically. |
-    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-298 | Improvements of topology rendering. Faster and better implementation. Links of selected components are now highlighted. |
-    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-307 | All delete button in Alien now have a confirmation popup. |
-    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-324 | An error message is now displayed when renaming a relationship with a name that already exists. |
-    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-332 | Improvement of relationship view to have version select more consistent with node type's view and well managed. |
-      |  <i class="fa fa-bug text-danger"></i> | ALIEN-230 | Unicity of a node template key is now managed lowercase and space independent. |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-243 | Input properties are now visible only to Application Deployer and Manager. |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-249 | Fix an issue in Input and Output properties management when a node template was removed or renamed. |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-250 | Fix an issue in relationships management when a node template is renamed. |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-251 | Fix an issue on capabilities and requirements bounds management when a node template is renamed or removed. |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-232 | Fix a bug in the validation of relationships target upper bound (was actually checking from the requirement's bound instead). |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-244 | When a relationship is added to a topology, a dependency on the CSAR that contains the relationship is now added. This prevented to generate workflows in some situations. |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-246 | Relationships are now linked to a capability so we can manage bounds correctly. |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-268 | Fix an issue in topology graph generation that failed to render correctly some inherited hosted_on or depends_on relationships. |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-269 | Fix issues in management of topology dependency when nodes are removed. Dependencies where never removed if not used anymore. |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-274 | Fix an issue that allowed to delete an application even if a deployment was running. |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-277 | On initial deployment the runtime view doesn't display a red status anymore but deploying. |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-284 | The runtime view display the deployed topology and not the current application topology fixing issues in event and state rendering. |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-309 | Fix an issue in the Application detail screen (delete button was visible even to user that cannot delete the application). |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-315 | Using Firefox on some OS the rendering of topology view was getting messy when the browser window was resized. |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-317 | The role management tab for an application is now visible only to users that have the ability to edit application's users. |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-318 | Fix an issue with permissions management on the UI that where reseted when the browser window was refreshed (F5). |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-135 | Ability to add users to a group. / Ability to add users to a group. |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-136 | Remove users from a group. / Remove users from a group. |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-236 | Cardinalities for requirements and capabilities are now displayed on components details view. / Cardinalities for requirements and capabilities are now displayed on components details view. |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-237 | Applications can be renamed. / Applications can be renamed. |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-238 | PaaS providers can now have deployments parameters that the user can setup in the UI just before the actual deployment. / PaaS providers can now have deployments parameters that the user can setup in the UI just before the actual deployment. |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-240 | TOSCA support increased: The scope field on properties is replaced by required (boolean). In order to manage 'runtime' scope for a property we now have a distinct attributes sections. Attributes are runtime properties that are set by the TOSCA container. / TOSCA support increased: The scope field on properties is replaced by required (boolean). In order to manage 'runtime' scope for a property we now have a distinct attributes sections. Attributes are runtime properties that are set by the TOSCA container. |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-241 | Properties for requirements and capabilities are now displayed in the UI. / Properties for requirements and capabilities are now displayed in the UI. |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-252 | A single PaaS Provider plugin can now manage multiple Clouds (new concept introduced in Alien 4 Cloud 0.0.11) / A single PaaS Provider plugin can now manage multiple Clouds (new concept introduced in Alien 4 Cloud 0.0.11) |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-253 | Cloud name and properties can be updated. / Cloud name and properties can be updated. |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-255 | Enable and disable a cloud. / Enable and disable a cloud. |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-24 | Remove an existing cloud. / Remove an existing cloud. |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-204 | Admin can now specifies system tags for components and applications. / Admin can now specifies system tags for components and applications. |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-205 | Components manager can view and edit system tags configured by Admin. / Components manager can view and edit system tags configured by Admin. |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-206 | Application managers can now view and edit system tags configured by the admin / Application managers can now view and edit system tags configured by the admin |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-219 | It is now possible to rename a relationship when editing a topology. / It is now possible to rename a relationship when editing a topology. |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-263 | All deployments on a cloud are now listed on the cloud detail view. / All deployments on a cloud are now listed on the cloud detail view. |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-257 | Global security can now leverage groups. / Global security can now leverage groups. |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-262 | A REST service allows to trigger deployment of SNAPSHOT CSAR test recipe. The CSAR  must contain a yaml topology in test folder. This allows automating CSAR testing. / A REST service allows to trigger deployment of SNAPSHOT CSAR test recipe. The CSAR  must contain a yaml topology in test folder. This allows automating CSAR testing. |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-258 | Application security can now leverage groups. / Application security can now leverage groups. |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-295 | Users created locally in Alien can be now be removed. / Users created locally in Alien can be now be removed. |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-296 | Users created locally in Alien can now be updated (first name, last name and e-mail). / Users created locally in Alien can now be updated (first name, last name and e-mail). |
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-201 | New version of a plugin tries to reuse the previous configuration if possible. / New version of a plugin tries to reuse the previous configuration if possible. |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-222 | Improves the handling of application statuses when the IPaaSProvider fails or is slow to answer. / Improves the handling of application statuses when the IPaaSProvider fails or is slow to answer. |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-239 | documentation field in the recipes has been changed to description to be closer to the TOSCA Simple profile in YAML working draft 1 and 2. / documentation field in the recipes has been changed to description to be closer to the TOSCA Simple profile in YAML working draft 1 and 2. |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-256 | Mandatory system tags are renamed into important as they don't prevent the application/component from being deployed/used. / Mandatory system tags are renamed into important as they don't prevent the application/component from being deployed/used. |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-261 | It is now possible to upload a SNAPSHOT version of an archive and update it multiple times (release versions cannot be overridden). / It is now possible to upload a SNAPSHOT version of an archive and update it multiple times (release versions cannot be overridden). |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-275 | Improves the management and responsiveness of application status. / Improves the management and responsiveness of application status. |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-276 | A progress bar and success feedback is now provided for artifacts uploads. / A progress bar and success feedback is now provided for artifacts uploads. |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-278 | Monitoring events from PaaS Providers have a TTL that can be setup in calm-config.yaml. For now the setting must be done before starting Alien for the first time. An improvement will follow so we can update it on restart. / Monitoring events from PaaS Providers have a TTL that can be setup in calm-config.yaml. For now the setting must be done before starting Alien for the first time. An improvement will follow so we can update it on restart. |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-289 | Deploy button is now placed before the driver deployment properties so you don't have to scroll through all configuration options when they are already set / Deploy button is now placed before the driver deployment properties so you don't have to scroll through all configuration options when they are already set |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-291 | Same components and relationship from different versions are now displayed in a single row in the components/relationship search, a drop down allows to switch version. / Same components and relationship from different versions are now displayed in a single row in the components/relationship search, a drop down allows to switch version. |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-292 | In the node template's details on topology view we now display not only the type but also the name and version of the archive containing the type. / In the node template's details on topology view we now display not only the type but also the name and version of the archive containing the type. |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-300 | Group management has been rewritten and you can now create, update, remove and query groups. / Group management has been rewritten and you can now create, update, remove and query groups. |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-303 | On the topology graph, long names are now managed correctly and are truncated if too long while a tooltip allows to view the full name when mouse get over the node. / On the topology graph, long names are now managed correctly and are truncated if too long while a tooltip allows to view the full name when mouse get over the node. |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-282 | Dropdown to select user roles is now placed on the left of the button so it's always visible. / Dropdown to select user roles is now placed on the left of the button so it's always visible. |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-290 | Alerts are now displayed in a toast like component and disappears automatically. / Alerts are now displayed in a toast like component and disappears automatically. |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-298 | Improvements of topology rendering. Faster and better implementation. Links of selected components are now highlighted. / Improvements of topology rendering. Faster and better implementation. Links of selected components are now highlighted. |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-307 | All delete button in Alien now have a confirmation popup. / All delete button in Alien now have a confirmation popup. |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-324 | An error message is now displayed when renaming a relationship with a name that already exists. / An error message is now displayed when renaming a relationship with a name that already exists. |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-332 | Improvement of relationship view to have version select more consistent with node type's view and well managed. / Improvement of relationship view to have version select more consistent with node type's view and well managed. |
+      |  <i class="fa fa-bug text-danger"></i> | ALIEN-230 | Unicity of a node template key is now managed lowercase and space independent. / Unicity of a node template key is now managed lowercase and space independent. |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-243 | Input properties are now visible only to Application Deployer and Manager. / Input properties are now visible only to Application Deployer and Manager. |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-249 | Fix an issue in Input and Output properties management when a node template was removed or renamed. / Fix an issue in Input and Output properties management when a node template was removed or renamed. |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-250 | Fix an issue in relationships management when a node template is renamed. / Fix an issue in relationships management when a node template is renamed. |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-251 | Fix an issue on capabilities and requirements bounds management when a node template is renamed or removed. / Fix an issue on capabilities and requirements bounds management when a node template is renamed or removed. |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-232 | Fix a bug in the validation of relationships target upper bound (was actually checking from the requirement's bound instead). / Fix a bug in the validation of relationships target upper bound (was actually checking from the requirement's bound instead). |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-244 | When a relationship is added to a topology, a dependency on the CSAR that contains the relationship is now added. This prevented to generate workflows in some situations. / When a relationship is added to a topology, a dependency on the CSAR that contains the relationship is now added. This prevented to generate workflows in some situations. |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-246 | Relationships are now linked to a capability so we can manage bounds correctly. / Relationships are now linked to a capability so we can manage bounds correctly. |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-268 | Fix an issue in topology graph generation that failed to render correctly some inherited hosted_on or depends_on relationships. / Fix an issue in topology graph generation that failed to render correctly some inherited hosted_on or depends_on relationships. |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-269 | Fix issues in management of topology dependency when nodes are removed. Dependencies where never removed if not used anymore. / Fix issues in management of topology dependency when nodes are removed. Dependencies where never removed if not used anymore. |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-274 | Fix an issue that allowed to delete an application even if a deployment was running. / Fix an issue that allowed to delete an application even if a deployment was running. |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-277 | On initial deployment the runtime view doesn't display a red status anymore but deploying. / On initial deployment the runtime view doesn't display a red status anymore but deploying. |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-284 | The runtime view display the deployed topology and not the current application topology fixing issues in event and state rendering. / The runtime view display the deployed topology and not the current application topology fixing issues in event and state rendering. |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-309 | Fix an issue in the Application detail screen (delete button was visible even to user that cannot delete the application). / Fix an issue in the Application detail screen (delete button was visible even to user that cannot delete the application). |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-315 | Using Firefox on some OS the rendering of topology view was getting messy when the browser window was resized. / Using Firefox on some OS the rendering of topology view was getting messy when the browser window was resized. |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-317 | The role management tab for an application is now visible only to users that have the ability to edit application's users. / The role management tab for an application is now visible only to users that have the ability to edit application's users. |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-318 | Fix an issue with permissions management on the UI that where reseted when the browser window was refreshed (F5). / Fix an issue with permissions management on the UI that where reseted when the browser window was refreshed (F5). |
   
 
 
@@ -100,7 +100,7 @@ exclude_from_search: true
   {: .table .table-bordered}
   | Type        | Id         | Description |
   |:------------|:-----------|:------------|
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-252 | A single PaaS Provider plugin can now manage multiple Clouds (new concept introduced in Alien 4 Cloud 0.0.11) |
-        |  <i class="fa fa-bug text-danger"></i> | ALIEN-233 | Fixed an issue in the matching of Compute nodes in Cloudify 2 PaaS provider (version wasn't taken in account). |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-252 | A single PaaS Provider plugin can now manage multiple Clouds (new concept introduced in Alien 4 Cloud 0.0.11) / A single PaaS Provider plugin can now manage multiple Clouds (new concept introduced in Alien 4 Cloud 0.0.11) |
+        |  <i class="fa fa-bug text-danger"></i> | ALIEN-233 | Fixed an issue in the matching of Compute nodes in Cloudify 2 PaaS provider (version wasn't taken in account). / Fixed an issue in the matching of Compute nodes in Cloudify 2 PaaS provider (version wasn't taken in account). |
   
 

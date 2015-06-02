@@ -22,13 +22,13 @@ exclude_from_search: true
   {: .table .table-bordered}
   | Type        | Id         | Description |
   |:------------|:-----------|:------------|
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-646 | Ability to export / import topologies in TOSCA yaml format and use it as topology template. |
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-721 | Attributes and output properties can now use contact function in order to generate any string with get_property and/or get_attribute. |
-      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-663 | CLONE - Inputs parameters should not be so tightly linked to components. |
-    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-674 | CLONE - Checkbox for boolean attributes in the deployment screen |
-    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-676 | CLONE - URL Output properties should be clickable |
-      |  <i class="fa fa-bug text-danger"></i> | ALIEN-680 | CLONE - The Workflow is not visible if we have relationships on BlockStorage |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-720 | Fixed a limitation that prevented to configure multiple clouds using the Cloudify 3. |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-646 | Ability to export / import topologies in TOSCA yaml format and use it as topology template. / Ability to export / import topologies in TOSCA yaml format and use it as topology template. |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-721 | Attributes and output properties can now use contact function in order to generate any string with get_property and/or get_attribute. / Attributes and output properties can now use contact function in order to generate any string with get_property and/or get_attribute. |
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-663 | CLONE - Inputs parameters should not be so tightly linked to components. / CLONE - Inputs parameters should not be so tightly linked to components. |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-674 | CLONE - Checkbox for boolean attributes in the deployment screen / CLONE - Checkbox for boolean attributes in the deployment screen |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-676 | CLONE - URL Output properties should be clickable / CLONE - URL Output properties should be clickable |
+      |  <i class="fa fa-bug text-danger"></i> | ALIEN-680 | CLONE - The Workflow is not visible if we have relationships on BlockStorage / CLONE - The Workflow is not visible if we have relationships on BlockStorage |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-720 | Fixed a limitation that prevented to configure multiple clouds using the Cloudify 3. / Fixed a limitation that prevented to configure multiple clouds using the Cloudify 3. |
   
 
 
@@ -39,7 +39,7 @@ exclude_from_search: true
   {: .table .table-bordered}
   | Type        | Id         | Description |
   |:------------|:-----------|:------------|
-        |  <i class="fa fa-bug text-danger"></i> | ALIEN-720 | Fixed a limitation that prevented to configure multiple clouds using the Cloudify 3. |
+        |  <i class="fa fa-bug text-danger"></i> | ALIEN-720 | Fixed a limitation that prevented to configure multiple clouds using the Cloudify 3. / Fixed a limitation that prevented to configure multiple clouds using the Cloudify 3. |
   
 
 
@@ -50,9 +50,9 @@ exclude_from_search: true
   {: .table .table-bordered}
   | Type        | Id         | Description |
   |:------------|:-----------|:------------|
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-658 | Now you can configure a list of manager backups to handle the high availability. |
-      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-696 | Operation remove_target / remove_source is now called when a target / source is removed on scaling. |
-      |  <i class="fa fa-bug text-danger"></i> | ALIEN-717 | Fixed an issue causing relationships to wait forever for other component to be started (even if the component is actually started) on scaling operation that occurred 2 hours or more after initial deployment. |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-658 | Now you can configure a list of manager backups to handle the high availability. / Now you can configure a list of manager backups to handle the high availability. |
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-696 | Operation remove_target / remove_source is now called when a target / source is removed on scaling. / Operation remove_target / remove_source is now called when a target / source is removed on scaling. |
+      |  <i class="fa fa-bug text-danger"></i> | ALIEN-717 | Fixed an issue causing relationships to wait forever for other component to be started (even if the component is actually started) on scaling operation that occurred 2 hours or more after initial deployment. / Fixed an issue causing relationships to wait forever for other component to be started (even if the component is actually started) on scaling operation that occurred 2 hours or more after initial deployment. |
   
 
 
@@ -63,6 +63,6 @@ exclude_from_search: true
   {: .table .table-bordered}
   | Type        | Id         | Description |
   |:------------|:-----------|:------------|
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-718 | Updated samples by adding a Wordpress sample TOSCA topology that can be uploaded to be used as template. |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-718 | Updated samples by adding a Wordpress sample TOSCA topology that can be uploaded to be used as template. / Updated samples by adding a Wordpress sample TOSCA topology that can be uploaded to be used as template. |
       
 
