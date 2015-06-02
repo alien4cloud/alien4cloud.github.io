@@ -36,6 +36,9 @@ topology_template
   inputs:
     # list of global input parameters
 
+  input_artifacts:
+    # map of artifacts defined as inputs (non TOSCA)
+
   node_templates:
     # list of node templates
 
@@ -98,6 +101,38 @@ inputs:
 {% note %}
 The parameters (properties) that are listed as part of the inputs block could be mapped to PropertyMappings provided as part of BoundaryDefinitions as described by the TOSCA v1.0 specification.
 {% endnote %}
+
+### input_artifacts
+
+This section defines template-level input artifacts. Such artifacts can be shared by several nodes. Their content is defined at deployment time.
+
+{% warning %}
+The section *input_artifacts* and the function *get_input_artifact* are not yet defined in TOSCA.
+{% endwarning %}
+
+#### Examples
+
+In this example, an input artifact is defined and shared by two different nodes:
+
+{% highlight yaml %}
+topology_template:
+  input_artifacts:
+    my_war_file:
+      type: alien.artifacts.WarFile
+  node_templates:
+    War1:
+      type: alien.nodes.cloudify.War
+      artifacts:
+        war_file:
+          implementation: { get_input_artifact: my_war_file }
+          type: alien.artifacts.WarFile
+    War2:
+      type: alien.nodes.cloudify.War
+      artifacts:
+        war_file:
+          implementation: { get_input_artifact: my_war_file }
+          type: alien.artifacts.WarFile
+{% endhighlight %}
 
 ### node_templates
 
