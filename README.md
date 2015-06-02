@@ -1,4 +1,4 @@
-![Alien4Cloud](https://raw.githubusercontent.com/alien4cloud/alien4cloud.github.io/sources/images/alien4cloud-banner.png)
+# Application LIfecycle ENabler for Cloud
 
 This repository contains the documentation for Application LIfecycle ENabler for Cloud AKA ALIEN. The documentation is based on Jekyll, a Ruby-based static site generator that uses Markdown as markup language.
 
