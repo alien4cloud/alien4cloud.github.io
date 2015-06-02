@@ -58,13 +58,16 @@ If you have some tags or meta-properties defined on your application, same synta
 - `app_meta_`**MYAPP_META1**
 - `app_meta_`**MYAPP_META2**
 
-**Note :** avoid dot (.) caracter in you meta-property name
+{%info%}
+<h5>Meta property naming</h5>
+**Note :** avoid dot __.__ caracter in you meta-property name (e.g. my.meta.1)
+{%endinfo%}
 
 {%warning%}
 <h5>Missing values</h5>
 We have two possible cases regarding an input and the targeted meta-property :
 
-- **requirted** property : if the provided value doesn't exist as input the property will stay marked as __missing__
+- **requirted** property : if the provided value doesn't exist as input the property will stay marked as __missing__ and the topology not deployable
 - **optional** property : if the provided value doesn't exist you will have a `warning` but the deployment will still be possible
 {%endwarning%}
 
