@@ -23,6 +23,11 @@ root: ../
             <a href="#/documentation/about.html" class="btn btn-default btn-block btn-lg">More about ALIEN for Cloud &raquo;</a>
           </div>
         </div>
+        <div class="row">
+          <div class="col-md-offset-1 col-md-8">
+            <a href="#/documentation/getting_started/quickstart.html" class="btn btn-default btn-block btn-lg">Start your ALIEN in Less than 30 minutes! &raquo;</a>
+          </div>
+        </div>
       </div>
       <div class="col-md-4">
         <img src="/images/cloudalien.png" class="img-responsive">
