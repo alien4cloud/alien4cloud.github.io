@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Quick Start
+title: The 30 min Start Guide!
 root: ../
 categories: DOCUMENTATION
 parent: []
