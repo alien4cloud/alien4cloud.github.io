@@ -32,6 +32,10 @@ alien.relationships.cloudify.WarHostedOnTomcat:
   [...]
 {% endhighlight %}
 
+{%warning%}
+  The function [concat](#/documentation/devops_guide/tosca_grammar/concat_definition.html  "concat definition") is not supported on operation's input parameter. And as consequence, you cannot use on input parameters, the [get_attribute](#/documentation/devops_guide/tosca_grammar/get_attribute_definition.html  "get_attribute definition") function referencing an attribute which value is a *concat* evaluation.
+{%endwarning%}
+
 ## Other available environment variables   ##
 Prior to the inputs parameters, some useful informations are available in the script execution environment:
 
@@ -53,7 +57,7 @@ Prior to the inputs parameters, some useful informations are available in the sc
 {%note%}
 When a node has some defined artifacts (overridable or not), their **`absolute location paths`** are available as environment variables ( their names ) of the operations scripts.  
 
-Limitation: artifacts paths are not available when working with a relationship binding two nodes each on different compute.
+**Limitation**: artifacts paths are not available when working with a relationship binding two nodes each on different compute.
 {%endnote%}
 
 ### Relationships and get_attribute inputs ###
