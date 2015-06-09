@@ -29,6 +29,10 @@ The defined inputs are evaluated if needed at runtime, and set as environment va
           <span class="l-Scalar-Plain">implementation</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">relationshipScripts/warHostedOnTomcat_post_configure_source.groovy</span>
   <span class="p-Indicator">[</span><span class="nv">...</span><span class="p-Indicator">]</span></code></pre></div>
 
+<div class="note warning">
+<p>The function <a href="#/documentation/devops_guide/tosca_grammar/concat_definition.html" title="concat definition">concat</a> is not supported on operation’s input parameter. And as consequence, you cannot use on input parameters, the <a href="#/documentation/devops_guide/tosca_grammar/get_attribute_definition.html" title="get_attribute definition">get_attribute</a> function referencing an attribute which value is a <em>concat</em> evaluation.</p>
+</div>
+
 <h2 id="other-available-environment-variables">Other available environment variables</h2>
 <p>Prior to the inputs parameters, some useful informations are available in the script execution environment:</p>
 
@@ -126,7 +130,7 @@ The defined inputs are evaluated if needed at runtime, and set as environment va
 <div class="note">
 <p>When a node has some defined artifacts (overridable or not), their <strong><code>absolute location paths</code></strong> are available as environment variables ( their names ) of the operations scripts.  </p>
 
-<p>Limitation: artifacts paths are not available when working with a relationship binding two nodes each on different compute.</p>
+<p><strong>Limitation</strong>: artifacts paths are not available when working with a relationship binding two nodes each on different compute.</p>
 </div>
 
 <h3 id="relationships-and-getattribute-inputs">Relationships and get_attribute inputs</h3>
