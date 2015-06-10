@@ -26,7 +26,7 @@ This is a step-by-step guide that describes how to build a Virtual Machine conta
 
 
 ##2. VM Automated Install:
-* Download and unzip the package [vm-alien4cloud-SM25](https://fastconnect.org/owncloud/public.php?service=files&t=e2a17fc56fabf2c141218f5c1fd063a1) (for other version, see on the page footer). As a result, a subdirectory vm-alien4cloud should be created
+* Download and unzip the package [vm-alien4cloud-SM26](https://fastconnect.org/owncloud/public.php?service=files&t=1470e8d3c0226d3c6774c2407dd1770e) (for other version, see on the page footer). As a result, a subdirectory vm-alien4cloud should be created
 
 * Copy your .pem file to the directory `vm-alien4cloud/vm/key`
 
