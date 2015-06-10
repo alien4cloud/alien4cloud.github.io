@@ -43,9 +43,8 @@ def OUTPUT_NAME = "value" //this will create a local variable instead
 see [get_operation_output][get_operation_output_ref] for more details.
 
 {%warning%}
-Due to some limitations on this provider, the **best practice** would be **NOT TO USE** the **get_operation_output** function on relationships operations input parameters.  
-Be aware that this might result with null or wrong computed inputs values.  
-We are currently working on a good way to manage the use case, which will be defining an attribute on the node that will hold the useful output, and using it as an input for the relationships operation with **get_attribute** function.  
+Be aware that use of the **get_operation_output** function on relationships operations **add[remove]_source[target]** input parameters might result with null or wrong computed inputs values.  
+The **best practice** would be to define an attribute on the node that will hold the useful output, and then using it as an input for the relationships operation with **get_attribute** function.  
 </br>
 On the other side, the usage on the node template interfaces operations is fully supported.
 {%endwarning%}
