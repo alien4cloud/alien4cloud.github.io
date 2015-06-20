@@ -22,12 +22,24 @@
 <p>In order to handle Cloudify lifecycle events, and to emit our own events, we need the <strong>alien4cloud-cloudify-custom-events</strong>. This provides a REST API and uses the Gigaspace management space to store the events.</p>
 
 <ol>
-  <li>Download the zip archive and unzip it into the <code>upload</code> folder of your prefered cloud driver (e.g. <code>gigaspaces-cloudify-2.7.0-ga/clouds/openstack-havana/upload</code>)
+  <li>Download the zip archive and unzip it into the folder of your prefered cloud driver (e.g. <code>gigaspaces-cloudify-2.7.0-ga/clouds/openstack-havana</code>)
     <ul>
       <li><a href="https://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource&amp;g=alien4cloud&amp;a=alien4cloud-cloudify-events-assembly&amp;c=distrib&amp;v=LATEST&amp;p=zip" class="btn btn-success download-button navbar-btn">last stable</a>  <a href="https://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource-snapshot&amp;g=alien4cloud&amp;a=alien4cloud-cloudify-events-assembly&amp;c=distrib&amp;v=LATEST&amp;p=zip" class="btn btn-warning download-button navbar-btn">last build</a></li>
     </ul>
   </li>
-  <li>In the same <code>upload</code> folder, edit the <code>bootstrap-management.sh</code>:</li>
+  <li>If working with a secured manager:</li>
+</ol>
+
+<ul>
+  <li>create a file <code>events.properties</code> and place it either next or into the events folder</li>
+  <li>Edit it with the following entries (replace “cdfy_username” and “cdfy_password” by proper values):  </li>
+</ul>
+
+<div class="highlight"><pre><code class="language-properties" data-lang="properties"><span class="na">cloudUsername</span><span class="o">=</span><span class="s">&lt;cdfy_username&gt;</span>
+<span class="na">cloudPassword</span><span class="o">=</span><span class="s">&lt;cdfy_password&gt;</span></code></pre></div>
+
+<ol>
+  <li>In the <code>upload</code> folder, edit the <code>bootstrap-management.sh</code>:</li>
 </ol>
 
 <ul>
@@ -37,11 +49,11 @@
 <div class="highlight"><pre><code class="language-sh" data-lang="sh">cat &lt;<span class="o">(</span>crontab -l<span class="o">)</span> &lt;<span class="o">(</span><span class="nb">echo</span> <span class="s2">&quot;@reboot export EXT_JAVA_OPTIONS=$EXT_JAVA_OPTIONS; nohup ~/gigaspaces/tools/cli/cloudify.sh $START_COMMAND $START_COMMAND_ARGS&quot;</span><span class="o">)</span> <span class="p">|</span> crontab -</code></pre></div>
 
 <ul>
-  <li>Right after that line, add the following snippet (replace “cdfy_username” and  “cdfy_password” by proper values)</li>
+  <li>Right after that line, add the following snippet</li>
 </ul>
 
 <div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;$GSA_MODE&quot;</span> <span class="o">=</span> <span class="s2">&quot;lus&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
-		cat &lt;<span class="o">(</span>crontab -l<span class="o">)</span> &lt;<span class="o">(</span><span class="nb">echo</span> <span class="s2">&quot;@reboot export LUS_IP_ADDRESS=$LUS_IP_ADDRESS; chmod +x ${WORKING_HOME_DIRECTORY}/events/bin/gsDeployEventsWar.sh; nohup ${WORKING_HOME_DIRECTORY}/events/bin/gsDeployEventsWar.sh &lt;cdfy_username&gt; &lt;cdfy_password&gt;&quot;</span><span class="o">)</span> <span class="p">|</span> crontab -
+		cat &lt;<span class="o">(</span>crontab -l<span class="o">)</span> &lt;<span class="o">(</span><span class="nb">echo</span> <span class="s2">&quot;@reboot export LUS_IP_ADDRESS=$LUS_IP_ADDRESS; chmod +x ${WORKING_HOME_DIRECTORY}/events/bin/gsDeployEventsWar.sh; nohup ${WORKING_HOME_DIRECTORY}/events/bin/gsDeployEventsWar.sh &quot;</span><span class="o">)</span> <span class="p">|</span> crontab -
 	<span class="k">fi</span></code></pre></div>
 
 <ul>
@@ -51,12 +63,12 @@
 <div class="highlight"><pre><code class="language-sh" data-lang="sh">./cloudify.sh <span class="nv">$START_COMMAND</span> <span class="nv">$START_COMMAND_ARGS</span></code></pre></div>
 
 <ul>
-  <li>Right after that line, add the following snippet (replace “cdfy_username” and  “cdfy_password” by proper values)</li>
+  <li>Right after that line, add the following snippet</li>
 </ul>
 
 <div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;$GSA_MODE&quot;</span> <span class="o">=</span> <span class="s2">&quot;lus&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
 chmod +x <span class="k">${</span><span class="nv">WORKING_HOME_DIRECTORY</span><span class="k">}</span>/events/bin/gsDeployEventsWar.sh
-<span class="k">${</span><span class="nv">WORKING_HOME_DIRECTORY</span><span class="k">}</span>/events/bin/gsDeployEventsWar.sh &lt;cdfy_username&gt; &lt;cdfy_password&gt;
+<span class="k">${</span><span class="nv">WORKING_HOME_DIRECTORY</span><span class="k">}</span>/events/bin/gsDeployEventsWar.sh
 <span class="k">fi</span></code></pre></div>
 
 <div class="note info">
