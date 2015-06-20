@@ -20,18 +20,26 @@ Now for this driver to work, you have to customize your instaled Cloudify.
 ### Custom events ###
 In order to handle Cloudify lifecycle events, and to emit our own events, we need the **alien4cloud-cloudify-custom-events**. This provides a REST API and uses the Gigaspace management space to store the events.
 
-1. Download the zip archive and unzip it into the `upload` folder of your prefered cloud driver (e.g. `gigaspaces-cloudify-2.7.0-ga/clouds/openstack-havana/upload`)
+1. Download the zip archive and unzip it into the folder of your prefered cloud driver (e.g. `gigaspaces-cloudify-2.7.0-ga/clouds/openstack-havana`)
 	* [last stable](https://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource&g=alien4cloud&a=alien4cloud-cloudify-events-assembly&c=distrib&v=LATEST&p=zip){: .btn}{: .btn-success}{: .download-button}{: .navbar-btn}  [last build](https://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource-snapshot&g=alien4cloud&a=alien4cloud-cloudify-events-assembly&c=distrib&v=LATEST&p=zip){: .btn}{: .btn-warning}{: .download-button}{: .navbar-btn}
-2. In the same `upload` folder, edit the `bootstrap-management.sh`:
+2. If working with a secured manager:
+
+* create a file `events.properties` and place it either next or into the events folder
+* Edit it with the following entries (replace “cdfy_username” and “cdfy_password” by proper values):  
+{%highlight properties%}
+cloudUsername=<cdfy_username>
+cloudPassword=<cdfy_password>
+{%endhighlight%}
+3. In the `upload` folder, edit the `bootstrap-management.sh`:
 
 * Locate the line
 {%highlight sh%}
 	cat <(crontab -l) <(echo "@reboot export EXT_JAVA_OPTIONS=$EXT_JAVA_OPTIONS; nohup ~/gigaspaces/tools/cli/cloudify.sh $START_COMMAND $START_COMMAND_ARGS") | crontab -
 {%endhighlight%}
-* Right after that line, add the following snippet (replace "cdfy_username" and  "cdfy_password" by proper values)
+* Right after that line, add the following snippet
 {%highlight sh%}
 	if [ "$GSA_MODE" = "lus" ]; then
-		cat <(crontab -l) <(echo "@reboot export LUS_IP_ADDRESS=$LUS_IP_ADDRESS; chmod +x ${WORKING_HOME_DIRECTORY}/events/bin/gsDeployEventsWar.sh; nohup ${WORKING_HOME_DIRECTORY}/events/bin/gsDeployEventsWar.sh <cdfy_username> <cdfy_password>") | crontab -
+		cat <(crontab -l) <(echo "@reboot export LUS_IP_ADDRESS=$LUS_IP_ADDRESS; chmod +x ${WORKING_HOME_DIRECTORY}/events/bin/gsDeployEventsWar.sh; nohup ${WORKING_HOME_DIRECTORY}/events/bin/gsDeployEventsWar.sh ") | crontab -
 	fi
 {%endhighlight%}
 
@@ -39,11 +47,11 @@ In order to handle Cloudify lifecycle events, and to emit our own events, we nee
 {%highlight sh%}
 ./cloudify.sh $START_COMMAND $START_COMMAND_ARGS
 {%endhighlight%}
-* Right after that line, add the following snippet (replace "cdfy_username" and  "cdfy_password" by proper values)
+* Right after that line, add the following snippet
 {%highlight sh%}
 if [ "$GSA_MODE" = "lus" ]; then
 chmod +x ${WORKING_HOME_DIRECTORY}/events/bin/gsDeployEventsWar.sh
-${WORKING_HOME_DIRECTORY}/events/bin/gsDeployEventsWar.sh <cdfy_username> <cdfy_password>
+${WORKING_HOME_DIRECTORY}/events/bin/gsDeployEventsWar.sh
 fi
 {%endhighlight%} 
 

@@ -75,5 +75,5 @@ You must enter the PaaS Resource Id (the zone name in your IaaS) for all created
 [config_cloud_cloudifyBlockStorage]: ../../images/cloudify2_driver/config_cloud_cloudifyBlockStorage.png  "Block Storages"
 
 [config_cloud_naming_policy]: ../../images/cloudify2_driver/config_cloud_naming_policy.png  "Naming policy"
-
+ 
 [config_cloud_zones]: ../../images/cloudify2_driver/config_cloud_zones.png  "Availability zones"
