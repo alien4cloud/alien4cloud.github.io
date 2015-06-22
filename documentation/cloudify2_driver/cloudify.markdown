@@ -50,8 +50,9 @@ cloudPassword=<cdfy_password>
 * Right after that line, add the following snippet
 {%highlight sh%}
 if [ "$GSA_MODE" = "lus" ]; then
-chmod +x ${WORKING_HOME_DIRECTORY}/events/bin/gsDeployEventsWar.sh
-${WORKING_HOME_DIRECTORY}/events/bin/gsDeployEventsWar.sh
+  EVENTS_PATH="${WORKING_HOME_DIRECTORY}/.."
+  chmod +x ${EVENTS_PATH}/events/bin/gsDeployEventsWar.sh
+  ${EVENTS_PATH}/events/bin/gsDeployEventsWar.sh
 fi
 {%endhighlight%} 
 
