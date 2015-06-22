@@ -54,11 +54,11 @@ Prior to the inputs parameters, some useful informations are available in the sc
 | TARGET_SERVICE_NAME   | No  | Yes | ***Cloudify service name*** in which the target node related to the relationship script is hosted (the compute nodeId). | for Tomcat: serveurweb |
 | TARGETS               | No  | Yes | Comma-separated list of Node id of all the nodes currently target of the relationship. | tomcat_1,tomcat_2,tomcat_n|
 
-{%note%}
+{%info%}
 When a node has some defined artifacts (overridable or not), their **`absolute location paths`** are available as environment variables ( their names ) of the operations scripts.  
 
 **Limitation**: artifacts paths are not available when working with a relationship binding two nodes each on different compute.
-{%endnote%}
+{%endinfo%}
 
 ### Relationships and get_attribute inputs ###
 the input **TOMCAT_IP**, as an environment variable that will hold the IP address of the target being processed will be provided to the  **warHostedOnTomcat_post_configure_source.groovy** script. In addition, the IP addresses of all current
@@ -116,11 +116,11 @@ println "warHostedOnTomcat_post_configure_source<${SOURCE}> end"
 return true
 {% endhighlight %}
 
-{%note%}
+{%info%}
 Note that for groovy case, the inputs and others are set to the script binding, rather than into the execution environment. This makes them available by typing their names as if they where some groovy var already declared(ex: TOMCAT_IP, war_file).
 If you want to check the existence of any of them, just use the snippet: `binding.variables.containsKey(env_var_name_to_check)`.  
 In sh case, access and use them as environment variables.
-{%endnote%}
+{%endinfo%}
 
 
 [tomcat_war_topology_img]: ../../images/cloudify2_driver/tomcat_war_topology.png  "Tomcat-war topology"

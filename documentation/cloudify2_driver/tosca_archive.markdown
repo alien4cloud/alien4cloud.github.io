@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  TOSCA archive
+title:  Developing TOSCA Types
 root: ../../
 categories: DOCUMENTATION
 parent: [cloudify_2_index]
