@@ -67,8 +67,9 @@
 </ul>
 
 <div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;$GSA_MODE&quot;</span> <span class="o">=</span> <span class="s2">&quot;lus&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
-chmod +x <span class="k">${</span><span class="nv">WORKING_HOME_DIRECTORY</span><span class="k">}</span>/events/bin/gsDeployEventsWar.sh
-<span class="k">${</span><span class="nv">WORKING_HOME_DIRECTORY</span><span class="k">}</span>/events/bin/gsDeployEventsWar.sh
+  <span class="nv">EVENTS_PATH</span><span class="o">=</span><span class="s2">&quot;${WORKING_HOME_DIRECTORY}/..&quot;</span>
+  chmod +x <span class="k">${</span><span class="nv">EVENTS_PATH</span><span class="k">}</span>/events/bin/gsDeployEventsWar.sh
+  <span class="k">${</span><span class="nv">EVENTS_PATH</span><span class="k">}</span>/events/bin/gsDeployEventsWar.sh
 <span class="k">fi</span></code></pre></div>
 
 <div class="note info">
