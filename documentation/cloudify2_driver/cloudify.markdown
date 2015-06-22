@@ -56,6 +56,9 @@ if [ "$GSA_MODE" = "lus" ]; then
 fi
 {%endhighlight%} 
 
+A command `tree` on your cloud folder should look like this:
+[![tree cloud folder](../../images/cloudify2_driver/tree_cloud_dir.png)](../../images/cloudify2_driver/tree_cloud_dir.png)
+
 {%info%}
 The `<cdfy_username>` and `<cdfy_password>` are the credentials to provide to the custom events application, used to connect via REST API to the manager. Make sure to provide good credentials if working with a secured manager. If not, they are optional. 
 {%endinfo%}
