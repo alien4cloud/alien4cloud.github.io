@@ -1,0 +1,216 @@
+<div class="container">
+  <div class="row">
+    
+      <div class="col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-md-9">
+    
+        <h1 style="margin-top: 0px;">ALIEN for Cloud 1.0.0-SM23</h1>
+        <p><i class="fa fa-plus text-success"></i> New feature <i class="fa fa-level-up text-primary"></i> Improvement  <i class="fa fa-bug text-danger"></i> Bug <i class="fa fa-exclamation-triangle text-warning"></i> Breaking change</p>
+
+<h3 id="alien-4-cloud">Alien 4 Cloud</h3>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Id</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-plus text-success"></i></td>
+      <td style="text-align: left">ALIEN-248</td>
+      <td style="text-align: left">It is now possible to define a capability property as an input or output of the topology. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-plus text-success"></i></td>
+      <td style="text-align: left">ALIEN-568</td>
+      <td style="text-align: left">Admin has now access to audit informations. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-plus text-success"></i></td>
+      <td style="text-align: left">ALIEN-698</td>
+      <td style="text-align: left">Yaml view in the topology editor now display a valid tosca model. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-plus text-success"></i></td>
+      <td style="text-align: left">ALIEN-783</td>
+      <td style="text-align: left">New clouds can now be created by cloning an existing cloud. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
+      <td style="text-align: left">ALIEN-725</td>
+      <td style="text-align: left">Derived from informations are now visible on component detail view. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
+      <td style="text-align: left">ALIEN-756</td>
+      <td style="text-align: left">TOSCA parsing now supports node templates capabilities parsing. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-580</td>
+      <td style="text-align: left">Pattern for os version is now checked when creating a cloud image /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-726</td>
+      <td style="text-align: left">Fixed an issue that prevented users to access an application if the cloud associated with one of it’s environment was removed. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-736</td>
+      <td style="text-align: left">Alien 4 Cloud is now able to differentiate templates registered in cloudify 2 even when multiple templates are related to the same image+flavor combination. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-740</td>
+      <td style="text-align: left">Fixed an issue that prevented to change user password using REST API as the new password was not encoded. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-743</td>
+      <td style="text-align: left">Bug : unable to delete my topolgy’s CSAR /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-750</td>
+      <td style="text-align: left">I don’t to see error 500 when try to undeploy a cloud while i’m disconnected /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-767</td>
+      <td style="text-align: left">Fixed issues with the new topology layout and provide many improvements. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-772</td>
+      <td style="text-align: left">Fixed issues that caused topology’s input renaming to fail. The name is also now checked to be TOSCA compliant (no space in the name). /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-782</td>
+      <td style="text-align: left">Fixed the topology validation: The topology is no longer considered as valid in case a relationship and capability required property is not defined. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-788</td>
+      <td style="text-align: left">NPE on runtime views after a restart of the cloudify manager then a restart of A4C /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-791</td>
+      <td style="text-align: left">Fixed an issue that caused a very long startup delay in case a cloud was not reachable on alien’s startup. /</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="cloudify-3-paas-provider">Cloudify 3 PaaS Provider</h3>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Id</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
+      <td style="text-align: left">ALIEN-757</td>
+      <td style="text-align: left">Deployment artifacts are now managed by cloudify 3 provider. /</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="cloudify-2-paas-provider">Cloudify 2 PaaS Provider</h3>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Id</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
+      <td style="text-align: left">ALIEN-734</td>
+      <td style="text-align: left">Passwords for cloudify 2 connection are now configured using password type fields in A4C UI. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
+      <td style="text-align: left">ALIEN-785</td>
+      <td style="text-align: left">Removed the synchronous deployment mode as this was deprecated, buggy and not recommended feature. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-715</td>
+      <td style="text-align: left">Fixed an issue that prevented to use the get_property function to access a property defined in a capability in the inputs of a relationship script /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-716</td>
+      <td style="text-align: left">Fixed an issue that caused get_attribute: [TARGET, ip_address] to fail when used on a node’s stop operation. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-736</td>
+      <td style="text-align: left">Alien 4 Cloud is now able to differentiate templates registered in cloudify 2 even when multiple templates are related to the same image+flavor combination. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-749</td>
+      <td style="text-align: left">Fixed an issue that prevented to use the get_property function to access a property defined in a relationship as the inputs of a relationship script /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-753</td>
+      <td style="text-align: left">Fixed an issue that caused get_attribute: [TARGET, ip_address] to fail when used on a relationship’s add_target operation. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-761</td>
+      <td style="text-align: left">Unable to restart the cloudify manager in persistent mode /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-776</td>
+      <td style="text-align: left">When I deployed an application in A4C, A4C lost track of the deployment, but the application is correctly deployed in Cloudify. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-795</td>
+      <td style="text-align: left">Fixed an issue that caused dependency management to hang under some latency circumstances (network, time for components to start). /</td>
+    </tr>
+  </tbody>
+</table>
+
+
+      </div>
+    </div>
+  </div>
+</div><!-- /container -->
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('RELEASE_NOTES', '1.0.0-SM23');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

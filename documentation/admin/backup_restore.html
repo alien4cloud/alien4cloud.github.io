@@ -1,0 +1,142 @@
+<div class="container">
+  <div class="row">
+    
+      <div class="col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-md-9">
+    
+        <h1 style="margin-top: 0px;">Backup and restore</h1>
+        <p>Alien 4 Cloud uses several places to store it’s data.</p>
+
+<ul>
+  <li>Cloud service archives</li>
+  <li>Artifacts that may have been uploaded to build topologies</li>
+  <li>Indexed data (stored in elastic-search)</li>
+  <li>Plugins binaries</li>
+  <li>Eventually you should make sure to backup also your alien4cloud yaml configuration file as well as your elastic search configuration file</li>
+</ul>
+
+<h2 id="backup">Backup</h2>
+
+<p>In order to backup Alien 4 Cloud you must backup elastic search indexes as well as disk-based data. For more informations on how to backup an elasticsearch cluster please refer the elastic search <a href="http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/modules-snapshots.html">documentation</a></p>
+
+<p>The following bash script gives an example on how alien4cloud data should be backed-up. It assumes that you kept the defaut directory hierarchy for alien data.</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="c"># Directory in which alien stores it&#39;s disk base data.</span>
+<span class="nb">export </span><span class="nv">ALIEN_DIR</span><span class="o">=</span>~/.alien
+<span class="c"># Url to access ElasticSearch rest api.</span>
+<span class="nb">export </span><span class="nv">ES_URL</span><span class="o">=</span><span class="s2">&quot;http://localhost:9200&quot;</span>
+
+<span class="c"># Backup target directories</span>
+<span class="nb">export </span><span class="nv">BACKUP_DIR</span><span class="o">=</span>~/tmp/alien_backups
+
+<span class="nb">export </span><span class="nv">BACKUP_NAME</span><span class="o">=</span><span class="sb">`</span>date <span class="s1">&#39;+%d_%m_%Y_%H_%M&#39;</span><span class="sb">`</span>
+
+<span class="nb">export </span><span class="nv">ES_BACKUP_DIR</span><span class="o">=</span><span class="nv">$BACKUP_DIR</span>/elasticsearch
+<span class="nb">export </span><span class="nv">FS_BACKUP_DIR</span><span class="o">=</span><span class="nv">$BACKUP_DIR</span>/filesystem/<span class="nv">$BACKUP_NAME</span>
+
+<span class="c"># setup elastic search snapshot repository</span>
+curl -XPUT <span class="s2">&quot;$ES_URL/_snapshot/alien_backup&quot;</span> -d <span class="s2">&quot;{</span>
+<span class="s2">  \&quot;type\&quot;: \&quot;fs\&quot;,</span>
+<span class="s2">  \&quot;settings\&quot;: {</span>
+<span class="s2">    \&quot;location\&quot;: \&quot;$ES_BACKUP_DIR\&quot;,</span>
+<span class="s2">    \&quot;compress\&quot;: true</span>
+<span class="s2">  }</span>
+<span class="s2">}&quot;</span>
+
+<span class="c"># trigger elastic search data backup (asynchronous)</span>
+<span class="nv">RESULT</span><span class="o">=</span><span class="sb">`</span>curl -XPUT <span class="s2">&quot;$ES_URL/_snapshot/alien_backup/$BACKUP_NAME?wait_for_completion=false&quot;</span><span class="sb">`</span>
+<span class="nv">SUCCESS</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="s2">&quot;$RESULT&quot;</span> <span class="p">|</span> grep <span class="s2">&quot;{\&quot;accepted\&quot;:true}&quot;</span><span class="k">)</span>
+
+<span class="k">if</span> <span class="o">[</span> -z <span class="s2">&quot;$SUCCESS&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+  <span class="nb">echo</span> <span class="s2">&quot;Failed to backup Elastic Search&quot;</span>
+  <span class="nb">echo</span> <span class="nv">$RESULT</span>
+<span class="k">else</span>
+  <span class="c"># Copy file system data</span>
+  mkdir -p <span class="nv">$FS_BACKUP_DIR</span>/artifacts
+  mkdir -p <span class="nv">$FS_BACKUP_DIR</span>/csar
+  mkdir -p <span class="nv">$FS_BACKUP_DIR</span>/plugins
+  cp -r <span class="nv">$ALIEN_DIR</span>/artifacts <span class="nv">$FS_BACKUP_DIR</span>/artifacts
+  cp -r <span class="nv">$ALIEN_DIR</span>/csar <span class="nv">$FS_BACKUP_DIR</span>/csar
+  cp -r <span class="nv">$ALIEN_DIR</span>/plugins <span class="nv">$FS_BACKUP_DIR</span>/plugins
+
+  <span class="c"># wait until elastic search backup is complete</span>
+  curl -XGET <span class="s2">&quot;$ES_URL/_snapshot/alien_backup/$BACKUP_NAME/_status&quot;</span>
+<span class="k">fi</span></code></pre></div>
+
+<h2 id="restore">Restore</h2>
+
+<div class="note info">
+<p>We recommend users to stop alien 4 cloud but not ElasticSearch in order to perform the restore. Alien 4 Cloud should be restarted once restore is completed.</p>
+
+<p>However, if you 100% sure that restore operation has no impact on clouds or plugins configuration you can perform a ‘hot restore’ and don’t need to stop neither Alien 4 Cloud or ElasticSearch.</p>
+</div>
+
+<div class="note">
+<p>In order to perform a restore with elasticsearch up and alien down you should be running in a classical production setup where elasticsearch process is independant from alien 4 cloud. See <a href="#/documentation/admin/advanced_configuration.html">advanced configuration</a> for more details.</p>
+</div>
+
+<p>To restore a snapshot you should restore the elaticsearch index and put back the actual files required for Alien 4 Cloud.</p>
+
+<p>Before to run the script below you should make sure that alien 4 cloud is stopped and elastic-search is running.</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="c"># Name of the backup to restore</span>
+<span class="nb">export </span><span class="nv">BACKUP_NAME</span><span class="o">=</span><span class="nv">$1</span>
+
+<span class="nb">echo</span> <span class="s2">&quot;Prepare to restore $BACKUP_NAME&quot;</span>
+
+<span class="c"># Directory in which alien stores it&#39;s disk base data.</span>
+<span class="nb">export </span><span class="nv">ALIEN_DIR</span><span class="o">=</span>~/.alien
+<span class="c"># Url to access ElasticSearch rest api.</span>
+<span class="nb">export </span><span class="nv">ES_URL</span><span class="o">=</span><span class="s2">&quot;http://localhost:9200&quot;</span>
+
+<span class="c"># Backup target directories</span>
+<span class="nb">export </span><span class="nv">BACKUP_DIR</span><span class="o">=</span>~/tmp/alien_backups
+<span class="nb">export </span><span class="nv">FS_BACKUP_DIR</span><span class="o">=</span><span class="nv">$BACKUP_DIR</span>/filesystem/<span class="nv">$BACKUP_NAME</span>
+
+<span class="c"># close indexes before restore operation</span>
+curl -XPOST <span class="s2">&quot;$ES_URL/_all/_close&quot;</span>
+
+<span class="c"># trigger elastic search data restore</span>
+<span class="nv">RESULT</span> <span class="o">=</span> <span class="sb">`</span>curl -XPOST <span class="s2">&quot;$ES_URL/_snapshot/alien_backup/$BACKUP_NAME/_restore&quot;</span><span class="sb">`</span>
+
+<span class="nv">SUCCESS</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="s2">&quot;$RESULT&quot;</span> <span class="p">|</span> grep <span class="s2">&quot;{\&quot;accepted\&quot;:true}&quot;</span><span class="k">)</span>
+
+<span class="k">if</span> <span class="o">[</span> -z <span class="s2">&quot;$SUCCESS&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+  <span class="nb">echo</span> <span class="s2">&quot;Failed to restore Elastic Search&quot;</span>
+  <span class="nb">echo</span> <span class="nv">$RESULT</span>
+<span class="k">else</span>
+  <span class="c"># Copy file system data</span>
+  rm -r <span class="nv">$ALIEN_DIR</span>/artifacts
+  rm -r <span class="nv">$ALIEN_DIR</span>/csar
+  rm -r <span class="nv">$ALIEN_DIR</span>/plugins
+  cp -r <span class="nv">$FS_BACKUP_DIR</span>/artifacts <span class="nv">$ALIEN_DIR</span>/artifacts
+  cp -r <span class="nv">$FS_BACKUP_DIR</span>/csar <span class="nv">$ALIEN_DIR</span>/csar
+  cp -r <span class="nv">$FS_BACKUP_DIR</span>/plugins <span class="nv">$ALIEN_DIR</span>/plugins
+<span class="k">fi</span></code></pre></div>
+
+<p>Once data is restored you can restart alien 4 cloud server.</p>
+
+      </div>
+    </div>
+  </div>
+</div><!-- /container -->
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION', 'backup_restore');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

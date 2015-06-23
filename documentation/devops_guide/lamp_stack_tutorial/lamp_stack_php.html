@@ -1,0 +1,89 @@
+<div class="container">
+  <div class="row">
+    
+      <div class="col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-md-9">
+    
+        <h1 style="margin-top: 0px;">Component PHP</h1>
+        <p>This component will install the PHP on the host server.</p>
+
+<p>Used version for this tutorial : <a href="https://github.com/alien4cloud/samples/tree/master/php" target="_blank">PHP</a></p>
+
+<h1 id="definition">Definition</h1>
+
+<p>PHP is the programming language of the LAMP stack, it’s a server-side scripting. On this page, we just explain the recipe of this component. Below, the header of the php-type :</p>
+
+<div data-gist="https://gist.github.com/OresteVisari/a7858be0865af14f9830.js"></div>
+
+<h2 id="properties">Properties</h2>
+
+<p>The PHP recipe is not so complicated, it has only three properties. The first property is the version, like for Apache recipe, it’s just to be mentioned. The two other properties are booleans to install the PHP Apache 2 module or the PHP MySQL module.</p>
+
+<div data-gist="https://gist.github.com/OresteVisari/2137c78d2d9553e53b04.js"></div>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Property</th>
+      <th style="text-align: left">Usage</th>
+      <th style="text-align: left">Comment</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">version</td>
+      <td style="text-align: left">Mention the php version</td>
+      <td style="text-align: left">Constant version in our example (v5)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="lifecycle-and-related-scripts">Lifecycle and related scripts</h2>
+
+<div data-gist="https://gist.github.com/OresteVisari/6870bf82c86a694d9532.js"></div>
+
+<div class="note">
+<p>PHP inherite from the tosca base type <strong>tosca.nodes.SoftwareComponent</strong></p>
+</div>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Operation</th>
+      <th style="text-align: left">Usage</th>
+      <th style="text-align: left">Comment</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">create</td>
+      <td style="text-align: left">Executed script to install PHP on the Compute</td>
+      <td style="text-align: left">Through apt-get on ubuntu image</td>
+    </tr>
+  </tbody>
+</table>
+
+      </div>
+    </div>
+  </div>
+</div><!-- /container -->
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION', 'lamp_stack_php');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

@@ -1,0 +1,76 @@
+<div class="container">
+  <div class="row">
+    
+      <div class="col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-md-9">
+    
+        <h1 style="margin-top: 0px;">get_attribute</h1>
+        <p>The <strong>get_attribute</strong> function  is used to retrieve the values of named attributes declared by the referenced  node or relationship template name.<br />
+Use this function for inputs parameters.</p>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Keyname</th>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Required</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">modelable_entity_name</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">yes</td>
+      <td style="text-align: left">The  required  name of a modelable entity (e.g., Node Template  or Relationship  Template name) as declared in the service template that contains the named property definition  the function will return the value from.Can be one of the reserved keywords: SELF, SOURCE, TARGET, HOST</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">attribute_name</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">yes</td>
+      <td style="text-align: left">Name of the attribute definition the function will return the value from.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="grammar">Grammar</h2>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">get_attribute</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span> <span class="nv">&lt;modelable_entity_name | SELF | SOURCE | TARGET | HOST&gt;</span><span class="p-Indicator">,</span> <span class="nv">&lt;attribute_name&gt;</span><span class="p-Indicator">]</span></code></pre></div>
+
+<h2 id="example">Example</h2>
+
+<p>The following example shows how to define an input parameter on relationship using get_attribute function:</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">relationship_types</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">fastconnect.relationship.FunctionSample</span>
+    <span class="l-Scalar-Plain">interfaces</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">configure</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">add_target</span><span class="p-Indicator">:</span> 
+          <span class="l-Scalar-Plain">inputs</span><span class="p-Indicator">:</span>
+            <span class="l-Scalar-Plain">TARGET_IP</span><span class="p-Indicator">:</span> <span class="p-Indicator">{</span> <span class="nv">get_attribute</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span><span class="nv">TARGET</span><span class="p-Indicator">,</span> <span class="nv">ip_address</span><span class="p-Indicator">]</span> <span class="p-Indicator">}</span>
+          <span class="l-Scalar-Plain">implementation</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">add_target.sh</span></code></pre></div>
+
+      </div>
+    </div>
+  </div>
+</div><!-- /container -->
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION', 'tosca_ref_get_attribute_definition');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

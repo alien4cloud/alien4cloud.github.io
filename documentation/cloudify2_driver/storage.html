@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="row">
+    
+      <div class="col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-md-9">
+    
+        <h1 style="margin-top: 0px;">Storage volumes</h1>
+        <p>The Alien4Cloud cloudify 2.X provider supports TOSCA Blockstorage feature.
+Find here usefull information about how to implement it and how the provider handles it.</p>
+
+<h3>Related Topics</h3>
+<div id="childrentree"></div>
+
+      </div>
+    </div>
+  </div>
+</div><!-- /container -->
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION', 'cloudify_2_blockstorage');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

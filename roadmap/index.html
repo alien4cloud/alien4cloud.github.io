@@ -1,166 +1,175 @@
-<!DOCTYPE html>
-<html lang="en">
-  
-  <head>
-    <meta charset="utf-8">
-    <title>Roadmap</title>
-    <meta property="st:info" content="section:''"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<div class="container">
+  <div class="row">
+    
+      <div id="content" class="col-md-12">
+    
+        <h1 style="margin-top: 0px;">Roadmap</h1>
+        <div class="container">
+  <p>
+    The following represents current view of Alien4Cloud development team of its product development cycle and future directions. It is intended for information purposes only, and should not be interpreted as a commitment, though we do our best to reach the dates and features set mentioned below.
+  </p>
+  <p>
+    Premium features, support and certifications are available under a subscription, delivered by <a href="http://fastconnect.fr" target="_blank">FastConnect</a>, a <a href="http://www.bull.com" target="_blank">Bull, Atos technologies</a> subsidiary. Contact us for more details.
+  </p>
+  <p>
+    We deliver 4 major releases per year.
+    Please note that we also deliver intermediate sprint releases in <a href="https://github.com/alien4cloud/alien4cloud" target="_blank">Alien4Cloud GitHub repo</a>, every 3 weeks, in order to get feedback on features while still in development.
+  </p>
 
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/font-awesome.min.css">
-    <link rel="stylesheet" href="../css/docs.css">
-    <link rel="stylesheet" href="../css/main.css">
-    <link rel="stylesheet" href="../css/syntax.css">
-    <link rel="stylesheet" href="../css/note.css">
-</head>
-
-  <body>
-    <script type="text/javascript">
-      var tocheaders = {};
-      var tocheadersz = {};
-    </script>
-    <script type="text/javascript" src="../js/jquery.min.js"></script>
-<script type="text/javascript" src="../js/bootstrap.min.js"></script>
-<script type="text/javascript" src="../js/jquery.fancybox.pack.js"></script>
-
-<script type="text/javascript" src="../js/jquery.ba-hashchange.min.js"></script>
-
-    <div id="wrapper">
-      <div id="header">
-        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="../index.html">
-        <img src="../images/cloudalien.png" style="height:21px;" class="pull-left"> ALIEN 4 Cloud
-      </a>
-    </div>
-    <div class="collapse navbar-collapse navbar-ex1-collapse">
-      <ul class="nav navbar-nav">
-        <li>
-          <a href="../community/">Community</a>
-        </li>
-        <li>
-          <a href="../documentation/">Documentation</a>
-        </li>
-        <li>
-          <a href="../developer_guide/">Contribute</a>
-        </li>
-        <li>
-          <a href="../roadmap/">Roadmap</a>
-        </li>
-        <li>
-          <a href="../release_notes/">Release notes</a>
-        </li>
-        <li>
-          <a id="git-icon" href="https://github.com/alien4cloud/alien4cloud.github.io" target="_blank" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Documentation's GitHub!" data-original-title="Documentation's GitHub!">
-          <i class="fa fa-code-fork fa-lg fa-rotate-90"></i>
-          </a>
-        </li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li>
-          <button type="button" onclick="location.href='https://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource-snapshot&g=alien4cloud&a=alien4cloud-ui&v=LATEST&p=war&c=standalone'" class="btn btn-warning navbar-btn download-button"><i class="fa fa-download"></i> latest build</button>
-        </li>
-        <li>
-          <button type="button" onclick="location.href='https://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource&g=alien4cloud&a=alien4cloud-ui&v=LATEST&p=war&c=standalone'" class="btn btn-success navbar-btn download-button"><i class="fa fa-download"></i> stable</button>
-        </li>
-      </ul>
-    </div>
-  </div>
+  <ul class="cbp_tmtimeline">
+  	<li>
+  		<time class="cbp_tmtime" datetime="2015-07"><span>early Q3 2015</span> <span>v 1.0.0</span></time>
+  		<div class="cbp_tmicon"><i class="fa fa-rocket" /></div>
+  		<div class="cbp_tmlabel">
+        <h4>Core</h4>
+        <ul>
+  			   <li>Dev &amp; Ops Self-Service</li>
+           <li>TOSCA Catalog</li>
+           <li>TOSCA Import Export</li>
+           <li>Applications Versions &amp; Environments</li>
+           <li>Pluggable UI</li>
+           <li>H.A. Policies and Availability Zones support</li>
+           <li>Maintenance mode trigger (based on orchestrator support)</li>
+           <li>Audit</li>
+        </ul>
+        <h4>Infrastructure and orchestrators certifications</h4>
+        <ul>
+  			   <li><a href="https://github.com/alien4cloud/alien4cloud-cloudify2-provider" target="_blank">Cloudify v2</a> and <a href="https://github.com/alien4cloud/alien4cloud-cloudify3-provider" target="_blank">v3.1</a> (compatible with Cloudify 3.2)</li>
+           <li>Amazon</li>
+           <li>OpenStack</li>
+           <li>BYON</li>
+        </ul>
+        <small>Note: Almost all infrastructures and orchestrators, in the roadmap are already functional and some have been deployed, but we highlight here certification</small>
+        <h4>Artefacts support</h4>
+        <ul>
+          <li>SH</li>
+          <li>BAT</li>
+  			  <li>Cloudify v2 groovy</li>
+        </ul>
+        <small>Note: Some artefacts are already working though not fully tested/supported</small>
+        <h4><a href="https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=tosca" target="_blank">TOSCA</a></h4>
+        <ul>
+          <li><a href="http://docs.oasis-open.org/tosca/TOSCA-Simple-Profile-YAML/v1.0/csd03/TOSCA-Simple-Profile-YAML-v1.0-csd03.html" target="_blank">Simple profile in YAML support</a> (Spec is still evolving so support of it is incremental within Alien4Cloud)</li>
+          <li>Normative and extended types, topologies</li>
+          <li>Groups and policies</li>
+        </ul>
+  		</div>
+  	</li>
+    <li>
+  		<time class="cbp_tmtime" datetime="2015-10"><span>early Q4 2015</span> <span>v 1.1.0</span></time>
+  		<div class="cbp_tmicon"><i class="fa fa-rocket" /></div>
+  		<div class="cbp_tmlabel">
+        <h4>Core</h4>
+        <ul>
+  			   <li>PaaSProvider v2 for increased platforms and policies support</li>
+           <li>Pluggable Matching Algorithm</li>
+           <li>SSH keys Management</li>
+           <li>Git integration</li>
+           <li>UI improvements</li>
+        </ul>
+        <h4>Infrastructure and orchestrators certifications</h4>
+        <ul>
+  			   <li>Cloudify v3.2</li>
+        </ul>
+        <h4>Artefacts support</h4>
+        <ul>
+          <li>Python</li>
+        </ul>
+        <h4>TOSCA</h4>
+        <ul>
+          <li>Topology Substitution</li>
+          <li>Improvements of Simple profile support based on spec evolutions</li>
+        </ul>
+        <h4>Premium features</h4>
+        <ul>
+          <li>Simplified startup and configuration</li>
+          <li>v1.0 to v1.1 Migration tools</li>
+        </ul>
+  		</div>
+  	</li>
+    <li>
+  		<time class="cbp_tmtime" datetime="2016-01"><span>early Q1 2016</span> <span>v 1.2.0</span></time>
+  		<div class="cbp_tmicon"><i class="fa fa-rocket" /></div>
+  		<div class="cbp_tmlabel">
+        <h4>Core</h4>
+        <ul>
+  			   <li>Network support improvements</li>
+           <li>Pluggable Location Matching</li>
+           <li>H.A policies on single scalable nodes</li>
+        </ul>
+        <h4>Infrastructure and orchestrators certifications</h4>
+        <ul>
+  			   <li>Cloudify v3.3</li>
+           <li>Azure</li>
+           <li>vCloud</li>
+        </ul>
+        <h4>Artefacts support</h4>
+        <ul>
+          <li>Puppet</li>
+          <li>Chef</li>
+        </ul>
+        <h4>TOSCA</h4>
+        <ul>
+          <li>Simple profile in YAML v1</li>
+        </ul>
+        <h4>Premium features</h4>
+        <ul>
+          <li>Governance Dashboards</li>
+          <li>Catalog Portability Insights</li>
+          <li>v1.1 to v1.2 Migration tools</li>
+        </ul>
+  		</div>
+  	</li>
+    <li>
+  		<time class="cbp_tmtime" datetime="2016-01"><span>To be defined</span> <span>Future through</span></time>
+  		<div class="cbp_tmicon"><i class="fa fa-rocket" /></div>
+  		<div class="cbp_tmlabel">
+        <h4>Core</h4>
+        <ul>
+           <li>Custom workflows</li>
+           <li>Promotion workflow</li>
+        </ul>
+        <h4>Infrastructure and orchestrators support &amp; certifications</h4>
+        <ul>
+           <li><a href="https://github.com/alien4cloud/a4c-brooklyn-provider" target="_blank">Apache Brooklyn</a></li>
+           <li>Docker (native) - already supported through partners orchestrators (cloudify / apache brooklyn), Kubernetes, Swarm/Machine</li>
+           <li>Mesos (Marathon)</li>
+           <li>Ambari</li>
+           <li>Google Cloud</li>
+           <li>OpenStack latest releases</li>
+        </ul>
+        <h4>Premium features</h4>
+        <ul>
+  			  <li>Workspaces</li>
+          <li>TOSCA Types ui designer</li>
+          <li>Simplified Self Service</li>
+          <li>Artifact(s) Repositories Management</li>
+        </ul>
+  		</div>
+  	</li>
+  </ul>
+  If you want to propose other features and/or if you are willing to contribute, please <a href="/community/index.html">contact us</a>.
 </div>
-
-<script>
-$('[target=_blank]').append(" <i class=\"icon-external-link\" style=\"font-size:10px\"></i>");
-
-$('#git-icon').tooltip();
-</script>
 
       </div>
-
-      <div id="content-parent" class="content">
-        <div class="container">
-          <div class="row">
-            <div id="breadcrumbs"></div>
-            
-              <div class="col-md-3">
-                <div id="sidebar_menu" class="well tree" role="complementary">
-</div>
-
-<script type="text/javascript" src="../js/sidebar.js"></script>
-
+    </div>
+  </div>
+</div><!-- /container -->
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
 <script>
 $(document).ready(function () {
-  makeSideBar('ROADMAP', 'index');
-  createBreadcrumbs('ROADMAP', '');
+  makeSideBar('', '');
 });
 </script>
 
-              </div>
-              <div id="content" class="col-md-9">
-            
-                <h1 style="margin-top: 0px;">Roadmap</h1>
-                
-<hr style="margin-top:5px; margin-bottom:5px;" />
-<div class="row"><ul class="nav nav-pills" id="summarypanel"></ul></div>
-<hr style="margin-top:5px; margin-bottom:5px;" />
-
-<p>The following represents current view of Alien4Cloud development team of its product development cycle and future directions. It is intended for information purposes only, and should not be interpreted as a commitment, though we do our best to reach the dates and features set mentioned below.</p>
-
-<p>We know it may need to be clarified, and this will improve with time.</p>
-
-<p>Please note that we deliver intermediate releases in <a href="https://github.com/alien4cloud/alien4cloud" target="_blank">Alien4Cloud GitHub repo</a>, every 2 weeks, in order to get feedback on features while still in development.</p>
-
-<h1 id="november-2014-milestone-3-span-stylecolororange-font-familygeorgiain-progressspan">November 2014, Milestone 3, <span style="color:orange; font-family:Georgia;">In progress</span></h1>
-<ul>
-  <li><a href="https://www.oasis-open.org/apps/org/workgroup/tosca/download.php/54069/latest/TOSCA-Simple-Profile-YAML-v1.0-wd03-Rev03.docx" target="_blank">Tosca Simple Profile wd03</a></li>
-  <li>Cloud resources configuration &amp; pluggable matching</li>
-  <li>Network support</li>
-  <li>Block Storage improvements - handling Compute scaling policies properly</li>
-</ul>
-
-<h1 id="january-2015-version-1-span-stylecolororange-font-familygeorgiain-progressspan">January 2015, Version 1, <span style="color:orange; font-family:Georgia;">In progress</span></h1>
-<ul>
-  <li>Tosca Simple Profile - final</li>
-  <li>Application Lifecycle Management</li>
-  <li>Workspace support including pluggable limitation policies</li>
-  <li>Cloudify managers managed from Alien 4 Cloud</li>
-  <li>Audit features</li>
-</ul>
-
-<h1 id="planned-features-for-2015-span-stylecolorred-font-familygeorgiastill-being-definedspan">Planned features for 2015, <span style="color:red; font-family:Georgia;">still being defined</span></h1>
-<ul>
-  <li>Cloudify 3 support</li>
-  <li>Docker support</li>
-  <li>Apache Brooklyn support</li>
-  <li>Pluggable Application version update strategies</li>
-  <li>Custom workflows designer</li>
-  <li>More dashboards &amp; alerts</li>
-  <li>IT Social network features</li>
-  <li>Dynamic scalability (can be added earlier if needed)</li>
-</ul>
-
-<p>If you want to propose other features and/or if you are willing to contribute, please <a href="../community/">contact us</a>.</p>
-
-              </div>
-            </div>
-          </div><!-- /container -->
-        </div>
-      </div>
-      <div class="push"></div>
-    </div>
-    <div id="footer">
-  <div class="container">
-    <p style="text-align:center;margin: 20px 0" class="text-muted credit">&copy; FastConnect SAS, 2014. Powered by <a href="http://jekyllrb.com/">Jekyll</a>.</p>
-  </div>
-</div>
-
-    <script type="text/javascript" src="../js/post-layout.js"></script>
-  </body>
-</html>
+<script>
+$("div[data-gist]").gist();
+</script>

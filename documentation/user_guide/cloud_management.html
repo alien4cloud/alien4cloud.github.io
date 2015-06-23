@@ -1,0 +1,161 @@
+<div class="container">
+  <div class="row">
+    
+      <div class="col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-md-9">
+    
+        <h1 style="margin-top: 0px;">Cloud(s) management</h1>
+        
+<hr style="margin-top:5px; margin-bottom:5px;" />
+<div class="row"><ul class="nav nav-pills" id="summarypanel"></ul></div>
+<hr style="margin-top:5px; margin-bottom:5px;" />
+
+<p>If you are not familiar with the concept of cloud in Alien 4 Cloud please go <a href="#/documentation/concepts/clouds.html">here</a> first.</p>
+
+<h2 id="requirement-for-cloud-creation">Requirement for cloud creation</h2>
+
+<p>Alien 4 cloud is not responsible for actual deployment orchestration but rather interact with existing orchestration technologies. In order to define a cloud you must configure plugins that will be used to actually perform deployment(s) on the defined cloud. Orchestrator plugins are refered in alien as PaaS Provider plugins.</p>
+
+<p>In order to configure a cloud you must have installed a paas provider plugin first see <a href="#/documentation/user_guide/plugin_management.html">Plugin management</a>.</p>
+
+<div class="note info">
+<h5>Supported orchestrators</h5>
+<p>We are currently supporting the opensource orchestrators cloudify 2 and cloudify 3 (Full re-written engine with new DSL - much better and flexible but that we felt prior to the up-comming 3.2 a bit light for production use).</p>
+</div>
+
+<h3 id="installing-cloudify-27-plugin">Installing Cloudify 2.7 plugin</h3>
+
+<p>Follow <a href="#/documentation/cloudify2_driver/index.html">this link</a> in order to find more on installation and configuration of your coud environment using cloudify 2.</p>
+
+<p><img src="../../images/user_guide/admin/admin_button.png" alt="Go to admin" class="inline" /></p>
+
+<h1 id="cloud-creation">Cloud creation</h1>
+
+<p>Once you have installed a plugin the admin can go on the cloud page and configure cloud. Remember that you can use the Alien 4 Cloud contextual help in order to be guided directly within the application.</p>
+
+<h1 id="cloud-global-configuration">Cloud global configuration</h1>
+
+<p><img src="../../images/user_guide/admin/clouds/cloud_global_configuration.png" alt="Naming policy" /><br /></p>
+
+<h2 id="naming-policy">Naming policy</h2>
+
+<p>On every cloud, you can configure a naming policy that Alien 4 Cloud will use when deploying an application on a cloud. The naming policy will be used to identify the deployment on the cloud’s orchestrator (PaaS Provider).</p>
+
+<div class="note info">
+<p>Most of the PaaS Providers will leverage this naming policy to name the resources used at the IaaS level also.</p>
+</div>
+
+<p>To compose your own application naming policy, you can use the following entities and properties :</p>
+
+<ul>
+  <li><strong>environment</strong> : the environment linked to the deployment
+    <ul>
+      <li><em>id</em></li>
+      <li><em>name</em></li>
+      <li><em>description</em></li>
+      <li><em>environmentType</em> : <code>OTHER, DEVELOPMENT, INTEGRATION_TESTS, USER_ACCEPTANCE_TESTS, PRE_PRODUCTION, PRODUCTION</code></li>
+    </ul>
+  </li>
+  <li><strong>application</strong> : deployed application
+    <ul>
+      <li><em>id</em></li>
+      <li><em>name</em></li>
+      <li><em>creationDate</em></li>
+      <li><em>lastUpdateDate</em></li>
+    </ul>
+  </li>
+  <li><strong>metaProperties</strong><em>[‘PROPERTY_NAME’]</em> : meta-properties defined on the application</li>
+  <li><strong>time</strong> : current date at format <code>yyyyMMddHHmm</code></li>
+</ul>
+
+<p>The default naming policy setting for any cloud is : <code>environment.name + application.name</code></p>
+
+<div class="note warning">
+<h5>Deployment name unicity </h5>
+<p>The deployment name must be unique at a given time, the cloud administrator is responsible for choosing a pattern that should be unique or some application(s) may not be deployed (if a deployment with the same name is already running).
+Note that in we guaranty that an application name is unique across all applications and that an environment name is unique for a given application.</p>
+</div>
+
+<p>The main pattern to define a naming policy is to use <code>+</code> to concat different properties or text, for examples :</p>
+
+<ul>
+  <li><code>environment.name + application.name + time</code></li>
+  <li><code>application.id + environment.environmentType + '-US_ZONE'</code></li>
+  <li><code>time + '__' + application.creationDate</code></li>
+  <li><code>'MY_APP' + '-WORDPRESS-' + time</code></li>
+  <li><code>metaProperties['PROPERTY_NAME'] + '-' + time</code></li>
+</ul>
+
+<div class="note warning">
+<h5>Empty meta properties</h5>
+<p>Any empty property used in the naming policy expression will cause a deployment failure.</p>
+</div>
+
+<div class="note info">
+<p><strong>Advanced use</strong> : the policy expression is based on <a href="http://docs.spring.io/spring/docs/current/spring-framework-reference/html/expressions.html" target="_blank">SpEL</a> (<em>Spring Expression Language</em>) and you could use its capabilities if you are familiar with it.
+<strong>Note</strong> : do not use the <code>#</code></p>
+</div>
+
+<h2 id="meta-properties">Meta properties</h2>
+
+<p>This feature allows you to define <strong>meta-properties</strong> on your cloud and then use them in your
+topology as an internal variable defined by your administrator. Obviously as a <em>CLOUD_DELOYER</em>,
+<em>APPLICATION_USER</em> or <em>APPLICATION_MANAGER</em> you won’t be able to change this value.</p>
+
+<div class="note info">
+<p>At this stage, we assume that you’ve read the tutorial part <here> to create global meta-properties as an ADMIN,
+to be more specific you know how to create meta-properties targeting cloud, application or environment.</here></p>
+</div>
+
+<p>In <strong>global configuration</strong> in the meta-properties part you should be able to define a value
+for any cloud targeted meta-properties. Fill the desired values in order to use it later as in
+<strong>get_input</strong> for a property.</p>
+
+<div class="note info">
+<p>Regarding your meta-property definition, you can add constraint on a meta property. In this case you
+must see constraint violation error if any in this cloud meta-properties form.</p>
+</div>
+
+<h2 id="paas-provider-configuration">PaaS Provider configuration</h2>
+
+<p>TODO</p>
+
+<p>The configuration tab on the cloud view allows to setup the provider specific configuration. It is mostly used to configure the provider connexion parameters so Alien 4 Cloud can communicate with the orchestrator engine server.</p>
+
+<p>This configuration may be specific to the orchestrator used and you should refer to the orchestrator specific guide.</p>
+
+<h1 id="cloud-resources-setup">Cloud resources setup</h1>
+
+<p>TODO</p>
+
+<p>Once created you must configure the cloud. Configuring a cloud requires several step:</p>
+
+<ul>
+  <li>Configure the properties of the PaaS provider (that depends of the choosen one).</li>
+  <li>Configure cloud resources (images and flavors) used for resources matchin at deployment time.</li>
+</ul>
+
+      </div>
+    </div>
+  </div>
+</div><!-- /container -->
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION', 'cloud_management');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

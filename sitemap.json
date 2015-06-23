@@ -1,38 +1,10 @@
 [
 
 	{
-		"url": "/release_notes/0.0.10-fixed-issues.html", 
-		"section": "Release Notes", 
-		"value": "Fixed Issues",
-		"tokens": [ "Fixed","Issues"]
-	},
-
-	{
-		"url": "/release_notes/0.0.10-whats-new.html", 
-		"section": "Release Notes", 
-		"value": "What's New",
-		"tokens": [ "What's","New"]
-	},
-
-	{
 		"url": "/release_notes/0.0.10.html", 
 		"section": "Release Notes", 
 		"value": "ALIEN for Cloud 0.0.10",
 		"tokens": [ "ALIEN","for","Cloud","0.0.10"]
-	},
-
-	{
-		"url": "/release_notes/0.0.11-fixed-issues.html", 
-		"section": "Release Notes", 
-		"value": "Fixed Issues",
-		"tokens": [ "Fixed","Issues"]
-	},
-
-	{
-		"url": "/release_notes/0.0.11-whats-new.html", 
-		"section": "Release Notes", 
-		"value": "What's New",
-		"tokens": [ "What's","New"]
 	},
 
 	{
@@ -43,38 +15,10 @@
 	},
 
 	{
-		"url": "/release_notes/0.0.12-fixed-issues.html", 
-		"section": "Release Notes", 
-		"value": "Fixed Issues",
-		"tokens": [ "Fixed","Issues"]
-	},
-
-	{
-		"url": "/release_notes/0.0.12-whats-new.html", 
-		"section": "Release Notes", 
-		"value": "What's New",
-		"tokens": [ "What's","New"]
-	},
-
-	{
 		"url": "/release_notes/0.0.12.html", 
 		"section": "Release Notes", 
 		"value": "ALIEN for Cloud 0.0.12",
 		"tokens": [ "ALIEN","for","Cloud","0.0.12"]
-	},
-
-	{
-		"url": "/release_notes/0.0.13-fixed-issues.html", 
-		"section": "Release Notes", 
-		"value": "Fixed Issues",
-		"tokens": [ "Fixed","Issues"]
-	},
-
-	{
-		"url": "/release_notes/0.0.13-whats-new.html", 
-		"section": "Release Notes", 
-		"value": "What's New",
-		"tokens": [ "What's","New"]
 	},
 
 	{
@@ -85,20 +29,6 @@
 	},
 
 	{
-		"url": "/release_notes/0.0.14-fixed-issues.html", 
-		"section": "Release Notes", 
-		"value": "Fixed Issues",
-		"tokens": [ "Fixed","Issues"]
-	},
-
-	{
-		"url": "/release_notes/0.0.14-whats-new.html", 
-		"section": "Release Notes", 
-		"value": "What's New",
-		"tokens": [ "What's","New"]
-	},
-
-	{
 		"url": "/release_notes/0.0.14.html", 
 		"section": "Release Notes", 
 		"value": "ALIEN for Cloud 0.0.14",
@@ -106,59 +36,185 @@
 	},
 
 	{
-		"url": "/release_notes/0.0.9-fixed-issues.html", 
+		"url": "/release_notes/0.0.15.html", 
 		"section": "Release Notes", 
-		"value": "Fixed Issues",
-		"tokens": [ "Fixed","Issues"]
+		"value": "ALIEN for Cloud 0.0.15",
+		"tokens": [ "ALIEN","for","Cloud","0.0.15"]
 	},
 
 	{
-		"url": "/release_notes/0.0.9-whats-new.html", 
+		"url": "/release_notes/0.0.16.html", 
 		"section": "Release Notes", 
-		"value": "What's New",
-		"tokens": [ "What's","New"]
+		"value": "ALIEN for Cloud 0.0.16",
+		"tokens": [ "ALIEN","for","Cloud","0.0.16"]
 	},
 
 	{
-		"url": "/release_notes/0.0.9.html", 
+		"url": "/release_notes/1.0.0-M3.html", 
 		"section": "Release Notes", 
-		"value": "ALIEN for Cloud 0.0.9",
-		"tokens": [ "ALIEN","for","Cloud","0.0.9"]
+		"value": "ALIEN for Cloud 1.0.0-M3",
+		"tokens": [ "ALIEN","for","Cloud","1.0.0M3"]
 	},
 
 	{
-		"url": "/documentation/getting_started/adding_components.html", 
+		"url": "/release_notes/1.0.0-SM18.html", 
+		"section": "Release Notes", 
+		"value": "ALIEN for Cloud 1.0.0-SM18",
+		"tokens": [ "ALIEN","for","Cloud","1.0.0SM18"]
+	},
+
+	{
+		"url": "/release_notes/1.0.0-SM19.html", 
+		"section": "Release Notes", 
+		"value": "ALIEN for Cloud 1.0.0-SM19",
+		"tokens": [ "ALIEN","for","Cloud","1.0.0SM19"]
+	},
+
+	{
+		"url": "/release_notes/1.0.0-SM20.html", 
+		"section": "Release Notes", 
+		"value": "ALIEN for Cloud 1.0.0-SM20",
+		"tokens": [ "ALIEN","for","Cloud","1.0.0SM20"]
+	},
+
+	{
+		"url": "/release_notes/1.0.0-SM21.html", 
+		"section": "Release Notes", 
+		"value": "ALIEN for Cloud 1.0.0-SM21",
+		"tokens": [ "ALIEN","for","Cloud","1.0.0SM21"]
+	},
+
+	{
+		"url": "/release_notes/1.0.0-SM22.html", 
+		"section": "Release Notes", 
+		"value": "ALIEN for Cloud 1.0.0-SM22",
+		"tokens": [ "ALIEN","for","Cloud","1.0.0SM22"]
+	},
+
+	{
+		"url": "/release_notes/1.0.0-SM23.html", 
+		"section": "Release Notes", 
+		"value": "ALIEN for Cloud 1.0.0-SM23",
+		"tokens": [ "ALIEN","for","Cloud","1.0.0SM23"]
+	},
+
+	{
+		"url": "/release_notes/1.0.0-SM24.html", 
+		"section": "Release Notes", 
+		"value": "ALIEN for Cloud 1.0.0-SM24",
+		"tokens": [ "ALIEN","for","Cloud","1.0.0SM24"]
+	},
+
+	{
+		"url": "/release_notes/1.0.0-SM25.html", 
+		"section": "Release Notes", 
+		"value": "ALIEN for Cloud 1.0.0-SM25",
+		"tokens": [ "ALIEN","for","Cloud","1.0.0SM25"]
+	},
+
+	{
+		"url": "/release_notes/1.0.0-SM26.html", 
+		"section": "Release Notes", 
+		"value": "ALIEN for Cloud 1.0.0-SM26",
+		"tokens": [ "ALIEN","for","Cloud","1.0.0SM26"]
+	},
+
+	{
+		"url": "/documentation/about.html", 
 		"section": "Documentation", 
-		"value": "Components catalog",
-		"tokens": [ "Components","catalog"]
+		"value": "About",
+		"tokens": [ "About"]
 	},
 
 	{
-		"url": "/documentation/advanced_configuration/advanced_configuration.html", 
+		"url": "/documentation/admin/advanced_configuration.html", 
 		"section": "Documentation", 
 		"value": "Advanced configuration",
 		"tokens": [ "Advanced","configuration"]
 	},
 
 	{
+		"url": "/documentation/user_guide/application/application_management.html", 
+		"section": "Documentation", 
+		"value": "Application(s) management",
+		"tokens": [ "Application(s)","management"]
+	},
+
+	{
+		"url": "/documentation/user_guide/application/application_management_advanced_inputs.html", 
+		"section": "Documentation", 
+		"value": "Advanced inputs",
+		"tokens": [ "Advanced","inputs"]
+	},
+
+	{
+		"url": "/documentation/concepts/applications.html", 
+		"section": "Documentation", 
+		"value": "Applications",
+		"tokens": [ "Applications"]
+	},
+
+	{
+		"url": "/documentation/devops_guide/tosca_grammar/artifact_definition.html", 
+		"section": "Documentation", 
+		"value": "Artifact definition",
+		"tokens": [ "Artifact","definition"]
+	},
+
+	{
+		"url": "/documentation/devops_guide/tosca_grammar/artifact_type.html", 
+		"section": "Documentation", 
+		"value": "Artifact type",
+		"tokens": [ "Artifact","type"]
+	},
+
+	{
+		"url": "/documentation/devops_guide/tosca_grammar/attribute_definition.html", 
+		"section": "Documentation", 
+		"value": "Attribute definition",
+		"tokens": [ "Attribute","definition"]
+	},
+
+	{
+		"url": "/documentation/admin/backup_restore.html", 
+		"section": "Documentation", 
+		"value": "Backup and restore",
+		"tokens": [ "Backup","and","restore"]
+	},
+
+	{
 		"url": "/documentation/cloudify2_driver/blockstorage.html", 
 		"section": "Documentation", 
-		"value": "Blockstorage",
-		"tokens": [ "Blockstorage"]
+		"value": "Defaut Blockstorage",
+		"tokens": [ "Defaut","Blockstorage"]
 	},
 
 	{
-		"url": "/documentation/tosca_ref/calm_components_repo.html", 
+		"url": "/documentation/devops_guide/tosca_grammar/capability_definition.html", 
 		"section": "Documentation", 
-		"value": "ALIEN Components repository",
-		"tokens": [ "ALIEN","Components","repository"]
+		"value": "Capability definition",
+		"tokens": [ "Capability","definition"]
 	},
 
 	{
-		"url": "/documentation/tosca_ref/calm_components_repo_uploadarchive.html", 
+		"url": "/documentation/devops_guide/tosca_grammar/capability_type.html", 
 		"section": "Documentation", 
-		"value": "Components archive",
-		"tokens": [ "Components","archive"]
+		"value": "Capability type",
+		"tokens": [ "Capability","type"]
+	},
+
+	{
+		"url": "/documentation/user_guide/cloud_management.html", 
+		"section": "Documentation", 
+		"value": "Cloud(s) management",
+		"tokens": [ "Cloud(s)","management"]
+	},
+
+	{
+		"url": "/documentation/devops_guide/cloud_service_archive.html", 
+		"section": "Documentation", 
+		"value": "Cloud Service Archive",
+		"tokens": [ "Cloud","Service","Archive"]
 	},
 
 	{
@@ -169,17 +225,122 @@
 	},
 
 	{
-		"url": "/documentation/tosca_ref/components_browse_search.html", 
+		"url": "/documentation/concepts/clouds.html", 
 		"section": "Documentation", 
-		"value": "Components browsing and searching",
-		"tokens": [ "Components","browsing","and","searching"]
+		"value": "Clouds",
+		"tokens": [ "Clouds"]
 	},
 
 	{
-		"url": "/documentation/getting_started/creating_cloud.html", 
+		"url": "/documentation/concepts/components.html", 
 		"section": "Documentation", 
-		"value": "Cloud(s) configuration",
-		"tokens": [ "Cloud(s)","configuration"]
+		"value": "Components",
+		"tokens": [ "Components"]
+	},
+
+	{
+		"url": "/documentation/user_guide/components/components_catalog.html", 
+		"section": "Documentation", 
+		"value": "Components catalog",
+		"tokens": [ "Components","catalog"]
+	},
+
+	{
+		"url": "/documentation/user_guide/components/components_management.html", 
+		"section": "Documentation", 
+		"value": "Managing components",
+		"tokens": [ "Managing","components"]
+	},
+
+	{
+		"url": "/documentation/user_guide/components/components_search.html", 
+		"section": "Documentation", 
+		"value": "Searching components",
+		"tokens": [ "Searching","components"]
+	},
+
+	{
+		"url": "/documentation/devops_guide/tosca_grammar/concat_definition.html", 
+		"section": "Documentation", 
+		"value": "concat",
+		"tokens": [ "concat"]
+	},
+
+	{
+		"url": "/documentation/concepts/concepts.html", 
+		"section": "Documentation", 
+		"value": "Concepts",
+		"tokens": [ "Concepts"]
+	},
+
+	{
+		"url": "/documentation/devops_guide/tosca_grammar/constraints.html", 
+		"section": "Documentation", 
+		"value": "Constraint clause",
+		"tokens": [ "Constraint","clause"]
+	},
+
+	{
+		"url": "/documentation/cloudify2_driver/custom_blockstorage.html", 
+		"section": "Documentation", 
+		"value": "Customised Blockstorage",
+		"tokens": [ "Customised","Blockstorage"]
+	},
+
+	{
+		"url": "/documentation/devops_guide/tosca_grammar/definitions_file.html", 
+		"section": "Documentation", 
+		"value": "Definitions document",
+		"tokens": [ "Definitions","document"]
+	},
+
+	{
+		"url": "/documentation/cloudify2_driver/deployment_properties.html", 
+		"section": "Documentation", 
+		"value": "Deployment properties",
+		"tokens": [ "Deployment","properties"]
+	},
+
+	{
+		"url": "/documentation/devops_guide/dev_ops_guide.html", 
+		"section": "Documentation", 
+		"value": "Dev Ops Guide",
+		"tokens": [ "Dev","Ops","Guide"]
+	},
+
+	{
+		"url": "/documentation/devops_guide/tosca_grammar/function_definition.html", 
+		"section": "Documentation", 
+		"value": "Function definition",
+		"tokens": [ "Function","definition"]
+	},
+
+	{
+		"url": "/documentation/devops_guide/tosca_grammar/get_attribute_definition.html", 
+		"section": "Documentation", 
+		"value": "get_attribute",
+		"tokens": [ "get_attribute"]
+	},
+
+	{
+		"url": "/documentation/devops_guide/tosca_grammar/get_input.html", 
+		"section": "Documentation", 
+		"value": "get_input",
+		"tokens": [ "get_input"]
+	},
+
+	{
+		"url": "/documentation/devops_guide/tosca_grammar/get_operation_output_definition.html", 
+		"section": "Documentation", 
+		"value": "get_operation_output",
+		"tokens": [ "get_operation_output"]
+	},
+
+	{
+		"url": "/documentation/devops_guide/tosca_grammar/get_property_definition.html", 
+		"section": "Documentation", 
+		"value": "get_property",
+		"tokens": [ "get_property"]
 	},
 
 	{
@@ -190,6 +351,20 @@
 	},
 
 	{
+		"url": "/documentation/getting_started/getting_started_prerequisites.html", 
+		"section": "Documentation", 
+		"value": "Prerequisites",
+		"tokens": [ "Prerequisites"]
+	},
+
+	{
+		"url": "/documentation/getting_started/getting_started_start.html", 
+		"section": "Documentation", 
+		"value": "Quick Start",
+		"tokens": [ "Quick","Start"]
+	},
+
+	{
 		"url": "/community/index.html", 
 		"section": "", 
 		"value": "ALIEN 4 Cloud",
@@ -197,24 +372,10 @@
 	},
 
 	{
-		"url": "/index.html", 
-		"section": "", 
-		"value": "ALIEN 4 Cloud",
-		"tokens": [ "ALIEN","4","Cloud"]
-	},
-
-	{
-		"url": "/documentation/tosca_ref/index.html", 
+		"url": "/documentation/cloudify3_driver/index.html", 
 		"section": "Documentation", 
-		"value": "Components and TOSCA ref.",
-		"tokens": [ "Components","and","TOSCA","ref."]
-	},
-
-	{
-		"url": "/documentation/index.html", 
-		"section": "Documentation", 
-		"value": "ALIEN 4 Cloud - Documentation",
-		"tokens": [ "ALIEN","4","Cloud","","Documentation"]
+		"value": "Cloudify 3 PaaS Provider",
+		"tokens": [ "Cloudify","3","PaaS","Provider"]
 	},
 
 	{
@@ -225,24 +386,17 @@
 	},
 
 	{
-		"url": "/developer_guide/index.html", 
-		"section": "Developer Guide", 
-		"value": "Developer Guide",
-		"tokens": [ "Developer","Guide"]
-	},
-
-	{
-		"url": "/getting_started/index.html", 
-		"section": "Getting Started", 
-		"value": "Getting Started",
-		"tokens": [ "Getting","Started"]
-	},
-
-	{
 		"url": "/roadmap/index.html", 
 		"section": "", 
 		"value": "Roadmap",
 		"tokens": [ "Roadmap"]
+	},
+
+	{
+		"url": "/documentation/index.html", 
+		"section": "Documentation", 
+		"value": "ALIEN 4 Cloud - Documentation",
+		"tokens": [ "ALIEN","4","Cloud","","Documentation"]
 	},
 
 	{
@@ -253,10 +407,31 @@
 	},
 
 	{
-		"url": "/alien_about/index.html", 
-		"section": "About ALIEN 4 Cloud", 
-		"value": "About Alien4Cloud",
-		"tokens": [ "About","Alien4Cloud"]
+		"url": "/developer_guide/index.html", 
+		"section": "Developer Guide", 
+		"value": "Developer Guide",
+		"tokens": [ "Developer","Guide"]
+	},
+
+	{
+		"url": "/documentation/admin_guide/index.html", 
+		"section": "Documentation", 
+		"value": "Administration Guide",
+		"tokens": [ "Administration","Guide"]
+	},
+
+	{
+		"url": "/index.html", 
+		"section": "", 
+		"value": "ALIEN 4 Cloud",
+		"tokens": [ "ALIEN","4","Cloud"]
+	},
+
+	{
+		"url": "/documentation/cloudify2_driver/inputs_env_vars.html", 
+		"section": "Documentation", 
+		"value": "Inputs and others variables",
+		"tokens": [ "Inputs","and","others","variables"]
 	},
 
 	{
@@ -267,10 +442,87 @@
 	},
 
 	{
+		"url": "/documentation/cloudify3_driver/install_config.html", 
+		"section": "Documentation", 
+		"value": "Installing and configuring",
+		"tokens": [ "Installing","and","configuring"]
+	},
+
+	{
+		"url": "/documentation/admin_guide/installation_configuration.html", 
+		"section": "Documentation", 
+		"value": "Installation and configuration",
+		"tokens": [ "Installation","and","configuration"]
+	},
+
+	{
+		"url": "/documentation/devops_guide/tosca_grammar/interface_definition.html", 
+		"section": "Documentation", 
+		"value": "Interface definition",
+		"tokens": [ "Interface","definition"]
+	},
+
+	{
 		"url": "/developer_guide/internal-architecture.html", 
 		"section": "Developer Guide", 
 		"value": "ALIEN internal architecture",
 		"tokens": [ "ALIEN","internal","architecture"]
+	},
+
+	{
+		"url": "/documentation/devops_guide/lamp_stack_tutorial/lamp_stack.html", 
+		"section": "Documentation", 
+		"value": "LAMP Stack Tutorial",
+		"tokens": [ "LAMP","Stack","Tutorial"]
+	},
+
+	{
+		"url": "/documentation/devops_guide/lamp_stack_tutorial/lamp_stack_apache.html", 
+		"section": "Documentation", 
+		"value": "Component Apache HTTP",
+		"tokens": [ "Component","Apache","HTTP"]
+	},
+
+	{
+		"url": "/documentation/devops_guide/lamp_stack_tutorial/lamp_stack_application.html", 
+		"section": "Documentation", 
+		"value": "Stack Application Topology",
+		"tokens": [ "Stack","Application","Topology"]
+	},
+
+	{
+		"url": "/documentation/devops_guide/lamp_stack_tutorial/lamp_stack_blockstorage.html", 
+		"section": "Documentation", 
+		"value": "Component BlockStorage",
+		"tokens": [ "Component","BlockStorage"]
+	},
+
+	{
+		"url": "/documentation/devops_guide/lamp_stack_tutorial/lamp_stack_mysql.html", 
+		"section": "Documentation", 
+		"value": "Component MySQL",
+		"tokens": [ "Component","MySQL"]
+	},
+
+	{
+		"url": "/documentation/devops_guide/lamp_stack_tutorial/lamp_stack_php.html", 
+		"section": "Documentation", 
+		"value": "Component PHP",
+		"tokens": [ "Component","PHP"]
+	},
+
+	{
+		"url": "/documentation/devops_guide/lamp_stack_tutorial/lamp_stack_wordpress.html", 
+		"section": "Documentation", 
+		"value": "Component Wordpress",
+		"tokens": [ "Component","Wordpress"]
+	},
+
+	{
+		"url": "/documentation/admin/ldap.html", 
+		"section": "Documentation", 
+		"value": "LDAP integration",
+		"tokens": [ "LDAP","integration"]
 	},
 
 	{
@@ -281,10 +533,31 @@
 	},
 
 	{
-		"url": "/documentation/cloudify2_driver/node_properties.html", 
+		"url": "/documentation/devops_guide/tosca_grammar/node_template.html", 
 		"section": "Documentation", 
-		"value": "Nodes properties",
-		"tokens": [ "Nodes","properties"]
+		"value": "Node template",
+		"tokens": [ "Node","template"]
+	},
+
+	{
+		"url": "/documentation/devops_guide/tosca_grammar/node_type.html", 
+		"section": "Documentation", 
+		"value": "Node type",
+		"tokens": [ "Node","type"]
+	},
+
+	{
+		"url": "/documentation/devops_guide/tosca_grammar/operation_definition.html", 
+		"section": "Documentation", 
+		"value": "Operation definition",
+		"tokens": [ "Operation","definition"]
+	},
+
+	{
+		"url": "/documentation/cloudify2_driver/operation_outputs.html", 
+		"section": "Documentation", 
+		"value": "Operations outputs",
+		"tokens": [ "Operations","outputs"]
 	},
 
 	{
@@ -295,10 +568,10 @@
 	},
 
 	{
-		"url": "/roadmap/past.html", 
-		"section": "", 
-		"value": "Previous versions",
-		"tokens": [ "Previous","versions"]
+		"url": "/documentation/devops_guide/tosca_grammar/parameter_definition.html", 
+		"section": "Documentation", 
+		"value": "Parameter definition",
+		"tokens": [ "Parameter","definition"]
 	},
 
 	{
@@ -316,10 +589,24 @@
 	},
 
 	{
+		"url": "/documentation/user_guide/plugin_management.html", 
+		"section": "Documentation", 
+		"value": "Plugin(s) management",
+		"tokens": [ "Plugin(s)","management"]
+	},
+
+	{
 		"url": "/admin_guide/plugins.html", 
 		"section": "Admin Guide", 
 		"value": "Plugins Management",
 		"tokens": [ "Plugins","Management"]
+	},
+
+	{
+		"url": "/documentation/devops_guide/tosca_grammar/policy.html", 
+		"section": "Documentation", 
+		"value": "Policy",
+		"tokens": [ "Policy"]
 	},
 
 	{
@@ -337,17 +624,59 @@
 	},
 
 	{
-		"url": "/documentation/cloudify2_driver/relationships.html", 
+		"url": "/documentation/cloudify3_driver/prerequisites.html", 
 		"section": "Documentation", 
-		"value": "Relationships",
-		"tokens": [ "Relationships"]
+		"value": "Prerequisites",
+		"tokens": [ "Prerequisites"]
 	},
 
 	{
-		"url": "/documentation/advanced_configuration/roles.html", 
+		"url": "/documentation/devops_guide/tosca_grammar/property_definition.html", 
 		"section": "Documentation", 
-		"value": "Role in Alien 4 Cloud",
-		"tokens": [ "Role","in","Alien","4","Cloud"]
+		"value": "Property definition",
+		"tokens": [ "Property","definition"]
+	},
+
+	{
+		"url": "/documentation/getting_started/quickstart.html", 
+		"section": "Documentation", 
+		"value": "The 30 min Start Guide!",
+		"tokens": [ "The","30","min","Start","Guide!"]
+	},
+
+	{
+		"url": "/documentation/devops_guide/tosca_grammar/relationship_type.html", 
+		"section": "Documentation", 
+		"value": "Relationship type",
+		"tokens": [ "Relationship","type"]
+	},
+
+	{
+		"url": "/documentation/devops_guide/tosca_grammar/requirement_definition.html", 
+		"section": "Documentation", 
+		"value": "Requirement definition",
+		"tokens": [ "Requirement","definition"]
+	},
+
+	{
+		"url": "/documentation/concepts/roles.html", 
+		"section": "Documentation", 
+		"value": "Roles",
+		"tokens": [ "Roles"]
+	},
+
+	{
+		"url": "/documentation/cloudify2_driver/runtime.html", 
+		"section": "Documentation", 
+		"value": "Runtime",
+		"tokens": [ "Runtime"]
+	},
+
+	{
+		"url": "/js/sidebar-new.js", 
+		"section": "", 
+		"value": "",
+		"tokens": [ ]
 	},
 
 	{
@@ -365,24 +694,66 @@
 	},
 
 	{
-		"url": "/documentation/getting_started/snapshot-topology-test-jenkins-plugin.html", 
-		"section": "Documentation", 
-		"value": "Tests with jenkins plugin",
-		"tokens": [ "Tests","with","jenkins","plugin"]
-	},
-
-	{
-		"url": "/documentation/getting_started/snapshot-topology-test.html", 
+		"url": "/documentation/devops_guide/design_tutorial/snapshot_topology_test.html", 
 		"section": "Documentation", 
 		"value": "Testing custom components",
 		"tokens": [ "Testing","custom","components"]
 	},
 
 	{
+		"url": "/documentation/devops_guide/design_tutorial/snapshot_topology_test_jenkins_plugin.html", 
+		"section": "Documentation", 
+		"value": "Tests with jenkins plugin",
+		"tokens": [ "Tests","with","jenkins","plugin"]
+	},
+
+	{
+		"url": "/documentation/cloudify2_driver/start_process.html", 
+		"section": "Documentation", 
+		"value": "Application start process",
+		"tokens": [ "Application","start","process"]
+	},
+
+	{
+		"url": "/documentation/cloudify2_driver/storage.html", 
+		"section": "Documentation", 
+		"value": "Storage volumes",
+		"tokens": [ "Storage","volumes"]
+	},
+
+	{
+		"url": "/documentation/admin/supported_platforms.html", 
+		"section": "Documentation", 
+		"value": "Supported platforms",
+		"tokens": [ "Supported","platforms"]
+	},
+
+	{
+		"url": "/documentation/concepts/topologies.html", 
+		"section": "Documentation", 
+		"value": "Topologies",
+		"tokens": [ "Topologies"]
+	},
+
+	{
+		"url": "/documentation/user_guide/topology_management.html", 
+		"section": "Documentation", 
+		"value": "Topology management",
+		"tokens": [ "Topology","management"]
+	},
+
+	{
+		"url": "/documentation/devops_guide/tosca_grammar/topology_template.html", 
+		"section": "Documentation", 
+		"value": "Topology template",
+		"tokens": [ "Topology","template"]
+	},
+
+	{
 		"url": "/documentation/cloudify2_driver/tosca_archive.html", 
 		"section": "Documentation", 
-		"value": "TOSCA archive",
-		"tokens": [ "TOSCA","archive"]
+		"value": "Developing TOSCA Types",
+		"tokens": [ "Developing","TOSCA","Types"]
 	},
 
 	{
@@ -393,150 +764,94 @@
 	},
 
 	{
-		"url": "/documentation/tosca_ref/tosca_concepts.html", 
+		"url": "/documentation/devops_guide/tosca_concepts.html", 
 		"section": "Documentation", 
 		"value": "TOSCA concepts",
 		"tokens": [ "TOSCA","concepts"]
 	},
 
 	{
-		"url": "/documentation/tosca_ref/tosca_concepts_csar.html", 
-		"section": "Documentation", 
-		"value": "Cloud Service Archive",
-		"tokens": [ "Cloud","Service","Archive"]
-	},
-
-	{
-		"url": "/documentation/tosca_ref/tosca_concepts_types.html", 
-		"section": "Documentation", 
-		"value": "Types in TOSCA",
-		"tokens": [ "Types","in","TOSCA"]
-	},
-
-	{
-		"url": "/documentation/tosca_ref/tosca_concepts_types_custom.html", 
+		"url": "/documentation/devops_guide/tosca_concepts_types_custom.html", 
 		"section": "Documentation", 
 		"value": "Writing custom types",
 		"tokens": [ "Writing","custom","types"]
 	},
 
 	{
-		"url": "/documentation/tosca_ref/tosca_concepts_types_custom_artifacts.html", 
-		"section": "Documentation", 
-		"value": "Artifact definition",
-		"tokens": [ "Artifact","definition"]
-	},
-
-	{
-		"url": "/documentation/tosca_ref/tosca_concepts_types_custom_capabilities.html", 
-		"section": "Documentation", 
-		"value": "Capabilities",
-		"tokens": [ "Capabilities"]
-	},
-
-	{
-		"url": "/documentation/tosca_ref/tosca_concepts_types_custom_capability_def.html", 
-		"section": "Documentation", 
-		"value": "Capability definition",
-		"tokens": [ "Capability","definition"]
-	},
-
-	{
-		"url": "/documentation/tosca_ref/tosca_concepts_types_custom_constraints.html", 
-		"section": "Documentation", 
-		"value": "Constraint definition",
-		"tokens": [ "Constraint","definition"]
-	},
-
-	{
-		"url": "/documentation/tosca_ref/tosca_concepts_types_custom_nodes.html", 
-		"section": "Documentation", 
-		"value": "Nodes",
-		"tokens": [ "Nodes"]
-	},
-
-	{
-		"url": "/documentation/tosca_ref/tosca_concepts_types_custom_properties.html", 
-		"section": "Documentation", 
-		"value": "Property definition",
-		"tokens": [ "Property","definition"]
-	},
-
-	{
-		"url": "/documentation/tosca_ref/tosca_concepts_types_custom_relationships.html", 
-		"section": "Documentation", 
-		"value": "Relationships",
-		"tokens": [ "Relationships"]
-	},
-
-	{
-		"url": "/documentation/tosca_ref/tosca_concepts_types_custom_requirements.html", 
-		"section": "Documentation", 
-		"value": "Requirement definition",
-		"tokens": [ "Requirement","definition"]
-	},
-
-	{
-		"url": "/documentation/tosca_ref/tosca_concepts_types_normative.html", 
+		"url": "/documentation/devops_guide/normative_types/tosca_concepts_types_normative.html", 
 		"section": "Documentation", 
 		"value": "Normative Types",
 		"tokens": [ "Normative","Types"]
 	},
 
 	{
-		"url": "/documentation/tosca_ref/tosca_concepts_types_normative_capabilities.html", 
+		"url": "/documentation/devops_guide/normative_types/tosca_concepts_types_normative_capabilities.html", 
 		"section": "Documentation", 
 		"value": "Capabilities",
 		"tokens": [ "Capabilities"]
 	},
 
 	{
-		"url": "/documentation/tosca_ref/tosca_concepts_types_normative_nodes.html", 
+		"url": "/documentation/devops_guide/normative_types/tosca_concepts_types_normative_nodes.html", 
 		"section": "Documentation", 
 		"value": "Nodes",
 		"tokens": [ "Nodes"]
 	},
 
 	{
-		"url": "/documentation/tosca_ref/tosca_concepts_types_normative_relationships.html", 
+		"url": "/documentation/devops_guide/normative_types/tosca_concepts_types_normative_relationships.html", 
 		"section": "Documentation", 
 		"value": "Relationships",
 		"tokens": [ "Relationships"]
 	},
 
 	{
-		"url": "/documentation/tosca_ref/tosca_concepts_workflows.html", 
+		"url": "/documentation/devops_guide/tosca_concepts_workflows.html", 
 		"section": "Documentation", 
 		"value": "Workflows",
 		"tokens": [ "Workflows"]
 	},
 
 	{
-		"url": "/documentation/tosca_ref/tosca_concepts_workflows_default.html", 
+		"url": "/documentation/devops_guide/tosca_concepts_workflows_default.html", 
 		"section": "Documentation", 
 		"value": "Workflow generation",
 		"tokens": [ "Workflow","generation"]
 	},
 
 	{
-		"url": "/documentation/getting_started/tutorials.html", 
+		"url": "/documentation/devops_guide/tosca_normative_lifecycle.html", 
+		"section": "Documentation", 
+		"value": "Normative Lifecycle",
+		"tokens": [ "Normative","Lifecycle"]
+	},
+
+	{
+		"url": "/documentation/devops_guide/design_tutorial/tutorials.html", 
 		"section": "Documentation", 
 		"value": "Create your own components",
 		"tokens": [ "Create","your","own","components"]
 	},
 
 	{
-		"url": "/documentation/getting_started/tutorials_component_design.html", 
+		"url": "/documentation/devops_guide/design_tutorial/tutorials_component_design.html", 
 		"section": "Documentation", 
 		"value": "Component design",
 		"tokens": [ "Component","design"]
 	},
 
 	{
-		"url": "/documentation/getting_started/tutorials_component_implementation.html", 
+		"url": "/documentation/devops_guide/design_tutorial/tutorials_component_implementation.html", 
 		"section": "Documentation", 
 		"value": "Component implementation",
 		"tokens": [ "Component","implementation"]
+	},
+
+	{
+		"url": "/documentation/user_guide/user_guide.html", 
+		"section": "Documentation", 
+		"value": "User Guide",
+		"tokens": [ "User","Guide"]
 	},
 
 	{
@@ -544,6 +859,13 @@
 		"section": "Admin Guide", 
 		"value": "User management",
 		"tokens": [ "User","management"]
+	},
+
+	{
+		"url": "/documentation/user_guide/user_management.html", 
+		"section": "Documentation", 
+		"value": "User(s) and Roles management",
+		"tokens": [ "User(s)","and","Roles","management"]
 	}
 
 ]

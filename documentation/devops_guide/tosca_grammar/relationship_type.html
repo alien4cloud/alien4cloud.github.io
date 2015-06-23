@@ -1,0 +1,131 @@
+<div class="container">
+  <div class="row">
+    
+      <div class="col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-md-9">
+    
+        <h1 style="margin-top: 0px;">Relationship type</h1>
+        <p>A Relationship Type is a reusable entity that defines the type of one or more relationships between Node Types or Node Templates.</p>
+
+<h2 id="keynames">Keynames</h2>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Keyname</th>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Required</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">abstract*</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">Optional flag to specify if a component is abstract and has no valid implementation. Defaults to false. </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">derived_from</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">no*</td>
+      <td style="text-align: left">An optional parent Relationship Type name the Relationship Type derives from.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">description</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">An optional description for the Relationship Type.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">properties</td>
+      <td style="text-align: left"><a href="#/documentation/devops_guide/tosca_grammar/property_definition.html">property definitions</a></td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">An optional list of property definitions for the Relationship Type.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">attributes</td>
+      <td style="text-align: left"><a href="#/documentation/devops_guide/tosca_grammar/attribute_definition.html">attribute definitions</a></td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">An optional list of attribute definitions for the Relationship Type.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">interfaces</td>
+      <td style="text-align: left"><a href="#/documentation/devops_guide/tosca_grammar/interface_definition.html">interface definitions</a></td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">An optional list of named interfaces for the Relationship Type.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">valid_sources</td>
+      <td style="text-align: left">string[]</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">An optional list of one or more valid target entities or entity types (i.e., a Node Types or Capability Types).</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">valid_targets</td>
+      <td style="text-align: left">string[]</td>
+      <td style="text-align: left">yes</td>
+      <td style="text-align: left">A required list of one or more valid target entities or entity types (i.e., a Node Types or Capability Types).</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="note info">
+<ul>
+  <li>Abstract flag is specific to Alien 4 Cloud and is not part of TOSCA Simple Profile in YAML.</li>
+  <li>derived_from is not required however relationship types SHOULD all extends from a normative type (ConnectsTo or HostedOn for example).</li>
+</ul>
+</div>
+
+<h2 id="grammar">Grammar</h2>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">&lt;relationship_type_name&gt;</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">derived_from</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;parent_relationship_type_name&gt;</span>
+  <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;relationship_description&gt;</span>
+  <span class="l-Scalar-Plain">properties</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">&lt;property_definitions&gt;</span>
+  <span class="l-Scalar-Plain">attributes</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">&lt;attribute_definitions&gt;</span>
+  <span class="l-Scalar-Plain">interfaces</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">&lt;interface_definitions&gt;</span>
+  <span class="l-Scalar-Plain">valid_targets</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span> <span class="nv">&lt;entity_name_or_type_1&gt;</span><span class="p-Indicator">,</span> <span class="nv">...</span><span class="p-Indicator">,</span> <span class="nv">&lt;entity_name_or_type_n&gt;</span> <span class="p-Indicator">]</span></code></pre></div>
+
+<p>See:</p>
+
+<ul>
+  <li><a href="#/documentation/devops_guide/tosca_grammar/property_definition.html">property_definitions</a></li>
+  <li><a href="#/documentation/devops_guide/tosca_grammar/attribute_definition.html">attribute definitions</a></li>
+  <li><a href="#/documentation/devops_guide/tosca_grammar/interface_definition.html">interface definitions</a></li>
+</ul>
+
+<h2 id="example">Example</h2>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">mycompanytypes.myrelationships.AppDependency</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">derived_from</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.relationships.DependsOn</span>
+  <span class="l-Scalar-Plain">valid_targets</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span> <span class="nv">mycompanytypes.mycapabilities.SomeAppCapability</span> <span class="p-Indicator">]</span></code></pre></div>
+
+
+      </div>
+    </div>
+  </div>
+</div><!-- /container -->
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION', 'tosca_ref_types_relationship_type');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

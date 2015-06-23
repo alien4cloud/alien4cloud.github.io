@@ -1,0 +1,65 @@
+<div class="container">
+  <div class="row">
+    
+      <div class="col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-md-9">
+    
+        <h1 style="margin-top: 0px;">Parameter definition</h1>
+        <p>A parameter definition is map used to declare a name for a parameter along with its value to be used as inputs for operations. This value can either be a fixed value or one that is evaluated from a function or expression.</p>
+
+<div class="note info">
+<p>Alien 4 Cloud allow users to specify also a property definition as the parameter value. This is possible only for operations that are not part of the automatic lifecycle but that will be triggered upon user request.</p>
+</div>
+
+<h2 id="grammar">Grammar</h2>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">&lt;parameter_name&gt;</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;value&gt; | &lt;function_definition&gt;</span></code></pre></div>
+
+<p>See <a href="#/documentation/devops_guide/tosca_grammar/function_definition.html">function_definition</a>.</p>
+
+<div class="note info">
+<p>For Alien 4 Cloud property definition syntax support you can refer to the <a href="#/documentation/devops_guide/tosca_grammar/property_definition.html">property_definition page</a>.</p>
+</div>
+
+<h2 id="example">Example</h2>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">node_types</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">fastconnect.nodes.PropertiesSample</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">interfaces</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">custom</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">do_something</span><span class="p-Indicator">:</span>
+          <span class="l-Scalar-Plain">inputs</span><span class="p-Indicator">:</span>
+            <span class="l-Scalar-Plain">value_input</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">4</span>
+            <span class="l-Scalar-Plain">function_input</span><span class="p-Indicator">:</span> <span class="p-Indicator">{</span> <span class="nv">get_property</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span> <span class="nv">my_host</span><span class="p-Indicator">,</span> <span class="nv">mem_size</span> <span class="p-Indicator">]</span> <span class="p-Indicator">}</span>
+            <span class="l-Scalar-Plain">property_input</span><span class="p-Indicator">:</span>
+              <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">string</span>
+              <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">An input that will have to be provided on operation call.</span>
+              <span class="l-Scalar-Plain">constraints</span><span class="p-Indicator">:</span>
+              <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">min_length</span> <span class="p-Indicator">:</span> <span class="l-Scalar-Plain">4</span>
+              <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">max_length</span> <span class="p-Indicator">:</span> <span class="l-Scalar-Plain">8</span></code></pre></div>
+
+
+      </div>
+    </div>
+  </div>
+</div><!-- /container -->
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION', 'tosca_ref_types_parameter_definition');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

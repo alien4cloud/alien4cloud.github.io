@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="row">
+    
+      <div class="col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-md-9">
+    
+        <h1 style="margin-top: 0px;">Prerequisites</h1>
+        <p>Here are some prerequisite steps that need to be done in order to use the cloudify 3 driver.</p>
+
+<h2 id="install-cloudify-31">Install Cloudify 3.1</h2>
+
+<p>How to install cloudify 3.1 is described <a href="http://getcloudify.org/guide/3.1/installation-cli.html">here.</a></p>
+
+<p>We recommend to use the method from PyPi as it will be the only supported method by Cloudify from the version 3.2.</p>
+
+<h2 id="bootstrap-your-manager">Bootstrap your manager</h2>
+
+<div class="note warning">
+<p>For the moment Alien only supports Openstack.</p>
+</div>
+
+<p>How to bootstrap cloudify 3.1 is described <a href="http://getcloudify.org/guide/3.1/installation-bootstrapping.html">here.</a></p>
+
+<p>You should customize the manager’s blueprint in order to expose the port 8100 of the management server as it’s the entry point for Cloudify Rest API.</p>
+
+<div class="note warning">
+<p>Cloudify 3 only support bootstraping on Ubuntu Precise, if you want to bootstrap on other distribution, <a href="http://getcloudify.org/guide/3.1/installation-bootstrapping.html#bootstrapping-using-docker">please see Bootstraping using Docker</a></p>
+</div>
+
+<p>An example of Openstack manager blueprint that we use for our test can be found <a href="../../files/cloudify3_driver/openstack-manager-blueprint-example.zip">here.</a></p>
+
+      </div>
+    </div>
+  </div>
+</div><!-- /container -->
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION', 'cloudify_3_prerequisites');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

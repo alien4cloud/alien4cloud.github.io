@@ -1,0 +1,94 @@
+<div class="container">
+  <div class="row">
+    
+      <div class="col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-md-9">
+    
+        <h1 style="margin-top: 0px;">Capability type</h1>
+        <p>A Capability Type is a reusable entity that describes a kind of capability that a Node Type can declare to expose.  Requirements (implicit or explicit) that are declared as part of one node can be matched to (i.e., fulfilled by) the Capabilities declared by other node.</p>
+
+<h2 id="keynames">Keynames</h2>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Keyname</th>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Required</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">derived_from</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">An optional parent Capability Type name the Capability Type derives from.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">description</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">An optional description for the Capability Type.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">properties</td>
+      <td style="text-align: left"><a href="#/documentation/devops_guide/tosca_grammar/property_definition.html">property definitions</a></td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">An optional list of property definitions for the Capability Type.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="grammar">Grammar</h2>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">&lt;capability_type_name&gt;</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">derived_from</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;parent_capability_type_name&gt;</span>
+  <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;capability_description&gt;</span>
+  <span class="l-Scalar-Plain">properties</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">&lt;property_definitions&gt;</span></code></pre></div>
+
+<p>See:</p>
+
+<ul>
+  <li><a href="#/documentation/devops_guide/tosca_grammar/property_definition.html">property_definitions</a></li>
+</ul>
+
+<h2 id="example">Example</h2>
+
+<p>The following example shows how to define a node type with operation:</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">mycompany.mytypes.myapplication.MyFeature</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">derived_from</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.capabilities.Feature</span>
+  <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">a custom feature of my company’s application</span>
+  <span class="l-Scalar-Plain">properties</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">my_feature_setting</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">string</span>
+    <span class="l-Scalar-Plain">my_feature_value</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">integer</span></code></pre></div>
+
+
+      </div>
+    </div>
+  </div>
+</div><!-- /container -->
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION', 'tosca_ref_types_capability_type');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>
