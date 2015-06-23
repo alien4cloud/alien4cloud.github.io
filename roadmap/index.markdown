@@ -9,7 +9,11 @@ root: ../
     The following represents current view of Alien4Cloud development team of its product development cycle and future directions. It is intended for information purposes only, and should not be interpreted as a commitment, though we do our best to reach the dates and features set mentioned below.
   </p>
   <p>
-    Please note that we deliver intermediate releases in <a href="https://github.com/alien4cloud/alien4cloud" target="_blank">Alien4Cloud GitHub repo</a>, every 3 weeks, in order to get feedback on features while still in development.
+    Premium features, support and certifications are available under a subscription, delivered by <a href="http://fastconnect.fr" target="_blank">FastConnect</a>, a <a href="http://www.bull.com" target="_blank">Bull, Atos technologies</a> subsidiary. Contact us for more details.
+  </p>
+  <p>
+    We deliver 4 major releases per year.
+    Please note that we also deliver intermediate sprint releases in <a href="https://github.com/alien4cloud/alien4cloud" target="_blank">Alien4Cloud GitHub repo</a>, every 3 weeks, in order to get feedback on features while still in development.
   </p>
 
   <ul class="cbp_tmtimeline">
@@ -30,7 +34,7 @@ root: ../
         </ul>
         <h4>Infrastructure and orchestrators certifications</h4>
         <ul>
-  			   <li>Cloudify v2 and v3.1 (compatible with Cloudify 3.2)</li>
+  			   <li><a href="https://github.com/alien4cloud/alien4cloud-cloudify2-provider" target="_blank">Cloudify v2</a> and <a href="https://github.com/alien4cloud/alien4cloud-cloudify3-provider" target="_blank">v3.1</a> (compatible with Cloudify 3.2)</li>
            <li>Amazon</li>
            <li>OpenStack</li>
            <li>BYON</li>
@@ -43,10 +47,10 @@ root: ../
   			  <li>Cloudify v2 groovy</li>
         </ul>
         <small>Note: Some artefacts are already working though not fully tested/supported</small>
-        <h4>TOSCA</h4>
+        <h4><a href="https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=tosca" target="_blank">TOSCA</a></h4>
         <ul>
-          <li>Simple profile in YAML support (Spec is still evolving so support is not fully compliant yet)</li>
-          <li>Normative and extented types, topologies</li>
+          <li><a href="http://docs.oasis-open.org/tosca/TOSCA-Simple-Profile-YAML/v1.0/csd03/TOSCA-Simple-Profile-YAML-v1.0-csd03.html" target="_blank">Simple profile in YAML support</a> (Spec is still evolving so support of it is incremental within Alien4Cloud)</li>
+          <li>Normative and extended types, topologies</li>
           <li>Groups and policies</li>
         </ul>
   		</div>
@@ -76,7 +80,7 @@ root: ../
           <li>Topology Substitution</li>
           <li>Improvements of Simple profile support based on spec evolutions</li>
         </ul>
-        <h4>Enterprise features</h4>
+        <h4>Premium features</h4>
         <ul>
           <li>Simplified startup and configuration</li>
           <li>v1.0 to v1.1 Migration tools</li>
@@ -108,7 +112,7 @@ root: ../
         <ul>
           <li>Simple profile in YAML v1</li>
         </ul>
-        <h4>Enterprise features</h4>
+        <h4>Premium features</h4>
         <ul>
           <li>Governance Dashboards</li>
           <li>Catalog Portability Insights</li>
@@ -125,13 +129,16 @@ root: ../
            <li>Custom workflows</li>
            <li>Promotion workflow</li>
         </ul>
-        <h4>Infrastructure and orchestrators certifications</h4>
+        <h4>Infrastructure and orchestrators support & certifications</h4>
         <ul>
-  			   <li>Docker (native) - may be already supported through partners orchestrators (cloudify / apache brooklyn)</li>
-           <li>Mesos</li>
+           <li><a href="https://github.com/alien4cloud/a4c-brooklyn-provider" target="_blank">Apache Brooklyn</a></li>
+           <li>Docker (native) - already supported through partners orchestrators (cloudify / apache brooklyn), Kubernetes, Swarm/Machine</li>
+           <li>Mesos (Marathon)</li>
            <li>Ambari</li>
+           <li>Google Cloud</li>
+           <li>OpenStack latest releases</li>
         </ul>
-        <h4>Enterprise features</h4>
+        <h4>Premium features</h4>
         <ul>
   			  <li>Workspaces</li>
           <li>TOSCA Types ui designer</li>
