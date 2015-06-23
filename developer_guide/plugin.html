@@ -7,22 +7,20 @@
       <div id="content" class="col-md-9">
     
         <h1 style="margin-top: 0px;">ALIEN plugins</h1>
-        <p>An ALIEN plugin is a zip archive that contains the following structure:</p>
+        <p>Alien 4 Cloud allows developer to extends the application by adding plugins. Actually most of features in a4c are packaged as plugins allowing a great flexibility in the way we build the application.</p>
+
+<p>A plugin may contains some java services, some REST controllers and UI elements.</p>
 
 <h2 id="directory-hierarchy">Directory hierarchy</h2>
 
-<p>An ALIEN plugin is an archive (zip) that must contains the following hierarchy:</p>
+<p>ALIEN plugins are package as a zip archive that must contains the following hierarchy:</p>
 
 <ul>
-  <li>The root folder contains java classes and resources (basically it will be added to the classpath of the plugin).</li>
-  <li>The lib folder (optional) must contain all java archives (jar) required for the plugin to run. They will be added to the plugin classloader. Of course you should not add ALIEN 4 cloud jars here as they will be loaded through the plugin parent classloader.</li>
-  <li>Finally the META-INF/plugin.yml contains the plugin description and entry point informations (the plugin descriptor).</li>
+  <li>The <strong>root</strong> folder contains java classes and resources (basically it will be added to the classpath of the plugin).</li>
+  <li>The <strong>lib</strong> folder (optional) must contain all java archives (jar) required for the plugin to run. They will be added to the plugin classloader. Of course you should not add ALIEN 4 cloud jars here as they will be loaded through the plugin parent classloader.</li>
+  <li><strong>META-INF/plugin.yml</strong> contains the plugin description and entry point informations (the plugin descriptor).</li>
+  <li>The <strong>ui</strong> folder contains all ui elements including javascript files, css html and any other static files.</li>
 </ul>
-
-<div class="indent0">
-<p><img src="../../images/plugin-content.png" alt="plugin-content.png" /></p>
-</div>
-<p><em>Example of a plugin content.</em></p>
 
 <h2 id="the-plugin-descriptor">The plugin descriptor</h2>
 
