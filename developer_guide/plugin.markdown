@@ -8,20 +8,18 @@ node_name: plugins
 weight: 200
 ---
 
-An ALIEN plugin is a zip archive that contains the following structure:
+Alien 4 Cloud allows developer to extends the application by adding plugins. Actually most of features in a4c are packaged as plugins allowing a great flexibility in the way we build the application.
+
+A plugin may contains some java services, some REST controllers and UI elements.
 
 ## Directory hierarchy
 
-An ALIEN plugin is an archive (zip) that must contains the following hierarchy:
+ALIEN plugins are package as a zip archive that must contains the following hierarchy:
 
-* The root folder contains java classes and resources (basically it will be added to the classpath of the plugin).
-* The lib folder (optional) must contain all java archives (jar) required for the plugin to run. They will be added to the plugin classloader. Of course you should not add ALIEN 4 cloud jars here as they will be loaded through the plugin parent classloader.
-* Finally the META-INF/plugin.yml contains the plugin description and entry point informations (the plugin descriptor).
-
-{% indent %}
-![plugin-content.png](../../images/plugin-content.png)
-{% endindent %}
-_Example of a plugin content._
+* The __root__ folder contains java classes and resources (basically it will be added to the classpath of the plugin).
+* The __lib__ folder (optional) must contain all java archives (jar) required for the plugin to run. They will be added to the plugin classloader. Of course you should not add ALIEN 4 cloud jars here as they will be loaded through the plugin parent classloader.
+* __META-INF/plugin.yml__ contains the plugin description and entry point informations (the plugin descriptor).
+* The __ui__ folder contains all ui elements including javascript files, css html and any other static files.
 
 ## The plugin descriptor
 

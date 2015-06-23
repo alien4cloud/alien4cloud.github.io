@@ -7,30 +7,17 @@ root: ../
  <div class="row">
   <div id="content" class="jumbotron">
     <div class="row">
-      <div class="col-md-8">
-        <div class="row">
-          <div class="col-md-offset-1 col-md-8">
-            <p>
-              Application LIfecycle ENabler 4 Cloud:
-            </p>
-            <p>
-              Application Management on the cloud for enterprise..
-            </p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-offset-1 col-md-8">
-            <a href="#/documentation/about.html" class="btn btn-default btn-block btn-lg">More about ALIEN for Cloud &raquo;</a>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-offset-1 col-md-8">
-            <a href="#/documentation/getting_started/quickstart.html" class="btn btn-default btn-block btn-lg">Start your ALIEN in Less than 30 minutes! &raquo;</a>
-          </div>
-        </div>
+      <div class="col-md-offset-1 col-md-5 text-center">
+        <p class="lead">
+          Application LIfecycle ENabler 4 Cloud <br>
+          <small>application management on the cloud for enterprise.</small>
+        </p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/BvRbDfoRhLc" frameborder="0" allowfullscreen></iframe>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-offset-1 col-md-4 text-center">
         <img src="/images/cloudalien.png" class="img-responsive">
+        <a href="#/documentation/about.html" class="btn btn-default btn-block btn-lg">More about ALIEN for Cloud &raquo;</a>
+        <a href="#/documentation/getting_started/quickstart.html" class="btn btn-default btn-block btn-lg">Start in Less than 30 minutes! &raquo;</a>
       </div>
     </div>
   </div>
