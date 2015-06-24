@@ -39,7 +39,7 @@ cloudPassword=<cdfy_password>
 * Right after that line, add the following snippet
 {%highlight sh%}
 	if [ "$GSA_MODE" = "lus" ]; then
-		cat <(crontab -l) <(echo "@reboot export LUS_IP_ADDRESS=$LUS_IP_ADDRESS; chmod +x ${WORKING_HOME_DIRECTORY}/events/bin/gsDeployEventsWar.sh; nohup ${WORKING_HOME_DIRECTORY}/events/bin/gsDeployEventsWar.sh ") | crontab -
+		cat <(crontab -l) <(echo "@reboot export LUS_IP_ADDRESS=$LUS_IP_ADDRESS; chmod +x ${WORKING_HOME_DIRECTORY}/../events/bin/gsDeployEventsWar.sh; nohup ${WORKING_HOME_DIRECTORY}/../events/bin/gsDeployEventsWar.sh ") | crontab -
 	fi
 {%endhighlight%}
 
