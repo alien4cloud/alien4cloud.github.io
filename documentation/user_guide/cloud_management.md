@@ -68,7 +68,8 @@ The default naming policy setting for any cloud is : `environment.name + applica
 {%warning%}
 <h5>Deployment name unicity </h5>
 The deployment name must be unique at a given time, the cloud administrator is responsible for choosing a pattern that should be unique or some application(s) may not be deployed (if a deployment with the same name is already running).
-Note that in we guaranty that an application name is unique across all applications and that an environment name is unique for a given application.
+Note that in we guaranty that an application name is unique across all applications and that an environment name is unique for a given application.  
+However, when generating the application paaSId (final application name on the PaaS), all `space` character will be replaced by an `_`. Therefore and as an example, if your naming policy involves the application name, you can not deploy simultaneously two applications named "**Test App**" and "**Test_App**" on the same cloud, as the generated paaSId will be in conflict.
 {%endwarning%}
 
 The main pattern to define a naming policy is to use `+` to concat different properties or text, for examples :
