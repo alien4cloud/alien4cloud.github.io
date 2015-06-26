@@ -55,3 +55,12 @@ Once you have created / uploaded a template you should be able to see it in the 
 ![Topology template list](../../images/user_guide/user_guide_topology_template_list.png)
 
 From now you can use any template when [creating a new application](#/documentation/user_guide/application_management.html).
+
+# Topology substitution / composition
+
+A topology template can also be used in another template as a type. In order to do this, you must:
+- define the type it will inherit from ("subsitution" panel in topology composer).
+- choose the capabilities/requirements you want to expose (as capabilities/requirements for the new type).
+- eventually define inputs and outputs that will become respectively properties and attributes for the created type.
+
+The created type is named like the template and is usable in another template or an application topology. It's content will be wired at runtime stage. 
