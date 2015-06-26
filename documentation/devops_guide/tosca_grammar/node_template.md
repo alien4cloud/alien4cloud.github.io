@@ -34,7 +34,7 @@ The overall structure of a TOSCA Node Template and its top-level key collations 
   requirements:
     <requirement_definitions>
   capabilities:
-    <capability_definitions>    
+    <capability_definitions>
 {% endhighlight %}
 
 ### type
@@ -53,9 +53,10 @@ Named requirement definitions have one of the following grammars:
 {% endhighlight %}
 
 When using this short notation:
-* the <requirement_name> must match to the name of the requirement in the type definition.
-* the <template_name> points to another node template in the topology template (relationship target).
-* the type of the node template target must have a capability named like the requirement.
+
+- the <requirement_name> must match to the name of the requirement in the type definition.
+- the <template_name> points to another node template in the topology template (relationship target).
+- the type of the node template target must have a capability named like the requirement.
 
 Here is an example :
 

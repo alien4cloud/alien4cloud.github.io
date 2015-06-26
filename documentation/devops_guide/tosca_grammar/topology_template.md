@@ -19,6 +19,8 @@ A Topology Template contains the following element keynames:
 |:---------|:------------|:---------|
 | description | no | Declares a description for this Service Template and its contents. |
 | inputs | no | Defines a set of global input parameters passed to the template when its instantiated. This provides a means for template authors to provide points of variability to users of the template in order to customize each instance within certain constraints. |
+| input_artifacts | no | Define artifacts as inputs. |
+| substitution_mappings | no | Describe how this topology can be used as a type in another one. |
 | node_templates | yes | Defines a list of [Node template](#/documentation/devops_guide/tosca_grammar/node_template.html)s that model the components of an application or service’s topology within the Service Template. |
 | relationship_templates | no | Defines a list of Relationship Templates that are used to model the relationships (e.g., dependencies, links, etc.) between components (i.e., Node Templates) of an application or service’s topology within the Service Template. |
 | outputs | no | This optional section allows for defining a set of output parameters provided to users of the template. For example, this can be used for exposing the URL for logging into a web application that has been set up during the instantiation of a template. |
@@ -38,6 +40,9 @@ topology_template
 
   input_artifacts:
     # map of artifacts defined as inputs (non TOSCA)
+
+  substitution_mappings:
+    # define substitution mapping
 
   node_templates:
     # list of node templates
@@ -132,6 +137,61 @@ topology_template:
         war_file:
           implementation: { get_input_artifact: my_war_file }
           type: alien.artifacts.WarFile
+{% endhighlight %}
+
+### substitution_mappings
+
+Substitution allows you to compose topologies by combining templates.
+To be usable in another topology, you must define what a topology template will expose:
+
+- capabilities
+- requirements
+- properties
+- attributes
+
+#### Examples
+
+In the example below, the topology template define 2 nodes. It's exposed as a _tosca.nodes.Root_ (this means that the created type will inherit _tosca.nodes.Root_).
+
+It will have:
+
+- a capability named 'host' that will be wired to the capability 'host' of the node 'Mysql'.
+- a requirement named 'network' that will be wired to the requirement 'network' of the node 'Compute'
+
+Since inputs and outputs are defined for this template, it will also have:
+
+- a property named 'db_port'
+- an attribute named 'Mysql_database_endpoint_port'
+
+{% highlight yaml %}
+topology_template:
+  inputs:
+    db_port:
+      type: integer
+      required: true
+      default: 3306
+      description: The port on which the underlying database service will listen to data.
+  substitution_mappings:
+    node_type: tosca.nodes.Root
+    capabilities:
+      host: [ Mysql, host ]
+    requirements:
+      network: [ Compute, network ]
+  node_templates:
+    Mysql:
+      type: alien.nodes.Mysql
+      properties:
+        db_port: { get_input: db_port }
+      requirements:
+      - host:
+        node: Compute
+        capability: tosca.capabilities.Container
+        relationship: tosca.relationships.HostedOn
+    Compute:
+      type: tosca.nodes.Compute
+  outputs:
+    Mysql_database_endpoint_port:
+    value: { get_property: [ Mysql, database_endpoint, port ] }
 {% endhighlight %}
 
 ### node_templates

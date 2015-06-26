@@ -59,8 +59,9 @@ From now you can use any template when [creating a new application](#/documentat
 # Topology substitution / composition
 
 A topology template can also be used in another template as a type. In order to do this, you must:
+
 - define the type it will inherit from ("subsitution" panel in topology composer).
 - choose the capabilities/requirements you want to expose (as capabilities/requirements for the new type).
 - eventually define inputs and outputs that will become respectively properties and attributes for the created type.
 
-The created type is named like the template and is usable in another template or an application topology. It's content will be wired at runtime stage. 
+The created type is named like the template and is usable in another template or an application topology. It's content will be wired at runtime stage.
