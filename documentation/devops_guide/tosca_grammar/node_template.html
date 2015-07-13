@@ -71,10 +71,13 @@ Named requirement definitions have one of the following grammars:</p>
 
 <div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">&lt;requirement_name&gt;</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;template_name&gt;</span></code></pre></div>
 
-<p>When using this short notation:
-* the <requirement_name> must match to the name of the requirement in the type definition.
-* the <template_name> points to another node template in the topology template (relationship target).
-* the type of the node template target must have a capability named like the requirement.</template_name></requirement_name></p>
+<p>When using this short notation:</p>
+
+<ul>
+  <li>the <requirement_name> must match to the name of the requirement in the type definition.</requirement_name></li>
+  <li>the <template_name> points to another node template in the topology template (relationship target).</template_name></li>
+  <li>the type of the node template target must have a capability named like the requirement.</li>
+</ul>
 
 <p>Here is an example :</p>
 

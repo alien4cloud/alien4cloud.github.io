@@ -53,7 +53,7 @@
 </ul>
 
 <div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;$GSA_MODE&quot;</span> <span class="o">=</span> <span class="s2">&quot;lus&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
-		cat &lt;<span class="o">(</span>crontab -l<span class="o">)</span> &lt;<span class="o">(</span><span class="nb">echo</span> <span class="s2">&quot;@reboot export LUS_IP_ADDRESS=$LUS_IP_ADDRESS; chmod +x ${WORKING_HOME_DIRECTORY}/events/bin/gsDeployEventsWar.sh; nohup ${WORKING_HOME_DIRECTORY}/events/bin/gsDeployEventsWar.sh &quot;</span><span class="o">)</span> <span class="p">|</span> crontab -
+		cat &lt;<span class="o">(</span>crontab -l<span class="o">)</span> &lt;<span class="o">(</span><span class="nb">echo</span> <span class="s2">&quot;@reboot export LUS_IP_ADDRESS=$LUS_IP_ADDRESS; chmod +x ${WORKING_HOME_DIRECTORY}/../events/bin/gsDeployEventsWar.sh; nohup ${WORKING_HOME_DIRECTORY}/../events/bin/gsDeployEventsWar.sh &quot;</span><span class="o">)</span> <span class="p">|</span> crontab -
 	<span class="k">fi</span></code></pre></div>
 
 <ul>

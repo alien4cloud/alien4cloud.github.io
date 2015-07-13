@@ -33,6 +33,16 @@
       <td style="text-align: left">Defines a set of global input parameters passed to the template when its instantiated. This provides a means for template authors to provide points of variability to users of the template in order to customize each instance within certain constraints.</td>
     </tr>
     <tr>
+      <td style="text-align: left">input_artifacts</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">Define artifacts as inputs.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">substitution_mappings</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">Describe how this topology can be used as a type in another one.</td>
+    </tr>
+    <tr>
       <td style="text-align: left">node_templates</td>
       <td style="text-align: left">yes</td>
       <td style="text-align: left">Defines a list of <a href="#/documentation/devops_guide/tosca_grammar/node_template.html">Node template</a>s that model the components of an application or service’s topology within the Service Template.</td>
@@ -68,6 +78,9 @@
 
   <span class="l-Scalar-Plain">input_artifacts</span><span class="p-Indicator">:</span>
     <span class="c1"># map of artifacts defined as inputs (non TOSCA)</span>
+
+  <span class="l-Scalar-Plain">substitution_mappings</span><span class="p-Indicator">:</span>
+    <span class="c1"># define substitution mapping</span>
 
   <span class="l-Scalar-Plain">node_templates</span><span class="p-Indicator">:</span>
     <span class="c1"># list of node templates</span>
@@ -155,6 +168,65 @@
         <span class="l-Scalar-Plain">war_file</span><span class="p-Indicator">:</span>
           <span class="l-Scalar-Plain">implementation</span><span class="p-Indicator">:</span> <span class="p-Indicator">{</span> <span class="nv">get_input_artifact</span><span class="p-Indicator">:</span> <span class="nv">my_war_file</span> <span class="p-Indicator">}</span>
           <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">alien.artifacts.WarFile</span></code></pre></div>
+
+<h3 id="substitutionmappings">substitution_mappings</h3>
+
+<p>Substitution allows you to compose topologies by combining templates.
+To be usable in another topology, you must define what a topology template will expose:</p>
+
+<ul>
+  <li>capabilities</li>
+  <li>requirements</li>
+  <li>properties</li>
+  <li>attributes</li>
+</ul>
+
+<h4 id="examples-2">Examples</h4>
+
+<p>In the example below, the topology template define 2 nodes. It’s exposed as a <em>tosca.nodes.Root</em> (this means that the created type will inherit <em>tosca.nodes.Root</em>).</p>
+
+<p>It will have:</p>
+
+<ul>
+  <li>a capability named ‘host’ that will be wired to the capability ‘host’ of the node ‘Mysql’.</li>
+  <li>a requirement named ‘network’ that will be wired to the requirement ‘network’ of the node ‘Compute’</li>
+</ul>
+
+<p>Since inputs and outputs are defined for this template, it will also have:</p>
+
+<ul>
+  <li>a property named ‘db_port’</li>
+  <li>an attribute named ‘Mysql_database_endpoint_port’</li>
+</ul>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">topology_template</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">inputs</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">db_port</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">integer</span>
+      <span class="l-Scalar-Plain">required</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
+      <span class="l-Scalar-Plain">default</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">3306</span>
+      <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">The port on which the underlying database service will listen to data.</span>
+  <span class="l-Scalar-Plain">substitution_mappings</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">node_type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.nodes.Root</span>
+    <span class="l-Scalar-Plain">capabilities</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">host</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span> <span class="nv">Mysql</span><span class="p-Indicator">,</span> <span class="nv">host</span> <span class="p-Indicator">]</span>
+    <span class="l-Scalar-Plain">requirements</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">network</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span> <span class="nv">Compute</span><span class="p-Indicator">,</span> <span class="nv">network</span> <span class="p-Indicator">]</span>
+  <span class="l-Scalar-Plain">node_templates</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">Mysql</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">alien.nodes.Mysql</span>
+      <span class="l-Scalar-Plain">properties</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">db_port</span><span class="p-Indicator">:</span> <span class="p-Indicator">{</span> <span class="nv">get_input</span><span class="p-Indicator">:</span> <span class="nv">db_port</span> <span class="p-Indicator">}</span>
+      <span class="l-Scalar-Plain">requirements</span><span class="p-Indicator">:</span>
+      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">host</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">node</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Compute</span>
+        <span class="l-Scalar-Plain">capability</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.capabilities.Container</span>
+        <span class="l-Scalar-Plain">relationship</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.relationships.HostedOn</span>
+    <span class="l-Scalar-Plain">Compute</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.nodes.Compute</span>
+  <span class="l-Scalar-Plain">outputs</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">Mysql_database_endpoint_port</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">value</span><span class="p-Indicator">:</span> <span class="p-Indicator">{</span> <span class="nv">get_property</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span> <span class="nv">Mysql</span><span class="p-Indicator">,</span> <span class="nv">database_endpoint</span><span class="p-Indicator">,</span> <span class="nv">port</span> <span class="p-Indicator">]</span> <span class="p-Indicator">}</span></code></pre></div>
 
 <h3 id="nodetemplates">node_templates</h3>
 

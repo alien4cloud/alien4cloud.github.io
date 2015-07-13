@@ -75,7 +75,8 @@
 <div class="note warning">
 <h5>Deployment name unicity </h5>
 <p>The deployment name must be unique at a given time, the cloud administrator is responsible for choosing a pattern that should be unique or some application(s) may not be deployed (if a deployment with the same name is already running).
-Note that in we guaranty that an application name is unique across all applications and that an environment name is unique for a given application.</p>
+Note that in we guaranty that an application name is unique across all applications and that an environment name is unique for a given application.<br />
+However, when generating the application paaSId (final application name on the PaaS), all <code>space</code> character will be replaced by an <code>_</code>. Therefore and as an example, if your naming policy involves the application name, you can not deploy simultaneously two applications named “<strong>Test App</strong>” and “<strong>Test_App</strong>” on the same cloud, as the generated paaSId will be in conflict.</p>
 </div>
 
 <p>The main pattern to define a naming policy is to use <code>+</code> to concat different properties or text, for examples :</p>
