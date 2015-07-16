@@ -86,4 +86,5 @@ You can now [browse and search for components](#/documentation/user_guide/compon
 
 Alien 4 Cloud performs validation of your archive agains the TOSCA specification.
 
-TODO show example of upload errors.
+The following image shows the upload of an archive with an error :
+[![Upload an archive with error](../../images/components_guide/csar-upload-errors.png)](../../images/components_guide/csar-upload-errors.png)
