@@ -1,7 +1,9 @@
 ---
 layout: post
-title:  Roadmap
+title: Roadmap
 root: ../
+node_name: index
+categories: ROADMAP
 ---
 
 <div class="container">
@@ -17,13 +19,13 @@ root: ../
   </p>
 
   <ul class="cbp_tmtimeline">
-  	<li>
-  		<time class="cbp_tmtime" datetime="2015-07"><span>early Q3 2015</span> <span>v 1.0.0</span></time>
-  		<div class="cbp_tmicon"><i class="fa fa-rocket" /></div>
-  		<div class="cbp_tmlabel">
+    <li>
+      <time class="cbp_tmtime" datetime="2015-07"><span>early Q3 2015</span> <span>v 1.0.0</span></time>
+      <div class="cbp_tmicon"><i class="fa fa-rocket" /></div>
+      <div class="cbp_tmlabel">
         <h4>Core</h4>
         <ul>
-  			   <li>Dev & Ops Self-Service</li>
+           <li>Dev & Ops Self-Service</li>
            <li>TOSCA Catalog</li>
            <li>TOSCA Import Export</li>
            <li>Applications Versions & Environments</li>
@@ -34,7 +36,7 @@ root: ../
         </ul>
         <h4>Infrastructure and orchestrators certifications</h4>
         <ul>
-  			   <li><a href="https://github.com/alien4cloud/alien4cloud-cloudify2-provider" target="_blank">Cloudify v2</a> and <a href="https://github.com/alien4cloud/alien4cloud-cloudify3-provider" target="_blank">v3.1</a> (compatible with Cloudify 3.2)</li>
+           <li><a href="https://github.com/alien4cloud/alien4cloud-cloudify2-provider" target="_blank">Cloudify v2</a> and <a href="https://github.com/alien4cloud/alien4cloud-cloudify3-provider" target="_blank">v3.1</a> (compatible with Cloudify 3.2)</li>
            <li>Amazon</li>
            <li>OpenStack</li>
            <li>BYON</li>
@@ -44,7 +46,7 @@ root: ../
         <ul>
           <li>SH</li>
           <li>BAT</li>
-  			  <li>Cloudify v2 groovy</li>
+          <li>Cloudify v2 groovy</li>
         </ul>
         <small>Note: Some artefacts are already working though not fully tested/supported</small>
         <h4><a href="https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=tosca" target="_blank">TOSCA</a></h4>
@@ -53,15 +55,15 @@ root: ../
           <li>Normative and extended types, topologies</li>
           <li>Groups and policies</li>
         </ul>
-  		</div>
-  	</li>
+      </div>
+    </li>
     <li>
-  		<time class="cbp_tmtime" datetime="2015-10"><span>early Q4 2015</span> <span>v 1.1.0</span></time>
-  		<div class="cbp_tmicon"><i class="fa fa-rocket" /></div>
-  		<div class="cbp_tmlabel">
+      <time class="cbp_tmtime" datetime="2015-10"><span>early Q4 2015</span> <span>v 1.1.0</span></time>
+      <div class="cbp_tmicon"><i class="fa fa-rocket" /></div>
+      <div class="cbp_tmlabel">
         <h4>Core</h4>
         <ul>
-  			   <li>PaaSProvider v2 for increased platforms and policies support</li>
+           <li>PaaSProvider v2 for increased platforms and policies support</li>
            <li>Pluggable Matching Algorithm</li>
            <li>SSH keys Management</li>
            <li>Git integration</li>
@@ -69,7 +71,7 @@ root: ../
         </ul>
         <h4>Infrastructure and orchestrators certifications</h4>
         <ul>
-  			   <li>Cloudify v3.2</li>
+           <li>Cloudify v3.2</li>
         </ul>
         <h4>Artefacts support</h4>
         <ul>
@@ -85,21 +87,21 @@ root: ../
           <li>Simplified startup and configuration</li>
           <li>v1.0 to v1.1 Migration tools</li>
         </ul>
-  		</div>
-  	</li>
+      </div>
+    </li>
     <li>
-  		<time class="cbp_tmtime" datetime="2016-01"><span>early Q1 2016</span> <span>v 1.2.0</span></time>
-  		<div class="cbp_tmicon"><i class="fa fa-rocket" /></div>
-  		<div class="cbp_tmlabel">
+      <time class="cbp_tmtime" datetime="2016-01"><span>early Q1 2016</span> <span>v 1.2.0</span></time>
+      <div class="cbp_tmicon"><i class="fa fa-rocket" /></div>
+      <div class="cbp_tmlabel">
         <h4>Core</h4>
         <ul>
-  			   <li>Network support improvements</li>
+           <li>Network support improvements</li>
            <li>Pluggable Location Matching</li>
            <li>H.A policies on single scalable nodes</li>
         </ul>
         <h4>Infrastructure and orchestrators certifications</h4>
         <ul>
-  			   <li>Cloudify v3.3</li>
+           <li>Cloudify v3.3</li>
            <li>Azure</li>
            <li>vCloud</li>
         </ul>
@@ -118,12 +120,12 @@ root: ../
           <li>Catalog Portability Insights</li>
           <li>v1.1 to v1.2 Migration tools</li>
         </ul>
-  		</div>
-  	</li>
+      </div>
+    </li>
     <li>
-  		<time class="cbp_tmtime" datetime="2016-01"><span>To be defined</span> <span>Future through</span></time>
-  		<div class="cbp_tmicon"><i class="fa fa-rocket" /></div>
-  		<div class="cbp_tmlabel">
+      <time class="cbp_tmtime" datetime="2016-01"><span>To be defined</span> <span>Future through</span></time>
+      <div class="cbp_tmicon"><i class="fa fa-rocket" /></div>
+      <div class="cbp_tmlabel">
         <h4>Core</h4>
         <ul>
            <li>Custom workflows</li>
@@ -140,13 +142,13 @@ root: ../
         </ul>
         <h4>Premium features</h4>
         <ul>
-  			  <li>Workspaces</li>
+          <li>Workspaces</li>
           <li>TOSCA Types ui designer</li>
           <li>Simplified Self Service</li>
           <li>Artifact(s) Repositories Management</li>
         </ul>
-  		</div>
-  	</li>
+      </div>
+    </li>
   </ul>
   If you want to propose other features and/or if you are willing to contribute, please <a href="/community/index.html">contact us</a>.
 </div>
