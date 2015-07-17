@@ -18,11 +18,24 @@ We currently support Cloudify 2 and Cloudify 3 orchestrators as PaaS Providers. 
 
 ## Installing plugin in Alien 4 Cloud
 
-TODO explain how to upload a plugin package in A4C.
+{%inittab%}
+{% tabcontent Drag and Drop enabled %}
+
+*Drag* you archive file > *Drop* it on the **dash dotted** area
+
+[![Upload an archive file with D&D](../../images/user_guide/upload-plugin-archive.png)](../../images/user_guide/upload-plugin-archive.png)
+{%endtabcontent%}
+{% tabcontent Drag and Drop disabled %}
+
+Click on *[Upload plugin]* > *Select* your archive (The file is automaticly uploaded)
+
+[![Upload an archive file without D&D](../../images/user_guide/upload-plugin-wihout-drag-and-drop.png)](../../images/user_guide/upload-plugin-wihout-drag-and-drop.png)
+{%endtabcontent%}
+{%endinittab%}
 
 ## Plugin configuration
 
-Some plugins may requires specific configuration that is global to the plugin. In case a plugin can be configured you will see the following icon
+Some plugins may requires specific configuration that is global to the plugin. In case a plugin can be configured you will see the following icon : ![configure plugin](../../images/user_guide/configure-plugin.png){: .inline}
 
 ### Advanced plugins configurations
 
