@@ -112,11 +112,11 @@ must see constraint violation error if any in this cloud meta-properties form.
 
 ## PaaS Provider configuration
 
-TODO
-
 The configuration tab on the cloud view allows to setup the provider specific configuration. It is mostly used to configure the provider connexion parameters so Alien 4 Cloud can communicate with the orchestrator engine server.
 
-This configuration may be specific to the orchestrator used and you should refer to the orchestrator specific guide.
+This configuration may be specific to the orchestrator used and you should refer to the orchestrator specific guide. The next capture show the driver configuration of cloudify 2.
+
+[![Configure the cloud driver](../../images/user_guide/admin/clouds/cloud-driver-configuration.png)](../../images/user_guide/admin/clouds/cloud-driver-configuration.png)
 
 # Cloud resources setup
 
