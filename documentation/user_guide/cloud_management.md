@@ -111,6 +111,10 @@ This configuration may be specific to the orchestrator used and you should refer
 
 [![Configure the cloud driver](../../images/user_guide/admin/clouds/cloud-driver-configuration.png)](../../images/user_guide/admin/clouds/cloud-driver-configuration.png)
 
+{%info%}
+More informations for [cloudify 2](#/documentation/cloudify2_driver/install_config.html) or [cloudify 3](#/documentation/cloudify3_driver/install_config.html) can be found on her specific documentation.
+{%endinfo%}
+
 # Cloud resources setup
 
 Once created you must configure the cloud. Configuring a cloud requires several steps:
@@ -177,5 +181,5 @@ When an ID is set, the number of template is updated : ![image no alert button](
 {%endinittab%}
 
 {%info%}
-More informations for [cloudify 2](#/documentation/cloudify2_driver/install_config.html) or [cloudify 3](#/documentation/cloudify3_driver/install_config.html) can be found on her specific documentation.
+More informations for the PaaS template of [cloudify 2](#/documentation/cloudify2_driver/install_config.html) or [cloudify 3](#/documentation/cloudify3_driver/install_config.html) can be found on her specific documentation.
 {%endinfo%}
