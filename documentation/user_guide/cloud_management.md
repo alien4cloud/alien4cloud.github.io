@@ -22,20 +22,13 @@ In order to configure a cloud you must have installed a paas provider plugin fir
 We are currently supporting the opensource orchestrators cloudify 2 and cloudify 3 (Full re-written engine with new DSL - much better and flexible but that we felt prior to the up-comming 3.2 a bit light for production use).
 {%endinfo%}
 
-### Installing Cloudify 2.7 plugin
-
-Follow [this link](#/documentation/cloudify2_driver/index.html) in order to find more on installation and configuration of your coud environment using cloudify 2.
-
-
-
-![Go to admin](../../images/user_guide/admin/admin_button.png){: .inline}
-
 # Cloud creation
 
-Once you have installed a plugin the admin can go on the cloud page and configure cloud. Remember that you can use the Alien 4 Cloud contextual help in order to be guided directly within the application.
+Once you have installed a plugin the admin can go on the cloud page and configure cloud. Remember that you can use the Alien 4 Cloud contextual help in order to be guided directly within the application. To create a cloud, just go in the *cloud list* page and click on the *new cloud* button.
+
+[![Create cloud](../../images/user_guide/admin/clouds/cloud-new-cloud.png)](../../images/user_guide/admin/clouds/cloud-new-cloud.png)
 
 # Cloud global configuration
-
 
 ![Naming policy](../../images/user_guide/admin/clouds/cloud_global_configuration.png)<br>
 
@@ -120,9 +113,69 @@ This configuration may be specific to the orchestrator used and you should refer
 
 # Cloud resources setup
 
-TODO
+Once created you must configure the cloud. Configuring a cloud requires several steps:
 
-Once created you must configure the cloud. Configuring a cloud requires several step:
+* Configure cloud resources (images and flavors) used for resources matching at deployment time.
+* Configure the properties of the PaaS provider (that depends of the chosen one).
 
-* Configure the properties of the PaaS provider (that depends of the choosen one).
-* Configure cloud resources (images and flavors) used for resources matchin at deployment time.
+## Configure cloud resources
+
+### Images
+
+In this page you need to add images to your cloud. An image describes the informations of a *virtual machine template*, you need to resume the images of your PaaS.
+For example, here the screen of a cloud with *Ubuntu Vivid Vervet* (the cloud is not enabled at this moment).
+
+[![Cloud image not configure](../../images/user_guide/admin/clouds/cloud-new-image.png)](../../images/user_guide/admin/clouds/cloud-new-image.png)
+
+### Flavors
+
+Flavor is a combination of informations to describe the *hardware templates* used by the PaaS. They are 3 informations:
+
+* number of core
+* disk size
+* RAM size
+
+Lot of flavors offer the flexibility for *APPLICATION_MANAGER* to choose the appropriate resources for an application. Like for images, here a screen of the flavor page (the cloud is not enabled at this moment).
+
+[![Cloud flavor not configure](../../images/user_guide/admin/clouds/cloud-flavors-not-configure.png)](../../images/user_guide/admin/clouds/cloud-flavors-not-configure.png)
+
+## Configure PaaS templates
+
+For the next step, you need to enable your cloud. Just go in the *details* page and click one the *enable* button. If the startup has failed, check your PaaS driver configuration.
+
+[![Cloud not enable](../../images/user_guide/admin/clouds/cloud-detail-not-enable.png)](../../images/user_guide/admin/clouds/cloud-detail-not-enable.png)
+
+{%inittab%}
+{% tabcontent Templates with auto matching %}
+
+When the cloud is enabled, go to *image* page to set the PaaS resource ID of your images.
+
+[![Cloud image match PaaS ID](../../images/user_guide/admin/clouds/cloud-image-match-id.png)](../../images/user_guide/admin/clouds/cloud-image-match-id.png)
+
+Once all images are complete, the alert icon on *image* tab will be deleted : ![flavor no alert button](../../images/user_guide/admin/clouds/cloud-image-no-alert.png){: .inline}
+
+After this, do the same thing with the flavor.
+
+[![Cloud flavor match PaaS ID](../../images/user_guide/admin/clouds/cloud-flavor-match-id.png)](../../images/user_guide/admin/clouds/cloud-flavor-match-id.png)
+
+When an ID is set, the number of template is updated : ![image no alert button](../../images/user_guide/admin/clouds/cloud-flavor-no-alert.png){: .inline}
+{%endtabcontent%}
+{% tabcontent Templates without auto matching %}
+
+When the cloud is enabled, go to *image* page to set the PaaS resource ID of your images.
+
+[![Cloud image PaaS ID](../../images/user_guide/admin/clouds/cloud-image-paas-id.png)](../../images/user_guide/admin/clouds/cloud-image-paas-id.png)
+
+Once all images are complete, the alert icon on *image* tab will be deleted : ![flavor no alert button](../../images/user_guide/admin/clouds/cloud-image-no-alert.png){: .inline}
+
+After this, do the same thing with the flavor.
+
+[![Cloud flavor PaaS ID](../../images/user_guide/admin/clouds/cloud-flavor-edit.png)](../../images/user_guide/admin/clouds/cloud-flavor-edit.png)
+
+When an ID is set, the number of template is updated : ![image no alert button](../../images/user_guide/admin/clouds/cloud-flavor-no-alert.png){: .inline}
+{%endtabcontent%}
+{%endinittab%}
+
+{%info%}
+More informations for [cloudify 2](#/documentation/cloudify2_driver/install_config.html) or [cloudify 3](#/documentation/cloudify3_driver/install_config.html) can be found on her specific documentation.
+{%endinfo%}
