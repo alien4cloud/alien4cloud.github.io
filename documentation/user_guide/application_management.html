@@ -6,11 +6,90 @@
       </div>
       <div id="content" class="col-md-9">
     
-        <h1 style="margin-top: 0px;">Advanced inputs</h1>
+        <h1 style="margin-top: 0px;">Application(s) management</h1>
         
 <hr style="margin-top:5px; margin-bottom:5px;" />
 <div class="row"><ul class="nav nav-pills" id="summarypanel"></ul></div>
 <hr style="margin-top:5px; margin-bottom:5px;" />
+
+<div class="note info">
+<p>To understand the application concept, please refer to <a href="#/documentation/concepts/applications.html">this section</a>.</p>
+</div>
+
+<h1 id="create-new-application">Create new application</h1>
+
+<p>To create an application, go in the <em>application</em> list page and click on the <em>New application</em>
+button. You can directly create an application from a topology template if you have one.</p>
+
+<p><a href="../../images/user_guide/application/create-new-application.png"><img src="../../images/user_guide/application/create-new-application.png" alt="Create new application" /></a></p>
+
+<h1 id="configure-versions">Configure versions</h1>
+
+<p>In the <em>version</em> page you can create, edit or delete a version. As we already say in the application concept page, if you remove the ‘SNAPSHOT’ qualifier, your version will be released and the associated topology not editable.</p>
+
+<p><a href="../../images/user_guide/application/application-version-management.png"><img src="../../images/user_guide/application/application-version-management.png" alt="Versions management page" /></a></p>
+
+<h1 id="configure-environments">Configure environments</h1>
+
+<p>In the <em>environment</em> management page you can create, edit or delete an environment. The version and the cloud are the most important informations.</p>
+
+<div class="note warning">
+<p>An environment cannot be deleted when it’s application is still deploy.</p>
+</div>
+
+<p><a href="../../images/user_guide/application/application-environment-management.png"><img src="../../images/user_guide/application/application-environment-management.png" alt="Environments management page" /></a></p>
+
+<h1 id="manage-roles">Manage roles</h1>
+
+<h2 id="applications-roles">Application’s roles</h2>
+
+<p>These roles defines actions allowed by <em>role</em> on a given application :</p>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Role</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">APPLICATION_MANAGER</td>
+      <td style="text-align: left">Application manager can manage the application configuration, it’s versions and environments as well as user management for the application.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">APPLICATION_DEVOPS</td>
+      <td style="text-align: left">Dev ops role should be given to the applications developer. In ALIEN users with devops role on an application can edit the topologies of every SNAPSHOT versions.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>In addition to the applications roles, Application manager can specify some roles related to every single environment defined for the application.</p>
+
+<h2 id="environments-roles">Environment’s roles</h2>
+
+<p>These roles defines actions allowed by <em>role</em> on a given environment :</p>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Role</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">APPLICATION_USER</td>
+      <td style="text-align: left">An application user on an environment is allowed to see the environment status as well as having access to the deployment output properties (URL for example so he can directly reach the deployed application).</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">DEPLOYMENT_MANAGER</td>
+      <td style="text-align: left">Deployment manager for an environment is responsible for configuration and deployment/undeployment of an environment. In order to be able to deploy/undeply the environment the user must also have a CLOUD_DEPLOYER role on the cloud that is associated with the environment. CLOUD_DEPLOYER role is configured on the cloud configuration by any user having the global ADMIN role.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="advanced-inputs">Advanced inputs</h1>
 
 <p>This section describe how you can use internal variables defined in <strong>cloud</strong>, <strong>application</strong> or <strong>environment</strong>. Those parameters
 could be used as inputs for nodetemplate properties.</p>
@@ -53,7 +132,7 @@ could be used as inputs for nodetemplate properties.</p>
 <p>This list could change regarding A4C user needs and use cases.</p>
 </div>
 
-<h1 id="define-a-property-as-an-internal-input">Define a property as an internal input</h1>
+<h2 id="define-a-property-as-an-internal-input">Define a property as an internal input</h2>
 
 <p>When you define a topology, you may want to define some node properties as inputs. An input is
 by default a value required to the user in order complete the topology and deploy.</p>
@@ -121,7 +200,7 @@ if(hash && hash!== null && hash.match(/html$/)) {
 <script type="text/javascript" src="/js/post-layout.js"></script>
 <script>
 $(document).ready(function () {
-  makeSideBar('DOCUMENTATION', 'application_management_advanced_inputs');
+  makeSideBar('DOCUMENTATION', 'application_management');
 });
 </script>
 

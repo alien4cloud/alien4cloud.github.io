@@ -141,17 +141,10 @@
 	},
 
 	{
-		"url": "/documentation/user_guide/application/application_management.html", 
+		"url": "/documentation/user_guide/application_management.html", 
 		"section": "Documentation", 
 		"value": "Application(s) management",
 		"tokens": [ "Application(s)","management"]
-	},
-
-	{
-		"url": "/documentation/user_guide/application/application_management_advanced_inputs.html", 
-		"section": "Documentation", 
-		"value": "Advanced inputs",
-		"tokens": [ "Advanced","inputs"]
 	},
 
 	{
@@ -246,24 +239,10 @@
 	},
 
 	{
-		"url": "/documentation/user_guide/components/components_catalog.html", 
+		"url": "/documentation/user_guide/components_management.html", 
 		"section": "Documentation", 
 		"value": "Components catalog",
 		"tokens": [ "Components","catalog"]
-	},
-
-	{
-		"url": "/documentation/user_guide/components/components_management.html", 
-		"section": "Documentation", 
-		"value": "Managing components",
-		"tokens": [ "Managing","components"]
-	},
-
-	{
-		"url": "/documentation/user_guide/components/components_search.html", 
-		"section": "Documentation", 
-		"value": "Searching components",
-		"tokens": [ "Searching","components"]
 	},
 
 	{
@@ -386,20 +365,6 @@
 	},
 
 	{
-		"url": "/developer_guide/index.html", 
-		"section": "Developer Guide", 
-		"value": "Developer Guide",
-		"tokens": [ "Developer","Guide"]
-	},
-
-	{
-		"url": "/documentation/index.html", 
-		"section": "Documentation", 
-		"value": "ALIEN 4 Cloud - Documentation",
-		"tokens": [ "ALIEN","4","Cloud","","Documentation"]
-	},
-
-	{
 		"url": "/documentation/cloudify3_driver/index.html", 
 		"section": "Documentation", 
 		"value": "Cloudify 3 PaaS Provider",
@@ -407,10 +372,24 @@
 	},
 
 	{
+		"url": "/developer_guide/index.html", 
+		"section": "Developer Guide", 
+		"value": "Developer Guide",
+		"tokens": [ "Developer","Guide"]
+	},
+
+	{
 		"url": "/documentation/cloudify2_driver/index.html", 
 		"section": "Documentation", 
 		"value": "Cloudify 2 PaaS Provider",
 		"tokens": [ "Cloudify","2","PaaS","Provider"]
+	},
+
+	{
+		"url": "/documentation/index.html", 
+		"section": "Documentation", 
+		"value": "ALIEN 4 Cloud - Documentation",
+		"tokens": [ "ALIEN","4","Cloud","","Documentation"]
 	},
 
 	{
@@ -624,14 +603,14 @@
 	},
 
 	{
-		"url": "/documentation/cloudify2_driver/prerequisites.html", 
+		"url": "/documentation/cloudify3_driver/prerequisites.html", 
 		"section": "Documentation", 
 		"value": "Prerequisites",
 		"tokens": [ "Prerequisites"]
 	},
 
 	{
-		"url": "/documentation/cloudify3_driver/prerequisites.html", 
+		"url": "/documentation/cloudify2_driver/prerequisites.html", 
 		"section": "Documentation", 
 		"value": "Prerequisites",
 		"tokens": [ "Prerequisites"]
