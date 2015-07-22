@@ -8,7 +8,7 @@ node_name: user_guide
 weight: 300
 ---
 
-Welcome to Alien's user guide!
+## Welcome to Alien's user guide!
 
 This section will explain you how to use Alien 4 Cloud it is organized based on the [concepts](#/documentation/concepts/concepts.html) but you can find below links to sections you may be interested in based on the [roles](#/documentation/concepts/roles.html) you have.
 

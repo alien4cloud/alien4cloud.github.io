@@ -9,13 +9,15 @@ weight: 100
 ---
 {% summary %}{% endsummary %}
 
-If you are not familiar with the concept of cloud in Alien 4 Cloud please go [here](#/documentation/concepts/clouds.html) first.
+{%info%}
+To understand the cloud concept, please refer to [this section](#/documentation/concepts/clouds.html).
+{%endinfo%}
 
 ## Requirement for cloud creation
 
 Alien 4 cloud is not responsible for actual deployment orchestration but rather interact with existing orchestration technologies. In order to define a cloud you must configure plugins that will be used to actually perform deployment(s) on the defined cloud. Orchestrator plugins are refered in alien as PaaS Provider plugins.
 
-In order to configure a cloud you must have installed a paas provider plugin first see [Plugin management](#/documentation/user_guide/plugin_management.html).
+In order to configure a cloud you must have installed a paas provider plugin first see [plugin management](#/documentation/user_guide/plugin_management.html).
 
 {%info%}
 <h5>Supported orchestrators</h5>
@@ -24,11 +26,13 @@ We are currently supporting the opensource orchestrators cloudify 2 and cloudify
 
 # Cloud creation
 
-Once you have installed a plugin the admin can go on the cloud page and configure cloud. Remember that you can use the Alien 4 Cloud contextual help in order to be guided directly within the application. To create a cloud, just go in the *cloud list* page and click on the *new cloud* button.
+Once you have installed a plugin the admin can go on the cloud page and configure cloud. Remember that you can use the Alien 4 Cloud contextual help in order to be guided directly within the application. To create a cloud, just go in the *cloud list* page and click on the *New cloud* button.
 
 [![Create cloud](../../images/user_guide/admin/clouds/cloud-new-cloud.png)](../../images/user_guide/admin/clouds/cloud-new-cloud.png)
 
 # Cloud global configuration
+
+To configure a cloud, select it in the *cloud list* page and go to *C onfiguration* tab.
 
 ![Naming policy](../../images/user_guide/admin/clouds/cloud_global_configuration.png)<br>
 

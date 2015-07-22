@@ -8,6 +8,8 @@ node_name: plugin_management
 weight: 75
 ---
 
+{% summary %}{% endsummary %}
+
 Plugins provides some additional functionalities to Alien 4 Cloud. We currently support paas provider plugins (orchestrators interface with Alien 4 Cloud) but aims to provide much more plugins with various functionalities and even UI components.
 
 # PaaS Providers (Orchestrators)

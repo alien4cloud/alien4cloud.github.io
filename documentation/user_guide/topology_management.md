@@ -10,9 +10,9 @@ weight: 300
 
 {% summary %}{% endsummary %}
 
-# Topology
-
+{%info%}
 To understand the topology concept, please refer to [this section](#/documentation/concepts/topologies.html).
+{%endinfo%}
 
 # Topology template
 
@@ -54,7 +54,7 @@ Once you have created / uploaded a template you should be able to see it in the 
 
 ![Topology template list](../../images/user_guide/user_guide_topology_template_list.png)
 
-From now you can use any template when [creating a new application](#/documentation/user_guide/application_management.html).
+From now you can use any template when [creating a new application](#/documentation/user_guide/application/application_management.html).
 
 # Topology substitution / composition
 
