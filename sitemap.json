@@ -351,20 +351,6 @@
 	},
 
 	{
-		"url": "/documentation/getting_started/getting_started_prerequisites.html", 
-		"section": "Documentation", 
-		"value": "Prerequisites",
-		"tokens": [ "Prerequisites"]
-	},
-
-	{
-		"url": "/documentation/getting_started/getting_started_start.html", 
-		"section": "Documentation", 
-		"value": "Quick Start",
-		"tokens": [ "Quick","Start"]
-	},
-
-	{
 		"url": "/community/index.html", 
 		"section": "", 
 		"value": "ALIEN 4 Cloud",
@@ -379,17 +365,10 @@
 	},
 
 	{
-		"url": "/developer_guide/index.html", 
-		"section": "Developer Guide", 
-		"value": "Developer Guide",
-		"tokens": [ "Developer","Guide"]
-	},
-
-	{
-		"url": "/release_notes/index.html", 
-		"section": "Release Notes", 
-		"value": "Release Notes",
-		"tokens": [ "Release","Notes"]
+		"url": "/documentation/cloudify3_driver/index.html", 
+		"section": "Documentation", 
+		"value": "Cloudify 3 PaaS Provider",
+		"tokens": [ "Cloudify","3","PaaS","Provider"]
 	},
 
 	{
@@ -407,10 +386,17 @@
 	},
 
 	{
-		"url": "/documentation/cloudify3_driver/index.html", 
-		"section": "Documentation", 
-		"value": "Cloudify 3 PaaS Provider",
-		"tokens": [ "Cloudify","3","PaaS","Provider"]
+		"url": "/release_notes/index.html", 
+		"section": "Release Notes", 
+		"value": "Release Notes",
+		"tokens": [ "Release","Notes"]
+	},
+
+	{
+		"url": "/developer_guide/index.html", 
+		"section": "Developer Guide", 
+		"value": "Developer Guide",
+		"tokens": [ "Developer","Guide"]
 	},
 
 	{
@@ -617,14 +603,14 @@
 	},
 
 	{
-		"url": "/documentation/cloudify2_driver/prerequisites.html", 
+		"url": "/documentation/cloudify3_driver/prerequisites.html", 
 		"section": "Documentation", 
 		"value": "Prerequisites",
 		"tokens": [ "Prerequisites"]
 	},
 
 	{
-		"url": "/documentation/cloudify3_driver/prerequisites.html", 
+		"url": "/documentation/cloudify2_driver/prerequisites.html", 
 		"section": "Documentation", 
 		"value": "Prerequisites",
 		"tokens": [ "Prerequisites"]
@@ -635,13 +621,6 @@
 		"section": "Documentation", 
 		"value": "Property definition",
 		"tokens": [ "Property","definition"]
-	},
-
-	{
-		"url": "/documentation/getting_started/quickstart.html", 
-		"section": "Documentation", 
-		"value": "The 30 min Start Guide!",
-		"tokens": [ "The","30","min","Start","Guide!"]
 	},
 
 	{
