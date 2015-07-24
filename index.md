@@ -17,7 +17,7 @@ root: ../
       <div class="col-md-offset-1 col-md-4 text-center">
         <img src="/images/cloudalien.png" class="img-responsive">
         <a href="#/documentation/about.html" class="btn btn-default btn-block btn-lg">More about ALIEN for Cloud &raquo;</a>
-        <a href="#/documentation/getting_started/quickstart.html" class="btn btn-default btn-block btn-lg">Start in Less than 30 minutes! &raquo;</a>
+        <a href="#/documentation/getting_started/getting_started.html" class="btn btn-default btn-block btn-lg">Start in Less than 30 minutes! &raquo;</a>
       </div>
     </div>
   </div>
