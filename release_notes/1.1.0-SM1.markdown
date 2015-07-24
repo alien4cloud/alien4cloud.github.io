@@ -1,0 +1,67 @@
+---
+layout: post
+title:  ALIEN for Cloud 1.1.0-SM1
+root: ../
+categories: RELEASE_NOTES
+parent: [release_note]
+node_name: 1.1.0-SM1
+weight: 9981
+exclude_from_search: true
+---
+
+
+
+
+<i class="fa fa-plus text-success"></i> New feature <i class="fa fa-level-up text-primary"></i> Improvement  <i class="fa fa-bug text-danger"></i> Bug <i class="fa fa-exclamation-triangle text-warning"></i> Breaking change
+
+
+### Alien 4 Cloud
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-980 | We now support inheritance for relationships allowing to use parent scripts for 'generic parent relationships' /  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-995 | $issue.description /  |
+      |  <i class="fa fa-exclamation-triangle text-warning">  <i class="fa fa-level-up text-primary"></i> | ALIEN-1020 | Some deprecated methods in Topology Controller have been removed. /  |
+      |  <i class="fa fa-bug text-danger"></i> | ALIEN-391 | Application Update date is now changed when updating the application name. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-394 | Fixes error message when trying to upload a plugin that doesn't have a plugin.yml descriptor. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-962 | Fixed an issue in the elastic search analyser configuration impacting the ability to search for TOSCA nodes (no word breaking on  '.') /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-969 | Fix an issue preventing users to deploy an application with a space in it's name. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-971 | Add a clear error message in the UI when the deployment fails because the users chooses to deploy volumes with a specified volumeId but with the deletable option enabled. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1004 | Fixed an issue preventing get_property to find the property on parents (hosted_on targets) chain if the property doesn't exist on the node. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1023 | Fixed some issues in scale up and scale down management when nodes failed to be instantiated. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1024 | Improve YAML import validation so there is an error message when a get_input method refers to an undefined input in a topology /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1034 | Fix an issue causing a security error while trying to access the REST API documentation. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1046 | $issue.description /  |
+  
+
+
+### Cloudify 3 PaaS Provider
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-949 | Add support for get_operation_output for cloudify 3 driver. /  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-1035 | It is now possible to access attributes and properties for scaled nodes on cloudify 3. /  |
+        |  <i class="fa fa-bug text-danger"></i> | ALIEN-1004 | Fixed an issue preventing get_property to find the property on parents (hosted_on targets) chain if the property doesn't exist on the node. /  |
+  
+
+
+### Cloudify 2 PaaS Provider
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+        |  <i class="fa fa-bug text-danger"></i> | ALIEN-1004 | Fixed an issue preventing get_property to find the property on parents (hosted_on targets) chain if the property doesn't exist on the node. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1023 | Fixed some issues in scale up and scale down management when nodes failed to be instantiated. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1031 | Fix an issue causing an attached block storage node to be formatted when a crashed node was restarted. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1044 | Fixed a memory leak on cloudify space as NodeInstanceStates where never removed even after the application has been undeployed. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1046 | $issue.description /  |
+  
+
