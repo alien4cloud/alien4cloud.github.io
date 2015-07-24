@@ -26,6 +26,11 @@ For more informations on TOSCA and supported archive format please go [here](#/d
 
 You cannot upload the same archive (same id and version) mutliple times. If you changed an archive, you must increment the version number so you can upload it to Alien.
 
+{%info%}
+<h5>Create your own component</h5>
+If you want create your own component please go [here](#/documentation/devops_guide/design_tutorial/tutorials.html).
+{%endinfo%}
+
 {%warning%}
 <h5>Roles and security</h5>
 In order to be able to add components to the repository you must have the _COMPONENT_MANAGER_ role. Note that if the archive you wish to upload contains both nodes and relationship types and both a topology template, then you must have both the _COMPONENT_MANAGER_ and _ARCHITECT_ role

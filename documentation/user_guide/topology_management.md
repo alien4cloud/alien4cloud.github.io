@@ -65,3 +65,9 @@ A topology template can also be used in another template as a type. In order to 
 - eventually define inputs and outputs that will become respectively properties and attributes for the created type.
 
 The created type is named like the template and is usable in another template or an application topology. It's content will be wired at runtime stage.
+
+# Topology version
+
+In the *topology version* page you can create, edit or delete a version. As we already say in the application concept page, if you remove the ‘SNAPSHOT’ qualifier, your topology will be not editable.
+
+[![*Topology version](../../images/user_guide/topology_version.png)](../../images/user_guide/topology_version.png)
