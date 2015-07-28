@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row">
+    
+      <div class="col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-md-9">
+    
+        <h1 style="margin-top: 0px;">Cloudify 3 PaaS Provider</h1>
+        <p>This section gives a focus to Cloudify 3 driver for ALIEN, a plugin to manage deployment on various cloud using the <a href="http://getcloudify.org/" title="cloudify">PaaS factory Cloudify 3.x</a>.</p>
+
+<div class="note info">
+<p><strong>In this documentation, we will assume you have access to the GUI of a running instance of ALIEN 4 Cloud. Also, make sure you have the proper rights when needed.</strong></p>
+</div>
+
+<p>Start with the <a href="#/documentation/cloudify3_driver/prerequisites.html">prerequisites</a>.</p>
+
+      </div>
+    </div>
+  </div>
+</div><!-- /container -->
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-1.1.0', 'cloudify_3_index');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

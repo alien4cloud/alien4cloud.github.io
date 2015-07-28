@@ -1,0 +1,73 @@
+<div class="container">
+  <div class="row">
+    
+      <div class="col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-md-9">
+    
+        <h1 style="margin-top: 0px;">Plugin(s) management</h1>
+        
+<hr style="margin-top:5px; margin-bottom:5px;" />
+<div class="row"><ul class="nav nav-pills" id="summarypanel"></ul></div>
+<hr style="margin-top:5px; margin-bottom:5px;" />
+
+<p>Plugins provides some additional functionalities to Alien 4 Cloud. We currently support paas provider plugins (orchestrators interface with Alien 4 Cloud) but aims to provide much more plugins with various functionalities and even UI components.</p>
+
+<h1 id="paas-providers-orchestrators">PaaS Providers (Orchestrators)</h1>
+
+<p>Alien 4 Cloud is not managing actual runtime state of deployments by itself. In order to do so it delegates runtime to orchestrators, as well refered in Alien 4 Cloud as <em>PaaS Providers</em>. A PaaS Provider in A4C is a plugin that will be associated with <em>Clouds</em>. It is possible of course to have multiple clouds using the same PaaS Provider as well a multiple clouds with different PaaS Providers.</p>
+
+<p>We currently support Cloudify 2 and Cloudify 3 orchestrators as PaaS Providers. Cloudify 3 is recommended for new projects while we still recommends using Cloudify 2 as long as the version 3.2 is not released and supported in Alien 4 Cloud.</p>
+
+<h2 id="installing-plugin-in-alien-4-cloud">Installing plugin in Alien 4 Cloud</h2>
+
+<div class="tabsection"><ul class="nav nav-tabs"></ul><div class="tab-content">
+<div class="tab-pane" id="drag_and_drop_enabled" title="Drag and Drop enabled">
+<p><em>Drag</em> you archive file &gt; <em>Drop</em> it on the <strong>dash dotted</strong> area</p>
+
+<p><a href="../../images/user_guide/upload-plugin-archive.png"><img src="../../images/user_guide/upload-plugin-archive.png" alt="Upload an archive file with D&amp;D" /></a></p>
+</div>
+<div class="tab-pane" id="drag_and_drop_disabled" title="Drag and Drop disabled">
+<p>Click on <em>[Upload plugin]</em> &gt; <em>Select</em> your archive (The file is automaticly uploaded)</p>
+
+<p><a href="../../images/user_guide/upload-plugin-wihout-drag-and-drop.png"><img src="../../images/user_guide/upload-plugin-wihout-drag-and-drop.png" alt="Upload an archive file without D&amp;D" /></a></p>
+</div>
+</div></div>
+
+<h2 id="plugin-configuration">Plugin configuration</h2>
+
+<p>Some plugins may requires specific configuration that is global to the plugin. In case a plugin can be configured you will see the following icon : <img src="../../images/user_guide/configure-plugin.png" alt="configure plugin" class="inline" /></p>
+
+<h3 id="advanced-plugins-configurations">Advanced plugins configurations</h3>
+
+<p>The configuration detailed in the previous section is global for the plugin. Some plugins may requires some specific configurations that you can find at other places in the application. Your should refer to the plugin specific documentation to know more about it.</p>
+
+<p>For example, PaaS providers plugins actually are able to manage multiple instances of orchestrators, the specific configuration for each instance is managed at the cloud level.</p>
+
+<h2 id="plugin-creation">Plugin creation</h2>
+
+<p>If you want to create new plugins for Alien 4 Cloud please refer to the <a href="#/developer_guide/index.html">developer guide</a>.</p>
+
+      </div>
+    </div>
+  </div>
+</div><!-- /container -->
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-1.1.0', 'plugin_management');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

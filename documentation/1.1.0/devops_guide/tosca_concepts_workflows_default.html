@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row">
+    
+      <div class="col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-md-9">
+    
+        <h1 style="margin-top: 0px;">Workflow generation</h1>
+        <p>TOSCA containers uses the default normative types to automatically generate a default workflow. This ease the definition of TOSCA topologies as in most of situations entities are extending from <em>tosca.nodes.Root</em> and <em>tosca.relationships.Root</em>.</p>
+
+<p>This section details how the default workflow is generated.</p>
+
+      </div>
+    </div>
+  </div>
+</div><!-- /container -->
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('COMPONENTS_GUIDE', '');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

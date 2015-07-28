@@ -1,0 +1,89 @@
+<div class="container">
+  <div class="row">
+    
+      <div class="col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-md-9">
+    
+        <h1 style="margin-top: 0px;">Supported platforms</h1>
+        <h2 id="client">Client</h2>
+
+<p>Alien supports these different web browsers :</p>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Name</th>
+      <th style="text-align: left">Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><img src="../../images/admin_guide/browsers_logo_firefox.png" alt="Firefox" class="inline" /> <strong>Firefox</strong></td>
+      <td style="text-align: left">31 and higher</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><img src="../../images/admin_guide/browsers_logo_chrome.png" alt="Chrome" class="inline" /> <strong>Chrome</strong></td>
+      <td style="text-align: left">37 and higher</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="note warning">
+<p>Other browsers like <em>Safari</em> or the lasted <em>IE</em> version may work but <strong>are not automatically tested</strong>.</p>
+</div>
+
+<h2 id="server">Server</h2>
+
+<h3 id="java-virtual-machine">Java virtual machine</h3>
+
+<p>Alien 4 Cloud is written in java for the backend and requires a <strong>JVM 7</strong> or higher (Oracle or OpenJDK).</p>
+
+<h3 id="orchestrators-and-deployment-artefacts">Orchestrators and deployment artefacts</h3>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Orchestrators</th>
+      <th style="text-align: left">Deployment artefacts</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><em>Cloudify 2</em></td>
+      <td style="text-align: left"><strong>.bat</strong> (<em>alien.artifacts.BatchScript</em>), <strong>.sh</strong> (<em>tosca.artifacts.ShellScript</em>), <strong>.groovy</strong> (<em>tosca.artifacts.GroovyScript</em>)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><em>Cloudify 3</em></td>
+      <td style="text-align: left"><strong>.bat</strong> (<em>alien.artifacts.BatchScript</em>), <strong>.sh</strong> (<em>tosca.artifacts.ShellScript</em>)</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="note info">
+<p>Some Alien users deployed also <strong>Puppet artifact</strong> through grooving script.</p>
+</div>
+
+      </div>
+    </div>
+  </div>
+</div><!-- /container -->
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-1.1.0', 'supported_platforms');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

@@ -1,0 +1,109 @@
+<div class="container">
+  <div class="row">
+    
+      <div class="col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-md-9">
+    
+        <h1 style="margin-top: 0px;">Stack Application Topology</h1>
+        <p>On this page we will create our topology representing the LAMP stack. Follow instructions step by step and at the end you will have your stack up and running.</p>
+
+<p>To be more concret we will use the <a href="#/documentation/getting_started/lamp_stack_wordpress.html">Wordpress</a> component to install a real CMS.</p>
+
+<h1 id="prerequisites">Prerequisites</h1>
+
+<ol>
+  <li>Get, checkout, download all components listed in the <a href="#/documentation/getting_started/lamp_stack.html">main page</a> of this tutorial</li>
+  <li>Import all components in <strong>A4C</strong>
+    <ul>
+      <li>We assume that you are running the A4C you have downloaded in <a href="#/documentation/getting_started/getting_started.html">standalone version</a>  </li>
+      <li>Once you are logged as <em>admin</em>, you will have the menu on top, select then the <strong>Components</strong> item</li>
+      <li>You can also see here how to <a href="#/documentation/devops_guide/calm_components_repo_uploadarchive.html">upload your component</a>  </li>
+    </ul>
+  </li>
+  <li>Configure your cloud plugin <a href="#/documentation/cloudify2_driver/index.html">PaaS Provider</a></li>
+  <li>Then compose you topology following the next steps</li>
+</ol>
+
+<div class="note info">
+<p>Point 2 : on each page on the right top corner you have a button with a question mark [?]. Click to start a <em>tour</em> to explain what you can do in the current page and how to do it.</p>
+</div>
+
+<h1 id="create-the-topology-for-the-wordpress-application">Create the topology for the Wordpress application</h1>
+
+<p>We have explained all components of our LAMP stack. Now, we will use these components to deploy a Wordpress on a cloud. To begin just for on <em>Applications</em> menu and create a <strong>New application</strong> then go on the application sub-menu <strong>Topology</strong>.</p>
+
+<p>You are now ready to compose you application. Let’s do it !</p>
+
+<h2 id="step-1--the-compute">Step 1 : The Compute</h2>
+
+<p>In this step, drag and drop a <strong>Compute</strong> into the topology design view. You need to specify two properties for this compute :</p>
+
+<ul>
+  <li>os_arch : <strong>x86_64</strong></li>
+  <li>os_type : <strong>linux</strong></li>
+</ul>
+
+<p><a href="../../images/getting_started/wordpress-topology-step-1.png"><img src="../../images/getting_started/wordpress-topology-step-1.png" alt="Compute" /></a></p>
+
+<h2 id="step-2--the-blockstorage">Step 2 : The BlockStorage</h2>
+
+<p>Now, drag and drop a <strong>BlockStorage</strong> into the view. Select it by click and then attach it the <strong>Compute</strong> in the right <em>Properties</em> tab. Make sure to select the relation <em>attachment</em> with 1..1 constraint.</p>
+
+<p>In these properties tab view, set also the <em>size</em> value to 1 (GB by default).</p>
+
+<p><a href="../../images/getting_started/wordpress-topology-step-2.png"><img src="../../images/getting_started/wordpress-topology-step-2.png" alt="Compute, BlockStorage" /></a></p>
+
+<h2 id="step-3--apache-mysql-php">Step 3 : Apache, MySQL, PHP</h2>
+
+<p>Then, drag and drop a <strong>MySQL</strong>, a <strong>PHP</strong> and an <strong>Apache</strong> onto the <strong>Compute</strong> existing node. For each new node droped onto <strong>Compute</strong> you will have to decide a target for the <em>HostedOn</em> relationship (generally just check the relationship name and click <em>Finish</em>). Change the default value of <strong>MySQL</strong> or <strong>Apache</strong> if you want a custom install.</p>
+
+<p><a href="../../images/getting_started/wordpress-topology-step-3.png"><img src="../../images/getting_started/wordpress-topology-step-3.png" alt="Compute, BlockStorage, Apache, MySQL, PHP" /></a></p>
+
+<h2 id="step-4--the-wordpress">Step 4 : The Wordpress</h2>
+
+<p>The last component to add is the <strong>Wordpress</strong>. Drag and drop it to the <strong>Apache</strong> and select the <em>WordpressHostedOn</em> relationship between <strong>Wordpress</strong> and <strong>Apache</strong>.</p>
+
+<p>After this, create the relationship between <strong>Wordpress</strong> and <strong>MySQL</strong> and between <strong>Wordpress</strong> and <strong>PHP</strong>.</p>
+
+<p><a href="../../images/getting_started/wordpress-topology-step-4.png"><img src="../../images/getting_started/wordpress-topology-step-4.png" alt="Compute, BlockStorage, Apache, MySQL, PHP,  Wordpress" /></a></p>
+
+<h1 id="deployment">Deployment</h1>
+
+<p>Now we can deploy our topology into the cloud we’ve defined in prerequisite. The <em>Deploy</em> button is accessible in the Application sub-menu <em>Deployments</em>.</p>
+
+<p>To configure your <em>Wordpress</em> at your first run, open your web browser and go to <strong>IP_SERVER/CONTEXT_PATH</strong>.</p>
+
+<div class="note info">
+<p>To configure your <em>Wordpress</em>, specifically for the <strong>MySQL</strong> settings, be sure you enter the settings you defined in your <em>MySQL</em> configuration.</p>
+</div>
+
+<div class="note">
+<p>To check you running application, go on application <em>Runtime</em> sub-menu an select the node you want. In the <em>Details</em> tab automatically selected, you just need to select the instance line you want to have more details like <em>ip_address</em> and <em>public_ip_address</em> an try you application.</p>
+
+<p>Here we can select the <em>Compute</em> node and get the <em>public IP</em> to run Wordpress for the first time and later.</p>
+</div>
+
+      </div>
+    </div>
+  </div>
+</div><!-- /container -->
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-1.1.0', 'lamp_stack_application');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

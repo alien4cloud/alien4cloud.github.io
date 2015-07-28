@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row">
+    
+      <div class="col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-md-9">
+    
+        <h1 style="margin-top: 0px;">Concepts</h1>
+        <p>Let us introduce you to concepts in Alien 4 Cloud. Alien 4 Cloud is an application that allows people in the enterprise to collaborate in order to provide self-service deployment of complex applications taking in account the different experts through a rôle based portal.</p>
+
+<p>Alien 4 Cloud want to provide self-service no only for users but also for development teams that want to build and deploy complex applications and leverage cloud resources to deploy their environments in minutes.</p>
+
+<p>In order to provide enterprise self-service portal, alien 4 cloud leverages the following concept:</p>
+
+<ul>
+  <li><strong>Cloud</strong>: Deployment target (cloud or set of physical machines)</li>
+  <li><strong>Components</strong>: Software components to deploy</li>
+  <li><strong>Topologies</strong> (or blueprints): Description of multiple software components assembled together (to build an application).</li>
+  <li><strong>Applications</strong>: Actual applications to deploy with <em>environments</em> and <em>versions</em> each of them being associated with a topology.</li>
+</ul>
+
+<p>On top of these notions Alien 4 Cloud provide a comprehensive set of <strong>roles</strong> that can be mapped in flexible manners to the people and structure of an enterprise IT department.</p>
+
+      </div>
+    </div>
+  </div>
+</div><!-- /container -->
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-1.1.0', 'concepts');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

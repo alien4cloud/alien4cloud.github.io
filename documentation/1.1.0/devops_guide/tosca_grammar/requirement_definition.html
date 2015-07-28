@@ -1,0 +1,91 @@
+<div class="container">
+  <div class="row">
+    
+      <div class="col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-md-9">
+    
+        <h1 style="margin-top: 0px;">Requirement definition</h1>
+        <p>A requirement definition allows specification of a requirement that a node need to fulfill to be instanciated.</p>
+
+<h2 id="keynames">Keynames</h2>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Keyname</th>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Required</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">type (Alien 4 Cloud supports also relationship_type)</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">The optional reserved keyname used to provide a named Relationship Type to use when fulfilling the associated named requirement.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">lower_bound</td>
+      <td style="text-align: left">integer</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">Lower boundary by which a requirement MUST be matched. Valid values are any positive number, 0 meaning that the requirement is optional. Defaults to 1.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">upper_bound</td>
+      <td style="text-align: left">integer (or <em>unbounded</em> string)</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">Upper boundary by which a requirement MUST be matched for Node Templates. Valid values are any positive number or <em>unbounded</em> string that means that there is no upper limit. Defaults to 1.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="grammar">Grammar</h2>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="c1"># using type</span>
+<span class="l-Scalar-Plain">&lt;requirement_name&gt;</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;capability_type or node_type&gt;</span>
+<span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;relationship_type&gt;</span>
+<span class="l-Scalar-Plain">lower_bound</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;lower_bound&gt;</span>
+<span class="l-Scalar-Plain">upper_bound</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;upper_bound&gt;</span>
+
+<span class="c1"># alien 4 cloud specific support more meaningful</span>
+<span class="l-Scalar-Plain">&lt;requirement_name&gt;</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;capability_type or node_type&gt;</span>
+<span class="l-Scalar-Plain">relationship_type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;relationship_type&gt;</span>
+<span class="l-Scalar-Plain">lower_bound</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;lower_bound&gt;</span>
+<span class="l-Scalar-Plain">upper_bound</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;upper_bound&gt;</span></code></pre></div>
+
+<h2 id="example">Example</h2>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">node_types</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">fastconnect.nodes.RequirementSample</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">requirements</span><span class="p-Indicator">:</span>
+    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">host</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.nodes.Compute</span>
+      <span class="l-Scalar-Plain">relationship_type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.relationships.HostedOn</span>
+      <span class="l-Scalar-Plain">lower_bound</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">0</span>
+      <span class="l-Scalar-Plain">upper_bound</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">unbounded</span></code></pre></div>
+
+
+      </div>
+    </div>
+  </div>
+</div><!-- /container -->
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-1.1.0', 'tosca_ref_requirement_definition');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>
