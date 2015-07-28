@@ -52,4 +52,4 @@ On the other side, the usage on the node template interfaces operations is fully
 
 
 
-[get_operation_output_ref]: #/documentation/devops_guide/tosca_grammar/get_operation_output_definition.html  "get_operation_output usage"
+[get_operation_output_ref]: #/documentation/1.0.0/devops_guide/tosca_grammar/get_operation_output_definition.html  "get_operation_output usage"
