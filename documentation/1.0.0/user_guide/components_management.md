@@ -51,42 +51,6 @@ Click on *[Upload CSAR]* > *Select* your archive (The file is automaticly upload
 
 [![Upload an archive file without D&D](../../images/components_guide/upload-components-button-en.png)](../../images/components_guide/upload-components-button-en.png)
 {%endtabcontent%}
-
-{% tabcontent Import from a Git location %}
-
-{%warning%}
-<h5>Git repository hierarchie</h5>
-In order to be able to import components properly, this feature required a folder organisation based on TOSCA recommendation
-For example, if you want to import one of the Samples repository, the folder to import musn't contains a Yaml file at its root.
-*See apache archive for examples  [Github apache example](https://github.com/alien4cloud/samples/tree/master/apache).*
-If the folder is based on an older TOSCA recommandation, please ensure you have a folder named TOSCA-Metadata and the YAML file to import in another folder
-*See recipes archive for examples [Gitblit recipes example](https://fastconnect.org/gitblit/git/alien-tosca-recipes/recipes.git).*
-{%endwarning%}
-
-
-*Click* on create new CSAR > *Fill* the modal and click on **New CSAR**.
-
-[![Create an archive from a git location](../../images/components_guide/csar-list-view.png)](../../images/components_guide/csar-list-view.png)
-
-Fill the modal by typing expected values and click on *create*.
-
-{%note%}
-In the Archive's name text field : put the name of the folder containing the yaml file *for example **apache** to import Apache component in the Samples repository*.
-You can also leave this text filed empty :**it will import all the folders if its contains a yaml file**.
-{%endnote%}
-
-[![Csar view an archive from a location](../../images/components_guide/csar-modal.png)](../../images/components_guide/csar-modal.png)
-
-Now you should be able to see the Csargit created in the tab below
-
-Click on the icon *Import* to trigger the import proces
-
-[![Trigger an archive from a location](../../images/components_guide/csar-tab-view.png)](../../images/components_guide/csar-tab-view.png)
-
-Now you should be able to see the imported Csar in the *Csars added* tab
-
-[![Result of an import](../../images/components_guide/csar-import-result.png)](../../images/components_guide/csar-import-result.png)
-{%endtabcontent%}
 {%endinittab%}
 
 Once upload has been completed successfully you should be able to see the node types contained in the archive in the components browsing panel.
