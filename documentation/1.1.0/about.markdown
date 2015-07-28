@@ -1,8 +1,8 @@
 ---
 layout: post
-title: About
+title: 1.1.0 About
 root: ../
-categories: DOCUMENTATION
+categories: DOCUMENTATION-1.1.0
 parent: []
 node_name: about
 weight: 100

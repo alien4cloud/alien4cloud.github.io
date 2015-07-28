@@ -1,9 +1,9 @@
 ---
 layout: post
-title: ALIEN 4 Cloud - Documentation
+title: ALIEN 4 Cloud - 1.1.0 - Documentation
 root: ../
 node_name: index
-categories: DOCUMENTATION
+categories: DOCUMENTATION-1.1.0
 ---
 
 Welcome on Alien 4 Cloud documentation. You will find here resources to use alien 4 cloud.
