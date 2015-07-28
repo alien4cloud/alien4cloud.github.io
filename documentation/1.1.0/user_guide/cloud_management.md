@@ -10,14 +10,14 @@ weight: 100
 {% summary %}{% endsummary %}
 
 {%info%}
-To understand the cloud concept, please refer to [this section](#/documentation/concepts/clouds.html).
+To understand the cloud concept, please refer to [this section](#/documentation/1.1.0/concepts/clouds.html).
 {%endinfo%}
 
 ## Requirement for cloud creation
 
 Alien 4 cloud is not responsible for actual deployment orchestration but rather interact with existing orchestration technologies. In order to define a cloud you must configure plugins that will be used to actually perform deployment(s) on the defined cloud. Orchestrator plugins are refered in alien as PaaS Provider plugins.
 
-In order to configure a cloud you must have installed a paas provider plugin first see [plugin management](#/documentation/user_guide/plugin_management.html).
+In order to configure a cloud you must have installed a paas provider plugin first see [plugin management](#/documentation/1.1.0/user_guide/plugin_management.html).
 
 {%info%}
 <h5>Supported orchestrators</h5>
@@ -116,7 +116,7 @@ This configuration may be specific to the orchestrator used and you should refer
 [![Configure the cloud driver](../../images/user_guide/admin/clouds/cloud-driver-configuration.png)](../../images/user_guide/admin/clouds/cloud-driver-configuration.png)
 
 {%info%}
-More informations for [cloudify 2](#/documentation/cloudify2_driver/install_config.html) or [cloudify 3](#/documentation/cloudify3_driver/install_config.html) can be found on her specific documentation.
+More informations for [cloudify 2](#/documentation/1.1.0/cloudify2_driver/install_config.html) or [cloudify 3](#/documentation/1.1.0/cloudify3_driver/install_config.html) can be found on her specific documentation.
 {%endinfo%}
 
 # Cloud resources setup
@@ -185,5 +185,5 @@ When an ID is set, the number of template is updated : ![image no alert button](
 {%endinittab%}
 
 {%info%}
-More informations for the PaaS template of [cloudify 2](#/documentation/cloudify2_driver/install_config.html) or [cloudify 3](#/documentation/cloudify3_driver/install_config.html) can be found on her specific documentation.
+More informations for the PaaS template of [cloudify 2](#/documentation/1.1.0/cloudify2_driver/install_config.html) or [cloudify 3](#/documentation/1.1.0/cloudify3_driver/install_config.html) can be found on her specific documentation.
 {%endinfo%}

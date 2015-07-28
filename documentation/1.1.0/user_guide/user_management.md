@@ -12,7 +12,7 @@ weight: 50
 
 {%warning%}
 <h5>LDAP integration</h5>
-If you wish to integrate with an LDAP directory please go [here](#/documentation/admin/ldap.html).
+If you wish to integrate with an LDAP directory please go [here](#/documentation/1.1.0/admin/ldap.html).
 
 Note that you can use LDAP for users and eventually role management. You can also manage roles in Alien even for LDAP user if you wish. In addition you can have users managed in LDAP and create some additional user that will be managed within Alien.
 {%endwarning%}
@@ -73,7 +73,7 @@ To create a new group within Alien just click on ![Create group](../../images/us
 # Roles in Alien 4 Cloud
 
 {%info%}
-To understand the roles concept, please refer to [this section](#/documentation/concepts/roles.html).
+To understand the roles concept, please refer to [this section](#/documentation/1.1.0/concepts/roles.html).
 {%endinfo%}
 
 These roles describes global roles you can grant to a user. From his/her roles Alien 4 Cloud will display and allow some operations.

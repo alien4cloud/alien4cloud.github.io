@@ -20,10 +20,10 @@ Alien 4 Cloud allow users to specify also a property definition as the parameter
 <parameter_name>: <value> | <function_definition>
 {% endhighlight %}
 
-See [function_definition](#/documentation/devops_guide/tosca_grammar/function_definition.html).
+See [function_definition](#/documentation/1.1.0/devops_guide/tosca_grammar/function_definition.html).
 
 {% info %}
-For Alien 4 Cloud property definition syntax support you can refer to the [property_definition page](#/documentation/devops_guide/tosca_grammar/property_definition.html).
+For Alien 4 Cloud property definition syntax support you can refer to the [property_definition page](#/documentation/1.1.0/devops_guide/tosca_grammar/property_definition.html).
 {% endinfo %}
 
 ## Example

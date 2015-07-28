@@ -51,4 +51,4 @@ In the interfaces we defined the script used to create the node. In our case we 
 
 [![Simple Apache Topology](../../images/developer_guide/small-apache-topology.png)](../../images/developer_guide/small-apache-topology.png)
 
-With a well configured [PaaS Provider](#/documentation/cloudify2_driver/index.html), you will have an Apache HTTP Server deployed on a server and ready to use.
+With a well configured [PaaS Provider](#/documentation/1.1.0/cloudify2_driver/index.html), you will have an Apache HTTP Server deployed on a server and ready to use.

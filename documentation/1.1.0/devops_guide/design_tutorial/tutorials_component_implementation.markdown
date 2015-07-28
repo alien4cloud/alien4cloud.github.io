@@ -16,7 +16,7 @@ weight: 200
 
 # Prepare the archive
 
-Elements in TOSCA and ALIEN are defined in definitions files that can be packed in a [Cloud Service Archive](#/documentation/devops_guide/cloud_service_archive.html) (CSAR). The first task therefore is to prepare the directory structure of our Cloud Service Archive.
+Elements in TOSCA and ALIEN are defined in definitions files that can be packed in a [Cloud Service Archive](#/documentation/1.1.0/devops_guide/cloud_service_archive.html) (CSAR). The first task therefore is to prepare the directory structure of our Cloud Service Archive.
 
 {% indent %}
 ![csar-content.png](../../images/tutorial-tomcat-csar-1.png)

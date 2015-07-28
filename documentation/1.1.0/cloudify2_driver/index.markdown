@@ -17,4 +17,4 @@ This section gives a focus to Cloudify driver for ALIEN, a plugin to manage depl
 **In this documentation, we will assume you have access to the GUI of a running instance of ALIEN 4 Cloud. Also, make sure you have the proper rights when needed.**
 {%endinfo%}
 
-Start with the [prerequisites](#/documentation/cloudify2_driver/prerequisites.html).
+Start with the [prerequisites](#/documentation/1.1.0/cloudify2_driver/prerequisites.html).

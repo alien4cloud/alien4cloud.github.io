@@ -33,7 +33,7 @@ alien.relationships.cloudify.WarHostedOnTomcat:
 {% endhighlight %}
 
 {%warning%}
-  The function [concat](#/documentation/devops_guide/tosca_grammar/concat_definition.html  "concat definition") is not supported on operation's input parameter. And as consequence, you cannot use on input parameters, the [get_attribute](#/documentation/devops_guide/tosca_grammar/get_attribute_definition.html  "get_attribute definition") function referencing an attribute which value is a *concat* evaluation.
+  The function [concat](#/documentation/1.1.0/devops_guide/tosca_grammar/concat_definition.html  "concat definition") is not supported on operation's input parameter. And as consequence, you cannot use on input parameters, the [get_attribute](#/documentation/1.1.0/devops_guide/tosca_grammar/get_attribute_definition.html  "get_attribute definition") function referencing an attribute which value is a *concat* evaluation.
 {%endwarning%}
 
 ## Other available environment variables   ##

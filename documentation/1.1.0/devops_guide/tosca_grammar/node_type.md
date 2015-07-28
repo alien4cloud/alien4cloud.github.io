@@ -18,12 +18,12 @@ A Node Type is a reusable entity that defines the type of one or more Node Templ
 | abstract*     | boolean | no | Optional flag to specify if a component is abstract and has no valid implementation. Defaults to false. |
 | derived_from | string | no* | An optional parent Relationship Type name the Relationship Type derives from. |
 | description | string | no | An optional description for the Relationship Type. |
-| properties | [property definitions](#/documentation/devops_guide/tosca_grammar/property_definition.html) | no | An optional list of property definitions for the Relationship Type.|
-| attributes | [attribute definitions](#/documentation/devops_guide/tosca_grammar/attribute_definition.html) | no | An optional list of attribute definitions for the Relationship Type. |
-| requirements | [requirement definitions](#/documentation/devops_guide/tosca_grammar/requirement_definition.html) | no | An optional sequenced list of requirement definitions for the Node Type. |
-| capabilities | [capability definitions](#/documentation/devops_guide/tosca_grammar/capability_definition.html) | no | An optional list of capability definitions for the Node Type. |
-| artifacts | [artifact definitions](#/documentation/devops_guide/tosca_grammar/artifact_definition.html) | no | An optional sequenced list of named artifact definitions for the Node Type. |
-| interfaces | [interface definitions](#/documentation/devops_guide/tosca_grammar/interface_definition.html) | no | An optional list of named interfaces for the Relationship Type. |
+| properties | [property definitions](#/documentation/1.1.0/devops_guide/tosca_grammar/property_definition.html) | no | An optional list of property definitions for the Relationship Type.|
+| attributes | [attribute definitions](#/documentation/1.1.0/devops_guide/tosca_grammar/attribute_definition.html) | no | An optional list of attribute definitions for the Relationship Type. |
+| requirements | [requirement definitions](#/documentation/1.1.0/devops_guide/tosca_grammar/requirement_definition.html) | no | An optional sequenced list of requirement definitions for the Node Type. |
+| capabilities | [capability definitions](#/documentation/1.1.0/devops_guide/tosca_grammar/capability_definition.html) | no | An optional list of capability definitions for the Node Type. |
+| artifacts | [artifact definitions](#/documentation/1.1.0/devops_guide/tosca_grammar/artifact_definition.html) | no | An optional sequenced list of named artifact definitions for the Node Type. |
+| interfaces | [interface definitions](#/documentation/1.1.0/devops_guide/tosca_grammar/interface_definition.html) | no | An optional list of named interfaces for the Relationship Type. |
 
 {% info %}
  - Abstract flag is specific to Alien 4 Cloud and is not part of TOSCA Simple Profile in YAML.
@@ -54,12 +54,12 @@ A Node Type is a reusable entity that defines the type of one or more Node Templ
 
 See:
 
-- [property_definitions](#/documentation/devops_guide/tosca_grammar/property_definition.html)
-- [attribute definitions](#/documentation/devops_guide/tosca_grammar/attribute_definition.md)
-- [requirement definitions](#/documentation/devops_guide/tosca_grammar/requirement_definition.html)
-- [capability definitions](#/documentation/devops_guide/tosca_grammar/capability_definition.html)
-- [artifact definitions](#/documentation/devops_guide/tosca_grammar/artifact_definition.html)
-- [interface definitions](#/documentation/devops_guide/tosca_grammar/interface_definition.md)
+- [property_definitions](#/documentation/1.1.0/devops_guide/tosca_grammar/property_definition.html)
+- [attribute definitions](#/documentation/1.1.0/devops_guide/tosca_grammar/attribute_definition.md)
+- [requirement definitions](#/documentation/1.1.0/devops_guide/tosca_grammar/requirement_definition.html)
+- [capability definitions](#/documentation/1.1.0/devops_guide/tosca_grammar/capability_definition.html)
+- [artifact definitions](#/documentation/1.1.0/devops_guide/tosca_grammar/artifact_definition.html)
+- [interface definitions](#/documentation/1.1.0/devops_guide/tosca_grammar/interface_definition.md)
 
 ## Example
 

@@ -19,7 +19,7 @@ An Artifact Type is a reusable entity that defines the type of one or more files
 | description | string | no | An optional description for the Artifact Type. |
 | mime_type | string | yes | The required mime type property for the Artifact Type. |
 | file_ext | string[] | yes | The required file extension property for the Artifact Type. |
-| properties | [property definitions](#/documentation/devops_guide/tosca_grammar/property_definition.html) | no | An optional list of property definitions for the Artifact Type. |
+| properties | [property definitions](#/documentation/1.0.0/devops_guide/tosca_grammar/property_definition.html) | no | An optional list of property definitions for the Artifact Type. |
 
 ## Grammar
 
@@ -35,7 +35,7 @@ An Artifact Type is a reusable entity that defines the type of one or more files
 
 See:
 
-- [property_definitions](#/documentation/devops_guide/tosca_grammar/property_definition.html)
+- [property_definitions](#/documentation/1.0.0/devops_guide/tosca_grammar/property_definition.html)
 
 ## Example
 

@@ -11,7 +11,7 @@ weight: 400
 {% summary %}{% endsummary %}
 
 {%info%}
-To understand the application concept, please refer to [this section](#/documentation/concepts/applications.html).
+To understand the application concept, please refer to [this section](#/documentation/1.1.0/concepts/applications.html).
 {%endinfo%}
 
 # Create new application

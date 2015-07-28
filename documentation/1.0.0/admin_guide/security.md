@@ -24,8 +24,8 @@ how to secure communications between A4C
 
 Please refer to the documentation of the orchestrators
 
-* [cloudify 3](#/documentation/cloudify3_driver/index.html)
-* [cloudify 2](#/documentation/cloudify2_driver/index.html)
+* [cloudify 3](#/documentation/1.0.0/cloudify3_driver/index.html)
+* [cloudify 2](#/documentation/1.0.0/cloudify2_driver/index.html)
 
 # authorizations
 

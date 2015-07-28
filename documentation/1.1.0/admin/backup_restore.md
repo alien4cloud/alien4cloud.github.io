@@ -75,7 +75,7 @@ However, if you 100% sure that restore operation has no impact on clouds or plug
 {% endinfo %}
 
 {% note %}
-In order to perform a restore with elasticsearch up and alien down you should be running in a classical production setup where elasticsearch process is independant from alien 4 cloud. See [advanced configuration](#/documentation/admin/advanced_configuration.html) for more details.
+In order to perform a restore with elasticsearch up and alien down you should be running in a classical production setup where elasticsearch process is independant from alien 4 cloud. See [advanced configuration](#/documentation/1.1.0/admin/advanced_configuration.html) for more details.
 {% endnote %}
 
 To restore a snapshot you should restore the elaticsearch index and put back the actual files required for Alien 4 Cloud.

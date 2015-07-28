@@ -137,7 +137,7 @@ Webui service is avalaible at: http://management_ip:8099
 
 Typing `http://management_ip:8081/events/test` in a web browser should display the message : `is running`
 
-Now that you have a *JAVA_HOME* set and a customized running instance of Cloudify, you can move to the next step, [how to install and configure the driver](#/documentation/cloudify2_driver/install_config.html "install and configure").
+Now that you have a *JAVA_HOME* set and a customized running instance of Cloudify, you can move to the next step, [how to install and configure the driver](#/documentation/1.1.0/cloudify2_driver/install_config.html "install and configure").
 
 {% warning %}
 If you want to use the provider's blockStorage feature, in addition to the [storage configuration](http://getcloudify.org/guide/2.7/developing/storage.html "cloudify storage") of you cloud, you must make sure to have the property `privileged true` in all of your compute templates' definitions.

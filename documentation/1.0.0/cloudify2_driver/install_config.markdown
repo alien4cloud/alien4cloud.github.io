@@ -58,7 +58,7 @@ You must enter the PaaS Resource Id for all created block storage template or it
 7. **<u>Availability zones Configuration</u>**: Here you have to create/configure your cloud's availability zones. Map your cloud's created zones to the correct identifier of Cloudify 2 (which is defined in the cloudify 2 cloud's configuration)<br><br>
 [![Availability zones configuration][config_cloud_zones]][config_cloud_zones]<br>
 You must enter the PaaS Resource Id (the zone name in your IaaS) for all created zones or it will not be usable.<br>
-**NOTE**: Make sure you have defined the related template for the couple template, (availability zone) in your cloudify 2. see [customizing cloudify2](#/documentation/cloudify2_driver/cloudify.html)
+**NOTE**: Make sure you have defined the related template for the couple template, (availability zone) in your cloudify 2. see [customizing cloudify2](#/documentation/1.0.0/cloudify2_driver/cloudify.html)
 
 **Congratulation!!** You've finished to configure your cloudify2-based cloud. You can now begin to deploy your application with this cloud.
 

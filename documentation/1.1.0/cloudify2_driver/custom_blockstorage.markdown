@@ -30,7 +30,7 @@ alien.test.nodes.UbuntuBlockStorage:
 Provide your custom way to **create** and **attach** the storage to your compute in the **`create`** TOSCA Standard's operation. 
 
 ### Environment variables ###
-In addition to the provided base node environment variables [SELF, HOST, SERVICE_NAME](documentation/cloudify2_driver/inputs_env_vars.html):
+In addition to the provided base node environment variables [SELF, HOST, SERVICE_NAME](#/documentation/1.1.0/cloudify2_driver/inputs_env_vars.html):
 
 {: .table .table-bordered}
 | Keyword |  Description |
@@ -69,7 +69,7 @@ return [volumeId: volumeId, device:device]
 Provide your custom way to **format** and **mount** the storage on your compute in the **`configure`** TOSCA Standard's operation. 
 
 ### Environment variables ###
-In addition to the provided base node environment variables [SELF, HOST, SERVICE_NAME](documentation/cloudify2_driver/inputs_env_vars.html):
+In addition to the provided base node environment variables [SELF, HOST, SERVICE_NAME](#/documentation/1.1.0/cloudify2_driver/inputs_env_vars.html):
 
 {: .table .table-bordered}
 | Keyword | Description |
@@ -109,7 +109,7 @@ return location
 Provide your custom way to **unmount** and/or **delete** the storage in the **`delete`** TOSCA Standard's operation. 
 
 ### Environment variables ###
-In addition to the provided base node environment variables [SELF, HOST, SERVICE_NAME](documentation/cloudify2_driver/inputs_env_vars.html):
+In addition to the provided base node environment variables [SELF, HOST, SERVICE_NAME](#/documentation/1.1.0/cloudify2_driver/inputs_env_vars.html):
 
 {: .table .table-bordered}
 | Keyword |  Description |

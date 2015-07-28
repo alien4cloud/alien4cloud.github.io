@@ -320,4 +320,4 @@ capability_types:
 ### topology_template
 
 see:
-- [Topology template](#/documentation/devops_guide/tosca_grammar/topology_template.html)
+- [Topology template](#/documentation/1.1.0/devops_guide/tosca_grammar/topology_template.html)

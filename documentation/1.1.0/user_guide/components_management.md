@@ -11,7 +11,7 @@ weight: 200
 {% summary %}{% endsummary %}
 
 {%info%}
-To understand the components concept, please refer to [this section](#/documentation/concepts/components.html).
+To understand the components concept, please refer to [this section](#/documentation/1.1.0/concepts/components.html).
 {%endinfo%}
 
 # Components catalog
@@ -19,7 +19,7 @@ To understand the components concept, please refer to [this section](#/documenta
 In Alien 4 Cloud you can design your applications by adding multiple components to a topology and defining relationships between them. The definition of components and topologies is based on TOSCA standard. Alien 4 Cloud allow you to add components into the indexed catalog.
 
 {%info%}
-For more informations on TOSCA and supported archive format please go [here](#/documentation/devops_guide/tosca_concepts.html).
+For more informations on TOSCA and supported archive format please go [here](#/documentation/1.1.0/devops_guide/tosca_concepts.html).
 {%endinfo%}
 
 ## Uploading new components
@@ -28,7 +28,7 @@ You cannot upload the same archive (same id and version) mutliple times. If you 
 
 {%info%}
 <h5>Create your own component</h5>
-If you want create your own component please go [here](#/documentation/devops_guide/design_tutorial/tutorials.html).
+If you want create your own component please go [here](#/documentation/1.1.0/devops_guide/design_tutorial/tutorials.html).
 {%endinfo%}
 
 {%warning%}
@@ -93,7 +93,7 @@ Once upload has been completed successfully you should be able to see the node t
 
 [![Completed  archive file upload](../../images/components_guide/upload-components-finished-en.png)](../../images/components_guide/upload-components-finished-en.png)
 
-You can now [browse and search for components](#/documentation/user_guide/components/components_search.html).
+You can now [browse and search for components](#/documentation/1.1.0/user_guide/components/components_search.html).
 
 ## Upload issues
 

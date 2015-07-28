@@ -8,7 +8,7 @@ node_name: cloudify_2_tosca_definitions
 weight: 100
 ---
 
-The Cloudify driver for ALEIN 4 CLOUD allows you to deploy applications on several clouds, using Cloudify 2.7.  Thus you have to [design TOSCA archives containing nodes](#/documentation/devops_guide/tosca_concepts_types_custom.html "TOSCA custom node"), and upload them in your ALIEN instance. If your archive contains deployable nodes, you might have to add to their definitions some artifacts and interfaces.
+The Cloudify driver for ALEIN 4 CLOUD allows you to deploy applications on several clouds, using Cloudify 2.7.  Thus you have to [design TOSCA archives containing nodes](#/documentation/1.0.0/devops_guide/tosca_concepts_types_custom.html "TOSCA custom node"), and upload them in your ALIEN instance. If your archive contains deployable nodes, you might have to add to their definitions some artifacts and interfaces.
 
 ## `Standard` interface ##
 As its name states, the `Standard` interface allows you to define some lifecycle events for your node. Both Cloudify and TOSCA have this iterface in their specifications, with diferent operations names. Yet, it is possible to make a mapping from TOSCA to Cloudify lifecycle.
@@ -59,4 +59,4 @@ Aside of the above operations, Cloudify also provides various lifecycle events. 
 Note that the driver only supports groovy scripts for this interface's operations .
 {% endwarning %}
 
-See [Cloudify specifics](#/documentation/cloudify2_driver/lifecycle_spec.html "Cloudify lifecycle specifics")  about them.
+See [Cloudify specifics](#/documentation/1.0.0/cloudify2_driver/lifecycle_spec.html "Cloudify lifecycle specifics")  about them.

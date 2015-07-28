@@ -25,7 +25,7 @@ In addition to the process above, a global start detection is executed to assert
 Only then will Cloudify consider the application as fully started.
 
 {%info%}
-Note that the timeout mentioned in the diagram above is the `9/10` of the global timeout provided by the **startDetection_timeout_inSecond** [deployment property](#/documentation/cloudify2_driver/deployment_properties.html).
+Note that the timeout mentioned in the diagram above is the `9/10` of the global timeout provided by the **startDetection_timeout_inSecond** [deployment property](#/documentation/1.1.0/cloudify2_driver/deployment_properties.html).
 This is a known limitation, as we are currently thinking of the best way to provide as intall / start timeout per component.
 {%endinfo%}
 

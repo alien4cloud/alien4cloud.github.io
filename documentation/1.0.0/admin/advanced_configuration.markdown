@@ -213,7 +213,7 @@ users:
 
 # LDAP configuration
 
-See specific [sub-section](#/documentation/admin/ldap.html).
+See specific [sub-section](#/documentation/1.0.0/admin/ldap.html).
 
 # Component search boost
 

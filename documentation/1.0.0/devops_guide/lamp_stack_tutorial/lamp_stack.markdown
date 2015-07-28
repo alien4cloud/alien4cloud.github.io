@@ -35,7 +35,7 @@ There is our full alien context to give a try to this tutorial :
 Basicly to build our full application (topology), we will have a set of basic components defined in TOSCA. You will have to inject first
 this set of components in A4C and then inject your own.
 
-More details about [normative types](#/documentation/devops_guide/normative_types/tosca_concepts_types_normative_nodes.html).
+More details about [normative types](#/documentation/1.0.0/devops_guide/normative_types/tosca_concepts_types_normative_nodes.html).
 
 {% warning %}
 TOSCA definition is in constant evolution, so be sure you are using our fixed implementation given just above.
@@ -62,6 +62,6 @@ image on your targeted cloud based on it.
 We assume that you have an image in your cloud based on Ubuntu 12.04 or 14.04.
 {% endnote %}
 
-# [BlockStorage](#/documentation/cloudify2_driver/blockstorage.html)
+# [BlockStorage](#/documentation/1.0.0/cloudify2_driver/blockstorage.html)
 
 To persist your data even after your application is undeployed, we will use this default component described in tosca base type wd02 and that allow us to have a volume created, mounted and attached to our server host. MySQL data will be stored on this volume.

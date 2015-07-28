@@ -140,8 +140,8 @@ For this tutorial we recommend to use OpenStack.
 
 Regarding your choice between providers for Cloudify 2 or 3, please refer to those following sections :
 
-* [Configure and start Cloudify 2](#/documentation/cloudify2_driver/index.html)
-* [Configure and start Cloudify 3](#/documentation/cloudify3_driver/index.html)
+* [Configure and start Cloudify 2](#/documentation/1.0.0/cloudify2_driver/index.html)
+* [Configure and start Cloudify 3](#/documentation/1.0.0/cloudify3_driver/index.html)
 
 ##4. Start and configure Alien 4 Cloud :
 
@@ -158,8 +158,8 @@ started with default settings such as the default user `admin` we will use later
 
 In this step, you will have to import the chosen provider plugin and then configure it. Refer to the following sections :
 
-* [Cloudify 2 plugin](#/documentation/cloudify2_driver/install_config.html)
-* [Cloudify 3 plugin](#/documentation/cloudify3_driver/install_config.html)
+* [Cloudify 2 plugin](#/documentation/1.0.0/cloudify2_driver/install_config.html)
+* [Cloudify 3 plugin](#/documentation/1.0.0/cloudify3_driver/install_config.html)
 
 In our tutorial, let's call the configured cloud `OpenStackCloud`.
 
@@ -167,12 +167,12 @@ In our tutorial, let's call the configured cloud `OpenStackCloud`.
 
 {% info %}
 Regardless the used provider, read the following section to know how to import your
-components archive : [import components](#/documentation/user_guide/components_management.html)
+components archive : [import components](#/documentation/1.0.0/user_guide/components_management.html)
 {% endinfo %}
 
 ### Normative types
 
-The TOSCA specification used by Alien 4 Cloud is defining [normative types](#/documentation/devops_guide/normative_types/tosca_concepts_types_normative.html). As a language, you can use those components as is
+The TOSCA specification used by Alien 4 Cloud is defining [normative types](#/documentation/1.0.0/devops_guide/normative_types/tosca_concepts_types_normative.html). As a language, you can use those components as is
 or extend it to suit to your needs.
 
 You can find our implementation for these types on github here : [normative types on github](https://github.com/alien4cloud/tosca-normative-types/archive/master.zip)
@@ -220,10 +220,10 @@ In order to have an full application ready to deploy through Alien 4 Cloud, just
 of the topology here : [Wordpress topology](https://github.com/alien4cloud/samples/blob/master/topology-wordpress/wordpress-template.yml){:target="_blank"}.
 
 When you have this file, zip it, then you will be able to import it into Alien 4 Cloud as
-an [topology template](#/documentation/user_guide/topology_management.html).
+an [topology template](#/documentation/1.0.0/user_guide/topology_management.html).
 
 {% info %}
-Find detailed informations about the wordpress topology [here](#/documentation/devops_guide/lamp_stack_tutorial/lamp_stack_application.html).
+Find detailed informations about the wordpress topology [here](#/documentation/1.0.0/devops_guide/lamp_stack_tutorial/lamp_stack_application.html).
 {% endinfo %}
 
 ##7. Create an Wordpress application:

@@ -28,7 +28,7 @@ You need to create a cloud and configure it.
 
 ### Naming policy ###
 
-For this section, please look at the [Cloudify 2 PaaS Provider](#/documentation/cloudify2_driver/install_config.html "Naming policy").
+For this section, please look at the [Cloudify 2 PaaS Provider](#/documentation/1.1.0/cloudify2_driver/install_config.html "Naming policy").
 
 ### Configuring the cloud ###
 On the cloud list, select and click on the newly created cloud, then go to the `configuration` tab.

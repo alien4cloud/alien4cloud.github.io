@@ -19,7 +19,7 @@ A property definition defines a named, typed value that can be associated with a
 | description     | string              | no       | The optional description for the property. |
 | required        | boolean             | no (default true) | Optional key to define if the property is requied (true) or not (false). If this key is not declared for the property definition, then the property SHALL be considered required by default. |
 | default         | N/A                 | no | An optional key that may provide a value to be used as a default if not provided by another means. This value SHALL be type compatible with the type declared by the property definition’s type keyname. |
-| constraints     | [list of constraints](#/documentation/devops_guide/tosca_grammar/constraints.html) | no | The optional list of sequenced constraints for the property. |
+| constraints     | [list of constraints](#/documentation/1.0.0/devops_guide/tosca_grammar/constraints.html) | no | The optional list of sequenced constraints for the property. |
 
 ## Grammar
 
@@ -37,7 +37,7 @@ A property definition defines a named, typed value that can be associated with a
 
 See:
 
-- [constraints](#/documentation/devops_guide/tosca_grammar/constraints.html)
+- [constraints](#/documentation/1.0.0/devops_guide/tosca_grammar/constraints.html)
 
 ## Example
 

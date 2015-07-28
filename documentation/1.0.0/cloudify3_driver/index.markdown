@@ -15,4 +15,4 @@ This section gives a focus to Cloudify 3 driver for ALIEN, a plugin to manage de
 **In this documentation, we will assume you have access to the GUI of a running instance of ALIEN 4 Cloud. Also, make sure you have the proper rights when needed.**
 {%endinfo%}
 
-Start with the [prerequisites](#/documentation/cloudify3_driver/prerequisites.html).
+Start with the [prerequisites](#/documentation/1.0.0/cloudify3_driver/prerequisites.html).
