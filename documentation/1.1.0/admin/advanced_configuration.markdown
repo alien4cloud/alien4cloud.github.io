@@ -10,48 +10,6 @@ weight: 100
 
 {% summary %}{% endsummary %}
 
-Alien 4 Cloud contains a basic configuration that is good enough for test environment. However in order to move into production or in order to integrate with other systems (as LDAP for example), you need to define an advanced configuration.
-
-In order to provide configuration to Alien 4 Cloud, you must place an Alien configuration file in a config folder along-side to the Alien 4 Cloud war.
-
-{% highlight bash %}
-├── alien4cloud-ui-{version}-standalone.war
-├── config/alien4cloud-config.yml
-├── config/elasticsearch.yml
-{% endhighlight %}
-
-You can find default configurations for both files in the GitHub repository:
-
-* [alien4cloud-config.yml](https://github.com/alien4cloud/alien4cloud/blob/master/alien4cloud-rest-api/src/main/resources/alien4cloud-config.yml)
-* [elasticsearch.yml](https://github.com/alien4cloud/alien4cloud/blob/master/alien4cloud-ui/src/main/resources/elasticsearch.yml)
-
-You can also add a simple start script:
-
-{% highlight bash %}
-├── start.sh
-├── alien4cloud-ui-{version}-standalone.war
-├── config/alien4cloud-config.yml
-├── config/elasticsearch.yml
-{% endhighlight %}
-
-
-
-{% highlight bash %}
-cd `dirname $0`
-
-JAVA_OPTIONS="-server -showversion -XX:+AggressiveOpts -Xmx2g -Xms2g -XX:MaxPermSize=512m -XX:+HeapDumpOnOutOfMemoryError"
-
-java $JAVA_OPTIONS -jar alien4cloud-ui-1.0.0-{version}-standalone.war
-{% endhighlight %}
-
-If you need to customize log4j (in order to activate some loggers, change the log file location ...) add a log4j.properties in the config folder and specify the classpath for java :
-
-{% highlight bash %}
-java $JAVA_OPTIONS -cp config/:alien4cloud-ui-1.0.0-{version}-standalone.war org.springframework.boot.loader.WarLauncher
-{% endhighlight %}
-
-You can find a log4j sample configuration file at [log4j.properties](https://github.com/alien4cloud/alien4cloud/blob/master/alien4cloud-ui/src/main/resources/log4j.properties)
-
 # Using SSL
 
 By default Alien 4 Cloud starts using http rather than https enabling SSL is however really simple. Just edit the alien4cloud-config.yml and replace:

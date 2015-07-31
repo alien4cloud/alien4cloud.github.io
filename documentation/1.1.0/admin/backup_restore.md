@@ -8,6 +8,8 @@ node_name: backup_restore
 weight: 200
 ---
 
+{% summary %}{% endsummary %}
+
 Alien 4 Cloud uses several places to store it's data.
 
 - Cloud service archives
@@ -16,7 +18,7 @@ Alien 4 Cloud uses several places to store it's data.
 - Plugins binaries
 - Eventually you should make sure to backup also your alien4cloud yaml configuration file as well as your elastic search configuration file
 
-## Backup
+# Backup
 
 In order to backup Alien 4 Cloud you must backup elastic search indexes as well as disk-based data. For more informations on how to backup an elasticsearch cluster please refer the elastic search [documentation](http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/modules-snapshots.html)
 
@@ -66,7 +68,7 @@ else
 fi
 {% endhighlight %}
 
-## Restore
+# Restore
 
 {% info %}
 We recommend users to stop alien 4 cloud but not ElasticSearch in order to perform the restore. Alien 4 Cloud should be restarted once restore is completed.
