@@ -7,7 +7,12 @@
       <div id="content" class="col-md-9">
     
         <h1 style="margin-top: 0px;">Backup and restore</h1>
-        <p>Alien 4 Cloud uses several places to store it’s data.</p>
+        
+<hr style="margin-top:5px; margin-bottom:5px;" />
+<div class="row"><ul class="nav nav-pills" id="summarypanel"></ul></div>
+<hr style="margin-top:5px; margin-bottom:5px;" />
+
+<p>Alien 4 Cloud uses several places to store it’s data.</p>
 
 <ul>
   <li>Cloud service archives</li>
@@ -17,7 +22,7 @@
   <li>Eventually you should make sure to backup also your alien4cloud yaml configuration file as well as your elastic search configuration file</li>
 </ul>
 
-<h2 id="backup">Backup</h2>
+<h1 id="backup">Backup</h1>
 
 <p>In order to backup Alien 4 Cloud you must backup elastic search indexes as well as disk-based data. For more informations on how to backup an elasticsearch cluster please refer the elastic search <a href="http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/modules-snapshots.html">documentation</a></p>
 
@@ -65,7 +70,7 @@ curl -XPUT <span class="s2">&quot;$ES_URL/_snapshot/alien_backup&quot;</span> -d
   curl -XGET <span class="s2">&quot;$ES_URL/_snapshot/alien_backup/$BACKUP_NAME/_status&quot;</span>
 <span class="k">fi</span></code></pre></div>
 
-<h2 id="restore">Restore</h2>
+<h1 id="restore">Restore</h1>
 
 <div class="note info">
 <p>We recommend users to stop alien 4 cloud but not ElasticSearch in order to perform the restore. Alien 4 Cloud should be restarted once restore is completed.</p>
