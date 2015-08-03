@@ -31,7 +31,7 @@ The second guide will explain how to take in charge Alien in details and configu
 * An active AWS account. Make sure you have all the account informations we will need later (user key, access key, key file and key pair)
 
 ##2. VM Automated Install:
-* Download and unzip the package [vm-alien4cloud-1.0.0-RC1](https://fastconnect.org/owncloud/public.php?service=files&t=ddb5d1dc60894213d9d80683bf09ae29) (for other version, see on the page footer). As a result, a subdirectory vm-alien4cloud should be created
+* Download and unzip the package [vm-alien4cloud-1.1.0-RC1](https://fastconnect.org/owncloud/public.php?service=files&t=ddb5d1dc60894213d9d80683bf09ae29) (for other version, see on the page footer). As a result, a subdirectory vm-alien4cloud should be created
 
 * Copy your .pem file to the directory `vm-alien4cloud/vm/key`
 

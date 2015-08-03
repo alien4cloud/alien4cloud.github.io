@@ -5,7 +5,7 @@ root: ../
 categories: RELEASE_NOTES
 parent: [release_note]
 node_name: 1.1.0-SM1
-weight: 9981
+weight: 9980
 exclude_from_search: true
 ---
 
@@ -24,6 +24,9 @@ exclude_from_search: true
   |:------------|:-----------|:------------|
     |  <i class="fa fa-plus text-success"></i> | ALIEN-980 | We now support inheritance for relationships allowing to use parent scripts for 'generic parent relationships' /  |
     |  <i class="fa fa-plus text-success"></i> | ALIEN-995 | TOSCA Topology substitution's are now available in A4C. The editor allows exposition of inputs/outputs/capabilities and requirements to add new nodes from a full topology allowing complex compositions and a better reusability of architect's work. /  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-876 | Topology templates are now versioned. /  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-954 | Alien 4 Cloud now support node_filters on types and for topology validations. /  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-984 | It is now possible to import archives from git repositories. /  |
       |  <i class="fa fa-exclamation-triangle text-warning">  <i class="fa fa-level-up text-primary"></i> | ALIEN-1020 | Some deprecated methods in Topology Controller have been removed. /  |
       |  <i class="fa fa-bug text-danger"></i> | ALIEN-391 | Application Update date is now changed when updating the application name. /  |
     |  <i class="fa fa-bug text-danger"></i> | ALIEN-394 | Fixes error message when trying to upload a plugin that doesn't have a plugin.yml descriptor. /  |

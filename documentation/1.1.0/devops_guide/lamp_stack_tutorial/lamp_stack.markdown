@@ -2,14 +2,14 @@
 layout: post
 title:  LAMP Stack Tutorial
 root: ../../
-categories: DOCUMENTATION-1.1.0
+categories: DOCUMENTATION-1.0.0
 parent: [devops]
 node_name: lamp_stack
 weight: 400
 ---
 
 {% warning %}
-This full stack application is still under **construction** / **definition**. You can follow it right now for a first jump into A4C but it will surely change in next weeks. We will enhance it trying to show the *best way* and the recommended *granularity* to target the best component **reusability**.
+This page is based on an old version and we are working on updating it. We will soon have this updated for 1.1.0 version.
 {% endwarning %}
 
 This tutorial is based on the well known opensource stack [LAMP](http://fr.wikipedia.org/wiki/LAMP){:target="_blank"} and aims at getting started with a "real application case".
@@ -35,7 +35,7 @@ There is our full alien context to give a try to this tutorial :
 Basicly to build our full application (topology), we will have a set of basic components defined in TOSCA. You will have to inject first
 this set of components in A4C and then inject your own.
 
-More details about [normative types](#/documentation/1.1.0/devops_guide/normative_types/tosca_concepts_types_normative_nodes.html).
+More details about [normative types](#/documentation/1.0.0/devops_guide/normative_types/tosca_concepts_types_normative_nodes.html).
 
 {% warning %}
 TOSCA definition is in constant evolution, so be sure you are using our fixed implementation given just above.
@@ -62,6 +62,6 @@ image on your targeted cloud based on it.
 We assume that you have an image in your cloud based on Ubuntu 12.04 or 14.04.
 {% endnote %}
 
-# [BlockStorage](#/documentation/1.1.0/cloudify2_driver/blockstorage.html)
+# [BlockStorage](#/documentation/1.0.0/cloudify2_driver/blockstorage.html)
 
 To persist your data even after your application is undeployed, we will use this default component described in tosca base type wd02 and that allow us to have a volume created, mounted and attached to our server host. MySQL data will be stored on this volume.

@@ -203,7 +203,7 @@ Alien 4 Cloud specific.
 
 {% highlight yaml %}
 imports:
-   - <tosca-normative-types>:<1.0.0>
+   - <tosca-normative-types>:<1.1.0>
    - ...
    - <apache-server>:<2.0.3>
 {% endhighlight %}

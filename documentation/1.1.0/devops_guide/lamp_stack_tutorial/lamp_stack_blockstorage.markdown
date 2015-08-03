@@ -12,7 +12,7 @@ This component represents a storage space / volume. This volume __has to be__ *a
 
 For more details about this custom component : [BlockStorage](#/documentation/1.1.0/cloudify2_driver/blockstorage.html)
 
-Used version for this tutorial (defined in normative types): [BlockStorage](https://github.com/alien4cloud/tosca-normative-types/blob/1.0.0.wd02/normative-types.yml){:target="_blank"}
+Used version for this tutorial (defined in normative types): [BlockStorage](https://github.com/alien4cloud/tosca-normative-types/blob/1.1.0.wd02/normative-types.yml){:target="_blank"}
 
 # Definition
 
