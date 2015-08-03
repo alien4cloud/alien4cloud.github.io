@@ -13,8 +13,7 @@ Find here how to install and configure the Cloudify 2 driver.
 ## Download ##
 First step of course is to download the plugin.
 
-* [last stable version](https://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource&g=alien4cloud&a=alien4cloud-cloudify2-provider&v=LATEST&p=zip){: .btn}{: .btn-success}{: .download-button}{: .navbar-btn} works with the latest stable alien version.
-* [last build version](https://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource-snapshot&g=alien4cloud&a=alien4cloud-cloudify2-provider&v=LATEST&p=zip){: .btn}{: .btn-warning}{: .download-button}{: .navbar-btn} works with the latest build alien version.
+* [1.0.0](https://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource&g=alien4cloud&a=alien4cloud-cloudify2-provider&v=1.0.0&p=zip){: .btn}{: .btn-success}{: .download-button}{: .navbar-btn}
 
 ## Install ##
 The driver is packaged as an ALIEN plugin, install it in `admin > plugins` of your running instance of ALIEN.
@@ -29,9 +28,16 @@ You need to create a cloud and configure it.
 ### Configuring the cloud ###
 On the cloud list, select and click on the newly created cloud, then go to the `configuration` tab.
 
-1. **<u>Connection Configuration</u>**: Remember the REST API URL you were told to note when bootstrapping your cloud with Cloudify, here is the place you'll need it. Fill the "Cloudify URL" with it, and eventually provide a login (username / password) for the access.<br><br>
-[![Connection configuration][config_cloud_cloudifyConUrl]][config_cloud_cloudifyConUrl]<br>
-You must save the configuration, switch back to the `Details` tab and enable the cloud by clicking on the `Enable cloud` button. Then you should go to `Image` tab to configure your cloud's images.
+1. **<u>Connection Configuration</u>**: Remember the REST API URL you were told to note when bootstrapping your cloud with Cloudify, here is the place you'll need it. Fill in one or more "Cloudify URL", and eventually provide a login (username / password) for the access.  
+You can also define the timeout to try all provided URL before declaring the configuration as not functional.<br><br>
+[![Connection configuration][config_cloud_cloudifyConUrl]][config_cloud_cloudifyConUrl]<br><br>
+
+{%warning%}
+When working with a manager bootstrapped in HA mode (two instances, thus two URL), you should know that when one instance is unavailable, the other one is accessible in **read only** mode.  
+Then, you will not be able to undeploy installed applications or deploy another application, until both two managers are operational.
+{%endwarning%}  
+
+Switch back to the `Details` tab and enable the cloud by clicking on the `Enable cloud` button. Then you should go to `Image` tab to configure your cloud's images.
 
 2. **<u>Images Configuration</u>**: Here you have to create/configure your cloud's images. Map your cloud's created image to the correct identifier on the IaaS (openstack, amazon ...)<br><br>
 [![Images configuration][config_cloud_cloudifyImage]][config_cloud_cloudifyImage]<br>
@@ -75,5 +81,5 @@ You must enter the PaaS Resource Id (the zone name in your IaaS) for all created
 [config_cloud_cloudifyBlockStorage]: ../../images/cloudify2_driver/config_cloud_cloudifyBlockStorage.png  "Block Storages"
 
 [config_cloud_naming_policy]: ../../images/cloudify2_driver/config_cloud_naming_policy.png  "Naming policy"
- 
+
 [config_cloud_zones]: ../../images/cloudify2_driver/config_cloud_zones.png  "Availability zones"

@@ -37,6 +37,9 @@ setProperty("OUTPUT_NAME", "value")
 def OUTPUT_NAME = "value" //this will create a local variable instead
 {% endhighlight %}
 
+{%warning%}
+There is a known limitation: some characters are not supported in the output value: `"," , "=", [space]`.
+{%endwarning%}
 
 ## Use the output
 

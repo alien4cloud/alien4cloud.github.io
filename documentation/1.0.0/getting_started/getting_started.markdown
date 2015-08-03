@@ -120,8 +120,8 @@ java following instructions [here](https://www.java.com/fr/download/manual.jsp){
 
 * In order to start using alien 4 cloud you have to download Alien. Two versions are available :
 
-  * [**standalone**](https://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource&g=alien4cloud&a=alien4cloud-ui&v=LATEST&p=war&c=standalone) : starts an embedded jetty server
-  * [deployable](https://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource&g=alien4cloud&a=alien4cloud-ui&v=LATEST&p=war) : war file that can be deployed within a war container
+  * [**standalone**](https://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource&g=alien4cloud&a=alien4cloud-ui&v=1.0.0&p=war&c=standalone) : starts an embedded jetty server
+  * [deployable](https://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource&g=alien4cloud&a=alien4cloud-ui&v=1.0.0&p=war) : war file that can be deployed within a war container
 
 {% info %}
 We recommend using the Alien standalone with Cloudify 2.7.1.

@@ -21,7 +21,7 @@ Now for this driver to work, you have to customize your instaled Cloudify.
 In order to handle Cloudify lifecycle events, and to emit our own events, we need the **alien4cloud-cloudify-custom-events**. This provides a REST API and uses the Gigaspace management space to store the events.
 
 1. Download the zip archive and unzip it into the folder of your prefered cloud driver (e.g. `gigaspaces-cloudify-2.7.0-ga/clouds/openstack-havana`)
-	* [last stable](https://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource&g=alien4cloud&a=alien4cloud-cloudify-events-assembly&c=distrib&v=LATEST&p=zip){: .btn}{: .btn-success}{: .download-button}{: .navbar-btn}  [last build](https://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource-snapshot&g=alien4cloud&a=alien4cloud-cloudify-events-assembly&c=distrib&v=LATEST&p=zip){: .btn}{: .btn-warning}{: .download-button}{: .navbar-btn}
+	* [1.0.0](https://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource&g=alien4cloud&a=alien4cloud-cloudify-events-assembly&c=distrib&v=1.0.0&p=zip){: .btn}{: .btn-success}{: .download-button}{: .navbar-btn}
 2. If working with a secured manager:
 
 * create a file `events.properties` and place it either next or into the events folder
@@ -54,13 +54,13 @@ if [ "$GSA_MODE" = "lus" ]; then
   chmod +x ${EVENTS_PATH}/events/bin/gsDeployEventsWar.sh
   ${EVENTS_PATH}/events/bin/gsDeployEventsWar.sh
 fi
-{%endhighlight%} 
+{%endhighlight%}
 
 A command `tree` on your cloud folder should look like this:
 [![tree cloud folder](../../images/cloudify2_driver/tree_cloud_dir.png)](../../images/cloudify2_driver/tree_cloud_dir.png)
 
 {%info%}
-The `<cdfy_username>` and `<cdfy_password>` are the credentials to provide to the custom events application, used to connect via REST API to the manager. Make sure to provide good credentials if working with a secured manager. If not, they are optional. 
+The `<cdfy_username>` and `<cdfy_password>` are the credentials to provide to the custom events application, used to connect via REST API to the manager. Make sure to provide good credentials if working with a secured manager. If not, they are optional.
 {%endinfo%}
 
 
@@ -71,7 +71,7 @@ If you want to use cloudify in a persistent mode, you should override the clouli
 
 * in the configure section of your cloud (in the .groovy cloud configuration file)), set a value for the property `persistentStoragePath`  
 	{%highlight groovy%}
-  
+
 	cloud{
 	  name = "your_cloud_name"
 	  ...
@@ -81,7 +81,7 @@ If you want to use cloudify in a persistent mode, you should override the clouli
 	    persistentStoragePath "path/to/persist/data"
 	  }
 	}
-	{%endhighlight%} 
+	{%endhighlight%}
 
 * Under the `upload` folder of your prefered cloud driver, create (if not exists) the path `cloudify-overrides/tools/management-space`
 * Download the [custom management space jar][custom_management_space_jar-link] and store it into the newly created folder. Rename it if needed into `management-space.jar`.  
@@ -125,8 +125,8 @@ cloud{
 	])
   }
 }
-{%endhighlight%} 
- 
+{%endhighlight%}
+
 
 ### Bootstraping ###
 Bootstrap your cloud, and when done, note the REST API URL (Rest service bellow)
@@ -150,5 +150,3 @@ If you want to use the provider's blockStorage feature, in addition to the [stor
 [CDFY_archive-link]: http://getcloudify.org/downloads/get_cloudify_2x.html
 
 [custom_management_space_jar-link]: https://fastconnect.org/confluence/download/attachments/24478788/management-space.jar?api=v2 "Custom management-space"
-
-
