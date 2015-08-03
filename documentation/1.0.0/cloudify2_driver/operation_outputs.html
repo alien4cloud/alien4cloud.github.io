@@ -38,6 +38,10 @@ According to TOSCA norm, these so called operations outputs should be exposed as
 <span class="c1">//but definitely NOT</span>
 <span class="kt">def</span> <span class="n">OUTPUT_NAME</span> <span class="o">=</span> <span class="s2">&quot;value&quot;</span> <span class="c1">//this will create a local variable instead</span></code></pre></div>
 
+<div class="note warning">
+<p>There is a known limitation: some characters are not supported in the output value: <code>"," , "=", [space]</code>.</p>
+</div>
+
 <h2 id="use-the-output">Use the output</h2>
 
 <p>see <a href="#/documentation/1.0.0/devops_guide/tosca_grammar/get_operation_output_definition.html" title="get_operation_output usage">get_operation_output</a> for more details.</p>
