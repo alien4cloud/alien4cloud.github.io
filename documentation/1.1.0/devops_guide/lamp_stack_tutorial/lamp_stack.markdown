@@ -2,7 +2,7 @@
 layout: post
 title:  LAMP Stack Tutorial
 root: ../../
-categories: DOCUMENTATION-1.0.0
+categories: DOCUMENTATION-1.1.0
 parent: [devops]
 node_name: lamp_stack
 weight: 400
