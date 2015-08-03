@@ -47,26 +47,18 @@ The second guide will explain how to take in charge Alien in details and configu
 
 ##3. Deploy your application:
 
-To deploy this new application, just go on `Applications > Deployments` submenu.
+To deploy this new application, go on `Applications > Deployments` submenu and :
+
+* Select the `os_arch` of your computes
+* Select your cloud
+* Select the template who matches with your computers
+* And click on the `Deploy` button
 
 [![Configure your deployment](../../images/user_guide/user_guide_topology_template_deploy.png)](../../images/user_guide/user_guide_topology_template_deploy.png)
 
-### Zone A : Select an environment and a cloud
-
-Keep the default environment `Environment` and select your cloud `OpenStackCloud` created above.
-
-### Zone B : Provider properties
-
-Those properties depends on the provider implementation. You usualy have default settings.
-
-### Zone C : Topology required settings
-
-Those basic settings are required for `Compute` nodes.
-
-### Zone D : Cloud resources matching
-
-In this part, you will be able to check matching cloud resources and possible
-matching errors. This should not happen if your cloud is well configured.
+{%info%}
+To understand all configuration available for the deployment page, please refer to [this section](#/documentation/1.1.0/user_guide/application_management.html).
+{%endinfo%}
 
 ##4. Check that your application is up and running:
 
@@ -79,7 +71,7 @@ progress.
 
 ### Wordpress url
 
-Go back in the `Application > Informations` submenu to get the Wordpress application url and
+When all nodes are deployed, go back in the `Application > Informations` submenu to get the Wordpress application url and
 test it !
 
 ![Wordpress url](../../images/user_guide/user_guide_topology_template_wordpressurl.png)
@@ -93,7 +85,7 @@ If you would like to de-provision the VM and the associated cloud created by Ali
 
 * Run the following command: `vagrant destroy`
 
-## Older versions:
+##Older versions:
 
 [vm-alien4cloud-SM23](https://fastconnect.org/owncloud/public.php?service=files&t=8c3bc5fabf7fc132f4d8b29f2cffcae4)
 
@@ -238,26 +230,23 @@ The application creation should redirect you on the `Application > Informations`
 
 ##8. Setup and deploy your application:
 
-To deploy this new application, just go on `Applications > Deployments` submenu.
+To deploy this new application, go on `Applications > Deployments` submenu and :
+
+* Select the `os_arch` of your computes
+* Select your cloud
+* Select the template who matches with your computers
+* And click on the `Deploy` button
 
 [![Configure your deployment](../../images/user_guide/user_guide_topology_template_deploy.png)](../../images/user_guide/user_guide_topology_template_deploy.png)
 
-### Zone A : Select an environment and a cloud
+{%info%}
+To understand all configuration available for the deployment page, please refer to [this section](#/documentation/1.1.0/user_guide/application_management.html).
+{%endinfo%}
 
-Keep the default environment `Environment` and select your cloud `OpenStackCloud` created above.
-
-### Zone B : Provider properties
-
-Those properties depends on the provider implementation. You usualy have default settings.
-
-### Zone C : Topology required settings
-
-Those basic settings are required for `Compute` nodes.
-
-### Zone D : Cloud resources matching
-
+{% warning %}
 In this part, you will be able to check matching cloud resources and possible
-matching errors. This should not happen if your cloud is well configured.
+matching errors. This should not happen if your cloud is well configured. If you need help to configure your cloud, please refer to [this section](#/documentation/1.1.0/user_guide/cloud_management.html).
+{% endwarning %}
 
 ##9. Check that your application is up and running:
 
@@ -270,7 +259,7 @@ progress.
 
 ### Wordpress url
 
-Go back in the `Application > Informations` submenu to get the Wordpress application url and
+When all nodes are deployed, go back in the `Application > Informations` submenu to get the Wordpress application url and
 test it !
 
 ![Wordpress url](../../images/user_guide/user_guide_topology_template_wordpressurl.png)

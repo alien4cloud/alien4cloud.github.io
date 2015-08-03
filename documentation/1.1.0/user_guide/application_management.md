@@ -126,3 +126,38 @@ We have two possible cases regarding an input and the targeted meta-property :
 {%endwarning%}
 
 In fact, the deploying page will handle *warnings* and *tasks* list to help you in having a good deployment setup.
+
+# Deploy your application
+
+To deploy an application you need to configure some parameters, you can do this in the `Applications > Deployments` submenu.
+The next capture will explain the different areas of this page.
+
+[![Configure your deployment](../../images/user_guide/user_guide_topology_template_deploy-area.png)](../../images/user_guide/user_guide_topology_template_deploy-area.png)
+
+### Zone A : Select an environment and a cloud
+
+Here you need to select the environment of your application and the cloud.
+
+### Zone B : Provider properties
+
+In this area you need to configure the properties who depends on the provider implementation. You usualy have default settings.
+
+### Zone C : Topology required settings
+
+Here you need to select the value for your `inputs`. If they are some missing configuration in your topology, a `todo list` will be displayed.
+
+## Zone D : Cloud resources matching
+
+In this part, you will be able to check matching cloud resources and possible
+matching errors. This should not happen if your cloud is well configured.
+
+# Runtime view
+
+On this submenu view `Application > Runtime`, you can have the detailed deployment
+progress.
+
+![Wordpress url](../../images/user_guide/user_guide_topology_template_runtime.png)
+
+{%info%}
+The previous picture was taken during a Wordpress deployement, to deploy your own Wordpress, please refer to [this section](#/documentation/1.1.0/getting_started/getting_started.html).
+{%endinfo%}
