@@ -21,7 +21,7 @@ Now for this driver to work, you have to customize your instaled Cloudify.
 In order to handle Cloudify lifecycle events, and to emit our own events, we need the **alien4cloud-cloudify-custom-events**. This provides a REST API and uses the Gigaspace management space to store the events.
 
 1. Download the zip archive and unzip it into the folder of your prefered cloud driver (e.g. `gigaspaces-cloudify-2.7.0-ga/clouds/openstack-havana`)
-	* [last stable](https://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource&g=alien4cloud&a=alien4cloud-cloudify-events-assembly&c=distrib&v=LATEST&p=zip){: .btn}{: .btn-success}{: .download-button}{: .navbar-btn}  [last build](https://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource-snapshot&g=alien4cloud&a=alien4cloud-cloudify-events-assembly&c=distrib&v=LATEST&p=zip){: .btn}{: .btn-warning}{: .download-button}{: .navbar-btn}
+	* [last stable](https://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource&g=alien4cloud&a=alien4cloud-cloudify-events-assembly&c=distrib&v=1.1.0-SM2&p=zip){: .btn}{: .btn-success}{: .download-button}{: .navbar-btn}  [last build](https://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource-snapshot&g=alien4cloud&a=alien4cloud-cloudify-events-assembly&c=distrib&v=1.1.0-SM2&p=zip){: .btn}{: .btn-warning}{: .download-button}{: .navbar-btn}
 2. If working with a secured manager:
 
 * create a file `events.properties` and place it either next or into the events folder
