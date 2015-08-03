@@ -42,13 +42,13 @@
 
 <span class="nv">JAVA_OPTIONS</span><span class="o">=</span><span class="s2">&quot;-server -showversion -XX:+AggressiveOpts -Xmx2g -Xms2g -XX:MaxPermSize=512m -XX:+HeapDumpOnOutOfMemoryError&quot;</span>
 
-java <span class="nv">$JAVA_OPTIONS</span> -jar alien4cloud-ui-1.0.0-<span class="o">{</span>version<span class="o">}</span>-standalone.war</code></pre></div>
+java <span class="nv">$JAVA_OPTIONS</span> -jar alien4cloud-ui-1.1.0-<span class="o">{</span>version<span class="o">}</span>-standalone.war</code></pre></div>
 
 <h1 id="logging-configuration">Logging configuration</h1>
 
 <p>If you need to customize log4j (in order to activate some loggers, change the log file location …) add a log4j.properties in the config folder and specify the classpath for java :</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">java <span class="nv">$JAVA_OPTIONS</span> -cp config/:alien4cloud-ui-1.0.0-<span class="o">{</span>version<span class="o">}</span>-standalone.war org.springframework.boot.loader.WarLauncher</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">java <span class="nv">$JAVA_OPTIONS</span> -cp config/:alien4cloud-ui-1.1.0-<span class="o">{</span>version<span class="o">}</span>-standalone.war org.springframework.boot.loader.WarLauncher</code></pre></div>
 
 <p>You can find a log4j sample configuration file at <a href="https://github.com/alien4cloud/alien4cloud/blob/master/alien4cloud-ui/src/main/resources/log4j.properties">log4j.properties</a></p>
 
