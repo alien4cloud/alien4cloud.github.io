@@ -79,7 +79,7 @@ Our target for this feature is to allow internal prefixes to target meta-propert
 
 {%warning%}
 <h5>Internal input prefixes</h5>
-This list could change regarding A4C user needs and use cases.
+In the cloud, the name of the target element should begin by the internal prefix to be accessible.
 {%endwarning%}
 
 ## Define a property as an internal input
