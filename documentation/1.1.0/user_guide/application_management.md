@@ -77,11 +77,6 @@ Our target for this feature is to allow internal prefixes to target meta-propert
 |*application*| `app_meta_` , `app_tags_` |           | Target *meta-properties* or *tags* defined on an application |
 |*environment*|   | env_meta_ , env_tags_| Target *meta-properties* or *tags* defined on an environment  |
 
-{%warning%}
-<h5>Internal input prefixes</h5>
-This list could change regarding A4C user needs and use cases.
-{%endwarning%}
-
 ## Define a property as an internal input
 
 When you define a topology, you may want to define some node properties as inputs. An input is
