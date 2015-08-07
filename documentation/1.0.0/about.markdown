@@ -27,7 +27,7 @@ It leaves a lot of choice to the one willing to develop and deploy applications 
 Knowing the investment term in the Applications from development to deployment (usually several years), and the legacy, it is important to protect the investment in the Application lifecycle, from moving parts, at any level possible.
 
 # What
-<p>
+
 {%info%}
   <h5>Alien4Cloud aims at addressing some of these problems by providing the following capabilities :</h5>
 * Ease the design and portability of Applications by leveraging TOSCA (an emerging standard driven by OASIS foundation)
@@ -36,7 +36,6 @@ Knowing the investment term in the Applications from development to deployment (
 * Ease collaboration between Development and Deployment teams across the Application lifecycle in creating the Components and Blueprints to fill the catalog
 * Integrate with existing Enterprise systems (Dev and Ops) through REST API and pluggable strategies
 {%endinfo%}
-</p>
 
 Check [current roadmap](../../roadmap) for details on where we are and where we go.
 
@@ -63,6 +62,10 @@ By increasing service and application portability in a vendor-neutral ecosystem,
 
 * Dynamic, multi-cloud provider applications
 
+{% warning %}
+_Note: TOSCA Simple profile is a working draft and is not released yet to public. Current Alien 4 Cloud version is using a Alien 4 Cloud's specific DSL that is really close to the latest TOSCA Simple Profile in YAML TC work._
+{% endwarning %}
+
 # Open-Source
 We decided to build Alien4Cloud and give it to the community in order to allow  Application Requirements modelling in a TOSCA format, in a collaborative way, between all participants involved in Application Infrastructure Requirements definition.
 
@@ -80,4 +83,13 @@ We believe that there are already a number of viable options there (some of them
 We do it in an open way through [plug-in approach](../developer_guide/plugin.html){:target="_blank"} to allow you to leverage your best tools or skills.
 
 # Status
-Even if the project is still in its BETA phase, we already use Alien4Cloud, in real-life projects inside [FastConnect](http://www.fastconnect.fr){:target="_blank"} in order to provide self-service, industrialisation and collaboration in the design and management of applications blueprints.
+Alien 4 Cloud is now released in 1.0.0 version. This version is used in real-life projets inside [FastConnect](http://www.fastconnect.fr){:target="_blank"} in order to provide self-service, industrialisation and collaboration in the design and management of applications blueprints.
+
+We especially use version 1.0.0 to deploy hadoop cluster (see [Hadoop Self Service project page](https://fastconnect.org/hadoopselfservice/){:target="_blank"})
+
+{%info%}
+<h5>Which version to choose ?</h5>
+Basically the question depends on your timeframe, on the features you are looking from and on the support level you need.
+* 1.0.0 is our most stable version and is the latest version that we support.
+* 1.1.0 is still in development and things can change if you start using it. On the other hand all new features are developed in 1.1.0 so you may get more by choosing to start working with this version. We especially recommend that new POCs or project that will really start after we released the 1.1.0 (check our [roadmap](../../roadmap).
+{%endinfo%}
