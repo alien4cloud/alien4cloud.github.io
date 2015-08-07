@@ -29,7 +29,7 @@ It leaves a lot of choice to the one willing to develop and deploy applications 
 <p>Knowing the investment term in the Applications from development to deployment (usually several years), and the legacy, it is important to protect the investment in the Application lifecycle, from moving parts, at any level possible.</p>
 
 <h1 id="what">What</h1>
-<p>
+
 <div class="note info">
 <h5>Alien4Cloud aims at addressing some of these problems by providing the following capabilities :</h5>
 <ul>
@@ -40,7 +40,6 @@ It leaves a lot of choice to the one willing to develop and deploy applications 
   <li>Integrate with existing Enterprise systems (Dev and Ops) through REST API and pluggable strategies</li>
 </ul>
 </div>
-</p>
 
 <p>Check <a href="../../roadmap">current roadmap</a> for details on where we are and where we go.</p>
 
@@ -48,14 +47,14 @@ It leaves a lot of choice to the one willing to develop and deploy applications 
 <p>Alien4Cloud supports <a href="https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=tosca" target="_blank">OASIS TOSCA</a> an emerging standard addressing applications portability in the cloud.</p>
 
 <p>We believe that applications cloud enablement should be done in an open way, free of any lock-in.
-No lock-in meaning that the application should freely move from one environment to the other with smallest effort possible. Therefore, it needs to abstract itself from the underlying infrastructure technical adherence, and define its infrastructure requirements and architecture, independently from each Cloud Provider&#8217;s Infrastructure Catalog.
+No lock-in meaning that the application should freely move from one environment to the other with smallest effort possible. Therefore, it needs to abstract itself from the underlying infrastructure technical adherence, and define its infrastructure requirements and architecture, independently from each Cloud Provider’s Infrastructure Catalog.
 If not done, even if, technical compability between vendors could exist in theory (yet to be confirmed by reality), Infrastructure Catalog alignment between providers is very unlikely to happen as each provider is focusing in delivering best value to its customers and does not spend time aligning with others, especially when they may be competitors.
 As an analogy, can you easily compare your Telecom providers offerings ?
 We bet that the same will happen with Cloud providers, and it has already started.</p>
 
 <p>TOSCA enables the expression of Application Requirements on the Infrastructure and its QOS/SLA, in an open way, opening the door to optimized placement of Applications in the Cloud Infrastructures based on customer choice at its heart.</p>
 
-<p>We know about Infrastructure As Code, with TOSCA, we enter in to the era of &#8220;Application Requirements as Code&#8221; easing Application lifecycle management across several Cloud infrastructures.</p>
+<p>We know about Infrastructure As Code, with TOSCA, we enter in to the era of “Application Requirements as Code” easing Application lifecycle management across several Cloud infrastructures.</p>
 
 <p>By increasing service and application portability in a vendor-neutral ecosystem, TOSCA will enable :</p>
 
@@ -74,6 +73,10 @@ We bet that the same will happen with Cloud providers, and it has already starte
   </li>
 </ul>
 
+<div class="note warning">
+<p><em>Note: TOSCA Simple profile is a working draft and is not released yet to public. Current Alien 4 Cloud version is using a Alien 4 Cloud’s specific DSL that is really close to the latest TOSCA Simple Profile in YAML TC work.</em></p>
+</div>
+
 <h1 id="open-source">Open-Source</h1>
 <p>We decided to build Alien4Cloud and give it to the community in order to allow  Application Requirements modelling in a TOSCA format, in a collaborative way, between all participants involved in Application Infrastructure Requirements definition.</p>
 
@@ -91,7 +94,16 @@ Please check our <a href="../developer_guide">Contribute</a> page to see how you
 We do it in an open way through <a href="../developer_guide/plugin.html" target="_blank">plug-in approach</a> to allow you to leverage your best tools or skills.</p>
 
 <h1 id="status">Status</h1>
-<p>Even if the project is still in its BETA phase, we already use Alien4Cloud, in real-life projects inside <a href="http://www.fastconnect.fr" target="_blank">FastConnect</a> in order to provide self-service, industrialisation and collaboration in the design and management of applications blueprints.</p>
+<p>Alien 4 Cloud is now released in 1.0.0 version. This version is used in real-life projets inside <a href="http://www.fastconnect.fr" target="_blank">FastConnect</a> in order to provide self-service, industrialisation and collaboration in the design and management of applications blueprints.</p>
+
+<p>We especially use version 1.0.0 to deploy hadoop cluster (see <a href="https://fastconnect.org/hadoopselfservice/" target="_blank">Hadoop Self Service project page</a>)</p>
+
+<div class="note info">
+<h5>Which version to choose ?</h5>
+<p>Basically the question depends on your timeframe, on the features you are looking from and on the support level you need.
+* 1.0.0 is our most stable version and is the latest version that we support.
+* 1.1.0 is still in development and things can change if you start using it. On the other hand all new features are developed in 1.1.0 so you may get more by choosing to start working with this version. We especially recommend that new POCs or project that will really start after we released the 1.1.0 (check our <a href="../../roadmap">roadmap</a>.</p>
+</div>
 
       </div>
     </div>
