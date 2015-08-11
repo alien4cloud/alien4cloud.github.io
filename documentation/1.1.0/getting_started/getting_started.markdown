@@ -17,6 +17,11 @@ The first guide is like a demo, the best way if you want to try Alien in no time
 
 The second guide will explain how to take in charge Alien in details and configure it for your uses.
 
+{%warning%}
+<h5>Important: security issue </h5>
+Alien used a version of ElasticSearch concern by a security issue. To prevent an attack, make sure to secure the port of ES (9200 as default).
+{%endwarning%}
+
 {%inittab %}
 {% tabcontent The 30 min Start Guide %}
 

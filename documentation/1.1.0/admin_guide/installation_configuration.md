@@ -14,6 +14,13 @@ weight: 10
 This section describe installation and configuration of Alien 4 Cloud for a production mode. If you whish to use Alien 4 Cloud for a demo or development mode please refer to the [getting started](#/documentation/1.1.0/getting_started/getting_started.html) guide.
 {% endinfo %}
 
+{%warning%}
+<h5>Important: security issue </h5>
+Alien 4 Cloud used a version of ElasticSearch concern by a security issue. To prevent an attack, make sure to secure the port of ES (9200 as default).
+{%endwarning%}
+
+# Alien 4 Cloud configuration
+
 Alien 4 Cloud contains a basic configuration that is good enough for test environment. However in order to move into production or in order to integrate with other systems (as LDAP for example), you need to define an advanced configuration.
 
 In order to provide configuration to Alien 4 Cloud, you must place an Alien configuration file in a config folder along-side to the Alien 4 Cloud war.
