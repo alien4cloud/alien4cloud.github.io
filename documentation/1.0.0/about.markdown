@@ -70,7 +70,7 @@ _Note: TOSCA Simple profile is a working draft and is not released yet to public
 We decided to build Alien4Cloud and give it to the community in order to allow  Application Requirements modelling in a TOSCA format, in a collaborative way, between all participants involved in Application Infrastructure Requirements definition.
 
 It is provided with an [Apache 2 license](http://www.apache.org/licenses/LICENSE-2.0.html){:target="_blank"} in order to favour contributions from external teams or individuals.
-Please check our [Contribute](../developer_guide) page to see how you can help.
+Please check our [Contribute](#/developer_guide/index.html) page to see how you can help.
 
 # What it is not
 Alien4Cloud focuses on Design, Collaboration, Application Lifecycle Management and later Governance, but leverages other existing open source projects that help orchestrating cloud applications and which focus on runtime aspects such as [Cloudify](http://getcloudify.org){:target="_blank"}.
@@ -93,3 +93,8 @@ Basically the question depends on your timeframe, on the features you are lookin
 * 1.0.0 is our most stable version and is the latest version that we support.
 * 1.1.0 is still in development and things can change if you start using it. On the other hand all new features are developed in 1.1.0 so you may get more by choosing to start working with this version. We especially recommend that new POCs or project that will really start after we released the 1.1.0 (check our [roadmap](../../roadmap).
 {%endinfo%}
+
+{%warning%}
+<h5>Supported platforms</h5>
+To get more informations about the supported platforms, please refer to [this section](#/documentation/1.0.0/admin/supported_platforms.html).
+{%endwarning%}
