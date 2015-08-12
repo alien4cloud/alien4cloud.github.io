@@ -18,5 +18,6 @@ In order to provide enterprise self-service portal, alien 4 cloud leverages the 
 * __Components__: Software components to deploy
 * __Topologies__ (or blueprints): Description of multiple software components assembled together (to build an application).
 * __Applications__: Actual applications to deploy with _environments_ and _versions_ each of them being associated with a topology.
+* __TOSCA__: An emerging standard to describe service components and their relationships
 
 On top of these notions Alien 4 Cloud provide a comprehensive set of __roles__ that can be mapped in flexible manners to the people and structure of an enterprise IT department.
