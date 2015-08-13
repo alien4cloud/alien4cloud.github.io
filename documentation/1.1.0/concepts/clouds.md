@@ -29,3 +29,10 @@ Only a user with the global ADMIN role can define, configure, enable and grant d
 {%endinfo%}
 
 To find more on clouds and how to configure them in Alien 4 Cloud please look at the [Getting started](deadlink) guide if you don't already have an Alien instance running and at the [cloud setup guide](deadlink) in order to learn cloud configuration.
+
+A _cloud_ supported the following resources :
+
+ * Compute: TOSCA node who represents a real or virtual machine or ‘server’
+ * Storage: TOSCA node who represents a server-local block storage device
+ * Availability zone: Alien feature to separate your node into separate geographic area
+ * Network:  Alien feature based on the TOSCA expressiveness to control the mapping of software component to the network
