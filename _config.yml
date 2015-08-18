@@ -5,4 +5,6 @@ redcarpet:
 highligter: pygments
 encoding: UTF-8
 
-categories-list: ["DOCUMENTATION", "RELEASE_NOTES", "DEVELOPER_GUIDE", "ROADMAP"]
+categories-list: ["DOCUMENTATION", "DOCUMENTATION-1.1.0", "RELEASE_NOTES", "DEVELOPER_GUIDE", "ROADMAP"]
+
+last-version: "1.1.0-SM2"
