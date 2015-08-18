@@ -59,20 +59,22 @@ Fill the modal by typing expected values and click on *create*.
 
 {%note%}
 In the Archive's name text field : put the name of the folder containing the yaml file *for example **apache** to import Apache component in the Samples repository*.
-You can also leave this text filed empty :**it will import all the folders if its contains a yaml file**.
+You can also leave this text filed empty : **it will import all the folders if its contains a yaml file**.
+Credentials text fields can be used to access private repository.
+Click on *Save the repository locally* if you want the repository to be stored on your computer, this will enable the versionning manager on it.
 {%endnote%}
 
-[![Csar view an archive from a location](../../images/components_guide/csar-modal.png)](../../images/components_guide/csar-modal.png)
+[![Csar view an archive from a location](../../images/components_guide/csar-modal-v2.png)](../../images/components_guide/csar-modal-v2.png)
 
 Now you should be able to see the Csargit created in the tab below
 
-Click on the icon *Import* to trigger the import proces
+Click on the icon *Import* to trigger the import process
 
 [![Trigger an archive from a location](../../images/components_guide/csar-tab-view.png)](../../images/components_guide/csar-tab-view.png)
 
-Now you should be able to see the imported Csar in the *Csars added* tab
+Now you should be able to see the imported Csar in the *Csars added* tab and the related import result in the tab below.
 
-[![Result of an import](../../images/components_guide/csar-import-result.png)](../../images/components_guide/csar-import-result.png)
+[![Result of an import](../../images/components_guide/csar-import-resultV2.png)](../../images/components_guide/csar-import-resultV2.png)
 {%endtabcontent%}
 {%endinittab%}
 
