@@ -36,7 +36,7 @@ Alien used a version of ElasticSearch concern by a security issue. To prevent an
 * An active AWS account. Make sure you have all the account informations we will need later (user key, access key, key file and key pair)
 
 ##2. VM Automated Install:
-* Download and unzip the package [vm-alien4cloud-1.0.0-RC1](https://fastconnect.org/owncloud/public.php?service=files&t=ddb5d1dc60894213d9d80683bf09ae29) (for other version, see on the page footer). As a result, a subdirectory vm-alien4cloud should be created
+* Download and unzip the package [vm-alien4cloud-1.0.0](https://fastconnect.org/owncloud/public.php?service=files&t=dfcc1d7529cdb64840b492cb7bc7f247) (for other version, see on the page footer). As a result, a subdirectory vm-alien4cloud should be created
 
 * Copy your .pem file to the directory `vm-alien4cloud/vm/key`
 
@@ -99,6 +99,8 @@ If you would like to de-provision the VM and the associated cloud created by Ali
 * Run the following command: `vagrant destroy`
 
 ## Older versions:
+
+[vm-alien4cloud-1.0.0-RC1](https://fastconnect.org/owncloud/public.php?service=files&t=0ec8e53d57ba2df6b50f67d287c0d958)
 
 [vm-alien4cloud-SM23](https://fastconnect.org/owncloud/public.php?service=files&t=8c3bc5fabf7fc132f4d8b29f2cffcae4)
 
