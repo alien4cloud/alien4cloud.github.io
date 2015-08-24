@@ -5,7 +5,7 @@ root: ../
 categories: RELEASE_NOTES
 parent: [release_note]
 node_name: 1.0.0-SM19
-weight: 9991
+weight: 9989
 exclude_from_search: true
 ---
 
