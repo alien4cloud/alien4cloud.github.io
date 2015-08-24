@@ -36,7 +36,7 @@ Alien used a version of ElasticSearch concern by a security issue. To prevent an
 * An active AWS account. Make sure you have all the account informations we will need later (user key, access key, key file and key pair)
 
 ##2. VM Automated Install:
-* Download and unzip the package [vm-alien4cloud-1.1.0-RC1](https://fastconnect.org/owncloud/public.php?service=files&t=ddb5d1dc60894213d9d80683bf09ae29) (for other version, see on the page footer). As a result, a subdirectory vm-alien4cloud should be created
+* Download and unzip the package [vm-alien4cloud-1.1.0-SM3](https://fastconnect.org/owncloud/public.php?service=files&t=ad8629bdce1f75a60e450ca6905fee69) (for other version, see on the page footer). As a result, a subdirectory vm-alien4cloud should be created
 
 * Copy your .pem file to the directory `vm-alien4cloud/vm/key`
 
@@ -92,15 +92,7 @@ If you would like to de-provision the VM and the associated cloud created by Ali
 
 ##Older versions:
 
-[vm-alien4cloud-SM23](https://fastconnect.org/owncloud/public.php?service=files&t=8c3bc5fabf7fc132f4d8b29f2cffcae4)
-
-[vm-alien4cloud-SM24](https://fastconnect.org/owncloud/public.php?service=files&t=3d2dded7ff0f4a3acea1380eb7f86e33)
-
-[vm-alien4cloud-SM25](https://fastconnect.org/owncloud/public.php?service=files&t=e2a17fc56fabf2c141218f5c1fd063a1)
-
-[vm-alien4cloud-SM26](https://fastconnect.org/owncloud/public.php?service=files&t=1470e8d3c0226d3c6774c2407dd1770e)
-
-[vm-alien4cloud-SM27](https://fastconnect.org/owncloud/public.php?service=files&t=de94bb1a61091c58f5eb860c63a46c5f)
+[vm-alien4cloud-1.1.0-SM2](https://fastconnect.org/owncloud/public.php?service=files&t=fb6806281344cb21a93e3e9d8afd69f2)
 
 {%endtabcontent%}
 {% tabcontent Step by step guide %}
