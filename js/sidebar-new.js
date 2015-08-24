@@ -54,6 +54,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DOCUMENTATION"];
       
         
@@ -80,8 +82,6 @@ var node, children;
       node.url = "documentation/1.0.0/about.html";
       node.weight =  100;
       node.root = "../";
-    
-  
     
   
     
@@ -134,6 +134,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DOCUMENTATION"];
       
         
@@ -183,6 +185,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DOCUMENTATION"];
       
         
@@ -227,8 +231,6 @@ var node, children;
       node.url = "documentation/1.0.0/concepts/applications.html";
       node.weight =  400;
       node.root = "../../";
-    
-  
     
   
     
@@ -397,6 +399,8 @@ var node, children;
       node.url = "documentation/1.0.0/devops_guide/tosca_grammar/artifact_type.html";
       node.weight =  100;
       node.root = "../../../";
+    
+  
     
   
     
@@ -601,8 +605,6 @@ var node, children;
     
   
     
-  
-    
       var parent = sidebarTree["DOCUMENTATION"];
       
         
@@ -773,6 +775,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DOCUMENTATION"];
       
         
@@ -817,8 +821,6 @@ var node, children;
       node.url = "documentation/1.0.0/user_guide/cloud_management.html";
       node.weight =  100;
       node.root = "../../";
-    
-  
     
   
     
@@ -1036,6 +1038,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DOCUMENTATION"];
       
         
@@ -1165,8 +1169,6 @@ var node, children;
       node.url = "documentation/1.0.0/concepts/concepts.html";
       node.weight =  100;
       node.root = "../../";
-    
-  
     
   
     
@@ -1554,6 +1556,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DOCUMENTATION"];
       
         
@@ -1758,10 +1762,6 @@ var node, children;
     
   
     
-  
-    
-  
-    
       var parent = sidebarTree["DOCUMENTATION"];
       
         
@@ -1860,6 +1860,8 @@ var node, children;
       node.url = "documentation/1.0.0/devops_guide/tosca_grammar/get_operation_output_definition.html";
       node.weight =  400;
       node.root = "../../../";
+    
+  
     
   
     
@@ -2001,6 +2003,10 @@ var node, children;
     
   
     
+  
+    
+  
+    
       var parent = sidebarTree["DOCUMENTATION"];
       
         
@@ -2027,6 +2033,8 @@ var node, children;
       node.url = "documentation/1.0.0/cloudify3_driver/index.html";
       node.weight =  1000;
       node.root = "../../";
+    
+  
     
   
     
@@ -2063,8 +2071,6 @@ var node, children;
     
   
     
-  
-    
       var parent = sidebarTree["DOCUMENTATION"];
       
         node = parent;
@@ -2075,12 +2081,6 @@ var node, children;
       node.url = "documentation/1.0.0/index.html";
       node.weight =  0;
       node.root = "../";
-    
-  
-    
-  
-    
-  
     
   
     
@@ -2110,6 +2110,10 @@ var node, children;
       node.url = "documentation/1.0.0/admin_guide/index.html";
       node.weight =  400;
       node.root = "../../";
+    
+  
+    
+  
     
   
     
@@ -2180,6 +2184,51 @@ var node, children;
     
   
     
+      var parent = sidebarTree["DOCUMENTATION"];
+      
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'cloudify_3_index') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'cloudify_3_index',
+              'title': '-',
+              'children': [],
+              'collapsed': true
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+
+        children = parent.children;
+        // try to find the node if exists already
+        node = null;
+        for (var i=0; i<children.length; i++) {
+          if(children[i].name === 'cloudify_3_install') {
+            node = children[i];
+          }
+        }
+        if(node === null) {
+          node = {
+            'children': [],
+            'collapsed': true
+          };
+          children.push(node);
+        }
+      
+
+      node.name = "cloudify_3_install";
+      node.title = "Installing and configuring";
+      node.url = "documentation/1.0.0/cloudify3_driver/install_config.html";
+      node.weight =  2000;
+      node.root = "../../";
+    
   
     
       var parent = sidebarTree["DOCUMENTATION"];
@@ -2231,53 +2280,6 @@ var node, children;
     
   
     
-      var parent = sidebarTree["DOCUMENTATION"];
-      
-        
-          var nextParent = null;
-          children = parent.children;
-          for (var i=0; i<children.length; i++) {
-            if(children[i].name === 'cloudify_3_index') {
-              nextParent = children[i];
-            }
-          }
-          if(nextParent === null) {
-            nextParent = {
-              'name': 'cloudify_3_index',
-              'title': '-',
-              'children': [],
-              'collapsed': true
-            };
-            parent.children.push(nextParent);
-          }
-          parent = nextParent;
-        
-
-        children = parent.children;
-        // try to find the node if exists already
-        node = null;
-        for (var i=0; i<children.length; i++) {
-          if(children[i].name === 'cloudify_3_install') {
-            node = children[i];
-          }
-        }
-        if(node === null) {
-          node = {
-            'children': [],
-            'collapsed': true
-          };
-          children.push(node);
-        }
-      
-
-      node.name = "cloudify_3_install";
-      node.title = "Installing and configuring";
-      node.url = "documentation/1.0.0/cloudify3_driver/install_config.html";
-      node.weight =  2000;
-      node.root = "../../";
-    
-  
-    
   
     
   
@@ -2326,6 +2328,8 @@ var node, children;
       node.url = "documentation/1.0.0/admin_guide/installation_configuration.html";
       node.weight =  10;
       node.root = "../../";
+    
+  
     
   
     
@@ -2416,8 +2420,6 @@ var node, children;
     
   
     
-  
-    
       var parent = sidebarTree["DOCUMENTATION"];
       
         
@@ -2462,8 +2464,6 @@ var node, children;
       node.url = "documentation/1.0.0/devops_guide/lamp_stack_tutorial/lamp_stack.html";
       node.weight =  400;
       node.root = "../../";
-    
-  
     
   
     
@@ -2596,6 +2596,8 @@ var node, children;
       node.url = "documentation/1.0.0/devops_guide/lamp_stack_tutorial/lamp_stack_application.html";
       node.weight =  800;
       node.root = "../../";
+    
+  
     
   
     
@@ -2867,8 +2869,6 @@ var node, children;
     
   
     
-  
-    
       var parent = sidebarTree["DOCUMENTATION"];
       
         
@@ -2934,6 +2934,10 @@ var node, children;
     
   
     
+  
+    
+  
+    
       var parent = sidebarTree["DOCUMENTATION"];
       
         
@@ -2996,10 +3000,6 @@ var node, children;
       node.url = "documentation/1.0.0/cloudify2_driver/lifecycle_spec.html";
       node.weight =  200;
       node.root = "../../";
-    
-  
-    
-  
     
   
     
@@ -3101,6 +3101,8 @@ var node, children;
       node.url = "documentation/1.0.0/devops_guide/tosca_grammar/node_template.html";
       node.weight =  300;
       node.root = "../../../";
+    
+  
     
   
     
@@ -3341,6 +3343,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DOCUMENTATION"];
       
         
@@ -3403,10 +3407,6 @@ var node, children;
       node.url = "documentation/1.0.0/cloudify2_driver/other_interfaces.html";
       node.weight =  300;
       node.root = "../../";
-    
-  
-    
-  
     
   
     
@@ -3497,6 +3497,10 @@ var node, children;
     
   
     
+  
+    
+  
+    
       var parent = sidebarTree["DOCUMENTATION"];
       
         
@@ -3541,8 +3545,6 @@ var node, children;
       node.url = "documentation/1.0.0/user_guide/plugin_management.html";
       node.weight =  75;
       node.root = "../../";
-    
-  
     
   
     
@@ -3661,53 +3663,6 @@ var node, children;
           var nextParent = null;
           children = parent.children;
           for (var i=0; i<children.length; i++) {
-            if(children[i].name === 'cloudify_3_index') {
-              nextParent = children[i];
-            }
-          }
-          if(nextParent === null) {
-            nextParent = {
-              'name': 'cloudify_3_index',
-              'title': '-',
-              'children': [],
-              'collapsed': true
-            };
-            parent.children.push(nextParent);
-          }
-          parent = nextParent;
-        
-
-        children = parent.children;
-        // try to find the node if exists already
-        node = null;
-        for (var i=0; i<children.length; i++) {
-          if(children[i].name === 'cloudify_3_prerequisites') {
-            node = children[i];
-          }
-        }
-        if(node === null) {
-          node = {
-            'children': [],
-            'collapsed': true
-          };
-          children.push(node);
-        }
-      
-
-      node.name = "cloudify_3_prerequisites";
-      node.title = "Prerequisites";
-      node.url = "documentation/1.0.0/cloudify3_driver/prerequisites.html";
-      node.weight =  1000;
-      node.root = "../../";
-    
-  
-    
-      var parent = sidebarTree["DOCUMENTATION"];
-      
-        
-          var nextParent = null;
-          children = parent.children;
-          for (var i=0; i<children.length; i++) {
             if(children[i].name === 'cloudify_2_index') {
               nextParent = children[i];
             }
@@ -3748,6 +3703,53 @@ var node, children;
       node.root = "../../";
     
   
+    
+  
+    
+      var parent = sidebarTree["DOCUMENTATION"];
+      
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'cloudify_3_index') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'cloudify_3_index',
+              'title': '-',
+              'children': [],
+              'collapsed': true
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+
+        children = parent.children;
+        // try to find the node if exists already
+        node = null;
+        for (var i=0; i<children.length; i++) {
+          if(children[i].name === 'cloudify_3_prerequisites') {
+            node = children[i];
+          }
+        }
+        if(node === null) {
+          node = {
+            'children': [],
+            'collapsed': true
+          };
+          children.push(node);
+        }
+      
+
+      node.name = "cloudify_3_prerequisites";
+      node.title = "Prerequisites";
+      node.url = "documentation/1.0.0/cloudify3_driver/prerequisites.html";
+      node.weight =  1000;
+      node.root = "../../";
     
   
     
@@ -3836,8 +3838,6 @@ var node, children;
     
   
     
-  
-    
       var parent = sidebarTree["DOCUMENTATION"];
       
         
@@ -3918,6 +3918,8 @@ var node, children;
       node.url = "documentation/1.0.0/devops_guide/tosca_grammar/relationship_type.html";
       node.weight =  400;
       node.root = "../../../";
+    
+  
     
   
     
@@ -4177,8 +4179,6 @@ var node, children;
     
   
     
-  
-    
       var parent = sidebarTree["DOCUMENTATION"];
       
         
@@ -4241,6 +4241,10 @@ var node, children;
       node.url = "documentation/1.0.0/devops_guide/design_tutorial/snapshot_topology_test_jenkins_plugin.html";
       node.weight =  400;
       node.root = "../../";
+    
+  
+    
+  
     
   
     
@@ -4505,10 +4509,6 @@ var node, children;
     
   
     
-  
-    
-  
-    
       var parent = sidebarTree["DOCUMENTATION"];
       
         
@@ -4589,6 +4589,8 @@ var node, children;
       node.url = "documentation/1.0.0/devops_guide/tosca_grammar/topology_template.html";
       node.weight =  300;
       node.root = "../../../";
+    
+  
     
   
     
@@ -4802,8 +4804,6 @@ var node, children;
     
   
     
-  
-    
       var parent = sidebarTree["DOCUMENTATION"];
       
         
@@ -4848,6 +4848,8 @@ var node, children;
       node.url = "documentation/1.0.0/devops_guide/tosca_concepts.html";
       node.weight =  400;
       node.root = "../../";
+    
+  
     
   
     
@@ -5070,8 +5072,6 @@ var node, children;
     
   
     
-  
-    
       var parent = sidebarTree["DOCUMENTATION"];
       
         
@@ -5248,6 +5248,10 @@ var node, children;
     
   
     
+  
+    
+  
+    
       var parent = sidebarTree["DOCUMENTATION"];
       
         
@@ -5359,8 +5363,6 @@ var node, children;
       node.url = "documentation/1.0.0/devops_guide/design_tutorial/tutorials.html";
       node.weight =  500;
       node.root = "../../";
-    
-  
     
   
     
@@ -5634,6 +5636,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.1.0"];
       
         
@@ -5660,6 +5664,8 @@ var node, children;
       node.url = "documentation/1.1.0/about.html";
       node.weight =  100;
       node.root = "../";
+    
+  
     
   
     
@@ -5712,8 +5718,6 @@ var node, children;
     
   
     
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.1.0"];
       
         
@@ -5761,8 +5765,6 @@ var node, children;
     
   
     
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.1.0"];
       
         
@@ -5807,6 +5809,8 @@ var node, children;
       node.url = "documentation/1.1.0/concepts/applications.html";
       node.weight =  400;
       node.root = "../../";
+    
+  
     
   
     
@@ -5977,8 +5981,6 @@ var node, children;
       node.url = "documentation/1.1.0/devops_guide/tosca_grammar/artifact_type.html";
       node.weight =  100;
       node.root = "../../../";
-    
-  
     
   
     
@@ -6183,6 +6185,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.1.0"];
       
         
@@ -6351,8 +6355,6 @@ var node, children;
     
   
     
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.1.0"];
       
         
@@ -6397,6 +6399,8 @@ var node, children;
       node.url = "documentation/1.1.0/user_guide/cloud_management.html";
       node.weight =  100;
       node.root = "../../";
+    
+  
     
   
     
@@ -6614,8 +6618,6 @@ var node, children;
     
   
     
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.1.0"];
       
         
@@ -6745,6 +6747,8 @@ var node, children;
       node.url = "documentation/1.1.0/concepts/concepts.html";
       node.weight =  100;
       node.root = "../../";
+    
+  
     
   
     
@@ -7132,8 +7136,6 @@ var node, children;
     
   
     
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.1.0"];
       
         
@@ -7338,6 +7340,10 @@ var node, children;
     
   
     
+  
+    
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.1.0"];
       
         
@@ -7436,8 +7442,6 @@ var node, children;
       node.url = "documentation/1.1.0/devops_guide/tosca_grammar/get_operation_output_definition.html";
       node.weight =  400;
       node.root = "../../../";
-    
-  
     
   
     
@@ -7589,35 +7593,6 @@ var node, children;
         // try to find the node if exists already
         node = null;
         for (var i=0; i<children.length; i++) {
-          if(children[i].name === 'cloudify_3_index') {
-            node = children[i];
-          }
-        }
-        if(node === null) {
-          node = {
-            'children': [],
-            'collapsed': true
-          };
-          children.push(node);
-        }
-      
-
-      node.name = "cloudify_3_index";
-      node.title = "Cloudify 3 PaaS Provider";
-      node.url = "documentation/1.1.0/cloudify3_driver/index.html";
-      node.weight =  1000;
-      node.root = "../../";
-    
-  
-    
-      var parent = sidebarTree["DOCUMENTATION-1.1.0"];
-      
-        
-
-        children = parent.children;
-        // try to find the node if exists already
-        node = null;
-        for (var i=0; i<children.length; i++) {
           if(children[i].name === 'cloudify_2_index') {
             node = children[i];
           }
@@ -7656,6 +7631,37 @@ var node, children;
     
   
     
+      var parent = sidebarTree["DOCUMENTATION-1.1.0"];
+      
+        
+
+        children = parent.children;
+        // try to find the node if exists already
+        node = null;
+        for (var i=0; i<children.length; i++) {
+          if(children[i].name === 'cloudify_3_index') {
+            node = children[i];
+          }
+        }
+        if(node === null) {
+          node = {
+            'children': [],
+            'collapsed': true
+          };
+          children.push(node);
+        }
+      
+
+      node.name = "cloudify_3_index";
+      node.title = "Cloudify 3 PaaS Provider";
+      node.url = "documentation/1.1.0/cloudify3_driver/index.html";
+      node.weight =  1000;
+      node.root = "../../";
+    
+  
+    
+  
+    
   
     
   
@@ -7686,10 +7692,6 @@ var node, children;
       node.url = "documentation/1.1.0/admin_guide/index.html";
       node.weight =  400;
       node.root = "../../";
-    
-  
-    
-  
     
   
     
@@ -7762,51 +7764,6 @@ var node, children;
     
   
     
-      var parent = sidebarTree["DOCUMENTATION-1.1.0"];
-      
-        
-          var nextParent = null;
-          children = parent.children;
-          for (var i=0; i<children.length; i++) {
-            if(children[i].name === 'cloudify_2_index') {
-              nextParent = children[i];
-            }
-          }
-          if(nextParent === null) {
-            nextParent = {
-              'name': 'cloudify_2_index',
-              'title': '-',
-              'children': [],
-              'collapsed': true
-            };
-            parent.children.push(nextParent);
-          }
-          parent = nextParent;
-        
-
-        children = parent.children;
-        // try to find the node if exists already
-        node = null;
-        for (var i=0; i<children.length; i++) {
-          if(children[i].name === 'cloudify_2_install') {
-            node = children[i];
-          }
-        }
-        if(node === null) {
-          node = {
-            'children': [],
-            'collapsed': true
-          };
-          children.push(node);
-        }
-      
-
-      node.name = "cloudify_2_install";
-      node.title = "Installing and configuring";
-      node.url = "documentation/1.1.0/cloudify2_driver/install_config.html";
-      node.weight =  2000;
-      node.root = "../../";
-    
   
     
   
@@ -7864,6 +7821,53 @@ var node, children;
           var nextParent = null;
           children = parent.children;
           for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'cloudify_2_index') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'cloudify_2_index',
+              'title': '-',
+              'children': [],
+              'collapsed': true
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+
+        children = parent.children;
+        // try to find the node if exists already
+        node = null;
+        for (var i=0; i<children.length; i++) {
+          if(children[i].name === 'cloudify_2_install') {
+            node = children[i];
+          }
+        }
+        if(node === null) {
+          node = {
+            'children': [],
+            'collapsed': true
+          };
+          children.push(node);
+        }
+      
+
+      node.name = "cloudify_2_install";
+      node.title = "Installing and configuring";
+      node.url = "documentation/1.1.0/cloudify2_driver/install_config.html";
+      node.weight =  2000;
+      node.root = "../../";
+    
+  
+    
+      var parent = sidebarTree["DOCUMENTATION-1.1.0"];
+      
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
             if(children[i].name === 'admin') {
               nextParent = children[i];
             }
@@ -7902,8 +7906,6 @@ var node, children;
       node.url = "documentation/1.1.0/admin_guide/installation_configuration.html";
       node.weight =  10;
       node.root = "../../";
-    
-  
     
   
     
@@ -7994,6 +7996,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.1.0"];
       
         
@@ -8038,6 +8042,8 @@ var node, children;
       node.url = "documentation/1.1.0/devops_guide/lamp_stack_tutorial/lamp_stack.html";
       node.weight =  400;
       node.root = "../../";
+    
+  
     
   
     
@@ -8172,8 +8178,6 @@ var node, children;
       node.url = "documentation/1.1.0/devops_guide/lamp_stack_tutorial/lamp_stack_application.html";
       node.weight =  800;
       node.root = "../../";
-    
-  
     
   
     
@@ -8445,6 +8449,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.1.0"];
       
         
@@ -8510,10 +8516,6 @@ var node, children;
     
   
     
-  
-    
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.1.0"];
       
         
@@ -8576,6 +8578,10 @@ var node, children;
       node.url = "documentation/1.1.0/cloudify2_driver/lifecycle_spec.html";
       node.weight =  200;
       node.root = "../../";
+    
+  
+    
+  
     
   
     
@@ -8677,8 +8683,6 @@ var node, children;
       node.url = "documentation/1.1.0/devops_guide/tosca_grammar/node_template.html";
       node.weight =  300;
       node.root = "../../../";
-    
-  
     
   
     
@@ -8919,8 +8923,6 @@ var node, children;
     
   
     
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.1.0"];
       
         
@@ -8983,6 +8985,10 @@ var node, children;
       node.url = "documentation/1.1.0/cloudify2_driver/other_interfaces.html";
       node.weight =  300;
       node.root = "../../";
+    
+  
+    
+  
     
   
     
@@ -9073,10 +9079,6 @@ var node, children;
     
   
     
-  
-    
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.1.0"];
       
         
@@ -9121,6 +9123,8 @@ var node, children;
       node.url = "documentation/1.1.0/user_guide/plugin_management.html";
       node.weight =  75;
       node.root = "../../";
+    
+  
     
   
     
@@ -9237,6 +9241,55 @@ var node, children;
           var nextParent = null;
           children = parent.children;
           for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'cloudify_3_index') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'cloudify_3_index',
+              'title': '-',
+              'children': [],
+              'collapsed': true
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+
+        children = parent.children;
+        // try to find the node if exists already
+        node = null;
+        for (var i=0; i<children.length; i++) {
+          if(children[i].name === 'cloudify_3_prerequisites') {
+            node = children[i];
+          }
+        }
+        if(node === null) {
+          node = {
+            'children': [],
+            'collapsed': true
+          };
+          children.push(node);
+        }
+      
+
+      node.name = "cloudify_3_prerequisites";
+      node.title = "Prerequisites";
+      node.url = "documentation/1.1.0/cloudify3_driver/prerequisites.html";
+      node.weight =  1000;
+      node.root = "../../";
+    
+  
+    
+  
+    
+      var parent = sidebarTree["DOCUMENTATION-1.1.0"];
+      
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
             if(children[i].name === 'cloudify_2_index') {
               nextParent = children[i];
             }
@@ -9277,55 +9330,6 @@ var node, children;
       node.root = "../../";
     
   
-    
-  
-    
-  
-    
-      var parent = sidebarTree["DOCUMENTATION-1.1.0"];
-      
-        
-          var nextParent = null;
-          children = parent.children;
-          for (var i=0; i<children.length; i++) {
-            if(children[i].name === 'cloudify_3_index') {
-              nextParent = children[i];
-            }
-          }
-          if(nextParent === null) {
-            nextParent = {
-              'name': 'cloudify_3_index',
-              'title': '-',
-              'children': [],
-              'collapsed': true
-            };
-            parent.children.push(nextParent);
-          }
-          parent = nextParent;
-        
-
-        children = parent.children;
-        // try to find the node if exists already
-        node = null;
-        for (var i=0; i<children.length; i++) {
-          if(children[i].name === 'cloudify_3_prerequisites') {
-            node = children[i];
-          }
-        }
-        if(node === null) {
-          node = {
-            'children': [],
-            'collapsed': true
-          };
-          children.push(node);
-        }
-      
-
-      node.name = "cloudify_3_prerequisites";
-      node.title = "Prerequisites";
-      node.url = "documentation/1.1.0/cloudify3_driver/prerequisites.html";
-      node.weight =  1000;
-      node.root = "../../";
     
   
     
@@ -9414,6 +9418,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.1.0"];
       
         
@@ -9494,8 +9500,6 @@ var node, children;
       node.url = "documentation/1.1.0/devops_guide/tosca_grammar/relationship_type.html";
       node.weight =  400;
       node.root = "../../../";
-    
-  
     
   
     
@@ -9755,6 +9759,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.1.0"];
       
         
@@ -9817,10 +9823,6 @@ var node, children;
       node.url = "documentation/1.1.0/devops_guide/design_tutorial/snapshot_topology_test_jenkins_plugin.html";
       node.weight =  400;
       node.root = "../../";
-    
-  
-    
-  
     
   
     
@@ -10085,6 +10087,10 @@ var node, children;
     
   
     
+  
+    
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.1.0"];
       
         
@@ -10165,8 +10171,6 @@ var node, children;
       node.url = "documentation/1.1.0/devops_guide/tosca_grammar/topology_template.html";
       node.weight =  300;
       node.root = "../../../";
-    
-  
     
   
     
@@ -10290,6 +10294,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.1.0"];
       
         
@@ -10334,8 +10340,6 @@ var node, children;
       node.url = "documentation/1.1.0/devops_guide/tosca_concepts.html";
       node.weight =  400;
       node.root = "../../";
-    
-  
     
   
     
@@ -10558,6 +10562,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.1.0"];
       
         
@@ -10734,10 +10740,6 @@ var node, children;
     
   
     
-  
-    
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.1.0"];
       
         
@@ -10849,6 +10851,8 @@ var node, children;
       node.url = "documentation/1.1.0/devops_guide/design_tutorial/tutorials.html";
       node.weight =  500;
       node.root = "../../";
+    
+  
     
   
     
@@ -11447,7 +11451,7 @@ var node, children;
       node.name = "1.0.0-M3";
       node.title = "ALIEN for Cloud 1.0.0-M3";
       node.url = "release_notes/1.0.0-M3.html";
-      node.weight =  9993;
+      node.weight =  9992;
       node.root = "../";
     
   
@@ -11494,7 +11498,7 @@ var node, children;
       node.name = "1.0.0-RC1";
       node.title = "ALIEN for Cloud 1.0.0-RC1";
       node.url = "release_notes/1.0.0-RC1.html";
-      node.weight =  9982;
+      node.weight =  9991;
       node.root = "../";
     
   
@@ -11541,7 +11545,7 @@ var node, children;
       node.name = "1.0.0-SM18";
       node.title = "ALIEN for Cloud 1.0.0-SM18";
       node.url = "release_notes/1.0.0-SM18.html";
-      node.weight =  9992;
+      node.weight =  9990;
       node.root = "../";
     
   
@@ -11588,7 +11592,7 @@ var node, children;
       node.name = "1.0.0-SM19";
       node.title = "ALIEN for Cloud 1.0.0-SM19";
       node.url = "release_notes/1.0.0-SM19.html";
-      node.weight =  9991;
+      node.weight =  9989;
       node.root = "../";
     
   
@@ -11635,7 +11639,7 @@ var node, children;
       node.name = "1.0.0-SM20";
       node.title = "ALIEN for Cloud 1.0.0-SM20";
       node.url = "release_notes/1.0.0-SM20.html";
-      node.weight =  9990;
+      node.weight =  9988;
       node.root = "../";
     
   
@@ -11682,7 +11686,7 @@ var node, children;
       node.name = "1.0.0-SM21";
       node.title = "ALIEN for Cloud 1.0.0-SM21";
       node.url = "release_notes/1.0.0-SM21.html";
-      node.weight =  9989;
+      node.weight =  9987;
       node.root = "../";
     
   
@@ -11729,7 +11733,7 @@ var node, children;
       node.name = "1.0.0-SM22";
       node.title = "ALIEN for Cloud 1.0.0-SM22";
       node.url = "release_notes/1.0.0-SM22.html";
-      node.weight =  9988;
+      node.weight =  9986;
       node.root = "../";
     
   
@@ -11776,7 +11780,7 @@ var node, children;
       node.name = "1.0.0-SM23";
       node.title = "ALIEN for Cloud 1.0.0-SM23";
       node.url = "release_notes/1.0.0-SM23.html";
-      node.weight =  9987;
+      node.weight =  9985;
       node.root = "../";
     
   
@@ -11823,7 +11827,7 @@ var node, children;
       node.name = "1.0.0-SM24";
       node.title = "ALIEN for Cloud 1.0.0-SM24";
       node.url = "release_notes/1.0.0-SM24.html";
-      node.weight =  9986;
+      node.weight =  9984;
       node.root = "../";
     
   
@@ -11870,7 +11874,7 @@ var node, children;
       node.name = "1.0.0-SM25";
       node.title = "ALIEN for Cloud 1.0.0-SM25";
       node.url = "release_notes/1.0.0-SM25.html";
-      node.weight =  9985;
+      node.weight =  9983;
       node.root = "../";
     
   
@@ -11917,7 +11921,7 @@ var node, children;
       node.name = "1.0.0-SM26";
       node.title = "ALIEN for Cloud 1.0.0-SM26";
       node.url = "release_notes/1.0.0-SM26.html";
-      node.weight =  9984;
+      node.weight =  9982;
       node.root = "../";
     
   
@@ -11964,7 +11968,7 @@ var node, children;
       node.name = "1.0.0-SM27";
       node.title = "ALIEN for Cloud 1.0.0-SM27";
       node.url = "release_notes/1.0.0-SM27.html";
-      node.weight =  9983;
+      node.weight =  9981;
       node.root = "../";
     
   
@@ -12011,7 +12015,7 @@ var node, children;
       node.name = "1.0.0";
       node.title = "ALIEN for Cloud 1.0.0";
       node.url = "release_notes/1.0.0.html";
-      node.weight =  9981;
+      node.weight =  9993;
       node.root = "../";
     
   
@@ -12110,17 +12114,50 @@ var node, children;
     
   
     
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
+      var parent = sidebarTree["RELEASE_NOTES"];
+      
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'release_note') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'release_note',
+              'title': '-',
+              'children': [],
+              'collapsed': true
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+
+        children = parent.children;
+        // try to find the node if exists already
+        node = null;
+        for (var i=0; i<children.length; i++) {
+          if(children[i].name === '1.1.0-SM3') {
+            node = children[i];
+          }
+        }
+        if(node === null) {
+          node = {
+            'children': [],
+            'collapsed': true
+          };
+          children.push(node);
+        }
+      
+
+      node.name = "1.1.0-SM3";
+      node.title = "ALIEN for Cloud 1.1.0-SM3";
+      node.url = "release_notes/1.1.0-SM3.html";
+      node.weight =  9978;
+      node.root = "../";
     
   
     
@@ -12270,6 +12307,20 @@ var node, children;
       node.url = "release_notes/index.html";
       node.weight =  0;
       node.root = "../";
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
     
   
     
@@ -12695,8 +12746,6 @@ var node, children;
     
   
     
-  
-    
       var parent = sidebarTree["DEVELOPER_GUIDE"];
       
         node = parent;
@@ -12707,6 +12756,10 @@ var node, children;
       node.url = "developer_guide/index.html";
       node.weight =  0;
       node.root = "../";
+    
+  
+    
+  
     
   
     
@@ -13039,6 +13092,8 @@ var node, children;
     'collapsed': true
   };
 
+  
+    
   
     
   
