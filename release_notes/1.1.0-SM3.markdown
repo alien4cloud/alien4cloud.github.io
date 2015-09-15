@@ -22,7 +22,7 @@ exclude_from_search: true
   {: .table .table-bordered}
   | Type        | Id         | Description |
   |:------------|:-----------|:------------|
-      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-1101 | Documentation improvements. /  |
+        |  <i class="fa fa-level-up text-primary"></i> | ALIEN-1101 | Documentation improvements.  |
     
 
 
@@ -33,15 +33,15 @@ exclude_from_search: true
   {: .table .table-bordered}
   | Type        | Id         | Description |
   |:------------|:-----------|:------------|
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-1018 | It is now possible to filter applications to display deployed applications before others. /  |
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-1076 | Git import is now able to manage correctly repositories that contains several archives with dependencies between them. /  |
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-1077 | It is now possible to keep a the git repository after import so the next import will use git pull instead of a fresh checkout and will trigger the import flow only when there is indeed updates from the last import. /  |
-      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-662 | Application list is now displayed as a table to improve space usage on small displays. /  |
-    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-733 | Description of operations are now displayed on the runtime view /  |
-    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-1085 | Description of a relationship or capability property is now displayed. /  |
-    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-1101 | Documentation improvements. /  |
-      |  <i class="fa fa-bug text-danger"></i> | ALIEN-862 | Deployed applications can not be deleted anymore. /  |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1081 | UI vertical navigation bar now displays only elements that user are authorized to access. /  |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1091 | Fixed an issue that caused an error in topology validation when a non required property was reset to null default. /  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-1018 | It is now possible to filter applications to display deployed applications before others.  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-1076 | Git import is now able to manage correctly repositories that contains several archives with dependencies between them.  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-1077 | It is now possible to keep a the git repository after import so the next import will use git pull instead of a fresh checkout and will trigger the import flow only when there is indeed updates from the last import.  |
+        |  <i class="fa fa-level-up text-primary"></i> | ALIEN-662 | Application list is now displayed as a table to improve space usage on small displays.  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-733 | Description of operations are now displayed on the runtime view  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-1085 | Description of a relationship or capability property is now displayed.  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-1101 | Documentation improvements.  |
+      |  <i class="fa fa-bug text-danger"></i> | ALIEN-862 | Deployed applications can not be deleted anymore.  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1081 | UI vertical navigation bar now displays only elements that user are authorized to access.  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1091 | Fixed an issue that caused an error in topology validation when a non required property was reset to null default.  |
   
 

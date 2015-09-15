@@ -22,7 +22,7 @@ exclude_from_search: true
   {: .table .table-bordered}
   | Type        | Id         | Description |
   |:------------|:-----------|:------------|
-      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-1007 | Documentation improvements. /  |
+        |  <i class="fa fa-level-up text-primary"></i> | ALIEN-1007 | Documentation improvements.  |
     
 
 
@@ -33,17 +33,17 @@ exclude_from_search: true
   {: .table .table-bordered}
   | Type        | Id         | Description |
   |:------------|:-----------|:------------|
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-1082 | It is now possible to edit a defined Git location to change url or credentials. /  |
-      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-729 | Improved the Topology rendering to be easier to read. /  |
-    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-768 | Improved readability of the relationships especially when a single component is selected. /  |
-    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-777 | Improved the automatic viewport update to make it more efficient and less intrusive on users selections. /  |
-    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-1073 | It is now possible to specify credentials to configure access to private git repositories. /  |
-    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-1075 | When creating a Git repository connection it is now possible to remove the branches and folders independently. /  |
-      |  <i class="fa fa-bug text-danger"></i> | ALIEN-678 | Fixed an issue in the ui plugin module and provide a sample plugin with ui on github. /  |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-929 | Fixed an issue that prevented to attach more than one block storage on a compute on runtime while designer allow you to do so. /  |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1038 | BockStorage properties are updated on runtime view (with a limitation making them appear as properties and not attribute) /  |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1048 | Fixed an issue causing the workflow view to fail when add source or add target operations where defined on a component. /  |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1061 | Fixed an issue on the deployment view causing topology validation not to be refreshed when the user changed the cloud (required for cloud meta properties validation). /  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-1082 | It is now possible to edit a defined Git location to change url or credentials.  |
+        |  <i class="fa fa-level-up text-primary"></i> | ALIEN-729 | Improved the Topology rendering to be easier to read.  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-768 | Improved readability of the relationships especially when a single component is selected.  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-777 | Improved the automatic viewport update to make it more efficient and less intrusive on users selections.  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-1073 | It is now possible to specify credentials to configure access to private git repositories.  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-1075 | When creating a Git repository connection it is now possible to remove the branches and folders independently.  |
+      |  <i class="fa fa-bug text-danger"></i> | ALIEN-678 | Fixed an issue in the ui plugin module and provide a sample plugin with ui on github.  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-929 | Fixed an issue that prevented to attach more than one block storage on a compute on runtime while designer allow you to do so.  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1038 | BockStorage properties are updated on runtime view (with a limitation making them appear as properties and not attribute)  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1048 | Fixed an issue causing the workflow view to fail when add source or add target operations where defined on a component.  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1061 | Fixed an issue on the deployment view causing topology validation not to be refreshed when the user changed the cloud (required for cloud meta properties validation).  |
   
 
 
@@ -54,9 +54,9 @@ exclude_from_search: true
   {: .table .table-bordered}
   | Type        | Id         | Description |
   |:------------|:-----------|:------------|
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-1036 | When deploying with cloudify 3 you can now defined if you want to delete or not the block storage when underlying the topology. /  |
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-1037 | It is now possible to use get_property on capabilities and requirements for cloudify 3. /  |
-        |  <i class="fa fa-bug text-danger"></i> | ALIEN-929 | Fixed an issue that prevented to attach more than one block storage on a compute on runtime while designer allow you to do so. /  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-1036 | When deploying with cloudify 3 you can now defined if you want to delete or not the block storage when underlying the topology.  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-1037 | It is now possible to use get_property on capabilities and requirements for cloudify 3.  |
+          |  <i class="fa fa-bug text-danger"></i> | ALIEN-929 | Fixed an issue that prevented to attach more than one block storage on a compute on runtime while designer allow you to do so.  |
   
 
 
@@ -67,9 +67,9 @@ exclude_from_search: true
   {: .table .table-bordered}
   | Type        | Id         | Description |
   |:------------|:-----------|:------------|
-        |  <i class="fa fa-bug text-danger"></i> | ALIEN-929 | Fixed an issue that prevented to attach more than one block storage on a compute on runtime while designer allow you to do so. /  |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-977 | Fixed an issue causing the cloudify 2 driver to loose some events under specific circumstances and time shift between the alien server and the cloudify manager server. /  |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1039 | Fixed an issue in the maintenance mode status in cloudify 2 provider. /  |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1079 | Fixed an issue in H.A. management for cloudify 2 provider. /  |
+          |  <i class="fa fa-bug text-danger"></i> | ALIEN-929 | Fixed an issue that prevented to attach more than one block storage on a compute on runtime while designer allow you to do so.  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-977 | Fixed an issue causing the cloudify 2 driver to loose some events under specific circumstances and time shift between the alien server and the cloudify manager server.  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1039 | Fixed an issue in the maintenance mode status in cloudify 2 provider.  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1079 | Fixed an issue in H.A. management for cloudify 2 provider.  |
   
 
