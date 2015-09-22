@@ -123,6 +123,9 @@ path:
 {% endhighlight %}
 
 ## Configure a remote Elastic Search (throw a no data node)
+{% info %}
+Please note that you are encouraged to use the same version on client and cluster sides. You may hit some incompatibility issues when mixing major versions.
+{% endinfo %}
 
 In order to configure a remote Elastic Search, you should edit the following:
 
