@@ -34,13 +34,17 @@ cloudPassword=<cdfy_password>
 
 * Locate the line
 {%highlight sh%}
-	cat <(crontab -l) <(echo "@reboot export EXT_JAVA_OPTIONS=$EXT_JAVA_OPTIONS; nohup ~/gigaspaces/tools/cli/cloudify.sh $START_COMMAND $START_COMMAND_ARGS") | crontab -
+  cat <(crontab -l) <(echo "@reboot export EXT_JAVA_OPTIONS=$EXT_JAVA_OPTIONS; nohup ~/gigaspaces/tools/cli/cloudify.sh $START_COMMAND $START_COMMAND_ARGS") | crontab -
 {%endhighlight%}
 * Right after that line, add the following snippet
 {%highlight sh%}
-	if [ "$GSA_MODE" = "lus" ]; then
-		cat <(crontab -l) <(echo "@reboot export LUS_IP_ADDRESS=$LUS_IP_ADDRESS; chmod +x ${WORKING_HOME_DIRECTORY}/../events/bin/gsDeployEventsWar.sh; nohup ${WORKING_HOME_DIRECTORY}/../events/bin/gsDeployEventsWar.sh ") | crontab -
-	fi
+  if [ "$GSA_MODE" = "lus" ]; then
+    exportJavaHome=""
+    if [ ! -z ${JAVA_HOME} ]; then
+      exportJavaHome="export JAVA_HOME=${JAVA_HOME}; "
+    fi
+    cat <(crontab -l) <(echo "@reboot ${exportJavaHome} export LUS_IP_ADDRESS=$LUS_IP_ADDRESS; chmod +x ${WORKING_HOME_DIRECTORY}/events/bin/gsDeployEventsWar.sh; nohup ${WORKING_HOME_DIRECTORY}/events/bin/gsDeployEventsWar.sh") | crontab -
+  fi
 {%endhighlight%}
 
 * Locate the line
