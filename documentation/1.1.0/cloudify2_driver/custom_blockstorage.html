@@ -8,10 +8,10 @@
     
         <h1 style="margin-top: 0px;">Customised Blockstorage</h1>
         <div class="note warning">
-<p>Note that the driver only supports groovy scripts for all these scripts.  </p>
+<p>Note that the driver only supports groovy scripts for all these scripts.</p>
 </div>
 
-<p>Some times you might need to provide your own way to manage the storage lifecycle. This is for example if you have a custom way to create, attach, format, mount it. For that, you can provide every node of type <code>tosca.nodes.BlockStorage</code> with the <code>lifcycle</code> operation <strong><code>create</code></strong> and <strong><code>configure</code></strong>. And for the destroy process, you&#8217;ll use the <strong><code>delete</code></strong> operation.</p>
+<p>Some times you might need to provide your own way to manage the storage lifecycle. This is for example if you have a custom way to create, attach, format, mount it. For that, you can provide every node of type <code>tosca.nodes.BlockStorage</code> with the <code>lifcycle</code> operation <strong><code>create</code></strong> and <strong><code>configure</code></strong>. And for the destroy process, you’ll use the <strong><code>delete</code></strong> operation.</p>
 
 <div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">alien.test.nodes.UbuntuBlockStorage</span><span class="p-Indicator">:</span>
   <span class="l-Scalar-Plain">derived_from</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.nodes.BlockStorage</span>
@@ -25,7 +25,7 @@
   <span class="p-Indicator">[</span><span class="nv">...</span><span class="p-Indicator">]</span></code></pre></div>
 
 <h2 id="create-and-attach">Create and attach</h2>
-<p>Provide your custom way to <strong>create</strong> and <strong>attach</strong> the storage to your compute in the <strong><code>create</code></strong> TOSCA Standard&#8217;s operation. </p>
+<p>Provide your custom way to <strong>create</strong> and <strong>attach</strong> the storage to your compute in the <strong><code>create</code></strong> TOSCA Standard’s operation.</p>
 
 <h3 id="environment-variables">Environment variables</h3>
 <p>In addition to the provided base node environment variables <a href="#/documentation/1.1.0/cloudify2_driver/inputs_env_vars.html">SELF, HOST, SERVICE_NAME</a>:</p>
@@ -50,11 +50,11 @@
 </table>
 
 <h3 id="return">Return</h3>
-<p>The script must return a map &lt;String &#8211;&gt; String&gt; containing the keys:  </p>
+<p>The script must return a map &lt;String –&gt; String&gt; containing the keys:</p>
 
 <ul>
   <li><strong>volumeId</strong>: id of the created (or provided) volume,</li>
-  <li><strong>device</strong>: device name on which the volume is attached </li>
+  <li><strong>device</strong>: device name on which the volume is attached</li>
 </ul>
 
 <h3 id="example">Example</h3>
@@ -76,7 +76,7 @@
 <span class="k">return</span> <span class="o">[</span><span class="nl">volumeId:</span> <span class="n">volumeId</span><span class="o">,</span> <span class="nl">device:</span><span class="n">device</span><span class="o">]</span></code></pre></div>
 
 <h2 id="format-and-mount">Format and mount</h2>
-<p>Provide your custom way to <strong>format</strong> and <strong>mount</strong> the storage on your compute in the <strong><code>configure</code></strong> TOSCA Standard&#8217;s operation. </p>
+<p>Provide your custom way to <strong>format</strong> and <strong>mount</strong> the storage on your compute in the <strong><code>configure</code></strong> TOSCA Standard’s operation.</p>
 
 <h3 id="environment-variables-1">Environment variables</h3>
 <p>In addition to the provided base node environment variables <a href="#/documentation/1.1.0/cloudify2_driver/inputs_env_vars.html">SELF, HOST, SERVICE_NAME</a>:</p>
@@ -97,10 +97,10 @@
 </table>
 
 <h3 id="return-1">Return</h3>
-<p>The script must return a string value:  </p>
+<p>The script must return a string value:</p>
 
 <ul>
-  <li><strong>location</strong>: location path where the device is mounted on the compute </li>
+  <li><strong>location</strong>: location path where the device is mounted on the compute</li>
 </ul>
 
 <h3 id="example-1">Example</h3>
@@ -124,7 +124,7 @@
 <span class="k">return</span> <span class="n">location</span></code></pre></div>
 
 <h2 id="unmount-and-delete">Unmount and delete</h2>
-<p>Provide your custom way to <strong>unmount</strong> and/or <strong>delete</strong> the storage in the <strong><code>delete</code></strong> TOSCA Standard&#8217;s operation. </p>
+<p>Provide your custom way to <strong>unmount</strong> and/or <strong>delete</strong> the storage in the <strong><code>delete</code></strong> TOSCA Standard’s operation.</p>
 
 <h3 id="environment-variables-2">Environment variables</h3>
 <p>In addition to the provided base node environment variables <a href="#/documentation/1.1.0/cloudify2_driver/inputs_env_vars.html">SELF, HOST, SERVICE_NAME</a>:</p>
@@ -149,7 +149,7 @@
 </table>
 
 <h3 id="return-2">Return</h3>
-<p>No need to return anything for this script.  </p>
+<p>No need to return anything for this script.</p>
 
 <h3 id="example-2">Example</h3>
 
