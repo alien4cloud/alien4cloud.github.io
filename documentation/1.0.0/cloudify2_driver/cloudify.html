@@ -13,7 +13,7 @@
 
 <ol>
   <li>Make sure you have installed a Java JDK 1.6 or higher and set your JAVA_HOME properly. The recommended version is <a href="http://www.oracle.com/technetwork/java/javase/downloads/java-archive-downloads-javase7-521261.html#jdk-7u45-oth-JPR" title="JDK7u45 Download">JDK 7u45</a></li>
-  <li><a href="http://getcloudify.org/downloads/get_cloudify_2x.html">Download</a> and unzip the Cloudify distribution file.</li>
+  <li><a href="http://getcloudify.org/downloads/get_cloudify_2x.html">Download</a> and unzip the Cloudify distribution file.  </li>
 </ol>
 
 <p>Now for this driver to work, you have to customize your instaled Cloudify.</p>
@@ -32,7 +32,7 @@
 
 <ul>
   <li>create a file <code>events.properties</code> and place it either next or into the events folder</li>
-  <li>Edit it with the following entries (replace “cdfy_username” and “cdfy_password” by proper values):</li>
+  <li>Edit it with the following entries (replace “cdfy_username” and “cdfy_password” by proper values):  </li>
 </ul>
 
 <div class="highlight"><pre><code class="language-properties" data-lang="properties"><span class="na">cloudUsername</span><span class="o">=</span><span class="s">&lt;cdfy_username&gt;</span>
@@ -88,7 +88,7 @@
 <p>If you want to use cloudify in a persistent mode, you should override the cloulify management space:</p>
 
 <ul>
-  <li>in the configure section of your cloud (in the .groovy cloud configuration file)), set a value for the property <code>persistentStoragePath</code></li>
+  <li>in the configure section of your cloud (in the .groovy cloud configuration file)), set a value for the property <code>persistentStoragePath</code>  </li>
 </ul>
 
 <div class="highlight"><pre><code class="language-groovy" data-lang="groovy"><span class="n">cloud</span><span class="o">{</span>
@@ -103,14 +103,14 @@
 
 <ul>
   <li>Under the <code>upload</code> folder of your prefered cloud driver, create (if not exists) the path <code>cloudify-overrides/tools/management-space</code></li>
-  <li>Download the <a href="https://fastconnect.org/confluence/download/attachments/24478788/management-space.jar?api=v2" title="Custom management-space">custom management space jar</a> and store it into the newly created folder. Rename it if needed into <code>management-space.jar</code>.</li>
+  <li>Download the <a href="https://fastconnect.org/confluence/download/attachments/24478788/management-space.jar?api=v2" title="Custom management-space">custom management space jar</a> and store it into the newly created folder. Rename it if needed into <code>management-space.jar</code>.  </li>
 </ul>
 
 <h3 id="high-availability-ha">High Availability (HA)</h3>
 
 <p>Alien4Cloud has a feature which will allow him to manage HA deploiements: deploy an application on a cloud, but in more than one availability zone (AZ). Currently, it is not possible to generate cloudify compute templates customized with a particular AZ. Thus, you’ll have to defined them explicetelly in the cloudCompute templates section of your cloud configuration file.<br />
 First of all, you should make an inventory of all the AZ you want to be managed.<br />
-Then, For every template defined in the cloudCompute section of of your cloud, define a HA equivalent for every managed AZ. To do so:</p>
+Then, For every template defined in the cloudCompute section of of your cloud, define a HA equivalent for every managed AZ. To do so:  </p>
 
 <ol>
   <li>copy &amp; paste the template definition</li>
