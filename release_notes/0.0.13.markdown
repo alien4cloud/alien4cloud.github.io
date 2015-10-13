@@ -15,25 +15,6 @@ exclude_from_search: true
 <i class="fa fa-plus text-success"></i> New feature <i class="fa fa-level-up text-primary"></i> Improvement  <i class="fa fa-bug text-danger"></i> Bug <i class="fa fa-exclamation-triangle text-warning"></i> Breaking change
 
 
-### Alien 4 Cloud
-
-
-
-  {: .table .table-bordered}
-  | Type        | Id         | Description |
-  |:------------|:-----------|:------------|
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-392 | Application description can now be updated by the application manager.  |
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-397 | Architects can now update description for topology templates.  |
-        |  <i class="fa fa-level-up text-primary"></i> | ALIEN-380 | Testing improvements.  |
-    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-390 | When creating a new application the user is now redirected automatically to the application page.  |
-    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-405 | Improve navigation and role handling on client side.  |
-      |  <i class="fa fa-bug text-danger"></i> | ALIEN-395 | fixed an issue that causes runtime events lost when ALIEN was crashing  |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-402 | Runtime view for an application not working  |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-403 | Fixed a missing translation missing in application / users TAB  |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-409 | Fixed an issue with the display of output attributes.  |
-  
-
-
 ### Cloudify 2 PaaS Provider
 
 
@@ -41,8 +22,27 @@ exclude_from_search: true
   {: .table .table-bordered}
   | Type        | Id         | Description |
   |:------------|:-----------|:------------|
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-396 | Support of custom commands  |
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-401 | Full support of .sh script files  |
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-415 | render the result of a custom command execution  |
-        
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-396 | Support of custom commands /  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-401 | Full support of .sh script files /  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-415 | render the result of a custom command execution /  |
+      
+
+
+### Alien 4 Cloud
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-392 | Application description can now be updated by the application manager. /  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-397 | Architects can now update description for topology templates. /  |
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-380 | Testing improvements. /  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-390 | When creating a new application the user is now redirected automatically to the application page. /  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-405 | Improve navigation and role handling on client side. /  |
+      |  <i class="fa fa-bug text-danger"></i> | ALIEN-395 | fixed an issue that causes runtime events lost when ALIEN was crashing /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-402 | Runtime view for an application not working /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-403 | Fixed a missing translation missing in application / users TAB /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-409 | Fixed an issue with the display of output attributes. /  |
+  
 

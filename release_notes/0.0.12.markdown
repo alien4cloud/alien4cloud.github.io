@@ -15,38 +15,6 @@ exclude_from_search: true
 <i class="fa fa-plus text-success"></i> New feature <i class="fa fa-level-up text-primary"></i> Improvement  <i class="fa fa-bug text-danger"></i> Bug <i class="fa fa-exclamation-triangle text-warning"></i> Breaking change
 
 
-### Alien 4 Cloud
-
-
-
-  {: .table .table-bordered}
-  | Type        | Id         | Description |
-  |:------------|:-----------|:------------|
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-259 | Admin can now assign users and groups to a cloud to allow them to deploy on it.  |
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-314 | It is now possible to rename an existing topology template.  |
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-335 | Definition of relationships now supports Simple Profile in YAML wd02. It is possible to setup a relationship to use straight on the type. UI relationship editor takes this in account to automatically skip phases (still possible to override)  |
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-299 | $issue.description  |
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-328 | $issue.description  |
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-381 | Deployment/Start plan (workflow) is now displayed in the UI.  |
-        |  <i class="fa fa-level-up text-primary"></i> | ALIEN-264 | Hosted-On relationship creations is now easier, when editing a topology it is possible to drag and drop a contained element directly on it's host, the relationship modal is automatically opened.  |
-    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-310 | Plugin developers can now define constraints in the PaaS provider configuration or plugin configuration.  |
-    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-331 | Deployment properties defined on a PaaS provider have their constraints validated in the UI.  |
-    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-155 | $issue.description  |
-    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-312 | $issue.description  |
-    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-338 | In the runtime view, event window is readable even using small resolutions.  |
-    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-341 | Events are now sent through web sockets rather than polled.  |
-      |  <i class="fa fa-bug text-danger"></i> | ALIEN-283 | Download button in the UI now points to the latest version.  |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-330 | When updating group informations and the update fails (e-mail not correct for example) the ui was keeping the updated value. The old version (that is the one on server) is now reverted in the UI for more consistency.  |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-343 | Fixed topology template name unicity  |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-344 | An issue was removing deployment informations after an un-deployment. This is now fixed and admin can view informations on past-deployments.  |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-372 | Fixed a bug creating issues with CSAR dependencies management when uploading an archive.  |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-374 | Fixed an issue with plugins re-loading on windows. This is related to Classloader management in JVM.  |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-283 | Download button in the UI now points to the latest version.  |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-339 | Application user can now see application details page without issues.  |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-375 | Remove a user and related links in secured resources  |
-  
-
-
 ### Cloudify 2 PaaS Provider
 
 
@@ -54,9 +22,41 @@ exclude_from_search: true
   {: .table .table-bordered}
   | Type        | Id         | Description |
   |:------------|:-----------|:------------|
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-360 | Cloudify v2 Locators can now be provided if default implementation is not enough.  |
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-362 | Stop detections can now be provided to Cloudify2 driver  |
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-388 | Cloudify 2 PaaS Provider now supports restart events for automatic failure recovery.  |
-          |  <i class="fa fa-bug text-danger"></i> | ALIEN-361 | Integration of start detection script in the driver has been improved to be more respectful of cloudify mechanisms. This will allow to define timeout on operations later on.  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-360 | Cloudify v2 Locators can now be provided if default implementation is not enough. /  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-362 | Stop detections can now be provided to Cloudify2 driver /  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-388 | Cloudify 2 PaaS Provider now supports restart events for automatic failure recovery. /  |
+        |  <i class="fa fa-bug text-danger"></i> | ALIEN-361 | Integration of start detection script in the driver has been improved to be more respectful of cloudify mechanisms. This will allow to define timeout on operations later on. /  |
+  
+
+
+### Alien 4 Cloud
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-259 | Admin can now assign users and groups to a cloud to allow them to deploy on it. /  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-314 | It is now possible to rename an existing topology template. /  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-335 | Definition of relationships now supports Simple Profile in YAML wd02. It is possible to setup a relationship to use straight on the type. UI relationship editor takes this in account to automatically skip phases (still possible to override) /  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-299 | $issue.description /  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-328 | $issue.description /  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-381 | Deployment/Start plan (workflow) is now displayed in the UI. /  |
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-264 | Hosted-On relationship creations is now easier, when editing a topology it is possible to drag and drop a contained element directly on it's host, the relationship modal is automatically opened. /  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-310 | Plugin developers can now define constraints in the PaaS provider configuration or plugin configuration. /  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-331 | Deployment properties defined on a PaaS provider have their constraints validated in the UI. /  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-155 | $issue.description /  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-312 | $issue.description /  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-338 | In the runtime view, event window is readable even using small resolutions. /  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-341 | Events are now sent through web sockets rather than polled. /  |
+      |  <i class="fa fa-bug text-danger"></i> | ALIEN-283 | Download button in the UI now points to the latest version. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-330 | When updating group informations and the update fails (e-mail not correct for example) the ui was keeping the updated value. The old version (that is the one on server) is now reverted in the UI for more consistency. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-343 | Fixed topology template name unicity /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-344 | An issue was removing deployment informations after an un-deployment. This is now fixed and admin can view informations on past-deployments. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-372 | Fixed a bug creating issues with CSAR dependencies management when uploading an archive. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-374 | Fixed an issue with plugins re-loading on windows. This is related to Classloader management in JVM. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-283 | Download button in the UI now points to the latest version. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-339 | Application user can now see application details page without issues. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-375 | Remove a user and related links in secured resources /  |
   
 

@@ -15,6 +15,29 @@ exclude_from_search: true
 <i class="fa fa-plus text-success"></i> New feature <i class="fa fa-level-up text-primary"></i> Improvement  <i class="fa fa-bug text-danger"></i> Bug <i class="fa fa-exclamation-triangle text-warning"></i> Breaking change
 
 
+### Cloudify 2 PaaS Provider
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-889 | Cloudify 2 driver now manages availability zones for OpenStack and Amazon clouds. /  |
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-796 | Shell and batch scripts are now supported for custom commands /  |
+    
+
+
+### Cloudify 3 PaaS Provider
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-880 | Cloudify 3 provider now supports deployments with availability zones. /  |
+      
+
+
 ### Documentation
 
 
@@ -22,9 +45,9 @@ exclude_from_search: true
   {: .table .table-bordered}
   | Type        | Id         | Description |
   |:------------|:-----------|:------------|
-        |  <i class="fa fa-level-up text-primary"></i> | ALIEN-808 | Improved the getting started guide.  |
-    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-865 | Documentation improvement on naming policies.  |
-      |  <i class="fa fa-bug text-danger"></i> | ALIEN-775 | Fixed the url of REST api documentation in the product documentation.  |
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-808 | Improved the getting started guide. /  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-865 | Documentation improvement on naming policies. /  |
+      |  <i class="fa fa-bug text-danger"></i> | ALIEN-775 | Fixed the url of REST api documentation in the product documentation. /  |
   
 
 
@@ -35,49 +58,26 @@ exclude_from_search: true
   {: .table .table-bordered}
   | Type        | Id         | Description |
   |:------------|:-----------|:------------|
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-478 | It is now possible to parse groups from a TOSCA yaml.  |
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-881 | Admin can now configure availability zones on a cloud.  |
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-886 | It is now possible to match H.A. policies against availability zones in the deployment screen for clouds that supports them.  |
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-890 | Alien 4 Cloud now supports deployments of topologies using availability zones.  |
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-891 | Topology editor now allows the definition of groups and the addition of Compute nodes in the groups.  |
-        |  <i class="fa fa-level-up text-primary"></i> | ALIEN-610 | Version select on environment and topology edition screen now allows searching for a specific version.  |
-    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-745 | When creating a new application, the description of the selected compute template is now displayed.  |
-    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-747 | We now display the last version of an application in the editor.  |
-    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-830 | Matching of cloud resources has been improved so that matching of properties like os_distribution is not case sensitive anymore.  |
-    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-908 | Default deployment naming policy has been changed and is now AppName-EnvName instead of EnvName-AppName.  |
-    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-935 | We now display a meaningful error when an application environment has no version (on deploy page).  |
-      |  <i class="fa fa-bug text-danger"></i> | ALIEN-543 | Nodetemplate name doesn't accept "_" not to avoid errors on RHEL based linux. Note that had some bad feedback around this change as it doesn't matches TOSCA spec and it will be reverted. We will however replace _ by - at deployment of compute nodes.  |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-710 | Fixed some ui glitches on low resolution screens.  |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-741 | It is now impossible to remove the last admin user.  |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-763 | Fixed an issue that prevented removal of a user group.  |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-831 | It is now impossible to remove the last version of an application.  |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-856 | Fixed an issue that prevented to display the name and the loading bar when a user upload a new artifact on deployment view.  |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-872 | When using a meta property in the cloud naming policy the default values wasn't used (in case no value has been specified by user) this is now fixed.  |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-914 | Fixed an issue that caused an error on deployment when a property used in a script (get_property) was assigned through a get_input.  |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-915 | Fixed an issue that prevented to enable or disable Compute templates on the cloud configuration in case of multiple templates with the same imageID and flavorID.  |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-923 | When a user updates the value of a meta-property on the application detail view, the new value is correctly displayed.  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-478 | It is now possible to parse groups from a TOSCA yaml. /  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-881 | Admin can now configure availability zones on a cloud. /  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-886 | It is now possible to match H.A. policies against availability zones in the deployment screen for clouds that supports them. /  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-890 | Alien 4 Cloud now supports deployments of topologies using availability zones. /  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-891 | Topology editor now allows the definition of groups and the addition of Compute nodes in the groups. /  |
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-610 | Version select on environment and topology edition screen now allows searching for a specific version. /  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-745 | When creating a new application, the description of the selected compute template is now displayed. /  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-747 | We now display the last version of an application in the editor. /  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-830 | Matching of cloud resources has been improved so that matching of properties like os_distribution is not case sensitive anymore. /  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-908 | Default deployment naming policy has been changed and is now AppName-EnvName instead of EnvName-AppName. /  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-935 | We now display a meaningful error when an application environment has no version (on deploy page). /  |
+      |  <i class="fa fa-bug text-danger"></i> | ALIEN-543 | Nodetemplate name doesn't accept "_" not to avoid errors on RHEL based linux. Note that had some bad feedback around this change as it doesn't matches TOSCA spec and it will be reverted. We will however replace _ by - at deployment of compute nodes. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-710 | Fixed some ui glitches on low resolution screens. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-741 | It is now impossible to remove the last admin user. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-763 | Fixed an issue that prevented removal of a user group. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-831 | It is now impossible to remove the last version of an application. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-856 | Fixed an issue that prevented to display the name and the loading bar when a user upload a new artifact on deployment view. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-872 | When using a meta property in the cloud naming policy the default values wasn't used (in case no value has been specified by user) this is now fixed. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-914 | Fixed an issue that caused an error on deployment when a property used in a script (get_property) was assigned through a get_input. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-915 | Fixed an issue that prevented to enable or disable Compute templates on the cloud configuration in case of multiple templates with the same imageID and flavorID. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-923 | When a user updates the value of a meta-property on the application detail view, the new value is correctly displayed. /  |
   
-
-
-### Cloudify 3 PaaS Provider
-
-
-
-  {: .table .table-bordered}
-  | Type        | Id         | Description |
-  |:------------|:-----------|:------------|
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-880 | Cloudify 3 provider now supports deployments with availability zones.  |
-        
-
-
-### Cloudify 2 PaaS Provider
-
-
-
-  {: .table .table-bordered}
-  | Type        | Id         | Description |
-  |:------------|:-----------|:------------|
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-889 | Cloudify 2 driver now manages availability zones for OpenStack and Amazon clouds.  |
-        |  <i class="fa fa-level-up text-primary"></i> | ALIEN-796 | Shell and batch scripts are now supported for custom commands  |
-    
 

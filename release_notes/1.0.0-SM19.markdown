@@ -15,21 +15,18 @@ exclude_from_search: true
 <i class="fa fa-plus text-success"></i> New feature <i class="fa fa-level-up text-primary"></i> Improvement  <i class="fa fa-bug text-danger"></i> Bug <i class="fa fa-exclamation-triangle text-warning"></i> Breaking change
 
 
-### Alien 4 Cloud
+### Cloudify 2 PaaS Provider
 
 
 
   {: .table .table-bordered}
   | Type        | Id         | Description |
   |:------------|:-----------|:------------|
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-519 | Deployments are now managed per environment.  |
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-539 | LDAP configuration now allows optional definition of rôles in LDAP rather than Alien 4 Cloud for LDAP users.  |
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-574 | Applications can now have multiple versions that can be managed from the UI by application managers or admin  |
-        |  <i class="fa fa-level-up text-primary"></i> | ALIEN-621 | Workflow view is now visible from the Topology view and available in both Applications and Topology template views.  |
-      |  <i class="fa fa-bug text-danger"></i> | ALIEN-266 | Fix issues in components inheritance when parent type is in a different archive than child type.  |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-266 | Fix issues in components inheritance when parent type is in a different archive than child type.  |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-583 | Fixed a bug that prevented node types to contains more than 3 dots in their name (alien.node.cloudify.Tomcat for example)  |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-611 | Fixed issues when removing a CSAR from Alien (Add usage validations, delete artifacts from disk, update available versions in index)  |
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-600 | TOSCA SOURCES / TARGETS env var are now available in a relationship script. Also, inputs for other sources / targets of a relationship are now available folowing the TOSCA Simple Profile in YAML. /  |
+      |  <i class="fa fa-bug text-danger"></i> | ALIEN-266 | Fix issues in components inheritance when parent type is in a different archive than child type. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-266 | Fix issues in components inheritance when parent type is in a different archive than child type. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-537 | Fixed an issue that prevented cloudify REST API errors to be logged in the console. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-615 | Fixed an Issue that required deployment artifacts of type file to start with a "/". /  |
   
 
 
@@ -40,22 +37,25 @@ exclude_from_search: true
   {: .table .table-bordered}
   | Type        | Id         | Description |
   |:------------|:-----------|:------------|
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-591 | Cloudify 3 provider is able to manage get_attribute and get_properties functions.  |
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-594 | Cloudify 3 provider is able to generate public IP for compute nodes when configured on a public network.  |
-        
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-591 | Cloudify 3 provider is able to manage get_attribute and get_properties functions. /  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-594 | Cloudify 3 provider is able to generate public IP for compute nodes when configured on a public network. /  |
+      
 
 
-### Cloudify 2 PaaS Provider
+### Alien 4 Cloud
 
 
 
   {: .table .table-bordered}
   | Type        | Id         | Description |
   |:------------|:-----------|:------------|
-        |  <i class="fa fa-level-up text-primary"></i> | ALIEN-600 | TOSCA SOURCES / TARGETS env var are now available in a relationship script. Also, inputs for other sources / targets of a relationship are now available folowing the TOSCA Simple Profile in YAML.  |
-      |  <i class="fa fa-bug text-danger"></i> | ALIEN-266 | Fix issues in components inheritance when parent type is in a different archive than child type.  |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-266 | Fix issues in components inheritance when parent type is in a different archive than child type.  |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-537 | Fixed an issue that prevented cloudify REST API errors to be logged in the console.  |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-615 | Fixed an Issue that required deployment artifacts of type file to start with a "/".  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-519 | Deployments are now managed per environment. /  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-539 | LDAP configuration now allows optional definition of rôles in LDAP rather than Alien 4 Cloud for LDAP users. /  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-574 | Applications can now have multiple versions that can be managed from the UI by application managers or admin /  |
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-621 | Workflow view is now visible from the Topology view and available in both Applications and Topology template views. /  |
+      |  <i class="fa fa-bug text-danger"></i> | ALIEN-266 | Fix issues in components inheritance when parent type is in a different archive than child type. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-266 | Fix issues in components inheritance when parent type is in a different archive than child type. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-583 | Fixed a bug that prevented node types to contains more than 3 dots in their name (alien.node.cloudify.Tomcat for example) /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-611 | Fixed issues when removing a CSAR from Alien (Add usage validations, delete artifacts from disk, update available versions in index) /  |
   
 
