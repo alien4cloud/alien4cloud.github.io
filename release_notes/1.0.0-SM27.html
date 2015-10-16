@@ -9,85 +9,6 @@
         <h1 style="margin-top: 0px;">ALIEN for Cloud 1.0.0-SM27</h1>
         <p><i class="fa fa-plus text-success"></i> New feature <i class="fa fa-level-up text-primary"></i> Improvement  <i class="fa fa-bug text-danger"></i> Bug <i class="fa fa-exclamation-triangle text-warning"></i> Breaking change</p>
 
-<h3 id="alien-4-cloud">Alien 4 Cloud</h3>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th style="text-align: left">Type</th>
-      <th style="text-align: left">Id</th>
-      <th style="text-align: left">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><i class="fa fa-plus text-success"></i></td>
-      <td style="text-align: left">ALIEN-863</td>
-      <td style="text-align: left">Admin can now stop a cloud even if the cloud is used by some applications.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><i class="fa fa-plus text-success"></i></td>
-      <td style="text-align: left">ALIEN-928</td>
-      <td style="text-align: left">Scalability being now defined from the Scalable capability, it is possible to configure them as input properties so the user can configure them before deployment.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><i class="fa fa-plus text-success"></i></td>
-      <td style="text-align: left">ALIEN-931</td>
-      <td style="text-align: left">When a user delete a CSAR from the repository and the CSAR is used by other CSARs or Topologies we now display an error message that list the usages.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
-      <td style="text-align: left">ALIEN-739</td>
-      <td style="text-align: left">We now use a proper logger in the generated cloudify recipe with many logs in debug level and provide it to users also.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
-      <td style="text-align: left">ALIEN-878</td>
-      <td style="text-align: left">We now leverage the Scalable capability of compute to setup scalability for compute nodes. It is now possible to defined a scalable property in the YAML and it will be correctly managed by a4c.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
-      <td style="text-align: left">ALIEN-968</td>
-      <td style="text-align: left">Users can now reset the values of properties or artifacts to their default.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
-      <td style="text-align: left">ALIEN-983</td>
-      <td style="text-align: left">Login and password inputs now have placeholders.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
-      <td style="text-align: left">ALIEN-986</td>
-      <td style="text-align: left">Improve the handling of get_operation_outputs so that attributes configured with a get_operation_output can be accessed by operations of a topology and not only used as topology outputs.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
-      <td style="text-align: left">ALIEN-1029</td>
-      <td style="text-align: left">Improve the packaging of the Events processing unit so the login/password infos are not being copied on every nodes but only the management node.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><i class="fa fa-exclamation-triangle text-warning">  <i class="fa fa-bug text-danger"></i></i></td>
-      <td style="text-align: left">ALIEN-851</td>
-      <td style="text-align: left">Fixed an issue in the REST API create environment operation that had a security leak (application id was asked both in path and request can could be different allowing users to perform operations on applications on which they had no rights).</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
-      <td style="text-align: left">ALIEN-958</td>
-      <td style="text-align: left">It is now possible to use again _ in node names. Known limitation: Cloudify 2 driver will automatically rename the nodes but won’t support multiple nodes with similar patterns (toto-1 or toto_1 are considered as same node by the driver).</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
-      <td style="text-align: left">ALIEN-1003</td>
-      <td style="text-align: left">It is now possible to reset mandatory properties to their default (or blank) even if it has been set previously (thanks to the reset to default feature).</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
-      <td style="text-align: left">ALIEN-1016</td>
-      <td style="text-align: left">Fixed an issue introduced in SM26 with the handling of get_operation_output causing null pointer exception when no echo was returned by an operation.</td>
-    </tr>
-  </tbody>
-</table>
-
 <h3 id="cloudify-2-paas-provider">Cloudify 2 PaaS Provider</h3>
 
 <table class="table table-bordered">
@@ -102,32 +23,111 @@
     <tr>
       <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
       <td style="text-align: left">ALIEN-986</td>
-      <td style="text-align: left">Improve the handling of get_operation_outputs so that attributes configured with a get_operation_output can be accessed by operations of a topology and not only used as topology outputs.</td>
+      <td style="text-align: left">Improve the handling of get_operation_outputs so that attributes configured with a get_operation_output can be accessed by operations of a topology and not only used as topology outputs. /</td>
     </tr>
     <tr>
       <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
       <td style="text-align: left">ALIEN-1009</td>
-      <td style="text-align: left">It is now possible to set the Cloudify 2 driver log level before deploying an application.</td>
+      <td style="text-align: left">It is now possible to set the Cloudify 2 driver log level before deploying an application. /</td>
     </tr>
     <tr>
       <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
       <td style="text-align: left">ALIEN-955</td>
-      <td style="text-align: left">Fixed an issue causing start process to stay alive even after the un-deployment of the application.</td>
+      <td style="text-align: left">Fixed an issue causing start process to stay alive even after the un-deployment of the application. /</td>
     </tr>
     <tr>
       <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
       <td style="text-align: left">ALIEN-1006</td>
-      <td style="text-align: left">Fixed an issue in the application status in case an exception was thrown by a groovy script in the application startup. Not correctly failing.</td>
+      <td style="text-align: left">Fixed an issue in the application status in case an exception was thrown by a groovy script in the application startup. Not correctly failing. /</td>
     </tr>
     <tr>
       <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
       <td style="text-align: left">ALIEN-1008</td>
-      <td style="text-align: left">Fixed an issue causing the start event to be triggered before the start operation was actually finished to be processed.</td>
+      <td style="text-align: left">Fixed an issue causing the start event to be triggered before the start operation was actually finished to be processed. /</td>
     </tr>
     <tr>
       <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
       <td style="text-align: left">ALIEN-1019</td>
-      <td style="text-align: left">Fixed an issue introduced in SM26 on the communication with the cloudify manager: “Invalid use of BasicClientConnManager: connection still allocated”.</td>
+      <td style="text-align: left">Fixed an issue introduced in SM26 on the communication with the cloudify manager: “Invalid use of BasicClientConnManager: connection still allocated”. /</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="alien-4-cloud">Alien 4 Cloud</h3>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Id</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-plus text-success"></i></td>
+      <td style="text-align: left">ALIEN-863</td>
+      <td style="text-align: left">Admin can now stop a cloud even if the cloud is used by some applications. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-plus text-success"></i></td>
+      <td style="text-align: left">ALIEN-928</td>
+      <td style="text-align: left">Scalability being now defined from the Scalable capability, it is possible to configure them as input properties so the user can configure them before deployment. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-plus text-success"></i></td>
+      <td style="text-align: left">ALIEN-931</td>
+      <td style="text-align: left">When a user delete a CSAR from the repository and the CSAR is used by other CSARs or Topologies we now display an error message that list the usages. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
+      <td style="text-align: left">ALIEN-739</td>
+      <td style="text-align: left">We now use a proper logger in the generated cloudify recipe with many logs in debug level and provide it to users also. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
+      <td style="text-align: left">ALIEN-878</td>
+      <td style="text-align: left">We now leverage the Scalable capability of compute to setup scalability for compute nodes. It is now possible to defined a scalable property in the YAML and it will be correctly managed by a4c. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
+      <td style="text-align: left">ALIEN-968</td>
+      <td style="text-align: left">Users can now reset the values of properties or artifacts to their default. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
+      <td style="text-align: left">ALIEN-983</td>
+      <td style="text-align: left">Login and password inputs now have placeholders. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
+      <td style="text-align: left">ALIEN-986</td>
+      <td style="text-align: left">Improve the handling of get_operation_outputs so that attributes configured with a get_operation_output can be accessed by operations of a topology and not only used as topology outputs. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
+      <td style="text-align: left">ALIEN-1029</td>
+      <td style="text-align: left">Improve the packaging of the Events processing unit so the login/password infos are not being copied on every nodes but only the management node. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-exclamation-triangle text-warning">  <i class="fa fa-bug text-danger"></i></i></td>
+      <td style="text-align: left">ALIEN-851</td>
+      <td style="text-align: left">Fixed an issue in the REST API create environment operation that had a security leak (application id was asked both in path and request can could be different allowing users to perform operations on applications on which they had no rights). /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-958</td>
+      <td style="text-align: left">It is now possible to use again _ in node names. Known limitation: Cloudify 2 driver will automatically rename the nodes but won’t support multiple nodes with similar patterns (toto-1 or toto_1 are considered as same node by the driver). /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-1003</td>
+      <td style="text-align: left">It is now possible to reset mandatory properties to their default (or blank) even if it has been set previously (thanks to the reset to default feature). /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-1016</td>
+      <td style="text-align: left">Fixed an issue introduced in SM26 with the handling of get_operation_output causing null pointer exception when no echo was returned by an operation. /</td>
     </tr>
   </tbody>
 </table>

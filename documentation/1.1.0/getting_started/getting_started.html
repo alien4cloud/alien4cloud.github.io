@@ -127,29 +127,26 @@ test it !</p>
     <p>Ensure that you have at least JAVA version 7 or higher installed on your working station. If not, just install
 java following instructions <a href="https://www.java.com/fr/download/manual.jsp" target="_blank">here</a>.</p>
   </li>
-  <li>You can get <em>Cloudify</em> in version :
-    <ul>
-      <li><strong>2.7.1</strong> <a href="http://getcloudify.org/downloads/get_cloudify_2x.html" target="_blank">here</a>.</li>
-      <li>3.2 <a href="http://getcloudify.org/downloads/get_cloudify_3x.html#dl" target="_blank">here</a>.</li>
-    </ul>
+  <li>
+    <p>You can get <em>Cloudify</em> in version 3.2 <a href="http://getcloudify.org/downloads/get_cloudify_3x.html#dl" target="_blank">here</a>.</p>
   </li>
   <li>
     <p>In order to start using alien 4 cloud you have to download Alien. Two versions are available :</p>
 
     <ul>
-      <li><a href="https://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource&amp;g=alien4cloud&amp;a=alien4cloud-ui&amp;v=1.1.0-SM4&amp;p=war&amp;c=standalone"><strong>standalone</strong></a> : starts an embedded jetty server</li>
-      <li><a href="https://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource&amp;g=alien4cloud&amp;a=alien4cloud-ui&amp;v=1.1.0-SM4&amp;p=war">deployable</a> : war file that can be deployed within a war container</li>
+      <li><a href="https://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource&amp;g=alien4cloud&amp;a=alien4cloud-ui&amp;v=1.1.0-SM5&amp;p=war&amp;c=standalone"><strong>standalone</strong></a> : starts an embedded jetty server</li>
+      <li><a href="https://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource&amp;g=alien4cloud&amp;a=alien4cloud-ui&amp;v=1.1.0-SM5&amp;p=war">deployable</a> : war file that can be deployed within a war container</li>
     </ul>
   </li>
 </ul>
 
 <div class="note info">
-<p>We recommend using the Alien standalone with Cloudify 2.7.1.</p>
+<p>We recommend using the Alien standalone with Cloudify 3.2.</p>
 </div>
 
 <h2 id="check-your-access-to-a-cloud">2. Check your access to a cloud:</h2>
 
-<p>To try Alien 4 Cloud with provider plugin <em>Cloudify</em> <strong>2.x</strong> or <strong>3.x</strong> you will need a cloud ready to use with your credentials.
+<p>To try Alien 4 Cloud with provider plugin <em>Cloudify</em> <strong>3.x</strong> you will need a cloud ready to use with your credentials.
 If not, we advice you to use <a href="http://trystack.org/" target="_blank">trystack</a>, a personal an free to use OpenStack.</p>
 
 <div class="note info">
@@ -158,12 +155,7 @@ If not, we advice you to use <a href="http://trystack.org/" target="_blank">trys
 
 <h2 id="configure-and-start-cloudify">3. Configure and start Cloudify:</h2>
 
-<p>Regarding your choice between providers for Cloudify 2 or 3, please refer to those following sections :</p>
-
-<ul>
-  <li><a href="#/documentation/1.1.0/cloudify2_driver/index.html">Configure and start Cloudify 2</a></li>
-  <li><a href="#/documentation/1.1.0/cloudify3_driver/index.html">Configure and start Cloudify 3</a></li>
-</ul>
+<p>Please refer to those following sections : <a href="#/documentation/1.1.0/cloudify3_driver/index.html">configure and start Cloudify 3</a></p>
 
 <h2 id="start-and-configure-alien-4-cloud-">4. Start and configure Alien 4 Cloud :</h2>
 
@@ -176,12 +168,7 @@ started with default settings such as the default user <code>admin</code> we wil
 
 <h2 id="install-and-configure-provider-plugin">5. Install and configure provider plugin:</h2>
 
-<p>In this step, you will have to import the chosen provider plugin and then configure it. Refer to the following sections :</p>
-
-<ul>
-  <li><a href="#/documentation/1.1.0/cloudify2_driver/install_config.html">Cloudify 2 plugin</a></li>
-  <li><a href="#/documentation/1.1.0/cloudify3_driver/install_config.html">Cloudify 3 plugin</a></li>
-</ul>
+<p>In this step, you will have to import the provider plugin and then configure it. Refer to the following sections : <a href="#/documentation/1.1.0/cloudify3_driver/install_config.html">Cloudify 3 plugin</a></p>
 
 <p>In our tutorial, let’s call the configured cloud <code>OpenStackCloud</code>.</p>
 

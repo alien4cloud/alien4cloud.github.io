@@ -9,86 +9,6 @@
         <h1 style="margin-top: 0px;">ALIEN for Cloud 1.0.0-SM20</h1>
         <p><i class="fa fa-plus text-success"></i> New feature <i class="fa fa-level-up text-primary"></i> Improvement  <i class="fa fa-bug text-danger"></i> Bug <i class="fa fa-exclamation-triangle text-warning"></i> Breaking change</p>
 
-<h3 id="alien-4-cloud">Alien 4 Cloud</h3>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th style="text-align: left">Type</th>
-      <th style="text-align: left">Id</th>
-      <th style="text-align: left">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><i class="fa fa-plus text-success"></i></td>
-      <td style="text-align: left">ALIEN-565</td>
-      <td style="text-align: left">Backup and restore process is now documented.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><i class="fa fa-plus text-success"></i></td>
-      <td style="text-align: left">ALIEN-623</td>
-      <td style="text-align: left">Plugins can now provides their own REST services.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
-      <td style="text-align: left">ALIEN-579</td>
-      <td style="text-align: left">Cloud images can now be updated after it has been created. If the image is associated to more than one cloud you can only update it’s requirement to avoid global impact when working on a single cloud.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
-      <td style="text-align: left">ALIEN-620</td>
-      <td style="text-align: left">Documentation update for new environments roles.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
-      <td style="text-align: left">ALIEN-622</td>
-      <td style="text-align: left">Cloud images are now managed directly from cloud configuration view to make it easier to manage.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
-      <td style="text-align: left">ALIEN-577</td>
-      <td style="text-align: left">Fixed an issue causing a 403 error in runtime view due to Cloud Name not retrieved appropriately.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><i class="fa fa-exclamation-triangle text-warning">  <i class="fa fa-bug text-danger"></i></i></td>
-      <td style="text-align: left">ALIEN-554</td>
-      <td style="text-align: left">As specified in the TOSCA standard, the properties are now required by default. This impacts recipes as all properties that doesn’t specifies a required argument will now be required instead of optional.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
-      <td style="text-align: left">ALIEN-560</td>
-      <td style="text-align: left">Fixed an issue that prevented to display tosca archive content (scripts) when Alien was running on windows.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
-      <td style="text-align: left">ALIEN-577</td>
-      <td style="text-align: left">Fixed an issue causing a 403 error in runtime view due to Cloud Name not retrieved appropriately.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
-      <td style="text-align: left">ALIEN-588</td>
-      <td style="text-align: left">Initial status are now correctly displayed in the UI even when cloud provider still didn’t initialized the instance state.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
-      <td style="text-align: left">ALIEN-618</td>
-      <td style="text-align: left">Fixed an issue that caused users being able to update topologies associated with a released version.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
-      <td style="text-align: left">ALIEN-631</td>
-      <td style="text-align: left">Fixed an issue in LDAP role mapping causing the new roles to be taken in account only on users second connection.</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="cloudify-3-paas-provider">Cloudify 3 PaaS Provider</h3>
-
-<blockquote>
-  <p>No changes.</p>
-</blockquote>
-
 <h3 id="cloudify-2-paas-provider">Cloudify 2 PaaS Provider</h3>
 
 <table class="table table-bordered">
@@ -103,22 +23,102 @@
     <tr>
       <td style="text-align: left"><i class="fa fa-plus text-success"></i></td>
       <td style="text-align: left">ALIEN-586</td>
-      <td style="text-align: left">Supports “.bat” scripts for windows</td>
+      <td style="text-align: left">Supports “.bat” scripts for windows /</td>
     </tr>
     <tr>
       <td style="text-align: left"><i class="fa fa-plus text-success"></i></td>
       <td style="text-align: left">ALIEN-633</td>
-      <td style="text-align: left">It is now possible to configure the duration of the timeout for StarDetection from Alien deployment screen.</td>
+      <td style="text-align: left">It is now possible to configure the duration of the timeout for StarDetection from Alien deployment screen. /</td>
     </tr>
     <tr>
       <td style="text-align: left"><i class="fa fa-plus text-success"></i></td>
       <td style="text-align: left">ALIEN-634</td>
-      <td style="text-align: left">Allow users to diable self-healing when deploying an application from alien deployment screen.</td>
+      <td style="text-align: left">Allow users to diable self-healing when deploying an application from alien deployment screen. /</td>
     </tr>
     <tr>
       <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
       <td style="text-align: left">ALIEN-628</td>
-      <td style="text-align: left">Fixed an issue in cloudify 2 driver that could consider a service as started even if all components didn’t reached the stated state.</td>
+      <td style="text-align: left">Fixed an issue in cloudify 2 driver that could consider a service as started even if all components didn’t reached the stated state. /</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="cloudify-3-paas-provider">Cloudify 3 PaaS Provider</h3>
+
+<blockquote>
+  <p>No changes.</p>
+</blockquote>
+
+<h3 id="alien-4-cloud">Alien 4 Cloud</h3>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Id</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-plus text-success"></i></td>
+      <td style="text-align: left">ALIEN-565</td>
+      <td style="text-align: left">Backup and restore process is now documented. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-plus text-success"></i></td>
+      <td style="text-align: left">ALIEN-623</td>
+      <td style="text-align: left">Plugins can now provides their own REST services. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
+      <td style="text-align: left">ALIEN-579</td>
+      <td style="text-align: left">Cloud images can now be updated after it has been created. If the image is associated to more than one cloud you can only update it’s requirement to avoid global impact when working on a single cloud. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
+      <td style="text-align: left">ALIEN-620</td>
+      <td style="text-align: left">Documentation update for new environments roles. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
+      <td style="text-align: left">ALIEN-622</td>
+      <td style="text-align: left">Cloud images are now managed directly from cloud configuration view to make it easier to manage. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-577</td>
+      <td style="text-align: left">Fixed an issue causing a 403 error in runtime view due to Cloud Name not retrieved appropriately. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-exclamation-triangle text-warning">  <i class="fa fa-bug text-danger"></i></i></td>
+      <td style="text-align: left">ALIEN-554</td>
+      <td style="text-align: left">As specified in the TOSCA standard, the properties are now required by default. This impacts recipes as all properties that doesn’t specifies a required argument will now be required instead of optional. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-560</td>
+      <td style="text-align: left">Fixed an issue that prevented to display tosca archive content (scripts) when Alien was running on windows. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-577</td>
+      <td style="text-align: left">Fixed an issue causing a 403 error in runtime view due to Cloud Name not retrieved appropriately. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-588</td>
+      <td style="text-align: left">Initial status are now correctly displayed in the UI even when cloud provider still didn’t initialized the instance state. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-618</td>
+      <td style="text-align: left">Fixed an issue that caused users being able to update topologies associated with a released version. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-631</td>
+      <td style="text-align: left">Fixed an issue in LDAP role mapping causing the new roles to be taken in account only on users second connection. /</td>
     </tr>
   </tbody>
 </table>

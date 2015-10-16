@@ -9,7 +9,7 @@
         <h1 style="margin-top: 0px;">ALIEN for Cloud 1.0.0-SM19</h1>
         <p><i class="fa fa-plus text-success"></i> New feature <i class="fa fa-level-up text-primary"></i> Improvement  <i class="fa fa-bug text-danger"></i> Bug <i class="fa fa-exclamation-triangle text-warning"></i> Breaking change</p>
 
-<h3 id="alien-4-cloud">Alien 4 Cloud</h3>
+<h3 id="cloudify-2-paas-provider">Cloudify 2 PaaS Provider</h3>
 
 <table class="table table-bordered">
   <thead>
@@ -21,44 +21,29 @@
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><i class="fa fa-plus text-success"></i></td>
-      <td style="text-align: left">ALIEN-519</td>
-      <td style="text-align: left">Deployments are now managed per environment.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><i class="fa fa-plus text-success"></i></td>
-      <td style="text-align: left">ALIEN-539</td>
-      <td style="text-align: left">LDAP configuration now allows optional definition of rôles in LDAP rather than Alien 4 Cloud for LDAP users.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><i class="fa fa-plus text-success"></i></td>
-      <td style="text-align: left">ALIEN-574</td>
-      <td style="text-align: left">Applications can now have multiple versions that can be managed from the UI by application managers or admin</td>
-    </tr>
-    <tr>
       <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
-      <td style="text-align: left">ALIEN-621</td>
-      <td style="text-align: left">Workflow view is now visible from the Topology view and available in both Applications and Topology template views.</td>
+      <td style="text-align: left">ALIEN-600</td>
+      <td style="text-align: left">TOSCA SOURCES / TARGETS env var are now available in a relationship script. Also, inputs for other sources / targets of a relationship are now available folowing the TOSCA Simple Profile in YAML. /</td>
     </tr>
     <tr>
       <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
       <td style="text-align: left">ALIEN-266</td>
-      <td style="text-align: left">Fix issues in components inheritance when parent type is in a different archive than child type.</td>
+      <td style="text-align: left">Fix issues in components inheritance when parent type is in a different archive than child type. /</td>
     </tr>
     <tr>
       <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
       <td style="text-align: left">ALIEN-266</td>
-      <td style="text-align: left">Fix issues in components inheritance when parent type is in a different archive than child type.</td>
+      <td style="text-align: left">Fix issues in components inheritance when parent type is in a different archive than child type. /</td>
     </tr>
     <tr>
       <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
-      <td style="text-align: left">ALIEN-583</td>
-      <td style="text-align: left">Fixed a bug that prevented node types to contains more than 3 dots in their name (alien.node.cloudify.Tomcat for example)</td>
+      <td style="text-align: left">ALIEN-537</td>
+      <td style="text-align: left">Fixed an issue that prevented cloudify REST API errors to be logged in the console. /</td>
     </tr>
     <tr>
       <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
-      <td style="text-align: left">ALIEN-611</td>
-      <td style="text-align: left">Fixed issues when removing a CSAR from Alien (Add usage validations, delete artifacts from disk, update available versions in index)</td>
+      <td style="text-align: left">ALIEN-615</td>
+      <td style="text-align: left">Fixed an Issue that required deployment artifacts of type file to start with a “/”. /</td>
     </tr>
   </tbody>
 </table>
@@ -77,17 +62,17 @@
     <tr>
       <td style="text-align: left"><i class="fa fa-plus text-success"></i></td>
       <td style="text-align: left">ALIEN-591</td>
-      <td style="text-align: left">Cloudify 3 provider is able to manage get_attribute and get_properties functions.</td>
+      <td style="text-align: left">Cloudify 3 provider is able to manage get_attribute and get_properties functions. /</td>
     </tr>
     <tr>
       <td style="text-align: left"><i class="fa fa-plus text-success"></i></td>
       <td style="text-align: left">ALIEN-594</td>
-      <td style="text-align: left">Cloudify 3 provider is able to generate public IP for compute nodes when configured on a public network.</td>
+      <td style="text-align: left">Cloudify 3 provider is able to generate public IP for compute nodes when configured on a public network. /</td>
     </tr>
   </tbody>
 </table>
 
-<h3 id="cloudify-2-paas-provider">Cloudify 2 PaaS Provider</h3>
+<h3 id="alien-4-cloud">Alien 4 Cloud</h3>
 
 <table class="table table-bordered">
   <thead>
@@ -99,29 +84,44 @@
   </thead>
   <tbody>
     <tr>
+      <td style="text-align: left"><i class="fa fa-plus text-success"></i></td>
+      <td style="text-align: left">ALIEN-519</td>
+      <td style="text-align: left">Deployments are now managed per environment. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-plus text-success"></i></td>
+      <td style="text-align: left">ALIEN-539</td>
+      <td style="text-align: left">LDAP configuration now allows optional definition of rôles in LDAP rather than Alien 4 Cloud for LDAP users. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-plus text-success"></i></td>
+      <td style="text-align: left">ALIEN-574</td>
+      <td style="text-align: left">Applications can now have multiple versions that can be managed from the UI by application managers or admin /</td>
+    </tr>
+    <tr>
       <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
-      <td style="text-align: left">ALIEN-600</td>
-      <td style="text-align: left">TOSCA SOURCES / TARGETS env var are now available in a relationship script. Also, inputs for other sources / targets of a relationship are now available folowing the TOSCA Simple Profile in YAML.</td>
+      <td style="text-align: left">ALIEN-621</td>
+      <td style="text-align: left">Workflow view is now visible from the Topology view and available in both Applications and Topology template views. /</td>
     </tr>
     <tr>
       <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
       <td style="text-align: left">ALIEN-266</td>
-      <td style="text-align: left">Fix issues in components inheritance when parent type is in a different archive than child type.</td>
+      <td style="text-align: left">Fix issues in components inheritance when parent type is in a different archive than child type. /</td>
     </tr>
     <tr>
       <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
       <td style="text-align: left">ALIEN-266</td>
-      <td style="text-align: left">Fix issues in components inheritance when parent type is in a different archive than child type.</td>
+      <td style="text-align: left">Fix issues in components inheritance when parent type is in a different archive than child type. /</td>
     </tr>
     <tr>
       <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
-      <td style="text-align: left">ALIEN-537</td>
-      <td style="text-align: left">Fixed an issue that prevented cloudify REST API errors to be logged in the console.</td>
+      <td style="text-align: left">ALIEN-583</td>
+      <td style="text-align: left">Fixed a bug that prevented node types to contains more than 3 dots in their name (alien.node.cloudify.Tomcat for example) /</td>
     </tr>
     <tr>
       <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
-      <td style="text-align: left">ALIEN-615</td>
-      <td style="text-align: left">Fixed an Issue that required deployment artifacts of type file to start with a “/”.</td>
+      <td style="text-align: left">ALIEN-611</td>
+      <td style="text-align: left">Fixed issues when removing a CSAR from Alien (Add usage validations, delete artifacts from disk, update available versions in index) /</td>
     </tr>
   </tbody>
 </table>
