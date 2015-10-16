@@ -20,7 +20,7 @@ To make it simple a cloud is a logical set of available resources that Alien 4 C
 
 {%note%}
 <h5>Note</h5>
-We are currently supporting the opensource orchestrators cloudify 2 and cloudify 3 (Full re-written engine with new DSL - much better and flexible but that we felt prior to the up-comming 3.2 a bit light for production use).
+We are currently supporting the opensource orchestrators cloudify 3 (Full re-written engine with new DSL - much better and flexible but that we felt prior to the up-comming 3.2 a bit light for production use).
 {%endnote%}
 
 {%info%}

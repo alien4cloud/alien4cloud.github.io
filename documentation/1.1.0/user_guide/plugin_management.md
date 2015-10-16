@@ -16,7 +16,7 @@ Plugins provides some additional functionalities to Alien 4 Cloud. We currently 
 
 Alien 4 Cloud is not managing actual runtime state of deployments by itself. In order to do so it delegates runtime to orchestrators, as well refered in Alien 4 Cloud as _PaaS Providers_. A PaaS Provider in A4C is a plugin that will be associated with _Clouds_. It is possible of course to have multiple clouds using the same PaaS Provider as well a multiple clouds with different PaaS Providers.
 
-We currently support Cloudify 2 and Cloudify 3 orchestrators as PaaS Providers. Cloudify 3 is recommended for new projects while we still recommends using Cloudify 2 as long as the version 3.2 is not released and supported in Alien 4 Cloud.
+We currently support Cloudify 3 orchestrators as PaaS Providers.
 
 ## Installing plugin in Alien 4 Cloud
 

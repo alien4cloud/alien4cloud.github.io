@@ -20,7 +20,7 @@ To be more concret we will use the [Wordpress](#/documentation/1.1.0/getting_sta
   * Once you are logged as *admin*, you will have the menu on top, select then the **Components** item
   * You can also see here how to [upload your component](#/documentation/1.1.0/devops_guide/calm_components_repo_uploadarchive.html)  
 
-3. Configure your cloud plugin [PaaS Provider](#/documentation/1.1.0/cloudify2_driver/index.html)
+3. Configure your cloud plugin [PaaS Provider](#/documentation/1.1.0/cloudify3_driver/index.html)
 4. Then compose you topology following the next steps
 
 {% info %}

@@ -102,10 +102,7 @@ If you would like to de-provision the VM and the associated cloud created by Ali
 * Ensure that you have at least JAVA version 7 or higher installed on your working station. If not, just install
 java following instructions [here](https://www.java.com/fr/download/manual.jsp){:target="_blank"}.
 
-* You can get *Cloudify* in version :
-  * **2.7.1** [here](http://getcloudify.org/downloads/get_cloudify_2x.html){:target="_blank"}.
-  * 3.2 [here](http://getcloudify.org/downloads/get_cloudify_3x.html#dl){:target="_blank"}.
-
+* You can get *Cloudify* in version 3.2 [here](http://getcloudify.org/downloads/get_cloudify_3x.html#dl){:target="_blank"}.
 
 * In order to start using alien 4 cloud you have to download Alien. Two versions are available :
 
@@ -113,12 +110,12 @@ java following instructions [here](https://www.java.com/fr/download/manual.jsp){
   * [deployable](https://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource&g=alien4cloud&a=alien4cloud-ui&v={{ site.last-version }}&p=war) : war file that can be deployed within a war container
 
 {% info %}
-We recommend using the Alien standalone with Cloudify 2.7.1.
+We recommend using the Alien standalone with Cloudify 3.2.
 {% endinfo %}
 
 ##2. Check your access to a cloud:
 
-To try Alien 4 Cloud with provider plugin *Cloudify* **2.x** or **3.x** you will need a cloud ready to use with your credentials.
+To try Alien 4 Cloud with provider plugin *Cloudify* **3.x** you will need a cloud ready to use with your credentials.
 If not, we advice you to use [trystack](http://trystack.org/){:target="_blank"}, a personal an free to use OpenStack.
 
 {% info %}
@@ -127,10 +124,7 @@ For this tutorial we recommend to use OpenStack.
 
 ##3. Configure and start Cloudify:
 
-Regarding your choice between providers for Cloudify 2 or 3, please refer to those following sections :
-
-* [Configure and start Cloudify 2](#/documentation/1.1.0/cloudify2_driver/index.html)
-* [Configure and start Cloudify 3](#/documentation/1.1.0/cloudify3_driver/index.html)
+Please refer to those following sections : [configure and start Cloudify 3](#/documentation/1.1.0/cloudify3_driver/index.html)
 
 ##4. Start and configure Alien 4 Cloud :
 
@@ -145,10 +139,7 @@ started with default settings such as the default user `admin` we will use later
 
 ##5. Install and configure provider plugin:
 
-In this step, you will have to import the chosen provider plugin and then configure it. Refer to the following sections :
-
-* [Cloudify 2 plugin](#/documentation/1.1.0/cloudify2_driver/install_config.html)
-* [Cloudify 3 plugin](#/documentation/1.1.0/cloudify3_driver/install_config.html)
+In this step, you will have to import the provider plugin and then configure it. Refer to the following sections : [Cloudify 3 plugin](#/documentation/1.1.0/cloudify3_driver/install_config.html)
 
 In our tutorial, let's call the configured cloud `OpenStackCloud`.
 

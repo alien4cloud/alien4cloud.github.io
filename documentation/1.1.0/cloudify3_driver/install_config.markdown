@@ -26,10 +26,6 @@ You need to create a cloud and configure it.
 1. Login as an admin, and create a cloud: `admin > clouds > New Cloud`.
 2. As `PaaS provider` for this cloud, make sure to select ***Cloudify 3 PaaS Provider*** from the list. Validate
 
-### Naming policy ###
-
-For this section, please look at the [Cloudify 2 PaaS Provider](#/documentation/1.1.0/cloudify2_driver/install_config.html "Naming policy").
-
 ### Configuring the cloud ###
 On the cloud list, select and click on the newly created cloud, then go to the `configuration` tab.
 

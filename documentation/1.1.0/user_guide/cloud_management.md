@@ -21,7 +21,7 @@ In order to configure a cloud you must have installed a paas provider plugin fir
 
 {%info%}
 <h5>Supported orchestrators</h5>
-We are currently supporting the opensource orchestrators cloudify 2 and cloudify 3 (Full re-written engine with new DSL - much better and flexible but that we felt prior to the up-comming 3.2 a bit light for production use).
+We are currently supporting the opensource orchestrators cloudify 3 (Full re-written engine with new DSL - much better and flexible but that we felt prior to the up-comming 3.2 a bit light for production use).
 {%endinfo%}
 
 # Cloud creation
@@ -116,7 +116,7 @@ This configuration may be specific to the orchestrator used and you should refer
 [![Configure the cloud driver](../../images/user_guide/admin/clouds/cloud-driver-configuration.png)](../../images/user_guide/admin/clouds/cloud-driver-configuration.png)
 
 {%info%}
-More informations for [cloudify 2](#/documentation/1.1.0/cloudify2_driver/install_config.html) or [cloudify 3](#/documentation/1.1.0/cloudify3_driver/install_config.html) can be found on her specific documentation.
+More informations for [cloudify 3](#/documentation/1.1.0/cloudify3_driver/install_config.html) can be found on her specific documentation.
 {%endinfo%}
 
 # Cloud resources setup
@@ -185,5 +185,5 @@ When an ID is set, the number of template is updated : ![image no alert button](
 {%endinittab%}
 
 {%info%}
-More informations for the PaaS template of [cloudify 2](#/documentation/1.1.0/cloudify2_driver/install_config.html) or [cloudify 3](#/documentation/1.1.0/cloudify3_driver/install_config.html) can be found on her specific documentation.
+More informations for the PaaS template of [cloudify 3](#/documentation/1.1.0/cloudify3_driver/install_config.html) can be found on her specific documentation.
 {%endinfo%}
