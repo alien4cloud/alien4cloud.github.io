@@ -5,7 +5,7 @@ root: ../
 categories: DOCUMENTATION-1.1.0
 parent: []
 node_name: about
-weight: 100
+weight: 50
 ---
 
 Alien4Cloud means Application LIfecycle ENablement for Cloud. It is a project started by [FastConnect](http://www.fastconnect.fr){:target="_blank"} in order to help enterprises adopting the cloud for their new or even existing applications in an Open way meaning with Open-Source model and standardization support in mind.
