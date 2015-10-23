@@ -1,0 +1,69 @@
+<div class="container">
+  <div class="row">
+    
+      <div class="col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-md-9">
+    
+        <h1 style="margin-top: 0px;">What's new in 1.1.0 ?</h1>
+        
+<hr style="margin-top:5px; margin-bottom:5px;" />
+<div class="row"><ul class="nav nav-pills" id="summarypanel"></ul></div>
+<hr style="margin-top:5px; margin-bottom:5px;" />
+
+<h1 id="orchestrator-and-locations">Orchestrator and Locations</h1>
+
+<p>&#8220;Cloud&#8221; concept as it existed in 1.0.0 has been replaced by Orchestrator and Location concepts that reflects in a better way our actual supports. &#8220;Cloud&#8221; name was also not a great choice as it could refer to a &#8220;cloud&#8221; but also to some BYON deployments for example that people doesn&#8217;t really consider as clouds (even if that may be discussed). Anyway &#8220;location&#8221; sounds much better and can be easily understood.</p>
+
+<p>The refactoring also allows to give a much nicer support for orchestrators that can deploy to multiple locations (like Apache Brooklyn) and bring great features and openings like the Location Matching. It was also a mandatory step to open us to multi-location deployments and other very cool features that we want to support in future releases.</p>
+
+<p>More details on Orchestrators and Locations are provided in the Concept section.</p>
+
+<h1 id="custom-workflows">Custom Workflows</h1>
+
+<h1 id="blockstorage-support">BlockStorage support</h1>
+
+<p>Block storage support has changed in 1.1.0. In 1.0.0 when a block storage was defined in a topology we where automatically</p>
+
+<h1 id="tosca-support-improvements">TOSCA support improvements</h1>
+
+<p>We have upgraded our normative types support to be closer to TOSCA. In 1.1.0 we recommend people to use the following version of the normative types: &#8220;1.1.0.wd06.alien&#8221;. It basically is a version derived from the TOSCA Simple Profile in YAML Working Draft 06 to match our Alien TOSCA like DSL (there is still some effort planned for 1.2.0 to increase TOSCA support).</p>
+
+<h2 id="deprecated-usages">Deprecated usages</h2>
+
+<h2 id="addition-to-tosca">Addition to TOSCA</h2>
+
+<p>We received complains and realized also on our end that TOSCA currently has some limitations that makes quite complex to manage some modelings. As TOSCA doesn&#8217;t have yet an API to access the runtime model from scripts (both to read and update attributes for example) it leverage the definition of inputs on the scripts and get_attribute or get_properties functions.</p>
+
+<p>This model is very nice as people don&#8217;t have to build TOSCA clients or uses REST calls but can just expect the TOSCA orchestrator to retrieve attributes for them. Using get_attribute and get_property in conjunction with inputs does a pretty good job.</p>
+
+<p>Our main complain however is related to the get_operation_output function.</p>
+
+<h1 id="cloudify-2-end-of-life">Cloudify 2 End Of Life</h1>
+
+<p>GigaSpaces doesn&#8217;t support cloudify 2 anymore, as a consequence we stopped investing efforts on our cloudify 2 provider and it won&#8217;t work with alien 1.1.0.
+Hopefully if all your artifacts uses only portable scripts and no orchestrator specific logic migration to cloudify 3 should not be painful for you!</p>
+
+      </div>
+    </div>
+  </div>
+</div><!-- /container -->
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-1.1.0', 'whatsnew');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

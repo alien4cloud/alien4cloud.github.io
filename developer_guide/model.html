@@ -6,10 +6,12 @@
       </div>
       <div id="content" class="col-md-9">
     
-        <h1 style="margin-top: 0px;">Topologies</h1>
-        <p>A topology (or TOSCA’s service template or blueprint) describe a deployment or a subset of a deployment. A topology is a composition of multiple nodes that may be connected through relationships.</p>
+        <h1 style="margin-top: 0px;">ALIEN data model</h1>
+        <p>The following schema details the model that is manipulated in Alien 4 Cloud and the relations between the different objects manipulated.</p>
 
-<p>TOSCA normative types provide several types of relationships that are used to model the different component interactions that exists</p>
+<p>From a code perspective we are working with denormalized schema and fetching related data should be done through dao queries when needed. From a performance perspective we don’t have critical requirements and plan to leverage caching mechanisms rather than implementing ORM solutions on top of ElasticSearch.</p>
+
+<h1 id="elasticsearch-indices">ElasticSearch indices</h1>
 
       </div>
     </div>
@@ -26,7 +28,7 @@ if(hash && hash!== null && hash.match(/html$/)) {
 <script type="text/javascript" src="/js/post-layout.js"></script>
 <script>
 $(document).ready(function () {
-  makeSideBar('DOCUMENTATION', 'concepts-topologies');
+  makeSideBar('DEVELOPER_GUIDE', 'data_model');
 });
 </script>
 

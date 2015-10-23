@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="row">
+    
+      <div class="col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-md-9">
+    
+        <h1 style="margin-top: 0px;">Orchestrator plugins</h1>
+        <p>Orchestrator plugins are used to effectively deploy topologies on location(s) through the orchestrator technology backed up by the plugin.</p>
+
+<p>TODO Interface to implement TODO</p>
+
+<h1 id="orchestrator-and-locations">Orchestrator and Locations</h1>
+
+<p>Writing a plugin requires to be familiar with Alien 4 Cloud concepts. As you know an orchestrator instance in alien 4 cloud is supposed to connect to an orchestrator engine. This orchestrator engine may be able to support deployments on one or multiple locations.</p>
+
+<p>Some orchestrator implementations like the current cloudify implementation can only manage an deploy to a single location. Some other like brooklyn allows the configuration of multiple locations for a single orchestrator.</p>
+
+<p>Every location has a location type, the plugin is responsible for exposing the different supported types. This is done by implementing the plugin interface method
+TODO Method to be implemented TODO</p>
+
+<h2 id="definition-of-supported-types">Definition of supported types.</h2>
+
+<p>The plugin may support normative types or just support it’s own specific types. If so it won’t be able to deploy TOSCA topologies but only specific topologies that will loose the portability of the normative TOSCA.</p>
+
+<p>As specified a plugin may supports it’s own types, a subset of TOSCA or the full TOSCA normative types. In any case the plugin is responsible to declare the supported types.</p>
+
+      </div>
+    </div>
+  </div>
+</div><!-- /container -->
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DEVELOPER_GUIDE', 'orchestrator_plugins');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>
