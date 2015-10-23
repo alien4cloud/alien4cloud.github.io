@@ -13,7 +13,7 @@ Alien 4 Cloud allows developer to extends the application by adding plugins. Act
 A plugin may contains some java services, some REST controllers and UI elements.
 
 ## Directory hierarchy
-
+s
 ALIEN plugins are package as a zip archive that must contains the following hierarchy:
 
 * The __root__ folder contains java classes and resources (basically it will be added to the classpath of the plugin).
