@@ -20,11 +20,25 @@
 
 <p>More details on Orchestrators and Locations are provided in the Concept section.</p>
 
+<h2 id="location-matching">Location matching</h2>
+
+<p>Location matching allows to match a topology against locations and provide choices of the best locations for the topology. Default implementation is simple and just provides all locations on which the current user has the deployer role.</p>
+
+<p>Plugin system allows to create advanced location matching, overriding the location matching logic and event the choice selection ui.</p>
+
+<h2 id="node-matching">Node matching</h2>
+
+<p>Node matching is an existing feature of Alien 4 Cloud but 1.1.0 introduce more possibilities thanks to the location refactoring and related custom types.</p>
+
+<p>Moreover node matching is now pluggable so you can override our logic with more advanced or custom logic.</p>
+
 <h1 id="custom-workflows">Custom Workflows</h1>
 
 <h1 id="blockstorage-support">BlockStorage support</h1>
 
-<p>Block storage support has changed in 1.1.0. In 1.0.0 when a block storage was defined in a topology we where automatically</p>
+<p>Block storage support has changed in 1.1.0. In 1.0.0 when a block storage was defined and attached to a Compute node in a topology, the storage was automatically attached, partitioned, formatted and mounted. This behavior has changed and the Block Storage is now attached but neither partitioned, formatted and mounted.</p>
+
+<p>In order to do so we created a separate TOSCA node LinuxFileSystem (right now available for linux only).</p>
 
 <h1 id="tosca-support-improvements">TOSCA support improvements</h1>
 

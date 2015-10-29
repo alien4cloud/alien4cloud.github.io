@@ -9,6 +9,35 @@
         <h1 style="margin-top: 0px;">ALIEN for Cloud 1.1.0-SM6</h1>
         <p><i class="fa fa-plus text-success"></i> New feature <i class="fa fa-level-up text-primary"></i> Improvement  <i class="fa fa-bug text-danger"></i> Bug <i class="fa fa-exclamation-triangle text-warning"></i> Breaking change</p>
 
+<h3 id="cloudify-3-paas-provider">Cloudify 3 PaaS Provider</h3>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Id</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-exclamation-triangle text-warning">  <i class="fa fa-level-up text-primary"></i></i></td>
+      <td style="text-align: left">ALIEN-1200</td>
+      <td style="text-align: left">Block Storage are not automatically formatted and mounted but only attached. A FileSystem type in the extended types allows formatting and mounting them. The device property has been added to the block storage so people can retrieve it in a relationship. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
+      <td style="text-align: left">ALIEN-1201</td>
+      <td style="text-align: left">Network mapping to private and public follows the location refactoring. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
+      <td style="text-align: left">ALIEN-1249</td>
+      <td style="text-align: left">Native types workflow cannot be changed as they are provided by orchestrator and user has no control on them. /</td>
+    </tr>
+  </tbody>
+</table>
+
 <h3 id="alien-4-cloud">Alien 4 Cloud</h3>
 
 <table class="table table-bordered">
@@ -21,9 +50,19 @@
   </thead>
   <tbody>
     <tr>
+      <td style="text-align: left"><i class="fa fa-plus text-success"></i></td>
+      <td style="text-align: left">ALIEN-1138</td>
+      <td style="text-align: left">Users can now trigger custom workflows from the runtime view. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-exclamation-triangle text-warning">  <i class="fa fa-plus text-success"></i></i></td>
+      <td style="text-align: left">ALIEN-1196</td>
+      <td style="text-align: left">Refactoring of “clouds” to introduce Orchestrator and Location. Introduction of Custom Location Types,  Location Matching plugins and Node Matching plugins. Read more in the 1.1.0 documentation. /</td>
+    </tr>
+    <tr>
       <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
-      <td style="text-align: left">ALIEN-733</td>
-      <td style="text-align: left">Description of operations are now displayed on the runtime view /</td>
+      <td style="text-align: left">ALIEN-1249</td>
+      <td style="text-align: left">Native types workflow cannot be changed as they are provided by orchestrator and user has no control on them. /</td>
     </tr>
   </tbody>
 </table>
