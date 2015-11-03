@@ -1,0 +1,62 @@
+<div class="container">
+  <div class="row">
+    
+      <div class="col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-md-9">
+    
+        <h1 style="margin-top: 0px;">Ports requirements</h1>
+        <p>This section describes all the necessary ports for Alien4Cloud to work. Network traffic must be unrestricted on all of them for the involved servers.
+Note : Cloudify ports are only written here as an indication. If you have any doubt about Cloudify required ports, or are using an unmentioned version of Cloudify, please check <a href="http://getcloudify.org/guide">the cloudify documentation</a></p>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Component - Port description</th>
+      <th style="text-align: right">Port number/range</th>
+      <th style="text-align: right">Component Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Alien4Cloud - standalone GUI port</td>
+      <td style="text-align: right">8088</td>
+      <td style="text-align: right">1.0.0,1.1.0</td>
+    </tr>
+    <tr>
+      <td>Cloudify - Management server ports</td>
+      <td style="text-align: right">8099,8100,22,443,80</td>
+      <td style="text-align: right">3.2</td>
+    </tr>
+    <tr>
+      <td>Cloudify - Management server ports for Agent/manager communication</td>
+      <td style="text-align: right">5672,8101,53229</td>
+      <td style="text-align: right">3.2</td>
+    </tr>
+  </tbody>
+</table>
+
+
+      </div>
+    </div>
+  </div>
+</div><!-- /container -->
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-1.1.0', 'ports_requirements');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>
