@@ -13,6 +13,7 @@ To begin with Alien you have two choices :
 * the *30 min Start Guide!*
 * or the *Step by step* guide
 
+
 The first guide is like a demo, the best way if you want to try Alien in no time but you need an active AWS account.
 
 The second guide will explain how to take in charge Alien in details and configure it for your uses.
@@ -161,7 +162,11 @@ java -XX:MaxPermSize=512m -jar alien4cloud-ui-VERSION-standalone.war --spring.pr
 The command option `--spring.profiles.active=security-demo` allows you to have Alien 4 Cloud
 started with default settings such as the default user `admin` we will use later.
 
-##5. Install and configure provider plugin:
+##5. Check that Alien4Cloud is working :
+After connecting via your browser (for standalone version, default port is 8088 on the machine hosting A4C), you should see the following Authentication splash screen
+![Wordpress url](../../images/getting_started/A4C_Welcome.png)
+
+##6. Install and configure provider plugin:
 
 In this step, you will have to import the chosen provider plugin and then configure it. Refer to the following sections :
 
@@ -170,7 +175,7 @@ In this step, you will have to import the chosen provider plugin and then config
 
 In our tutorial, let's call the configured cloud `OpenStackCloud`.
 
-##6. Import components in Alien 4 Cloud:
+##7. Import components in Alien 4 Cloud:
 
 {% info %}
 Regardless the used provider, read the following section to know how to import your
