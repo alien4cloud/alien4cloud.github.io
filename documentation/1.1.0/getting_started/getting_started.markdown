@@ -137,13 +137,17 @@ java -XX:MaxPermSize=512m -jar alien4cloud-ui-VERSION-standalone.war --spring.pr
 The command option `--spring.profiles.active=security-demo` allows you to have Alien 4 Cloud
 started with default settings such as the default user `admin` we will use later.
 
-##5. Install and configure provider plugin:
+##5. Check that Alien4Cloud is working :
+After connecting via your browser (default port is 8088 on the machine hosting A4C), you should see the following Authentication splash screen
+![Wordpress url](../../images/getting_started/A4C_Welcome.png)
+
+##6. Install and configure provider plugin:
 
 In this step, you will have to import the provider plugin and then configure it. Refer to the following sections : [Cloudify 3 plugin](#/documentation/1.1.0/cloudify3_driver/install_config.html)
 
 In our tutorial, let's call the configured cloud `OpenStackCloud`.
 
-##6. Import components in Alien 4 Cloud:
+##7. Import components in Alien 4 Cloud:
 
 {% info %}
 Regardless the used provider, read the following section to know how to import your

@@ -16,3 +16,4 @@ Alien 4 Cloud requires orchestrator(s) in order to deploy on the configured clou
 <h5>Important: security issue </h5>
 Alien used a version of ElasticSearch concern by a security issue. To prevent an attack, make sure to secure the port of ES (9200 as default).
 {%endwarning%}
+
