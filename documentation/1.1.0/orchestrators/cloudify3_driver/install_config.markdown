@@ -1,9 +1,9 @@
 ---
 layout: post
 title:  Installing and configuring
-root: ../../
+root: ../../../
 categories: DOCUMENTATION-1.1.0
-parent: [cloudify_3_index]
+parent: [orchestrators, cloudify_3]
 node_name: cloudify_3_install
 weight: 2000
 ---
