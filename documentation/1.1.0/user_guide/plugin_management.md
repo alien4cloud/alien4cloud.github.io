@@ -10,13 +10,14 @@ weight: 75
 
 {% summary %}{% endsummary %}
 
-Plugins provides some additional functionalities to Alien 4 Cloud. We currently support paas provider plugins (orchestrators interface with Alien 4 Cloud) but aims to provide much more plugins with various functionalities and even UI components.
+Plugins allows to provide some additional functionalities to Alien 4 Cloud. 1.1.0 introduce the ability to create different type of plugins (or plugins with multiple features):
 
-# PaaS Providers (Orchestrators)
+* __Orchestrator plugins__ allows to provide additional orchestrators support to alien 4 cloud to use some other technologies to deploy TOSCA or Specific topologies.
+* __Location matching plugins__ allows to override the basic location matching logic provided within Alien 4 Cloud. Only a single Location Matching plugin can be defined in Alien 4 Cloud currently. If more than one location matching plugin is enabled in Alien then one will be picked up randomly.
+* __Node matching plugins__ allows to override the basic TOSCA node matching logic within Alien 4 Cloud.
+* __Generic extension plugins__ can provide additional UI screens and REST Services allowing any kind of extension to alien 4 cloud and even to override some of the alien UI components (it is not possible to override native rest services).
 
-Alien 4 Cloud is not managing actual runtime state of deployments by itself. In order to do so it delegates runtime to orchestrators, as well refered in Alien 4 Cloud as _PaaS Providers_. A PaaS Provider in A4C is a plugin that will be associated with _Clouds_. It is possible of course to have multiple clouds using the same PaaS Provider as well a multiple clouds with different PaaS Providers.
-
-We currently support Cloudify 3 orchestrators as PaaS Providers.
+# Managing plugins in Alien 4 Cloud
 
 ## Installing plugin in Alien 4 Cloud
 
@@ -48,3 +49,9 @@ For example, PaaS providers plugins actually are able to manage multiple instanc
 ## Plugin creation
 
 If you want to create new plugins for Alien 4 Cloud please refer to the [developer guide](#/developer_guide/index.html).
+
+# Orchestrators
+
+Alien 4 Cloud is not managing actual runtime state of deployments by itself. In order to do so it delegates runtime to orchestrators, as well refered in Alien 4 Cloud as _PaaS Providers_. A PaaS Provider in A4C is a plugin that will be associated with _Clouds_. It is possible of course to have multiple clouds using the same PaaS Provider as well a multiple clouds with different PaaS Providers.
+
+We currently support Cloudify 3 orchestrators as PaaS Providers.

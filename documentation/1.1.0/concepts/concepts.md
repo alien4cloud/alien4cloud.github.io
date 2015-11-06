@@ -14,7 +14,7 @@ Alien 4 Cloud want to provide self-service no only for users but also for develo
 
 In order to provide enterprise self-service portal, alien 4 cloud leverages the following concept:
 
-* __Cloud__: Deployment target (cloud or set of physical machines)
+* __Location__: Deployment target (cloud or set of physical machines)
 * __Components__: Software components to deploy
 * __Topologies__ (or blueprints): Description of multiple software components assembled together (to build an application).
 * __Applications__: Actual applications to deploy with _environments_ and _versions_ each of them being associated with a topology.
