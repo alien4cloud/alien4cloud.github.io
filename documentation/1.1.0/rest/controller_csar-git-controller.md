@@ -8,7 +8,7 @@ node_name: rest_api_controller_csar-git-controller
 weight: 14
 ---
 
-### Retrieve information on a registered TOSCA CSAR git repository using the csar url as id.
+### Search for TOSCA CSAR git repositories.
 ```
 GET /rest/csarsgit
 ```
@@ -18,7 +18,9 @@ GET /rest/csarsgit
 {: .table .table-bordered}
 |Type|Name|Description|Required|Schema|Default|
 |----|----|----|----|----|----|
-|BodyParameter|url|Url of the csar git repository to get|true|string||
+|QueryParameter|query|Query text.|false|string||
+|QueryParameter|from|Query from the given index.|false|integer (int32)||
+|QueryParameter|size|Maximum number of results to retrieve.|false|integer (int32)||
 
 
 #### Responses
@@ -26,7 +28,7 @@ GET /rest/csarsgit
 {: .table .table-bordered}
 |HTTP Code|Description|Schema|
 |----|----|----|
-|200|OK|RestResponse«CsarGitRepository»|
+|200|OK|RestResponse«GetMultipleDataResult«CsarGitRepository»»|
 |401|Unauthorized|No Content|
 |403|Forbidden|No Content|
 |404|Not Found|No Content|

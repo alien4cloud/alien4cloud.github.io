@@ -8,7 +8,7 @@ node_name: rest_api_controller_cloud-service-archive-controller
 weight: 15
 ---
 
-### Upload a csar zip file.
+### Create a CSAR in SNAPSHOT version.
 ```
 POST /rest/csars
 ```
@@ -18,7 +18,7 @@ POST /rest/csars
 {: .table .table-bordered}
 |Type|Name|Description|Required|Schema|Default|
 |----|----|----|----|----|----|
-|FormDataParameter|file|csar|true|file||
+|BodyParameter|request|request|true|CreateCsarRequest||
 
 
 #### Responses
@@ -26,8 +26,7 @@ POST /rest/csars
 {: .table .table-bordered}
 |HTTP Code|Description|Schema|
 |----|----|----|
-|200|OK|RestResponse«CsarUploadResult»|
-|201|Created|No Content|
+|201|Created|RestResponse«string»|
 |401|Unauthorized|No Content|
 |403|Forbidden|No Content|
 |404|Not Found|No Content|
@@ -35,11 +34,11 @@ POST /rest/csars
 
 #### Consumes
 
-* multipart/form-data
+* application/json
 
 #### Produces
 
-* application/json
+* */*
 
 ### Search for cloud service archives.
 ```
