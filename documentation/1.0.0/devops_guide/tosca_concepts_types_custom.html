@@ -6,7 +6,10 @@
       </div>
       <div id="content" class="col-md-9">
     
-        <h1 style="margin-top: 0px;">Writing custom types</h1>
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Writing custom types</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.0.0/devops_guide/tosca_concepts_types_custom.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
         <p>TOSCA specification allows definition of a cloud application by defining a set of nodes that are connected to other using relationships.</p>
 
 <p>In order to improve reusability of components and defined recipes, TOSCA allow the definition of NodeTypes that defines components and eventually their implementation (for example a Java NodeType and the script implementation to install it on a virtual server). The defined NodeTypes can then be reused when a developer or application architect want to define the topology of a cloud application.</p>
@@ -23,7 +26,7 @@
 <p>Definition of Node Types and other elements in TOSCA should be done in a definition file and packaged in a <a href="#/documentation/1.0.0/concepts/tosca.html">Cloud Service Archive</a></p>
 </div>
 
-      <a class="buttonedit"    href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.0.0/devops_guide/tosca_concepts_types_custom.markdown">Edit (pull request)</a>
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.0.0/devops_guide/tosca_concepts_types_custom.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
 	  </div>
     </div>
   </div>
@@ -46,4 +49,3 @@ $(document).ready(function () {
 <script>
 $("div[data-gist]").gist();
 </script>
-

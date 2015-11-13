@@ -6,14 +6,17 @@
       </div>
       <div id="content" class="col-md-9">
     
-        <h1 style="margin-top: 0px;">ALIEN data model</h1>
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">ALIEN data model</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/developer_guide/model.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
         <p>The following schema details the model that is manipulated in Alien 4 Cloud and the relations between the different objects manipulated.</p>
 
 <p>From a code perspective we are working with denormalized schema and fetching related data should be done through dao queries when needed. From a performance perspective we don’t have critical requirements and plan to leverage caching mechanisms rather than implementing ORM solutions on top of ElasticSearch.</p>
 
 <h1 id="elasticsearch-indices">ElasticSearch indices</h1>
 
-      <a class="buttonedit"    href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/developer_guide/model.md">Edit (pull request)</a>
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/developer_guide/model.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
 	  </div>
     </div>
   </div>
@@ -36,4 +39,3 @@ $(document).ready(function () {
 <script>
 $("div[data-gist]").gist();
 </script>
-

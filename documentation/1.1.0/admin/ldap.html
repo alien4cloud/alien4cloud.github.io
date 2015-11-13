@@ -6,7 +6,10 @@
       </div>
       <div id="content" class="col-md-9">
     
-        <h1 style="margin-top: 0px;">LDAP integration</h1>
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">LDAP integration</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.1.0/admin/ldap.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
         <p>Alien 4 Cloud can interface with an external LDAP server in order to retrieve users and perform authentication. When using an LDAP server, the Alien admin can still manage ‘local’ users inside Alien while LDAP users should be managed inside the LDAP repository. It is possible also to delegate global rôle management inside Alien even for LDAP users or to define a mapping from roles inside LDAP to roles within Alien.</p>
 
 <h1 id="ldap-configuration">LDAP configuration</h1>
@@ -197,7 +200,7 @@
 <p>Roles changed in LDAP will not appear in Alien as long as the User doesn’t log-in.</p>
 </div>
 
-      <a class="buttonedit"    href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.1.0/admin/ldap.md">Edit (pull request)</a>
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.1.0/admin/ldap.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
 	  </div>
     </div>
   </div>
@@ -220,4 +223,3 @@ $(document).ready(function () {
 <script>
 $("div[data-gist]").gist();
 </script>
-

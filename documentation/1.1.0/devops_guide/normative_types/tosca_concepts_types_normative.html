@@ -6,7 +6,10 @@
       </div>
       <div id="content" class="col-md-9">
     
-        <h1 style="margin-top: 0px;">Normative Types</h1>
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Normative Types</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.1.0/devops_guide/normative_types/tosca_concepts_types_normative.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
         <p>TOSCA Specification defines some basic root types (TOSCA Normative types). There is default types for the Infrastructure and for the appliction.</p>
 
 <p>Most of the application components however are not part of normative types but should extends from the TOSCA root types. This allows the container to leverage the default nodes lifecycle in order to automate Plan creation.</p>
@@ -17,7 +20,7 @@
 
 <p>TOSCA Normative types defines the root nodes and default lifecycle to ease writing and using TOSCA for real applications. The default lifecycle can be extended and improved through the creation of custom plans but should fit most usages.</p>
 
-      <a class="buttonedit"    href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.1.0/devops_guide/normative_types/tosca_concepts_types_normative.markdown">Edit (pull request)</a>
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.1.0/devops_guide/normative_types/tosca_concepts_types_normative.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
 	  </div>
     </div>
   </div>
@@ -40,4 +43,3 @@ $(document).ready(function () {
 <script>
 $("div[data-gist]").gist();
 </script>
-

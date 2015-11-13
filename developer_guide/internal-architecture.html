@@ -6,12 +6,15 @@
       </div>
       <div id="content" class="col-md-9">
     
-        <h1 style="margin-top: 0px;">ALIEN internal architecture</h1>
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">ALIEN internal architecture</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/developer_guide/internal-architecture.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
         <p>ALIEN is an AngularJS (front) + Spring (back) web-application. Plugins for ALIEN are managed as singular Spring applications context that all share the same parent context (ALIEN core application context). Each plugin uses it’s own classloader to ensure that they don’t collide with each others. Here also all of the plugin’s classloaders have a common parent classloader which is ALIEN’s core classloader.</p>
 
 <p><a href="../images/admin_guide/AlienHighLevelSwArch.jpg"><img src="../images/admin_guide/AlienHighLevelSwArch.jpg" alt="Alien High Level Internal Software Architecture" /></a></p>
 
-      <a class="buttonedit"    href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/developer_guide/internal-architecture.markdown">Edit (pull request)</a>
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/developer_guide/internal-architecture.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
 	  </div>
     </div>
   </div>
@@ -34,4 +37,3 @@ $(document).ready(function () {
 <script>
 $("div[data-gist]").gist();
 </script>
-

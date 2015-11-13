@@ -6,7 +6,10 @@
       </div>
       <div id="content" class="col-md-9">
     
-        <h1 style="margin-top: 0px;">TOSCA definitions</h1>
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">TOSCA definitions</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.0.0/cloudify2_driver/tosca_archive_definitions.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
         <p>The Cloudify driver for ALEIN 4 CLOUD allows you to deploy applications on several clouds, using Cloudify 2.7.  Thus you have to <a href="#/documentation/1.0.0/devops_guide/tosca_concepts_types_custom.html" title="TOSCA custom node">design TOSCA archives containing nodes</a>, and upload them in your ALIEN instance. If your archive contains deployable nodes, you might have to add to their definitions some artifacts and interfaces.</p>
 
 <h2 id="standard-interface"><code>Standard</code> interface</h2>
@@ -92,7 +95,7 @@ The simplest way is to define an artifact of type <strong><code>tosca.artifacts.
 
 <p>See <a href="#/documentation/1.0.0/cloudify2_driver/lifecycle_spec.html" title="Cloudify lifecycle specifics">Cloudify specifics</a>  about them.</p>
 
-      <a class="buttonedit"    href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.0.0/cloudify2_driver/tosca_archive_definitions.markdown">Edit (pull request)</a>
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.0.0/cloudify2_driver/tosca_archive_definitions.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
 	  </div>
     </div>
   </div>
@@ -115,4 +118,3 @@ $(document).ready(function () {
 <script>
 $("div[data-gist]").gist();
 </script>
-

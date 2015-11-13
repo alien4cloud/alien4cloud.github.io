@@ -6,7 +6,10 @@
       </div>
       <div id="content" class="col-md-9">
     
-        <h1 style="margin-top: 0px;">Defaut Blockstorage</h1>
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Defaut Blockstorage</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.0.0/cloudify2_driver/blockstorage.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
         <p>Here are informations about the default normative type Blockstorage support.</p>
 
 <h2 id="toscanodesblockstorage-type"><code>tosca.nodes.BlockStorage</code> type</h2>
@@ -75,7 +78,7 @@ Let take an example for illustration: deploying with the following configuations
 <p>As stated previously, a storage created with the type <code>tosca.nodes.BlockStorage</code> is not deleted when undeploying the concerned application. However, if you want a storage auto-deletable, you can use the type <code>alien.nodes.DeletableBlockStorage</code>. That will ensure that the volume is destroyed, but of course the topology won’t be updated with the created volumeId.</p>
 </div>
 
-      <a class="buttonedit"    href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.0.0/cloudify2_driver/blockstorage.markdown">Edit (pull request)</a>
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.0.0/cloudify2_driver/blockstorage.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
 	  </div>
     </div>
   </div>
@@ -98,4 +101,3 @@ $(document).ready(function () {
 <script>
 $("div[data-gist]").gist();
 </script>
-
