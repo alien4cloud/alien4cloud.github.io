@@ -5,7 +5,7 @@ root: ../../
 categories: DOCUMENTATION-1.1.0
 parent: [rest_api, rest_api_topology-editor-api]
 node_name: rest_api_controller_topology-substitutions-controller
-weight: 26
+weight: 29
 ---
 
 ### Expose the given capability as a capability for the substitution type associated with this topology.

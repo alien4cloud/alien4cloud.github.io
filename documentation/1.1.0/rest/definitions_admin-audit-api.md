@@ -10,7 +10,8 @@ weight: 9000
 
 {% summary %}{% endsummary %}
 
-## FilteredSearchRequest
+# FilteredSearchRequest
+
 
 {: .table .table-bordered}
 |Name|Description|Required|Schema|Default|
@@ -21,7 +22,8 @@ weight: 9000
 |size||false|integer (int32)||
 
 
-## RestResponse«Void»
+# RestResponse«Void»
+
 
 {: .table .table-bordered}
 |Name|Description|Required|Schema|Default|
@@ -29,7 +31,8 @@ weight: 9000
 |error||false|RestError||
 
 
-## AuditConfigurationDTO
+# AuditConfigurationDTO
+
 
 {: .table .table-bordered}
 |Name|Description|Required|Schema|Default|
@@ -38,8 +41,10 @@ weight: 9000
 |methodsConfiguration||false|object||
 
 
-## Map«string,List«AuditedMethod»»
-## RestError
+# Map«string,List«AuditedMethod»»
+
+# RestError
+
 
 {: .table .table-bordered}
 |Name|Description|Required|Schema|Default|
@@ -48,7 +53,8 @@ weight: 9000
 |message||false|string||
 
 
-## AuditedMethod
+# AuditedMethod
+
 
 {: .table .table-bordered}
 |Name|Description|Required|Schema|Default|
@@ -60,7 +66,8 @@ weight: 9000
 |path||false|string||
 
 
-## RestResponse«FacetedSearchResult»
+# RestResponse«FacetedSearchResult»
+
 
 {: .table .table-bordered}
 |Name|Description|Required|Schema|Default|
@@ -69,7 +76,8 @@ weight: 9000
 |error||false|RestError||
 
 
-## RestResponse«AuditConfigurationDTO»
+# RestResponse«AuditConfigurationDTO»
+
 
 {: .table .table-bordered}
 |Name|Description|Required|Schema|Default|
@@ -78,8 +86,10 @@ weight: 9000
 |error||false|RestError||
 
 
-## Map«string,Array«FacetedSearchFacet»»
-## FacetedSearchResult
+# Map«string,Array«FacetedSearchFacet»»
+
+# FacetedSearchResult
+
 
 {: .table .table-bordered}
 |Name|Description|Required|Schema|Default|
@@ -93,4 +103,5 @@ weight: 9000
 |types||false|string array||
 
 
-## Map«string,Array«string»»
+# Map«string,Array«string»»
+

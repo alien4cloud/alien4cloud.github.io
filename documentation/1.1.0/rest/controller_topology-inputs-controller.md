@@ -5,7 +5,7 @@ root: ../../
 categories: DOCUMENTATION-1.1.0
 parent: [rest_api, rest_api_topology-editor-api]
 node_name: rest_api_controller_topology-inputs-controller
-weight: 27
+weight: 25
 ---
 
 ### Change the name of an input parameter.

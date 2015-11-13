@@ -5,7 +5,7 @@ root: ../../
 categories: DOCUMENTATION-1.1.0
 parent: [rest_api, rest_api_other-apis]
 node_name: rest_api_controller_plugin-components
-weight: 32
+weight: 31
 ---
 
 ### Search for plugin components.

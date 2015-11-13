@@ -5,7 +5,7 @@ root: ../../
 categories: DOCUMENTATION-1.1.0
 parent: [rest_api, rest_api_applications-api]
 node_name: rest_api_controller_application-environment-controller
-weight: 18
+weight: 23
 ---
 
 ### Create a new application environment

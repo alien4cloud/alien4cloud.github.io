@@ -5,7 +5,7 @@ root: ../../
 categories: DOCUMENTATION-1.1.0
 parent: [rest_api, rest_api_components-api]
 node_name: rest_api_controller_cloud-service-archive-controller
-weight: 15
+weight: 13
 ---
 
 ### Create a CSAR in SNAPSHOT version.

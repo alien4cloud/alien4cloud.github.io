@@ -5,7 +5,7 @@ root: ../../
 categories: DOCUMENTATION-1.1.0
 parent: [rest_api, rest_api_admin-orchestrator-api]
 node_name: rest_api_controller_location-roles-controller
-weight: 6
+weight: 4
 ---
 
 ### Add a role to a group on a specific location

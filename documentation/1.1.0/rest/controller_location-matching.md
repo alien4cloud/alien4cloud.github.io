@@ -5,7 +5,7 @@ root: ../../
 categories: DOCUMENTATION-1.1.0
 parent: [rest_api, rest_api_topology-editor-api]
 node_name: rest_api_controller_location-matching
-weight: 29
+weight: 26
 ---
 
 ### Retrieve the list of locations on which the current user can deploy the topology.

@@ -5,7 +5,7 @@ root: ../../
 categories: DOCUMENTATION-1.1.0
 parent: [rest_api, rest_api_other-apis]
 node_name: rest_api_controller_runtime-controller
-weight: 35
+weight: 32
 ---
 
 ### Get runtime (deployed) topology of an application on a specific cloud.

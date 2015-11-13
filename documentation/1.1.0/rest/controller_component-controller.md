@@ -5,7 +5,7 @@ root: ../../
 categories: DOCUMENTATION-1.1.0
 parent: [rest_api, rest_api_components-api]
 node_name: rest_api_controller_component-controller
-weight: 13
+weight: 14
 ---
 
 ### Verify that a component (tosca element) exists in alien's repository.

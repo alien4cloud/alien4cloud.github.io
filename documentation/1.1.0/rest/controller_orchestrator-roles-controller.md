@@ -5,7 +5,7 @@ root: ../../
 categories: DOCUMENTATION-1.1.0
 parent: [rest_api, rest_api_admin-orchestrator-api]
 node_name: rest_api_controller_orchestrator-roles-controller
-weight: 5
+weight: 7
 ---
 
 ### Add a role to a group on all locations of a specific orchestrator

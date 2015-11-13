@@ -10,7 +10,8 @@ weight: 9000
 
 {% summary %}{% endsummary %}
 
-## Group
+# Group
+
 
 {: .table .table-bordered}
 |Name|Description|Required|Schema|Default|
@@ -23,7 +24,8 @@ weight: 9000
 |users||false|string array||
 
 
-## User
+# User
+
 
 {: .table .table-bordered}
 |Name|Description|Required|Schema|Default|
@@ -43,7 +45,8 @@ weight: 9000
 |username||false|string||
 
 
-## RestResponse«string»
+# RestResponse«string»
+
 
 {: .table .table-bordered}
 |Name|Description|Required|Schema|Default|
@@ -52,7 +55,8 @@ weight: 9000
 |error||false|RestError||
 
 
-## RestResponse«List«User»»
+# RestResponse«List«User»»
+
 
 {: .table .table-bordered}
 |Name|Description|Required|Schema|Default|
@@ -61,7 +65,8 @@ weight: 9000
 |error||false|RestError||
 
 
-## RestResponse«List«Group»»
+# RestResponse«List«Group»»
+
 
 {: .table .table-bordered}
 |Name|Description|Required|Schema|Default|
@@ -70,7 +75,8 @@ weight: 9000
 |error||false|RestError||
 
 
-## RestResponse«User»
+# RestResponse«User»
+
 
 {: .table .table-bordered}
 |Name|Description|Required|Schema|Default|
@@ -79,7 +85,8 @@ weight: 9000
 |error||false|RestError||
 
 
-## RestResponse«Group»
+# RestResponse«Group»
+
 
 {: .table .table-bordered}
 |Name|Description|Required|Schema|Default|
@@ -88,8 +95,10 @@ weight: 9000
 |error||false|RestError||
 
 
-## Map«string,Array«string»»
-## UpdateGroupRequest
+# Map«string,Array«string»»
+
+# UpdateGroupRequest
+
 
 {: .table .table-bordered}
 |Name|Description|Required|Schema|Default|
@@ -101,7 +110,8 @@ weight: 9000
 |users||false|string array||
 
 
-## FilteredSearchRequest
+# FilteredSearchRequest
+
 
 {: .table .table-bordered}
 |Name|Description|Required|Schema|Default|
@@ -112,7 +122,8 @@ weight: 9000
 |size||false|integer (int32)||
 
 
-## RestResponse«Void»
+# RestResponse«Void»
+
 
 {: .table .table-bordered}
 |Name|Description|Required|Schema|Default|
@@ -120,7 +131,8 @@ weight: 9000
 |error||false|RestError||
 
 
-## UserSearchRequest
+# UserSearchRequest
+
 
 {: .table .table-bordered}
 |Name|Description|Required|Schema|Default|
@@ -131,7 +143,8 @@ weight: 9000
 |size||false|integer (int32)||
 
 
-## RestError
+# RestError
+
 
 {: .table .table-bordered}
 |Name|Description|Required|Schema|Default|
@@ -140,7 +153,8 @@ weight: 9000
 |message||false|string||
 
 
-## CreateGroupRequest
+# CreateGroupRequest
+
 
 {: .table .table-bordered}
 |Name|Description|Required|Schema|Default|
@@ -152,7 +166,8 @@ weight: 9000
 |users||false|string array||
 
 
-## RestResponse«FacetedSearchResult»
+# RestResponse«FacetedSearchResult»
+
 
 {: .table .table-bordered}
 |Name|Description|Required|Schema|Default|
@@ -161,8 +176,10 @@ weight: 9000
 |error||false|RestError||
 
 
-## Map«string,Array«FacetedSearchFacet»»
-## RestResponse«GetMultipleDataResult»
+# Map«string,Array«FacetedSearchFacet»»
+
+# RestResponse«GetMultipleDataResult»
+
 
 {: .table .table-bordered}
 |Name|Description|Required|Schema|Default|
@@ -171,7 +188,8 @@ weight: 9000
 |error||false|RestError||
 
 
-## CreateUserRequest
+# CreateUserRequest
+
 
 {: .table .table-bordered}
 |Name|Description|Required|Schema|Default|
@@ -184,7 +202,8 @@ weight: 9000
 |username||false|string||
 
 
-## GetMultipleDataResult
+# GetMultipleDataResult
+
 
 {: .table .table-bordered}
 |Name|Description|Required|Schema|Default|
@@ -197,7 +216,8 @@ weight: 9000
 |types||false|string array||
 
 
-## UpdateUserRequest
+# UpdateUserRequest
+
 
 {: .table .table-bordered}
 |Name|Description|Required|Schema|Default|
@@ -209,7 +229,8 @@ weight: 9000
 |roles||false|string array||
 
 
-## FacetedSearchResult
+# FacetedSearchResult
+
 
 {: .table .table-bordered}
 |Name|Description|Required|Schema|Default|

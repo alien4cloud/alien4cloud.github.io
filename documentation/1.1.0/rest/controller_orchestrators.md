@@ -5,7 +5,7 @@ root: ../../
 categories: DOCUMENTATION-1.1.0
 parent: [rest_api, rest_api_admin-orchestrator-api]
 node_name: rest_api_controller_orchestrators
-weight: 9
+weight: 8
 ---
 
 ### Search for orchestrators.

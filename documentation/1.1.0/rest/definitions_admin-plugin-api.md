@@ -10,7 +10,8 @@ weight: 9000
 
 {% summary %}{% endsummary %}
 
-## PluginDescriptor
+# PluginDescriptor
+
 
 {: .table .table-bordered}
 |Name|Description|Required|Schema|Default|
@@ -25,7 +26,8 @@ weight: 9000
 |version||false|string||
 
 
-## RestResponse«object»
+# RestResponse«object»
+
 
 {: .table .table-bordered}
 |Name|Description|Required|Schema|Default|
@@ -34,7 +36,8 @@ weight: 9000
 |error||false|RestError||
 
 
-## RestResponse«Void»
+# RestResponse«Void»
+
 
 {: .table .table-bordered}
 |Name|Description|Required|Schema|Default|
@@ -42,7 +45,8 @@ weight: 9000
 |error||false|RestError||
 
 
-## PluginUsage
+# PluginUsage
+
 
 {: .table .table-bordered}
 |Name|Description|Required|Schema|Default|
@@ -52,7 +56,8 @@ weight: 9000
 |resourceType||false|string||
 
 
-## Describe a component of a plugin (can be an IOrchestrator etc.).
+# Describe a component of a plugin (can be an IOrchestrator etc.).
+
 
 {: .table .table-bordered}
 |Name|Description|Required|Schema|Default|
@@ -63,7 +68,8 @@ weight: 9000
 |type|Type of the plugin.|false|string||
 
 
-## RestError
+# RestError
+
 
 {: .table .table-bordered}
 |Name|Description|Required|Schema|Default|
@@ -72,7 +78,8 @@ weight: 9000
 |message||false|string||
 
 
-## GetMultipleDataResult«Plugin»
+# GetMultipleDataResult«Plugin»
+
 
 {: .table .table-bordered}
 |Name|Description|Required|Schema|Default|
@@ -85,7 +92,8 @@ weight: 9000
 |types||false|string array||
 
 
-## RestResponse«List«PluginUsage»»
+# RestResponse«List«PluginUsage»»
+
 
 {: .table .table-bordered}
 |Name|Description|Required|Schema|Default|
@@ -94,7 +102,8 @@ weight: 9000
 |error||false|RestError||
 
 
-## RestResponse«GetMultipleDataResult«Plugin»»
+# RestResponse«GetMultipleDataResult«Plugin»»
+
 
 {: .table .table-bordered}
 |Name|Description|Required|Schema|Default|
@@ -103,7 +112,8 @@ weight: 9000
 |error||false|RestError||
 
 
-## Plugin
+# Plugin
+
 
 {: .table .table-bordered}
 |Name|Description|Required|Schema|Default|

@@ -5,7 +5,7 @@ root: ../../
 categories: DOCUMENTATION-1.1.0
 parent: [rest_api, rest_api_other-apis]
 node_name: rest_api_controller_deployment-controller
-weight: 31
+weight: 33
 ---
 
 ### Get deployments for an orchestrator.

@@ -5,7 +5,7 @@ root: ../../
 categories: DOCUMENTATION-1.1.0
 parent: [rest_api, rest_api_admin-orchestrator-api]
 node_name: rest_api_controller_orchestrators-locations
-weight: 4
+weight: 10
 ---
 
 ### Get all locations for a given orchestrator.
