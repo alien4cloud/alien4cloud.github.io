@@ -1,0 +1,348 @@
+<div class="container">
+  <div class="row">
+    
+      <div class="col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-md-9">
+    
+        <h1 style="margin-top: 0px;">Definitions</h1>
+        
+<hr style="margin-top:5px; margin-bottom:5px;" />
+<div class="row"><ul class="nav nav-pills" id="summarypanel"></ul></div>
+<hr style="margin-top:5px; margin-bottom:5px;" />
+
+<h1 id="filteredsearchrequest">FilteredSearchRequest</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>filters</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>from</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int32)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>query</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>size</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int32)</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="restresponsevoid">RestResponse«Void»</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>error</td>
+      <td> </td>
+      <td>false</td>
+      <td>RestError</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="auditconfigurationdto">AuditConfigurationDTO</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>enabled</td>
+      <td> </td>
+      <td>false</td>
+      <td>boolean</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>methodsConfiguration</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="mapstringlistauditedmethod">Map«string,List«AuditedMethod»»</h1>
+
+<h1 id="resterror">RestError</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>code</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int32)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>message</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="auditedmethod">AuditedMethod</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>action</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>category</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>enabled</td>
+      <td> </td>
+      <td>false</td>
+      <td>boolean</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>method</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>path</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="restresponsefacetedsearchresult">RestResponse«FacetedSearchResult»</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>data</td>
+      <td> </td>
+      <td>false</td>
+      <td>FacetedSearchResult</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>error</td>
+      <td> </td>
+      <td>false</td>
+      <td>RestError</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="restresponseauditconfigurationdto">RestResponse«AuditConfigurationDTO»</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>data</td>
+      <td> </td>
+      <td>false</td>
+      <td>AuditConfigurationDTO</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>error</td>
+      <td> </td>
+      <td>false</td>
+      <td>RestError</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="mapstringarrayfacetedsearchfacet">Map«string,Array«FacetedSearchFacet»»</h1>
+
+<h1 id="facetedsearchresult">FacetedSearchResult</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>data</td>
+      <td> </td>
+      <td>false</td>
+      <td>object array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>facets</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>from</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int32)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>queryDuration</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int64)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>to</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int32)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>totalResults</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int64)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>types</td>
+      <td> </td>
+      <td>false</td>
+      <td>string array</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="mapstringarraystring">Map«string,Array«string»»</h1>
+
+
+      <a class="buttonedit"    href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.1.0/rest/definitions_admin-audit-api.md">Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-1.1.0', 'rest_api_definitions_admin-audit-api');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>
+

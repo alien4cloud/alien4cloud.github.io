@@ -1,0 +1,2619 @@
+<div class="container">
+  <div class="row">
+    
+      <div class="col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-md-9">
+    
+        <h1 style="margin-top: 0px;">Definitions</h1>
+        
+<hr style="margin-top:5px; margin-bottom:5px;" />
+<div class="row"><ul class="nav nav-pills" id="summarypanel"></ul></div>
+<hr style="margin-top:5px; margin-bottom:5px;" />
+
+<h1 id="mapstringabstractstep">Map«string,AbstractStep»</h1>
+
+<h1 id="deployment">Deployment</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>endDate</td>
+      <td> </td>
+      <td>false</td>
+      <td>string (date-time)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>environmentId</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>id</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>locationIds</td>
+      <td> </td>
+      <td>false</td>
+      <td>string array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>orchestratorDeploymentId</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>orchestratorId</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>sourceId</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>sourceName</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>sourceType</td>
+      <td> </td>
+      <td>false</td>
+      <td>enum (APPLICATION, CSAR)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>startDate</td>
+      <td> </td>
+      <td>false</td>
+      <td>string (date-time)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>versionId</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="requirementdefinition">RequirementDefinition</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>capabilityName</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>description</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>id</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>lowerBound</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int32)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>nodeFilter</td>
+      <td> </td>
+      <td>false</td>
+      <td>NodeFilter</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>relationshipType</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>type</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>upperBound</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int32)</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="userstatus">UserStatus</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>githubUsername</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>groups</td>
+      <td> </td>
+      <td>false</td>
+      <td>string array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>isLogged</td>
+      <td> </td>
+      <td>false</td>
+      <td>boolean</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>roles</td>
+      <td> </td>
+      <td>false</td>
+      <td>Collection«string»</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>username</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="abstractstep">AbstractStep</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>followingSteps</td>
+      <td> </td>
+      <td>false</td>
+      <td>string array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>name</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>precedingSteps</td>
+      <td> </td>
+      <td>false</td>
+      <td>string array</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="mapstringindexedcapabilitytype">Map«string,IndexedCapabilityType»</h1>
+
+<h1 id="mapstringindexedrelationshiptype">Map«string,IndexedRelationshipType»</h1>
+
+<h1 id="filterdefinition">FilterDefinition</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>properties</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="restresponsevoid">RestResponse«Void»</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>error</td>
+      <td> </td>
+      <td>false</td>
+      <td>RestError</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="relationshiptemplate">RelationshipTemplate</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>artifacts</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>properties</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>requirementName</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>requirementType</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>target</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>targetedCapabilityName</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>type</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="mapstringworkflow">Map«string,Workflow»</h1>
+
+<h1 id="abstractworkflowerror">AbstractWorkflowError</h1>
+
+<h1 id="deploymentdto">DeploymentDTO</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>deployment</td>
+      <td> </td>
+      <td>false</td>
+      <td>Deployment</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>locations</td>
+      <td> </td>
+      <td>false</td>
+      <td>Location array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>source</td>
+      <td> </td>
+      <td>false</td>
+      <td>IDeploymentSource</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="deferredresultrestresponsestring">DeferredResult«RestResponse«string»»</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>result</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>setOrExpired</td>
+      <td> </td>
+      <td>false</td>
+      <td>boolean</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="collectionstring">Collection«string»</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>empty</td>
+      <td> </td>
+      <td>false</td>
+      <td>boolean</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="indexednodetype">IndexedNodeType</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>abstract</td>
+      <td> </td>
+      <td>false</td>
+      <td>boolean</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>alienScore</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int64)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>archiveName</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>archiveVersion</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>artifacts</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>attributes</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>capabilities</td>
+      <td> </td>
+      <td>false</td>
+      <td>CapabilityDefinition array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>creationDate</td>
+      <td> </td>
+      <td>false</td>
+      <td>string (date-time)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>defaultCapabilities</td>
+      <td> </td>
+      <td>false</td>
+      <td>string array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>derivedFrom</td>
+      <td> </td>
+      <td>false</td>
+      <td>string array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>description</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>elementId</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>highestVersion</td>
+      <td> </td>
+      <td>false</td>
+      <td>boolean</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>id</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>interfaces</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>lastUpdateDate</td>
+      <td> </td>
+      <td>false</td>
+      <td>string (date-time)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>olderVersions</td>
+      <td> </td>
+      <td>false</td>
+      <td>string array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>properties</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>requirements</td>
+      <td> </td>
+      <td>false</td>
+      <td>RequirementDefinition array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>substitutionTopologyId</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>tags</td>
+      <td> </td>
+      <td>false</td>
+      <td>Tag array</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="capabilitydefinition">CapabilityDefinition</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>description</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>id</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>properties</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>type</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>upperBound</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int32)</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="mapstringindexednodetype">Map«string,IndexedNodeType»</h1>
+
+<h1 id="restresponselistdeploymentdto">RestResponse«List«DeploymentDTO»»</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>data</td>
+      <td> </td>
+      <td>false</td>
+      <td>DeploymentDTO array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>error</td>
+      <td> </td>
+      <td>false</td>
+      <td>RestError</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="deploymentartifact">DeploymentArtifact</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>archiveName</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>archiveVersion</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>artifactName</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>artifactRef</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>artifactRepository</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>artifactType</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="mapstringfilterdefinition">Map«string,FilterDefinition»</h1>
+
+<h1 id="nodegroup">NodeGroup</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>index</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int32)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>members</td>
+      <td> </td>
+      <td>false</td>
+      <td>string array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>name</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>policies</td>
+      <td> </td>
+      <td>false</td>
+      <td>AbstractPolicy array</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="capability">Capability</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>properties</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>type</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="mapstringcapability">Map«string,Capability»</h1>
+
+<h1 id="workflow">Workflow</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>description</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>errors</td>
+      <td> </td>
+      <td>false</td>
+      <td>AbstractWorkflowError array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>hosts</td>
+      <td> </td>
+      <td>false</td>
+      <td>string array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>name</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>standard</td>
+      <td> </td>
+      <td>false</td>
+      <td>boolean</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>steps</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="mapstringinterface">Map«string,Interface»</h1>
+
+<h1 id="mapstringrelationshiptemplate">Map«string,RelationshipTemplate»</h1>
+
+<h1 id="topology">Topology</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>delegateId</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>delegateType</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>dependencies</td>
+      <td> </td>
+      <td>false</td>
+      <td>CSARDependency array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>empty</td>
+      <td> </td>
+      <td>false</td>
+      <td>boolean</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>groups</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>id</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>inputArtifacts</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>inputs</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>lastUpdateDate</td>
+      <td> </td>
+      <td>false</td>
+      <td>string (date-time)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>nodeTemplates</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>outputAttributes</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>outputCapabilityProperties</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>outputProperties</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>substitutionMapping</td>
+      <td> </td>
+      <td>false</td>
+      <td>SubstitutionMapping</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>workflows</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="mapstringpropertydefinition">Map«string,PropertyDefinition»</h1>
+
+<h1 id="mapstringlistpropertyconstraint">Map«string,List«PropertyConstraint»»</h1>
+
+<h1 id="deferredresultrestresponseobject">DeferredResult«RestResponse«object»»</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>result</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>setOrExpired</td>
+      <td> </td>
+      <td>false</td>
+      <td>boolean</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="implementationartifact">ImplementationArtifact</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>archiveName</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>archiveVersion</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>artifactRef</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>artifactType</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="requirement">Requirement</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>properties</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>type</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="restresponseobject">RestResponse«object»</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>data</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>error</td>
+      <td> </td>
+      <td>false</td>
+      <td>RestError</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="mapstringmapstringsetstring">Map«string,Map«string,Set«string»»»</h1>
+
+<h1 id="nodetemplate">NodeTemplate</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>artifacts</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>attributes</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>capabilities</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>groups</td>
+      <td> </td>
+      <td>false</td>
+      <td>string array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>interfaces</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>name</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>properties</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>relationships</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>requirements</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>type</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="topologydto">TopologyDTO</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>capabilityTypes</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>nodeTypes</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>outputCapabilityProperties</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>relationshipTypes</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>topology</td>
+      <td> </td>
+      <td>false</td>
+      <td>Topology</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>yaml</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="indexedcapabilitytype">IndexedCapabilityType</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>abstract</td>
+      <td> </td>
+      <td>false</td>
+      <td>boolean</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>archiveName</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>archiveVersion</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>creationDate</td>
+      <td> </td>
+      <td>false</td>
+      <td>string (date-time)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>derivedFrom</td>
+      <td> </td>
+      <td>false</td>
+      <td>string array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>description</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>elementId</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>highestVersion</td>
+      <td> </td>
+      <td>false</td>
+      <td>boolean</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>id</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>lastUpdateDate</td>
+      <td> </td>
+      <td>false</td>
+      <td>string (date-time)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>olderVersions</td>
+      <td> </td>
+      <td>false</td>
+      <td>string array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>properties</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>tags</td>
+      <td> </td>
+      <td>false</td>
+      <td>Tag array</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="indexedrelationshiptype">IndexedRelationshipType</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>abstract</td>
+      <td> </td>
+      <td>false</td>
+      <td>boolean</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>archiveName</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>archiveVersion</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>artifacts</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>attributes</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>creationDate</td>
+      <td> </td>
+      <td>false</td>
+      <td>string (date-time)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>derivedFrom</td>
+      <td> </td>
+      <td>false</td>
+      <td>string array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>description</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>elementId</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>highestVersion</td>
+      <td> </td>
+      <td>false</td>
+      <td>boolean</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>id</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>interfaces</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>lastUpdateDate</td>
+      <td> </td>
+      <td>false</td>
+      <td>string (date-time)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>olderVersions</td>
+      <td> </td>
+      <td>false</td>
+      <td>string array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>properties</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>tags</td>
+      <td> </td>
+      <td>false</td>
+      <td>Tag array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>validSources</td>
+      <td> </td>
+      <td>false</td>
+      <td>string array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>validTargets</td>
+      <td> </td>
+      <td>false</td>
+      <td>string array</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="getmultipledataresult">GetMultipleDataResult</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>data</td>
+      <td> </td>
+      <td>false</td>
+      <td>object array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>from</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int32)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>queryDuration</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int64)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>to</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int32)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>totalResults</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int64)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>types</td>
+      <td> </td>
+      <td>false</td>
+      <td>string array</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="mapstringnodegroup">Map«string,NodeGroup»</h1>
+
+<h1 id="restresponsestring">RestResponse«string»</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>data</td>
+      <td> </td>
+      <td>false</td>
+      <td>enum (DEPLOYED, UNDEPLOYED, DEPLOYMENT_IN_PROGRESS, UNDEPLOYMENT_IN_PROGRESS, WARNING, FAILURE, UNKNOWN)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>error</td>
+      <td> </td>
+      <td>false</td>
+      <td>RestError</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="modelandview">ModelAndView</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>empty</td>
+      <td> </td>
+      <td>false</td>
+      <td>boolean</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>model</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>modelMap</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>reference</td>
+      <td> </td>
+      <td>false</td>
+      <td>boolean</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>view</td>
+      <td> </td>
+      <td>false</td>
+      <td>View</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>viewName</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="mapstringoperation">Map«string,Operation»</h1>
+
+<h1 id="operation">Operation</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>description</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>implementationArtifact</td>
+      <td> </td>
+      <td>false</td>
+      <td>ImplementationArtifact</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>inputParameters</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="substitutionmapping">SubstitutionMapping</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>capabilities</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>requirements</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>substitutionType</td>
+      <td> </td>
+      <td>false</td>
+      <td>IndexedNodeType</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="mapstringsubstitutiontarget">Map«string,SubstitutionTarget»</h1>
+
+<h1 id="propertyconstraint">PropertyConstraint</h1>
+
+<h1 id="ivalue">IValue</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>definition</td>
+      <td> </td>
+      <td>false</td>
+      <td>boolean</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="ideploymentsource">IDeploymentSource</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>id</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>name</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="resterror">RestError</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>code</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int32)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>message</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="mapstringsetstring">Map«string,Set«string»»</h1>
+
+<h1 id="restresponsetopologydto">RestResponse«TopologyDTO»</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>data</td>
+      <td> </td>
+      <td>false</td>
+      <td>TopologyDTO</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>error</td>
+      <td> </td>
+      <td>false</td>
+      <td>RestError</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="abstractpolicy">AbstractPolicy</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>name</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>type</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="operationexecrequest">OperationExecRequest</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>applicationEnvironmentId</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>instanceId</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>interfaceName</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>nodeTemplateName</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>operationName</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>parameters</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="restresponseuserstatus">RestResponse«UserStatus»</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>data</td>
+      <td> </td>
+      <td>false</td>
+      <td>UserStatus</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>error</td>
+      <td> </td>
+      <td>false</td>
+      <td>RestError</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="result-for-a-request-for-specific-plugin-components">Result for a request for specific plugin components.</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>componentDescriptor</td>
+      <td>Description of the component within the plugin.</td>
+      <td>false</td>
+      <td>Describe a component of a plugin (can be an IOrchestrator etc.).</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>pluginId</td>
+      <td>Id of the plugin that contains the component.</td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>pluginName</td>
+      <td>Name of the plugin that contains the component.</td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>version</td>
+      <td>Version of the plugin that contains the component.</td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="mapstringivalue">Map«string,IValue»</h1>
+
+<h1 id="describe-a-component-of-a-plugin-can-be-an-iorchestrator-etc">Describe a component of a plugin (can be an IOrchestrator etc.).</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>beanName</td>
+      <td>Name of the component bean in the plugin spring context.</td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>description</td>
+      <td>Description of the plugin.</td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>name</td>
+      <td>Name of the plugin component.</td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>type</td>
+      <td>Type of the plugin.</td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="mapstringrequirement">Map«string,Requirement»</h1>
+
+<h1 id="modelmap">ModelMap</h1>
+
+<h1 id="substitutiontarget">SubstitutionTarget</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>nodeTemplateName</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>targetId</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="view">View</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>contentType</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="propertydefinition">PropertyDefinition</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>constraints</td>
+      <td> </td>
+      <td>false</td>
+      <td>PropertyConstraint array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>default</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>definition</td>
+      <td> </td>
+      <td>false</td>
+      <td>boolean</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>description</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>entrySchema</td>
+      <td> </td>
+      <td>false</td>
+      <td>PropertyDefinition</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>password</td>
+      <td> </td>
+      <td>false</td>
+      <td>boolean</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>required</td>
+      <td> </td>
+      <td>false</td>
+      <td>boolean</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>type</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="mapstringabstractpropertyvalue">Map«string,AbstractPropertyValue»</h1>
+
+<h1 id="csardependency">CSARDependency</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>name</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>version</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="basicsearchrequest">BasicSearchRequest</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>from</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int32)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>query</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>size</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int32)</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="mapstringnodetemplate">Map«string,NodeTemplate»</h1>
+
+<h1 id="mapstringstring">Map«string,string»</h1>
+
+<h1 id="mapstringdeploymentartifact">Map«string,DeploymentArtifact»</h1>
+
+<h1 id="restresponsegetmultipledataresult">RestResponse«GetMultipleDataResult»</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>data</td>
+      <td> </td>
+      <td>false</td>
+      <td>GetMultipleDataResult</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>error</td>
+      <td> </td>
+      <td>false</td>
+      <td>RestError</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="mapstringliststring">Map«string,List«string»»</h1>
+
+<h1 id="tag">Tag</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>name</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>value</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="abstractpropertyvalue">AbstractPropertyValue</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>definition</td>
+      <td> </td>
+      <td>false</td>
+      <td>boolean</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="interface">Interface</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>description</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>operations</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="location">Location</h1>
+
+<p>A location represents a cloud, a region of a cloud, a set of machines and resources.basically any location on which alien will be allowed to perform deployment. Locations are managed by orchestrators.</p>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>dependencies</td>
+      <td> </td>
+      <td>false</td>
+      <td>CSARDependency array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>environmentType</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>groupRoles</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>id</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>infrastructureType</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>lastUpdateDate</td>
+      <td> </td>
+      <td>false</td>
+      <td>string (date-time)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>metaProperties</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>name</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>orchestratorId</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>userRoles</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="restresponselistresult-for-a-request-for-specific-plugin-components">RestResponse«List«Result for a request for specific plugin components.»»</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>data</td>
+      <td> </td>
+      <td>false</td>
+      <td>Result for a request for specific plugin components. array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>error</td>
+      <td> </td>
+      <td>false</td>
+      <td>RestError</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="nodefilter">NodeFilter</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>capabilities</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>properties</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+
+      <a class="buttonedit"    href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.1.0/rest/definitions_other-apis.md">Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-1.1.0', 'rest_api_definitions_other-apis');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>
+

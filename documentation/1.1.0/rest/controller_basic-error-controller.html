@@ -7,7 +7,7 @@
       <div id="content" class="col-md-9">
     
         <h1 style="margin-top: 0px;">Basic Error Controller</h1>
-        <h3 id="error">error</h3>
+        <h3 id="errorhtml">errorHtml</h3>
 <p><code>
 GET /error
 </code></p>
@@ -26,7 +26,7 @@ GET /error
     <tr>
       <td>200</td>
       <td>OK</td>
-      <td>object</td>
+      <td>ModelAndView</td>
     </tr>
     <tr>
       <td>401</td>
@@ -55,10 +55,10 @@ GET /error
 <h4 id="produces">Produces</h4>
 
 <ul>
-  <li><em>/</em></li>
+  <li>text/html</li>
 </ul>
 
-<h3 id="error-1">error</h3>
+<h3 id="errorhtml-1">errorHtml</h3>
 <p><code>
 PUT /error
 </code></p>
@@ -77,7 +77,7 @@ PUT /error
     <tr>
       <td>200</td>
       <td>OK</td>
-      <td>object</td>
+      <td>ModelAndView</td>
     </tr>
     <tr>
       <td>201</td>
@@ -111,10 +111,10 @@ PUT /error
 <h4 id="produces-1">Produces</h4>
 
 <ul>
-  <li><em>/</em></li>
+  <li>text/html</li>
 </ul>
 
-<h3 id="error-2">error</h3>
+<h3 id="errorhtml-2">errorHtml</h3>
 <p><code>
 DELETE /error
 </code></p>
@@ -133,7 +133,7 @@ DELETE /error
     <tr>
       <td>200</td>
       <td>OK</td>
-      <td>object</td>
+      <td>ModelAndView</td>
     </tr>
     <tr>
       <td>401</td>
@@ -162,10 +162,10 @@ DELETE /error
 <h4 id="produces-2">Produces</h4>
 
 <ul>
-  <li><em>/</em></li>
+  <li>text/html</li>
 </ul>
 
-<h3 id="error-3">error</h3>
+<h3 id="errorhtml-3">errorHtml</h3>
 <p><code>
 POST /error
 </code></p>
@@ -184,7 +184,7 @@ POST /error
     <tr>
       <td>200</td>
       <td>OK</td>
-      <td>object</td>
+      <td>ModelAndView</td>
     </tr>
     <tr>
       <td>201</td>
@@ -218,10 +218,10 @@ POST /error
 <h4 id="produces-3">Produces</h4>
 
 <ul>
-  <li><em>/</em></li>
+  <li>text/html</li>
 </ul>
 
-<h3 id="error-4">error</h3>
+<h3 id="errorhtml-4">errorHtml</h3>
 <p><code>
 PATCH /error
 </code></p>
@@ -240,7 +240,7 @@ PATCH /error
     <tr>
       <td>200</td>
       <td>OK</td>
-      <td>object</td>
+      <td>ModelAndView</td>
     </tr>
     <tr>
       <td>401</td>
@@ -269,11 +269,12 @@ PATCH /error
 <h4 id="produces-4">Produces</h4>
 
 <ul>
-  <li><em>/</em></li>
+  <li>text/html</li>
 </ul>
 
 
-      </div>
+      <a class="buttonedit"    href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.1.0/rest/controller_basic-error-controller.md">Edit (pull request)</a>
+	  </div>
     </div>
   </div>
 </div><!-- /container -->
@@ -295,3 +296,4 @@ $(document).ready(function () {
 <script>
 $("div[data-gist]").gist();
 </script>
+

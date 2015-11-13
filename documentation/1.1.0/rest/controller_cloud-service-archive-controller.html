@@ -7,7 +7,7 @@
       <div id="content" class="col-md-9">
     
         <h1 style="margin-top: 0px;">Cloud Service Archive Controller</h1>
-        <h3 id="upload-a-csar-zip-file">Upload a csar zip file.</h3>
+        <h3 id="create-a-csar-in-snapshot-version">Create a CSAR in SNAPSHOT version.</h3>
 <p><code>
 POST /rest/csars
 </code></p>
@@ -27,11 +27,11 @@ POST /rest/csars
   </thead>
   <tbody>
     <tr>
-      <td>FormDataParameter</td>
-      <td>file</td>
-      <td>csar</td>
+      <td>BodyParameter</td>
+      <td>request</td>
+      <td>request</td>
       <td>true</td>
-      <td>file</td>
+      <td>CreateCsarRequest</td>
       <td> </td>
     </tr>
   </tbody>
@@ -49,14 +49,9 @@ POST /rest/csars
   </thead>
   <tbody>
     <tr>
-      <td>200</td>
-      <td>OK</td>
-      <td>RestResponse«CsarUploadResult»</td>
-    </tr>
-    <tr>
       <td>201</td>
       <td>Created</td>
-      <td>No Content</td>
+      <td>RestResponse«string»</td>
     </tr>
     <tr>
       <td>401</td>
@@ -79,13 +74,13 @@ POST /rest/csars
 <h4 id="consumes">Consumes</h4>
 
 <ul>
-  <li>multipart/form-data</li>
+  <li>application/json</li>
 </ul>
 
 <h4 id="produces">Produces</h4>
 
 <ul>
-  <li>application/json</li>
+  <li><em>/</em></li>
 </ul>
 
 <h3 id="search-for-cloud-service-archives">Search for cloud service archives.</h3>
@@ -502,7 +497,8 @@ POST /rest/csars/{csarId}/dependencies
 </ul>
 
 
-      </div>
+      <a class="buttonedit"    href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.1.0/rest/controller_cloud-service-archive-controller.md">Edit (pull request)</a>
+	  </div>
     </div>
   </div>
 </div><!-- /container -->
@@ -524,3 +520,4 @@ $(document).ready(function () {
 <script>
 $("div[data-gist]").gist();
 </script>
+
