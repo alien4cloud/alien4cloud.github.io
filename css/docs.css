@@ -35,7 +35,30 @@ body {
   position: relative; /* For scrollyspy */
   padding-top: 50px; /* Account for fixed navbar */
 }
+a.buttonedit {
+    text-align: center;
+    background: #16A085;
+    color: #FFFFFF;
+    padding: 8px 15px;
+    border-radius: 5px;
+	text-decoration:none; 
+  /*  margin: 1.5 * 3 0;*/
 
+    /*a {
+        font-weight: 700;
+     color:#FFFFFF; 
+     text-decoration:none; 
+        margin-left: 10px;
+
+
+    }*/
+	a:link, a:visited, a:hover, a:active, a:focus
+	{
+     color:#FFFFFF; 
+     text-decoration:none; 
+     
+	}
+}
 /* Keep code small in tables on account of limited space */
 .table code {
   font-size: 13px;
