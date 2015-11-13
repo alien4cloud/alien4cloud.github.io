@@ -1,14 +1,17 @@
 ---
 layout: post
-title:  Installation and configuration
+title: Installation and configuration
 categories: DOCUMENTATION
 root: ../../
-parent: [admin]
+parent: 
+  - admin
 node_name: intallation_configuration
 weight: 10
+published: true
 ---
 
-This section describe installation and configuration of Alien 4 Cloud for a production mode. If you whish to use Alien 4 Cloud for a demo or development mode please refer to the [getting started](#/documentation/1.0.0/getting_started/getting_started.html) guide.
+
+This section describes installation and configuration of Alien 4 Cloud for a production mode. If you whish to use Alien 4 Cloud for a demo or development mode please refer to the [getting started](#/documentation/1.0.0/getting_started/getting_started.html) guide.
 
 {%warning%}
 <h5>Important: security issue </h5>
