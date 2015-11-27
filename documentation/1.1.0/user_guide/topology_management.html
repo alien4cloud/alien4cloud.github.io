@@ -60,13 +60,24 @@ a new template with the topology composer or upload a zip file with your templat
 
 <h1 id="topology-substitution--composition">Topology substitution / composition</h1>
 
-<p>A topology template can also be used in another template as a type. In order to do this, you must:</p>
+<p>A topology template can also be used in another template as a type. Topology substitution can make existing topology template re-useable. In order to do this, you must:
+- Create a type that is inherited from your topology template.</p>
+
+<p>For example, you have a topology template of an Apache server hosted on a compute as shown in this view. If you want to use this template as a type, you need to click <code>subsitution</code> panel, which is over the bottom-right corner in topology composer view.
+<a href="../../images/user_guide/user_guide_apache_topology_template.png" target="_blank"><img src="../../images/user_guide/user_guide_apache_topology_template.png" alt="Apache topology template" /></a></p>
 
 <ul>
-  <li>define the type it will inherit from (“subsitution” panel in topology composer).</li>
-  <li>choose the capabilities/requirements you want to expose (as capabilities/requirements for the new type).</li>
-  <li>eventually define inputs and outputs that will become respectively properties and attributes for the created type.</li>
+  <li>Choose the capabilities/requirements you want to expose.</li>
 </ul>
+
+<p>After clicking <code>Subsitutions</code> panel, you can type <code>tosca.nodes.Root</code> in search bar in the panel. It will create empty <code>Capabilities</code> and <code>Requirements</code> fields. Then, you can select the components whose capabilities/requirements you want to expose. By clicking the <code>Expose</code> button next to capabilities/requirements element of the selected component, you can expose these capabilities/requirements, which will become the capabilities and requirements of the composed new type.
+<a href="../../images/user_guide/user_guide_expose_capa_substitution.png" target="_blank"><img src="../../images/user_guide/user_guide_expose_capa_substitution.png" alt="Expose capabilities and requirements" /></a></p>
+
+<ul>
+  <li>Eventually define inputs and outputs that will become respectively properties and attributes for the created type.</li>
+</ul>
+
+<p>The inputs of your topology template will become properties of the composed type, and what you choose as outputs will be attributes of the new type.</p>
 
 <p>The created type is named like the template and is usable in another template or an application topology. It’s content will be wired at runtime stage.</p>
 
@@ -74,7 +85,7 @@ a new template with the topology composer or upload a zip file with your templat
 
 <p>In the <em>topology version</em> page you can create, edit or delete a version. As we already say in the application concept page, if you remove the ‘SNAPSHOT’ qualifier, your topology will be not editable.</p>
 
-<p><a href="../../images/user_guide/topology_version.png"><img src="../../images/user_guide/topology_version.png" alt="*Topology version" /></a></p>
+<p><a href="../../images/user_guide/topology_version.png" target="_blank"><img src="../../images/user_guide/topology_version.png" alt="*Topology version" /></a></p>
 
         <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.1.0/user_guide/topology_management.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
 	  </div>
