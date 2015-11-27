@@ -3,12 +3,13 @@ layout: post
 title: Topology management
 root: ../../
 categories: "DOCUMENTATION-1.1.0"
-parent:
+parent: 
   - user_guide
 node_name: topology_management
 weight: 300
 published: true
 ---
+
 
 
 {% summary %}{% endsummary %}
@@ -62,6 +63,7 @@ From now you can use any template when [creating a new application](#/documentat
 # Topology substitution / composition
 
 A topology template can also be used in another template as a type. Topology substitution can make existing topology template re-useable. In order to do this, you must:
+
 - Create a type that is inherited from your topology template.
 
 For example, you have a topology template of an Apache server hosted on a compute as shown in this view. If you want to use this template as a type, you need to click `subsitution` panel, which is over the bottom-right corner in topology composer view.  
