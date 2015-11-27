@@ -64,12 +64,14 @@ From now you can use any template when [creating a new application](#/documentat
 A topology template can also be used in another template as a type. Topology substitution can make existing topology template re-useable. In order to do this, you must:
 - Create a type that is inherited from your topology template.
 
-For example, you have a topology template of an Apache server hosted on a compute as shown in this view. If you want to use this template as a type, you need to click `subsitution` panel, which is over the bottom-right corner in topology composer view.
+For example, you have a topology template of an Apache server hosted on a compute as shown in this view. If you want to use this template as a type, you need to click `subsitution` panel, which is over the bottom-right corner in topology composer view.  
+
 [![Apache topology template](../../images/user_guide/user_guide_apache_topology_template.png)](../../images/user_guide/user_guide_apache_topology_template.png){:target="_blank"}
 
 - Choose the capabilities/requirements you want to expose.
 
-After clicking `Subsitutions` panel, you can type `tosca.nodes.Root` in search bar in the panel. It will create empty `Capabilities` and `Requirements` fields. Then, you can select the components whose capabilities/requirements you want to expose. By clicking the `Expose` button next to capabilities/requirements element of the selected component, you can expose these capabilities/requirements, which will become the capabilities and requirements of the composed new type.
+After clicking `Subsitutions` panel, you can type `tosca.nodes.Root` in search bar in the panel. It will create empty `Capabilities` and `Requirements` fields. Then, you can select the components whose capabilities/requirements you want to expose. By clicking the `Expose` button next to capabilities/requirements element of the selected component, you can expose these capabilities/requirements, which will become the capabilities and requirements of the composed new type.  
+
 [![Expose capabilities and requirements](../../images/user_guide/user_guide_expose_capa_substitution.png)](../../images/user_guide/user_guide_expose_capa_substitution.png){:target="_blank"}
 
 - Eventually define inputs and outputs that will become respectively properties and attributes for the created type.
