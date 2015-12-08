@@ -15,19 +15,6 @@ exclude_from_search: true
 <i class="fa fa-plus text-success"></i> New feature <i class="fa fa-level-up text-primary"></i> Improvement  <i class="fa fa-bug text-danger"></i> Bug <i class="fa fa-exclamation-triangle text-warning"></i> Breaking change
 
 
-### Cloudify 3 PaaS Provider
-
-
-
-  {: .table .table-bordered}
-  | Type        | Id         | Description |
-  |:------------|:-----------|:------------|
-      |  <i class="fa fa-exclamation-triangle text-warning">  <i class="fa fa-level-up text-primary"></i> | ALIEN-1200 | Block Storage are not automatically formatted and mounted but only attached. A FileSystem type in the extended types allows formatting and mounting them. The device property has been added to the block storage so people can retrieve it in a relationship. /  |
-    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-1201 | Network mapping to private and public follows the location refactoring. /  |
-    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-1249 | Native types workflow cannot be changed as they are provided by orchestrator and user has no control on them. /  |
-    
-
-
 ### Alien 4 Cloud
 
 
@@ -38,5 +25,19 @@ exclude_from_search: true
     |  <i class="fa fa-plus text-success"></i> | ALIEN-1138 | Users can now trigger custom workflows from the runtime view. /  |
     |  <i class="fa fa-exclamation-triangle text-warning">  <i class="fa fa-plus text-success"></i> | ALIEN-1196 | Refactoring of "clouds" to introduce Orchestrator and Location. Introduction of Custom Location Types,  Location Matching plugins and Node Matching plugins. Read more in the 1.1.0 documentation. /  |
       |  <i class="fa fa-level-up text-primary"></i> | ALIEN-1249 | Native types workflow cannot be changed as they are provided by orchestrator and user has no control on them. /  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-1262 | Improve the box packaging for Alien4Cloud. Now you can download a tar.gz file that contains a full-packaged alien with correct folder hierarchy. /  |
+    
+
+
+### Cloudify 3 PaaS Provider
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+      |  <i class="fa fa-exclamation-triangle text-warning">  <i class="fa fa-level-up text-primary"></i> | ALIEN-1200 | Block Storage are not automatically formatted and mounted but only attached. A FileSystem type in the extended types allows formatting and mounting them. The device property has been added to the block storage so people can retrieve it in a relationship. /  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-1201 | Network mapping to private and public follows the location refactoring. /  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-1249 | Native types workflow cannot be changed as they are provided by orchestrator and user has no control on them. /  |
     
 

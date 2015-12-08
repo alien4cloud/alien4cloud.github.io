@@ -15,21 +15,6 @@ exclude_from_search: true
 <i class="fa fa-plus text-success"></i> New feature <i class="fa fa-level-up text-primary"></i> Improvement  <i class="fa fa-bug text-danger"></i> Bug <i class="fa fa-exclamation-triangle text-warning"></i> Breaking change
 
 
-### Cloudify 2 PaaS Provider
-
-
-
-  {: .table .table-bordered}
-  | Type        | Id         | Description |
-  |:------------|:-----------|:------------|
-        |  <i class="fa fa-bug text-danger"></i> | ALIEN-1004 | Fixed an issue preventing get_property to find the property on parents (hosted_on targets) chain if the property doesn't exist on the node. /  |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1023 | Fixed some issues in scale up and scale down management when nodes failed to be instantiated. /  |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1031 | Fix an issue causing an attached block storage node to be formatted when a crashed node was restarted. /  |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1044 | Fixed a memory leak on cloudify space as NodeInstanceStates where never removed even after the application has been undeployed. /  |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1046 | Fixed deployment failure when the property volume_id of a storage is set as input property and not provided on deployment. /  |
-  
-
-
 ### Alien 4 Cloud
 
 
@@ -41,6 +26,21 @@ exclude_from_search: true
     |  <i class="fa fa-bug text-danger"></i> | ALIEN-1004 | Fixed an issue preventing get_property to find the property on parents (hosted_on targets) chain if the property doesn't exist on the node. /  |
     |  <i class="fa fa-bug text-danger"></i> | ALIEN-1023 | Fixed some issues in scale up and scale down management when nodes failed to be instantiated. /  |
     |  <i class="fa fa-bug text-danger"></i> | ALIEN-1034 | Fix an issue causing a security error while trying to access the REST API documentation. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1046 | Fixed deployment failure when the property volume_id of a storage is set as input property and not provided on deployment. /  |
+  
+
+
+### Cloudify 2 PaaS Provider
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+        |  <i class="fa fa-bug text-danger"></i> | ALIEN-1004 | Fixed an issue preventing get_property to find the property on parents (hosted_on targets) chain if the property doesn't exist on the node. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1023 | Fixed some issues in scale up and scale down management when nodes failed to be instantiated. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1031 | Fix an issue causing an attached block storage node to be formatted when a crashed node was restarted. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1044 | Fixed a memory leak on cloudify space as NodeInstanceStates where never removed even after the application has been undeployed. /  |
     |  <i class="fa fa-bug text-danger"></i> | ALIEN-1046 | Fixed deployment failure when the property volume_id of a storage is set as input property and not provided on deployment. /  |
   
 
