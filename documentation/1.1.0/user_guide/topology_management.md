@@ -3,7 +3,7 @@ layout: post
 title: Topology management
 root: ../../
 categories: "DOCUMENTATION-1.1.0"
-parent: 
+parent:
   - user_guide
 node_name: topology_management
 weight: 300
@@ -98,6 +98,8 @@ Each topology embed several workflows:
 - **standard** workflow (**install** and **uninstall**) : when you are designing a topology, a4c maintains the two standard workflows (install and uninstall) following the TOSCA normative lifecycle. You can customize them in order to change the way steps are orchestrated.
 - **custom** workflows: you can create as many custom workflows as you want.
 
+We can also talk about **deduced** workflows: these workflows are deduced from standard workflows. For example, when you scale up a host, the host node installation sub-workflow is deduced from **install** workflow (by isolating all steps concerning this particular host and ignoring all other hosts and links from/to steps outside this host).
+
 ### Workflow steps
 
 So a workflow is a set of steps that are eventually linked. Actually it's an oriented graph.
@@ -130,7 +132,11 @@ When you add a node in a topology, a4c adds all the necessary steps in the stand
 
 When you add a relation between two nodes, the steps concerning those two nodes are organized regarding the standard lifecycle rules described in TOSCA.
 
-For the moment, operation related to the relation are not added as steps in the workflow: they are implicit (actually, the cloudify orchestrator manages such operations at a lower level).  
+For the moment, operation related to the relation are not added as steps in the workflow: they are implicit (actually, the cloudify orchestrator manages such operations at a lower level):
+
+- operations *pre_configure_source*, *post_configure_source* and *pre_configure_target*, *post_configure_target* are launched around *configure* operation (for respectively source and target).
+- operations *add_target* and *add_source* are launched after the *start* operation.
+- operation *remove_target* is launched after the *stop* operation.
 {%endwarning%}
 
 {%warning%}
@@ -172,7 +178,7 @@ In the image above, a cycle is detected and an error is raised.
 Some actions are not allowed:
 
 - you can not remove/add state change activity steps in standard workflows.
-- you can not remove/add operation call activity steps related to standard interface operation in standard workflows.
+- you can not remove delegate activity steps in standard workflows.
 - you can not add any activity for an abstract node.
 
 ### Workflow limitations
