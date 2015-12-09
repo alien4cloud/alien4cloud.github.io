@@ -12,50 +12,6 @@
         </div>
         <p><i class="fa fa-plus text-success"></i> New feature <i class="fa fa-level-up text-primary"></i> Improvement  <i class="fa fa-bug text-danger"></i> Bug <i class="fa fa-exclamation-triangle text-warning"></i> Breaking change</p>
 
-<h3 id="cloudify-2-paas-provider">Cloudify 2 PaaS Provider</h3>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th style="text-align: left">Type</th>
-      <th style="text-align: left">Id</th>
-      <th style="text-align: left">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
-      <td style="text-align: left">ALIEN-986</td>
-      <td style="text-align: left">Improve the handling of get_operation_outputs so that attributes configured with a get_operation_output can be accessed by operations of a topology and not only used as topology outputs. /</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
-      <td style="text-align: left">ALIEN-1009</td>
-      <td style="text-align: left">It is now possible to set the Cloudify 2 driver log level before deploying an application. /</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
-      <td style="text-align: left">ALIEN-955</td>
-      <td style="text-align: left">Fixed an issue causing start process to stay alive even after the un-deployment of the application. /</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
-      <td style="text-align: left">ALIEN-1006</td>
-      <td style="text-align: left">Fixed an issue in the application status in case an exception was thrown by a groovy script in the application startup. Not correctly failing. /</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
-      <td style="text-align: left">ALIEN-1008</td>
-      <td style="text-align: left">Fixed an issue causing the start event to be triggered before the start operation was actually finished to be processed. /</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
-      <td style="text-align: left">ALIEN-1019</td>
-      <td style="text-align: left">Fixed an issue introduced in SM26 on the communication with the cloudify manager: “Invalid use of BasicClientConnManager: connection still allocated”. /</td>
-    </tr>
-  </tbody>
-</table>
-
 <h3 id="alien-4-cloud">Alien 4 Cloud</h3>
 
 <table class="table table-bordered">
@@ -131,6 +87,50 @@
       <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
       <td style="text-align: left">ALIEN-1016</td>
       <td style="text-align: left">Fixed an issue introduced in SM26 with the handling of get_operation_output causing null pointer exception when no echo was returned by an operation. /</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="cloudify-2-paas-provider">Cloudify 2 PaaS Provider</h3>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Id</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
+      <td style="text-align: left">ALIEN-986</td>
+      <td style="text-align: left">Improve the handling of get_operation_outputs so that attributes configured with a get_operation_output can be accessed by operations of a topology and not only used as topology outputs. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
+      <td style="text-align: left">ALIEN-1009</td>
+      <td style="text-align: left">It is now possible to set the Cloudify 2 driver log level before deploying an application. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-955</td>
+      <td style="text-align: left">Fixed an issue causing start process to stay alive even after the un-deployment of the application. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-1006</td>
+      <td style="text-align: left">Fixed an issue in the application status in case an exception was thrown by a groovy script in the application startup. Not correctly failing. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-1008</td>
+      <td style="text-align: left">Fixed an issue causing the start event to be triggered before the start operation was actually finished to be processed. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-1019</td>
+      <td style="text-align: left">Fixed an issue introduced in SM26 on the communication with the cloudify manager: “Invalid use of BasicClientConnManager: connection still allocated”. /</td>
     </tr>
   </tbody>
 </table>
