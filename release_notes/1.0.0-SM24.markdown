@@ -5,7 +5,7 @@ root: ../
 categories: RELEASE_NOTES
 parent: [release_note]
 node_name: 1.0.0-SM24
-weight: 9983
+weight: 9984
 exclude_from_search: true
 ---
 

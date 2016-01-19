@@ -5,7 +5,7 @@ root: ../
 categories: RELEASE_NOTES
 parent: [release_note]
 node_name: 0.0.15
-weight: 9993
+weight: 9995
 exclude_from_search: true
 ---
 
