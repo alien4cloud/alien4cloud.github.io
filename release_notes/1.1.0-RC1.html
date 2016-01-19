@@ -1,0 +1,150 @@
+<div class="container">
+  <div class="row">
+    
+      <div class="col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">ALIEN for Cloud 1.1.0-RC1</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/release_notes/1.1.0-RC1.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <p><i class="fa fa-plus text-success"></i> New feature <i class="fa fa-level-up text-primary"></i> Improvement  <i class="fa fa-bug text-danger"></i> Bug <i class="fa fa-exclamation-triangle text-warning"></i> Breaking change</p>
+
+<h3 id="cloudify-3-paas-provider">Cloudify 3 PaaS Provider</h3>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Id</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
+      <td style="text-align: left">ALIEN-1353</td>
+      <td style="text-align: left">Auto-healing can be enabled switching on a cloudify 3 driver deployment property. Note that implementation is quite naive for now and is not recommended for production. GigaSpaces plan better support in Cloudify 3.4. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-1214</td>
+      <td style="text-align: left">Fixed a bug in the display of IP addresses of instances on a scaled node. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-1241</td>
+      <td style="text-align: left">Fixed an issue in the definition of matching rules for block storages and amazon compute nodes. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-1348</td>
+      <td style="text-align: left">Fixed an issue on the blueprint generation that caused the monitoring feature to fail. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-1354</td>
+      <td style="text-align: left">Fixed an issue that caused relationships to be all considered as n-n when connecting nodes within the same compute. /</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="alien-4-cloud">Alien 4 Cloud</h3>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Id</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-plus text-success"></i></td>
+      <td style="text-align: left">ALIEN-1334</td>
+      <td style="text-align: left">Added support for SAML integration (beta feature). /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
+      <td style="text-align: left">ALIEN-1296</td>
+      <td style="text-align: left">Translations in french and english are up to date. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-exclamation-triangle text-warning">  <i class="fa fa-level-up text-primary"></i></i></td>
+      <td style="text-align: left">ALIEN-1308</td>
+      <td style="text-align: left">Improved the REST API to set locations before deployment by adding a key (_A4C_ALL) for the location policy group supported by default in alien 1.1.0 /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-1207</td>
+      <td style="text-align: left">Fixed a bug in the link to the substitution topology when using substituted nodes. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-1280</td>
+      <td style="text-align: left">Fixed an issue in ElasticSearch usage that could cause some OOM in very specific situations. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-1284</td>
+      <td style="text-align: left">There is now a valid error message when trying to disable an orchestrator that still manages some application deployments. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-1341</td>
+      <td style="text-align: left">Fixed issues with git integration when a subfolder was specified. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-1342</td>
+      <td style="text-align: left">Fixed an issue in the git importer when a yaml file (non-tosca) exists within a tosca archive. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-1343</td>
+      <td style="text-align: left">Fixed an issue in the ui search for git repositories. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-1344</td>
+      <td style="text-align: left">Fixed an issue that prevented the undeploy button to be visible if the current application topology was not valid. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-1345</td>
+      <td style="text-align: left">Fixed an issue on Git integration with authentication. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-1356</td>
+      <td style="text-align: left">Fixed a bug preventing to delete an orchestrator when there is another one disabled in alien4cloud. /</td>
+    </tr>
+  </tbody>
+</table>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/release_notes/1.1.0-RC1.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('RELEASE_NOTES', '1.1.0-RC1');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>
