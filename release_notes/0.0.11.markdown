@@ -5,7 +5,7 @@ root: ../
 categories: RELEASE_NOTES
 parent: [release_note]
 node_name: 0.0.11
-weight: 9999
+weight: 9997
 exclude_from_search: true
 ---
 
@@ -13,6 +13,18 @@ exclude_from_search: true
 
 
 <i class="fa fa-plus text-success"></i> New feature <i class="fa fa-level-up text-primary"></i> Improvement  <i class="fa fa-bug text-danger"></i> Bug <i class="fa fa-exclamation-triangle text-warning"></i> Breaking change
+
+
+### Cloudify 2 PaaS Provider
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-252 | A single PaaS Provider plugin can now manage multiple Clouds (new concept introduced in Alien 4 Cloud 0.0.11) /  |
+        |  <i class="fa fa-bug text-danger"></i> | ALIEN-233 | Fixed an issue in the matching of Compute nodes in Cloudify 2 PaaS provider (version wasn't taken in account). /  |
+  
 
 
 ### Jenkins plugin
@@ -90,17 +102,5 @@ exclude_from_search: true
     |  <i class="fa fa-bug text-danger"></i> | ALIEN-315 | Using Firefox on some OS the rendering of topology view was getting messy when the browser window was resized. /  |
     |  <i class="fa fa-bug text-danger"></i> | ALIEN-317 | The role management tab for an application is now visible only to users that have the ability to edit application's users. /  |
     |  <i class="fa fa-bug text-danger"></i> | ALIEN-318 | Fix an issue with permissions management on the UI that where reseted when the browser window was refreshed (F5). /  |
-  
-
-
-### Cloudify 2 PaaS Provider
-
-
-
-  {: .table .table-bordered}
-  | Type        | Id         | Description |
-  |:------------|:-----------|:------------|
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-252 | A single PaaS Provider plugin can now manage multiple Clouds (new concept introduced in Alien 4 Cloud 0.0.11) /  |
-        |  <i class="fa fa-bug text-danger"></i> | ALIEN-233 | Fixed an issue in the matching of Compute nodes in Cloudify 2 PaaS provider (version wasn't taken in account). /  |
   
 

@@ -5,7 +5,7 @@ root: ../
 categories: RELEASE_NOTES
 parent: [release_note]
 node_name: 1.0.0-SM22
-weight: 9986
+weight: 9985
 exclude_from_search: true
 ---
 
@@ -13,23 +13,6 @@ exclude_from_search: true
 
 
 <i class="fa fa-plus text-success"></i> New feature <i class="fa fa-level-up text-primary"></i> Improvement  <i class="fa fa-bug text-danger"></i> Bug <i class="fa fa-exclamation-triangle text-warning"></i> Breaking change
-
-
-### Alien 4 Cloud
-
-
-
-  {: .table .table-bordered}
-  | Type        | Id         | Description |
-  |:------------|:-----------|:------------|
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-646 | Ability to export / import topologies in TOSCA yaml format and use it as topology template. /  |
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-721 | Attributes and output properties can now use contact function in order to generate any string with get_property and/or get_attribute. /  |
-      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-663 | CLONE - Inputs parameters should not be so tightly linked to components. /  |
-    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-674 | CLONE - Checkbox for boolean attributes in the deployment screen /  |
-    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-676 | CLONE - URL Output properties should be clickable /  |
-      |  <i class="fa fa-bug text-danger"></i> | ALIEN-680 | CLONE - The Workflow is not visible if we have relationships on BlockStorage /  |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-720 | Fixed a limitation that prevented to configure multiple clouds using the Cloudify 3. /  |
-  
 
 
 ### Cloudify 3 PaaS Provider
@@ -65,4 +48,21 @@ exclude_from_search: true
   |:------------|:-----------|:------------|
     |  <i class="fa fa-plus text-success"></i> | ALIEN-718 | Updated samples by adding a Wordpress sample TOSCA topology that can be uploaded to be used as template. /  |
       
+
+
+### Alien 4 Cloud
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-646 | Ability to export / import topologies in TOSCA yaml format and use it as topology template. /  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-721 | Attributes and output properties can now use contact function in order to generate any string with get_property and/or get_attribute. /  |
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-663 | CLONE - Inputs parameters should not be so tightly linked to components. /  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-674 | CLONE - Checkbox for boolean attributes in the deployment screen /  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-676 | CLONE - URL Output properties should be clickable /  |
+      |  <i class="fa fa-bug text-danger"></i> | ALIEN-680 | CLONE - The Workflow is not visible if we have relationships on BlockStorage /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-720 | Fixed a limitation that prevented to configure multiple clouds using the Cloudify 3. /  |
+  
 

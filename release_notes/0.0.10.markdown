@@ -5,7 +5,7 @@ root: ../
 categories: RELEASE_NOTES
 parent: [release_note]
 node_name: 0.0.10
-weight: 10000
+weight: 9998
 exclude_from_search: true
 ---
 
@@ -13,6 +13,19 @@ exclude_from_search: true
 
 
 <i class="fa fa-plus text-success"></i> New feature <i class="fa fa-level-up text-primary"></i> Improvement  <i class="fa fa-bug text-danger"></i> Bug <i class="fa fa-exclamation-triangle text-warning"></i> Breaking change
+
+
+### Cloudify 2 PaaS Provider
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-226 | node service id and node tempalte id are now passed as a parameter when calling node operation's groovy scripts. Same is done for relationship with source service id, source node template id, target service id, target node template id. /  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-227 | Generation of stop workflows. /  |
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-188 | Runtime stats of instances are now retrieved correctly. /  |
+    
 
 
 ### Alien 4 Cloud
@@ -32,17 +45,4 @@ exclude_from_search: true
     |  <i class="fa fa-bug text-danger"></i> | ALIEN-221 | Admin didn’t had full access to all resources/API operations. /  |
     |  <i class="fa fa-bug text-danger"></i> | ALIEN-223 | ALIEN 4 Cloud was silently failing when a plugin that already exists is uploaded. /  |
   
-
-
-### Cloudify 2 PaaS Provider
-
-
-
-  {: .table .table-bordered}
-  | Type        | Id         | Description |
-  |:------------|:-----------|:------------|
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-226 | node service id and node tempalte id are now passed as a parameter when calling node operation's groovy scripts. Same is done for relationship with source service id, source node template id, target service id, target node template id. /  |
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-227 | Generation of stop workflows. /  |
-      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-188 | Runtime stats of instances are now retrieved correctly. /  |
-    
 

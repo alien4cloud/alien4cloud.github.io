@@ -5,7 +5,7 @@ root: ../
 categories: RELEASE_NOTES
 parent: [release_note]
 node_name: 1.1.0-SM8
-weight: 9973
+weight: 9972
 exclude_from_search: true
 ---
 
@@ -13,6 +13,23 @@ exclude_from_search: true
 
 
 <i class="fa fa-plus text-success"></i> New feature <i class="fa fa-level-up text-primary"></i> Improvement  <i class="fa fa-bug text-danger"></i> Bug <i class="fa fa-exclamation-triangle text-warning"></i> Breaking change
+
+
+### Cloudify 3 PaaS Provider
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-1231 | Heal workflow now follows the install workflow /  |
+    |  <i class="fa fa-exclamation-triangle text-warning">  <i class="fa fa-plus text-success"></i> | ALIEN-1295 | Migration from Cloudify 3.2 to Cloudify 3.3rc1 /  |
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-1237 | Basic monitoring and auto-healing is now supported for LINUX computes.  /  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-1255 | Support of scaling a compute with attached volumes and networks / [Scaling plugin setup](#/documentation/1.1.0/orchestrators/cloudify3_driver/scaling-plugin.html) |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-1265 | Support of H.A policy with availability zones. /  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-1266 | When an HA policy affects an Availability Zone to a volume or compute, the AZ is reflected back on the Matched resource in the deployment topology. Works only with OpenStack for now. /  |
+      |  <i class="fa fa-bug text-danger"></i> | ALIEN-1291 | Fixed issue with events when several events were released with the same timestamp. /  |
+  
 
 
 ### Documentation
@@ -38,21 +55,5 @@ exclude_from_search: true
       |  <i class="fa fa-bug text-danger"></i> | ALIEN-1218 | Fixed bug on Git import UI: progress animation were displayed for all repositories even if the user only triggered one import. /  |
     |  <i class="fa fa-bug text-danger"></i> | ALIEN-1292 | It's now possible to change the location of an application who was linked to an disabled orchestrator /  |
     |  <i class="fa fa-bug text-danger"></i> | ALIEN-1294 | Fixed a regression introduced in the last release, preventing to be able to correctly chose a version of a component in the topology edition. /  |
-  
-
-
-### Cloudify 3 PaaS Provider
-
-
-
-  {: .table .table-bordered}
-  | Type        | Id         | Description |
-  |:------------|:-----------|:------------|
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-1231 | Heal workflow now follows the install workflow /  |
-      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-1237 | Basic monitoring and auto-healing is now supported for LINUX computes.  /  |
-    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-1255 | Support of scaling a compute with attached volumes and networks /  |
-    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-1265 | Support of H.A policy with availability zones. /  |
-    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-1266 | When an HA policy affects an Availability Zone to a volume or compute, the AZ is reflected back on the Matched resource in the deployment topology. Works only with OpenStack for now. /  |
-      |  <i class="fa fa-bug text-danger"></i> | ALIEN-1291 | Fixed issue with events when several events were released with the same timestamp. /  |
   
 

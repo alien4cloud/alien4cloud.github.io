@@ -5,7 +5,7 @@ root: ../
 categories: RELEASE_NOTES
 parent: [release_note]
 node_name: 1.0.0-SM27
-weight: 9981
+weight: 9980
 exclude_from_search: true
 ---
 
@@ -13,6 +13,22 @@ exclude_from_search: true
 
 
 <i class="fa fa-plus text-success"></i> New feature <i class="fa fa-level-up text-primary"></i> Improvement  <i class="fa fa-bug text-danger"></i> Bug <i class="fa fa-exclamation-triangle text-warning"></i> Breaking change
+
+
+### Cloudify 2 PaaS Provider
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-986 | Improve the handling of get_operation_outputs so that attributes configured with a get_operation_output can be accessed by operations of a topology and not only used as topology outputs. /  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-1009 | It is now possible to set the Cloudify 2 driver log level before deploying an application. /  |
+      |  <i class="fa fa-bug text-danger"></i> | ALIEN-955 | Fixed an issue causing start process to stay alive even after the un-deployment of the application. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1006 | Fixed an issue in the application status in case an exception was thrown by a groovy script in the application startup. Not correctly failing. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1008 | Fixed an issue causing the start event to be triggered before the start operation was actually finished to be processed. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1019 | Fixed an issue introduced in SM26 on the communication with the cloudify manager: "Invalid use of BasicClientConnManager: connection still allocated". /  |
+  
 
 
 ### Alien 4 Cloud
@@ -35,21 +51,5 @@ exclude_from_search: true
     |  <i class="fa fa-bug text-danger"></i> | ALIEN-958 | It is now possible to use again _ in node names. Known limitation: Cloudify 2 driver will automatically rename the nodes but won't support multiple nodes with similar patterns (toto-1 or toto_1 are considered as same node by the driver). /  |
     |  <i class="fa fa-bug text-danger"></i> | ALIEN-1003 | It is now possible to reset mandatory properties to their default (or blank) even if it has been set previously (thanks to the reset to default feature). /  |
     |  <i class="fa fa-bug text-danger"></i> | ALIEN-1016 | Fixed an issue introduced in SM26 with the handling of get_operation_output causing null pointer exception when no echo was returned by an operation. /  |
-  
-
-
-### Cloudify 2 PaaS Provider
-
-
-
-  {: .table .table-bordered}
-  | Type        | Id         | Description |
-  |:------------|:-----------|:------------|
-      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-986 | Improve the handling of get_operation_outputs so that attributes configured with a get_operation_output can be accessed by operations of a topology and not only used as topology outputs. /  |
-    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-1009 | It is now possible to set the Cloudify 2 driver log level before deploying an application. /  |
-      |  <i class="fa fa-bug text-danger"></i> | ALIEN-955 | Fixed an issue causing start process to stay alive even after the un-deployment of the application. /  |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1006 | Fixed an issue in the application status in case an exception was thrown by a groovy script in the application startup. Not correctly failing. /  |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1008 | Fixed an issue causing the start event to be triggered before the start operation was actually finished to be processed. /  |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1019 | Fixed an issue introduced in SM26 on the communication with the cloudify manager: "Invalid use of BasicClientConnManager: connection still allocated". /  |
   
 

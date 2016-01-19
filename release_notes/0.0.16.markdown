@@ -5,7 +5,7 @@ root: ../
 categories: RELEASE_NOTES
 parent: [release_note]
 node_name: 0.0.16
-weight: 9994
+weight: 9992
 exclude_from_search: true
 ---
 
@@ -13,25 +13,6 @@ exclude_from_search: true
 
 
 <i class="fa fa-plus text-success"></i> New feature <i class="fa fa-level-up text-primary"></i> Improvement  <i class="fa fa-bug text-danger"></i> Bug <i class="fa fa-exclamation-triangle text-warning"></i> Breaking change
-
-
-### Alien 4 Cloud
-
-
-
-  {: .table .table-bordered}
-  | Type        | Id         | Description |
-  |:------------|:-----------|:------------|
-      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-448 | Tour feature is now available for application details view. /  |
-    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-493 | Application name is not displayed on every tab for applications. An info tab has been added to the runtime view to display cloud name and deployment id. /  |
-    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-508 | Version of the PaaS Provider is now visible in the dropdown when creating a cloud. /  |
-      |  <i class="fa fa-bug text-danger"></i> | ALIEN-346 | Fixed an issue that prevented informations to be displayed to users on a cloud misconfiguration (when the cloud is enabled). /  |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-497 | Fixed an issue causing the component's creation date to be set to the current date when an archive is updated. /  |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-499 | Fixed an issue that prevented the ability to add a scaling policy to a type that derived from the tosca normative Compute type. /  |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-500 | Fixed an issue in rights management in Application view. /  |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-503 | Fixed an issue that caused target for a new relationship type not being validated when multiple elements exists in relationship's valid_targets /  |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-509 | Fixed a regression that caused the plan view to appears as blank. /  |
-  
 
 
 ### Cloudify 2 PaaS Provider
@@ -54,4 +35,23 @@ exclude_from_search: true
   |:------------|:-----------|:------------|
     |  <i class="fa fa-plus text-success"></i> | ALIEN-505 | Create sample recipe for wordpress component. /  |
       
+
+
+### Alien 4 Cloud
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-448 | Tour feature is now available for application details view. /  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-493 | Application name is not displayed on every tab for applications. An info tab has been added to the runtime view to display cloud name and deployment id. /  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-508 | Version of the PaaS Provider is now visible in the dropdown when creating a cloud. /  |
+      |  <i class="fa fa-bug text-danger"></i> | ALIEN-346 | Fixed an issue that prevented informations to be displayed to users on a cloud misconfiguration (when the cloud is enabled). /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-497 | Fixed an issue causing the component's creation date to be set to the current date when an archive is updated. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-499 | Fixed an issue that prevented the ability to add a scaling policy to a type that derived from the tosca normative Compute type. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-500 | Fixed an issue in rights management in Application view. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-503 | Fixed an issue that caused target for a new relationship type not being validated when multiple elements exists in relationship's valid_targets /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-509 | Fixed a regression that caused the plan view to appears as blank. /  |
+  
 
