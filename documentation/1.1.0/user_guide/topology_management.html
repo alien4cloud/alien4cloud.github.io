@@ -66,7 +66,7 @@ a new template with the topology composer or upload a zip file with your templat
   <li>Create a type that is inherited from your topology template.</li>
 </ul>
 
-<p>For example, you have a topology template of an Apache server hosted on a compute as shown in this view. If you want to use this template as a type, you need to click <code>subsitution</code> panel, which is over the bottom-right corner in topology composer view.  </p>
+<p>For example, you have a topology template of an Apache server hosted on a compute as shown in this view. If you want to use this template as a type, you need to click <code>subsitution</code> panel, which is over the bottom-right corner in topology composer view.</p>
 
 <p><a href="../../images/user_guide/user_guide_apache_topology_template.png" target="_blank"><img src="../../images/user_guide/user_guide_apache_topology_template.png" alt="Apache topology template" /></a></p>
 
@@ -74,7 +74,7 @@ a new template with the topology composer or upload a zip file with your templat
   <li>Choose the capabilities/requirements you want to expose.</li>
 </ul>
 
-<p>After clicking <code>Subsitutions</code> panel, you can type <code>tosca.nodes.Root</code> in search bar in the panel. It will create empty <code>Capabilities</code> and <code>Requirements</code> fields. Then, you can select the components whose capabilities/requirements you want to expose. By clicking the <code>Expose</code> button next to capabilities/requirements element of the selected component, you can expose these capabilities/requirements, which will become the capabilities and requirements of the composed new type.  </p>
+<p>After clicking <code>Subsitutions</code> panel, you can type <code>tosca.nodes.Root</code> in search bar in the panel. It will create empty <code>Capabilities</code> and <code>Requirements</code> fields. Then, you can select the components whose capabilities/requirements you want to expose. By clicking the <code>Expose</code> button next to capabilities/requirements element of the selected component, you can expose these capabilities/requirements, which will become the capabilities and requirements of the composed new type.</p>
 
 <p><a href="../../images/user_guide/user_guide_expose_capa_substitution.png" target="_blank"><img src="../../images/user_guide/user_guide_expose_capa_substitution.png" alt="Expose capabilities and requirements" /></a></p>
 
@@ -102,6 +102,8 @@ a new template with the topology composer or upload a zip file with your templat
   <li><strong>standard</strong> workflow (<strong>install</strong> and <strong>uninstall</strong>) : when you are designing a topology, a4c maintains the two standard workflows (install and uninstall) following the TOSCA normative lifecycle. You can customize them in order to change the way steps are orchestrated.</li>
   <li><strong>custom</strong> workflows: you can create as many custom workflows as you want.</li>
 </ul>
+
+<p>We can also talk about <strong>deduced</strong> workflows: these workflows are deduced from standard workflows. For example, when you scale up a host, the host node installation sub-workflow is deduced from <strong>install</strong> workflow (by isolating all steps concerning this particular host and ignoring all other hosts and links from/to steps outside this host).</p>
 
 <h3 id="workflow-steps">Workflow steps</h3>
 
@@ -139,7 +141,13 @@ If the node is not replaced before the deployment, it must be substituted at dep
 
 <p>When you add a relation between two nodes, the steps concerning those two nodes are organized regarding the standard lifecycle rules described in TOSCA.</p>
 
-<p>For the moment, operation related to the relation are not added as steps in the workflow: they are implicit (actually, the cloudify orchestrator manages such operations at a lower level).  </p>
+<p>For the moment, operation related to the relation are not added as steps in the workflow: they are implicit (actually, the cloudify orchestrator manages such operations at a lower level):</p>
+
+<ul>
+  <li>operations <em>pre_configure_source</em>, <em>post_configure_source</em> and <em>pre_configure_target</em>, <em>post_configure_target</em> are launched around <em>configure</em> operation (for respectively source and target).</li>
+  <li>operations <em>add_target</em> and <em>add_source</em> are launched after the <em>start</em> operation.</li>
+  <li>operation <em>remove_target</em> is launched after the <em>stop</em> operation.</li>
+</ul>
 </div>
 
 <div class="note warning">
@@ -188,7 +196,7 @@ These state changes are mainly used as bound when some relationship are added in
 
 <ul>
   <li>you can not remove/add state change activity steps in standard workflows.</li>
-  <li>you can not remove/add operation call activity steps related to standard interface operation in standard workflows.</li>
+  <li>you can not remove delegate activity steps in standard workflows.</li>
   <li>you can not add any activity for an abstract node.</li>
 </ul>
 
