@@ -14315,7 +14315,7 @@ var node, children;
       node.name = "0.0.10";
       node.title = "ALIEN for Cloud 0.0.10";
       node.url = "release_notes/0.0.10.html";
-      node.weight =  9998;
+      node.weight =  10000;
       node.root = "../";
     
   
@@ -14362,7 +14362,7 @@ var node, children;
       node.name = "0.0.11";
       node.title = "ALIEN for Cloud 0.0.11";
       node.url = "release_notes/0.0.11.html";
-      node.weight =  9997;
+      node.weight =  9999;
       node.root = "../";
     
   
@@ -14409,7 +14409,7 @@ var node, children;
       node.name = "0.0.12";
       node.title = "ALIEN for Cloud 0.0.12";
       node.url = "release_notes/0.0.12.html";
-      node.weight =  9996;
+      node.weight =  9998;
       node.root = "../";
     
   
@@ -14456,7 +14456,7 @@ var node, children;
       node.name = "0.0.13";
       node.title = "ALIEN for Cloud 0.0.13";
       node.url = "release_notes/0.0.13.html";
-      node.weight =  9995;
+      node.weight =  9997;
       node.root = "../";
     
   
@@ -14503,7 +14503,7 @@ var node, children;
       node.name = "0.0.14";
       node.title = "ALIEN for Cloud 0.0.14";
       node.url = "release_notes/0.0.14.html";
-      node.weight =  9994;
+      node.weight =  9996;
       node.root = "../";
     
   
@@ -14550,7 +14550,7 @@ var node, children;
       node.name = "0.0.15";
       node.title = "ALIEN for Cloud 0.0.15";
       node.url = "release_notes/0.0.15.html";
-      node.weight =  9993;
+      node.weight =  9995;
       node.root = "../";
     
   
@@ -14597,7 +14597,7 @@ var node, children;
       node.name = "0.0.16";
       node.title = "ALIEN for Cloud 0.0.16";
       node.url = "release_notes/0.0.16.html";
-      node.weight =  9992;
+      node.weight =  9994;
       node.root = "../";
     
   
@@ -14644,7 +14644,7 @@ var node, children;
       node.name = "1.0.0-M3";
       node.title = "ALIEN for Cloud 1.0.0-M3";
       node.url = "release_notes/1.0.0-M3.html";
-      node.weight =  9990;
+      node.weight =  9992;
       node.root = "../";
     
   
@@ -14691,7 +14691,7 @@ var node, children;
       node.name = "1.0.0-RC1";
       node.title = "ALIEN for Cloud 1.0.0-RC1";
       node.url = "release_notes/1.0.0-RC1.html";
-      node.weight =  10000;
+      node.weight =  9991;
       node.root = "../";
     
   
@@ -14738,7 +14738,7 @@ var node, children;
       node.name = "1.0.0-SM18";
       node.title = "ALIEN for Cloud 1.0.0-SM18";
       node.url = "release_notes/1.0.0-SM18.html";
-      node.weight =  9989;
+      node.weight =  9990;
       node.root = "../";
     
   
@@ -14785,7 +14785,7 @@ var node, children;
       node.name = "1.0.0-SM19";
       node.title = "ALIEN for Cloud 1.0.0-SM19";
       node.url = "release_notes/1.0.0-SM19.html";
-      node.weight =  9988;
+      node.weight =  9989;
       node.root = "../";
     
   
@@ -14832,7 +14832,7 @@ var node, children;
       node.name = "1.0.0-SM20";
       node.title = "ALIEN for Cloud 1.0.0-SM20";
       node.url = "release_notes/1.0.0-SM20.html";
-      node.weight =  9987;
+      node.weight =  9988;
       node.root = "../";
     
   
@@ -14879,7 +14879,7 @@ var node, children;
       node.name = "1.0.0-SM21";
       node.title = "ALIEN for Cloud 1.0.0-SM21";
       node.url = "release_notes/1.0.0-SM21.html";
-      node.weight =  9986;
+      node.weight =  9987;
       node.root = "../";
     
   
@@ -14926,7 +14926,7 @@ var node, children;
       node.name = "1.0.0-SM22";
       node.title = "ALIEN for Cloud 1.0.0-SM22";
       node.url = "release_notes/1.0.0-SM22.html";
-      node.weight =  9985;
+      node.weight =  9986;
       node.root = "../";
     
   
@@ -14973,7 +14973,7 @@ var node, children;
       node.name = "1.0.0-SM23";
       node.title = "ALIEN for Cloud 1.0.0-SM23";
       node.url = "release_notes/1.0.0-SM23.html";
-      node.weight =  9984;
+      node.weight =  9985;
       node.root = "../";
     
   
@@ -15020,7 +15020,7 @@ var node, children;
       node.name = "1.0.0-SM24";
       node.title = "ALIEN for Cloud 1.0.0-SM24";
       node.url = "release_notes/1.0.0-SM24.html";
-      node.weight =  9983;
+      node.weight =  9984;
       node.root = "../";
     
   
@@ -15067,7 +15067,7 @@ var node, children;
       node.name = "1.0.0-SM25";
       node.title = "ALIEN for Cloud 1.0.0-SM25";
       node.url = "release_notes/1.0.0-SM25.html";
-      node.weight =  9982;
+      node.weight =  9983;
       node.root = "../";
     
   
@@ -15114,7 +15114,7 @@ var node, children;
       node.name = "1.0.0-SM26";
       node.title = "ALIEN for Cloud 1.0.0-SM26";
       node.url = "release_notes/1.0.0-SM26.html";
-      node.weight =  9981;
+      node.weight =  9982;
       node.root = "../";
     
   
@@ -15161,7 +15161,7 @@ var node, children;
       node.name = "1.0.0-SM27";
       node.title = "ALIEN for Cloud 1.0.0-SM27";
       node.url = "release_notes/1.0.0-SM27.html";
-      node.weight =  9980;
+      node.weight =  9981;
       node.root = "../";
     
   
@@ -15208,7 +15208,7 @@ var node, children;
       node.name = "1.0.0";
       node.title = "ALIEN for Cloud 1.0.0";
       node.url = "release_notes/1.0.0.html";
-      node.weight =  9991;
+      node.weight =  9993;
       node.root = "../";
     
   
@@ -15255,7 +15255,7 @@ var node, children;
       node.name = "1.1.0-RC1";
       node.title = "ALIEN for Cloud 1.1.0-RC1";
       node.url = "release_notes/1.1.0-RC1.html";
-      node.weight =  1;
+      node.weight =  9980;
       node.root = "../";
     
   

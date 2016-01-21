@@ -10,13 +10,9 @@
           <h1 class="pull-left" style="margin-top: 0px;">Cloudify 3</h1>
           <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.1.0/orchestrators/cloudify3_driver/index.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
         </div>
-        <p>This section gives a focus to Cloudify 3 orchestrator plugin for ALIEN, a plugin to manage deployment on various cloud using <a href="http://getcloudify.org/" title="cloudify">Cloudify 3.x</a>.</p>
+        <p>Cloudify 3 is an opensource orchestrator backed by GigaSpaces that aims to support deployment on various different locations.</p>
 
-<div class="note info">
-<p><strong>In this documentation, we will assume you have access to the GUI of a running instance of ALIEN 4 Cloud. Also, make sure you have the proper rights when needed.</strong></p>
-</div>
-
-<p>Start with the <a href="#/documentation/1.1.0/cloudify3_driver/prerequisites.html">prerequisites</a>.</p>
+<p>This section gives a focus to Cloudify 3 orchestrator plugin for ALIEN, a plugin to manage deployment on various cloud using <a href="http://getcloudify.org/" title="cloudify">Cloudify 3.x</a>.</p>
 
 <h2 id="alien-4-cloud-cloudify-3-support">Alien 4 Cloud Cloudify 3 Support</h2>
 
@@ -27,6 +23,32 @@
 <h3 id="openstack">OpenStack</h3>
 
 <h3 id="amazon">Amazon</h3>
+
+<h2 id="policies-support-in-cloudify-3">Policies support in cloudify 3</h2>
+
+<p>Cloudify 3 currently manages the deployment and un-deployment of blueprints and support the ability to trigger custom workflows that have been shipped within the blueprint at runtime.</p>
+
+<p>Out of the box cloudify 3.3 doesn’t support policies like auto-healing and have a very limited support for Scalability that causes issues in various scenarios.</p>
+
+<div class="note info">
+<p>Note that Cloudify guys are working on 3.4 that should provide much better support for both HA and Scalability concern.</p>
+</div>
+
+<h3 id="auto-healing">Auto-healing</h3>
+
+<p>As stated previously cloudify 3.3 doesn’t provide support for auto-healing of services. It provide a basic monitoring feature that we implement in the blueprint we generate from the TOSCA model. This basic monitoring is based on Machine status and not software status meaning that if one of the software in a blueprint crash it won’t be detected by the cloudify 3.</p>
+
+<p>We developed as part of Alien 4 Cloud the ability to generate a cron-based mecanism that check the monitoring data in order to trigger an auto-healing workflow. This implementation is quite naïve for now and is disabled by default on deployments but can be enabled per deployment through an orchestrator property.</p>
+
+<h3 id="scalability">Scalability</h3>
+
+<p>Scalability behavior is currently not deeply specified in TOSCA and Cloudify has a very simple implementation of scalability management that treats only two kind of relationships, hosted_on (1-1 relationship) and all others (1-n relationships). When scaling a node, all nodes that are hosted_on the given node are scaled, however nodes that are connected or attached to it are not, this includes block-storage and floating ips which is not a correct implementation for most of situations.</p>
+
+<p>We have designed a workaround to change this behavior so that it is possible to scale a node with BlockStorage and Floating IP. This workaround relies on both some updates on alien4cloud blueprint generation and workflow management for cloudify but also on an update of the cloudify plugin so that Compute, BlockStorage and FloatingIPs are considered as a single Compute node in cloudify world with optional list of block storage and floating ips that will be managed per instance.</p>
+
+<div class="note info">
+<p>There is currently some missing details in the TOSCA specification on how relationships can be impacted in scaling scenarios and we are working with bot Cloudify and TOSCA to enhance the specification.</p>
+</div>
 
         <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.1.0/orchestrators/cloudify3_driver/index.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
 	  </div>
