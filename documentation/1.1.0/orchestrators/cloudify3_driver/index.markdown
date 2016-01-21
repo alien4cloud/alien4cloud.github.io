@@ -8,14 +8,9 @@ node_name: cloudify_3
 weight: 1000
 ---
 
+Cloudify 3 is an opensource orchestrator backed by GigaSpaces that aims to support deployment on various different locations.
+
 This section gives a focus to Cloudify 3 orchestrator plugin for ALIEN, a plugin to manage deployment on various cloud using [Cloudify 3.x](http://getcloudify.org/ "cloudify").
-
-
-{%info%}
-**In this documentation, we will assume you have access to the GUI of a running instance of ALIEN 4 Cloud. Also, make sure you have the proper rights when needed.**
-{%endinfo%}
-
-Start with the [prerequisites](#/documentation/1.1.0/cloudify3_driver/prerequisites.html).
 
 ## Alien 4 Cloud Cloudify 3 Support
 
@@ -25,6 +20,30 @@ The following tables shows the supported features of our plugin on the various c
 
 ### OpenStack
 
-
-
 ### Amazon
+
+## Policies support in cloudify 3
+
+Cloudify 3 currently manages the deployment and un-deployment of blueprints and support the ability to trigger custom workflows that have been shipped within the blueprint at runtime.
+
+Out of the box cloudify 3.3 doesn't support policies like auto-healing and have a very limited support for Scalability that causes issues in various scenarios.
+
+{%info%}
+Note that Cloudify guys are working on 3.4 that should provide much better support for both HA and Scalability concern.
+{%endinfo%}
+
+### Auto-healing
+
+As stated previously cloudify 3.3 doesn't provide support for auto-healing of services. It provide a basic monitoring feature that we implement in the blueprint we generate from the TOSCA model. This basic monitoring is based on Machine status and not software status meaning that if one of the software in a blueprint crash it won't be detected by the cloudify 3.
+
+We developed as part of Alien 4 Cloud the ability to generate a cron-based mecanism that check the monitoring data in order to trigger an auto-healing workflow. This implementation is quite naïve for now and is disabled by default on deployments but can be enabled per deployment through an orchestrator property.
+
+### Scalability
+
+Scalability behavior is currently not deeply specified in TOSCA and Cloudify has a very simple implementation of scalability management that treats only two kind of relationships, hosted_on (1-1 relationship) and all others (1-n relationships). When scaling a node, all nodes that are hosted_on the given node are scaled, however nodes that are connected or attached to it are not, this includes block-storage and floating ips which is not a correct implementation for most of situations.
+
+We have designed a workaround to change this behavior so that it is possible to scale a node with BlockStorage and Floating IP. This workaround relies on both some updates on alien4cloud blueprint generation and workflow management for cloudify but also on an update of the cloudify plugin so that Compute, BlockStorage and FloatingIPs are considered as a single Compute node in cloudify world with optional list of block storage and floating ips that will be managed per instance.
+
+{%info%}
+There is currently some missing details in the TOSCA specification on how relationships can be impacted in scaling scenarios and we are working with bot Cloudify and TOSCA to enhance the specification.
+{%endinfo%}
