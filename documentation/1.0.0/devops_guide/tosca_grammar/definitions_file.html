@@ -1,3 +1,19 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/1.0.0/devops_guide/tosca_grammar/definitions_file.html',
+  title: 'Definitions document'
+});
+ga('send', 'pageview');
+
+</script>
+
 <div class="container">
   <div class="row">
     
@@ -171,7 +187,7 @@
 
 <h4 id="notes">Notes</h4>
 <ul>
-  <li>Some service templates are designed to be referenced and reused by other service templates.  Therefore, in these cases, the template_name value SHOULD be designed to be used as a unique identifier through the use of namespacing techniques.</li>
+  <li>Some service templates are designed to be referenced and reused by other service templates.  Therefore, in these cases, the template_name value SHOULD be designed to be used as a unique identifier through the use of namespacing techniques.  </li>
 </ul>
 
 <h3 id="templateauthor">template_author</h3>
@@ -294,7 +310,7 @@ In order to support this scenario the import element supports an additional non-
       <span class="l-Scalar-Plain">mytypes.myfeatures.transactSQL</span></code></pre></div>
 
 <div class="note">
-<p>The node types listed as part of the node_types block can be mapped to the list of NodeType definitions as described by the TOSCA v1.0 specification.</p>
+<p>The node types listed as part of the node_types block can be mapped to the list of NodeType definitions as described by the TOSCA v1.0 specification.  </p>
 </div>
 
 <h3 id="relationshiptypes">relationship_types</h3>
@@ -365,7 +381,7 @@ if(hash && hash!== null && hash.match(/html$/)) {
 <script type="text/javascript" src="/js/post-layout.js"></script>
 <script>
 $(document).ready(function () {
-  makeSideBar('DOCUMENTATION', 'tosca_ref_definitions');
+  makeSideBar('DOCUMENTATION', 'documentation/1.0.0/devops_guide/tosca_grammar/definitions_file.md');
 });
 </script>
 

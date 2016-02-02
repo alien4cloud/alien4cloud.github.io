@@ -1,3 +1,19 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/1.1.0/user_guide/topology_management.html',
+  title: 'Topology management'
+});
+ga('send', 'pageview');
+
+</script>
+
 <div class="container">
   <div class="row">
     
@@ -66,7 +82,7 @@ a new template with the topology composer or upload a zip file with your templat
   <li>Create a type that is inherited from your topology template.</li>
 </ul>
 
-<p>For example, you have a topology template of an Apache server hosted on a compute as shown in this view. If you want to use this template as a type, you need to click <code>subsitution</code> panel, which is over the bottom-right corner in topology composer view.</p>
+<p>For example, you have a topology template of an Apache server hosted on a compute as shown in this view. If you want to use this template as a type, you need to click <code>subsitution</code> panel, which is over the bottom-right corner in topology composer view.  </p>
 
 <p><a href="../../images/user_guide/user_guide_apache_topology_template.png" target="_blank"><img src="../../images/user_guide/user_guide_apache_topology_template.png" alt="Apache topology template" /></a></p>
 
@@ -74,7 +90,7 @@ a new template with the topology composer or upload a zip file with your templat
   <li>Choose the capabilities/requirements you want to expose.</li>
 </ul>
 
-<p>After clicking <code>Subsitutions</code> panel, you can type <code>tosca.nodes.Root</code> in search bar in the panel. It will create empty <code>Capabilities</code> and <code>Requirements</code> fields. Then, you can select the components whose capabilities/requirements you want to expose. By clicking the <code>Expose</code> button next to capabilities/requirements element of the selected component, you can expose these capabilities/requirements, which will become the capabilities and requirements of the composed new type.</p>
+<p>After clicking <code>Subsitutions</code> panel, you can type <code>tosca.nodes.Root</code> in search bar in the panel. It will create empty <code>Capabilities</code> and <code>Requirements</code> fields. Then, you can select the components whose capabilities/requirements you want to expose. By clicking the <code>Expose</code> button next to capabilities/requirements element of the selected component, you can expose these capabilities/requirements, which will become the capabilities and requirements of the composed new type.  </p>
 
 <p><a href="../../images/user_guide/user_guide_expose_capa_substitution.png" target="_blank"><img src="../../images/user_guide/user_guide_expose_capa_substitution.png" alt="Expose capabilities and requirements" /></a></p>
 
@@ -223,7 +239,7 @@ if(hash && hash!== null && hash.match(/html$/)) {
 <script type="text/javascript" src="/js/post-layout.js"></script>
 <script>
 $(document).ready(function () {
-  makeSideBar('DOCUMENTATION-1.1.0', 'topology_management');
+  makeSideBar('DOCUMENTATION-1.1.0', 'documentation/1.1.0/user_guide/topology_management.md');
 });
 </script>
 

@@ -1,3 +1,19 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/1.0.0/cloudify2_driver/inputs_env_vars.html',
+  title: 'Inputs and others variables'
+});
+ga('send', 'pageview');
+
+</script>
+
 <div class="container">
   <div class="row">
     
@@ -11,13 +27,13 @@
           <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.0.0/cloudify2_driver/inputs_env_vars.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
         </div>
         <p>Your implementations scripts can be defined with inputs. Find here how to properly define an input, and what other information is available in the execution environment.
-We will have for illustrations purposes a topology consisting of one Compute node, one Tomcat and two War nodes.</p>
+We will have for illustrations purposes a topology consisting of one Compute node, one Tomcat and two War nodes.  </p>
 
 <p><a href="../../images/cloudify2_driver/tomcat_war_topology.png" title="Tomcat-war topology"><img src="../../images/cloudify2_driver/tomcat_war_topology.png" alt="Connection configuration" title="Tomcat-war topology" /></a></p>
 
 <h2 id="input-parameters">input parameters</h2>
 <p>Follow the <a href="#documentation/devops_guide/tosca_grammar/parameter_definition.html">parameter definition</a> section for how to define your input parameters.<br />
-The defined inputs are evaluated if needed at runtime, and set as environment variables. Thus, you can access them using their defined name.</p>
+The defined inputs are evaluated if needed at runtime, and set as environment variables. Thus, you can access them using their defined name.  </p>
 
 <p>relationship type <code>alien.relationships.cloudify.WarHostedOnTomcat</code>, defined with a post_configure_source script:.</p>
 
@@ -131,7 +147,7 @@ The defined inputs are evaluated if needed at runtime, and set as environment va
 </table>
 
 <div class="note info">
-<p>When a node has some defined artifacts (overridable or not), their <strong><code>absolute location paths</code></strong> are available as environment variables ( their names ) of the operations scripts.</p>
+<p>When a node has some defined artifacts (overridable or not), their <strong><code>absolute location paths</code></strong> are available as environment variables ( their names ) of the operations scripts.  </p>
 
 <p><strong>Limitation</strong>: artifacts paths are not available when working with a relationship binding two nodes each on different compute.</p>
 </div>
@@ -209,7 +225,7 @@ if(hash && hash!== null && hash.match(/html$/)) {
 <script type="text/javascript" src="/js/post-layout.js"></script>
 <script>
 $(document).ready(function () {
-  makeSideBar('DOCUMENTATION', 'cloudify_2_inputs');
+  makeSideBar('DOCUMENTATION', 'documentation/1.0.0/cloudify2_driver/inputs_env_vars.markdown');
 });
 </script>
 

@@ -1,3 +1,19 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/1.0.0/cloudify2_driver/start_process.html',
+  title: 'Application start process'
+});
+ga('send', 'pageview');
+
+</script>
+
 <div class="container">
   <div class="row">
     
@@ -12,7 +28,7 @@
         </div>
         <h2 id="node-start-process">Node start process</h2>
 
-<p>The following diagram shows how the provider process the start of a node:</p>
+<p>The following diagram shows how the provider process the start of a node: </p>
 
 <p><a href="../../files/cloudify2_driver/start_lifecycle.html" title="start process" target="_blank"><img src="../../images/cloudify2_driver/start_processing.png" alt="start process" title="start process" /></a></p>
 
@@ -21,7 +37,7 @@
 
 <ol>
   <li>Executing all the provided startDetection scripts and making sure they all pass;</li>
-  <li>Checking that every nodes has reached at least the <code>started</code> state.</li>
+  <li>Checking that every nodes has reached at least the <code>started</code> state.  </li>
 </ol>
 
 <p>Only then will Cloudify consider the application as fully started.</p>
@@ -48,7 +64,7 @@ if(hash && hash!== null && hash.match(/html$/)) {
 <script type="text/javascript" src="/js/post-layout.js"></script>
 <script>
 $(document).ready(function () {
-  makeSideBar('DOCUMENTATION', 'cloudify_2_runtime_app_start_process');
+  makeSideBar('DOCUMENTATION', 'documentation/1.0.0/cloudify2_driver/start_process.markdown');
 });
 </script>
 
