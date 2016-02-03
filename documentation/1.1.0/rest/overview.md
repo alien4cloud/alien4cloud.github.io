@@ -10,13 +10,14 @@ published: true
 ---
 
 
+
 # ALIEN 4 Cloud API
 
 ## Overview
 This section contains documentation of Alien 4 Cloud REST API.
 
 %note%The rest API is avaible via swagger on this url :
-http://localhost:8088/swagger-ui.html %note%
+http://<alien4cloud.host>:<alien4cloud.port>/swagger-ui.html %note%
 
 ### Version information
 Version: 1.1.0
