@@ -1,12 +1,15 @@
 ---
 layout: post
-title:  Components catalog
+title: Components catalog
 root: ../../
-categories: DOCUMENTATION-1.1.0
-parent: [user_guide]
+categories: "DOCUMENTATION-1.1.0"
+parent: 
+  - user_guide
 node_name: components_repo
 weight: 200
+published: true
 ---
+
 
 {% summary %}{% endsummary %}
 
@@ -71,8 +74,8 @@ If the folder is based on an older TOSCA recommandation, please ensure you have 
 Fill the modal by typing expected values and click on *create*.
 
 {%note%}
-In the Archive's name text field : put the name of the folder containing the yaml file *for example **apache** to import Apache component in the Samples repository*.
-You can also leave this text filed empty : **it will import all the folders if its contains a yaml file**.
+In the Archive's folder text field : put the name of the folder containing the yaml file *for example **apache** to import Apache component in the Samples repository*.
+You can also leave this text filed empty (under no circumstance put an * ) : **it will import all the folders if its contains a yaml file**.
 Credentials text fields can be used to access private repository.
 Click on *Save the repository locally* if you want the repository to be stored on your computer, this will enable the versionning manager on it.
 {%endnote%}
