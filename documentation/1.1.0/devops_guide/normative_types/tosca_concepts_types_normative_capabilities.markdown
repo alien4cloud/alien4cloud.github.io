@@ -1,12 +1,17 @@
 ---
 layout: post
-title:  Capabilities
+title: Capabilities
 root: ../../
-categories: DOCUMENTATION-1.1.0
-parent: [devops, tosca_concepts, tosca_ref_types_normative]
+categories: "DOCUMENTATION-1.1.0"
+parent: 
+  - devops
+  - tosca_concepts
+  - tosca_ref_types_normative
 node_name: tosca_ref_types_normative_capa
 weight: 100
+published: true
 ---
+
 
 {% summary %}Normatives capability types in TOSCA{% endsummary %}
 
@@ -94,7 +99,7 @@ tosca.capabilities.DatabaseEndpoint:
 
 # tosca.capabilities.Attachment
 
-This is the default TOSCA type that should be used or extended to define a network endpoint capability.
+This is the default TOSCA type that should be used or extended to define a block storage capability.
 
 ## Definition
 
