@@ -81,7 +81,7 @@ matching errors. This should not happen if your cloud is well configured.
 On this submenu view `Application > Runtime`, you can have the detailed deployment
 progress.
 
-![Wordpress url](../../images/user_guide/user_guide_topology_template_runtime.png)
+![Wordpress url](../../images/user_guide/user_guide_topology_template_runtime-1.0.png)
 
 ### Wordpress url
 
@@ -278,7 +278,7 @@ matching errors. This should not happen if your cloud is well configured.
 On this submenu view `Application > Runtime`, you can have the detailed deployment
 progress.
 
-![Wordpress url](../../images/user_guide/user_guide_topology_template_runtime.png)
+![Wordpress url](../../images/user_guide/user_guide_topology_template_runtime-1.0.png)
 
 ### Wordpress url
 

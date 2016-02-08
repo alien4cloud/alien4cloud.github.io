@@ -14,10 +14,6 @@ weight: 10
 This section describe installation and configuration of Alien 4 Cloud for a production mode. If you whish to use Alien 4 Cloud for a demo or development mode please refer to the [getting started](#/documentation/1.1.0/getting_started/getting_started.html) guide.
 {% endinfo %}
 
-{%warning%}
-<h5>Important: security issue </h5>
-Alien 4 Cloud used a version of ElasticSearch concern by a security issue. To prevent an attack, make sure to secure the port of ES (9200 as default).
-{%endwarning%}
 
 # Alien 4 Cloud configuration
 

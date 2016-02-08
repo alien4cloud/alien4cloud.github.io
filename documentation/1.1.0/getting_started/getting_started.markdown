@@ -122,12 +122,12 @@ The application creation should redirect you on the `Application > Informations`
 
 To deploy this new application, go on `Applications > Deployments` submenu and :
 
+* Select your orchestrator
 * Select the `os_arch` of your computes
-* Select your cloud
 * Select the template who matches with your computers
 * And click on the `Deploy` button
 
-[![Configure your deployment](../../images/user_guide/user_guide_topology_template_deploy.png)](../../images/user_guide/user_guide_topology_template_deploy.png)
+[![Configure your deployment](../../images/user_guide/deployment-select-location.png)](../../images/user_guide/deployment-select-location.png)
 
 {%info%}
 To understand all configuration available for the deployment page, please refer to [this section](#/documentation/1.1.0/user_guide/application_management.html).

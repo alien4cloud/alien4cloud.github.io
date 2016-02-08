@@ -38,6 +38,20 @@ Every location now exposes their own and specific definitions of the generic com
 
 We really wanted in 1.1.0 to provide user with flexibility and ability to benefits from the best of orchestrator technologies.
 
+Here a list of supported resources with Cloudify 3:
+
+{: .table .table-bordered}
+| Infrastructure type | OS type | Supported artifact
+|:----------------|:----------------|:----------------|
+| OpenStack | linux | **.sh** (_tosca.artifacts.ShellScript_) |
+|  | windows | **.bat** (_alien.artifacts.BatchScript_) |
+| AWS | linux | **.sh** (_tosca.artifacts.ShellScript_) |
+|  | windows | **.bat** (_alien.artifacts.BatchScript_) |
+
+{%info%}
+Some Alien users deployed also **Puppet artifact** through grooving script.
+{%endinfo%}
+
 {%note%}
 <h5>Note</h5>
 We are currently supporting the opensource orchestrators cloudify 3 but are also working in collaboration with Apache Brooklyn on an orchestration plugin currently in incubation state.
@@ -48,4 +62,4 @@ We are currently supporting the opensource orchestrators cloudify 3 but are also
 Only a user with the global ADMIN role can define, configure, enable and grant deployment role to other users or groups on a locations.
 {%endinfo%}
 
-To find more on locations and how to configure them in Alien 4 Cloud please look at the [Getting started](deadlink) guide if you don't already have an Alien instance running and at the [cloud setup guide](deadlink) in order to learn cloud configuration.
+To find more on locations and how to configure them in Alien 4 Cloud please look at the [Getting started](#/documentation/1.1.0/getting_started/getting_started.html) guide if you don't already have an Alien instance running and at the [cloud setup guide](#/documentation/1.1.0/user_guide/cloud_management.html) in order to learn cloud configuration.
