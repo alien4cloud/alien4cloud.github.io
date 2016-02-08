@@ -27,6 +27,7 @@ weight: 9000
 |sourceType||false|enum (APPLICATION, CSAR)||
 |startDate||false|string (date-time)||
 |versionId||false|string||
+|workflowExecutions||false|object||
 
 
 # RestResponse«List«Usage»»
@@ -259,7 +260,6 @@ weight: 9000
 |----|----|----|----|----|
 |importLocations|Information of branches and eventually folders to import for the given repository.|true|Information of the branch and eventually folder on the branch to import as an alien csar. array||
 |password|Password to access the git repository.|false|string||
-|previousRepositoryUrl|Url of the git repository before the update. This url will be used as an id to retrieve the csar git repository to update.|true|string||
 |repositoryUrl|Url of the git repository.|true|string||
 |storedLocally|Flag to know if the repository should be kept on the alien4cloud server disk (so next imports will be faster).|false|boolean||
 |username|Username to access the git repository.|false|string||
@@ -521,6 +521,8 @@ weight: 9000
 |problem||false|string||
 |startMark||false|SimpleMark||
 
+
+# Map«string,string»
 
 # ElementFromArchiveRequest
 

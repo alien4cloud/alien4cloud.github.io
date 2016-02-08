@@ -26,7 +26,7 @@ GET /rest/topologies/{topologyId}/locations
 {: .table .table-bordered}
 |HTTP Code|Description|Schema|
 |----|----|----|
-|200|OK|RestResponse«List«LocationMatch»»|
+|200|OK|RestResponse«List«ILocationMatch»»|
 |401|Unauthorized|No Content|
 |403|Forbidden|No Content|
 |404|Not Found|No Content|

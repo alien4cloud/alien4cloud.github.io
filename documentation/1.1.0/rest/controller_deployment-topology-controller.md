@@ -1,11 +1,11 @@
 ---
 layout: post
-title: Manage configuration of an application before deploying it.
+title: Prepare a topology to be deployed on a specific environment (location matching, node matching and inputs configuration).
 root: ../../
 categories: DOCUMENTATION-1.1.0
 parent: [rest_api, rest_api_applications-api]
 node_name: rest_api_controller_deployment-topology-controller
-weight: 17
+weight: 20
 ---
 
 ### Get the deployment topology of an application given an environment.
@@ -98,9 +98,9 @@ Application role required [ APPLICATION_MANAGER | APPLICATION_DEVOPS ] and Appli
 {: .table .table-bordered}
 |Type|Name|Description|Required|Schema|Default|
 |----|----|----|----|----|----|
-|PathParameter|appId|appId|true|string||
-|PathParameter|environmentId|environmentId|true|string||
-|BodyParameter|request|request|true|SetLocationPoliciesRequest||
+|PathParameter|appId|Id of the application.|true|string||
+|PathParameter|environmentId|Id of the environment on which to set the location policies.|true|string||
+|BodyParameter|request|Location policies request body.|true|SetLocationPoliciesRequest||
 
 
 #### Responses
@@ -221,7 +221,7 @@ POST /rest/applications/{appId}/environments/{environmentId}/deployment-topology
 {: .table .table-bordered}
 |HTTP Code|Description|Schema|
 |----|----|----|
-|200|OK|RestResponse«DeploymentTopologyDTO»|
+|200|OK|RestResponse«object»|
 |201|Created|No Content|
 |401|Unauthorized|No Content|
 |403|Forbidden|No Content|

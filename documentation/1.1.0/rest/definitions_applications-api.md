@@ -51,7 +51,6 @@ weight: 9000
 |relationshipTypes||false|object||
 |topology||false|DeploymentTopology||
 |validation||false|TopologyValidationResult||
-|yaml||false|string||
 
 
 # Contains the types and templates of resources that can be substituted for a deployment.
@@ -250,7 +249,7 @@ weight: 9000
 {: .table .table-bordered}
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
-|code||false|enum (IMPLEMENT, REPLACE, SATISFY_LOWER_BOUND, PROPERTIES, HA_INVALID, SCALABLE_CAPABILITY_INVALID, NODE_FILTER_INVALID, WORKFLOW_INVALID, LOCATION_POLICY, ORCHESTRATOR_PROPERTY, INPUT_PROPERTY, NODE_NOT_SUBSTITUTED)||
+|code||false|enum (IMPLEMENT, REPLACE, SATISFY_LOWER_BOUND, PROPERTIES, HA_INVALID, SCALABLE_CAPABILITY_INVALID, NODE_FILTER_INVALID, WORKFLOW_INVALID, LOCATION_POLICY, LOCATION_UNAUTHORIZED, LOCATION_DISABLED, ORCHESTRATOR_PROPERTY, INPUT_PROPERTY, NODE_NOT_SUBSTITUTED)||
 
 
 # EnvironmentStatusDTO
@@ -284,8 +283,11 @@ weight: 9000
 {: .table .table-bordered}
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
-|capabilityTypes||false|object||
-|nodeTypes||false|object||
+|allNodeTypes|Map that contains all node types.|false|object||
+|capabilityTypes|Map that contains the capability types used by the configuration types or node types.|false|object||
+|configurationTypes|Map of node types id, node type used to configure a given location.|false|object||
+|nodeTypes|Map of node types id, node type used to configure the templates of on-demand resources in a location.|false|object||
+|onDemandTypes|Map that contains the on demdand types.|false|object||
 
 
 # Map«string,LocationResourceTemplate»
@@ -458,6 +460,7 @@ weight: 9000
 |sourceType||false|enum (APPLICATION, CSAR)||
 |startDate||false|string (date-time)||
 |versionId||false|string||
+|workflowExecutions||false|object||
 
 
 # RequirementDefinition
@@ -496,6 +499,8 @@ weight: 9000
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
 |artifacts||false|object||
+|attributes||false|object||
+|interfaces||false|object||
 |properties||false|object||
 |requirementName||false|string||
 |requirementType||false|string||
@@ -924,11 +929,14 @@ weight: 9000
 # SetLocationPoliciesRequest
 
 
+Request to set locations policies fro a deployment.
+
+
 {: .table .table-bordered}
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
-|groupsToLocations||false|object||
-|orchestratorId||false|string||
+|groupsToLocations|Locations settings for groups. key = groupeName, value = locationId. Note that for now, the only groupe name valid is _A4C_ALL, as we do not yet support multiple locations policies settings.|true|object||
+|orchestratorId|Id of the Orchestratrator managing the locations on which we want to deploy.|true|string||
 
 
 # ApplicationEnvironment

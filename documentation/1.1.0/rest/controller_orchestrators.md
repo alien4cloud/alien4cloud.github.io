@@ -225,7 +225,7 @@ DELETE /rest/orchestrators/{id}/instance
 {: .table .table-bordered}
 |HTTP Code|Description|Schema|
 |----|----|----|
-|200|OK|RestResponse«Void»|
+|200|OK|RestResponse«List«Usage»»|
 |401|Unauthorized|No Content|
 |204|No Content|No Content|
 |403|Forbidden|No Content|

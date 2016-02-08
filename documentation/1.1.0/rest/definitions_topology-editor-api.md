@@ -10,6 +10,18 @@ weight: 9000
 
 {% summary %}{% endsummary %}
 
+# ILocationMatch
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|location||false|Location||
+|orchestrator||false|Orchestrator.||
+|ready||false|boolean||
+|reasons||false|object||
+
+
 # Map«string,AbstractStep»
 
 # RestResponse«AbstractTopologyVersion»
@@ -90,6 +102,8 @@ weight: 9000
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
 |artifacts||false|object||
+|attributes||false|object||
+|interfaces||false|object||
 |properties||false|object||
 |requirementName||false|string||
 |requirementType||false|string||
@@ -343,7 +357,6 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 |outputCapabilityProperties||false|object||
 |relationshipTypes||false|object||
 |topology||false|Topology||
-|yaml||false|string||
 
 
 # IndexedCapabilityType
@@ -441,7 +454,7 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 {: .table .table-bordered}
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
-|code||false|enum (IMPLEMENT, REPLACE, SATISFY_LOWER_BOUND, PROPERTIES, HA_INVALID, SCALABLE_CAPABILITY_INVALID, NODE_FILTER_INVALID, WORKFLOW_INVALID, LOCATION_POLICY, ORCHESTRATOR_PROPERTY, INPUT_PROPERTY, NODE_NOT_SUBSTITUTED)||
+|code||false|enum (IMPLEMENT, REPLACE, SATISFY_LOWER_BOUND, PROPERTIES, HA_INVALID, SCALABLE_CAPABILITY_INVALID, NODE_FILTER_INVALID, WORKFLOW_INVALID, LOCATION_POLICY, LOCATION_UNAUTHORIZED, LOCATION_DISABLED, ORCHESTRATOR_PROPERTY, INPUT_PROPERTY, NODE_NOT_SUBSTITUTED)||
 
 
 # TopologyWorkflowAddActivityRequest
@@ -522,6 +535,16 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 |----|----|----|----|----|
 |name||false|string||
 |type||false|string||
+
+
+# RestResponse«List«ILocationMatch»»
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|data||false|ILocationMatch array||
+|error||false|RestError||
 
 
 # Map«string,IValue»
@@ -611,17 +634,6 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 
 # Map«string,NodeTemplate»
 
-# LocationMatch
-
-
-{: .table .table-bordered}
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|location||false|Location||
-|orchestrator||false|Orchestrator.||
-|reasons||false|object||
-
-
 # Map«string,string»
 
 # Map«string,DeploymentArtifact»
@@ -651,16 +663,6 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 |snapshot||false|boolean||
 |topologyId||false|string||
 |version||false|string||
-
-
-# RestResponse«List«LocationMatch»»
-
-
-{: .table .table-bordered}
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|data||false|LocationMatch array||
-|error||false|RestError||
 
 
 # Map«string,List«string»»
