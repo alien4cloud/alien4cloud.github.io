@@ -47,3 +47,22 @@ We have designed a workaround to change this behavior so that it is possible to 
 {%info%}
 There is currently some missing details in the TOSCA specification on how relationships can be impacted in scaling scenarios and we are working with bot Cloudify and TOSCA to enhance the specification.
 {%endinfo%}
+
+#### IaaS limitations
+
+The workaround mentioned above has only been developed for OpenStack. This means that for Amazon for example, you will be able to scale a compute, but if it is attached to a public network, only one of them will have a floating IP attachment.
+
+Here is a table that shows the limitations about scaling per IaaS:
+
+|       |  OpenStack  | Amazon  | BYON  |
+| --------  |---------  |-------  |
+| Single Compute  | OK  | OK  | OK  |
+| Compute + Network + Block Storage   | OK  | KO  | N/A   |
+
+#### Block storage recovery limitation
+
+We still have some issues about block storage recovery.
+
+{%warning%}
+To be detailed.
+{%endwarning%}
