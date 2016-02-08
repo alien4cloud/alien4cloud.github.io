@@ -204,7 +204,7 @@ POST /rest/orchestrators/{orchestratorId}/locations/{locationId}/resources/{id}/
 {: .table .table-bordered}
 |HTTP Code|Description|Schema|
 |----|----|----|
-|200|OK|RestResponse«Void»|
+|200|OK|RestResponse«ConstraintInformation»|
 |201|Created|No Content|
 |401|Unauthorized|No Content|
 |403|Forbidden|No Content|

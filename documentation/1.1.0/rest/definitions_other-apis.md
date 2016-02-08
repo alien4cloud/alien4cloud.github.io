@@ -29,6 +29,7 @@ weight: 9000
 |sourceType||false|enum (APPLICATION, CSAR)||
 |startDate||false|string (date-time)||
 |versionId||false|string||
+|workflowExecutions||false|object||
 
 
 # RequirementDefinition
@@ -53,6 +54,7 @@ weight: 9000
 {: .table .table-bordered}
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
+|authSystem||false|string||
 |githubUsername||false|string||
 |groups||false|string array||
 |isLogged||false|boolean||
@@ -100,6 +102,8 @@ weight: 9000
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
 |artifacts||false|object||
+|attributes||false|object||
+|interfaces||false|object||
 |properties||false|object||
 |requirementName||false|string||
 |requirementType||false|string||
@@ -354,7 +358,6 @@ weight: 9000
 |outputCapabilityProperties||false|object||
 |relationshipTypes||false|object||
 |topology||false|Topology||
-|yaml||false|string||
 
 
 # IndexedCapabilityType

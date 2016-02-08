@@ -5,7 +5,7 @@ root: ../../
 categories: DOCUMENTATION-1.1.0
 parent: [rest_api, rest_api_applications-api]
 node_name: rest_api_controller_application-deployment-controller
-weight: 18
+weight: 17
 ---
 
 ### Deploys the application on the configured Cloud.

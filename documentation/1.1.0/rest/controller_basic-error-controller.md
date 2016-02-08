@@ -8,7 +8,7 @@ node_name: rest_api_controller_basic-error-controller
 weight: 35
 ---
 
-### errorHtml
+### error
 ```
 GET /error
 ```
@@ -18,7 +18,7 @@ GET /error
 {: .table .table-bordered}
 |HTTP Code|Description|Schema|
 |----|----|----|
-|200|OK|ModelAndView|
+|200|OK|object|
 |401|Unauthorized|No Content|
 |403|Forbidden|No Content|
 |404|Not Found|No Content|
@@ -30,9 +30,9 @@ GET /error
 
 #### Produces
 
-* text/html
+* */*
 
-### errorHtml
+### error
 ```
 PUT /error
 ```
@@ -42,7 +42,7 @@ PUT /error
 {: .table .table-bordered}
 |HTTP Code|Description|Schema|
 |----|----|----|
-|200|OK|ModelAndView|
+|200|OK|object|
 |201|Created|No Content|
 |401|Unauthorized|No Content|
 |403|Forbidden|No Content|
@@ -55,9 +55,9 @@ PUT /error
 
 #### Produces
 
-* text/html
+* */*
 
-### errorHtml
+### error
 ```
 DELETE /error
 ```
@@ -67,7 +67,7 @@ DELETE /error
 {: .table .table-bordered}
 |HTTP Code|Description|Schema|
 |----|----|----|
-|200|OK|ModelAndView|
+|200|OK|object|
 |401|Unauthorized|No Content|
 |204|No Content|No Content|
 |403|Forbidden|No Content|
@@ -79,9 +79,9 @@ DELETE /error
 
 #### Produces
 
-* text/html
+* */*
 
-### errorHtml
+### error
 ```
 POST /error
 ```
@@ -91,7 +91,7 @@ POST /error
 {: .table .table-bordered}
 |HTTP Code|Description|Schema|
 |----|----|----|
-|200|OK|ModelAndView|
+|200|OK|object|
 |201|Created|No Content|
 |401|Unauthorized|No Content|
 |403|Forbidden|No Content|
@@ -104,9 +104,9 @@ POST /error
 
 #### Produces
 
-* text/html
+* */*
 
-### errorHtml
+### error
 ```
 PATCH /error
 ```
@@ -116,7 +116,7 @@ PATCH /error
 {: .table .table-bordered}
 |HTTP Code|Description|Schema|
 |----|----|----|
-|200|OK|ModelAndView|
+|200|OK|object|
 |401|Unauthorized|No Content|
 |204|No Content|No Content|
 |403|Forbidden|No Content|
@@ -128,5 +128,5 @@ PATCH /error
 
 #### Produces
 
-* text/html
+* */*
 

@@ -20,6 +20,16 @@ weight: 9000
 |error||false|RestError||
 
 
+# RestResponse«List«Usage»»
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|data||false|Usage array||
+|error||false|RestError||
+
+
 # RequirementDefinition
 
 
@@ -76,6 +86,8 @@ A request object to pass when updating an orchestrator. Contains updatable field
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
 |artifacts||false|object||
+|attributes||false|object||
+|interfaces||false|object||
 |properties||false|object||
 |requirementName||false|string||
 |requirementType||false|string||
@@ -250,11 +262,13 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 {: .table .table-bordered}
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
+|allNodeTypes|Map that contains all node types.|false|object||
 |capabilityTypes|Map that contains the capability types used by the configuration types or node types.|false|object||
 |configurationTemplates|List of configuration templates already configured for the location. Usually abstract  types.|false|LocationResourceTemplate array||
 |configurationTypes|Map of node types id, node type used to configure a given location.|false|object||
 |nodeTemplates|List of node templates already configured for the location.|false|LocationResourceTemplate array||
 |nodeTypes|Map of node types id, node type used to configure the templates of on-demand resources in a location.|false|object||
+|onDemandTypes|Map that contains the on demdand types.|false|object||
 
 
 # Map«string,Capability»
@@ -279,9 +293,9 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 |propertyValue|Value of the property to update, the type must be equal to the type of the property that will be updated.|false|object||
 
 
-# Map«string,RelationshipTemplate»
-
 # Map«string,Interface»
+
+# Map«string,RelationshipTemplate»
 
 # Map«string,PropertyDefinition»
 
@@ -471,6 +485,17 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 
 
 # Map«string,IValue»
+
+# Usage
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|resourceId||false|string||
+|resourceName||false|string||
+|resourceType||false|string||
+
 
 # GetMultipleDataResult«Orchestrator.»
 
