@@ -8,101 +8,14 @@ node_name: getting_started
 weight: 100
 ---
 
-To begin with Alien you have two choices :
-
-* the *30 min Start Guide!*
-* or the *Step by step* guide
-
-The first guide is like a demo, the best way if you want to try Alien in no time but you need an active AWS account.
-
-The second guide will explain how to take in charge Alien in details and configure it for your uses.
-
-{%warning%}
-<h5>Important: security issue </h5>
-Alien used a version of ElasticSearch concern by a security issue. To prevent an attack, make sure to secure the port of ES (9200 as default).
-{%endwarning%}
-
-{%inittab %}
-{% tabcontent The 30 min Start Guide %}
-
-##1. Prerequisites:
-
-* Download and install [VirtualBox](https://www.virtualbox.org/wiki/Downloads) (Working with version >= 4.3.26)
-
-* Download and install [Vagrant](https://www.vagrantup.com/downloads.html) (Working with version >= 1.7.2)
-
-* Install triggers plugin for Vagrant: `vagrant plugin install vagrant-triggers` (Working with version >= 0.5.0)
-
-* An active AWS account. Make sure you have all the account informations we will need later (user key, access key, key file and key pair)
-
-##2. VM Automated Install:
-* Download and unzip the package [vm-alien4cloud-1.1.0-SM3](https://fastconnect.org/owncloud/public.php?service=files&t=ad8629bdce1f75a60e450ca6905fee69) (for other version, see on the page footer). As a result, a subdirectory vm-alien4cloud should be created
-
-* Copy your .pem file to the directory `vm-alien4cloud/vm/key`
-
-* Edit the file `vm-alien4cloud/puppet/manifests/install.pp` and set your aws "user key" and "access key" (`user` and `apiKey` parameters), key file name and key pair (`keyFile` and `keyPair` parameters) and finally change `machineNamePrefix` and `managementGroup`.
-
-* Change your working directory: `cd vm-alien4cloud/vm/centos-6`
-
-* Execute the following command to build a new VM: `vagrant up`
-
-* At the first run, vagrant will download the base box which will be used to create the alien4cloud VM, then provision the VM with Puppet. The time needed to create a VM is around 30 minutes and depends on your internet connection speed.
-
-* At the end of the installation, you'll see a message `==> alien4cloud: Notice: Finished catalog run in 1648.89 seconds`. You can then access Alien4Cloud Web interface from a browser on the following address: [http://192.168.32.10:8088](http://192.168.32.10:8088). Use the default account `admin` with the password `admin` to login into Alien.
-
-##3. Deploy your application:
-
-To deploy this new application, go on `Applications > Deployments` submenu and :
-
-* Select the `os_arch` of your computes
-* Select your cloud
-* Select the template who matches with your computers
-* And click on the `Deploy` button
-
-[![Configure your deployment](../../images/user_guide/user_guide_topology_template_deploy.png)](../../images/user_guide/user_guide_topology_template_deploy.png)
-
-{%info%}
-To understand all configuration available for the deployment page, please refer to [this section](#/documentation/1.1.0/user_guide/application_management.html).
-{%endinfo%}
-
-##4. Check that your application is up and running:
-
-### Runtime view:
-
-On this submenu view `Application > Runtime`, you can have the detailed deployment
-progress.
-
-![Wordpress url](../../images/user_guide/user_guide_topology_template_runtime.png)
-
-### Wordpress url
-
-When all nodes are deployed, go back in the `Application > Informations` submenu to get the Wordpress application url and
-test it !
-
-![Wordpress url](../../images/user_guide/user_guide_topology_template_wordpressurl.png)
-
-And voilà !
-
-##5. How to Uninstall:
-If you would like to de-provision the VM and the associated cloud created by Alien4Cloud, just execute the following commands:
-
-* Change your working directory: `cd vm-alien4cloud/vm/centos-6`
-
-* Run the following command: `vagrant destroy`
-
-##Older versions:
-
-[vm-alien4cloud-1.1.0-SM2](https://fastconnect.org/owncloud/public.php?service=files&t=fb6806281344cb21a93e3e9d8afd69f2)
-
-{%endtabcontent%}
-{% tabcontent Step by step guide %}
+This guide will explain how to take in charge Alien in details and configure it for your uses.
 
 ##1. Prerequisites:
 
 * Ensure that you have at least JAVA version 7 or higher installed on your working station. If not, just install
 java following instructions [here](https://www.java.com/fr/download/manual.jsp){:target="_blank"}.
 
-* You can get *Cloudify* in version 3.2 [here](http://getcloudify.org/downloads/get_cloudify_3x.html#dl){:target="_blank"}.
+* You can get *Cloudify* in version 3.3 [here](http://getcloudify.org/downloads/get_cloudify_3x.html#dl){:target="_blank"}.
 
 * In order to start using alien 4 cloud you have to download Alien. Two versions are available :
 
@@ -110,7 +23,7 @@ java following instructions [here](https://www.java.com/fr/download/manual.jsp){
   * [deployable](https://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource&g=alien4cloud&a=alien4cloud-ui&v={{ site.last-version }}&p=war) : war file that can be deployed within a war container
 
 {% info %}
-We recommend using the Alien standalone with Cloudify 3.2.
+We recommend using the Alien standalone with Cloudify 3.3.
 {% endinfo %}
 
 ##2. Check your access to a cloud:
@@ -166,28 +79,13 @@ This download link will provide a zip with a subfolder. Ensure that this subfold
 component upload will fail.
 {% endwarning %}
 
-You must have a zip with this file tree :
-
-{% highlight bash %}
-├── images
-│   ├── compute.png
-│   ├── loadbalancer.png
-│   ├── network.png
-│   ├── objectstore.png
-│   ├── relational_db.png
-│   ├── root.png
-│   ├── router.png
-│   ├── software.png
-│   └── volume.png
-├── normative-types.yml
-└── README.md
-{% endhighlight %}
-
 ### Required types for Wordpress
 
 The Wordpress topology is using custom types, we have to upload them first.
 
-Find those types on github here : [samples repository](https://github.com/alien4cloud/samples){:target="_blank"}
+Like for the normative types, you need to add the [extended types on github](https://github.com/alien4cloud/alien4cloud-extended-types/archive/master.zip)
+
+After this, find those types on github here : [samples repository](https://github.com/alien4cloud/samples){:target="_blank"}
 
 * **apache** : the webserver [here](https://github.com/alien4cloud/samples/tree/master/apache){:target="_blank"}
 * **php** : the php interperter [here](https://github.com/alien4cloud/samples/tree/master/php){:target="_blank"}
@@ -257,6 +155,3 @@ test it !
 ![Wordpress url](../../images/user_guide/user_guide_topology_template_wordpressurl.png)
 
 And voilà !
-
-{%endtabcontent%}
-{%endinittab%}

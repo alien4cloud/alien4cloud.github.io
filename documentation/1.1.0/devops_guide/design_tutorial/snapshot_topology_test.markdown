@@ -3,7 +3,7 @@ layout: post
 title: Testing custom components
 root: ../../
 categories: "DOCUMENTATION-1.1.0"
-parent: 
+parent:
   - devops
   - tutorials
 node_name: component_test
@@ -70,15 +70,15 @@ This archive contains a yaml file corresponding to the following topology in tes
 
 1. You need first an actived cloud
 
-    * A "cloud" is based on a plugin (driver), so first upload your plugin jar with the **ADMIN** role
+    * An "orchestrator" is based on a plugin (driver), so first upload your plugin jar with the **ADMIN** role.
 
     [![Manage plugins](../../images/developer_guide/plugin-management-admin.png)](../../images/developer_guide/plugin-management-admin.png)
 
-    * Then you will have the following plugin administration page where you can create a **cloud** and activate it
+    * Then you will have the following plugin administration page where you can create an **orchestrator** and activate it.
 
     [![Manage clouds](../../images/developer_guide/cloud-management-admin.png)](../../images/developer_guide/cloud-management-admin.png)
 
-    * From the cloud details page you want to target, you have to get the **cloud id**
+    * From the orchestrator details page you want to target, you have to get the **orchestrator id**.
 
 2. Upload your snapshot archive
 

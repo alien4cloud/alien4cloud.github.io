@@ -18,30 +18,14 @@ weight: 200
 
 Elements in TOSCA and ALIEN are defined in definitions files that can be packed in a [Cloud Service Archive](#/documentation/1.1.0/concepts/tosca.html) (CSAR). The first task therefore is to prepare the directory structure of our Cloud Service Archive.
 
-{% indent %}
-![csar-content.png](../../images/tutorial-tomcat-csar-1.png)
-{% endindent %}
-
-Then we create a _tomcat-definition.yml_ file that will contain the actual tomcat node type definition.
-
-Before starting to fill-in the file we will first create the _ALIEN-META.yaml_ file that must be in the _TOSCA-Metadata_ folder of our archive directory structure.
-
-{% indent %}
-![csar-content.png](../../images/tutorial-tomcat-csar-2.png)
-{% endindent %}
-
-This file defines the archive name and version as well as the location of the definitions files that the archive contains. This is the entry point of the archive. The content of the file is the following:
-
-{% highlight yaml %}
-# Define the current archive id and version.
-name: "fastconnect-tomcat-types"
-version: "1.0"
-license: "Apache v2.0"
-created_by: "FastConnect"
-
-# List of definitions file in the archive.
-definitions:
-    - /Definitions/tomcat-definition.yml
+{% highlight bash %}
+├── my-definition-file.yml
+├── images
+│   ├── component-icon.png
+│   └── ...
+├── scripts
+│   └── install.sh
+│   └── ...
 {% endhighlight %}
 
 Now that we have a cloud service archive with a definition file, we can edit it to define TOSCA elements. In our case we will focus on creating types.
