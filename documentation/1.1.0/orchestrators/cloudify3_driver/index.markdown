@@ -47,3 +47,39 @@ We have designed a workaround to change this behavior so that it is possible to 
 {%info%}
 There is currently some missing details in the TOSCA specification on how relationships can be impacted in scaling scenarios and we are working with bot Cloudify and TOSCA to enhance the specification.
 {%endinfo%}
+
+#### Setup
+
+The provider plugin embeds the cloudify opentack plugin that contains this workaround.
+
+To be sure you're deployments will use this plugin rather than the original one, just ensure that the import settings for your orchestrator (location openstack) contains `openstack-plugin.yaml` rather than `http://www.getcloudify.org/spec/openstack-plugin/1.3.1/plugin.yaml`.
+
+You'll also need to execute the following operations on the cloudify manager:
+
+{% highlight bash %}
+sudo yum install gcc
+sudo yum install python-devel
+{% endhighlight %}
+
+#### IaaS limitations
+
+The workaround mentioned above has only been developed for OpenStack. This means that for Amazon for example, you will be able to scale a compute, but if it is attached to a public network, only one of them will have a floating IP attachment.
+
+Here is a table that shows the limitations about scaling per IaaS:
+
+|       |  OpenStack  | Amazon  | BYON  |
+| --------  |---------  |-------  |
+| Single Compute  | OK  | OK  | OK  |
+| Compute + Network + Block Storage   | OK  | KO  | N/A   |
+
+#### Block storage recovery limitation
+
+{%info%}
+Block storage recovery is the ability to reuse an already created block storage.
+
+Imagine you have a topology containing a compute with a block storage attached on it. You deploy the topology, the VM is started, the block storage is provisionned and attached to the VM, and then some process write data to the disk. If you don't use a `DeletableBlockStorage`, this means that you want the data written to the disk to be persistent : if the topology is undeployed then deployed again, you want the block storage to be reused.  
+
+To manage such feature, A4C will keep a trace of the volume ID and store it in the deployment topology. When the topology is deployed again, this volume id is used to find the volume in the the IaaS rather than provisoning another one.
+{%endinfo%}
+
+We still have some issues about block storage recovery : the component `LinuxFileSystem` will not manage recovery in case of runtime scaling.
