@@ -25,3 +25,62 @@ Lifecycle is based on the normative node interface (tosca.interfaces.node.lifecy
 6. call the relationships _post_configure_source_ (if the node is the relationship source) or _post_configure_target_ (if the node is the relationship target)
 7. call the node's _start_ operation
 8. call the relationships _add_target_ (on the nodes sources) and _add_source_ (on the nodes targets) operations.
+
+## Environment Variables
+
+When operation scripts are called, some environment variables are filled by the script caller.
+
+### Node operation
+
+For node operation script, the following variables are available:
+
+- `NODE`: the node name.
+- `INSTANCE`: the unique instance ID.
+- `INSTANCES`: A comma separated list of all available instance IDs.
+- `HOST`: the node name of the node that host the current one.
+
+### Relationship operation
+
+For relationship operation script, the following variables are available:
+
+- `TARGET_NODE`: The node name that is targeted by the relationship.
+- `TARGET_INSTANCE`: The instance ID that is targeted by the relatonship.
+- `TARGET_INSTANCES`: Comma separated list of all available instance IDs for the target node.
+- `SOURCE_NODE`: The node name that is the source of the relationship.
+- `SOURCE_INSTANCE`: The instance ID of the source of the relationship.
+- `SOURCE_INSTANCES`: Comma separated list of all available source instance IDs.
+
+### Attribute and multiple instances
+
+When an operation defines an input, the value is available by fetching an environment variable.
+If you have multiple instances, you'll be able to fetch the input value for all instances by prefixing the inpu name by the instance ID.
+
+Let's imagine you have an relationship's configure interface operation defined like this:
+
+{% highlight yaml %}
+add_target:
+  inputs:
+    TARGET_IP: { get_attribute: [TARGET, ip_address] }
+  implementation: scripts/add_target.sh
+{% endhighlight %}
+
+Let's imagine we have a node named `MyNodeS` with 2 instances: `MyNodeS_1`, `MyNodeS_2`.
+The node `MyNodeS` is connected to the target node `MyNodeT` which has also 2 instances `MyNodeT_1` and `MyNodeT_2`.
+
+When the `add_target.sh` script is executed for the relationship instance that connects `MyNodeS_1` to `MyNodeT_1`, the following variables will be available:
+
+{% highlight bash %}
+TARGET_NODE=MyNodeT
+TARGET_INSTANCE=MyNodeT_1
+TARGET_INSTANCES=MyNodeT_1,MyNodeT_2
+SOURCE_NODE=MyNodeS
+SOURCE_INSTANCE=MyNodeS_1
+SOURCE_INSTANCES=MyNodeS_1,MyNodeS_2
+TARGET_IP=192.168.0.11
+MyNodeT_1_TARGET_IP=192.168.0.11
+MyNodeT_2_TARGET_IP=192.168.0.12
+{% endhighlight %}
+
+{%info%}
+In our samples you can find a topology [demo-lifecycle](https://github.com/alien4cloud/samples/tree/master/demo-lifecycle) that clearly demonstrate all this behavior. 
+{%endinfo%}
