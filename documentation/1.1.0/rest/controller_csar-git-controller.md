@@ -42,38 +42,6 @@ GET /rest/csarsgit
 
 * */*
 
-### Delete a registered TOSCA CSAR git repository using the csar url as id.
-```
-DELETE /rest/csarsgit
-```
-
-#### Parameters
-
-{: .table .table-bordered}
-|Type|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|----|
-|BodyParameter|url|Url of the csar git repository to delete|true|string||
-
-
-#### Responses
-
-{: .table .table-bordered}
-|HTTP Code|Description|Schema|
-|----|----|----|
-|200|OK|RestResponse«Void»|
-|401|Unauthorized|No Content|
-|204|No Content|No Content|
-|403|Forbidden|No Content|
-
-
-#### Consumes
-
-* application/json
-
-#### Produces
-
-* */*
-
 ### Create a new CSARGit from a Git location in ALIEN.
 ```
 POST /rest/csarsgit
@@ -93,39 +61,6 @@ POST /rest/csarsgit
 |HTTP Code|Description|Schema|
 |----|----|----|
 |200|OK|RestResponse«string»|
-|201|Created|No Content|
-|401|Unauthorized|No Content|
-|403|Forbidden|No Content|
-|404|Not Found|No Content|
-
-
-#### Consumes
-
-* application/json
-
-#### Produces
-
-* */*
-
-### Update a CSARGit by url.
-```
-POST /rest/csarsgit/update/{url}
-```
-
-#### Parameters
-
-{: .table .table-bordered}
-|Type|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|----|
-|BodyParameter|request|request|true|Request for creation of a new csar git repository.||
-
-
-#### Responses
-
-{: .table .table-bordered}
-|HTTP Code|Description|Schema|
-|----|----|----|
-|200|OK|RestResponse«Void»|
 |201|Created|No Content|
 |401|Unauthorized|No Content|
 |403|Forbidden|No Content|

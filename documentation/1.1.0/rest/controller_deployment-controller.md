@@ -21,8 +21,6 @@ GET /rest/deployments
 |QueryParameter|orchestratorId|Id of the orchestrator for which to get deployments. If not provided, get deployments for all orchestrators|false|string||
 |QueryParameter|sourceId|Id of the application for which to get deployments. if not provided, get deployments for all applications|false|string||
 |QueryParameter|includeSourceSummary|include or not the source (application or csar) summary in the results|false|boolean||
-|QueryParameter|from|Query from the given index.|false|integer (int32)||
-|QueryParameter|size|Maximum number of results to retrieve.|false|integer (int32)||
 
 
 #### Responses
