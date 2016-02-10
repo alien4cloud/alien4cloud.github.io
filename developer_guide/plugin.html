@@ -26,31 +26,99 @@ ga('send', 'pageview');
           <h1 class="pull-left" style="margin-top: 0px;">ALIEN plugins</h1>
           <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/developer_guide/plugin.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
         </div>
-        <p>Alien 4 Cloud allows developer to extends the application by adding plugins. Actually most of features in a4c are packaged as plugins allowing a great flexibility in the way we build the application.</p>
+        <p>Alien 4 Cloud allows developer to extends the application by adding plugins. A plugin may contains some java services, some REST controllers and UI elements. The most common plugins that we ship with alien4cloud are orchestrator plugins.</p>
 
-<p>A plugin may contains some java services, some REST controllers and UI elements.</p>
+<h2 id="plugin-archive">Plugin archive</h2>
 
-<h2 id="directory-hierarchy">Directory hierarchy</h2>
-<p>s
-ALIEN plugins are package as a zip archive that must contains the following hierarchy:</p>
+<p>ALIEN plugins are package as a zip archive that must contains the following hierarchy:</p>
 
 <ul>
-  <li>The <strong>root</strong> folder contains java classes and resources (basically it will be added to the classpath of the plugin).</li>
+  <li>The <strong>root</strong> of the zip file may contain java classes and resources (basically it will be added to the plugin’s classpath).</li>
   <li>The <strong>lib</strong> folder (optional) must contain all java archives (jar) required for the plugin to run. They will be added to the plugin classloader. Of course you should not add ALIEN 4 cloud jars here as they will be loaded through the plugin parent classloader.</li>
   <li><strong>META-INF/plugin.yml</strong> contains the plugin description and entry point informations (the plugin descriptor).</li>
   <li>The <strong>ui</strong> folder contains all ui elements including javascript files, css html and any other static files.</li>
 </ul>
 
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">├── javapackage
+│   ├── MyClass.class
+│   └── ...
+├── lib
+│   └── library.jar
+├── META-INF
+│   └── plugin.yml
+├── ui
+│   └── scripts
+│   │   └── plugin.js
+│   │   views
+│   │   └── view.html</code></pre></div>
+
 <h2 id="the-plugin-descriptor">The plugin descriptor</h2>
 
-<p>The plugin descriptor is mandatory and is the entry point of the plugin for ALIEN. As many other configuration elements it is a YAML file that allows to describe your plugin.</p>
+<p>The plugin descriptor (META-INF/plugin.yml) is mandatory and is the entry point of the plugin for ALIEN. As many other configuration elements it is a YAML file that allows to describe your plugin.</p>
 
 <h3 id="grammar">grammar</h3>
 
 <p>As detailed in the architecture section, a ALIEN plugin is actually a Spring sub-context; As so it requires a Spring context configuration entry point. For ALIEN plugins we have decided to allow only java based configuration and thus a plugin must specify a configuration class in it’s descriptor.
 The configuration class is the only mandatory class in a plugin so it can be loaded by ALIEN.</p>
 
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Keyname</th>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Required</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">id</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">yes</td>
+      <td style="text-align: left">Identifier of the plugin. Must be unique within alien4cloud.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">name</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">yes</td>
+      <td style="text-align: left">The name of the plugin as it will be displayed to user.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">version</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">yes</td>
+      <td style="text-align: left">The version of the plugin.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">description</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">The optional description of the plugin.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">configuration_class</td>
+      <td style="text-align: left">yes</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">The name of the java class to load as Spring context configuration (see Plugin context entry point).</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ui_entry_point</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Path of the javascript file of your ui plugin that should be loaded as entry point. The path must be relative to the ui folder. More details in the ui plugin section.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">component_descriptors</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">list of component_descriptor</td>
+      <td style="text-align: left">Optional list of beans that you wan’t to expose from your plugin so they will be available to other plugins. To be honest such usage is currently not really useful as we cannot yet specify loading priority or dependencies for plugins.</td>
+    </tr>
+  </tbody>
+</table>
+
 <h3 id="example">example</h3>
+
+<div data-gist="https://gist.github.com/lucboutier/5fa28bbc876303b4c8c2.js"></div>
 
 <h2 id="plugin-context-entry-point">Plugin context entry point</h2>
 
@@ -92,6 +160,10 @@ The configuration class is the only mandatory class in a plugin so it can be loa
 <div class="note warning">
 <p>Current version of ALIEN 4 Cloud does not supports more than a single configuration. Thus you should make sure that a single IPluginConfigurator exists in your plugin spring context.</p>
 </div>
+
+<h2 id="getting-started-with-plugin-development">Getting started with plugin development</h2>
+
+<p>The easiest way to get started with plugin development is to clone and copy the <a href="https://github.com/alien4cloud/alien4cloud-plugin-sample">alien4cloud-plugin-sample</a> from github.</p>
 
         <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/developer_guide/plugin.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
 	  </div>

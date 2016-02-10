@@ -118,88 +118,12 @@ GET /rest/csarsgit
   <li><em>/</em></li>
 </ul>
 
-<h3 id="delete-a-registered-tosca-csar-git-repository-using-the-csar-url-as-id">Delete a registered TOSCA CSAR git repository using the csar url as id.</h3>
-<p><code>
-DELETE /rest/csarsgit
-</code></p>
-
-<h4 id="parameters-1">Parameters</h4>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Type</th>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Required</th>
-      <th>Schema</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>BodyParameter</td>
-      <td>url</td>
-      <td>Url of the csar git repository to delete</td>
-      <td>true</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<h4 id="responses-1">Responses</h4>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>HTTP Code</th>
-      <th>Description</th>
-      <th>Schema</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>200</td>
-      <td>OK</td>
-      <td>RestResponse«Void»</td>
-    </tr>
-    <tr>
-      <td>401</td>
-      <td>Unauthorized</td>
-      <td>No Content</td>
-    </tr>
-    <tr>
-      <td>204</td>
-      <td>No Content</td>
-      <td>No Content</td>
-    </tr>
-    <tr>
-      <td>403</td>
-      <td>Forbidden</td>
-      <td>No Content</td>
-    </tr>
-  </tbody>
-</table>
-
-<h4 id="consumes-1">Consumes</h4>
-
-<ul>
-  <li>application/json</li>
-</ul>
-
-<h4 id="produces-1">Produces</h4>
-
-<ul>
-  <li><em>/</em></li>
-</ul>
-
 <h3 id="create-a-new-csargit-from-a-git-location-in-alien">Create a new CSARGit from a Git location in ALIEN.</h3>
 <p><code>
 POST /rest/csarsgit
 </code></p>
 
-<h4 id="parameters-2">Parameters</h4>
+<h4 id="parameters-1">Parameters</h4>
 
 <table class="table table-bordered">
   <thead>
@@ -224,7 +148,7 @@ POST /rest/csarsgit
   </tbody>
 </table>
 
-<h4 id="responses-2">Responses</h4>
+<h4 id="responses-1">Responses</h4>
 
 <table class="table table-bordered">
   <thead>
@@ -263,6 +187,82 @@ POST /rest/csarsgit
   </tbody>
 </table>
 
+<h4 id="consumes-1">Consumes</h4>
+
+<ul>
+  <li>application/json</li>
+</ul>
+
+<h4 id="produces-1">Produces</h4>
+
+<ul>
+  <li><em>/</em></li>
+</ul>
+
+<h3 id="retrieve-information-on-a-registered-tosca-csar-git-repository">Retrieve information on a registered TOSCA CSAR git repository.</h3>
+<p><code>
+GET /rest/csarsgit/{id}
+</code></p>
+
+<h4 id="parameters-2">Parameters</h4>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>PathParameter</td>
+      <td>id</td>
+      <td>Id of the csar git repository to get</td>
+      <td>true</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="responses-2">Responses</h4>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>HTTP Code</th>
+      <th>Description</th>
+      <th>Schema</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>200</td>
+      <td>OK</td>
+      <td>RestResponse«CsarGitRepository»</td>
+    </tr>
+    <tr>
+      <td>401</td>
+      <td>Unauthorized</td>
+      <td>No Content</td>
+    </tr>
+    <tr>
+      <td>403</td>
+      <td>Forbidden</td>
+      <td>No Content</td>
+    </tr>
+    <tr>
+      <td>404</td>
+      <td>Not Found</td>
+      <td>No Content</td>
+    </tr>
+  </tbody>
+</table>
+
 <h4 id="consumes-2">Consumes</h4>
 
 <ul>
@@ -275,9 +275,9 @@ POST /rest/csarsgit
   <li><em>/</em></li>
 </ul>
 
-<h3 id="update-a-csargit-by-url">Update a CSARGit by url.</h3>
+<h3 id="update-a-csargit-by-id">Update a CSARGit by id.</h3>
 <p><code>
-POST /rest/csarsgit/update/{url}
+PUT /rest/csarsgit/{id}
 </code></p>
 
 <h4 id="parameters-3">Parameters</h4>
@@ -294,6 +294,14 @@ POST /rest/csarsgit/update/{url}
     </tr>
   </thead>
   <tbody>
+    <tr>
+      <td>PathParameter</td>
+      <td>id</td>
+      <td>Id of the csar git repository to delete</td>
+      <td>true</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
     <tr>
       <td>BodyParameter</td>
       <td>request</td>
@@ -356,9 +364,9 @@ POST /rest/csarsgit/update/{url}
   <li><em>/</em></li>
 </ul>
 
-<h3 id="retrieve-information-on-a-registered-tosca-csar-git-repository">Retrieve information on a registered TOSCA CSAR git repository.</h3>
+<h3 id="delete-a-registered-tosca-csar-git-repository">Delete a registered TOSCA CSAR git repository.</h3>
 <p><code>
-GET /rest/csarsgit/{id}
+DELETE /rest/csarsgit/{id}
 </code></p>
 
 <h4 id="parameters-4">Parameters</h4>
@@ -378,7 +386,7 @@ GET /rest/csarsgit/{id}
     <tr>
       <td>PathParameter</td>
       <td>id</td>
-      <td>Id of the csar git repository to get</td>
+      <td>Id of the csar git repository to delete</td>
       <td>true</td>
       <td>string</td>
       <td> </td>
@@ -387,171 +395,6 @@ GET /rest/csarsgit/{id}
 </table>
 
 <h4 id="responses-4">Responses</h4>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>HTTP Code</th>
-      <th>Description</th>
-      <th>Schema</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>200</td>
-      <td>OK</td>
-      <td>RestResponse«CsarGitRepository»</td>
-    </tr>
-    <tr>
-      <td>401</td>
-      <td>Unauthorized</td>
-      <td>No Content</td>
-    </tr>
-    <tr>
-      <td>403</td>
-      <td>Forbidden</td>
-      <td>No Content</td>
-    </tr>
-    <tr>
-      <td>404</td>
-      <td>Not Found</td>
-      <td>No Content</td>
-    </tr>
-  </tbody>
-</table>
-
-<h4 id="consumes-4">Consumes</h4>
-
-<ul>
-  <li>application/json</li>
-</ul>
-
-<h4 id="produces-4">Produces</h4>
-
-<ul>
-  <li><em>/</em></li>
-</ul>
-
-<h3 id="update-a-csargit-by-id">Update a CSARGit by id.</h3>
-<p><code>
-PUT /rest/csarsgit/{id}
-</code></p>
-
-<h4 id="parameters-5">Parameters</h4>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Type</th>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Required</th>
-      <th>Schema</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>PathParameter</td>
-      <td>id</td>
-      <td>Id of the csar git repository to delete</td>
-      <td>true</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>BodyParameter</td>
-      <td>request</td>
-      <td>request</td>
-      <td>true</td>
-      <td>Request for creation of a new csar git repository.</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<h4 id="responses-5">Responses</h4>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>HTTP Code</th>
-      <th>Description</th>
-      <th>Schema</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>200</td>
-      <td>OK</td>
-      <td>RestResponse«Void»</td>
-    </tr>
-    <tr>
-      <td>201</td>
-      <td>Created</td>
-      <td>No Content</td>
-    </tr>
-    <tr>
-      <td>401</td>
-      <td>Unauthorized</td>
-      <td>No Content</td>
-    </tr>
-    <tr>
-      <td>403</td>
-      <td>Forbidden</td>
-      <td>No Content</td>
-    </tr>
-    <tr>
-      <td>404</td>
-      <td>Not Found</td>
-      <td>No Content</td>
-    </tr>
-  </tbody>
-</table>
-
-<h4 id="consumes-5">Consumes</h4>
-
-<ul>
-  <li>application/json</li>
-</ul>
-
-<h4 id="produces-5">Produces</h4>
-
-<ul>
-  <li><em>/</em></li>
-</ul>
-
-<h3 id="delete-a-registered-tosca-csar-git-repository">Delete a registered TOSCA CSAR git repository.</h3>
-<p><code>
-DELETE /rest/csarsgit/{id}
-</code></p>
-
-<h4 id="parameters-6">Parameters</h4>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Type</th>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Required</th>
-      <th>Schema</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>PathParameter</td>
-      <td>id</td>
-      <td>Id of the csar git repository to delete</td>
-      <td>true</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<h4 id="responses-6">Responses</h4>
 
 <table class="table table-bordered">
   <thead>
@@ -585,13 +428,13 @@ DELETE /rest/csarsgit/{id}
   </tbody>
 </table>
 
-<h4 id="consumes-6">Consumes</h4>
+<h4 id="consumes-4">Consumes</h4>
 
 <ul>
   <li>application/json</li>
 </ul>
 
-<h4 id="produces-6">Produces</h4>
+<h4 id="produces-4">Produces</h4>
 
 <ul>
   <li><em>/</em></li>
@@ -602,7 +445,7 @@ DELETE /rest/csarsgit/{id}
 POST /rest/csarsgit/{id}
 </code></p>
 
-<h4 id="parameters-7">Parameters</h4>
+<h4 id="parameters-5">Parameters</h4>
 
 <table class="table table-bordered">
   <thead>
@@ -627,7 +470,7 @@ POST /rest/csarsgit/{id}
   </tbody>
 </table>
 
-<h4 id="responses-7">Responses</h4>
+<h4 id="responses-5">Responses</h4>
 
 <table class="table table-bordered">
   <thead>
@@ -666,13 +509,13 @@ POST /rest/csarsgit/{id}
   </tbody>
 </table>
 
-<h4 id="consumes-7">Consumes</h4>
+<h4 id="consumes-5">Consumes</h4>
 
 <ul>
   <li>application/json</li>
 </ul>
 
-<h4 id="produces-7">Produces</h4>
+<h4 id="produces-5">Produces</h4>
 
 <ul>
   <li><em>/</em></li>

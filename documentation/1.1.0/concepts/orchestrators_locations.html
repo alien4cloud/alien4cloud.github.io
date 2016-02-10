@@ -56,6 +56,44 @@ ga('send', 'pageview');
 
 <p>We really wanted in 1.1.0 to provide user with flexibility and ability to benefits from the best of orchestrator technologies.</p>
 
+<p>Here a list of supported resources with Cloudify 3:</p>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Infrastructure type</th>
+      <th style="text-align: left">OS type</th>
+      <th style="text-align: left">Supported artifact</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">OpenStack</td>
+      <td style="text-align: left">linux</td>
+      <td style="text-align: left"><strong>.sh</strong> (<em>tosca.artifacts.ShellScript</em>)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">windows</td>
+      <td style="text-align: left"><strong>.bat</strong> (<em>alien.artifacts.BatchScript</em>)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">AWS</td>
+      <td style="text-align: left">linux</td>
+      <td style="text-align: left"><strong>.sh</strong> (<em>tosca.artifacts.ShellScript</em>)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">windows</td>
+      <td style="text-align: left"><strong>.bat</strong> (<em>alien.artifacts.BatchScript</em>)</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="note info">
+<p>Some Alien users deployed also <strong>Puppet artifact</strong> through grooving script.</p>
+</div>
+
 <div class="note">
 <h5>Note</h5>
 <p>We are currently supporting the opensource orchestrators cloudify 3 but are also working in collaboration with Apache Brooklyn on an orchestration plugin currently in incubation state.</p>
@@ -66,7 +104,7 @@ ga('send', 'pageview');
 <p>Only a user with the global ADMIN role can define, configure, enable and grant deployment role to other users or groups on a locations.</p>
 </div>
 
-<p>To find more on locations and how to configure them in Alien 4 Cloud please look at the <a href="deadlink">Getting started</a> guide if you don’t already have an Alien instance running and at the <a href="deadlink">cloud setup guide</a> in order to learn cloud configuration.</p>
+<p>To find more on locations and how to configure them in Alien 4 Cloud please look at the <a href="#/documentation/1.1.0/getting_started/getting_started.html">Getting started</a> guide if you don’t already have an Alien instance running and at the <a href="#/documentation/1.1.0/user_guide/cloud_management.html">cloud setup guide</a> in order to learn cloud configuration.</p>
 
         <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.1.0/concepts/orchestrators_locations.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
 	  </div>

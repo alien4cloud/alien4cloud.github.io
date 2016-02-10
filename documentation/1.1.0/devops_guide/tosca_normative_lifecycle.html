@@ -46,6 +46,65 @@ ga('send', 'pageview');
   <li>call the relationships <em>add_target</em> (on the nodes sources) and <em>add_source</em> (on the nodes targets) operations.</li>
 </ol>
 
+<h2 id="environment-variables">Environment Variables</h2>
+
+<p>When operation scripts are called, some environment variables are filled by the script caller.</p>
+
+<h3 id="node-operation">Node operation</h3>
+
+<p>For node operation script, the following variables are available:</p>
+
+<ul>
+  <li><code>NODE</code>: the node name.</li>
+  <li><code>INSTANCE</code>: the unique instance ID.</li>
+  <li><code>INSTANCES</code>: A comma separated list of all available instance IDs.</li>
+  <li><code>HOST</code>: the node name of the node that host the current one.</li>
+</ul>
+
+<h3 id="relationship-operation">Relationship operation</h3>
+
+<p>For relationship operation script, the following variables are available:</p>
+
+<ul>
+  <li><code>TARGET_NODE</code>: The node name that is targeted by the relationship.</li>
+  <li><code>TARGET_INSTANCE</code>: The instance ID that is targeted by the relatonship.</li>
+  <li><code>TARGET_INSTANCES</code>: Comma separated list of all available instance IDs for the target node.</li>
+  <li><code>SOURCE_NODE</code>: The node name that is the source of the relationship.</li>
+  <li><code>SOURCE_INSTANCE</code>: The instance ID of the source of the relationship.</li>
+  <li><code>SOURCE_INSTANCES</code>: Comma separated list of all available source instance IDs.</li>
+</ul>
+
+<h3 id="attribute-and-multiple-instances">Attribute and multiple instances</h3>
+
+<p>When an operation defines an input, the value is available by fetching an environment variable.
+If you have multiple instances, you’ll be able to fetch the input value for all instances by prefixing the inpu name by the instance ID.</p>
+
+<p>Let’s imagine you have an relationship’s configure interface operation defined like this:</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">add_target</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">inputs</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">TARGET_IP</span><span class="p-Indicator">:</span> <span class="p-Indicator">{</span> <span class="nv">get_attribute</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span><span class="nv">TARGET</span><span class="p-Indicator">,</span> <span class="nv">ip_address</span><span class="p-Indicator">]</span> <span class="p-Indicator">}</span>
+  <span class="l-Scalar-Plain">implementation</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">scripts/add_target.sh</span></code></pre></div>
+
+<p>Let’s imagine we have a node named <code>MyNodeS</code> with 2 instances: <code>MyNodeS_1</code>, <code>MyNodeS_2</code>.
+The node <code>MyNodeS</code> is connected to the target node <code>MyNodeT</code> which has also 2 instances <code>MyNodeT_1</code> and <code>MyNodeT_2</code>.</p>
+
+<p>When the <code>add_target.sh</code> script is executed for the relationship instance that connects <code>MyNodeS_1</code> to <code>MyNodeT_1</code>, the following variables will be available:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">TARGET_NODE</span><span class="o">=</span>MyNodeT
+<span class="nv">TARGET_INSTANCE</span><span class="o">=</span>MyNodeT_1
+<span class="nv">TARGET_INSTANCES</span><span class="o">=</span>MyNodeT_1,MyNodeT_2
+<span class="nv">SOURCE_NODE</span><span class="o">=</span>MyNodeS
+<span class="nv">SOURCE_INSTANCE</span><span class="o">=</span>MyNodeS_1
+<span class="nv">SOURCE_INSTANCES</span><span class="o">=</span>MyNodeS_1,MyNodeS_2
+<span class="nv">TARGET_IP</span><span class="o">=</span>192.168.0.11
+<span class="nv">MyNodeT_1_TARGET_IP</span><span class="o">=</span>192.168.0.11
+<span class="nv">MyNodeT_2_TARGET_IP</span><span class="o">=</span>192.168.0.12</code></pre></div>
+
+<div class="note info">
+<p>In our samples you can find a topology <a href="https://github.com/alien4cloud/samples/tree/master/demo-lifecycle">demo-lifecycle</a> that clearly demonstrate all this behavior.</p>
+</div>
+
         <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.1.0/devops_guide/tosca_normative_lifecycle.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
 	  </div>
     </div>

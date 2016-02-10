@@ -197,13 +197,6 @@ ga('send', 'pageview');
       <td>TopologyValidationResult</td>
       <td> </td>
     </tr>
-    <tr>
-      <td>yaml</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
   </tbody>
 </table>
 
@@ -858,7 +851,7 @@ ga('send', 'pageview');
       <td>code</td>
       <td> </td>
       <td>false</td>
-      <td>enum (IMPLEMENT, REPLACE, SATISFY_LOWER_BOUND, PROPERTIES, HA_INVALID, SCALABLE_CAPABILITY_INVALID, NODE_FILTER_INVALID, WORKFLOW_INVALID, LOCATION_POLICY, ORCHESTRATOR_PROPERTY, INPUT_PROPERTY, NODE_NOT_SUBSTITUTED)</td>
+      <td>enum (IMPLEMENT, REPLACE, SATISFY_LOWER_BOUND, PROPERTIES, HA_INVALID, SCALABLE_CAPABILITY_INVALID, NODE_FILTER_INVALID, WORKFLOW_INVALID, LOCATION_POLICY, LOCATION_UNAUTHORIZED, LOCATION_DISABLED, ORCHESTRATOR_PROPERTY, INPUT_PROPERTY, NODE_NOT_SUBSTITUTED)</td>
       <td> </td>
     </tr>
   </tbody>
@@ -949,15 +942,36 @@ ga('send', 'pageview');
   </thead>
   <tbody>
     <tr>
-      <td>capabilityTypes</td>
+      <td>allNodeTypes</td>
+      <td>Map that contains all node types.</td>
+      <td>false</td>
+      <td>object</td>
       <td> </td>
+    </tr>
+    <tr>
+      <td>capabilityTypes</td>
+      <td>Map that contains the capability types used by the configuration types or node types.</td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>configurationTypes</td>
+      <td>Map of node types id, node type used to configure a given location.</td>
       <td>false</td>
       <td>object</td>
       <td> </td>
     </tr>
     <tr>
       <td>nodeTypes</td>
+      <td>Map of node types id, node type used to configure the templates of on-demand resources in a location.</td>
+      <td>false</td>
+      <td>object</td>
       <td> </td>
+    </tr>
+    <tr>
+      <td>onDemandTypes</td>
+      <td>Map that contains the on demdand types.</td>
       <td>false</td>
       <td>object</td>
       <td> </td>
@@ -1558,6 +1572,13 @@ ga('send', 'pageview');
       <td>string</td>
       <td> </td>
     </tr>
+    <tr>
+      <td>workflowExecutions</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
   </tbody>
 </table>
 
@@ -1687,6 +1708,20 @@ ga('send', 'pageview');
   <tbody>
     <tr>
       <td>artifacts</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>attributes</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>interfaces</td>
       <td> </td>
       <td>false</td>
       <td>object</td>
@@ -3366,6 +3401,8 @@ ga('send', 'pageview');
 
 <h1 id="setlocationpoliciesrequest">SetLocationPoliciesRequest</h1>
 
+<p>Request to set locations policies fro a deployment.</p>
+
 <table class="table table-bordered">
   <thead>
     <tr>
@@ -3379,15 +3416,15 @@ ga('send', 'pageview');
   <tbody>
     <tr>
       <td>groupsToLocations</td>
-      <td> </td>
-      <td>false</td>
+      <td>Locations settings for groups. key = groupeName, value = locationId. Note that for now, the only groupe name valid is _A4C_ALL, as we do not yet support multiple locations policies settings.</td>
+      <td>true</td>
       <td>object</td>
       <td> </td>
     </tr>
     <tr>
       <td>orchestratorId</td>
-      <td> </td>
-      <td>false</td>
+      <td>Id of the Orchestratrator managing the locations on which we want to deploy.</td>
+      <td>true</td>
       <td>string</td>
       <td> </td>
     </tr>

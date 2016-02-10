@@ -36,29 +36,13 @@ ga('send', 'pageview');
 
 <p>Elements in TOSCA and ALIEN are defined in definitions files that can be packed in a <a href="#/documentation/1.1.0/concepts/tosca.html">Cloud Service Archive</a> (CSAR). The first task therefore is to prepare the directory structure of our Cloud Service Archive.</p>
 
-<div class="indent0">
-<p><img src="../../images/tutorial-tomcat-csar-1.png" alt="csar-content.png" /></p>
-</div>
-
-<p>Then we create a <em>tomcat-definition.yml</em> file that will contain the actual tomcat node type definition.</p>
-
-<p>Before starting to fill-in the file we will first create the <em>ALIEN-META.yaml</em> file that must be in the <em>TOSCA-Metadata</em> folder of our archive directory structure.</p>
-
-<div class="indent0">
-<p><img src="../../images/tutorial-tomcat-csar-2.png" alt="csar-content.png" /></p>
-</div>
-
-<p>This file defines the archive name and version as well as the location of the definitions files that the archive contains. This is the entry point of the archive. The content of the file is the following:</p>
-
-<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="c1"># Define the current archive id and version.</span>
-<span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="s">&quot;fastconnect-tomcat-types&quot;</span>
-<span class="l-Scalar-Plain">version</span><span class="p-Indicator">:</span> <span class="s">&quot;1.0&quot;</span>
-<span class="l-Scalar-Plain">license</span><span class="p-Indicator">:</span> <span class="s">&quot;Apache</span><span class="nv"> </span><span class="s">v2.0&quot;</span>
-<span class="l-Scalar-Plain">created_by</span><span class="p-Indicator">:</span> <span class="s">&quot;FastConnect&quot;</span>
-
-<span class="c1"># List of definitions file in the archive.</span>
-<span class="l-Scalar-Plain">definitions</span><span class="p-Indicator">:</span>
-    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">/Definitions/tomcat-definition.yml</span></code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">├── my-definition-file.yml
+├── images
+│   ├── component-icon.png
+│   └── ...
+├── scripts
+│   └── install.sh
+│   └── ...</code></pre></div>
 
 <p>Now that we have a cloud service archive with a definition file, we can edit it to define TOSCA elements. In our case we will focus on creating types.</p>
 

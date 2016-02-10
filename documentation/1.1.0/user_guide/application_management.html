@@ -99,19 +99,19 @@ button. You can directly create an application from a topology template if you h
   <tbody>
     <tr>
       <td style="text-align: left">APPLICATION_USER</td>
-      <td style="text-align: left">An application user on an environment is allowed to see the environment status as well as having access to the deployment output properties (URL for example so he can directly reach the deployed application).</td>
+      <td style="text-align: left">An application user on an environment is allowed to see the environment status as well as having access to the deployment output properties.</td>
     </tr>
     <tr>
       <td style="text-align: left">DEPLOYMENT_MANAGER</td>
-      <td style="text-align: left">Deployment manager for an environment is responsible for configuration and deployment/undeployment of an environment. In order to be able to deploy/undeply the environment the user must also have a CLOUD_DEPLOYER role on the cloud that is associated with the environment. CLOUD_DEPLOYER role is configured on the cloud configuration by any user having the global ADMIN role.</td>
+      <td style="text-align: left">Deployment manager for an environment is responsible for configuration and deployment/undeployment of an environment. In order to be able to deploy/undeploy the environment the user must also have a DEPLOYER role on the location on which he wants to deploy. DEPLOYER role is configured on the location configuration by any user having the global ADMIN role.</td>
     </tr>
   </tbody>
 </table>
 
 <h1 id="advanced-inputs">Advanced inputs</h1>
 
-<p>This section describe how you can use internal variables defined in <strong>cloud</strong>, <strong>application</strong> or <strong>environment</strong>. Those parameters
-could be used as inputs for nodetemplate properties.</p>
+<p>This section describe how you can use internal variables defined in <strong>location</strong> or <strong>application</strong>. Those parameters
+could be used as inputs for node template’s or capabilities’ properties.</p>
 
 <p>Our target for this feature is to allow internal prefixes to target meta-properties over different elements :</p>
 
@@ -119,29 +119,20 @@ could be used as inputs for nodetemplate properties.</p>
   <thead>
     <tr>
       <th style="text-align: left">Targeted element</th>
-      <th style="text-align: left">Implemented Internal prefix</th>
-      <th style="text-align: left">Incoming Internal prefix</th>
+      <th style="text-align: left">Internal prefix</th>
       <th style="text-align: left">Description</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><em>cloud</em></td>
-      <td style="text-align: left"><code>cloud_meta_</code></td>
-      <td style="text-align: left">cloud_tags_</td>
-      <td style="text-align: left">Target <em>meta-properties</em> or <em>tags</em> defined on a cloud</td>
+      <td style="text-align: left"><em>location</em></td>
+      <td style="text-align: left"><code>loc_meta_</code></td>
+      <td style="text-align: left">Target <em>meta-properties</em> defined on a location</td>
     </tr>
     <tr>
       <td style="text-align: left"><em>application</em></td>
       <td style="text-align: left"><code>app_meta_</code> , <code>app_tags_</code></td>
-      <td style="text-align: left"> </td>
       <td style="text-align: left">Target <em>meta-properties</em> or <em>tags</em> defined on an application</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><em>environment</em></td>
-      <td style="text-align: left"> </td>
-      <td style="text-align: left">env_meta_ , env_tags_</td>
-      <td style="text-align: left">Target <em>meta-properties</em> or <em>tags</em> defined on an environment</td>
     </tr>
   </tbody>
 </table>
@@ -154,40 +145,30 @@ by default a value required to the user in order complete the topology and deplo
 <p><img src="../../images/user_guide/user_guide_topology_template_properties.png" alt="Compute properties" /><br /></p>
 
 <p>You can define any property as input and then set its value in the deployment page or indicate
-that the input is using a internal variable defined on <em>cloud</em>, <em>application</em> or <em>environment</em> for example.</p>
+that the input is bound to an internal variable defined on a <em>location</em> or the <em>application</em> for example.The name syntax of an internal input is:</p>
 
-<p>Here, in our example let’s say that we want to use one of the meta property defined on our cloud instance :</p>
+<p><code>&lt;INTERNAL_PREFIX&gt;&lt;TARGET_PROPERTY&gt;</code></p>
 
-<ul>
-  <li><strong>MYMETACLOUD_1</strong></li>
-  <li><strong>MYMETACLOUD_2</strong></li>
-</ul>
+<p>where <em>TARGET_PROPERTY</em> can be a tag’s or a meta property’s name.</p>
 
-<p><img src="../../images/user_guide/user_guide_topology_template_properties_input.png" alt="Compute properties input on cloud metaproperties" /><br /></p>
+<p>For example, let’s say that we want to use one of the meta properties defined on our application : <strong>target_client</strong>
+First, we set the wanted property as an input. This will leads to the creation of a new input named after the property’s name.<br />
+Then we have to rename the created input following the above syntax, and using the application meta prefix: <code>app_meta_</code><strong>target_client</strong></p>
 
-<p>The way to do that is to prefix the cloud meta property name by one of the internal prefixes define above
-and give the good name to have the good targeted value :</p>
+<p><img src="../../images/user_guide/user_guide_topology_template_properties_input.png" alt="Properties input on application metaproperties" /><br /></p>
 
-<ul>
-  <li><code>cloud_meta_</code><strong>MYMETACLOUD_1</strong></li>
-  <li><code>cloud_meta_</code><strong>MYMETACLOUD_2</strong></li>
-</ul>
-
-<p>If you have some tags or meta-properties defined on your application, same syntax :</p>
+<p>If you have some tags or meta-properties defined on your location, same syntax :</p>
 
 <ul>
+  <li><code>loc_meta_</code><strong>MYAPP_META1</strong></li>
+  <li><code>loc_meta_</code><strong>MYAPP_META2</strong></li>
   <li><code>app_tags_</code><strong>MYAPP_TAG1</strong></li>
   <li><code>app_tags_</code><strong>MYAPP_TAG2</strong></li>
-  <li><code>app_meta_</code><strong>MYAPP_META1</strong></li>
-  <li><code>app_meta_</code><strong>MYAPP_META2</strong></li>
 </ul>
 
-<div class="note info">
-<h5>Meta property naming</h5>
-<p><strong>Note :</strong> avoid dot <strong>.</strong> caracter in you meta-property name (e.g. my.meta.1)</p>
-</div>
-
 <div class="note warning">
+<h5>Meta property naming</h5>
+<p><strong>Note :</strong> avoid dot <code>.</code> character in you meta-property name (e.g. my.meta.1)</p>
 <h5>Missing values</h5>
 <p>We have two possible cases regarding an input and the targeted meta-property :</p>
 
@@ -197,31 +178,43 @@ and give the good name to have the good targeted value :</p>
 </ul>
 </div>
 
-<p>In fact, the deploying page will handle <em>warnings</em> and <em>tasks</em> list to help you in having a good deployment setup.</p>
+<p>In fact, the deployment steps will help you handle <em>warnings</em> and <em>tasks</em> for a good deployment setup.</p>
 
 <h1 id="deploy-your-application">Deploy your application</h1>
 
-<p>To deploy an application you need to configure some parameters, you can do this in the <code>Applications &gt; Deployments</code> submenu.
-The next capture will explain the different areas of this page.</p>
+<p>To deploy an application you need to setup the context, you can do this in the <code>Applications &gt; Deployments</code> sub-menu.<br />
+The deployment setup is done by going through a number of hierarchical steps.
+Each step perform a validation of the deployment topology, and errors details are displayed. Note that you can not go to the next step  when the current one is still not valid.</p>
 
-<p><a href="../../images/user_guide/user_guide_topology_template_deploy-area.png"><img src="../../images/user_guide/user_guide_topology_template_deploy-area.png" alt="Configure your deployment" /></a></p>
+<h2 id="location-selection">Location selection</h2>
+<p>The first thing to do is to select, among the displayed location, the one on which you would like to deploy.
+ The proposed locations are determined by matching every existing location against the topology, done by a matcher plugin.</p>
 
-<h3 id="zone-a--select-an-environment-and-a-cloud">Zone A : Select an environment and a cloud</h3>
+<p><a href="../../images/user_guide/application/deployment/user_guide_deployment_setup.png"><img src="../../images/user_guide/application/deployment/user_guide_deployment_setup.png" alt="Configure your deployment" /></a></p>
 
-<p>Here you need to select the environment of your application and the cloud.</p>
+<p>For now, note that if no matching plugin is configured by the administrator, a default matcher is used, checking the following:</p>
 
-<h3 id="zone-b--provider-properties">Zone B : Provider properties</h3>
+<ul>
+  <li>The orchestrator managing a location can support all the artifacts contains in your topology (nodes and relationships implementations scripts)</li>
+  <li>The current user have sufficient rights to deploy on the location</li>
+</ul>
 
-<p>In this area you need to configure the properties who depends on the provider implementation. You usualy have default settings.</p>
+<h2 id="node-substitution-">Node substitution :</h2>
 
-<h3 id="zone-c--topology-required-settings">Zone C : Topology required settings</h3>
+<p>Next step is to substitute some abstract nodes from your topology with resources provided by the selected location.<br />
+In the meantime, you can edit some properties if you need to.</p>
+
+<p><a href="../../images/user_guide/application/deployment//user_guide_deployment_setup_substitution.png"><img src="../../images/user_guide/application/deployment/user_guide_deployment_setup_substitution.png" alt="Node substitution" /></a></p>
+
+<h2 id="inputs-properties-and-artifacts">Inputs: properties and artifacts</h2>
+
+<p>Here you set values to inputs and provider deployments properties. Also, you can upload artifacts set as input in the topology.</p>
 
 <p>Here you need to select the value for your <code>inputs</code>. If they are some missing configuration in your topology, a <code>todo list</code> will be displayed.</p>
 
-<h2 id="zone-d--cloud-resources-matching">Zone D : Cloud resources matching</h2>
+<p><a href="../../images/user_guide/application/deployment/user_guide_deployment_setup_inputs.png"><img src="../../images/user_guide/application/deployment/user_guide_deployment_setup_inputs.png" alt="Deployment inputs" /></a></p>
 
-<p>In this part, you will be able to check matching cloud resources and possible
-matching errors. This should not happen if your cloud is well configured.</p>
+<p>Once all those steps are valid, the <em>deploy</em> step is unlocked, and if your topology is valid and ready for deployment, you can hit the deploy button to proceed.</p>
 
 <h1 id="runtime-view">Runtime view</h1>
 

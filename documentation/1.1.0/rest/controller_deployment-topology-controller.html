@@ -8,7 +8,7 @@
 ga('create', 'UA-73216650-1', 'auto');
 ga('set', {
   page: '/documentation/1.1.0/rest/controller_deployment-topology-controller.html',
-  title: 'Manage configuration of an application before deploying it.'
+  title: 'Prepare a topology to be deployed on a specific environment (location matching, node matching and inputs configuration).'
 });
 ga('send', 'pageview');
 
@@ -23,7 +23,7 @@ ga('send', 'pageview');
       <div id="content" class="col-md-9">
     
         <div style="height: 50px;">
-          <h1 class="pull-left" style="margin-top: 0px;">Manage configuration of an application before deploying it.</h1>
+          <h1 class="pull-left" style="margin-top: 0px;">Prepare a topology to be deployed on a specific environment (location matching, node matching and inputs configuration).</h1>
           <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.1.0/rest/controller_deployment-topology-controller.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
         </div>
         <h3 id="get-the-deployment-topology-of-an-application-given-an-environment">Get the deployment topology of an application given an environment.</h3>
@@ -262,7 +262,7 @@ POST /rest/applications/{appId}/environments/{environmentId}/deployment-topology
     <tr>
       <td>PathParameter</td>
       <td>appId</td>
-      <td>appId</td>
+      <td>Id of the application.</td>
       <td>true</td>
       <td>string</td>
       <td> </td>
@@ -270,7 +270,7 @@ POST /rest/applications/{appId}/environments/{environmentId}/deployment-topology
     <tr>
       <td>PathParameter</td>
       <td>environmentId</td>
-      <td>environmentId</td>
+      <td>Id of the environment on which to set the location policies.</td>
       <td>true</td>
       <td>string</td>
       <td> </td>
@@ -278,7 +278,7 @@ POST /rest/applications/{appId}/environments/{environmentId}/deployment-topology
     <tr>
       <td>BodyParameter</td>
       <td>request</td>
-      <td>request</td>
+      <td>Location policies request body.</td>
       <td>true</td>
       <td>SetLocationPoliciesRequest</td>
       <td> </td>
@@ -634,7 +634,7 @@ POST /rest/applications/{appId}/environments/{environmentId}/deployment-topology
     <tr>
       <td>200</td>
       <td>OK</td>
-      <td>RestResponse«DeploymentTopologyDTO»</td>
+      <td>RestResponse«object»</td>
     </tr>
     <tr>
       <td>201</td>

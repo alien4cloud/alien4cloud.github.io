@@ -61,6 +61,36 @@ ga('send', 'pageview');
   </tbody>
 </table>
 
+<h1 id="restresponselistusage">RestResponse«List«Usage»»</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>data</td>
+      <td> </td>
+      <td>false</td>
+      <td>Usage array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>error</td>
+      <td> </td>
+      <td>false</td>
+      <td>RestError</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
 <h1 id="requirementdefinition">RequirementDefinition</h1>
 
 <table class="table table-bordered">
@@ -228,6 +258,20 @@ ga('send', 'pageview');
   <tbody>
     <tr>
       <td>artifacts</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>attributes</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>interfaces</td>
       <td> </td>
       <td>false</td>
       <td>object</td>
@@ -889,6 +933,13 @@ ga('send', 'pageview');
   </thead>
   <tbody>
     <tr>
+      <td>allNodeTypes</td>
+      <td>Map that contains all node types.</td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
       <td>capabilityTypes</td>
       <td>Map that contains the capability types used by the configuration types or node types.</td>
       <td>false</td>
@@ -919,6 +970,13 @@ ga('send', 'pageview');
     <tr>
       <td>nodeTypes</td>
       <td>Map of node types id, node type used to configure the templates of on-demand resources in a location.</td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>onDemandTypes</td>
+      <td>Map that contains the on demdand types.</td>
       <td>false</td>
       <td>object</td>
       <td> </td>
@@ -988,9 +1046,9 @@ ga('send', 'pageview');
   </tbody>
 </table>
 
-<h1 id="mapstringrelationshiptemplate">Map«string,RelationshipTemplate»</h1>
-
 <h1 id="mapstringinterface">Map«string,Interface»</h1>
+
+<h1 id="mapstringrelationshiptemplate">Map«string,RelationshipTemplate»</h1>
 
 <h1 id="mapstringpropertydefinition">Map«string,PropertyDefinition»</h1>
 
@@ -1642,6 +1700,43 @@ ga('send', 'pageview');
 </table>
 
 <h1 id="mapstringivalue">Map«string,IValue»</h1>
+
+<h1 id="usage">Usage</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>resourceId</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>resourceName</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>resourceType</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
 
 <h1 id="getmultipledataresultorchestrator">GetMultipleDataResult«Orchestrator.»</h1>
 

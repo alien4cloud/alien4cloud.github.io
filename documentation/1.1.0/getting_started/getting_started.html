@@ -26,214 +26,85 @@ ga('send', 'pageview');
           <h1 class="pull-left" style="margin-top: 0px;">Getting started</h1>
           <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.1.0/getting_started/getting_started.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
         </div>
-        <p>To begin with Alien you have two choices :</p>
+        <p>This guide explains how to get started with alien 4 cloud and deploy your first application. The goal of this guide is not to provide an extensive cover of all the functionalities.</p>
 
-<ul>
-  <li>the <em>30 min Start Guide!</em></li>
-  <li>or the <em>Step by step</em> guide</li>
-</ul>
-
-<p>The first guide is like a demo, the best way if you want to try Alien in no time but you need an active AWS account.</p>
-
-<p>The second guide will explain how to take in charge Alien in details and configure it for your uses.</p>
-
-<div class="note warning">
-<h5>Important: security issue </h5>
-<p>Alien used a version of ElasticSearch concern by a security issue. To prevent an attack, make sure to secure the port of ES (9200 as default).</p>
-</div>
-
-<div class="tabsection"><ul class="nav nav-tabs"></ul><div class="tab-content">
-<div class="tab-pane" id="the_30_min_start_guide" title="The 30 min Start Guide">
-<h2 id="prerequisites">1. Prerequisites:</h2>
+<h1 id="prerequisites">Prerequisites:</h1>
 
 <ul>
   <li>
-    <p>Download and install <a href="https://www.virtualbox.org/wiki/Downloads">VirtualBox</a> (Working with version &gt;= 4.3.26)</p>
+    <p>Cloudify Manager 3.3.1:
+This getting started will leverage the cloudify 3 plugin and as such a running cloudify manager is required before moving forward. In order to install it please follow Cloudify documentation <a href="http://docs.getcloudify.org/3.3.1/installation/from-packages/">to install the cloudify CLI</a> and <a href="http://getcloudify.org/downloads/install-cloudify-manager.html">install a manager</a></p>
   </li>
   <li>
-    <p>Download and install <a href="https://www.vagrantup.com/downloads.html">Vagrant</a> (Working with version &gt;= 1.7.2)</p>
+    <p>A machine with Linux or MacOS Operating System: Alien 4 Cloud can run on windows OS too but we recommend Unix based OS. Moreover the default package only includes sh script.</p>
   </li>
   <li>
-    <p>Install triggers plugin for Vagrant: <code>vagrant plugin install vagrant-triggers</code> (Working with version &gt;= 0.5.0)</p>
-  </li>
-  <li>
-    <p>An active AWS account. Make sure you have all the account informations we will need later (user key, access key, key file and key pair)</p>
-  </li>
-</ul>
-
-<h2 id="vm-automated-install">2. VM Automated Install:</h2>
-<ul>
-  <li>
-    <p>Download and unzip the package <a href="https://fastconnect.org/owncloud/public.php?service=files&amp;t=ad8629bdce1f75a60e450ca6905fee69">vm-alien4cloud-1.1.0-SM3</a> (for other version, see on the page footer). As a result, a subdirectory vm-alien4cloud should be created</p>
-  </li>
-  <li>
-    <p>Copy your .pem file to the directory <code>vm-alien4cloud/vm/key</code></p>
-  </li>
-  <li>
-    <p>Edit the file <code>vm-alien4cloud/puppet/manifests/install.pp</code> and set your aws “user key” and “access key” (<code>user</code> and <code>apiKey</code> parameters), key file name and key pair (<code>keyFile</code> and <code>keyPair</code> parameters) and finally change <code>machineNamePrefix</code> and <code>managementGroup</code>.</p>
-  </li>
-  <li>
-    <p>Change your working directory: <code>cd vm-alien4cloud/vm/centos-6</code></p>
-  </li>
-  <li>
-    <p>Execute the following command to build a new VM: <code>vagrant up</code></p>
-  </li>
-  <li>
-    <p>At the first run, vagrant will download the base box which will be used to create the alien4cloud VM, then provision the VM with Puppet. The time needed to create a VM is around 30 minutes and depends on your internet connection speed.</p>
-  </li>
-  <li>
-    <p>At the end of the installation, you’ll see a message <code>==&gt; alien4cloud: Notice: Finished catalog run in 1648.89 seconds</code>. You can then access Alien4Cloud Web interface from a browser on the following address: <a href="http://192.168.32.10:8088">http://192.168.32.10:8088</a>. Use the default account <code>admin</code> with the password <code>admin</code> to login into Alien.</p>
-  </li>
-</ul>
-
-<h2 id="deploy-your-application">3. Deploy your application:</h2>
-
-<p>To deploy this new application, go on <code>Applications &gt; Deployments</code> submenu and :</p>
-
-<ul>
-  <li>Select the <code>os_arch</code> of your computes</li>
-  <li>Select your cloud</li>
-  <li>Select the template who matches with your computers</li>
-  <li>And click on the <code>Deploy</code> button</li>
-</ul>
-
-<p><a href="../../images/user_guide/user_guide_topology_template_deploy.png"><img src="../../images/user_guide/user_guide_topology_template_deploy.png" alt="Configure your deployment" /></a></p>
-
-<div class="note info">
-<p>To understand all configuration available for the deployment page, please refer to <a href="#/documentation/1.1.0/user_guide/application_management.html">this section</a>.</p>
-</div>
-
-<h2 id="check-that-your-application-is-up-and-running">4. Check that your application is up and running:</h2>
-
-<h3 id="runtime-view">Runtime view:</h3>
-
-<p>On this submenu view <code>Application &gt; Runtime</code>, you can have the detailed deployment
-progress.</p>
-
-<p><img src="../../images/user_guide/user_guide_topology_template_runtime.png" alt="Wordpress url" /></p>
-
-<h3 id="wordpress-url">Wordpress url</h3>
-
-<p>When all nodes are deployed, go back in the <code>Application &gt; Informations</code> submenu to get the Wordpress application url and
-test it !</p>
-
-<p><img src="../../images/user_guide/user_guide_topology_template_wordpressurl.png" alt="Wordpress url" /></p>
-
-<p>And voilà !</p>
-
-<h2 id="how-to-uninstall">5. How to Uninstall:</h2>
-<p>If you would like to de-provision the VM and the associated cloud created by Alien4Cloud, just execute the following commands:</p>
-
-<ul>
-  <li>
-    <p>Change your working directory: <code>cd vm-alien4cloud/vm/centos-6</code></p>
-  </li>
-  <li>
-    <p>Run the following command: <code>vagrant destroy</code></p>
-  </li>
-</ul>
-
-<h2 id="older-versions">Older versions:</h2>
-
-<p><a href="https://fastconnect.org/owncloud/public.php?service=files&amp;t=fb6806281344cb21a93e3e9d8afd69f2">vm-alien4cloud-1.1.0-SM2</a></p>
-
-</div>
-<div class="tab-pane" id="step_by_step_guide" title="Step by step guide">
-<h2 id="prerequisites">1. Prerequisites:</h2>
-
-<ul>
-  <li>
-    <p>Ensure that you have at least JAVA version 7 or higher installed on your working station. If not, just install
+    <p>JAVA:
+Ensure that you have at least JAVA version 7 or higher installed on your working station. If not, just install
 java following instructions <a href="https://www.java.com/fr/download/manual.jsp" target="_blank">here</a>.</p>
   </li>
   <li>
-    <p>You can get <em>Cloudify</em> in version 3.2 <a href="http://getcloudify.org/downloads/get_cloudify_3x.html#dl" target="_blank">here</a>.</p>
+    <p>Access to a supported Cloud: This getting started guide is made for Amazon EC2 but can be adapted easily to run on other supported platforms.</p>
   </li>
   <li>
-    <p>In order to start using alien 4 cloud you have to download Alien. Two versions are available :</p>
-
-    <ul>
-      <li><a href="https://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource&amp;g=alien4cloud&amp;a=alien4cloud-ui&amp;v=1.1.0-RC1&amp;p=war&amp;c=standalone"><strong>standalone</strong></a> : starts an embedded jetty server</li>
-      <li><a href="https://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource&amp;g=alien4cloud&amp;a=alien4cloud-ui&amp;v=1.1.0-RC1&amp;p=war">deployable</a> : war file that can be deployed within a war container</li>
-    </ul>
+    <p>A supported web browser (check versions <a href="http://localhost:4000/#/documentation/1.1.0/admin/supported_platforms.html">here</a>)</p>
   </li>
 </ul>
 
-<div class="note info">
-<p>We recommend using the Alien standalone with Cloudify 3.2.</p>
+<h1 id="install-alien-4-cloud">Install Alien 4 Cloud</h1>
+
+<p>Download Alien 4 Cloud distribution package <a href="http://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource&amp;g=alien4cloud&amp;a=alien4cloud-dist&amp;v=1.1.0&amp;p=tar.gz&amp;c=dist">alien4cloud-dist</a> and extract the archive it in your desired location.</p>
+
+<p>Once extracted you should have the following content:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">├── alien4cloud-ui-1.1.0.war
+├── alien4cloud.sh
+├── config
+│   └── alien4cloud-config.yml
+│   └── elasticsearch.yml
+│   └── log4j.properties
+├── init
+│   └── archives
+│   │   └── alien-tosca-normative-types.zip
+│   │   └── alien-xtended-storage-types.zip
+│   │   plugins
+│   │   └── alien4cloud-cloudify3-provider-1.1.0.zip</code></pre></div>
+
+<h1 id="start-alien-4-cloud-">Start Alien 4 Cloud :</h1>
+
+<p>In order to start Alien 4 Cloud just open a terminal inside the extracted root directory (alien4cloud) and run the <em>alien4cloud.sh</em> script.</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">./alien4cloud.sh</code></pre></div>
+
+<p>To check that Alien4Cloud is working, open it in your browser (default port is 8088 on the machine hosting A4C), you should see the authentication splash screen.</p>
+
+<p><a href="../../images/getting_started/authentication-splash-screen.png"><img src="../../images/getting_started/authentication-splash-screen.png" alt="Configure your deployment" /></a></p>
+
+<p>Login into the application using the default user:</p>
+
+<p>user: admin</p>
+
+<p>password: admin</p>
+
+<div class="note">
+<p>The admin user is granted will all rights on the platform. This getting started will perform all operations using the admin user. Of course if you want to setup an Alien 4 Cloud for production usage and multi-users and rôle management you should probably refer to <a href="#/documentation/1.1.0/admin_guide/advanced_configuration.html">advanced configurations and installation</a> of alien 4 cloud as well as user guide for <a href="#/documentation/1.1.0/user_guide/user_management.html">user management</a>.</p>
 </div>
 
-<h2 id="check-your-access-to-a-cloud">2. Check your access to a cloud:</h2>
+<h1 id="configure-your-orchestrator-and-location">Configure your orchestrator and location</h1>
 
-<p>To try Alien 4 Cloud with provider plugin <em>Cloudify</em> <strong>3.x</strong> you will need a cloud ready to use with your credentials.
-If not, we advice you to use <a href="http://trystack.org/" target="_blank">trystack</a>, a personal an free to use OpenStack.</p>
+<p>Now that we are logged in alien 4 cloud we must define a location (where we will actually deploy applications). In alien4cloud every location is managed by an orchestrator.</p>
 
-<div class="note info">
-<p>For this tutorial we recommend to use OpenStack.</p>
-</div>
-
-<h2 id="configure-and-start-cloudify">3. Configure and start Cloudify:</h2>
-
-<p>Please refer to those following sections : <a href="#/documentation/1.1.0/cloudify3_driver/index.html">configure and start Cloudify 3</a></p>
-
-<h2 id="start-and-configure-alien-4-cloud-">4. Start and configure Alien 4 Cloud :</h2>
-
-<p>Assuming you have downloaded the standalone version in the prerequisite step you will only have to execute the following command in your shell :</p>
-
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">java -XX:MaxPermSize<span class="o">=</span>512m -jar alien4cloud-ui-VERSION-standalone.war --spring.profiles.active<span class="o">=</span>security-demo</code></pre></div>
-
-<p>The command option <code>--spring.profiles.active=security-demo</code> allows you to have Alien 4 Cloud
-started with default settings such as the default user <code>admin</code> we will use later.</p>
-
-<h2 id="check-that-alien4cloud-is-working-">5. Check that Alien4Cloud is working :</h2>
-<p>After connecting via your browser (default port is 8088 on the machine hosting A4C), you should see the following Authentication splash screen
-<img src="../../images/getting_started/A4C_Welcome.png" alt="Wordpress url" /></p>
-
-<h2 id="install-and-configure-provider-plugin">6. Install and configure provider plugin:</h2>
-
-<p>In this step, you will have to import the provider plugin and then configure it. Refer to the following sections : <a href="#/documentation/1.1.0/cloudify3_driver/install_config.html">Cloudify 3 plugin</a></p>
-
-<p>In our tutorial, let’s call the configured cloud <code>OpenStackCloud</code>.</p>
-
-<h2 id="import-components-in-alien-4-cloud">7. Import components in Alien 4 Cloud:</h2>
+<h1 id="import-components-in-alien-4-cloud">Import components in Alien 4 Cloud:</h1>
 
 <div class="note info">
 <p>Regardless the used provider, read the following section to know how to import your
 components archive : <a href="#/documentation/1.1.0/user_guide/components_management.html">import components</a></p>
 </div>
 
-<h3 id="normative-types">Normative types</h3>
-
-<p>The TOSCA specification used by Alien 4 Cloud is defining <a href="#/documentation/1.1.0/devops_guide/normative_types/tosca_concepts_types_normative.html">normative types</a>. As a language, you can use those components as is
-or extend it to suit to your needs.</p>
-
-<p>You can find our implementation for these types on github here : <a href="https://github.com/alien4cloud/tosca-normative-types/archive/master.zip">normative types on github</a></p>
-
-<div class="note warning">
-<p>This download link will provide a zip with a subfolder. Ensure that this subfolder doest not exist or the
-component upload will fail.</p>
-</div>
-
-<p>You must have a zip with this file tree :</p>
-
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">├── images
-│   ├── compute.png
-│   ├── loadbalancer.png
-│   ├── network.png
-│   ├── objectstore.png
-│   ├── relational_db.png
-│   ├── root.png
-│   ├── router.png
-│   ├── software.png
-│   └── volume.png
-├── normative-types.yml
-└── README.md</code></pre></div>
-
 <h3 id="required-types-for-wordpress">Required types for Wordpress</h3>
 
-<p>The Wordpress topology is using custom types, we have to upload them first.</p>
-
-<p>Find those types on github here : <a href="https://github.com/alien4cloud/samples" target="_blank">samples repository</a></p>
+<p>The Wordpress topology is using custom types, we have to upload them first.
+Find those types on github here : <a href="https://github.com/alien4cloud/samples" target="_blank">samples repository</a></p>
 
 <ul>
   <li><strong>apache</strong> : the webserver <a href="https://github.com/alien4cloud/samples/tree/master/apache" target="_blank">here</a></li>
@@ -242,9 +113,9 @@ component upload will fail.</p>
   <li><strong>wordpress</strong> : the blog component <a href="https://github.com/alien4cloud/samples/tree/master/wordpress" target="_blank">here</a></li>
 </ul>
 
-<p>Zip the content of each folder like you did for <em><strong>normative types</strong></em> and upload each zipped file in this order.</p>
+<p>Zip the content of each folder and upload each zipped file in this order.</p>
 
-<p><img src="../../images/user_guide/user_guide_topology_template_components.png" alt="Uploaded components" /></p>
+<p><img src="../../images/getting_started/upload-wordpress-components.png" alt="Uploaded components" /></p>
 
 <h3 id="wordpress-topology">Wordpress topology</h3>
 
@@ -258,28 +129,36 @@ an <a href="#/documentation/1.1.0/user_guide/topology_management.html">topology 
 <p>Find detailed informations about the wordpress topology <a href="#/documentation/1.1.0/devops_guide/lamp_stack_tutorial/lamp_stack_application.html">here</a>.</p>
 </div>
 
-<h2 id="create-an-wordpress-application">7. Create an Wordpress application:</h2>
+<h2 id="create-an-wordpress-application">4. Create an Wordpress application:</h2>
 
-<p>Now we have the Wordpress template ready to use, we can create an application based on it :</p>
+<p>Now we have the Wordpress template ready to use, we can create an application based on it. To do this, go to the <code>Application</code> section, click on the <code>New application</code> button and select the <strong>wordpress-template</strong> in the topology template dropdown.</p>
 
-<p><img src="../../images/user_guide/user_guide_topology_template_new_application.png" alt="Create a new application" /></p>
+<p>The application creation should redirect you on the <code>Application &gt; Informations</code> page.
+To see your application topology, go to the <code>Application &gt; Topology</code> page, you will see the following screen.</p>
 
-<div class="note info">
-<p>The application creation should redirect you on the <code>Application &gt; Informations</code> page.</p>
-</div>
+<p><a href="../../images/getting_started/wordress-topology.png"><img src="../../images/getting_started/wordress-topology.png" alt="Wordpress Topology" /></a></p>
 
-<h2 id="setup-and-deploy-your-application">8. Setup and deploy your application:</h2>
+<h2 id="install-and-configure-provider-plugin">5. Install and configure provider plugin:</h2>
+
+<p>To try Alien 4 Cloud with provider plugin <em>Cloudify</em> <strong>3.x</strong> you will need a cloud ready to use with your credentials.
+If not, we advice you to use <a href="http://trystack.org/" target="_blank">trystack</a>, a personal an free to use OpenStack.</p>
+
+<p>To configure and start Cloudify 3 driver, please refer to those following sections : <a href="#/documentation/1.1.0/orchestrators/cloudify3_driver/install_config.html">Cloudify 3 plugin</a></p>
+
+<p>In our tutorial, let’s call the configured orchestrator <code>My_orchestrator</code> and this unique location <code>My_location</code>.</p>
+
+<h2 id="setup-and-deploy-your-application">6. Setup and deploy your application:</h2>
 
 <p>To deploy this new application, go on <code>Applications &gt; Deployments</code> submenu and :</p>
 
 <ul>
-  <li>Select the <code>os_arch</code> of your computes</li>
-  <li>Select your cloud</li>
+  <li>Select your location</li>
   <li>Select the template who matches with your computers</li>
+  <li>Select the <code>os_arch</code> of your computes</li>
   <li>And click on the <code>Deploy</code> button</li>
 </ul>
 
-<p><a href="../../images/user_guide/user_guide_topology_template_deploy.png"><img src="../../images/user_guide/user_guide_topology_template_deploy.png" alt="Configure your deployment" /></a></p>
+<p><a href="../../images/getting_started/deployment-page.png"><img src="../../images/getting_started/deployment-page.png" alt="Configure your deployment" /></a></p>
 
 <div class="note info">
 <p>To understand all configuration available for the deployment page, please refer to <a href="#/documentation/1.1.0/user_guide/application_management.html">this section</a>.</p>
@@ -290,7 +169,7 @@ an <a href="#/documentation/1.1.0/user_guide/topology_management.html">topology 
 matching errors. This should not happen if your cloud is well configured. If you need help to configure your cloud, please refer to <a href="#/documentation/1.1.0/user_guide/cloud_management.html">this section</a>.</p>
 </div>
 
-<h2 id="check-that-your-application-is-up-and-running">9. Check that your application is up and running:</h2>
+<h2 id="check-that-your-application-is-up-and-running">7. Check that your application is up and running:</h2>
 
 <h3 id="runtime-view">Runtime view</h3>
 
@@ -307,9 +186,6 @@ test it !</p>
 <p><img src="../../images/user_guide/user_guide_topology_template_wordpressurl.png" alt="Wordpress url" /></p>
 
 <p>And voilà !</p>
-
-</div>
-</div></div>
 
         <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.1.0/getting_started/getting_started.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
 	  </div>
