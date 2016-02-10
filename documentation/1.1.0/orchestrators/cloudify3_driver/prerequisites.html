@@ -28,21 +28,38 @@ ga('send', 'pageview');
         </div>
         <p>Here are some prerequisite steps that need to be done in order to use the cloudify 3 driver.</p>
 
-<h2 id="install-cloudify-33">Install Cloudify 3.3</h2>
+<h2 id="install-cloudify-331">Install Cloudify 3.3.1</h2>
 
-<p>How to install cloudify 3.3 is described <a href="http://docs.getcloudify.org/3.3.0/intro/what-is-cloudify/">here.</a></p>
+<p>How to install cloudify 3.3.1 is described <a href="http://docs.getcloudify.org/3.3.1/intro/what-is-cloudify/">here.</a></p>
 
 <h2 id="bootstrap-your-manager">Bootstrap your manager</h2>
 
-<p>How to bootstrap cloudify 3.3 is described <a href="http://docs.getcloudify.org/3.3.0/manager/bootstrapping/">here.</a></p>
-
-<p>You should customize the manager’s blueprint in order to expose the port 8100 of the management server as it’s the entry point for Cloudify Rest API.</p>
+<p>How to bootstrap cloudify 3.3.1 is described <a href="http://docs.getcloudify.org/3.3.1/manager/bootstrapping/">here.</a></p>
 
 <div class="note warning">
-<p>Note that Cloudify 3.3 only support bootstraping on CentOS 7.x or RHEL 7.x.</p>
+<p>Note that Cloudify 3.3.1 only support bootstraping on CentOS 7.x or RHEL 7.x.</p>
 </div>
 
-<p>An example of Openstack manager blueprint that we use for our test can be found <a href="../../files/cloudify3_driver/openstack-manager-blueprint-example.zip">here.</a></p>
+<h2 id="secure-your-manager">Secure your manager</h2>
+
+<p>How to secure your manager is described <a href="http://docs.getcloudify.org/3.3.1/manager/security/">here.</a></p>
+
+<div class="note warning">
+<p>Following configuration is only suitable for testing purpose, in production you should customize with your own own configuration.</p>
+</div>
+
+<p>To perform a rapid test of the feature, you can just enable those following keys in the bootstrap inputs</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">admin_username</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">admin</span>
+<span class="l-Scalar-Plain">admin_password</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">admin</span>
+<span class="l-Scalar-Plain">ssl_enabled</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
+<span class="l-Scalar-Plain">security_enabled</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span></code></pre></div>
+
+<p>In the shell that you’ll use to bootstrap cloudify you should export those following variables</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">export </span><span class="nv">CLOUDIFY_SSL_TRUST_ALL</span><span class="o">=</span>True
+<span class="nb">export </span><span class="nv">CLOUDIFY_USERNAME</span><span class="o">=</span>admin
+<span class="nb">export </span><span class="nv">CLOUDIFY_PASSWORD</span><span class="o">=</span>admin</code></pre></div>
 
         <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.1.0/orchestrators/cloudify3_driver/prerequisites.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
 	  </div>

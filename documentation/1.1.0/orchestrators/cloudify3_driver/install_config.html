@@ -37,56 +37,61 @@ ga('send', 'pageview');
 </ul>
 
 <h2 id="install">Install</h2>
-<p>The driver is packaged as an ALIEN plugin, install it in <code>admin &gt; plugins</code> of your running instance of ALIEN.</p>
+<p>The driver is packaged as an ALIEN plugin, install it in <code>Administration &gt; Plugins</code> of your running instance of ALIEN.</p>
 
 <h2 id="configure">Configure</h2>
-<p>You need to create a cloud and configure it.</p>
+<p>You need to create an orchestrator and configure it.</p>
 
-<h3 id="creating-the-cloud">Creating the cloud</h3>
+<h3 id="creating-the-orchestrator">Creating the orchestrator</h3>
 <ol>
-  <li>Login as an admin, and create a cloud: <code>admin &gt; clouds &gt; New Cloud</code>.</li>
-  <li>As <code>PaaS provider</code> for this cloud, make sure to select <strong><em>Cloudify 3 PaaS Provider</em></strong> from the list. Validate</li>
+  <li>Login as an admin, and create an orchestrator: <code>Administration &gt; Orchestrators &gt; New Orchestrator</code>.</li>
+  <li>As <code>Plugin</code> for this orchestrator, make sure to select <strong><em>Cloudify 3 Orchestrator</em></strong> from the list. Validate.</li>
 </ol>
 
-<h3 id="configuring-the-cloud">Configuring the cloud</h3>
-<p>On the cloud list, select and click on the newly created cloud, then go to the <code>configuration</code> tab.</p>
+<h3 id="configuring-the-orchestrator">Configuring the orchestrator</h3>
+<p>On the orchestrator list, select and click on the newly created orchestrator, follow these steps to configure your orchestrator:</p>
 
 <ol>
   <li>
-    <p><strong><u>Connection Configuration</u></strong>: Change the URL to use the correct IP of your manager that you obtained after the boostrap operation.<br /><br />
-<a href="../../images/cloudify3_driver/config_cloud_cloudifyConUrl.png" title="Connection configuration"><img src="../../images/cloudify3_driver/config_cloud_cloudifyConUrl.png" alt="Connection configuration" title="Connection configuration" /></a><br />
-You must save the configuration, switch back to the <code>Details</code> tab and enable the cloud by clicking on the <code>Enable cloud</code> button. Then you should go to <code>Image</code> tab to configure your cloud’s images.</p>
+    <p><strong><u>Connection Configuration</u></strong>: Click on the <code>Configuration</code> link to configure connection to your bootstrapped cloudify’s manager. 
+In the <code>Driver configuration</code> section, change the URL to use the correct IP of your manager that you obtained after the bootstrap operation. 
+If your manager is secured, you can configure the admin credentials, the <code>disableSslVerification</code> option should only be set to true for testing purpose, it will disable all certificate validation for SSL.<br /><br />
+<a href="../../images/cloudify3_driver/config_orchestrator_cloudifyConUrl.png" title="Connection configuration"><img src="../../images/cloudify3_driver/config_orchestrator_cloudifyConUrl.png" alt="Connection configuration" title="Connection configuration" /></a><br /></p>
   </li>
   <li>
-    <p><strong><u>Images Configuration</u></strong>: Here you have to create/configure your cloud’s images. Map your cloud’s created image to the correct identifier on the IaaS (openstack, amazon …)<br /><br />
-<a href="../../images/cloudify3_driver/config_cloud_cloudifyImage.png" title="Images"><img src="../../images/cloudify3_driver/config_cloud_cloudifyImage.png" alt="Images configuration" title="Images" /></a><br />
-You should now go to <code>Flavor</code> tab to configure your cloud’s flavors.</p>
+    <p><strong><u>Enable Orchestrator</u></strong>: You can then switch back to the <code>Information</code> tab and enable the orchestrator by clicking on the <code>Enable orchestrator</code> button.<br /><br />
+<a href="../../images/cloudify3_driver/config_orchestrator_enableOrchestrator.png" title="Enable orchestrator"><img src="../../images/cloudify3_driver/config_orchestrator_enableOrchestrator.png" alt="Enable Orchestrator" title="Enable orchestrator" /></a><br />
+If the orchestrator is not enabled, please check Alien’s log to have details on the error, it might be a bad configuration (bad connection url, bad user/password, invalid certificate etc…)</p>
   </li>
   <li>
-    <p><strong><u>Flavors Configuration</u></strong>: Here you have to create/configure your cloud’s flavors. Map your cloud’s created flavor to the correct identifier on the IaaS (openstack, amazon …)<br /><br />
-<a href="../../images/cloudify3_driver/config_cloud_cloudifyFlavor.png" title="Flavors"><img src="../../images/cloudify3_driver/config_cloud_cloudifyFlavor.png" alt="Flavors configuration" title="Flavors" /></a><br />
-You should now go to <code>Templates</code> tab to see all your cloud’s compute templates.</p>
+    <p><strong><u>Locations</u></strong>: An orchestrator can manage multiple locations, for example, you can have the same orchestrator which manages your local cloud and your public cloud.
+Eventually, the same deployment can span on multiple locations.
+For the moment cloudify 3 only supports single location, so we can only have 1 location per cloudify 3 orchestrator. 
+Click on <code>New Location</code>, in the popup, enter the name of your location and its type.<br /><br />
+<a href="../../images/cloudify3_driver/config_orchestrator_createLocation.png" title="Create location"><img src="../../images/cloudify3_driver/config_orchestrator_createLocation.png" alt="Location Creation" title="Create location" /></a><br /></p>
   </li>
   <li>
-    <p><strong><u>Templates Configuration</u></strong>: Here you can review available templates and disable those that you do not want to use.<br /><br />
-<a href="../../images/cloudify3_driver/config_cloud_cloudifyTemplate.png" title="Templates"><img src="../../images/cloudify3_driver/config_cloud_cloudifyTemplate.png" alt="Templates configuration" title="Templates" /></a><br />
-You should now go to <code>Network</code> tab to configure your cloud’s networks.</p>
+    <p><strong><u>Configuration Resources</u></strong>: The configuration resources are not <u>real</u> IAAS resources as such. In general they are configuration for other resources.
+Choose the type of your resources, then click on <code>Add</code> to create the resource<br /><br />
+<a href="../../images/cloudify3_driver/config_orchestrator_image.png" title="Image"><img src="../../images/cloudify3_driver/config_orchestrator_image.png" alt="Images configuration" title="Image" /></a><br />
+In this example it’s a configuration resource of type image on an OpenStack location, you can describe here the information of the image which must correspond to what you have on the IAAS.
+The same thing can be done for the types flavor and availability zone.</p>
   </li>
   <li>
-    <p><strong><u>Networks Configuration</u></strong>: Here you have to create/configure your cloud’s network templates. Map your cloud’s created network to the correct IaaS identifier if you want to reuse existing resource.<br />
-You should configure an external network (pool of Floating IP) by setting the external network to true.<br /><br />
-<a href="../../images/cloudify3_driver/config_cloud_cloudifyNetwork.png" title="Networks"><img src="../../images/cloudify3_driver/config_cloud_cloudifyNetwork.png" alt="Networks configuration" title="Networks" /></a><br />
-After that, in order to assign a floating IP to a compute, you should connect the compute to a network that you’ll match to this external network.<br />
-You can also configure application network template by setting the external network to false and providing the CIDR.<br />
-<a href="../../images/cloudify3_driver/config_cloud_cloudifyNetwork2.png" title="Networks 2"><img src="../../images/cloudify3_driver/config_cloud_cloudifyNetwork2.png" alt="Networks configuration 2" title="Networks 2" /></a><br />
-You should now go to <code>Block Storages</code> tab to configure your cloud’s block storages.</p>
+    <p><strong><u>On Demand Resources</u></strong>: On demand resources are <u>real</u> IAAS resources that can be used to replace abstract resources in a topology.
+Click on <code>Auto-config</code> to generate on demand resources from precedent configuration resources.
+As you can see below, with the Image Ubuntu and the Flavor Medium, Alien generated a Compute template Medium_Ubuntu<br /><br />
+<a href="../../images/cloudify3_driver/config_orchestrator_compute.png" title="Compute"><img src="../../images/cloudify3_driver/config_orchestrator_compute.png" alt="Compute configuration" title="Compute" /></a><br />
+You can always configure your resources (in this case compute) without using the <code>Auto-config</code> functionality.
+To create resources that cannot be auto-configured (such as volume or network or non auto-configured compute etc …), choose the type of the resource, then click on <code>Add</code>.<br /><br />
+<a href="../../images/cloudify3_driver/config_orchestrator_volume.png" title="Volume"><img src="../../images/cloudify3_driver/config_orchestrator_volume.png" alt="Volume configuration" title="Volume" /></a><br /></p>
   </li>
   <li>
-    <p><strong><u>Block Storages Configuration</u></strong>: Here you have to create/configure your cloud’s block storage templates. Map your cloud’s created block storage to the correct IaaS identifier if you want to reuse existing resource.<br /><br />
-<a href="../../images/cloudify3_driver/config_cloud_cloudifyBlockStorage.png" title="Block Storages"><img src="../../images/cloudify3_driver/config_cloud_cloudifyBlockStorage.png" alt="Block Storages configuration" title="Block Storages" /></a><br />
-<strong>Congratulation!!</strong> You’ve finished to configure your cloudify3-based cloud. You can now begin to deploy your application with this cloud.</p>
+    <p><strong><u>Concrete example of configuration</u></strong> can be found in our various integration tests for <a href="https://github.com/alien4cloud/alien4cloud-provider-int-test/tree/1.1.0/src/test/resources/features/cloudify3/openstack">Openstack</a>, <a href="https://github.com/alien4cloud/alien4cloud-provider-int-test/tree/1.1.0/src/test/resources/features/cloudify3/amazon">AWS</a>, <a href="https://github.com/alien4cloud/alien4cloud-provider-int-test/tree/1.1.0/src/test/resources/features/cloudify3/byon">BYON</a></p>
   </li>
 </ol>
+
+<p><strong>Congratulation!!</strong> You’ve finished to configure your cloudify 3 orchestrator. You can now begin to deploy your application with this orchestrator.</p>
 
 
         <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.1.0/orchestrators/cloudify3_driver/install_config.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
