@@ -17,56 +17,59 @@ First step of course is to download the plugin.
 * [last build version](https://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource-snapshot&g=alien4cloud&a=alien4cloud-cloudify3-provider&v={{ site.last-version }}&p=zip){: .btn}{: .btn-warning}{: .download-button}{: .navbar-btn} works with the latest build alien version.
 
 ## Install ##
-The driver is packaged as an ALIEN plugin, install it in `admin > plugins` of your running instance of ALIEN.
+The driver is packaged as an ALIEN plugin, install it in `Administration > Plugins` of your running instance of ALIEN.
 
 ## Configure ##
-You need to create a cloud and configure it.
+You need to create an orchestrator and configure it.
 
-### Creating the cloud ###
-1. Login as an admin, and create a cloud: `admin > clouds > New Cloud`.
-2. As `PaaS provider` for this cloud, make sure to select ***Cloudify 3 PaaS Provider*** from the list. Validate
+### Creating the orchestrator ###
+1. Login as an admin, and create an orchestrator: `Administration > Orchestrators > New Orchestrator`.
+2. As `Plugin` for this orchestrator, make sure to select ***Cloudify 3 Orchestrator*** from the list. Validate.
 
-### Configuring the cloud ###
-On the cloud list, select and click on the newly created cloud, then go to the `configuration` tab.
+### Configuring the orchestrator ###
+On the orchestrator list, select and click on the newly created orchestrator, follow these steps to configure your orchestrator:
 
-1. **<u>Connection Configuration</u>**: Change the URL to use the correct IP of your manager that you obtained after the boostrap operation.<br><br>
-[![Connection configuration][config_cloud_cloudifyConUrl]][config_cloud_cloudifyConUrl]<br>
-You must save the configuration, switch back to the `Details` tab and enable the cloud by clicking on the `Enable cloud` button. Then you should go to `Image` tab to configure your cloud's images.
+1. **<u>Connection Configuration</u>**: Click on the `Configuration` link to configure connection to your bootstrapped cloudify's manager. 
+In the `Driver configuration` section, change the URL to use the correct IP of your manager that you obtained after the bootstrap operation. 
+If your manager is secured, you can configure the admin credentials, the `disableSslVerification` option should only be set to true for testing purpose, it will disable all certificate validation for SSL.<br><br>
+[![Connection configuration][config_orchestrator_cloudifyConUrl]][config_orchestrator_cloudifyConUrl]<br>
 
-2. **<u>Images Configuration</u>**: Here you have to create/configure your cloud's images. Map your cloud's created image to the correct identifier on the IaaS (openstack, amazon ...)<br><br>
-[![Images configuration][config_cloud_cloudifyImage]][config_cloud_cloudifyImage]<br>
-You should now go to `Flavor` tab to configure your cloud's flavors.
+2. **<u>Enable Orchestrator</u>**: You can then switch back to the `Information` tab and enable the orchestrator by clicking on the `Enable orchestrator` button.<br><br>
+[![Enable Orchestrator][config_orchestrator_enableOrchestrator]][config_orchestrator_enableOrchestrator]<br>
+If the orchestrator is not enabled, please check Alien's log to have details on the error, it might be a bad configuration (bad connection url, bad user/password, invalid certificate etc...)
+ 
+3. **<u>Locations</u>**: An orchestrator can manage multiple locations, for example, you can have the same orchestrator which manages your local cloud and your public cloud.
+Eventually, the same deployment can span on multiple locations.
+For the moment cloudify 3 only supports single location, so we can only have 1 location per cloudify 3 orchestrator. 
+Click on `New Location`, in the popup, enter the name of your location and its type.<br><br>
+[![Location Creation][config_orchestrator_createLocation]][config_orchestrator_createLocation]<br>
 
-3. **<u>Flavors Configuration</u>**: Here you have to create/configure your cloud's flavors. Map your cloud's created flavor to the correct identifier on the IaaS (openstack, amazon ...)<br><br>
-[![Flavors configuration][config_cloud_cloudifyFlavor]][config_cloud_cloudifyFlavor]<br>
-You should now go to `Templates` tab to see all your cloud's compute templates.
+4. **<u>Configuration Resources</u>**: The configuration resources are not <u>real</u> IAAS resources as such. In general they are configuration for other resources.
+Choose the type of your resources, then click on `Add` to create the resource<br><br>
+[![Images configuration][config_orchestrator_image]][config_orchestrator_image]<br>
+In this example it's a configuration resource of type image on an OpenStack location, you can describe here the information of the image which must correspond to what you have on the IAAS.
+The same thing can be done for the types flavor and availability zone.
 
-4. **<u>Templates Configuration</u>**: Here you can review available templates and disable those that you do not want to use.<br><br>
-[![Templates configuration][config_cloud_cloudifyTemplate]][config_cloud_cloudifyTemplate]<br>
-You should now go to `Network` tab to configure your cloud's networks.
+5. **<u>On Demand Resources</u>**: On demand resources are <u>real</u> IAAS resources that can be used to replace abstract resources in a topology.
+Click on `Auto-config` to generate on demand resources from precedent configuration resources.
+As you can see below, with the Image Ubuntu and the Flavor Medium, Alien generated a Compute template Medium_Ubuntu<br><br>
+[![Compute configuration][config_orchestrator_compute]][config_orchestrator_compute]<br>
+You can always configure your resources (in this case compute) without using the `Auto-config` functionality.
+To create resources that cannot be auto-configured (such as volume or network or non auto-configured compute etc ...), choose the type of the resource, then click on `Add`.<br><br>
+[![Volume configuration][config_orchestrator_volume]][config_orchestrator_volume]<br>
 
-5. **<u>Networks Configuration</u>**: Here you have to create/configure your cloud's network templates. Map your cloud's created network to the correct IaaS identifier if you want to reuse existing resource.<br>
-You should configure an external network (pool of Floating IP) by setting the external network to true.<br><br>
-[![Networks configuration][config_cloud_cloudifyNetwork]][config_cloud_cloudifyNetwork]<br>
-After that, in order to assign a floating IP to a compute, you should connect the compute to a network that you'll match to this external network.<br>
-You can also configure application network template by setting the external network to false and providing the CIDR.<br>
-[![Networks configuration 2][config_cloud_cloudifyNetwork2]][config_cloud_cloudifyNetwork2]<br>
-You should now go to `Block Storages` tab to configure your cloud's block storages.
+6. **<u>Concrete example of configuration</u>** can be found in our various integration tests for [Openstack](https://github.com/alien4cloud/alien4cloud-provider-int-test/tree/1.1.0/src/test/resources/features/cloudify3/openstack), [AWS](https://github.com/alien4cloud/alien4cloud-provider-int-test/tree/1.1.0/src/test/resources/features/cloudify3/amazon), [BYON](https://github.com/alien4cloud/alien4cloud-provider-int-test/tree/1.1.0/src/test/resources/features/cloudify3/byon) 
+ 
+**Congratulation!!** You've finished to configure your cloudify 3 orchestrator. You can now begin to deploy your application with this orchestrator.
 
-6. **<u>Block Storages Configuration</u>**: Here you have to create/configure your cloud's block storage templates. Map your cloud's created block storage to the correct IaaS identifier if you want to reuse existing resource.<br><br>
-[![Block Storages configuration][config_cloud_cloudifyBlockStorage]][config_cloud_cloudifyBlockStorage]<br>
-**Congratulation!!** You've finished to configure your cloudify3-based cloud. You can now begin to deploy your application with this cloud.
+[config_orchestrator_cloudifyConUrl]: ../../images/cloudify3_driver/config_orchestrator_cloudifyConUrl.png  "Connection configuration"
 
-[config_cloud_cloudifyConUrl]: ../../images/cloudify3_driver/config_cloud_cloudifyConUrl.png  "Connection configuration"
+[config_orchestrator_enableOrchestrator]: ../../images/cloudify3_driver/config_orchestrator_enableOrchestrator.png  "Enable orchestrator"
 
-[config_cloud_cloudifyImage]: ../../images/cloudify3_driver/config_cloud_cloudifyImage.png  "Images"
+[config_orchestrator_createLocation]: ../../images/cloudify3_driver/config_orchestrator_createLocation.png  "Create location"
 
-[config_cloud_cloudifyFlavor]: ../../images/cloudify3_driver/config_cloud_cloudifyFlavor.png  "Flavors"
+[config_orchestrator_image]: ../../images/cloudify3_driver/config_orchestrator_image.png  "Image"
 
-[config_cloud_cloudifyTemplate]: ../../images/cloudify3_driver/config_cloud_cloudifyTemplate.png  "Templates"
+[config_orchestrator_compute]: ../../images/cloudify3_driver/config_orchestrator_compute.png  "Compute"
 
-[config_cloud_cloudifyNetwork]: ../../images/cloudify3_driver/config_cloud_cloudifyNetwork.png  "Networks"
-
-[config_cloud_cloudifyNetwork2]: ../../images/cloudify3_driver/config_cloud_cloudifyNetwork2.png  "Networks 2"
-
-[config_cloud_cloudifyBlockStorage]: ../../images/cloudify3_driver/config_cloud_cloudifyBlockStorage.png  "Block Storages"
+[config_orchestrator_volume]: ../../images/cloudify3_driver/config_orchestrator_volume.png  "Volume"
