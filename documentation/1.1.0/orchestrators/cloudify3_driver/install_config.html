@@ -65,16 +65,16 @@ If the orchestrator is not enabled, please check Alien’s log to have details o
   </li>
   <li>
     <p><strong><u>Locations</u></strong>: An orchestrator can manage multiple locations, for example, you can have the same orchestrator which manages your local cloud and your public cloud.
-Eventually, the same deployment can span on multiple locations.
+It is possible for the same deployment to span on multiple locations.
 For the moment cloudify 3 only supports single location, so we can only have 1 location per cloudify 3 orchestrator. 
 Click on <code>New Location</code>, in the popup, enter the name of your location and its type.<br /><br />
 <a href="../../images/cloudify3_driver/config_orchestrator_createLocation.png" title="Create location"><img src="../../images/cloudify3_driver/config_orchestrator_createLocation.png" alt="Location Creation" title="Create location" /></a><br /></p>
   </li>
   <li>
-    <p><strong><u>Configuration Resources</u></strong>: The configuration resources are not <u>real</u> IAAS resources as such. In general they are configuration for other resources.
-Choose the type of your resources, then click on <code>Add</code> to create the resource<br /><br />
+    <p><strong><u>Configuration Resources</u></strong>: The configuration resources are not <u>real</u> IAAS resources as such. In general they are configurations for other resources.
+Choose the type of your resource, then click on <code>Add</code> to create a new one<br /><br />
 <a href="../../images/cloudify3_driver/config_orchestrator_image.png" title="Image"><img src="../../images/cloudify3_driver/config_orchestrator_image.png" alt="Images configuration" title="Image" /></a><br />
-In this example it’s a configuration resource of type image on an OpenStack location, you can describe here the information of the image which must correspond to what you have on the IAAS.
+In this example, you have a configuration resource of type Image on an OpenStack location, you can describe here the details of the image, such as os type (linux, windows …), distribution(Ubuntu, CentOS …), which must correspond to what you have on your IAAS.
 The same thing can be done for the types flavor and availability zone.</p>
   </li>
   <li>
@@ -87,7 +87,7 @@ To create resources that cannot be auto-configured (such as volume or network or
 <a href="../../images/cloudify3_driver/config_orchestrator_volume.png" title="Volume"><img src="../../images/cloudify3_driver/config_orchestrator_volume.png" alt="Volume configuration" title="Volume" /></a><br /></p>
   </li>
   <li>
-    <p><strong><u>Concrete example of configuration</u></strong> can be found in our various integration tests for <a href="https://github.com/alien4cloud/alien4cloud-provider-int-test/tree/1.1.0/src/test/resources/features/cloudify3/openstack">Openstack</a>, <a href="https://github.com/alien4cloud/alien4cloud-provider-int-test/tree/1.1.0/src/test/resources/features/cloudify3/amazon">AWS</a>, <a href="https://github.com/alien4cloud/alien4cloud-provider-int-test/tree/1.1.0/src/test/resources/features/cloudify3/byon">BYON</a></p>
+    <p><strong><u>Concrete examples of configuration</u></strong> can be found in our various integration tests for <a href="https://github.com/alien4cloud/alien4cloud-provider-int-test/tree/1.1.0/src/test/resources/features/cloudify3/openstack">Openstack</a>, <a href="https://github.com/alien4cloud/alien4cloud-provider-int-test/tree/1.1.0/src/test/resources/features/cloudify3/amazon">AWS</a>, <a href="https://github.com/alien4cloud/alien4cloud-provider-int-test/tree/1.1.0/src/test/resources/features/cloudify3/byon">BYON</a></p>
   </li>
 </ol>
 
