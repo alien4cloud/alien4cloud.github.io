@@ -8,27 +8,49 @@ node_name: getting_started
 weight: 100
 ---
 
-This guide will explain how to take in charge Alien in details and configure it for your uses.
+This guide explains how to get started with alien 4 cloud and deploy your first application. The goal of this guide is not to provide an extensive cover of all the functionalities.
 
-##1. Prerequisites:
+# Prerequisites:
 
-* Ensure that you have at least JAVA version 7 or higher installed on your working station. If not, just install
+* Cloudify Manager 3.3.1:
+This getting started will leverage the cloudify 3 plugin and as such a running cloudify manager is required before moving forward. In order to install it please follow Cloudify documentation [to install the cloudify CLI](http://docs.getcloudify.org/3.3.1/installation/from-packages/) and [install a manager](http://getcloudify.org/downloads/install-cloudify-manager.html)
+
+* A machine with Linux or MacOS Operating System: Alien 4 Cloud can run on windows OS too but we recommend Unix based OS. Moreover the default package only includes sh script.
+
+* JAVA:
+Ensure that you have at least JAVA version 7 or higher installed on your working station. If not, just install
 java following instructions [here](https://www.java.com/fr/download/manual.jsp){:target="_blank"}.
 
-* You can get *Cloudify* in version 3.3 [here](http://getcloudify.org/downloads/get_cloudify_3x.html#dl){:target="_blank"}.
+* Access to a supported Cloud: This getting started guide is made for Amazon EC2 but can be adapted easily to run on other supported platforms.
 
-* In order to start using alien 4 cloud you have to download Alien: [alien4cloud-dist](http://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource&g=alien4cloud&a=alien4cloud-dist&v=1.1.0&p=tar.gz&c=dist)
+* A supported web browser (check versions [here](http://localhost:4000/#/documentation/1.1.0/admin/supported_platforms.html))
 
-{% info %}
-We recommend using the Alien standalone with **Cloudify 3.3.1** on **OpenStack**.
-{% endinfo %}
+# Install Alien 4 Cloud
 
-##2. Start and configure Alien 4 Cloud :
+Download Alien 4 Cloud distribution package [alien4cloud-dist](http://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource&g=alien4cloud&a=alien4cloud-dist&v=1.1.0&p=tar.gz&c=dist) and extract the archive it in your desired location.
 
-Assuming you have downloaded in the prerequisite, extract the archive and execute the following commands in your shell :
+Once extracted you should have the following content:
+
+{% highlight bash %}
+├── alien4cloud-ui-1.1.0.war
+├── alien4cloud.sh
+├── config
+│   └── alien4cloud-config.yml
+│   └── elasticsearch.yml
+│   └── log4j.properties
+├── init
+│   └── archives
+│   │   └── alien-tosca-normative-types.zip
+│   │   └── alien-xtended-storage-types.zip
+│   │   plugins
+│   │   └── alien4cloud-cloudify3-provider-1.1.0.zip
+{% endhighlight %}
+
+# Start Alien 4 Cloud :
+
+In order to start Alien 4 Cloud just open a terminal inside the extracted root directory (alien4cloud) and run the _alien4cloud.sh_ script.
 
 {% highlight sh %}
-cd alien4cloud
 ./alien4cloud.sh
 {% endhighlight %}
 
@@ -36,7 +58,23 @@ To check that Alien4Cloud is working, open it in your browser (default port is 8
 
 [![Configure your deployment](../../images/getting_started/authentication-splash-screen.png)](../../images/getting_started/authentication-splash-screen.png)
 
-##3. Import components in Alien 4 Cloud:
+Login into the application using the default user:
+
+user: admin
+
+password: admin
+
+{%note%}
+The admin user is granted will all rights on the platform. This getting started will perform all operations using the admin user. Of course if you want to setup an Alien 4 Cloud for production usage and multi-users and rôle management you should probably refer to [advanced configurations and installation](#/documentation/1.1.0/admin_guide/advanced_configuration.html) of alien 4 cloud as well as user guide for [user management](#/documentation/1.1.0/user_guide/user_management.html).
+{%endnote%}
+
+# Configure your orchestrator and location
+
+Now that we are logged in alien 4 cloud we must define a location (where we will actually deploy applications). In alien4cloud every location is managed by an orchestrator.
+
+
+
+# Import components in Alien 4 Cloud:
 
 {% info %}
 Regardless the used provider, read the following section to know how to import your
