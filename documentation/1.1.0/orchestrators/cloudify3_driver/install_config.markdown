@@ -39,15 +39,15 @@ If your manager is secured, you can configure the admin credentials, the `disabl
 If the orchestrator is not enabled, please check Alien's log to have details on the error, it might be a bad configuration (bad connection url, bad user/password, invalid certificate etc...)
  
 3. **<u>Locations</u>**: An orchestrator can manage multiple locations, for example, you can have the same orchestrator which manages your local cloud and your public cloud.
-Eventually, the same deployment can span on multiple locations.
+It is possible for the same deployment to span on multiple locations.
 For the moment cloudify 3 only supports single location, so we can only have 1 location per cloudify 3 orchestrator. 
 Click on `New Location`, in the popup, enter the name of your location and its type.<br><br>
 [![Location Creation][config_orchestrator_createLocation]][config_orchestrator_createLocation]<br>
 
-4. **<u>Configuration Resources</u>**: The configuration resources are not <u>real</u> IAAS resources as such. In general they are configuration for other resources.
-Choose the type of your resources, then click on `Add` to create the resource<br><br>
+4. **<u>Configuration Resources</u>**: The configuration resources are not <u>real</u> IAAS resources as such. In general they are configurations for other resources.
+Choose the type of your resource, then click on `Add` to create a new one<br><br>
 [![Images configuration][config_orchestrator_image]][config_orchestrator_image]<br>
-In this example it's a configuration resource of type image on an OpenStack location, you can describe here the information of the image which must correspond to what you have on the IAAS.
+In this example, you have a configuration resource of type Image on an OpenStack location, you can describe here the details of the image, such as os type (linux, windows ...), distribution(Ubuntu, CentOS ...), which must correspond to what you have on your IAAS.
 The same thing can be done for the types flavor and availability zone.
 
 5. **<u>On Demand Resources</u>**: On demand resources are <u>real</u> IAAS resources that can be used to replace abstract resources in a topology.
@@ -58,7 +58,7 @@ You can always configure your resources (in this case compute) without using the
 To create resources that cannot be auto-configured (such as volume or network or non auto-configured compute etc ...), choose the type of the resource, then click on `Add`.<br><br>
 [![Volume configuration][config_orchestrator_volume]][config_orchestrator_volume]<br>
 
-6. **<u>Concrete example of configuration</u>** can be found in our various integration tests for [Openstack](https://github.com/alien4cloud/alien4cloud-provider-int-test/tree/1.1.0/src/test/resources/features/cloudify3/openstack), [AWS](https://github.com/alien4cloud/alien4cloud-provider-int-test/tree/1.1.0/src/test/resources/features/cloudify3/amazon), [BYON](https://github.com/alien4cloud/alien4cloud-provider-int-test/tree/1.1.0/src/test/resources/features/cloudify3/byon) 
+6. **<u>Concrete examples of configuration</u>** can be found in our various integration tests for [Openstack](https://github.com/alien4cloud/alien4cloud-provider-int-test/tree/1.1.0/src/test/resources/features/cloudify3/openstack), [AWS](https://github.com/alien4cloud/alien4cloud-provider-int-test/tree/1.1.0/src/test/resources/features/cloudify3/amazon), [BYON](https://github.com/alien4cloud/alien4cloud-provider-int-test/tree/1.1.0/src/test/resources/features/cloudify3/byon) 
  
 **Congratulation!!** You've finished to configure your cloudify 3 orchestrator. You can now begin to deploy your application with this orchestrator.
 
