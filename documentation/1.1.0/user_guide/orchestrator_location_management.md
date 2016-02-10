@@ -7,32 +7,32 @@ parent: [user_guide]
 node_name: orchestrator_location_management
 weight: 100
 ---
-{% summary %}{% endsummary %}
+{%summary%}{%endsummary%}
 
 {%info%}
 To understand the orchestrator and location concepts, please refer to [this section](#/documentation/1.1.0/concepts/orchestrators_locations.html).
 {%endinfo%}
 
-## Requirements
+# Requirements
 
-Alien 4 cloud is not responsible for actual deployment orchestration but rather interact with existing orchestration technologies. In order to define an orchestrator and a location, you must configure plugins that will be used to actually perform deployment(s) on the defined location using the created orchestrator. Orchestrator plugins are refered in alien as PaaS Provider plugins.
+Alien 4 cloud is not responsible for actual deployment orchestration but rather interact with existing orchestration technologies. In order to define an orchestrator and a location, you must configure plugins that will be used to actually perform deployment(s) on the defined location using the created orchestrator.
 
-In order to configure a set of Orchestrator/locations, you must have installed a paas provider plugin first see [plugin management](#/documentation/1.1.0/user_guide/plugin_management.html).
+In order to configure a set of Orchestrator/locations, you must have installed an orchestrator plugin first see [plugin management](#/documentation/1.1.0/user_guide/plugin_management.html).
 
 {%info%}
 <h5>Supported orchestrators</h5>
-We are currently supporting the opensource orchestrators cloudify 3.3.1.
+We are currently supporting the opensource orchestrator cloudify 3.3.1.
 {%endinfo%}
 
-## Orchestrators management
+# Orchestrators management
 
-### Orchestrator creation
+## Orchestrator creation
 
 Once you have installed a plugin, the admin can go on the orchestrator page and configure one. Remember that you can use the Alien 4 Cloud contextual help in order to be guided directly within the application. To create an orchestrator, just go in the *orchestrator list* page and click on the *New orchestrator* button.
 
 [![Create orchestrator](../../images/1.1.0/user_guide/admin/orchestrators/new-orchestrator.png)](../../images/1.1.0/user_guide/admin/orchestrators/new-orchestrator.png)
 
-### Orchestrator configuration
+## Orchestrator configuration
 
 To configure an orchestrator, select it in the *orchestrator list* page and go to *configuration* side menu.
 
@@ -40,10 +40,10 @@ To configure an orchestrator, select it in the *orchestrator list* page and go t
 
 ### Naming policy
 
-On every orchestrator, you can configure a naming policy that Alien 4 Cloud will use when deploying an application. The naming policy will be used to identify the deployment on the cloud's orchestrator (PaaS Provider).
+On every orchestrator, you can configure a naming policy that Alien 4 Cloud will use when deploying an application. The naming policy will be used to identify the deployment on the cloud's orchestrator.
 
 {%info%}
-Most of the PaaS Providers will leverage this naming policy to name the resources used at the IaaS level also.
+Most of the orchestrators will leverage this naming policy to name the resources used at the IaaS level also.
 {%endinfo%}
 
 
@@ -91,8 +91,8 @@ __Note__ : do not use the `#`
 
 ### Driver configuration
 
-If your orchestrator plugin provides a configuration bean, you can edit it under the ***Driver Configuration*** section of the configuration screen.  
-This configuration may be specific to the orchestrator used and you should refer to the orchestrator specific guide. For the example of the  cloudify3 provider, it is used to configure the provider connexion parameters so Alien 4 Cloud can communicate with the orchestrator engine server.
+Most orchestrator plugins will require specific configuration in order to communicate with the actual orchestrator instance or to configure it's behavior. As stated, this configuration being specific to the orchestrator, you should refer to the orchestrator specific guide.
+For example, the  cloudify3 provider defines connexion parameters so that Alien 4 Cloud can communicate with the orchestrator engine server (cloudify 3 manager).
 
 [![Configure the provider](../../images/1.1.0/user_guide/admin/orchestrators/orchestrator-driver-configuration.png)](../../images/1.1.0/user_guide/admin/orchestrators/orchestrator-driver-configuration.png)
 
@@ -102,50 +102,48 @@ More informations for [cloudify 3](#/documentation/1.1.0/orchestrators/cloudify3
 
 {%info%}
 <h5>Updating configuration</h5>
-Usually, the configuration of an orchestrator is done before enabling it. The configuration is automatically saved in that case.  
-However, it might occur that you want to update it after having the orchestrator enabled. Therefore, you need to unlock the configuration first, by hitting the ***unlock button*** on the top right corner of the configuration screen. Do not forget to hit the ***save button*** on the bottom of the screen, to save the configuration, and it will be loaded immédiatly.
+Usually, the configuration of an orchestrator is done before enabling it. The configuration is automatically saved in that case.
+However, it might occur that you want to update it after having the orchestrator enabled. Therefore, you need to unlock the configuration first, by hitting the ***unlock button*** on the top right corner of the configuration screen. Do not forget to hit the ***save button*** on the bottom of the screen, to save the configuration, and it will be loaded immediately.
 {%endinfo%}
 
-### Enabling the orchestrator
+## Enabling the orchestrator
+
 Once properly configured, you should enable the orchestrator, by hitting the ***enable*** button on the **information** screen of the selected orchestration.
 
 [![Enable - disable  orchestrator](../../images/1.1.0/user_guide/admin/orchestrators/orchestrator-enable.png)](../../images/1.1.0/user_guide/admin/orchestrators/orchestrator-enable.png)
 
+# Locations management
 
-## Locations management
-After Configuring the orchestrator, you have to create one or more location, depending on whether your orchestrator allows it.  
-Note that you cannot access the location management steps on a disabled orchestrator.  
+After Configuring the orchestrator, you have to create one or more location, depending on whether your orchestrator allows it.
+Note that you cannot access the location management steps on a disabled orchestrator.
 
-### Location creation
+## Location creation
 
 To create a location, first go to the location the *orchestrator list* page, by clicking on the side menu represented by a cloud, and then click on the *New location* button, and fill in the form.
 
 [![Create location](../../images/1.1.0/user_guide/admin/orchestrators/location-new-location.png)](../../images/1.1.0/user_guide/admin/orchestrators/locoation-new-location.png)
 
-
-### Location configuration
+## Location configuration
 
 Once created you must configure the location. It requires several steps:
 
 * Configure cloud resources used for resources matching at deployment time.
-* Configure the meta properties of the PaaS provider (that depends of the chosen one).
+* Configure the meta properties of the orchestrator (that depends of the chosen one).
 * Configure the security access to the location
 
-### Configure location resources
+## Configure location resources
 
-#### Configuration resources tab
+### Configuration resources tab
 
 In this step you need to configure the resources types exposed by location. These resources will help to configure or generate those which will be used in matching on deployment configuration.
 For example, the Cloudify 3 provider exposes configuration resources such as Images, Favors, and Availability zone.
 
 [![Location resources configuration](../../images/1.1.0/user_guide/admin/orchestrators/location-resources-configuration.png)](../../images/1.1.0/user_guide/admin/orchestrators/location-resources-configuration.png)
 
-
-
-#### On demand resources tab
+### On demand resources tab
 
 On demand resources are the exact resources used for matching nodes within the topology before deploying, such as Computes, networks and volumes.
-They are usually a combination of one or more configuration resources. (Example, the on demand resource *Compute* could be a combination of *Image* and *Flavor* configuration resources.). The following is an example based on the Cloudify 3 provider:
+They may a combination of one or more configuration resources. (Example, the on demand resource *Compute* could be a combination of *Image* and *Flavor* configuration resources.). The following is an example based on the Cloudify 3 provider:
 
 [![Location on demand resources](../../images/1.1.0/user_guide/admin/orchestrators/location-on-demand-resources.png)](../../images/1.1.0/user_guide/admin/orchestrators/location-on-demand-resources.png)
 
@@ -153,7 +151,6 @@ They are usually a combination of one or more configuration resources. (Example,
 <h5> Auto configuration</h5>
 If the location exposes a way to automatically generate on-demand resources, you can hit the "auto-config" button to auto-generate them.
 {%endinfo%}
-
 
 ### Meta properties
 
