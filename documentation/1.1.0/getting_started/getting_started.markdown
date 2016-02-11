@@ -25,7 +25,7 @@ java following instructions [here](https://www.java.com/fr/download/manual.jsp){
 
 * Access to a supported Cloud: This getting started guide is made for Amazon EC2 but can be adapted easily to run on other supported platforms.
 
-* A supported web browser (check versions [here](/#/documentation/1.1.0/admin/supported_platforms.html)).
+* A supported web browser (check versions [here](/#/documentation/1.1.0/admin_guide/supported_platforms.html)).
 
 # Install Alien 4 Cloud
 
@@ -56,7 +56,7 @@ In order to start Alien 4 Cloud just open a terminal inside the extracted root d
 ./alien4cloud.sh
 {% endhighlight %}
 
-To check that Alien4Cloud is working, open it in your browser (default port is 8088 on the machine hosting A4C), you should see the authentication splash screen.
+The application should be available at the url ***`http://<alien4cloud_host_ip>:<port>`*** (the default port is 8088). For example, if you are running Alien4Cloud on local, it should be available on [http://localhost:8088](http://localhost:8088). You should see the authentication splash screen :
 
 [![Configure your deployment](../../images/getting_started/authentication-splash-screen.png)](../../images/getting_started/authentication-splash-screen.png)
 
