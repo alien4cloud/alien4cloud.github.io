@@ -1,12 +1,16 @@
 ---
 layout: post
-title:  Prerequisites
+title: Prerequisites
 root: ../../../
-categories: DOCUMENTATION-1.1.0
-parent: [orchestrators, cloudify_3]
+categories: "DOCUMENTATION-1.1.0"
+parent: 
+  - orchestrators
+  - cloudify_3
 node_name: cloudify_3_prerequisites
 weight: 1000
+published: true
 ---
+
 
 Here are some prerequisite steps that need to be done in order to use the cloudify 3 driver.
 
@@ -46,3 +50,8 @@ export CLOUDIFY_SSL_TRUST_ALL=True
 export CLOUDIFY_USERNAME=admin
 export CLOUDIFY_PASSWORD=admin
 {% endhighlight %}
+
+## Enable scaling ##
+
+Some additional steps are necessary to use scaling. Please refer to the "Cloudify 3" part to see how you can enable scaling.
+
