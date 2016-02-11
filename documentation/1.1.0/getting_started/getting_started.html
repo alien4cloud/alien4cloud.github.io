@@ -28,7 +28,11 @@ ga('send', 'pageview');
         </div>
         <p>This guide explains how to get started with alien 4 cloud and deploy your first application. The goal of this guide is not to provide an extensive cover of all the functionalities.</p>
 
-<h1 id="prerequisites">Prerequisites:</h1>
+<hr style="margin-top:5px; margin-bottom:5px;" />
+<div class="row"><ul class="nav nav-pills" id="summarypanel"></ul></div>
+<hr style="margin-top:5px; margin-bottom:5px;" />
+
+<h1 id="prerequisites">Prerequisites</h1>
 
 <ul>
   <li>
@@ -47,7 +51,7 @@ java following instructions <a href="https://www.java.com/fr/download/manual.jsp
     <p>Access to a supported Cloud: This getting started guide is made for Amazon EC2 but can be adapted easily to run on other supported platforms.</p>
   </li>
   <li>
-    <p>A supported web browser (check versions <a href="http://localhost:4000/#/documentation/1.1.0/admin/supported_platforms.html">here</a>)</p>
+    <p>A supported web browser (check versions <a href="/#/documentation/1.1.0/admin/supported_platforms.html">here</a>).</p>
   </li>
 </ul>
 
@@ -70,7 +74,7 @@ java following instructions <a href="https://www.java.com/fr/download/manual.jsp
 │   │   plugins
 │   │   └── alien4cloud-cloudify3-provider-1.1.0.zip</code></pre></div>
 
-<h1 id="start-alien-4-cloud-">Start Alien 4 Cloud :</h1>
+<h1 id="start-alien-4-cloud">Start Alien 4 Cloud</h1>
 
 <p>In order to start Alien 4 Cloud just open a terminal inside the extracted root directory (alien4cloud) and run the <em>alien4cloud.sh</em> script.</p>
 
@@ -82,9 +86,10 @@ java following instructions <a href="https://www.java.com/fr/download/manual.jsp
 
 <p>Login into the application using the default user:</p>
 
-<p>user: admin</p>
-
-<p>password: admin</p>
+<ul>
+  <li>user: <strong>admin</strong></li>
+  <li>password: <strong>admin</strong></li>
+</ul>
 
 <div class="note">
 <p>The admin user is granted will all rights on the platform. This getting started will perform all operations using the admin user. Of course if you want to setup an Alien 4 Cloud for production usage and multi-users and rôle management you should probably refer to <a href="#/documentation/1.1.0/admin_guide/advanced_configuration.html">advanced configurations and installation</a> of alien 4 cloud as well as user guide for <a href="#/documentation/1.1.0/user_guide/user_management.html">user management</a>.</p>
@@ -92,76 +97,84 @@ java following instructions <a href="https://www.java.com/fr/download/manual.jsp
 
 <h1 id="configure-your-orchestrator-and-location">Configure your orchestrator and location</h1>
 
-<p>Now that we are logged in alien 4 cloud we must define a location (where we will actually deploy applications). In alien4cloud every location is managed by an orchestrator.</p>
+<h3 id="create-and-configure-an-orchestrator">Create and configure an orchestrator</h3>
 
-<h1 id="import-components-in-alien-4-cloud">Import components in Alien 4 Cloud:</h1>
+<p>Now that we are logged in alien 4 cloud we must define a location (where we will actually deploy applications). In alien4cloud every location is managed by an orchestrator. Go create an orchestrator go to <img src="../../images/getting_started/administration-btn.png" alt="Go to admin" class="inline" /> and in the <img src="../../images/getting_started/orchestrator-menu-btn.png" alt="Go to orchestrator" class="inline" /> sub-menu. Create an orchestrator named <code>Cloudify3</code> with the <strong>plugin</strong> <code>Cloudify 3 Orchestrator : 1.1.0</code>.</p>
 
-<div class="note info">
-<p>Regardless the used provider, read the following section to know how to import your
-components archive : <a href="#/documentation/1.1.0/user_guide/components_management.html">import components</a></p>
+<p>At this moment your orchestrator is create but not enable. Click on your orchestrator to go on this informations page and up to <img src="../../images/getting_started/orchestrator-config-btn.png" alt="Go to orchestrator configuration" class="inline" />. In the <strong>Driver configuration</strong> part, add the URL of your manager and return to the previous page to enable your orchestrator.</p>
+
+<div class="note warning">
+<p>An error can occur at this moment if Alien4Cloud cannot access to your manager. Make sure that your manager is properly bootstrap.</p>
 </div>
 
-<h3 id="required-types-for-wordpress">Required types for Wordpress</h3>
+<h3 id="create-and-configure-a-location">Create and configure a location</h3>
+
+<p>Once your orchestrator is created and enabled go to the <img src="../../images/getting_started/orchestrator-location-btn.png" alt="Go to orchestrator location" class="inline" />. Create a location named <code>AWS</code> and select <code>amazon</code> on the <strong>infrastructure type</strong> drop-down. The details page of your location should appears. Go to <img src="../../images/getting_started/on-demand-ressource-tab.png" alt="Go to orchestrator location on demand resources" class="inline" /> and add the following resources:</p>
+
+<ul>
+  <li>alien.nodes.aws.PublicNetwork</li>
+  <li>alien.cloudify.aws.nodes.Compute</li>
+</ul>
+
+<p>The network resource doesn’t need a specific configuration. Click on the compute and set the <strong>image_id</strong> to <code>ami-47a23a30</code> and the <strong>instance_type</strong> to <code>t2.medium</code>.</p>
+
+<p><a href="../../images/getting_started/on-demand-resources-aws.png"><img src="../../images/getting_started/on-demand-resources-aws.png" alt="location on demand ressources" /></a></p>
+
+<div class="note info">
+<p>The <strong>image_id</strong> is the ID of a public Ubuntu image on the AWS eu-west zone. Any Ubuntu 14.04 or later should work with this topology. Alien4Cloud supported GNU/Linux and Windows images, the choice of the image is govern by your components requirements.</p>
+</div>
+
+<h1 id="import-components-in-alien-4-cloud">Import components in Alien 4 Cloud</h1>
 
 <p>The Wordpress topology is using custom types, we have to upload them first.
-Find those types on github here : <a href="https://github.com/alien4cloud/samples" target="_blank">samples repository</a></p>
+Find those types on github here : <a href="https://github.com/alien4cloud/samples" target="_blank">https://github.com/alien4cloud/samples</a></p>
 
 <ul>
   <li><strong>apache</strong> : the webserver <a href="https://github.com/alien4cloud/samples/tree/master/apache" target="_blank">here</a></li>
   <li><strong>php</strong> : the php interperter <a href="https://github.com/alien4cloud/samples/tree/master/php" target="_blank">here</a></li>
   <li><strong>mysql</strong> : the database required by Wordpress <a href="https://github.com/alien4cloud/samples/tree/master/mysql" target="_blank">here</a></li>
   <li><strong>wordpress</strong> : the blog component <a href="https://github.com/alien4cloud/samples/tree/master/wordpress" target="_blank">here</a></li>
+  <li><strong>topology-wordpress</strong> : the topology composed by previous components <a href="https://github.com/alien4cloud/samples/tree/master/topology-wordpress" target="_blank">here</a></li>
 </ul>
 
-<p>Zip the content of each folder and upload each zipped file in this order.</p>
+<p>The quickly way to import all of this archives is the <strong>Git integration</strong> feature in Alien.</p>
 
-<p><img src="../../images/getting_started/upload-wordpress-components.png" alt="Uploaded components" /></p>
+<p>Go to <img src="../../images/getting_started/components-btn.png" alt="Go to admin" class="inline" /> button in the navigation bar. Then click on the git tab of the administration side navigation bar <img src="../../images/getting_started/git-menu-btn.png" alt="Go to git" class="inline" />.
+Now create a new <img src="../../images/getting_started/new-git-location-btn.png" alt="new-git-location" class="inline" />.</p>
 
-<h3 id="wordpress-topology">Wordpress topology</h3>
+<p>Fill the modal like the example below and <img src="../../images/getting_started/save-btn.png" alt="new-git-location" class="inline" />.</p>
 
-<p>In order to have an full application ready to deploy through Alien 4 Cloud, just download the yaml description
-of the topology here : <a href="https://github.com/alien4cloud/samples/blob/master/topology-wordpress/wordpress-template.yml" target="_blank">Wordpress topology</a>.</p>
+<p><a href="../../images/getting_started/git-location-details.png"><img src="../../images/getting_started/git-location-details.png" alt="Wordpress Topology" /></a></p>
 
-<p>When you have this file, zip it, then you will be able to import it into Alien 4 Cloud as
-an <a href="#/documentation/1.1.0/user_guide/topology_management.html">topology template</a>.</p>
+<p>Now, click on <img src="../../images/getting_started/components-import-btn.png" alt="git import" class="inline" /> to pull all components from git and upload them to Alien.</p>
 
 <div class="note info">
-<p>Find detailed informations about the wordpress topology <a href="#/documentation/1.1.0/devops_guide/lamp_stack_tutorial/lamp_stack_application.html">here</a>.</p>
+<p>Find detailed informations about the Wordpress topology in the <a href="#/documentation/1.1.0/devops_guide/lamp_stack_tutorial/lamp_stack_application.html">devops guide</a>.</p>
 </div>
 
-<h2 id="create-an-wordpress-application">4. Create an Wordpress application:</h2>
+<h1 id="create-a-wordpress-application">Create a Wordpress application</h1>
 
-<p>Now we have the Wordpress template ready to use, we can create an application based on it. To do this, go to the <code>Application</code> section, click on the <code>New application</code> button and select the <strong>wordpress-template</strong> in the topology template dropdown.</p>
+<p>Now we have the Wordpress template ready to use, we can create an application based on it. To do this, go to <img src="../../images/getting_started/application-btn.png" alt="application" class="inline" /> section. Click on <img src="../../images/getting_started/new-application-btn.png" alt="new application btn" class="inline" /> button and select the <code>wordpress-template</code> in the <strong>topology template</strong> drop-down and the <code>1.1.0-SNAPHOT</code> version in <strong>Topology template</strong>.</p>
 
-<p>The application creation should redirect you on the <code>Application &gt; Informations</code> page.
-To see your application topology, go to the <code>Application &gt; Topology</code> page, you will see the following screen.</p>
+<p>The application creation should redirect you on the application informations page.
+To see your application topology, go to <img src="../../images/getting_started/app-topo-btn.png" alt="application topology" class="inline" /> page, you will see the following screen.</p>
 
 <p><a href="../../images/getting_started/wordress-topology.png"><img src="../../images/getting_started/wordress-topology.png" alt="Wordpress Topology" /></a></p>
 
-<h2 id="install-and-configure-provider-plugin">5. Install and configure provider plugin:</h2>
+<h1 id="setup-and-deploy-your-application">Setup and deploy your application</h1>
 
-<p>To try Alien 4 Cloud with provider plugin <em>Cloudify</em> <strong>3.x</strong> you will need a cloud ready to use with your credentials.
-If not, we advice you to use <a href="http://trystack.org/" target="_blank">trystack</a>, a personal an free to use OpenStack.</p>
-
-<p>To configure and start Cloudify 3 driver, please refer to those following sections : <a href="#/documentation/1.1.0/orchestrators/cloudify3_driver/install_config.html">Cloudify 3 plugin</a></p>
-
-<p>In our tutorial, let’s call the configured orchestrator <code>My_orchestrator</code> and this unique location <code>My_location</code>.</p>
-
-<h2 id="setup-and-deploy-your-application">6. Setup and deploy your application:</h2>
-
-<p>To deploy this new application, go on <code>Applications &gt; Deployments</code> submenu and :</p>
+<p>To deploy this new application, go on <img src="../../images/getting_started/application-deployment-btn.png" alt="application deployment" class="inline" /> sub-menu and :</p>
 
 <ul>
   <li>Select your location</li>
-  <li>Select the template who matches with your computers</li>
   <li>Select the <code>os_arch</code> of your computes</li>
-  <li>And click on the <code>Deploy</code> button</li>
+  <li>And click on <img src="../../images/getting_started/app-deployment-btn.png" alt="application deployment btn" class="inline" /></li>
 </ul>
 
 <p><a href="../../images/getting_started/deployment-page.png"><img src="../../images/getting_started/deployment-page.png" alt="Configure your deployment" /></a></p>
 
 <div class="note info">
-<p>To understand all configuration available for the deployment page, please refer to <a href="#/documentation/1.1.0/user_guide/application_management.html">this section</a>.</p>
+<p>To understand all configuration available for the deployment page, please refer to the <a href="#/documentation/1.1.0/user_guide/application_management.html">application management section</a>.</p>
 </div>
 
 <div class="note warning">
@@ -169,21 +182,17 @@ If not, we advice you to use <a href="http://trystack.org/" target="_blank">trys
 matching errors. This should not happen if your cloud is well configured. If you need help to configure your cloud, please refer to <a href="#/documentation/1.1.0/user_guide/cloud_management.html">this section</a>.</p>
 </div>
 
-<h2 id="check-that-your-application-is-up-and-running">7. Check that your application is up and running:</h2>
+<h1 id="check-that-your-application-is-up-and-running">Check that your application is up and running</h1>
 
-<h3 id="runtime-view">Runtime view</h3>
-
-<p>On this submenu view <code>Application &gt; Runtime</code>, you can have the detailed deployment
+<p>On this sub-menu view <img src="../../images/getting_started/app-runtime-btn.png" alt="application runtime" class="inline" />, you can have the detailed deployment
 progress.</p>
 
-<p><img src="../../images/user_guide/user_guide_topology_template_runtime.png" alt="Wordpress url" /></p>
+<p><a href="../../images/getting_started/wordpress-deployment-in-progress.png"><img src="../../images/getting_started/wordpress-deployment-in-progress.png" alt="Wordpress runtime" /></a></p>
 
-<h3 id="wordpress-url">Wordpress url</h3>
-
-<p>When all nodes are deployed, go back in the <code>Application &gt; Informations</code> submenu to get the Wordpress application url and
+<p>When all nodes are deployed, go back in the <img src="../../images/getting_started/app-info-btn.png" alt="application info" class="inline" /> sub-menu to get the Wordpress application url and
 test it !</p>
 
-<p><img src="../../images/user_guide/user_guide_topology_template_wordpressurl.png" alt="Wordpress url" /></p>
+<p><a href="../../images/getting_started/output-url.png"><img src="../../images/getting_started/output-url.png" alt="Wordpress url" /></a></p>
 
 <p>And voilà !</p>
 
