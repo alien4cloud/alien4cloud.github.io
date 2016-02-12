@@ -26,7 +26,11 @@ ga('send', 'pageview');
           <h1 class="pull-left" style="margin-top: 0px;">Component Wordpress</h1>
           <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.1.0/devops_guide/lamp_stack_tutorial/lamp_stack_wordpress.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
         </div>
-        <h1 id="definition">Definition</h1>
+        <div class="note">
+<p>To used Wordpress you need to upload the required recipes : <strong>Apache2</strong>, <strong>Mysql</strong> and <strong>PHP</strong>.</p>
+</div>
+
+<h1 id="definition">Definition</h1>
 
 <p>The <strong>Wordpress</strong> is a special component of our LAMP stack. This component will allow to take the last zip of Wordpress to be uploaded on the Apache HTTP Server to be deployed.</p>
 
@@ -90,10 +94,6 @@ ga('send', 'pageview');
     </tr>
   </tbody>
 </table>
-
-<div class="note">
-<p>To used Wordpress you need to upload the required recipes : <strong>Apache2</strong>, <strong>Mysql</strong> and <strong>PHP</strong>.</p>
-</div>
 
 <div class="note">
 <p>When you define a topology, make sure to select a <em>WordpressHostedOn</em> relation between <strong>Wordpress</strong> and <strong>Apache</strong>.</p>
