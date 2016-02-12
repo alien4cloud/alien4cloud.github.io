@@ -15,16 +15,12 @@ To be more concret we will use the [Wordpress](#/documentation/1.1.0/getting_sta
 # Prerequisites
 
 1. Get, checkout, download all components listed in the [main page](#/documentation/1.1.0/getting_started/lamp_stack.html) of this tutorial
-2. Import all components in **A4C**
-  * We assume that you are running the A4C you have downloaded in [standalone version](#/documentation/1.1.0/getting_started/getting_started.html)  
-  * Once you are logged as *admin*, you will have the menu on top, select then the **Components** item
-  * You can also see here how to [upload your component](#/documentation/1.1.0/devops_guide/calm_components_repo_uploadarchive.html)  
-
-3. Configure your cloud plugin [PaaS Provider](#/documentation/1.1.0/cloudify3_driver/index.html)
+2.  [Import components](#/documentation/1.1.0/user_guide/components_management.html)  of the Wordpress topology in **A4C**
+3. Configure your cloud plugin [PaaS Provider](#/documentation/1.1.0/orchestrators/cloudify3_driver/index.html)
 4. Then compose you topology following the next steps
 
 {% info %}
-Point 2 : on each page on the right top corner you have a button with a question mark [?]. Click to start a *tour* to explain what you can do in the current page and how to do it.
+On each Alien4Cloud page, on the right top corner, you have a button with a question mark [?]. Click to start a *tour* to explain what you can do in the current page and how to do it.
 {% endinfo %}
 
 # Create the topology for the Wordpress application
@@ -37,10 +33,10 @@ You are now ready to compose you application. Let's do it !
 
 In this step, drag and drop a **Compute** into the topology design view. You need to specify two properties for this compute :
 
-* os_arch : **x86_64**
-* os_type : **linux**
+* type : **linux**
+* architecture : **x86_64**
 
-[![Compute](../../images/getting_started/wordpress-topology-step-1.png)](../../images/getting_started/wordpress-topology-step-1.png)
+[![Compute](../../images/developer_guide/wordpress-topo-step1.png)](../../images/developer_guide/wordpress-topo-step1.png)
 
 ## Step 2 : The BlockStorage
 
@@ -48,13 +44,13 @@ Now, drag and drop a **BlockStorage** into the view. Select it by click and then
 
 In these properties tab view, set also the *size* value to 1 (GB by default).
 
-[![Compute, BlockStorage](../../images/getting_started/wordpress-topology-step-2.png)](../../images/getting_started/wordpress-topology-step-2.png)
+[![Compute, BlockStorage](../../images/developer_guide/wordpress-topo-step2.png)](../../images/developer_guide/wordpress-topo-step2.png)
 
 ## Step 3 : Apache, MySQL, PHP
 
 Then, drag and drop a **MySQL**, a **PHP** and an **Apache** onto the **Compute** existing node. For each new node droped onto **Compute** you will have to decide a target for the *HostedOn* relationship (generally just check the relationship name and click *Finish*). Change the default value of **MySQL** or **Apache** if you want a custom install.
 
-[![Compute, BlockStorage, Apache, MySQL, PHP](../../images/getting_started/wordpress-topology-step-3.png)](../../images/getting_started/wordpress-topology-step-3.png)
+[![Compute, BlockStorage, Apache, MySQL, PHP](../../images/developer_guide/wordpress-topo-step3.png)](../../images/developer_guide/wordpress-topo-step3.png)
 
 ## Step 4 : The Wordpress
 
@@ -62,7 +58,7 @@ The last component to add is the **Wordpress**. Drag and drop it to the **Apache
 
 After this, create the relationship between **Wordpress** and **MySQL** and between **Wordpress** and **PHP**.
 
-[![Compute, BlockStorage, Apache, MySQL, PHP,  Wordpress](../../images/getting_started/wordpress-topology-step-4.png)](../../images/getting_started/wordpress-topology-step-4.png)
+[![Compute, BlockStorage, Apache, MySQL, PHP,  Wordpress](../../images/developer_guide/wordpress-topo-step4.png)](../../images/developer_guide/wordpress-topo-step4.png)
 
 # Deployment
 

@@ -12,6 +12,10 @@ This component will install the PHP on the host server.
 
 Used version for this tutorial : [PHP](https://github.com/alien4cloud/samples/tree/master/php){:target="_blank"}
 
+{% note %}
+This installation is based on Ubuntu distribution with apt-get command.
+{% endnote %}
+
 # Definition
 
 PHP is the programming language of the LAMP stack, it's a server-side scripting. On this page, we just explain the recipe of this component. Below, the header of the php-type :

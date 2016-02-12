@@ -8,6 +8,10 @@ node_name: lamp_stack_wordpress
 weight: 200
 ---
 
+{% note %}
+To used Wordpress you need to upload the required recipes : **Apache2**, **Mysql** and **PHP**.
+{% endnote %}
+
 # Definition
 
 The **Wordpress** is a special component of our LAMP stack. This component will allow to take the last zip of Wordpress to be uploaded on the Apache HTTP Server to be deployed.
@@ -36,11 +40,6 @@ Used version for this tutorial : [Wordpress](https://github.com/alien4cloud/samp
 |WordpressHostedOnApache  | Use to describe that the Wordpress is deployed on the targeted Apache server | Through apt-get and unzip |
 |WordpressConnectToMysql | Use to describe the connection between Wordpress and Mysql |Set the conf of Mysql into config files of Wordpress  |
 |WordpressConnectToPHP | Use to describe the connection between Wordpress and PHP |Install the PHP module for Apache2 |
-
-{% note %}
-To used Wordpress you need to upload the required recipes : **Apache2**, **Mysql** and **PHP**.
-{% endnote %}
-
 
 {% note %}
 When you define a topology, make sure to select a *WordpressHostedOn* relation between **Wordpress** and **Apache**.
