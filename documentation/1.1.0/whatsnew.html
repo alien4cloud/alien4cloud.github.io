@@ -35,7 +35,7 @@ ga('send', 'pageview');
 
 <p>&#8220;Cloud&#8221; concept as it existed in 1.0.0 has been replaced by Orchestrator and Location concepts that reflects in a better way our actual supports. &#8220;Cloud&#8221; name was also not a great choice as it could refer to a &#8220;cloud&#8221; but also to some existing hosts pools, for example that people doesn&#8217;t really consider as clouds. Anyway &#8220;location&#8221; sounds much better and can be easily understood.</p>
 
-<p>The refactoring also allows to give a much nicer support for orchestrators that can deploy to multiple locations (like Apache Brooklyn) and bring great features and openings like the Location Matching. It was also a mandatory step to open us to multi-location deployments and other very cool features that we want to support in future releases.</p>
+<p>The refactoring also allows to give a much nicer support for orchestrators that can deploy to multiple locations from a single manager (like Apache Brooklyn) and bring great features and openings like the Location Matching. It was also a mandatory step to open us to multi-location deployments and other very cool features that we want to support in future releases.</p>
 
 <p>More details on Orchestrators and Locations are provided in the Concept section.</p>
 
@@ -66,14 +66,19 @@ Imperative workflow is something we are pushing into TOSCA TC and is planned to 
 
 <p>We have upgraded our normative types support to be closer to TOSCA. In 1.1.0 we recommend people to use the following version of the normative types: &#8220;1.0.0-ALIEN11&#8221;. It basically is a version derived from the TOSCA Simple Profile in YAML 1.0.0 preview in order to match our Alien TOSCA like DSL (there is still some effort planned for 1.2.0 to increase TOSCA support).</p>
 
-<h1 id="cloudify-3-support">Cloudify 3 support</h1>
+<h1 id="orchestrators-support">Orchestrators support</h1>
+<p>## Cloudify 3 support</p>
 
-<p>Alien 4 cloud 1.1.0 brings support for cloudify 3.3.x orchestrator. Thanks to alien 4 cloud the TOSCA support of cloudify 3 is much better. In addition we added some workarounds to bring to cloudify 3 support for scalability on OpenStack and some very basic self-healing support (More info <a href="#/documentation/1.1.0/orchestrators/cloudify3_driver/index.html">here</a>).</p>
+<p>Alien 4 cloud 1.1.0 brings support for cloudify 3.3.x orchestrator. Thanks to alien 4 cloud the TOSCA support of cloudify 3 is improved. In addition we added some workarounds to bring to cloudify 3 support for scalability on OpenStack for bigdata scenarios we had to handle (scaling of a combined group of nodes, such as Compute and BlockStorage) and some very basic self-healing support (More info <a href="#/documentation/1.1.0/orchestrators/cloudify3_driver/index.html">here</a>).</p>
 
-<h1 id="cloudify-2-end-of-life">Cloudify 2 End Of Life</h1>
+<h2 id="cloudify-2-end-of-life">Cloudify 2 End Of Life</h2>
 
 <p>GigaSpaces doesn&#8217;t support cloudify 2 anymore, as a consequence we stopped investing efforts on our cloudify 2 provider and it won&#8217;t work with alien 1.1.0.
 Hopefully if all your artifacts uses only portable scripts and no orchestrator specific logic migration to cloudify 3 you won&#8217;t have migration effort!</p>
+
+<h2 id="apache-brooklyn-integration">Apache Brooklyn integration</h2>
+
+<p>We&#8217;re very happy that our friends from Apache Brooklyn invested in the integration of Brooklyn orchestrator to Alien4Cloud in order to bring Apache Brooklyn into the TOSCA interoperable world. Check this here :https://github.com/cloudsoft/brooklyn-tosca</p>
 
         <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.1.0/whatsnew.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
 	  </div>
