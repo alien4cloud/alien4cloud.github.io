@@ -51,6 +51,11 @@ JAVA_OPTIONS="-server -showversion -XX:+AggressiveOpts -Xmx2g -Xms2g -XX:MaxPerm
 java $JAVA_OPTIONS -jar alien4cloud-ui-1.1.0-{version}-standalone.war
 {% endhighlight %}
 
+{%info²%}
+<h5> JVM tunning</h5>
+See [JVM tunning section](#/documentation/1.1.0/admin_guide/advanced_configuration.html) for advanced Alien4Cloud JVM options.
+{%endinfo%}
+
 # Logging configuration
 
 If you need to customize log4j (in order to activate some loggers, change the log file location ...) add a log4j.properties in the config folder and specify the classpath for java :

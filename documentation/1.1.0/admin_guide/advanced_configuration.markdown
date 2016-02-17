@@ -171,7 +171,7 @@ users:
 
 # LDAP configuration
 
-See specific [sub-section](#/documentation/1.1.0/admin/ldap.html).
+See specific [sub-section](#/documentation/1.1.0/admin_guide/ldap.html).
 
 # Component search boost
 
@@ -190,4 +190,20 @@ components.search.boost:
   version: 1000
   # components that are configured as default for at least 1 capability get the following a boost factor.
   default: 10
+{% endhighlight %}
+
+# JVMs tunning
+
+You might want to tune up your JVMs for a better performance in production.  Here are some tested JVM options that we recommend to you. Please, make sure to customize the different paths in the examples below according to your installation.
+
+##ElasticSearch JVM
+
+{% highlight bash %}
+-Xms2g -Xmx2g -Djava.awt.headless=true -XX:+UseParNewGC -XX:+UseConcMarkSweepGC -XX:CMSInitiatingOccupancyFraction=75 -XX:+UseCMSInitiatingOccupancyOnly -XX:+PrintGCDetails -XX:+PrintGCTimeStamps -XX:+PrintClassHistogram -XX:+PrintTenuringDistribution -XX:+PrintGCApplicationStoppedTime -Xloggc:<path/to/the/logfile> -XX:+HeapDumpOnOutOfMemoryError -XX:+DisableExplicitGC -Dfile.encoding=UTF-8 -XX:+PrintGCDateStamps -XX:ThreadStackSize=256k -XX:+ScavengeBeforeFullGC -XX:+CMSScavengeBeforeRemark
+{% endhighlight %}
+
+##Alien4Cloud JVM
+
+{% highlight bash %}
+-server -showversion -XX:+AggressiveOpts -Xmx2g -Xms2g -XX:MaxPermSize=512m -XX:+HeapDumpOnOutOfMemoryError -XX:+UseParNewGC -XX:+UseConcMarkSweepGC -XX:CMSInitiatingOccupancyFraction=75 -XX:+UseCMSInitiatingOccupancyOnly -XX:+PrintGCDetails -XX:+PrintGCTimeStamps -XX:+PrintClassHistogram -XX:+PrintTenuringDistribution -XX:+PrintGCApplicationStoppedTime -Xloggc:<path/to/the/logfile> -XX:+ScavengeBeforeFullGC -XX:+CMSScavengeBeforeRemark -XX:+DisableExplicitGC
 {% endhighlight %}
