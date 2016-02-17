@@ -5,9 +5,6 @@ root: ../
 node_name: index
 categories: DOCUMENTATION-1.1.0
 ---
-{% warning %}
-This version is still in development
-{% endwarning %}
 
 Welcome on Alien 4 Cloud documentation. You will find here resources to use alien 4 cloud.
 This includes:

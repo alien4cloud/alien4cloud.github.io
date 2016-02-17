@@ -67,8 +67,9 @@ The workaround mentioned above has only been developed for OpenStack. This means
 
 Here is a table that shows the limitations about scaling per IaaS:
 
+{: .table .table-bordered}
 |       |  OpenStack  | Amazon  | BYON  |
-| --------  |---------  |-------  |
+|:--------|:---------|:-------|
 | Single Compute  | OK  | OK  | OK  |
 | Compute + Network + Block Storage   | OK  | KO  | N/A   |
 

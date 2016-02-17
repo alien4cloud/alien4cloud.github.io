@@ -7,9 +7,13 @@ parent: [devops, lamp_stack]
 node_name: lamp_stack_apache
 weight: 200
 ---
-Apache HTTP server is a free software of the Apache software Foundation, created in 1995. Apache is the most popular web server on internet and the web server of LAMP bundle.
+Apache HTTP server is a free software of the Apache software Foundation, created in 1995. Apache is the most popular web server on Internet and the web server of LAMP bundle.
 
 Used version for this tutorial : [Apache HTTP Server](https://github.com/alien4cloud/samples/tree/master/apache){:target="_blank"}
+
+{% note %}
+This installation is based on Ubuntu distribution with apt-get command.
+{% endnote %}
 
 # Definition
 
@@ -45,10 +49,9 @@ In the interfaces we defined the script used to create the node. In our case we 
 |:---------|:------------|:------------|
 |create  | Executed script to install your apache http server on the Compute | Through apt-get on ubuntu image |
 |start | Start apache2 | Restart apache2 if it's already launched |
-|start_detection | Detect if apache2 is running | Test the port of apache2 |
 
 **Optional** : To test this *Apache* recipe, you could create a simple Topology with a **Compute** and an **Apache** :
 
 [![Simple Apache Topology](../../images/developer_guide/small-apache-topology.png)](../../images/developer_guide/small-apache-topology.png)
 
-With a well configured [PaaS Provider](#/documentation/1.1.0/cloudify2_driver/index.html), you will have an Apache HTTP Server deployed on a server and ready to use.
+With a well configured [PaaS Provider](#/documentation/1.1.0/orchestrators/cloudify3_driver/install_config.html), you will have an Apache HTTP Server deployed on a server and ready to use.

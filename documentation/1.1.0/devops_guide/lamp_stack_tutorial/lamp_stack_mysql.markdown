@@ -71,4 +71,3 @@ The real script you will run during you different component life steps. Two main
 |:---------|:------------|:------------|
 |create  | Executed script to install MySQL on the server | Through apt-get on you ubuntu image |
 |start   | Executed script to configure MySQL to use a specific storage path (the blockstorage) | Configured and started with specific ubuntu hints (rights concerns) |
-|start_detection | Detects if Mysql is started | Test the port |

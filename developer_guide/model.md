@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  ALIEN data model
+title: Data model
 root: ../
 categories: DEVELOPER_GUIDE
 parent: []
@@ -8,7 +8,7 @@ node_name: data_model
 weight: 150
 ---
 
-The following schema details the model that is manipulated in Alien 4 Cloud and the relations between the different objects manipulated.
+The following high-level schema details the model that is manipulated in Alien 4 Cloud and the relations between the different objects manipulated.
 
 
 
