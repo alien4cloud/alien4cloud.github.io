@@ -67,7 +67,7 @@ ga('send', 'pageview');
 <p>We recommend that you don’t change the default <em>prefix_max_expansions</em> value.</p>
 </div>
 
-<p>If you wish to change one of the parameters, you should open the <em>alien4cloud-config.yml</em> file and go to the elasticSearch configuration section.</p>
+<p>If you wish to change one of the parameters, you should open the <em><code>alien4cloud-config.yml</code></em> file and go to the elasticSearch configuration section.</p>
 
 <div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">elasticSearch</span><span class="p-Indicator">:</span>
   <span class="l-Scalar-Plain">clusterName</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">escluster</span>
@@ -82,7 +82,7 @@ ga('send', 'pageview');
 
 <h2 id="configure-the-embedded-elastic-search">Configure the embedded Elastic Search</h2>
 
-<p>The embedded Elastic Search configuration <em>elasticsearch.yml</em> is a native elastic search configuration and you can find plenty of information on <a href="http://www.elasticsearch.org">elastic search website</a> on how you can configure it.</p>
+<p>The embedded Elastic Search configuration <em><code>elasticsearch.yml</code></em> is a native elastic search configuration and you can find plenty of information on <a href="http://www.elasticsearch.org">elastic search website</a> on how you can configure it.</p>
 
 <p>However the main element you may wish to configure is elastic search storage directories:</p>
 
@@ -96,7 +96,7 @@ ga('send', 'pageview');
 <p>In order to configure a remote Elastic Search, you should edit the following:</p>
 
 <ul>
-  <li>In <em>alien4cloud-config.yml</em> file, edit the elasticSearch section and change client from false to true:</li>
+  <li>In <em><code>alien4cloud-config.yml</code></em> file, edit the elasticSearch section and change client from false to true:</li>
 </ul>
 
 <div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">elasticSearch</span><span class="p-Indicator">:</span>
@@ -107,7 +107,7 @@ ga('send', 'pageview');
   <span class="l-Scalar-Plain">prefix_max_expansions</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">10</span></code></pre></div>
 
 <ul>
-  <li>In the <em>elasticsearch.yml</em> make sure that the connection parameters matches the ones of your elasticsearch cluster.</li>
+  <li>In the <em><code>elasticsearch.yml</code></em> make sure that the connection parameters matches the ones of your elasticsearch cluster.</li>
 </ul>
 
 <p>Example:</p>
@@ -125,7 +125,7 @@ ga('send', 'pageview');
 <p>In this mode, we use a simple standalone client that can be in another network as long as the cluster can be reachable.</p>
 
 <ul>
-  <li>In <em>alien4cloud-config.yml</em> file, edit the elasticSearch section and set ‘client’ and ‘transportClient’ to true, and indicate the cluster host and port:</li>
+  <li>In <em><code>alien4cloud-config.yml</code></em> file, edit the elasticSearch section and set ‘client’ and ‘transportClient’ to true, and indicate the cluster host and port:</li>
 </ul>
 
 <div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">elasticSearch</span><span class="p-Indicator">:</span>
@@ -139,14 +139,41 @@ ga('send', 'pageview');
   <span class="l-Scalar-Plain">prefix_max_expansions</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">10</span></code></pre></div>
 
 <ul>
-  <li>In the <em>elasticsearch.yml</em> make sure that the cluster name is well defined (should be the same than the cluster).</li>
+  <li>In the <em><code>elasticsearch.yml</code></em> make sure that the cluster name is well defined (should be the same than the cluster).</li>
 </ul>
 
 <div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">cluster.name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">escluster</span></code></pre></div>
 
+<h2 id="configure-a-remote-elastic-search-with-replication">Configure a remote Elastic Search with replication</h2>
+
+<p>In this mode, the Elastic Search cluster has more than one node (cluster with replication).<br />
+Assuming we have a cluster of two nodes:</p>
+
+<ul>
+  <li>In the <em><code>alien4cloud-config.yml</code></em> file, edit the elasticSearch section and add all hosts in your cluster.</li>
+</ul>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="c1"># a comma separated list of host:port couples</span>
+<span class="l-Scalar-Plain">hosts</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;host_1_ip&gt;:&lt;port_1&gt;,&lt;host_2_ip&gt;:&lt;port_2&gt;</span></code></pre></div>
+
+<ul>
+  <li>In the <em><code>elasticsearch.yml</code></em> make sure to set the proper number of replicats and the hosts in the cluster .<br />
+Assuming we are on the <em>host_1</em> Configuration:</li>
+</ul>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="c1"># Set the number of shards:</span>
+<span class="l-Scalar-Plain">index.number_of_shards</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">1</span>
+
+<span class="c1"># Set the number of replicas:</span>
+<span class="l-Scalar-Plain">index.number_of_replicas</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">1</span>
+
+<span class="c1"># 2. Configure an initial list of master nodes in the cluster</span>
+<span class="c1">#    to perform discovery when new nodes (master or data) are started:</span>
+<span class="l-Scalar-Plain">discovery.zen.ping.unicast.hosts</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span><span class="s">&quot;localhost&quot;</span><span class="p-Indicator">,</span> <span class="nv">&lt;host_2_ip&gt;</span><span class="p-Indicator">]</span></code></pre></div>
+
 <h1 id="directories-configuration">Directories configuration</h1>
 
-<p>ALIEN 4 Cloud store various files on the hard drive. Cloud Service archives, Artifacts overriden in the topologies, plugins archives etc. Directories can be configured in the <em>alien4cloud-config.yml</em> file.</p>
+<p>ALIEN 4 Cloud store various files on the hard drive. Cloud Service archives, Artifacts overriden in the topologies, plugins archives etc. Directories can be configured in the <em><code>alien4cloud-config.yml</code></em> file.</p>
 
 <p>By default, ALIEN 4 Cloud stores data in the user home directory in a .alien folder.</p>
 
@@ -165,7 +192,7 @@ ga('send', 'pageview');
 
 <h1 id="admin-user-initialization">Admin user initialization</h1>
 
-<p>In case there is no admin user in it’s repository, ALIEN 4 Cloud can automatically create a user with ADMIN rights. The user name and password are configured in the <em>alien4cloud-config.yml</em> file. Of course if an ADMIN user already exists in ALIEN then no user is created and this section is ignored.</p>
+<p>In case there is no admin user in it’s repository, ALIEN 4 Cloud can automatically create a user with ADMIN rights. The user name and password are configured in the <em><code>alien4cloud-config.yml</code></em> file. Of course if an ADMIN user already exists in ALIEN then no user is created and this section is ignored.</p>
 
 <div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="c1"># Configuration of default admin ensurer, if true it creates a default admin user if no admin can be found in the system.</span>
 <span class="l-Scalar-Plain">users</span><span class="p-Indicator">:</span>
