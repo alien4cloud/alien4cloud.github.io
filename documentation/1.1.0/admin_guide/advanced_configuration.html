@@ -203,11 +203,11 @@ ga('send', 'pageview');
 
 <h2 id="elasticsearch-jvm">ElasticSearch JVM</h2>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">-Xms2g -Xmx2g -Djava.awt.headless<span class="o">=</span><span class="nb">true</span> -XX:+UseParNewGC -XX:+UseConcMarkSweepGC -XX:CMSInitiatingOccupancyFraction<span class="o">=</span><span class="m">75</span> -XX:+UseCMSInitiatingOccupancyOnly -XX:+PrintGCDetails -XX:+PrintGCTimeStamps -XX:+PrintClassHistogram -XX:+PrintTenuringDistribution -XX:+PrintGCApplicationStoppedTime -Xloggc:&lt;path/to/the/logfile&gt; -XX:+HeapDumpOnOutOfMemoryError -XX:+DisableExplicitGC -Dfile.encoding<span class="o">=</span>UTF-8 -XX:+PrintGCDateStamps -XX:ThreadStackSize<span class="o">=</span>256k -XX:+ScavengeBeforeFullGC -XX:+CMSScavengeBeforeRemark</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">-Xms2g -Xmx2g -Djava.awt.headless<span class="o">=</span><span class="nb">true</span> -XX:+UseParNewGC -XX:+UseConcMarkSweepGC -XX:CMSInitiatingOccupancyFraction<span class="o">=</span><span class="m">75</span> -XX:+UseCMSInitiatingOccupancyOnly -XX:+HeapDumpOnOutOfMemoryError -XX:+DisableExplicitGC -Dfile.encoding<span class="o">=</span>UTF-8 -XX:+PrintGCDateStamps -XX:ThreadStackSize<span class="o">=</span>256k -XX:+ScavengeBeforeFullGC -XX:+CMSScavengeBeforeRemark</code></pre></div>
 
 <h2 id="alien4cloud-jvm">Alien4Cloud JVM</h2>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">-server -showversion -XX:+AggressiveOpts -Xmx2g -Xms2g -XX:MaxPermSize<span class="o">=</span>512m -XX:+HeapDumpOnOutOfMemoryError -XX:+UseParNewGC -XX:+UseConcMarkSweepGC -XX:CMSInitiatingOccupancyFraction<span class="o">=</span><span class="m">75</span> -XX:+UseCMSInitiatingOccupancyOnly -XX:+PrintGCDetails -XX:+PrintGCTimeStamps -XX:+PrintClassHistogram -XX:+PrintTenuringDistribution -XX:+PrintGCApplicationStoppedTime -Xloggc:&lt;path/to/the/logfile&gt; -XX:+ScavengeBeforeFullGC -XX:+CMSScavengeBeforeRemark -XX:+DisableExplicitGC</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">-server -showversion -XX:+AggressiveOpts -Xmx2g -Xms2g -XX:MaxPermSize<span class="o">=</span>512m -XX:+HeapDumpOnOutOfMemoryError -XX:+UseParNewGC -XX:+UseConcMarkSweepGC -XX:CMSInitiatingOccupancyFraction<span class="o">=</span><span class="m">75</span> -XX:+UseCMSInitiatingOccupancyOnly -XX:+ScavengeBeforeFullGC -XX:+CMSScavengeBeforeRemark -XX:+DisableExplicitGC</code></pre></div>
 
 
         <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.1.0/admin_guide/advanced_configuration.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
