@@ -14,138 +14,117 @@ root: ../
     Premium features, support and certifications are available under a subscription, delivered by <a href="http://fastconnect.fr" target="_blank">FastConnect</a>, a <a href="http://www.bull.com" target="_blank">Bull, Atos technologies</a> subsidiary. Contact us for more details.
   </p>
   <p>
-    We deliver 4 major releases per year.
+    We deliver major releases every 4 month.
     Please note that we also deliver intermediate sprint releases in <a href="https://github.com/alien4cloud/alien4cloud" target="_blank">Alien4Cloud GitHub repo</a>, every 3 weeks, in order to get feedback on features while still in development.
   </p>
 
   <ul class="cbp_tmtimeline">
     <li>
-      <time class="cbp_tmtime" datetime="2015-07"><span>early Q3 2015</span> <span>v 1.0.0</span></time>
+      <time class="cbp_tmtime" datetime="2016-06"><span>July 2016</span> <span>v 1.2.0</span></time>
       <div class="cbp_tmicon"><i class="fa fa-rocket"></i></div>
       <div class="cbp_tmlabel">
         <h4>Core</h4>
         <ul>
-           <li>Dev & Ops Self-Service</li>
-           <li>TOSCA Catalog</li>
-           <li>TOSCA Import Export</li>
-           <li>Applications Versions & Environments</li>
-           <li>Pluggable UI</li>
-           <li>H.A. Policies and Availability Zones support</li>
-           <li>Maintenance mode trigger (based on orchestrator support)</li>
-           <li>Audit</li>
+           <li>API versioning</li>
+           <li>
+             Catalog Improvements
+             <ul>
+               <li>Portability insights - Premium</li>
+               <li>Sort components by date</li>
+             </ul>
+           </li>
+           <li>
+             UI Improvements
+             <ul>
+               <li>Location Resource Configuration: Provide suggestions for compute node configuration (os type, distribution, architecture, versions)</li>
+               <li>Location Resource Configuration: Improve visibility of incomplete configuration of resources</li>
+               <li>Catalog views: Add last import date and import source (git, manual, ...) in CSAR list</li>
+               <li>Design view: Ability to display operation implementation scripts directly from workflow view</li>
+               <li>Design view: Improve visibility of mandatory properties in topology design view</li>
+               <li>Design view: Add a URL link towards type containing the relationships in design view</li>
+               <li>Application list view: Display last launch time per environment.</li>
+               <li>Application navigation: Keep environnement context when switching from a screen to another</li>
+               <li>Runtime view: Display the deployment location</li>
+               <li>Runtime view: Prevent from changing scaling when scaling is already in progress</li>
+               <li>Runtime view: Display deployment errors informations from underlying orchestrator</li>
+             </ul>
+           </li>
+           <li>Policies
+             <ul>
+               <li>Multi zones placement policies : ability to manage HA or topology performance by associating nodes to zones</li>
+               <li>Configure post deployment (runtime) policy on a topology</li>
+               <li>Support for host failure policy</li>
+             </ul>
+           </li>
+           <li>Upgrade
+             <ul>
+               <li>Ability to upgrade an artefact managed by application infrastructure</li>
+               <li>Upgrade component content and version without updating relationships</li>
+             </ul>
+           </li>
+           <li>Blueprints Developer experience improvements</li>
+           <li>Simplified Self Service</li>
+           <li>Security
+             <ul>
+               <li>SAML integration - Premium</li>
+               <li>Manage SSH Keys</li>
+               <li>Associate existing Security Groups to Compute</li>
+             </ul>
+           </li>
         </ul>
-        <h4>Infrastructure and orchestrators certifications</h4>
+        <h4>Orchestrators certifications</h4>
         <ul>
-           <li><a href="https://github.com/alien4cloud/alien4cloud-cloudify2-provider" target="_blank">Cloudify v2</a> and <a href="https://github.com/alien4cloud/alien4cloud-cloudify3-provider" target="_blank">v3.1</a> (compatible with Cloudify 3.2)</li>
-           <li>Amazon</li>
-           <li>OpenStack</li>
-           <li>BYON</li>
+          <li>Cloudify v3.3.1</li>
+          <li>Cloudify v3.4 (subject to cloudify roadmap)</li>
+          <li>Apache Brooklyn beta</li>
         </ul>
-        <small>Note: Almost all infrastructures and orchestrators, in the roadmap are already functional and some have been deployed, but we highlight here certification</small>
-        <h4>Artefacts support</h4>
+        <h4>Infrastructure support</h4>
         <ul>
-          <li>SH</li>
-          <li>BAT</li>
-          <li>Cloudify v2 groovy</li>
-        </ul>
-        <small>Note: Some artefacts are already working though not fully tested/supported</small>
-        <h4><a href="https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=tosca" target="_blank">TOSCA</a></h4>
-        <ul>
-          <li><a href="http://docs.oasis-open.org/tosca/TOSCA-Simple-Profile-YAML/v1.0/csd03/TOSCA-Simple-Profile-YAML-v1.0-csd03.html" target="_blank">Simple profile in YAML support</a> (Spec is still evolving so support of it is incremental within Alien4Cloud)</li>
-          <li>Normative and extended types, topologies</li>
-          <li>Groups and policies</li>
-        </ul>
-      </div>
-    </li>
-    <li>
-      <time class="cbp_tmtime" datetime="2015-10"><span>early Q4 2015</span> <span>v 1.1.0</span></time>
-      <div class="cbp_tmicon"><i class="fa fa-rocket"></i></div>
-      <div class="cbp_tmlabel">
-        <h4>Core</h4>
-        <ul>
-           <li>PaaSProvider v2 for increased platforms and policies support</li>
-           <li>Pluggable Matching Algorithm</li>
-           <li>SSH keys Management</li>
-           <li>Git integration</li>
-           <li>UI improvements</li>
-        </ul>
-        <h4>Infrastructure and orchestrators certifications</h4>
-        <ul>
-           <li>Cloudify v3.2</li>
-        </ul>
-        <h4>Artefacts support</h4>
-        <ul>
-          <li>Python</li>
+           <li>OpenStack Icehouse and Kilo</li>
+           <li>Amazon EC2 VPC support - Premium</li>
+           <li>Azure (ARM) support (linux and windows compute, volumes, public ips and network, security groups, H.A. policy)</li>
+           <li>VMWare VSphere 5.5 (compute, volumes, networks) - Premium</li>
+           <li>Docker</li>
         </ul>
         <h4>TOSCA</h4>
         <ul>
-          <li>Topology Substitution</li>
-          <li>Improvements of Simple profile support based on spec evolutions</li>
+          <li>Simple profile in YAML v1.0</li>
+          <li>Support for alien 4 cloud 1.1 DSL</li>
         </ul>
-        <h4>Premium features</h4>
+        <h4>Additional Premium features</h4>
         <ul>
-          <li>Simplified startup and configuration</li>
-          <li>v1.0 to v1.1 Migration tools</li>
-        </ul>
-      </div>
-    </li>
-    <li>
-      <time class="cbp_tmtime" datetime="2016-01"><span>early Q1 2016</span> <span>v 1.2.0</span></time>
-      <div class="cbp_tmicon"><i class="fa fa-rocket"></i></div>
-      <div class="cbp_tmlabel">
-        <h4>Core</h4>
-        <ul>
-           <li>Network support improvements</li>
-           <li>Pluggable Location Matching</li>
-           <li>H.A policies on single scalable nodes</li>
-        </ul>
-        <h4>Infrastructure and orchestrators certifications</h4>
-        <ul>
-           <li>Cloudify v3.3</li>
-           <li>Azure</li>
-           <li>vCloud</li>
-        </ul>
-        <h4>Artefacts support</h4>
-        <ul>
-          <li>Puppet</li>
-          <li>Chef</li>
-        </ul>
-        <h4>TOSCA</h4>
-        <ul>
-          <li>Simple profile in YAML v1</li>
-        </ul>
-        <h4>Premium features</h4>
-        <ul>
-          <li>Governance Dashboards</li>
-          <li>Catalog Portability Insights</li>
           <li>v1.1 to v1.2 Migration tools</li>
         </ul>
       </div>
     </li>
     <li>
-      <time class="cbp_tmtime" datetime="2016-01"><span>To be defined</span> <span>Future through</span></time>
+      <time class="cbp_tmtime" datetime="2016-10"><span>To be defined</span> <span>Future</span></time>
       <div class="cbp_tmicon"><i class="fa fa-rocket"></i></div>
       <div class="cbp_tmlabel">
         <h4>Core</h4>
         <ul>
-           <li>Custom workflows</li>
-           <li>Promotion workflow</li>
+          <li>TOSCA evolutions support</li>
+          <li>On-demand hybrid deployment through Cloudify integration & user defined matching</li>
+          <li>Advanced post-deployment updates, upgrades & sync</li>
+          <li>Enhanced extensibility & pluggability</li>
+          <li>Multi locations 24x7 app-centric placement & runtime policies</li>
+          <li>Workspaces & more Git integration</li>
         </ul>
-        <h4>Infrastructure and orchestrators support & certifications</h4>
+        <h4>More orchestrators, infrastructures & artefacts coverage</h4>
         <ul>
-           <li><a href="https://github.com/alien4cloud/a4c-brooklyn-provider" target="_blank">Apache Brooklyn</a></li>
-           <li>Docker (native) - already supported through partners orchestrators (cloudify / apache brooklyn), Kubernetes, Swarm/Machine</li>
-           <li>Mesos (Marathon)</li>
-           <li>Ambari</li>
-           <li>Google Cloud</li>
-           <li>OpenStack latest releases</li>
+          <li>Apache Brooklyn</li>
+          <li>Mesos / Marathon</li>
+          <li>Ambari</li>
+          <li>Google Cloud</li>
         </ul>
-        <h4>Premium features</h4>
+        <h4>Additional Premium features</h4>
         <ul>
-          <li>Workspaces</li>
           <li>TOSCA Types ui designer</li>
-          <li>Simplified Self Service</li>
-          <li>Artifact(s) Repositories Management</li>
+          <li>Application Lifecycle Management features & Promotion workflow</li>
+          <li>Analytics and governance dashboards</li>
+          <li>Social</li>
+          <li>Chargeback & billing platforms integration</li>
+          <li>Cloud brokering</li>
         </ul>
       </div>
     </li>
