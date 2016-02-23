@@ -49,10 +49,10 @@ The configuration class is the only mandatory class in a plugin so it can be loa
 | id | string | yes | Identifier of the plugin. Must be unique within alien4cloud. |
 | name | string | yes | The name of the plugin as it will be displayed to user. |
 | version | string | yes | The version of the plugin. |
-| description | no | string | The optional description of the plugin. |
-| configuration_class | yes | string | The name of the java class to load as Spring context configuration (see Plugin context entry point). |
-| ui_entry_point | no | string | Path of the javascript file of your ui plugin that should be loaded as entry point. The path must be relative to the ui folder. More details in the ui plugin section. |
-| component_descriptors | no | list of component_descriptor | Optional list of beans that you wan't to expose from your plugin so they will be available to other plugins. To be honest such usage is currently not really useful as we cannot yet specify loading priority or dependencies for plugins. |
+| description | string | no | The optional description of the plugin. |
+| configuration_class | string | yes | The name of the java class to load as Spring context configuration (see Plugin context entry point). |
+| ui_entry_point | string | no | Path of the javascript file of your ui plugin that should be loaded as entry point. The path must be relative to the ui folder. More details in the ui plugin section. |
+| component_descriptors | list of component_descriptor | no | Optional list of beans that you wan't to expose from your plugin so they will be available to other plugins. To be honest such usage is currently not really useful as we cannot yet specify loading priority or dependencies for plugins. |
 
 ### example
 
