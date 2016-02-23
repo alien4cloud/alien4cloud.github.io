@@ -95,12 +95,6 @@ Hopefully we provides you with a way to easily retrieve them! The __plugins__ mo
 
 Where the pluginId value should be the id of your plugin as defined in the plugin descriptor.
 
-Well that sound easy however there is a little issue here that will introduce how we develop and debug plugins actually. From the UI side developing with tools like live-reload is quite common and actually so handy that you cannot expect not to use it. Including live-reload with our plugin system was quite a complex issue that we faced, in order to solve it we are using a little trick (same as the java side debugging BTW). The trick is that we actually don't register your plugin in alien4cloud but rather use _grunt serve_ feature to serve both the plugin javascript and also the alien4cloud javascript all as if it was the same project.
-
-First thing comes when you run the _mvn clean package_ command for the first time on the project. One of the maven task defined in our configuration is to get the specified alien4cloud version and _unpack_ it into a the target directory (that's the build directory for maven). Then we instruct the grunt serve command to load not only the plugin scripts and static ui files from src/main/webapp but also the ones from alien4cloud.
-
-That works quite well actually but doing so the plugin is never registered within alien4cloud so the _plugins.base(pluginId)_ will just not return the correct value.
-
 # Alien 4 cloud view routing and states management
 
 Alien 4 cloud is an AngularJS 1 application however we have chosen to use the ui-routing project in order to manage routing within our application. We also decided to add some additional sugaring around it in order to manage also our menus and style selection automatically.
