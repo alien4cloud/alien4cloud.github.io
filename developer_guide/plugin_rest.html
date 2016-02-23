@@ -1,0 +1,68 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/developer_guide/plugin_rest.html',
+  title: 'REST plugins'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container">
+  <div class="row">
+    
+      <div class="col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">REST plugins</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/developer_guide/plugin_rest.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <p>As explained in the main plugin section an alien 4 cloud plugin is a spring context that is a child of the core alien4cloud context.</p>
+
+<p>In addition our plugin loading mechanism allows to dynamically add new REST controllers. The limitation however is that they currently won’t be added to the generated swagger Rest API documentation.</p>
+
+<p>All the rest is basic spring and you should read more on the spring documentation or check out our plugin sample example that expose a new RestController and internal Service.</p>
+
+<div data-gist="https://gist.github.com/lucboutier/a26e381c84433d8f80a0.js"></div>
+
+<div class="note info">
+<h5>RequestMapping url</h5>
+<p>We currently don’t have internal constraints on the RequestMapping that you provide, however to avoid any issues with other plugins we recommend you to use a mapping that follows the pattern <em>/rest/{plugin-id}/{version}/{custom-url}</em></p>
+</div>
+
+<h1 id="save-your-data-using-aliens-elasticsearch">Save your data using alien’s ElasticSearch</h1>
+
+<h1 id="expose-your-beans-for-other-plugins">Expose your beans for other plugins</h1>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/developer_guide/plugin_rest.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DEVELOPER_GUIDE', 'developer_guide/plugin_rest.md');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

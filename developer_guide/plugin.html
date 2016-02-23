@@ -8,7 +8,7 @@
 ga('create', 'UA-73216650-1', 'auto');
 ga('set', {
   page: '/developer_guide/plugin.html',
-  title: 'ALIEN plugins'
+  title: 'Plugins'
 });
 ga('send', 'pageview');
 
@@ -23,7 +23,7 @@ ga('send', 'pageview');
       <div id="content" class="col-md-9">
     
         <div style="height: 50px;">
-          <h1 class="pull-left" style="margin-top: 0px;">ALIEN plugins</h1>
+          <h1 class="pull-left" style="margin-top: 0px;">Plugins</h1>
           <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/developer_guide/plugin.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
         </div>
         <p>Alien 4 Cloud allows developer to extends the application by adding plugins. A plugin may contains some java services, some REST controllers and UI elements. The most common plugins that we ship with alien4cloud are orchestrator plugins.</p>
@@ -128,34 +128,19 @@ The configuration class is the only mandatory class in a plugin so it can be loa
 
 <p>Below is an example of a plugin spring context java configuration that acts as an entry point for the cloudify plugin.</p>
 
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="nd">@Configuration</span>
-<span class="nd">@ComponentScan</span><span class="o">(</span><span class="s">&quot;alien.paas.cloudify&quot;</span><span class="o">)</span>
-<span class="nd">@ImportResource</span><span class="o">(</span><span class="s">&quot;classpath:properties-config.xml&quot;</span><span class="o">)</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">PluginContextConfiguration</span> <span class="o">{</span>
-<span class="o">}</span></code></pre></div>
+<div data-gist="https://gist.github.com/lucboutier/6b79c8cabecf6546b138.js"></div>
+
+<div class="note info">
+<p>Even ‘pure’ ui plugins must have a java/spring entry point.</p>
+</div>
 
 <h2 id="plugin-configuration">Plugin configuration</h2>
 
 <p>ALIEN provides an easy way to configure a plugin by generating the UI based on a configuration object using introspection. It also manages persistency of the configuration.</p>
 
-<p>In order to enable plugin configuration, one of the bean in your spring context must implements the IPluginConfigurator<t> interface. This interface (see signature below) allow to provide a POJO that will act as the configuration object for the whole plugin.</t></p>
+<p>In order to enable plugin configuration, one of the bean in your spring context must implements the _IPluginConfigurator<t>_ interface. This interface (see signature below) allow to provide a POJO that will act as the configuration object for the whole plugin.</t></p>
 
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="cm">/** Interface for plugin configuration objects. */</span>
-<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">IPluginConfigurator</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="o">{</span>
-    <span class="cm">/**</span>
-<span class="cm">     * Get an instance of T that is the default configuration object of the plugin.</span>
-<span class="cm">     *</span>
-<span class="cm">     * @return A configuration object of type T.</span>
-<span class="cm">     */</span>
-    <span class="n">T</span> <span class="nf">getDefaultConfiguration</span><span class="o">();</span>
-
-    <span class="cm">/**</span>
-<span class="cm">     * Set / apply a configuration for a plugin.</span>
-<span class="cm">     *</span>
-<span class="cm">     * @param configuration The configuration object as edited by the user.</span>
-<span class="cm">     */</span>
-    <span class="kt">void</span> <span class="nf">setConfiguration</span><span class="o">(</span><span class="n">T</span> <span class="n">configuration</span><span class="o">);</span>
-<span class="o">}</span></code></pre></div>
+<div data-gist="https://gist.github.com/lucboutier/134921b861cf8b0fd44a.js"></div>
 
 <div class="note warning">
 <p>Current version of ALIEN 4 Cloud does not supports more than a single configuration. Thus you should make sure that a single IPluginConfigurator exists in your plugin spring context.</p>
