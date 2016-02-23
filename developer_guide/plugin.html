@@ -91,26 +91,26 @@ The configuration class is the only mandatory class in a plugin so it can be loa
     </tr>
     <tr>
       <td style="text-align: left">description</td>
-      <td style="text-align: left">no</td>
       <td style="text-align: left">string</td>
+      <td style="text-align: left">no</td>
       <td style="text-align: left">The optional description of the plugin.</td>
     </tr>
     <tr>
       <td style="text-align: left">configuration_class</td>
-      <td style="text-align: left">yes</td>
       <td style="text-align: left">string</td>
+      <td style="text-align: left">yes</td>
       <td style="text-align: left">The name of the java class to load as Spring context configuration (see Plugin context entry point).</td>
     </tr>
     <tr>
       <td style="text-align: left">ui_entry_point</td>
-      <td style="text-align: left">no</td>
       <td style="text-align: left">string</td>
+      <td style="text-align: left">no</td>
       <td style="text-align: left">Path of the javascript file of your ui plugin that should be loaded as entry point. The path must be relative to the ui folder. More details in the ui plugin section.</td>
     </tr>
     <tr>
       <td style="text-align: left">component_descriptors</td>
-      <td style="text-align: left">no</td>
       <td style="text-align: left">list of component_descriptor</td>
+      <td style="text-align: left">no</td>
       <td style="text-align: left">Optional list of beans that you wan’t to expose from your plugin so they will be available to other plugins. To be honest such usage is currently not really useful as we cannot yet specify loading priority or dependencies for plugins.</td>
     </tr>
   </tbody>
