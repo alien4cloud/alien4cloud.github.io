@@ -120,6 +120,10 @@ Fill the modal like the example below and ![new-git-location](../../images/getti
 
 Now, click on ![git import](../../images/getting_started/components-import-btn.png){: .inline} to pull all components from git and upload them into the Alien4Cloud catalog.
 
+{% warning %}
+Some warnings will be throw if you specify an other branch or tag. We release some version of Samples, according to our implementation of TOSCA. If you take the wrong Sample, the required normatives types can be missing.
+{% endwarning %}
+
 {% info %}
 Find detailed informations about the Wordpress topology in the [devops guide](#/documentation/1.1.0/devops_guide/lamp_stack_tutorial/lamp_stack_application.html).
 {% endinfo %}
@@ -153,7 +157,7 @@ In this part, you will be able to check location resources matching and possible
 
 # Check that your application is up and running
 
-On the runtime view, you can have the detailed deployment progress. Click on the side bar sub-menu ![application runtime](../../images/getting_started/app-runtime-btn.png){: .inline}, 
+On the runtime view, you can have the detailed deployment progress. Click on the side bar sub-menu ![application runtime](../../images/getting_started/app-runtime-btn.png){: .inline},
 
 [![Wordpress runtime](../../images/getting_started/wordpress-deployment-in-progress.png)](../../images/getting_started/wordpress-deployment-in-progress.png)
 

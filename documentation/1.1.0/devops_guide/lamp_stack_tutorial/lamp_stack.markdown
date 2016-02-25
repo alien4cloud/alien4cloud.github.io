@@ -12,6 +12,10 @@ This tutorial is based on the well known opensource stack [LAMP](http://fr.wikip
 
 We will see all steps to go through the stack component definition and have a runnable example.
 
+{%note%}
+The components of the Wordpress stack are in version 2.0.0. This version was released after some tests, with success, on Ubuntu 12.04 and 14.04.
+{%endnote%}
+
 {% info %}
 Regarding TOSCA component definition we are using the WD03 version for this tutorial.
 {% endinfo %}
