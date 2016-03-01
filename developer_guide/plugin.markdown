@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  ALIEN plugins
+title:  Plugins
 root: ../
 categories: DEVELOPER_GUIDE
 parent: []
@@ -49,10 +49,10 @@ The configuration class is the only mandatory class in a plugin so it can be loa
 | id | string | yes | Identifier of the plugin. Must be unique within alien4cloud. |
 | name | string | yes | The name of the plugin as it will be displayed to user. |
 | version | string | yes | The version of the plugin. |
-| description | no | string | The optional description of the plugin. |
-| configuration_class | yes | string | The name of the java class to load as Spring context configuration (see Plugin context entry point). |
-| ui_entry_point | no | string | Path of the javascript file of your ui plugin that should be loaded as entry point. The path must be relative to the ui folder. More details in the ui plugin section. |
-| component_descriptors | no | list of component_descriptor | Optional list of beans that you wan't to expose from your plugin so they will be available to other plugins. To be honest such usage is currently not really useful as we cannot yet specify loading priority or dependencies for plugins. |
+| description | string | no | The optional description of the plugin. |
+| configuration_class | string | yes | The name of the java class to load as Spring context configuration (see Plugin context entry point). |
+| ui_entry_point | string | no | Path of the javascript file of your ui plugin that should be loaded as entry point. The path must be relative to the ui folder. More details in the ui plugin section. |
+| component_descriptors | list of component_descriptor | no | Optional list of beans that you wan't to expose from your plugin so they will be available to other plugins. To be honest such usage is currently not really useful as we cannot yet specify loading priority or dependencies for plugins. |
 
 ### example
 
@@ -66,38 +66,19 @@ When loading a plugin, ALIEN for cloud will create the spring context based on t
 
 Below is an example of a plugin spring context java configuration that acts as an entry point for the cloudify plugin.
 
-{% highlight java %}
-@Configuration
-@ComponentScan("alien.paas.cloudify")
-@ImportResource("classpath:properties-config.xml")
-public class PluginContextConfiguration {
-}
-{% endhighlight %}
+<div data-gist="https://gist.github.com/lucboutier/6b79c8cabecf6546b138.js"></div>
+
+{% info %}
+Even 'pure' ui plugins must have a java/spring entry point.
+{% endinfo %}
 
 ## Plugin configuration
 
 ALIEN provides an easy way to configure a plugin by generating the UI based on a configuration object using introspection. It also manages persistency of the configuration.
 
-In order to enable plugin configuration, one of the bean in your spring context must implements the IPluginConfigurator<T> interface. This interface (see signature below) allow to provide a POJO that will act as the configuration object for the whole plugin.
+In order to enable plugin configuration, one of the bean in your spring context must implements the _IPluginConfigurator<T>_ interface. This interface (see signature below) allow to provide a POJO that will act as the configuration object for the whole plugin.
 
-{% highlight java %}
-/** Interface for plugin configuration objects. */
-public interface IPluginConfigurator<T> {
-    /**
-     * Get an instance of T that is the default configuration object of the plugin.
-     *
-     * @return A configuration object of type T.
-     */
-    T getDefaultConfiguration();
-
-    /**
-     * Set / apply a configuration for a plugin.
-     *
-     * @param configuration The configuration object as edited by the user.
-     */
-    void setConfiguration(T configuration);
-}
-{% endhighlight %}
+<div data-gist="https://gist.github.com/lucboutier/134921b861cf8b0fd44a.js"></div>
 
 {% warning %}
 Current version of ALIEN 4 Cloud does not supports more than a single configuration. Thus you should make sure that a single IPluginConfigurator exists in your plugin spring context.

@@ -12,6 +12,10 @@ On this page we will create our topology representing the LAMP stack. Follow ins
 
 To be more concret we will use the [Wordpress](#/documentation/1.1.0/getting_started/lamp_stack_wordpress.html) component to install a real CMS.
 
+{%note%}
+The components of the Wordpress stack are in version 2.0.0. This version was released after some tests, with success, on Ubuntu 12.04 and 14.04.
+{%endnote%}
+
 # Prerequisites
 
 1. Get, checkout, download all components listed in the [main page](#/documentation/1.1.0/getting_started/lamp_stack.html) of this tutorial
