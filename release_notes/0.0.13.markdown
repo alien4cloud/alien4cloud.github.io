@@ -15,19 +15,6 @@ exclude_from_search: true
 <i class="fa fa-plus text-success"></i> New feature <i class="fa fa-level-up text-primary"></i> Improvement  <i class="fa fa-bug text-danger"></i> Bug <i class="fa fa-exclamation-triangle text-warning"></i> Breaking change
 
 
-### Cloudify 2 PaaS Provider
-
-
-
-  {: .table .table-bordered}
-  | Type        | Id         | Description |
-  |:------------|:-----------|:------------|
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-396 | Support of custom commands /  |
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-401 | Full support of .sh script files /  |
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-415 | render the result of a custom command execution /  |
-      
-
-
 ### Alien 4 Cloud
 
 
@@ -45,4 +32,17 @@ exclude_from_search: true
     |  <i class="fa fa-bug text-danger"></i> | ALIEN-403 | Fixed a missing translation missing in application / users TAB /  |
     |  <i class="fa fa-bug text-danger"></i> | ALIEN-409 | Fixed an issue with the display of output attributes. /  |
   
+
+
+### Cloudify 2 PaaS Provider
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-396 | Support of custom commands /  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-401 | Full support of .sh script files /  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-415 | render the result of a custom command execution /  |
+      
 

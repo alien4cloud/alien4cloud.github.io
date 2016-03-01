@@ -5,7 +5,7 @@ root: ../
 categories: RELEASE_NOTES
 parent: [release_note]
 node_name: 1.1.0-SM7
-weight: 9973
+weight: 9972
 exclude_from_search: true
 ---
 
@@ -13,20 +13,6 @@ exclude_from_search: true
 
 
 <i class="fa fa-plus text-success"></i> New feature <i class="fa fa-level-up text-primary"></i> Improvement  <i class="fa fa-bug text-danger"></i> Bug <i class="fa fa-exclamation-triangle text-warning"></i> Breaking change
-
-
-### Cloudify 3 PaaS Provider
-
-
-
-  {: .table .table-bordered}
-  | Type        | Id         | Description |
-  |:------------|:-----------|:------------|
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-1260 | Add the support of OpenStack Windows compute to the Cloudify provider 3. /  |
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-1270 | Add the support of AWS EC2 Linux compute to the Cloudify provider 3 /  |
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-1271 | Add the support of AWS EC2 Windows compute to the Cloudify provider 3. /  |
-      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-1264 | The imports included in the blueprints for Cloudify 3 plugin can be change in the orchestrator confiruation. /  |
-    
 
 
 ### Documentation
@@ -51,4 +37,18 @@ exclude_from_search: true
     |  <i class="fa fa-bug text-danger"></i> | ALIEN-1269 | Git integration is able to process a git repository with multiple archives having dependencies. /  |
     |  <i class="fa fa-exclamation-triangle text-warning">  <i class="fa fa-bug text-danger"></i> | ALIEN-1272 | Fixed a security issue caused by the ElasticSearch version used in Alien 4 Cloud. Migration have been done to 1.7.0. /  |
   
+
+
+### Cloudify 3 PaaS Provider
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-1260 | Add the support of OpenStack Windows compute to the Cloudify provider 3. /  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-1270 | Add the support of AWS EC2 Linux compute to the Cloudify provider 3 /  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-1271 | Add the support of AWS EC2 Windows compute to the Cloudify provider 3. /  |
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-1264 | The imports included in the blueprints for Cloudify 3 plugin can be change in the orchestrator confiruation. /  |
+    
 

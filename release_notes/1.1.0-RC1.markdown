@@ -5,7 +5,7 @@ root: ../
 categories: RELEASE_NOTES
 parent: [release_note]
 node_name: 1.1.0-RC1
-weight: 9980
+weight: 9979
 exclude_from_search: true
 ---
 
@@ -13,21 +13,6 @@ exclude_from_search: true
 
 
 <i class="fa fa-plus text-success"></i> New feature <i class="fa fa-level-up text-primary"></i> Improvement  <i class="fa fa-bug text-danger"></i> Bug <i class="fa fa-exclamation-triangle text-warning"></i> Breaking change
-
-
-### Cloudify 3 PaaS Provider
-
-
-
-  {: .table .table-bordered}
-  | Type        | Id         | Description |
-  |:------------|:-----------|:------------|
-      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-1353 | Auto-healing can be enabled switching on a cloudify 3 driver deployment property. Note that implementation is quite naive for now and is not recommended for production. GigaSpaces plan better support in Cloudify 3.4. /  |
-      |  <i class="fa fa-bug text-danger"></i> | ALIEN-1214 | Fixed a bug in the display of IP addresses of instances on a scaled node. /  |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1241 | Fixed an issue in the definition of matching rules for block storages and amazon compute nodes. /  |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1348 | Fixed an issue on the blueprint generation that caused the monitoring feature to fail. /  |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1354 | Fixed an issue that caused relationships to be all considered as n-n when connecting nodes within the same compute. /  |
-  
 
 
 ### Alien 4 Cloud
@@ -49,5 +34,20 @@ exclude_from_search: true
     |  <i class="fa fa-bug text-danger"></i> | ALIEN-1344 | Fixed an issue that prevented the undeploy button to be visible if the current application topology was not valid. /  |
     |  <i class="fa fa-bug text-danger"></i> | ALIEN-1345 | Fixed an issue on Git integration with authentication. /  |
     |  <i class="fa fa-bug text-danger"></i> | ALIEN-1356 | Fixed a bug preventing to delete an orchestrator when there is another one disabled in alien4cloud. /  |
+  
+
+
+### Cloudify 3 PaaS Provider
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-1353 | Auto-healing can be enabled switching on a cloudify 3 driver deployment property. Note that implementation is quite naive for now and is not recommended for production. GigaSpaces plan better support in Cloudify 3.4. /  |
+      |  <i class="fa fa-bug text-danger"></i> | ALIEN-1214 | Fixed a bug in the display of IP addresses of instances on a scaled node. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1241 | Fixed an issue in the definition of matching rules for block storages and amazon compute nodes. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1348 | Fixed an issue on the blueprint generation that caused the monitoring feature to fail. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1354 | Fixed an issue that caused relationships to be all considered as n-n when connecting nodes within the same compute. /  |
   
 

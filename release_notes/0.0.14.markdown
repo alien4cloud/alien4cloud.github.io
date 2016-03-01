@@ -15,18 +15,6 @@ exclude_from_search: true
 <i class="fa fa-plus text-success"></i> New feature <i class="fa fa-level-up text-primary"></i> Improvement  <i class="fa fa-bug text-danger"></i> Bug <i class="fa fa-exclamation-triangle text-warning"></i> Breaking change
 
 
-### Cloudify 2 PaaS Provider
-
-
-
-  {: .table .table-bordered}
-  | Type        | Id         | Description |
-  |:------------|:-----------|:------------|
-        |  <i class="fa fa-bug text-danger"></i> | ALIEN-357 | TODO /  |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-453 | Fixed an issue with class loader management in groovy script implying too many thread pools and gigaspaces proxies creation. /  |
-  
-
-
 ### Alien 4 Cloud
 
 
@@ -48,5 +36,17 @@ exclude_from_search: true
     |  <i class="fa fa-bug text-danger"></i> | ALIEN-435 | Display long property name without overflow on their value /  |
     |  <i class="fa fa-bug text-danger"></i> | ALIEN-454 | Fixed an issue with components that specified requirements on node type rather than capability type. /  |
     |  <i class="fa fa-bug text-danger"></i> | ALIEN-455 | CSAR explorer editor is now readonly /  |
+  
+
+
+### Cloudify 2 PaaS Provider
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+        |  <i class="fa fa-bug text-danger"></i> | ALIEN-357 | TODO /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-453 | Fixed an issue with class loader management in groovy script implying too many thread pools and gigaspaces proxies creation. /  |
   
 

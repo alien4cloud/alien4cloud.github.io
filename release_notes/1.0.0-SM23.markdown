@@ -15,37 +15,6 @@ exclude_from_search: true
 <i class="fa fa-plus text-success"></i> New feature <i class="fa fa-level-up text-primary"></i> Improvement  <i class="fa fa-bug text-danger"></i> Bug <i class="fa fa-exclamation-triangle text-warning"></i> Breaking change
 
 
-### Cloudify 2 PaaS Provider
-
-
-
-  {: .table .table-bordered}
-  | Type        | Id         | Description |
-  |:------------|:-----------|:------------|
-      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-734 | Passwords for cloudify 2 connection are now configured using password type fields in A4C UI. /  |
-    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-785 | Removed the synchronous deployment mode as this was deprecated, buggy and not recommended feature. /  |
-      |  <i class="fa fa-bug text-danger"></i> | ALIEN-715 | Fixed an issue that prevented to use the get_property function to access a property defined in a capability in the inputs of a relationship script /  |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-716 | Fixed an issue that caused get_attribute: [TARGET, ip_address] to fail when used on a node's stop operation. /  |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-736 | Alien 4 Cloud is now able to differentiate templates registered in cloudify 2 even when multiple templates are related to the same image+flavor combination. /  |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-749 | Fixed an issue that prevented to use the get_property function to access a property defined in a relationship as the inputs of a relationship script /  |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-753 | Fixed an issue that caused get_attribute: [TARGET, ip_address] to fail when used on a relationship's add_target operation. /  |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-761 | Unable to restart the cloudify manager in persistent mode /  |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-776 | When I deployed an application in A4C, A4C lost track of the deployment, but the application is correctly deployed in Cloudify. /  |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-795 | Fixed an issue that caused dependency management to hang under some latency circumstances (network, time for components to start). /  |
-  
-
-
-### Cloudify 3 PaaS Provider
-
-
-
-  {: .table .table-bordered}
-  | Type        | Id         | Description |
-  |:------------|:-----------|:------------|
-      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-757 | Deployment artifacts are now managed by cloudify 3 provider. /  |
-    
-
-
 ### Alien 4 Cloud
 
 
@@ -70,5 +39,36 @@ exclude_from_search: true
     |  <i class="fa fa-bug text-danger"></i> | ALIEN-782 | Fixed the topology validation: The topology is no longer considered as valid in case a relationship and capability required property is not defined. /  |
     |  <i class="fa fa-bug text-danger"></i> | ALIEN-788 | NPE on runtime views after a restart of the cloudify manager then a restart of A4C /  |
     |  <i class="fa fa-bug text-danger"></i> | ALIEN-791 | Fixed an issue that caused a very long startup delay in case a cloud was not reachable on alien's startup. /  |
+  
+
+
+### Cloudify 3 PaaS Provider
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-757 | Deployment artifacts are now managed by cloudify 3 provider. /  |
+    
+
+
+### Cloudify 2 PaaS Provider
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-734 | Passwords for cloudify 2 connection are now configured using password type fields in A4C UI. /  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-785 | Removed the synchronous deployment mode as this was deprecated, buggy and not recommended feature. /  |
+      |  <i class="fa fa-bug text-danger"></i> | ALIEN-715 | Fixed an issue that prevented to use the get_property function to access a property defined in a capability in the inputs of a relationship script /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-716 | Fixed an issue that caused get_attribute: [TARGET, ip_address] to fail when used on a node's stop operation. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-736 | Alien 4 Cloud is now able to differentiate templates registered in cloudify 2 even when multiple templates are related to the same image+flavor combination. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-749 | Fixed an issue that prevented to use the get_property function to access a property defined in a relationship as the inputs of a relationship script /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-753 | Fixed an issue that caused get_attribute: [TARGET, ip_address] to fail when used on a relationship's add_target operation. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-761 | Unable to restart the cloudify manager in persistent mode /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-776 | When I deployed an application in A4C, A4C lost track of the deployment, but the application is correctly deployed in Cloudify. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-795 | Fixed an issue that caused dependency management to hang under some latency circumstances (network, time for components to start). /  |
   
 
