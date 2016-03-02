@@ -7,8 +7,8 @@
 
 ga('create', 'UA-73216650-1', 'auto');
 ga('set', {
-  page: '/release_notes/1.1.0-SM4.html',
-  title: 'ALIEN for Cloud 1.1.0-SM4'
+  page: '/release_notes/1.2.0-SM1.html',
+  title: 'ALIEN for Cloud 1.2.0-SM1'
 });
 ga('send', 'pageview');
 
@@ -23,10 +23,34 @@ ga('send', 'pageview');
       <div id="content" class="col-md-9">
     
         <div style="height: 50px;">
-          <h1 class="pull-left" style="margin-top: 0px;">ALIEN for Cloud 1.1.0-SM4</h1>
-          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/release_notes/1.1.0-SM4.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+          <h1 class="pull-left" style="margin-top: 0px;">ALIEN for Cloud 1.2.0-SM1</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/release_notes/1.2.0-SM1.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
         </div>
         <p><i class="fa fa-plus text-success"></i> New feature <i class="fa fa-level-up text-primary"></i> Improvement  <i class="fa fa-bug text-danger"></i> Bug <i class="fa fa-exclamation-triangle text-warning"></i> Breaking change</p>
+
+<h3 id="documentation">Documentation</h3>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Id</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-plus text-success"></i></td>
+      <td style="text-align: left">ALIEN-1360</td>
+      <td style="text-align: left">Cloudify 3 support / <a href="#/documentation/1.1.0/orchestrators/cloudify3_driver/index.html">see here </a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-plus text-success"></i></td>
+      <td style="text-align: left">ALIEN-1381</td>
+      <td style="text-align: left">Improvement of the Getting started and Admin guide documentation /</td>
+    </tr>
+  </tbody>
+</table>
 
 <h3 id="alien-4-cloud">Alien 4 Cloud</h3>
 
@@ -40,24 +64,9 @@ ga('send', 'pageview');
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><i class="fa fa-plus text-success"></i></td>
-      <td style="text-align: left">ALIEN-1133</td>
-      <td style="text-align: left">Allow custom workflow creation /</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><i class="fa fa-plus text-success"></i></td>
-      <td style="text-align: left">ALIEN-1136</td>
-      <td style="text-align: left">Import / Export workflow /</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><i class="fa fa-plus text-success"></i></td>
-      <td style="text-align: left">ALIEN-1168</td>
-      <td style="text-align: left">We now support TOSCA scalarunit.frequency type. /</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
-      <td style="text-align: left">ALIEN-1167</td>
-      <td style="text-align: left">Fixed an issue causing all scalar values to accept long rather than double (1.5 Gib for example) /</td>
+      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
+      <td style="text-align: left">ALIEN-1388</td>
+      <td style="text-align: left">Performance Improvement on the workflow view /</td>
     </tr>
   </tbody>
 </table>
@@ -74,20 +83,15 @@ ga('send', 'pageview');
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left"><i class="fa fa-plus text-success"></i></td>
-      <td style="text-align: left">ALIEN-1137</td>
-      <td style="text-align: left">Allow Cloudify3 driver to execute a custom workflow /</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><i class="fa fa-plus text-success"></i></td>
-      <td style="text-align: left">ALIEN-1181</td>
-      <td style="text-align: left">Allow get_attribute for all instances (cfy3) /</td>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-1377</td>
+      <td style="text-align: left">Fixed bug on volume’s devices with LinuxFileSystem on AWS EC2 Cloud /</td>
     </tr>
   </tbody>
 </table>
 
 
-        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/release_notes/1.1.0-SM4.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/release_notes/1.2.0-SM1.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
 	  </div>
     </div>
   </div>
@@ -103,7 +107,7 @@ if(hash && hash!== null && hash.match(/html$/)) {
 <script type="text/javascript" src="/js/post-layout.js"></script>
 <script>
 $(document).ready(function () {
-  makeSideBar('RELEASE_NOTES', 'release_notes/1.1.0-SM4.markdown');
+  makeSideBar('RELEASE_NOTES', 'release_notes/1.2.0-SM1.markdown');
 });
 </script>
 

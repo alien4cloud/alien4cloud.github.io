@@ -28,89 +28,6 @@ ga('send', 'pageview');
         </div>
         <p><i class="fa fa-plus text-success"></i> New feature <i class="fa fa-level-up text-primary"></i> Improvement  <i class="fa fa-bug text-danger"></i> Bug <i class="fa fa-exclamation-triangle text-warning"></i> Breaking change</p>
 
-<h3 id="cloudify-2-paas-provider">Cloudify 2 PaaS Provider</h3>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th style="text-align: left">Type</th>
-      <th style="text-align: left">Id</th>
-      <th style="text-align: left">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
-      <td style="text-align: left">ALIEN-734</td>
-      <td style="text-align: left">Passwords for cloudify 2 connection are now configured using password type fields in A4C UI. /</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
-      <td style="text-align: left">ALIEN-785</td>
-      <td style="text-align: left">Removed the synchronous deployment mode as this was deprecated, buggy and not recommended feature. /</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
-      <td style="text-align: left">ALIEN-715</td>
-      <td style="text-align: left">Fixed an issue that prevented to use the get_property function to access a property defined in a capability in the inputs of a relationship script /</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
-      <td style="text-align: left">ALIEN-716</td>
-      <td style="text-align: left">Fixed an issue that caused get_attribute: [TARGET, ip_address] to fail when used on a node’s stop operation. /</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
-      <td style="text-align: left">ALIEN-736</td>
-      <td style="text-align: left">Alien 4 Cloud is now able to differentiate templates registered in cloudify 2 even when multiple templates are related to the same image+flavor combination. /</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
-      <td style="text-align: left">ALIEN-749</td>
-      <td style="text-align: left">Fixed an issue that prevented to use the get_property function to access a property defined in a relationship as the inputs of a relationship script /</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
-      <td style="text-align: left">ALIEN-753</td>
-      <td style="text-align: left">Fixed an issue that caused get_attribute: [TARGET, ip_address] to fail when used on a relationship’s add_target operation. /</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
-      <td style="text-align: left">ALIEN-761</td>
-      <td style="text-align: left">Unable to restart the cloudify manager in persistent mode /</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
-      <td style="text-align: left">ALIEN-776</td>
-      <td style="text-align: left">When I deployed an application in A4C, A4C lost track of the deployment, but the application is correctly deployed in Cloudify. /</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
-      <td style="text-align: left">ALIEN-795</td>
-      <td style="text-align: left">Fixed an issue that caused dependency management to hang under some latency circumstances (network, time for components to start). /</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="cloudify-3-paas-provider">Cloudify 3 PaaS Provider</h3>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th style="text-align: left">Type</th>
-      <th style="text-align: left">Id</th>
-      <th style="text-align: left">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
-      <td style="text-align: left">ALIEN-757</td>
-      <td style="text-align: left">Deployment artifacts are now managed by cloudify 3 provider. /</td>
-    </tr>
-  </tbody>
-</table>
-
 <h3 id="alien-4-cloud">Alien 4 Cloud</h3>
 
 <table class="table table-bordered">
@@ -206,6 +123,89 @@ ga('send', 'pageview');
       <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
       <td style="text-align: left">ALIEN-791</td>
       <td style="text-align: left">Fixed an issue that caused a very long startup delay in case a cloud was not reachable on alien’s startup. /</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="cloudify-3-paas-provider">Cloudify 3 PaaS Provider</h3>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Id</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
+      <td style="text-align: left">ALIEN-757</td>
+      <td style="text-align: left">Deployment artifacts are now managed by cloudify 3 provider. /</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="cloudify-2-paas-provider">Cloudify 2 PaaS Provider</h3>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Id</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
+      <td style="text-align: left">ALIEN-734</td>
+      <td style="text-align: left">Passwords for cloudify 2 connection are now configured using password type fields in A4C UI. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
+      <td style="text-align: left">ALIEN-785</td>
+      <td style="text-align: left">Removed the synchronous deployment mode as this was deprecated, buggy and not recommended feature. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-715</td>
+      <td style="text-align: left">Fixed an issue that prevented to use the get_property function to access a property defined in a capability in the inputs of a relationship script /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-716</td>
+      <td style="text-align: left">Fixed an issue that caused get_attribute: [TARGET, ip_address] to fail when used on a node’s stop operation. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-736</td>
+      <td style="text-align: left">Alien 4 Cloud is now able to differentiate templates registered in cloudify 2 even when multiple templates are related to the same image+flavor combination. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-749</td>
+      <td style="text-align: left">Fixed an issue that prevented to use the get_property function to access a property defined in a relationship as the inputs of a relationship script /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-753</td>
+      <td style="text-align: left">Fixed an issue that caused get_attribute: [TARGET, ip_address] to fail when used on a relationship’s add_target operation. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-761</td>
+      <td style="text-align: left">Unable to restart the cloudify manager in persistent mode /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-776</td>
+      <td style="text-align: left">When I deployed an application in A4C, A4C lost track of the deployment, but the application is correctly deployed in Cloudify. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-795</td>
+      <td style="text-align: left">Fixed an issue that caused dependency management to hang under some latency circumstances (network, time for components to start). /</td>
     </tr>
   </tbody>
 </table>
