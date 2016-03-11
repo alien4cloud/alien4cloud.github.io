@@ -34,11 +34,11 @@ ga('send', 'pageview');
 
 <p>This plugin contains all the packaging structure to package and also easily develop your plugin.</p>
 
-<h1 id="understanding-aliens-ui-plugin-packaging">Understanding alien&#8217;s ui plugin packaging</h1>
+<h1 id="understanding-aliens-ui-plugin-packaging">Understanding alien’s ui plugin packaging</h1>
 
 <p>Our sample ui plugin ships with a packaging process that is similar to alien4cloud and that we recommend you to follow. On top of the packaging process we leverage <strong>maven</strong> as every plugin requires a minimal java configuration spring bean (see the <a href="#/developer_guide/plugin.html">main plugin documentation</a>).</p>
 
-<p><strong>Maven</strong> delegates to <strong>Grunt</strong> the packaging of the ui part of the plugin. Grunt basically does a few things but the most important from a packaging perspective is the usage of <strong>requirejs</strong> to create a single script that contains the plugin and it&#8217;s dependencies.</p>
+<p><strong>Maven</strong> delegates to <strong>Grunt</strong> the packaging of the ui part of the plugin. Grunt basically does a few things but the most important from a packaging perspective is the usage of <strong>requirejs</strong> to create a single script that contains the plugin and it’s dependencies.</p>
 
 <p><strong>Requirejs</strong> grunt plugin configuration files lies in <em>src/main/build/config/requirejs.js</em>.</p>
 
@@ -48,16 +48,16 @@ ga('send', 'pageview');
 
 <ul>
   <li>The <strong>mainConfigFile</strong> (<em>./src/main/webapp/scripts/plugin-require.config.js</em>) in our sample plugin.</li>
-  <li>The module(s) to package, in our case it is called <em>&#8216;a4c-plugin-sample&#8217;</em>:</li>
+  <li>The module(s) to package, in our case it is called <em>‘a4c-plugin-sample’</em>:</li>
 </ul>
 
 <div data-gist="https://gist.github.com/lucboutier/ef213dab0190659cd25e.js"></div>
 
-<p>Of course the <em>&#8216;a4c-plugin-sample&#8217;</em> is defined in the main config file to point to our entry point script:</p>
+<p>Of course the <em>‘a4c-plugin-sample’</em> is defined in the main config file to point to our entry point script:</p>
 
 <div data-gist="https://gist.github.com/lucboutier/206f1388fcd00e3e945d.js"></div>
 
-<p>Our Require JS configuration specifies the application root directory to be <em>appDir: &#8216;&lt;%= yeoman.app %&gt;&#8217;,</em> which is defined in our main gruntfile <em>Gruntfile.js</em> to <em>src/main/webapp</em>. Hence require js will look for the <strong>src/main/webappscripts/plugin.js</strong> file as your module entry point. Note that the <em>.js</em> extension is added automatically by requirejs.</p>
+<p>Our Require JS configuration specifies the application root directory to be <em>appDir: ‘&lt;%= yeoman.app %&gt;’,</em> which is defined in our main gruntfile <em>Gruntfile.js</em> to <em>src/main/webapp</em>. Hence require js will look for the <strong>src/main/webappscripts/plugin.js</strong> file as your module entry point. Note that the <em>.js</em> extension is added automatically by requirejs.</p>
 
 <div class="note">
 <p>It is a best practice to use a module name that will be the same as the plugin id (as defined in your plugin descriptor) even if that is not required.</p>
@@ -71,7 +71,7 @@ ga('send', 'pageview');
 
 <div data-gist="https://gist.github.com/lucboutier/ef02c6cc8aec37cfd2fe.js"></div>
 
-<p>When requirejs will build the project and package all script within a single file it will try to find some modules called <em>lodash</em> <em>jquery</em> and <em>d3</em>. Such have not been defined yet and the build will fail with the following error: <em>Error: ENOENT: no such file or directory, open &#8216;/path_to_your_project_directory/alien4cloud-plugin-sample/target/webapp/lodash.js&#8217;</em>. In order to avoid that we must instruct requirejs that there is no need to look for this file in package phase (requirejs will try to get it only at runtime - so it has to exists within alien4cloud core ;)). In the requirejs grunt task config file (<em>src/main/build/config/requirejs.js</em>) we will add the following information:</p>
+<p>When requirejs will build the project and package all script within a single file it will try to find some modules called <em>lodash</em> <em>jquery</em> and <em>d3</em>. Such have not been defined yet and the build will fail with the following error: <em>Error: ENOENT: no such file or directory, open ‘/path_to_your_project_directory/alien4cloud-plugin-sample/target/webapp/lodash.js’</em>. In order to avoid that we must instruct requirejs that there is no need to look for this file in package phase (requirejs will try to get it only at runtime - so it has to exists within alien4cloud core ;)). In the requirejs grunt task config file (<em>src/main/build/config/requirejs.js</em>) we will add the following information:</p>
 
 <div data-gist="https://gist.github.com/lucboutier/59ebdd98c0a2b7fa41c1.js"></div>
 
@@ -79,9 +79,9 @@ ga('send', 'pageview');
 
 <h2 id="referencing-new-dependencies">Referencing new dependencies</h2>
 
-<p>Well now we know how to reference alien4cloud scripts in our plugin but your plugin may also require some dependencies that are not already packaged within alien4cloud core. So first of all let&#8217;s get the dependency in our project!</p>
+<p>Well now we know how to reference alien4cloud scripts in our plugin but your plugin may also require some dependencies that are not already packaged within alien4cloud core. So first of all let’s get the dependency in our project!</p>
 
-<p>Let&#8217;s suppose that we want to use the <em>angular-ui-sortable</em> library that is not included in alien4cloud core.</p>
+<p>Let’s suppose that we want to use the <em>angular-ui-sortable</em> library that is not included in alien4cloud core.</p>
 
 <p>We use bower to manage javascript dependencies so the first thing will be to edit the <em>bower.json</em> configuration file to add our dependency.</p>
 
@@ -97,7 +97,7 @@ ga('send', 'pageview');
 
 <h2 id="referencing-your-own-scripts">Referencing your own scripts</h2>
 
-<p>Well this is quite obvious but you will probably have more than one script, controller, service, directive within your plugin. As we have defined already our entry point we can reference another script from it (the other script will be able to also reference it&#8217;s dependencies etc.).</p>
+<p>Well this is quite obvious but you will probably have more than one script, controller, service, directive within your plugin. As we have defined already our entry point we can reference another script from it (the other script will be able to also reference it’s dependencies etc.).</p>
 
 <p>As you remember the base directory of the plugin application, as defined in requirejs, is the <em>src/main/webapp</em> folder. So loading a <em>hello-service.js</em> script, from the <em>src/main/webapp/scripts</em> directory, is just as easy as the following:</p>
 
@@ -107,7 +107,7 @@ ga('send', 'pageview');
 
 <p>Now that you know how to manage your scripts and package them as a single file with requirejs, you may want to access the static resources of your plugin (images, html view, css, etc.).</p>
 
-<p>Our backend packaging system is a bit tricky and all plugin&#8217;s static files (basically all files within the <em>ui</em> folder of your plugin actually) can be accessed from a url that contains your plugin unique id as generated by alien4cloud. Long make short, you actually don&#8217;t know when writing the plugin how to access them.</p>
+<p>Our backend packaging system is a bit tricky and all plugin’s static files (basically all files within the <em>ui</em> folder of your plugin actually) can be accessed from a url that contains your plugin unique id as generated by alien4cloud. Long make short, you actually don’t know when writing the plugin how to access them.</p>
 
 <p>Hopefully we provides you with a way to easily retrieve them! The <strong>plugins</strong> module of alien4cloud allows you to get the base url of your plugin ui directory. For example, to get the <em>views/hello.html</em> resource you can just do the following:</p>
 

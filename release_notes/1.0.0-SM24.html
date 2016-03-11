@@ -28,6 +28,74 @@ ga('send', 'pageview');
         </div>
         <p><i class="fa fa-plus text-success"></i> New feature <i class="fa fa-level-up text-primary"></i> Improvement  <i class="fa fa-bug text-danger"></i> Bug <i class="fa fa-exclamation-triangle text-warning"></i> Breaking change</p>
 
+<h3 id="cloudify-2-paas-provider">Cloudify 2 PaaS Provider</h3>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Id</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-plus text-success"></i></td>
+      <td style="text-align: left">ALIEN-798</td>
+      <td style="text-align: left">Maintenance mode is now available for cloudify 2 PaaS Provider. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
+      <td style="text-align: left">ALIEN-368</td>
+      <td style="text-align: left">Runtime view now immediately reflects expected state when scaling a topology. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-exclamation-triangle text-warning">  <i class="fa fa-level-up text-primary"></i></i></td>
+      <td style="text-align: left">ALIEN-669</td>
+      <td style="text-align: left">Deletable block storage has been removed and replace by orchestrator deployment option to enable/disable removal of block storage based on environments settings (through deployment option). /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
+      <td style="text-align: left">ALIEN-806</td>
+      <td style="text-align: left">All interfaces are now exposed as custom commands. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-426</td>
+      <td style="text-align: left">Runtime view now reflects expected state when un-scaling a topology. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-786</td>
+      <td style="text-align: left">Fixed an issue that caused A4C to loose the event status of the deployment and pass in Initial state after the reboot of a persistent Manager /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-789</td>
+      <td style="text-align: left">Fixed an issue that prevented alien to fetch events from a secured cloudify manager. /</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="cloudify-3-paas-provider">Cloudify 3 PaaS Provider</h3>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Id</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-plus text-success"></i></td>
+      <td style="text-align: left">ALIEN-598</td>
+      <td style="text-align: left">Cloudify 3 PaaS Provider can now execute custom commands. /</td>
+    </tr>
+  </tbody>
+</table>
+
 <h3 id="alien-4-cloud">Alien 4 Cloud</h3>
 
 <table class="table table-bordered">
@@ -103,74 +171,6 @@ ga('send', 'pageview');
       <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
       <td style="text-align: left">ALIEN-832</td>
       <td style="text-align: left">Fixed a bug in the rendering of Network nodes and nodes inheriting from network on the topology view. /</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="cloudify-3-paas-provider">Cloudify 3 PaaS Provider</h3>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th style="text-align: left">Type</th>
-      <th style="text-align: left">Id</th>
-      <th style="text-align: left">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><i class="fa fa-plus text-success"></i></td>
-      <td style="text-align: left">ALIEN-598</td>
-      <td style="text-align: left">Cloudify 3 PaaS Provider can now execute custom commands. /</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="cloudify-2-paas-provider">Cloudify 2 PaaS Provider</h3>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th style="text-align: left">Type</th>
-      <th style="text-align: left">Id</th>
-      <th style="text-align: left">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><i class="fa fa-plus text-success"></i></td>
-      <td style="text-align: left">ALIEN-798</td>
-      <td style="text-align: left">Maintenance mode is now available for cloudify 2 PaaS Provider. /</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
-      <td style="text-align: left">ALIEN-368</td>
-      <td style="text-align: left">Runtime view now immediately reflects expected state when scaling a topology. /</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><i class="fa fa-exclamation-triangle text-warning">  <i class="fa fa-level-up text-primary"></i></i></td>
-      <td style="text-align: left">ALIEN-669</td>
-      <td style="text-align: left">Deletable block storage has been removed and replace by orchestrator deployment option to enable/disable removal of block storage based on environments settings (through deployment option). /</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
-      <td style="text-align: left">ALIEN-806</td>
-      <td style="text-align: left">All interfaces are now exposed as custom commands. /</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
-      <td style="text-align: left">ALIEN-426</td>
-      <td style="text-align: left">Runtime view now reflects expected state when un-scaling a topology. /</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
-      <td style="text-align: left">ALIEN-786</td>
-      <td style="text-align: left">Fixed an issue that caused A4C to loose the event status of the deployment and pass in Initial state after the reboot of a persistent Manager /</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
-      <td style="text-align: left">ALIEN-789</td>
-      <td style="text-align: left">Fixed an issue that prevented alien to fetch events from a secured cloudify manager. /</td>
     </tr>
   </tbody>
 </table>
