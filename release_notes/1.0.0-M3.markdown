@@ -15,32 +15,6 @@ exclude_from_search: true
 <i class="fa fa-plus text-success"></i> New feature <i class="fa fa-level-up text-primary"></i> Improvement  <i class="fa fa-bug text-danger"></i> Bug <i class="fa fa-exclamation-triangle text-warning"></i> Breaking change
 
 
-### Alien 4 Cloud
-
-
-
-  {: .table .table-bordered}
-  | Type        | Id         | Description |
-  |:------------|:-----------|:------------|
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-441 | In components search page, there is now an abstract filter that is enabled by default. /  |
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-443 | User can now access node details page from the topology view (on the node details on node search) /  |
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-456 | ALIEN 4 Cloud version is now displayed in the UI. /  |
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-479 | TOSCA support is now matching simple profile 1.0.0.wd03 /  |
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-483 | CSAR parser is now able to support multiple TOSCA versions (starting from 1.0.0.wd03). /  |
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-511 | REST API to manage application environments. /  |
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-527 | Support a deletable BlockStorage type. This BlockStorage is deleted automatically when undeploying the application /  |
-      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-436 | The provider version is now displayed when admin create a new cloud. /  |
-    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-437 | The editor that allow to see scripts now doesn't allow users to type text in order to avoid confusions. /  |
-    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-442 | We now display simple names of tosca components rather than full names in search. /  |
-    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-515 | Microsoft AZURE can now be selected from the cloud types list. /  |
-    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-534 | Improves error messages (with line and column numbers) when there is issues on CSAR import. /  |
-      |  <i class="fa fa-bug text-danger"></i> | ALIEN-517 | Fixed the responsiveness of the main menu on small screens. /  |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-521 | Fixed an issue in the loading of Alien 4 Cloud config file. /  |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-522 | Fixed an issue forcing user to set a spring profile in addition to the configuration property ldap.enabled=true to enable ldap in Alien 4 Cloud /  |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-533 | Fixed an issue that caused the components not to be removed when a CSAR was removed. /  |
-  
-
-
 ### Cloudify 2 PaaS Provider
 
 
@@ -65,4 +39,30 @@ exclude_from_search: true
     |  <i class="fa fa-plus text-success"></i> | ALIEN-527 | Support a deletable BlockStorage type. This BlockStorage is deleted automatically when undeploying the application /  |
       |  <i class="fa fa-level-up text-primary"></i> | ALIEN-526 | Impove our Samples recipes to add support of Ubuntu 12.04 /  |
     
+
+
+### Alien 4 Cloud
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-441 | In components search page, there is now an abstract filter that is enabled by default. /  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-443 | User can now access node details page from the topology view (on the node details on node search) /  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-456 | ALIEN 4 Cloud version is now displayed in the UI. /  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-479 | TOSCA support is now matching simple profile 1.0.0.wd03 /  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-483 | CSAR parser is now able to support multiple TOSCA versions (starting from 1.0.0.wd03). /  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-511 | REST API to manage application environments. /  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-527 | Support a deletable BlockStorage type. This BlockStorage is deleted automatically when undeploying the application /  |
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-436 | The provider version is now displayed when admin create a new cloud. /  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-437 | The editor that allow to see scripts now doesn't allow users to type text in order to avoid confusions. /  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-442 | We now display simple names of tosca components rather than full names in search. /  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-515 | Microsoft AZURE can now be selected from the cloud types list. /  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-534 | Improves error messages (with line and column numbers) when there is issues on CSAR import. /  |
+      |  <i class="fa fa-bug text-danger"></i> | ALIEN-517 | Fixed the responsiveness of the main menu on small screens. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-521 | Fixed an issue in the loading of Alien 4 Cloud config file. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-522 | Fixed an issue forcing user to set a spring profile in addition to the configuration property ldap.enabled=true to enable ldap in Alien 4 Cloud /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-533 | Fixed an issue that caused the components not to be removed when a CSAR was removed. /  |
+  
 

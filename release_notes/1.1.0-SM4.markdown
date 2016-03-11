@@ -5,7 +5,7 @@ root: ../
 categories: RELEASE_NOTES
 parent: [release_note]
 node_name: 1.1.0-SM4
-weight: 9975
+weight: 9977
 exclude_from_search: true
 ---
 
@@ -13,6 +13,18 @@ exclude_from_search: true
 
 
 <i class="fa fa-plus text-success"></i> New feature <i class="fa fa-level-up text-primary"></i> Improvement  <i class="fa fa-bug text-danger"></i> Bug <i class="fa fa-exclamation-triangle text-warning"></i> Breaking change
+
+
+### Cloudify 3 PaaS Provider
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-1137 | Allow Cloudify3 driver to execute a custom workflow /  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-1181 | Allow get_attribute for all instances (cfy3) /  |
+      
 
 
 ### Alien 4 Cloud
@@ -27,16 +39,4 @@ exclude_from_search: true
     |  <i class="fa fa-plus text-success"></i> | ALIEN-1168 | We now support TOSCA scalarunit.frequency type. /  |
         |  <i class="fa fa-bug text-danger"></i> | ALIEN-1167 | Fixed an issue causing all scalar values to accept long rather than double (1.5 Gib for example) /  |
   
-
-
-### Cloudify 3 PaaS Provider
-
-
-
-  {: .table .table-bordered}
-  | Type        | Id         | Description |
-  |:------------|:-----------|:------------|
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-1137 | Allow Cloudify3 driver to execute a custom workflow /  |
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-1181 | Allow get_attribute for all instances (cfy3) /  |
-      
 

@@ -15,6 +15,17 @@ exclude_from_search: true
 <i class="fa fa-plus text-success"></i> New feature <i class="fa fa-level-up text-primary"></i> Improvement  <i class="fa fa-bug text-danger"></i> Bug <i class="fa fa-exclamation-triangle text-warning"></i> Breaking change
 
 
+### Cloudify 3 PaaS Provider
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+        |  <i class="fa fa-bug text-danger"></i> | ALIEN-1377 | Fixed bug on volume's devices with LinuxFileSystem on AWS EC2 Cloud /  |
+  
+
+
 ### Documentation
 
 
@@ -36,15 +47,4 @@ exclude_from_search: true
   |:------------|:-----------|:------------|
       |  <i class="fa fa-level-up text-primary"></i> | ALIEN-1388 | Performance Improvement on the workflow view /  |
     
-
-
-### Cloudify 3 PaaS Provider
-
-
-
-  {: .table .table-bordered}
-  | Type        | Id         | Description |
-  |:------------|:-----------|:------------|
-        |  <i class="fa fa-bug text-danger"></i> | ALIEN-1377 | Fixed bug on volume's devices with LinuxFileSystem on AWS EC2 Cloud /  |
-  
 

@@ -5,7 +5,7 @@ root: ../
 categories: RELEASE_NOTES
 parent: [release_note]
 node_name: 0.0.12
-weight: 9998
+weight: 9997
 exclude_from_search: true
 ---
 
@@ -13,6 +13,20 @@ exclude_from_search: true
 
 
 <i class="fa fa-plus text-success"></i> New feature <i class="fa fa-level-up text-primary"></i> Improvement  <i class="fa fa-bug text-danger"></i> Bug <i class="fa fa-exclamation-triangle text-warning"></i> Breaking change
+
+
+### Cloudify 2 PaaS Provider
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-360 | Cloudify v2 Locators can now be provided if default implementation is not enough. /  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-362 | Stop detections can now be provided to Cloudify2 driver /  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-388 | Cloudify 2 PaaS Provider now supports restart events for automatic failure recovery. /  |
+        |  <i class="fa fa-bug text-danger"></i> | ALIEN-361 | Integration of start detection script in the driver has been improved to be more respectful of cloudify mechanisms. This will allow to define timeout on operations later on. /  |
+  
 
 
 ### Alien 4 Cloud
@@ -44,19 +58,5 @@ exclude_from_search: true
     |  <i class="fa fa-bug text-danger"></i> | ALIEN-283 | Download button in the UI now points to the latest version. /  |
     |  <i class="fa fa-bug text-danger"></i> | ALIEN-339 | Application user can now see application details page without issues. /  |
     |  <i class="fa fa-bug text-danger"></i> | ALIEN-375 | Remove a user and related links in secured resources /  |
-  
-
-
-### Cloudify 2 PaaS Provider
-
-
-
-  {: .table .table-bordered}
-  | Type        | Id         | Description |
-  |:------------|:-----------|:------------|
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-360 | Cloudify v2 Locators can now be provided if default implementation is not enough. /  |
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-362 | Stop detections can now be provided to Cloudify2 driver /  |
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-388 | Cloudify 2 PaaS Provider now supports restart events for automatic failure recovery. /  |
-        |  <i class="fa fa-bug text-danger"></i> | ALIEN-361 | Integration of start detection script in the driver has been improved to be more respectful of cloudify mechanisms. This will allow to define timeout on operations later on. /  |
   
 

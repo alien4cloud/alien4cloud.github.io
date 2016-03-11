@@ -5,7 +5,7 @@ root: ../
 categories: RELEASE_NOTES
 parent: [release_note]
 node_name: 1.0.0-SM19
-weight: 9989
+weight: 9998
 exclude_from_search: true
 ---
 
@@ -13,6 +13,33 @@ exclude_from_search: true
 
 
 <i class="fa fa-plus text-success"></i> New feature <i class="fa fa-level-up text-primary"></i> Improvement  <i class="fa fa-bug text-danger"></i> Bug <i class="fa fa-exclamation-triangle text-warning"></i> Breaking change
+
+
+### Cloudify 2 PaaS Provider
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-600 | TOSCA SOURCES / TARGETS env var are now available in a relationship script. Also, inputs for other sources / targets of a relationship are now available folowing the TOSCA Simple Profile in YAML. /  |
+      |  <i class="fa fa-bug text-danger"></i> | ALIEN-266 | Fix issues in components inheritance when parent type is in a different archive than child type. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-266 | Fix issues in components inheritance when parent type is in a different archive than child type. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-537 | Fixed an issue that prevented cloudify REST API errors to be logged in the console. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-615 | Fixed an Issue that required deployment artifacts of type file to start with a "/". /  |
+  
+
+
+### Cloudify 3 PaaS Provider
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-591 | Cloudify 3 provider is able to manage get_attribute and get_properties functions. /  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-594 | Cloudify 3 provider is able to generate public IP for compute nodes when configured on a public network. /  |
+      
 
 
 ### Alien 4 Cloud
@@ -30,32 +57,5 @@ exclude_from_search: true
     |  <i class="fa fa-bug text-danger"></i> | ALIEN-266 | Fix issues in components inheritance when parent type is in a different archive than child type. /  |
     |  <i class="fa fa-bug text-danger"></i> | ALIEN-583 | Fixed a bug that prevented node types to contains more than 3 dots in their name (alien.node.cloudify.Tomcat for example) /  |
     |  <i class="fa fa-bug text-danger"></i> | ALIEN-611 | Fixed issues when removing a CSAR from Alien (Add usage validations, delete artifacts from disk, update available versions in index) /  |
-  
-
-
-### Cloudify 3 PaaS Provider
-
-
-
-  {: .table .table-bordered}
-  | Type        | Id         | Description |
-  |:------------|:-----------|:------------|
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-591 | Cloudify 3 provider is able to manage get_attribute and get_properties functions. /  |
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-594 | Cloudify 3 provider is able to generate public IP for compute nodes when configured on a public network. /  |
-      
-
-
-### Cloudify 2 PaaS Provider
-
-
-
-  {: .table .table-bordered}
-  | Type        | Id         | Description |
-  |:------------|:-----------|:------------|
-      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-600 | TOSCA SOURCES / TARGETS env var are now available in a relationship script. Also, inputs for other sources / targets of a relationship are now available folowing the TOSCA Simple Profile in YAML. /  |
-      |  <i class="fa fa-bug text-danger"></i> | ALIEN-266 | Fix issues in components inheritance when parent type is in a different archive than child type. /  |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-266 | Fix issues in components inheritance when parent type is in a different archive than child type. /  |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-537 | Fixed an issue that prevented cloudify REST API errors to be logged in the console. /  |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-615 | Fixed an Issue that required deployment artifacts of type file to start with a "/". /  |
   
 

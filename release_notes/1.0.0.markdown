@@ -5,7 +5,7 @@ root: ../
 categories: RELEASE_NOTES
 parent: [release_note]
 node_name: 1.0.0
-weight: 9993
+weight: 9979
 exclude_from_search: true
 ---
 
@@ -13,6 +13,19 @@ exclude_from_search: true
 
 
 <i class="fa fa-plus text-success"></i> New feature <i class="fa fa-level-up text-primary"></i> Improvement  <i class="fa fa-bug text-danger"></i> Bug <i class="fa fa-exclamation-triangle text-warning"></i> Breaking change
+
+
+### Cloudify 2 PaaS Provider
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+        |  <i class="fa fa-bug text-danger"></i> | ALIEN-977 | Fixed an issue causing the cloudify 2 driver to loose some events under specific circumstances and time shift between the alien server and the cloudify manager server. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1039 | Fixed an issue in the maintenance mode status in cloudify 2 provider. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1079 | Fixed an issue in H.A. management for cloudify 2 provider. /  |
+  
 
 
 ### Documentation
@@ -36,18 +49,5 @@ exclude_from_search: true
         |  <i class="fa fa-bug text-danger"></i> | ALIEN-1038 | BockStorage properties are updated on runtime view (with a limitation making them appear as properties and not attribute) /  |
     |  <i class="fa fa-bug text-danger"></i> | ALIEN-1048 | Fixed an issue causing the workflow view to fail when add source or add target operations where defined on a component. /  |
     |  <i class="fa fa-bug text-danger"></i> | ALIEN-1061 | Fixed an issue on the deployment view causing topology validation not to be refreshed when the user changed the cloud (required for cloud meta properties validation). /  |
-  
-
-
-### Cloudify 2 PaaS Provider
-
-
-
-  {: .table .table-bordered}
-  | Type        | Id         | Description |
-  |:------------|:-----------|:------------|
-        |  <i class="fa fa-bug text-danger"></i> | ALIEN-977 | Fixed an issue causing the cloudify 2 driver to loose some events under specific circumstances and time shift between the alien server and the cloudify manager server. /  |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1039 | Fixed an issue in the maintenance mode status in cloudify 2 provider. /  |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1079 | Fixed an issue in H.A. management for cloudify 2 provider. /  |
   
 
