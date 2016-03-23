@@ -1,12 +1,14 @@
 ---
 layout: post
-title:  Dev Ops Guide
+title: Dev Ops Guide
 root: ../../
-categories: DOCUMENTATION-1.1.0
+categories: "DOCUMENTATION-1.1.0"
 parent: []
 node_name: devops
 weight: 500
+published: true
 ---
+
 
 This section contains reference to the TOSCA Simple profile in YAML specification as it is now supported in Alien. TOSCA is a standard specification that allow dev_ops and architects to define reusable components and topologies that can be easily ported across clouds and orchestrators.
 
@@ -22,5 +24,5 @@ In order to define components in TOSCA you can use the XML or YAML profile (TOSC
 <h5>Tosca support in ALien 4 Cloud</h5>
 Alien 4 Cloud only supports TOSCA Simple Profile in YAML. Simple profile v1 is not released yet and still evolves, a release is planned by the TC for half of 2015.
 
-We currently have a partial support of the latest working drafts, being closer to wd03 than wd05. Our goal is to maintain support for the various Simple profile releases but we don't intend to support all working drafts as they are won't be used by the community.
+We currently have a partial support of the latest working drafts, being closer to wd03 than wd05. Our goal is to maintain support for the various Simple profile releases but we don't intend to support all working drafts as they will not be used by the community.
 {% endwarning %}
