@@ -1,0 +1,125 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/1.2.0/devops_guide/tosca_grammar/artifact_type.html',
+  title: 'Artifact type'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container">
+  <div class="row">
+    
+      <div class="col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Artifact type</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.2.0/devops_guide/tosca_grammar/artifact_type.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <p>An Artifact Type is a reusable entity that defines the type of one or more files which Node Types or Node Templates can have dependent relationships and used during operations such as during installation or deployment.</p>
+
+<h2 id="keynames">Keynames</h2>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Keyname</th>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Required</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">derived_from</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">An optional parent Artifact Type name the Artifact Type derives from.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">description</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">An optional description for the Artifact Type.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">mime_type</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">yes</td>
+      <td style="text-align: left">The required mime type property for the Artifact Type.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">file_ext</td>
+      <td style="text-align: left">string[]</td>
+      <td style="text-align: left">yes</td>
+      <td style="text-align: left">The required file extension property for the Artifact Type.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">properties</td>
+      <td style="text-align: left"><a href="#/documentation/1.1.0/devops_guide/tosca_grammar/property_definition.html">property definitions</a></td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">An optional list of property definitions for the Artifact Type.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="grammar">Grammar</h2>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">&lt;artifact_type_name&gt;</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">derived_from</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;parent_artifact_type_name&gt;</span>
+  <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;artifact_description&gt;</span>
+  <span class="l-Scalar-Plain">mime_type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;mime_type_string&gt;</span>
+  <span class="l-Scalar-Plain">file_ext</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span> <span class="nv">&lt;file_extension_1&gt;</span><span class="p-Indicator">,</span> <span class="nv">...</span><span class="p-Indicator">,</span> <span class="nv">&lt;file_extension_n&gt;</span> <span class="p-Indicator">]</span>
+  <span class="l-Scalar-Plain">properties</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">&lt;property_definitions&gt;</span></code></pre></div>
+
+<p>See:</p>
+
+<ul>
+  <li><a href="#/documentation/1.1.0/devops_guide/tosca_grammar/property_definition.html">property_definitions</a></li>
+</ul>
+
+<h2 id="example">Example</h2>
+
+<p>The following example shows how to define a node type with operation:</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">my_artifact_type</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Java Archive artifact type</span>
+  <span class="l-Scalar-Plain">derived_from</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.artifact.Root</span>
+  <span class="l-Scalar-Plain">mime_type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">application/java-archive</span>
+  <span class="l-Scalar-Plain">file_ext</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span> <span class="nv">jar</span> <span class="p-Indicator">]</span></code></pre></div>
+
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.2.0/devops_guide/tosca_grammar/artifact_type.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-1.2.0', 'documentation/1.2.0/devops_guide/tosca_grammar/artifact_type.md');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

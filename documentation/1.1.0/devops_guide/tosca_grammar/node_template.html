@@ -61,6 +61,11 @@ ga('send', 'pageview');
       <td style="text-align: left">no</td>
       <td style="text-align: left">An optional map of capabilities for the node template.</td>
     </tr>
+    <tr>
+      <td style="text-align: left">interfaces</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">An optional list of named <a href="#/documentation/1.1.0/devops_guide/tosca_grammar/interface_definition.html">interface definitions</a> that override those coming from type.</td>
+    </tr>
   </tbody>
 </table>
 
@@ -75,7 +80,9 @@ ga('send', 'pageview');
   <span class="l-Scalar-Plain">requirements</span><span class="p-Indicator">:</span>
     <span class="l-Scalar-Plain">&lt;requirement_definitions&gt;</span>
   <span class="l-Scalar-Plain">capabilities</span><span class="p-Indicator">:</span>
-    <span class="l-Scalar-Plain">&lt;capability_definitions&gt;</span></code></pre></div>
+    <span class="l-Scalar-Plain">&lt;capability_definitions&gt;</span>
+  <span class="l-Scalar-Plain">interfaces</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">&lt;interface_definitions&gt;</span></code></pre></div>
 
 <h3 id="type">type</h3>
 
@@ -152,6 +159,11 @@ Named requirement definitions have one of the following grammars:</p>
       <td style="text-align: left">properties</td>
       <td style="text-align: left">no</td>
       <td style="text-align: left">An optional list of property values for the relationship (non TOSCA).</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">interfaces</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">An optional list of named <a href="#/documentation/1.1.0/devops_guide/tosca_grammar/interface_definition.html">interface definitions</a> that override those coming from relationship type.</td>
     </tr>
   </tbody>
 </table>
@@ -235,6 +247,15 @@ Named requirement definitions have one of the following grammars:</p>
           <span class="l-Scalar-Plain">properties</span><span class="p-Indicator">:</span>
             <span class="l-Scalar-Plain">port</span><span class="p-Indicator">:</span> <span class="p-Indicator">{</span> <span class="nv">get_input</span><span class="p-Indicator">:</span> <span class="nv">mysql_port</span> <span class="p-Indicator">}</span></code></pre></div>
 
+<h3 id="interfaces">interfaces</h3>
+
+<p>You are allowed to:</p>
+
+<ul>
+  <li>override an interface defined in the type and override a given operation.</li>
+  <li>override an interface defined in the type by adding a new operation.</li>
+  <li>add a new interface to the node template.</li>
+</ul>
 
         <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.1.0/devops_guide/tosca_grammar/node_template.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
 	  </div>
