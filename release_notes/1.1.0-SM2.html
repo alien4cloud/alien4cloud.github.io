@@ -28,69 +28,6 @@ ga('send', 'pageview');
         </div>
         <p><i class="fa fa-plus text-success"></i> New feature <i class="fa fa-level-up text-primary"></i> Improvement  <i class="fa fa-bug text-danger"></i> Bug <i class="fa fa-exclamation-triangle text-warning"></i> Breaking change</p>
 
-<h3 id="cloudify-2-paas-provider">Cloudify 2 PaaS Provider</h3>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th style="text-align: left">Type</th>
-      <th style="text-align: left">Id</th>
-      <th style="text-align: left">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
-      <td style="text-align: left">ALIEN-929</td>
-      <td style="text-align: left">Fixed an issue that prevented to attach more than one block storage on a compute on runtime while designer allow you to do so. /</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
-      <td style="text-align: left">ALIEN-977</td>
-      <td style="text-align: left">Fixed an issue causing the cloudify 2 driver to loose some events under specific circumstances and time shift between the alien server and the cloudify manager server. /</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
-      <td style="text-align: left">ALIEN-1039</td>
-      <td style="text-align: left">Fixed an issue in the maintenance mode status in cloudify 2 provider. /</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
-      <td style="text-align: left">ALIEN-1079</td>
-      <td style="text-align: left">Fixed an issue in H.A. management for cloudify 2 provider. /</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="cloudify-3-paas-provider">Cloudify 3 PaaS Provider</h3>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th style="text-align: left">Type</th>
-      <th style="text-align: left">Id</th>
-      <th style="text-align: left">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><i class="fa fa-plus text-success"></i></td>
-      <td style="text-align: left">ALIEN-1036</td>
-      <td style="text-align: left">When deploying with cloudify 3 you can now defined if you want to delete or not the block storage when underlying the topology. /</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><i class="fa fa-plus text-success"></i></td>
-      <td style="text-align: left">ALIEN-1037</td>
-      <td style="text-align: left">It is now possible to use get_property on capabilities and requirements for cloudify 3. /</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
-      <td style="text-align: left">ALIEN-929</td>
-      <td style="text-align: left">Fixed an issue that prevented to attach more than one block storage on a compute on runtime while designer allow you to do so. /</td>
-    </tr>
-  </tbody>
-</table>
-
 <h3 id="documentation">Documentation</h3>
 
 <table class="table table-bordered">
@@ -175,6 +112,69 @@ ga('send', 'pageview');
       <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
       <td style="text-align: left">ALIEN-1061</td>
       <td style="text-align: left">Fixed an issue on the deployment view causing topology validation not to be refreshed when the user changed the cloud (required for cloud meta properties validation). /</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="cloudify-3-paas-provider">Cloudify 3 PaaS Provider</h3>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Id</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-plus text-success"></i></td>
+      <td style="text-align: left">ALIEN-1036</td>
+      <td style="text-align: left">When deploying with cloudify 3 you can now defined if you want to delete or not the block storage when underlying the topology. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-plus text-success"></i></td>
+      <td style="text-align: left">ALIEN-1037</td>
+      <td style="text-align: left">It is now possible to use get_property on capabilities and requirements for cloudify 3. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-929</td>
+      <td style="text-align: left">Fixed an issue that prevented to attach more than one block storage on a compute on runtime while designer allow you to do so. /</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="cloudify-2-paas-provider">Cloudify 2 PaaS Provider</h3>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Id</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-929</td>
+      <td style="text-align: left">Fixed an issue that prevented to attach more than one block storage on a compute on runtime while designer allow you to do so. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-977</td>
+      <td style="text-align: left">Fixed an issue causing the cloudify 2 driver to loose some events under specific circumstances and time shift between the alien server and the cloudify manager server. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-1039</td>
+      <td style="text-align: left">Fixed an issue in the maintenance mode status in cloudify 2 provider. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-1079</td>
+      <td style="text-align: left">Fixed an issue in H.A. management for cloudify 2 provider. /</td>
     </tr>
   </tbody>
 </table>
