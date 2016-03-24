@@ -1,12 +1,17 @@
 ---
 layout: post
-title:  Capabilities
+title: Capabilities
 root: ../../
 categories: DOCUMENTATION
-parent: [devops, tosca_concepts, tosca_ref_types_normative]
+parent: 
+  - devops
+  - tosca_concepts
+  - tosca_ref_types_normative
 node_name: tosca_ref_types_normative_capa
 weight: 100
+published: true
 ---
+
 
 {% summary %}Normatives capability types in TOSCA{% endsummary %}
 
@@ -33,7 +38,7 @@ The Container capability, when included on a Node Type or Template definition, i
 {: .table .table-bordered}
 | Name | Required | Type | Constraints | Description |
 |:-----|:---------|:-----|:------------|:------------|
-| valid_node_types | true | string[] | A list of one or more names of Node Types that are supported as containees that declare the Container type as a Capability. |
+| valid_node_types | true | string[] | A list of one or more names of Node Types that are supported as containees that declare the Container type as a Requirement. |
 
 ## Definition
 
