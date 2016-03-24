@@ -15,6 +15,25 @@ exclude_from_search: true
 <i class="fa fa-plus text-success"></i> New feature <i class="fa fa-level-up text-primary"></i> Improvement  <i class="fa fa-bug text-danger"></i> Bug <i class="fa fa-exclamation-triangle text-warning"></i> Breaking change
 
 
+### Alien 4 Cloud
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-481 | Support parsing of topologies from TOSCA Simple Profile in YAML /  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-697 | Relationship properties can be changed from UI. /  |
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-562 | Scaling a node now requires a validation from UI view to avoid mistakes. /  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-540 | Application users can now access runtime output properties straight from the application detail page. /  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-609 | Configuration of Images and Flavors is now more compliant with the actual IaaS Configuration allowing to specify the IaaS ids of both Images and Flavors. /  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-694 | Runtime view can now benefits from condensed visibility. /  |
+      |  <i class="fa fa-bug text-danger"></i> | ALIEN-561 | Fixed an issue that displayed an error message when editing cloud name and finally not changing the value. /  |
+    |  <i class="fa fa-exclamation-triangle text-warning">  <i class="fa fa-bug text-danger"></i> | ALIEN-627 | Requirements orders is now preserved for the actual execution of relationships on a node. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-693 | Fixed an issue that allowed to update the version field on a released version (allowing to un-release it somehow). /  |
+  
+
+
 ### Cloudify 3 PaaS Provider
 
 
@@ -36,23 +55,4 @@ exclude_from_search: true
     |  <i class="fa fa-exclamation-triangle text-warning">  <i class="fa fa-plus text-success"></i> | ALIEN-695 | Add target is now called when a new target is added both during deployment phase and on during scaling. /  |
       |  <i class="fa fa-exclamation-triangle text-warning">  <i class="fa fa-level-up text-primary"></i> | ALIEN-703 | Artifacts paths provided as environment variables to scripts are now absolutes. /  |
     
-
-
-### Alien 4 Cloud
-
-
-
-  {: .table .table-bordered}
-  | Type        | Id         | Description |
-  |:------------|:-----------|:------------|
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-481 | Support parsing of topologies from TOSCA Simple Profile in YAML /  |
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-697 | Relationship properties can be changed from UI. /  |
-      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-562 | Scaling a node now requires a validation from UI view to avoid mistakes. /  |
-    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-540 | Application users can now access runtime output properties straight from the application detail page. /  |
-    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-609 | Configuration of Images and Flavors is now more compliant with the actual IaaS Configuration allowing to specify the IaaS ids of both Images and Flavors. /  |
-    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-694 | Runtime view can now benefits from condensed visibility. /  |
-      |  <i class="fa fa-bug text-danger"></i> | ALIEN-561 | Fixed an issue that displayed an error message when editing cloud name and finally not changing the value. /  |
-    |  <i class="fa fa-exclamation-triangle text-warning">  <i class="fa fa-bug text-danger"></i> | ALIEN-627 | Requirements orders is now preserved for the actual execution of relationships on a node. /  |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-693 | Fixed an issue that allowed to update the version field on a released version (allowing to un-release it somehow). /  |
-  
 

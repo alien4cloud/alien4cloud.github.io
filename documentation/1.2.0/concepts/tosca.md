@@ -8,6 +8,7 @@ node_name: concepts-tosca
 weight: 500
 ---
 
+
 TOSCA specification allows users to specify a cloud application's topology by defining a set of nodes that are connected to other using relationships.
 
 The goal of the TOSCA specification is to focus on a good meta-definition of cloud applications and their components and focus on the following goals:
@@ -19,22 +20,22 @@ In order to manage reusability of components and defined recipes, TOSCA allows d
 
 # TOSCA Simple Profile in YAML
 
-TOSCA Simple profile in YAML allows definition of TOSCA elements in a YAML format rather than XML. The YAML format is simpler to write and offers some shorter ways to defined a TOSCA definition.
+TOSCA Simple profile in YAML allows definition of TOSCA elements in a YAML format rather than XML. The YAML format is simpler to write and offers some shorter ways to define a TOSCA definition.
 
 {% warning %}
-_Note: TOSCA Simple profile is a working draft and is not released yet to public. Current Alien 4 Cloud version is using a Alien 4 Cloud's specific DSL that is really close to the latest TOSCA Simple Profile in YAML TC work. This may be subject to some updates in the future._
+_Note: TOSCA Simple profile is a working draft and is not released yet to the  public. Current Alien 4 Cloud version is using Alien 4 Cloud's specific DSL, which is really close to the latest TOSCA Simple Profile in YAML TC work. This may be subject to some updates in the future._
 {% endwarning %}
 
 # TOSCA in Alien 4 Cloud
 
-In Alien 4 Cloud, TOSCA can be used to define both Types (catalog elements) and Applications topologies (Templates). Alien 4 Cloud tools like the topology editor allows you to create Application topologies that can be exported to Tosca Templates.
+In Alien 4 Cloud, TOSCA can be used to define both Types (catalog elements) and Applications topologies (Templates). Alien 4 Cloud tools, like the topology editor, allow you to create Application topologies that can be exported to Tosca Templates.
 
 {% note %}
-Alien 4 Cloud support a slightly modified version of TOSCA Simple Profile in YAML in order to add features that are specific to Alien 4 Cloud context. However we are able to load pure TOSCA compliant templates and also export topologies as pure TOSCA templates.
+Alien 4 Cloud supports a slightly modified version of TOSCA Simple Profile in YAML in order to add features that are specific to the Alien 4 Cloud context. However we are able to load pure TOSCA compliant templates and also export topologies as pure TOSCA templates.
 {% endnote %}
 
 {% warning %}
-Export feature will be available in the next release.
+The export feature will be available in the next release.
 {% endwarning %}
 
 # Cloud Service Archive
@@ -52,7 +53,7 @@ Every elements in TOSCA must be contained into a Cloud Service Archive (CSAR). A
 │   └── tosca-normative-types.yml
 {% endhighlight %}
 
-The entry point for the Cloud Service Archive are the definitions files that are placed at the root of the Archive. Basically this is any .yaml or .yml file that can be found at the Archive root.
+The entry point for the Cloud Service Archive are the definitions files placed at the root of the Archive. Basically this is any .yaml or .yml file that can be found at the Archive root.
 
 {%info%}
 To create your own CSAR, please refer to [this section](#/documentation/1.0.0/devops_guide/tosca_concepts_types_custom.html).

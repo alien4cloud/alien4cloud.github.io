@@ -15,32 +15,6 @@ exclude_from_search: true
 <i class="fa fa-plus text-success"></i> New feature <i class="fa fa-level-up text-primary"></i> Improvement  <i class="fa fa-bug text-danger"></i> Bug <i class="fa fa-exclamation-triangle text-warning"></i> Breaking change
 
 
-### Cloudify 2 PaaS Provider
-
-
-
-  {: .table .table-bordered}
-  | Type        | Id         | Description |
-  |:------------|:-----------|:------------|
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-510 | Network nodes are now managed in Cloudify 2 driver. /  |
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-516 | Block Storage management now supports custom format and mount. /  |
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-527 | Support a deletable BlockStorage type. This BlockStorage is deleted automatically when undeploying the application /  |
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-530 | Ability for the user to provide a custom script for deleting the Block-storage /  |
-      
-
-
-### Tosca Components
-
-
-
-  {: .table .table-bordered}
-  | Type        | Id         | Description |
-  |:------------|:-----------|:------------|
-    |  <i class="fa fa-plus text-success"></i> | ALIEN-527 | Support a deletable BlockStorage type. This BlockStorage is deleted automatically when undeploying the application /  |
-      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-526 | Impove our Samples recipes to add support of Ubuntu 12.04 /  |
-    
-
-
 ### Alien 4 Cloud
 
 
@@ -65,4 +39,30 @@ exclude_from_search: true
     |  <i class="fa fa-bug text-danger"></i> | ALIEN-522 | Fixed an issue forcing user to set a spring profile in addition to the configuration property ldap.enabled=true to enable ldap in Alien 4 Cloud /  |
     |  <i class="fa fa-bug text-danger"></i> | ALIEN-533 | Fixed an issue that caused the components not to be removed when a CSAR was removed. /  |
   
+
+
+### Cloudify 2 PaaS Provider
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-510 | Network nodes are now managed in Cloudify 2 driver. /  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-516 | Block Storage management now supports custom format and mount. /  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-527 | Support a deletable BlockStorage type. This BlockStorage is deleted automatically when undeploying the application /  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-530 | Ability for the user to provide a custom script for deleting the Block-storage /  |
+      
+
+
+### Tosca Components
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-527 | Support a deletable BlockStorage type. This BlockStorage is deleted automatically when undeploying the application /  |
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-526 | Impove our Samples recipes to add support of Ubuntu 12.04 /  |
+    
 

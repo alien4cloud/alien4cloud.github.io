@@ -29,5 +29,5 @@ http://alien4cloud.host:alien4cloud.port/swagger-ui.html
 <h5>Rest API Versioning</h5>
 The Rest API is versionned from now on. So, you should specify a version in the url when accessing resources.  
 However, there is an exception with the ***alien4cloud 1.1.0 API***, which do not need a version.  
-Also note that you can use the keyword `latest` in place of version (example: `/rest/latest/applications`), you will be then consuming the latest API version. We do not recommend this.
+Also note that you can use the keyword `latest` in place of version (example: `/rest/latest/applications`), you will be then consuming the latest API version. Though, we do not recommend this.
 {%endinfo%}

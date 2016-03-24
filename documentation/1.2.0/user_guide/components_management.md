@@ -3,7 +3,7 @@ layout: post
 title: Components catalog
 root: ../../
 categories: DOCUMENTATION-1.2.0
-parent: 
+parent:
   - user_guide
 node_name: components_repo
 weight: 200
@@ -37,6 +37,10 @@ If you want create your own component please go [here](#/documentation/1.1.0/dev
 {%warning%}
 <h5>Roles and security</h5>
 In order to be able to add components to the repository you must have the _COMPONENT_MANAGER_ role. Note that if the archive you wish to upload contains both nodes and relationship types and both a topology template, then you must have both the _COMPONENT_MANAGER_ and _ARCHITECT_ role
+{%endwarning%}
+{%warning%}
+<h5>Uploading a new version of a component</h5>
+The updating of a component within a topology is not taken into account yet. When you load a new version of a component which is currently in use in a topology, you should edit this topology to delete/re-add this component or re-import the topology (if you exported it to yaml format).
 {%endwarning%}
 
 There are three ways to upload components descriptions in ALIEN regarding you browser capabilities :

@@ -39,10 +39,14 @@ ssl_enabled: true
 security_enabled: true
 {% endhighlight %}
 
-In the shell that you'll use to bootstrap cloudify you should export those following variables 
+In the shell that you'll use to bootstrap cloudify you should export those following variables
 
 {% highlight bash %}
 export CLOUDIFY_SSL_TRUST_ALL=True
 export CLOUDIFY_USERNAME=admin
 export CLOUDIFY_PASSWORD=admin
 {% endhighlight %}
+
+## Enable scaling ##
+
+Some additional steps are necessary to use scaling. Please refer to the "Cloudify 3" part to see how you can enable scaling.
