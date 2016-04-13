@@ -30,6 +30,7 @@ exclude_from_search: true
     |  <i class="fa fa-bug text-danger"></i> | ALIEN-1429 | It is now possible to upload a TOSCA yaml where a node template overrides the operation of a node type. /  |
     |  <i class="fa fa-bug text-danger"></i> | ALIEN-1447 | Fix a display issue introduced in 1.2.0-SM1 on orchestrator configuration and meta-properties configuration screens /  |
     |  <i class="fa fa-bug text-danger"></i> | ALIEN-1448 | Fix the websocket connectivity broken since 1.2.0-SM1 and API versioning. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1205 | Fixes some glitches on scalability property rendering on the topology view when configured as input properties. /  |
   
 
 
