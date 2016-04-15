@@ -8,7 +8,7 @@ node_name: tosca_ref_types_interface_definition
 weight: 800
 ---
 
-An interface definition defines a named interface that can be associated with a Node or Relationship Type.
+An interface definition defines a named interface that can be associated with a Node or Relationship types and templates.
 
 ## Keynames
 

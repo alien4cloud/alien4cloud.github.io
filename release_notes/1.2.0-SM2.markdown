@@ -1,0 +1,46 @@
+---
+layout: post
+title:  ALIEN for Cloud 1.2.0-SM2
+root: ../
+categories: RELEASE_NOTES
+parent: [release_note]
+node_name: 1.2.0-SM2
+weight: 9969
+exclude_from_search: true
+---
+
+
+
+
+<i class="fa fa-plus text-success"></i> New feature <i class="fa fa-level-up text-primary"></i> Improvement  <i class="fa fa-bug text-danger"></i> Bug <i class="fa fa-exclamation-triangle text-warning"></i> Breaking change
+
+
+### Alien 4 Cloud
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-1379 | Api is now versionned. Two versions supported in parallel: `/rest/<endpoint>` and `/rest/v1/<endpoint>` /  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-1428 | Users now have automatic suggestions for some property definitions (like the os distribution etc. of a compute) to ease edition and avoid typos for matching. /  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-1438 | Suggestions provide default values for some usual fields (os capability of compute node) /  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-1439 | Alien display warning on a topology import when a property is equal to a suggested value but with a different case (could cause matching issues). It adds an info if the value is similar but different. /  |
+        |  <i class="fa fa-bug text-danger"></i> | ALIEN-1407 | Fix an issue causing configured location resources properties not to be displayed correctly in some scenarios. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1429 | It is now possible to upload a TOSCA yaml where a node template overrides the operation of a node type. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1447 | Fix a display issue introduced in 1.2.0-SM1 on orchestrator configuration and meta-properties configuration screens /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1448 | Fix the websocket connectivity broken since 1.2.0-SM1 and API versioning. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1205 | Fixes some glitches on scalability property rendering on the topology view when configured as input properties. /  |
+  
+
+
+### Cloudify 3 PaaS Provider
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+        |  <i class="fa fa-bug text-danger"></i> | ALIEN-1339 | Default user to access to compute On demand resources shouldn't be "ubuntu" by default. /  |
+  
+

@@ -21,6 +21,7 @@ The following is the list of recognized keynames recognized for a TOSCA Node Tem
 | requirements | no | An optional sequenced list of requirement definitions for the Node Template. |
 | properties | no |  An optional list of property values for the node template. |
 | capabilities | no |  An optional map of capabilities for the node template. |
+| interfaces | no | An optional list of named [interface definitions](#/documentation/1.1.0/devops_guide/tosca_grammar/interface_definition.html) that override those coming from type. |
 
 ## Grammar
 
@@ -35,6 +36,8 @@ The overall structure of a TOSCA Node Template and its top-level key collations 
     <requirement_definitions>
   capabilities:
     <capability_definitions>
+  interfaces:
+    <interface_definitions>
 {% endhighlight %}
 
 ### type
@@ -95,6 +98,7 @@ In such notation the keywords are:
 | capability | yes | The type of the target node type capability that should be used to build the relationship. |
 | relationship | no |  Optionally, the name of the relationship type that should be used to build the relationship (if not defined in the requirement definition or must be specified). |
 | properties | no |  An optional list of property values for the relationship (non TOSCA). |
+| interfaces | no |  An optional list of named [interface definitions](#/documentation/1.1.0/devops_guide/tosca_grammar/interface_definition.html) that override those coming from relationship type. |
 
 In the following example, the relationship type is found in the requirement 'database' of the type alien.nodes.Wordpress. The capability is found by the specified type 'alien.capabilities.MysqlDatabase' :
 
@@ -182,3 +186,11 @@ topology_template:
           properties:
             port: { get_input: mysql_port }
 {% endhighlight %}
+
+### interfaces
+
+You are allowed to:
+
+- override an interface defined in the type and override a given operation.
+- override an interface defined in the type by adding a new operation.
+- add a new interface to the node template.
