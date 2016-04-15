@@ -16,6 +16,11 @@ You can find an example of a plugin that contains some ui code on our [github](h
 
 This plugin contains all the packaging structure to package and also easily develop your plugin.
 
+{% warning %}
+<h5>UI plugins isolation</h5>
+We have found some issues in 1.1.0 version in isolation of ui plugins that we resolved in 1.2.0 version. This however requires that your plugin defines a namespace in the require configuration. We have updated our plugin sample in order to take that update into account.
+{% endwarning %}
+
 # Understanding alien's ui plugin packaging
 
 Our sample ui plugin ships with a packaging process that is similar to alien4cloud and that we recommend you to follow. On top of the packaging process we leverage __maven__ as every plugin requires a minimal java configuration spring bean (see the [main plugin documentation](#/developer_guide/plugin.html)).
