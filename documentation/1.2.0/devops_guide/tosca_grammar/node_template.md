@@ -10,6 +10,10 @@ weight: 300
 
 A Node Template specifies the occurrence of a manageable software component as part of an application’s topology model which is defined in a TOSCA Service Template.  A Node template is an instance of a specified Node Type and can provide customized properties, constraints or operations which override the defaults provided by its Node Type and its implementations.
 
+{% warning %}
+If a node template name contains some special character (is: not an alphanumeric character from the basic Latin alphabet and the underscore) we will replace this caractere by an underscore.
+{% endwarning %}
+
 ## Keynames
 
 The following is the list of recognized keynames recognized for a TOSCA Node Template definition and parsed by Alien4Cloud:

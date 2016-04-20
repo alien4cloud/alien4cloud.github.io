@@ -198,6 +198,10 @@ topology_template:
 
 This element lists the Node Templates that describe the (software) components that are used to compose cloud applications.
 
+{% warning %}
+If a node template name contains some special character (is: not an alphanumeric character from the basic Latin alphabet and the underscore) we will replace this caractere by an underscore.
+{% endwarning %}
+
 #### Grammar
 
 {% highlight yaml %}

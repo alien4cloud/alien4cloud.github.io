@@ -111,6 +111,8 @@ Alien 4 Cloud performs validation of your archive agains the TOSCA specification
 The following image shows the upload of an archive with an error :
 [![Upload an archive with error](../../images/components_guide/csar-upload-errors.png)](../../images/components_guide/csar-upload-errors.png)
 
+If a node template name contains some special character (is: not an alphanumeric character from the basic Latin alphabet and the underscore) we will replace this caractere by an underscore.
+
 # Components search
 
 Alien4Cloud  provides ways to browse the uploaded components, with a search engine allowing filters.
