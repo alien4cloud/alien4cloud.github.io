@@ -120,6 +120,17 @@ ga('send', 'pageview');
 
 <p>Where the pluginId value should be the id of your plugin as defined in the plugin descriptor.</p>
 
+<h1 id="adding-translations-files">Adding translations files</h1>
+<p>You might have some keys to translate when doing ui views. You can register your translations files by using the <code>registerTranslations</code> function of the <strong>plugins</strong> module.<br />
+The function takes as argument, the prefix and the suffix(<code>json</code> by default if not provided) of the translation file. For example, assuming you have a languages data folder <code>data/languages/</code> with the following files for english and french translation: <code>my_plugin_locale-en-us.json, my_plugin_locale-fr-fr.json</code>, you can register them by doing the following (somewhere in one of your scripts, recommended to do it in your entry point script):</p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">//[...]</span>
+<span class="kd">var</span> <span class="nx">plugins</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;plugins&#39;</span><span class="p">);</span>
+<span class="c1">//prefix is: my_plugin_locale-</span>
+<span class="c1">//suffix is: json</span>
+<span class="nx">plugins</span><span class="p">.</span><span class="nx">registerTranslations</span><span class="p">(</span><span class="s1">&#39;data/languages/my_plugin_locale-&#39;</span><span class="p">,</span> <span class="s1">&#39;json&#39;</span><span class="p">)</span>
+<span class="c1">//[...]</span></code></pre></div>
+
 <h1 id="alien-4-cloud-view-routing-and-states-management">Alien 4 cloud view routing and states management</h1>
 
 <p>Alien 4 cloud is an AngularJS 1 application however we have chosen to use the ui-routing project in order to manage routing within our application. We also decided to add some additional sugaring around it in order to manage also our menus and style selection automatically.</p>
