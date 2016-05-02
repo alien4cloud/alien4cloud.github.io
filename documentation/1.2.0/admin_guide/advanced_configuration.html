@@ -33,27 +33,7 @@ ga('send', 'pageview');
 
 <h1 id="using-ssl">Using SSL</h1>
 
-<p>By default Alien 4 Cloud starts using http rather than https enabling SSL is however really simple. Just edit the alien4cloud-config.yml and replace:</p>
-
-<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">server</span><span class="p-Indicator">:</span>
-  <span class="l-Scalar-Plain">port</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">8080</span></code></pre></div>
-
-<p>by</p>
-
-<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">server</span><span class="p-Indicator">:</span>
-  <span class="l-Scalar-Plain">port</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">8443</span>
-  <span class="l-Scalar-Plain">ssl</span><span class="p-Indicator">:</span>
-    <span class="l-Scalar-Plain">key-store</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">keystore.jks</span>
-    <span class="l-Scalar-Plain">key-store-password</span><span class="p-Indicator">:</span> <span class="err">******</span>
-    <span class="l-Scalar-Plain">key-password</span><span class="p-Indicator">:</span> <span class="err">******</span></code></pre></div>
-
-<p>Make sure that you have your key store placed along-side the alien4cloud war file:</p>
-
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">├── start.sh
-├── alien4cloud-ui-<span class="o">{</span>version<span class="o">}</span>-standalone.war
-├── keystore.jks
-├── config/alien4cloud-config.yml
-├── config/elasticsearch.yml</code></pre></div>
+<p>see <a href="#/documentation/1.2.0/admin_guide/ssl_config.html">security section</a>.</p>
 
 <h1 id="elastic-search-configuration">Elastic Search configuration</h1>
 
@@ -67,7 +47,7 @@ ga('send', 'pageview');
 <p>We recommend that you don’t change the default <em>prefix_max_expansions</em> value.</p>
 </div>
 
-<p>If you wish to change one of the parameters, you should open the <em><code>alien4cloud-config.yml</code></em> file and go to the elasticSearch configuration section.</p>
+<p>If you wish to change one of the parameters, you should open the <strong><em><code>alien4cloud-config.yml</code></em></strong> file and go to the elasticSearch configuration section.</p>
 
 <div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">elasticSearch</span><span class="p-Indicator">:</span>
   <span class="l-Scalar-Plain">clusterName</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">escluster</span>
@@ -205,7 +185,7 @@ Assuming we are on the <em>host_1</em> Configuration:</li>
 
 <h1 id="ldap-configuration">LDAP configuration</h1>
 
-<p>See specific <a href="#/documentation/1.1.0/admin_guide/ldap.html">sub-section</a>.</p>
+<p>See specific <a href="#/documentation/1.2.0/admin_guide/ldap.html">sub-section</a>.</p>
 
 <h1 id="component-search-boost">Component search boost</h1>
 

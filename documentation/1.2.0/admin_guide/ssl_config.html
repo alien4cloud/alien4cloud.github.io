@@ -1,0 +1,172 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/1.2.0/admin_guide/ssl_config.html',
+  title: 'SSL configuration'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container">
+  <div class="row">
+    
+      <div class="col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">SSL configuration</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.2.0/admin_guide/ssl_config.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <p>You can configure SSL communication at several levels.</p>
+
+<h1 id="alien4cloud">Alien4Cloud</h1>
+
+<p>By default Alien 4 Cloud starts using http rather than https. Enabling SSL is however really simple. Just edit the <strong><em><code>alien4cloud-config.yml</code></em></strong> and replace:</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">server</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">port</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">8080</span></code></pre></div>
+
+<p>by</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">server</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">port</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">8443</span>
+  <span class="l-Scalar-Plain">ssl</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">key-store</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">keystore.jks</span>
+    <span class="l-Scalar-Plain">key-store-password</span><span class="p-Indicator">:</span> <span class="err">******</span>
+    <span class="l-Scalar-Plain">key-password</span><span class="p-Indicator">:</span> <span class="err">******</span></code></pre></div>
+
+<p>Make sure that you have your key store placed along-side the alien4cloud war file:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">├── start.sh
+├── alien4cloud-ui-<span class="o">{</span>version<span class="o">}</span>-standalone.war
+├── keystore.jks
+├── config/alien4cloud-config.yml
+├── config/elasticsearch.yml</code></pre></div>
+
+<h1 id="post-deployment-application">Post-deployment application</h1>
+<div class="note info">
+<h5>Premium feature</h5>
+<p>This section refers to the a premium feature.</p>
+</div>
+<p>When deploying the patches-application, it is recommended to configure the ssl, to secure the communication with Alien4Cloud.<br />
+For that to be done, you have to create a keystore (and eventually a truststore in case of mutual authentication) and lunch your application with the proper SSL configuration properties.<br />
+If you already have those, then jump to the <strong>Configure the patches server</strong> part, otherwise, you can follow these quick steps to have  self-signed certificates.</p>
+
+<h2 id="create-ca-and-server-certificates">Create CA and server certificates</h2>
+<p>First we have to create our own CA, that will be used to sign the certificates. (If you have another CA, then skip this part.)
+### Generate a key pair for the CA certificate, and self sign it</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">openssl genrsa -aes256 -out ca-key.pem 4096
+openssl req -new -x509 -days <span class="m">365</span> -key ca-key.pem -sha256 -out ca.pem</code></pre></div>
+
+<h3 id="generate-a-keypair-for-the-server-ie-for-the-patches-server-and-sign-it-with-the-ca">Generate a keypair for the server (ie for the patches server), and sign it with the CA</h3>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">openssl genrsa -out server-key.pem 4096
+openssl req -subj <span class="s2">&quot;/CN=&lt;YOUR_DNS_CN&gt;&quot;</span> -sha256 -new -key server-key.pem -out server.csr
+<span class="nb">echo </span><span class="nv">subjectAltName</span> <span class="o">=</span> DNS:<span class="se">\*</span>.YOUR_DOMAIN_NAME &gt; extfile.cnf  <span class="c">##this will allow to generate a certificate for all computes of you domain</span>
+openssl x509 -req -days <span class="m">365</span> -sha256 -in server.csr -CA ca.pem -CAkey ca-key.pem -CAcreateserial -out server-cert.pem -extfile extfile.cnf</code></pre></div>
+
+<h3 id="generate-a-keypair-for-a-client-exemple-alien4cloud-instance-and-sign-it-with-the-ca">Generate a keypair for a client (exemple: alien4cloud instance), and sign it with the CA</h3>
+<div class="note warning">
+<p>Note that if you do not want to perform mutual authentication between Alien4Cloud and the patches server, you should skip this step.</p>
+</div>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">openssl genrsa -out key.pem 4096
+openssl req -subj <span class="s1">&#39;/CN=client&#39;</span> -new -key key.pem -out client.csr
+<span class="nb">echo </span><span class="nv">extendedKeyUsage</span> <span class="o">=</span> clientAuth &gt; extfile.cnf
+openssl x509 -req -days <span class="m">365</span> -sha256 -in client.csr -CA ca.pem -CAkey ca-key.pem -CAcreateserial -out cert.pem -extfile extfile.cnf</code></pre></div>
+
+<h2 id="create-java-truststore-and-keystores">Create java truststore and keystore(s)</h2>
+<p>Now we have to create a truststore with our CA, and add the created keys into one or several keystores.</p>
+
+<h3 id="generate-the-truststore">Generate the truststore</h3>
+<p>The Java installation comes with a build in truststore that contains most of the public trusted CA of the web. If you are building a key for alien4cloud, you must use that truststore and add in your own CA certificate.  That file is usually located at <code>$JAVA_HOME/lib/security/cacert</code>. The default password is <em>changeit</em>.</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">cp <span class="nv">$JAVA_HOME</span>/lib/security/cacert ./server-truststore.jks
+openssl x509 -outform der -in ca.pem -out ca.der
+keytool -import -alias alien4cloud -keystore server-truststore.jks -file ca.der</code></pre></div>
+
+<h3 id="generate-the-server-keystore">Generate the server keystore</h3>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">openssl pkcs12 -export -name alien4cloud -in server-cert.pem -inkey server-key.pem -out server-keystore.p12 -chain -CAfile ca.pem -caname root
+keytool -importkeystore -destkeystore server-keystore.jks -srckeystore server-keystore.p12 -srcstoretype pkcs12 -alias alien4cloud</code></pre></div>
+
+<h3 id="generate-a-client-keystore">Generate a client keystore</h3>
+<div class="note warning">
+<p>Note that if you do not want to perform mutual authentication between Alien4Cloud and the patches server, you should skip this step.</p>
+</div>
+
+<div class="note warning">
+<h5>keystore password</h5>
+<p>For some reason, java clients requires that all the keys in a keystore have the same password as the keystore. Then, make sure you use the same password as the client key pair here.</p>
+</div>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">openssl pkcs12 -export -name alien4cloudClient -in cert.pem -inkey key.pem -out client-keystore.p12 -chain -CAfile ca.pem -caname root
+keytool -importkeystore -destkeystore client-keystore.jks -srckeystore client-keystore.p12 -srcstoretype pkcs12 -alias alien4cloudClient</code></pre></div>
+
+<p>Now that you we have the keystores and the truststore, we can configure the server (and eventually the client) to take them into account.</p>
+
+<h2 id="configure-the-patches-server">Configure the patches server</h2>
+<p>The post-deployment application is a Spring boot application, thus, there are some properties that needs to be set into the Java JVM running the application.</p>
+
+<p>In case you only want the server to be authenticated before the clients, you need specify the location of the keystore, by adding the following options to java command:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">-Dserver.ssl.key-store<span class="o">=</span>path/to/your/server-keystore/server-keystore.jks
+-Dserver.ssl.key-store-password<span class="o">=</span>keyStore-password
+-Dserver.ssl.key-password<span class="o">=</span>key-password</code></pre></div>
+
+<div class="note warning">
+<p>Note that if you do not want to perform mutual authentication between Alien4Cloud and the patches server, you should skip this step.</p>
+</div>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">-Dserver.ssl.trust-store<span class="o">=</span>path/to/your/truststore/server-truststore.jks
+-Dserver.ssl.trust-store-password<span class="o">=</span>trustStore-password
+//the following option is to require client authentication
+-Dserver.ssl.client-auth<span class="o">=</span>need</code></pre></div>
+
+<h2 id="configure-alien4cloud-instance">Configure Alien4Cloud instance</h2>
+<p>You have to modify your launching command to add the folowing java options:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">-Djavax.net.ssl.trustStore<span class="o">=</span>path/to/your/truststore/server-truststore.jks
+-Djavax.net.ssl.trustStorePassword<span class="o">=</span>trustStore-password</code></pre></div>
+
+<div class="note warning">
+<p>Note that if you do not want to perform mutual authentication between Alien4Cloud and the patches server, you should skip this step.</p>
+</div>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">-Djavax.net.ssl.keyStore<span class="o">=</span>path/to/your/client-keystore/client-keystore.jks
+-Djavax.net.ssl.keyStorePassword<span class="o">=</span>keyStore-password</code></pre></div>
+
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.2.0/admin_guide/ssl_config.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-1.2.0', 'documentation/1.2.0/admin_guide/ssl_config.md');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>
