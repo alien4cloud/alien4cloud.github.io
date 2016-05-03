@@ -100,6 +100,20 @@ Hopefully we provides you with a way to easily retrieve them! The __plugins__ mo
 
 Where the pluginId value should be the id of your plugin as defined in the plugin descriptor.
 
+# Adding translations files
+You might have some keys to translate when doing ui views. You can register your translations files by using the `registerTranslations` function of the **plugins** module.  
+The function takes as argument, the prefix and the suffix(`json` by default if not provided) of the translation file. For example, assuming you have a languages data folder `data/languages/` with the following files for english and french translation: `my_plugin_locale-en-us.json, my_plugin_locale-fr-fr.json`, you can register them by doing the following (somewhere in one of your scripts, recommended to do it in your entry point script):
+
+{% highlight javascript%}
+//[...]
+var plugins = require('plugins');
+//prefix is: my_plugin_locale-
+//suffix is: json
+plugins.registerTranslations('data/languages/my_plugin_locale-', 'json')
+//[...]
+{% endhighlight%}
+
+
 # Alien 4 cloud view routing and states management
 
 Alien 4 cloud is an AngularJS 1 application however we have chosen to use the ui-routing project in order to manage routing within our application. We also decided to add some additional sugaring around it in order to manage also our menus and style selection automatically.

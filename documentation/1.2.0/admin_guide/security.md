@@ -1,4 +1,3 @@
-
 ---
 layout: post
 title:  Security
@@ -18,13 +17,13 @@ How to secure access to the UI and API
 
 # SSL mode
 
-how to secure communications between A4C
+see [SSL configuration](#/documentation/1.2.0/admin_guide/ssl_config.html)
 
 # Orchestrator(s) security
 
 Please refer to the documentation of the orchestrators
 
-* [cloudify 3](#/documentation/1.1.0/cloudify3_driver/index.html)
+* [cloudify 3](#/documentation/1.2.0/cloudify3_driver/index.html)
 
 # authorizations
 

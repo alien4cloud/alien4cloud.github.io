@@ -12,33 +12,7 @@ weight: 100
 
 # Using SSL
 
-By default Alien 4 Cloud starts using http rather than https enabling SSL is however really simple. Just edit the alien4cloud-config.yml and replace:
-
-{% highlight yaml %}
-server:
-  port: 8080
-{% endhighlight %}
-
-by
-
-{% highlight yaml %}
-server:
-  port: 8443
-  ssl:
-    key-store: keystore.jks
-    key-store-password: ******
-    key-password: ******
-{% endhighlight %}
-
-Make sure that you have your key store placed along-side the alien4cloud war file:
-
-{% highlight bash %}
-├── start.sh
-├── alien4cloud-ui-{version}-standalone.war
-├── keystore.jks
-├── config/alien4cloud-config.yml
-├── config/elasticsearch.yml
-{% endhighlight %}
+see [security section](#/documentation/1.2.0/admin_guide/ssl_config.html).
 
 # Elastic Search configuration
 
@@ -52,7 +26,7 @@ Common configuration allows you to configure the name of the elasticsearch clust
 We recommend that you don't change the default _prefix_max_expansions_ value.
 {% endnote %}
 
-If you wish to change one of the parameters, you should open the *`alien4cloud-config.yml`* file and go to the elasticSearch configuration section.
+If you wish to change one of the parameters, you should open the ***`alien4cloud-config.yml`*** file and go to the elasticSearch configuration section.
 
 {% highlight yaml %}
 elasticSearch:
@@ -197,7 +171,7 @@ users:
 
 # LDAP configuration
 
-See specific [sub-section](#/documentation/1.1.0/admin_guide/ldap.html).
+See specific [sub-section](#/documentation/1.2.0/admin_guide/ldap.html).
 
 # Component search boost
 
