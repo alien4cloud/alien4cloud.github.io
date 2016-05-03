@@ -145,9 +145,9 @@ by default a value required to the user in order complete the topology and deplo
 <p><img src="../../images/user_guide/user_guide_topology_template_properties.png" alt="Compute properties" /><br /></p>
 
 <p>You can define any property as input and then set its value in the deployment page or indicate
-that the input is bound to an internal variable defined on a <em>location</em> or the <em>application</em> for example.The name syntax of an internal input is:</p>
+that the input is bound to an internal variable defined on a <em>location</em> or the <em>application</em> for example.The name syntax of an internal input is:  </p>
 
-<p><code>&lt;INTERNAL_PREFIX&gt;&lt;TARGET_PROPERTY&gt;</code></p>
+<p><code>&lt;INTERNAL_PREFIX&gt;&lt;TARGET_PROPERTY&gt;</code>  </p>
 
 <p>where <em>TARGET_PROPERTY</em> can be a tag’s or a meta property’s name.</p>
 
@@ -188,7 +188,7 @@ Each step perform a validation of the deployment topology, and errors details ar
 
 <h2 id="location-selection">Location selection</h2>
 <p>The first thing to do is to select, among the displayed location, the one on which you would like to deploy.
- The proposed locations are determined by matching every existing location against the topology, done by a matcher plugin.</p>
+ The proposed locations are determined by matching every existing location against the topology, done by a matcher plugin.  </p>
 
 <p><a href="../../images/user_guide/application/deployment/user_guide_deployment_setup.png"><img src="../../images/user_guide/application/deployment/user_guide_deployment_setup.png" alt="Configure your deployment" /></a></p>
 
@@ -226,6 +226,21 @@ progress.</p>
 <div class="note info">
 <p>The previous picture was taken during a Wordpress deployement, to deploy your own Wordpress, please refer to <a href="#/documentation/1.1.0/getting_started/getting_started.html">this section</a>.</p>
 </div>
+
+<h2 id="post-operation-executor">Post operation executor</h2>
+
+<p>If your application is deployed and if you want to execute a specific operation not defined in
+your CSARs you can use this premium feature. Go to <code>Application &gt; Runtime &gt; Operation</code> and upload your operation,
+we support a <em>bach file</em>, a <em>bat</em> or a <em>tar.gz</em> with lot of scripts (the single script at the root of your archive will be call).
+In the modal, choose a name for your operation
+and select the non-native node for your operation. Then, run this new operation on an instance of this node.</p>
+
+<p><img src="../../images/user_guide/application/runtime-operation-view.png" alt="Operation view" /></p>
+
+<h2 id="patch-a-deployed-application">Patch a deployed application</h2>
+
+<p>The patches are like operations: we call a new custom operation on an instance of a deployed node. But a patch
+will be add on your apllication workflow. Furthermore, all patches for a specific node, can be call in the view <code>Application &gt; Runtime &gt; Patch</code> and on the futur instances of your node.</p>
 
         <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.2.0/user_guide/application_management.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
 	  </div>
