@@ -161,3 +161,18 @@ progress.
 {%info%}
 The previous picture was taken during a Wordpress deployement, to deploy your own Wordpress, please refer to [this section](#/documentation/1.1.0/getting_started/getting_started.html).
 {%endinfo%}
+
+## Post operation executor
+
+If your application is deployed and if you want to execute a specific operation not defined in
+your CSARs you can use this premium feature. Go to `Application > Runtime > Operation` and upload your operation,
+we support a *bach file*, a *bat* or a *tar.gz* with lot of scripts (the single script at the root of your archive will be call).
+In the modal, choose a name for your operation
+and select the non-native node for your operation. Then, run this new operation on an instance of this node.
+
+![Operation view](../../images/user_guide/application/runtime-operation-view.png)
+
+## Patch a deployed application
+
+The patches are like operations: we call a new custom operation on an instance of a deployed node. But a patch
+will be add on your apllication workflow. Furthermore, all patches for a specific node, can be call in the view `Application > Runtime > Patch` and on the futur instances of your node.
