@@ -1,11 +1,14 @@
 ---
 layout: post
-title:  SSL configuration
-categories: DOCUMENTATION-1.2.0
+title: SSL configuration
+categories: "DOCUMENTATION-1.2.0"
 root: ../../
-parent: [admin, security]
+parent: 
+  - admin
+  - security
 node_name: ssl_configuration
 weight: 100
+published: true
 ---
 
 You can configure SSL communication at several levels.
@@ -60,7 +63,7 @@ openssl req -new -x509 -days 365 -key ca-key.pem -sha256 -out ca.pem
 ### Generate a keypair for the server (ie for the patches server), and sign it with the CA
 {% highlight bash%}
 openssl genrsa -out server-key.pem 4096
-openssl req -subj "/CN=<YOUR_DNS_CN>" -sha256 -new -key server-key.pem -out server.csr
+openssl req -subj "/CN=<YOUR_DOMAIN_NAME>" -sha256 -new -key server-key.pem -out server.csr
 echo subjectAltName = DNS:\*.YOUR_DOMAIN_NAME > extfile.cnf  ##this will allow to generate a certificate for all computes of you domain
 openssl x509 -req -days 365 -sha256 -in server.csr -CA ca.pem -CAkey ca-key.pem -CAcreateserial -out server-cert.pem -extfile extfile.cnf
 {% endhighlight %}
