@@ -32,7 +32,7 @@ ga('send', 'pageview');
 <hr style="margin-top:5px; margin-bottom:5px;" />
 
 <div class="note info">
-<p>To understand the application concept, please refer to <a href="#/documentation/1.1.0/concepts/applications.html">this section</a>.</p>
+<p>To understand the application concept, please refer to <a href="#/documentation/1.2.0/concepts/applications.html">this section</a>.</p>
 </div>
 
 <h1 id="create-new-application">Create new application</h1>
@@ -107,140 +107,6 @@ button. You can directly create an application from a topology template if you h
     </tr>
   </tbody>
 </table>
-
-<h1 id="advanced-inputs">Advanced inputs</h1>
-
-<p>This section describe how you can use internal variables defined in <strong>location</strong> or <strong>application</strong>. Those parameters
-could be used as inputs for node template’s or capabilities’ properties.</p>
-
-<p>Our target for this feature is to allow internal prefixes to target meta-properties over different elements :</p>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th style="text-align: left">Targeted element</th>
-      <th style="text-align: left">Internal prefix</th>
-      <th style="text-align: left">Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left"><em>location</em></td>
-      <td style="text-align: left"><code>loc_meta_</code></td>
-      <td style="text-align: left">Target <em>meta-properties</em> defined on a location</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><em>application</em></td>
-      <td style="text-align: left"><code>app_meta_</code> , <code>app_tags_</code></td>
-      <td style="text-align: left">Target <em>meta-properties</em> or <em>tags</em> defined on an application</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="define-a-property-as-an-internal-input">Define a property as an internal input</h2>
-
-<p>When you define a topology, you may want to define some node properties as inputs. An input is
-by default a value required to the user in order complete the topology and deploy.</p>
-
-<p><img src="../../images/user_guide/user_guide_topology_template_properties.png" alt="Compute properties" /><br /></p>
-
-<p>You can define any property as input and then set its value in the deployment page or indicate
-that the input is bound to an internal variable defined on a <em>location</em> or the <em>application</em> for example.The name syntax of an internal input is:</p>
-
-<p><code>&lt;INTERNAL_PREFIX&gt;&lt;TARGET_PROPERTY&gt;</code></p>
-
-<p>where <em>TARGET_PROPERTY</em> can be a tag’s or a meta property’s name.</p>
-
-<p>For example, let’s say that we want to use one of the meta properties defined on our application : <strong>target_client</strong>
-First, we set the wanted property as an input. This will leads to the creation of a new input named after the property’s name.<br />
-Then we have to rename the created input following the above syntax, and using the application meta prefix: <code>app_meta_</code><strong>target_client</strong></p>
-
-<p><img src="../../images/user_guide/user_guide_topology_template_properties_input.png" alt="Properties input on application metaproperties" /><br /></p>
-
-<p>If you have some tags or meta-properties defined on your location, same syntax :</p>
-
-<ul>
-  <li><code>loc_meta_</code><strong>MYAPP_META1</strong></li>
-  <li><code>loc_meta_</code><strong>MYAPP_META2</strong></li>
-  <li><code>app_tags_</code><strong>MYAPP_TAG1</strong></li>
-  <li><code>app_tags_</code><strong>MYAPP_TAG2</strong></li>
-</ul>
-
-<div class="note warning">
-<h5>Meta property naming</h5>
-<p><strong>Note :</strong> avoid dot <code>.</code> character in you meta-property name (e.g. my.meta.1)</p>
-<h5>Missing values</h5>
-<p>We have two possible cases regarding an input and the targeted meta-property :</p>
-
-<ul>
-  <li><strong>requirted</strong> property : if the provided value doesn’t exist as input the property will stay marked as <strong>missing</strong> and the topology not deployable</li>
-  <li><strong>optional</strong> property : if the provided value doesn’t exist you will have a <code>warning</code> but the deployment will still be possible</li>
-</ul>
-</div>
-
-<p>In fact, the deployment steps will help you handle <em>warnings</em> and <em>tasks</em> for a good deployment setup.</p>
-
-<h1 id="deploy-your-application">Deploy your application</h1>
-
-<p>To deploy an application you need to setup the context, you can do this in the <code>Applications &gt; Deployments</code> sub-menu.<br />
-The deployment setup is done by going through a number of hierarchical steps.
-Each step perform a validation of the deployment topology, and errors details are displayed. Note that you can not go to the next step  when the current one is still not valid.</p>
-
-<h2 id="location-selection">Location selection</h2>
-<p>The first thing to do is to select, among the displayed location, the one on which you would like to deploy.
- The proposed locations are determined by matching every existing location against the topology, done by a matcher plugin.</p>
-
-<p><a href="../../images/user_guide/application/deployment/user_guide_deployment_setup.png"><img src="../../images/user_guide/application/deployment/user_guide_deployment_setup.png" alt="Configure your deployment" /></a></p>
-
-<p>For now, note that if no matching plugin is configured by the administrator, a default matcher is used, checking the following:</p>
-
-<ul>
-  <li>The orchestrator managing a location can support all the artifacts contains in your topology (nodes and relationships implementations scripts)</li>
-  <li>The current user have sufficient rights to deploy on the location</li>
-</ul>
-
-<h2 id="node-substitution-">Node substitution :</h2>
-
-<p>Next step is to substitute some abstract nodes from your topology with resources provided by the selected location.<br />
-In the meantime, you can edit some properties if you need to.</p>
-
-<p><a href="../../images/user_guide/application/deployment//user_guide_deployment_setup_substitution.png"><img src="../../images/user_guide/application/deployment/user_guide_deployment_setup_substitution.png" alt="Node substitution" /></a></p>
-
-<h2 id="inputs-properties-and-artifacts">Inputs: properties and artifacts</h2>
-
-<p>Here you set values to inputs and provider deployments properties. Also, you can upload artifacts set as input in the topology.</p>
-
-<p>Here you need to select the value for your <code>inputs</code>. If they are some missing configuration in your topology, a <code>todo list</code> will be displayed.</p>
-
-<p><a href="../../images/user_guide/application/deployment/user_guide_deployment_setup_inputs.png"><img src="../../images/user_guide/application/deployment/user_guide_deployment_setup_inputs.png" alt="Deployment inputs" /></a></p>
-
-<p>Once all those steps are valid, the <em>deploy</em> step is unlocked, and if your topology is valid and ready for deployment, you can hit the deploy button to proceed.</p>
-
-<h1 id="runtime-view">Runtime view</h1>
-
-<p>On this submenu view <code>Application &gt; Runtime</code>, you can have the detailed deployment
-progress.</p>
-
-<p><img src="../../images/user_guide/user_guide_topology_template_runtime.png" alt="Wordpress url" /></p>
-
-<div class="note info">
-<p>The previous picture was taken during a Wordpress deployement, to deploy your own Wordpress, please refer to <a href="#/documentation/1.1.0/getting_started/getting_started.html">this section</a>.</p>
-</div>
-
-<h2 id="post-operation-executor">Post operation executor</h2>
-
-<p>If your application is deployed and if you want to execute a specific operation not defined in
-your CSARs you can use this premium feature. Go to <code>Application &gt; Runtime &gt; Operation</code> and upload your operation,
-we support a <em>bach file</em>, a <em>bat</em> or a <em>tar.gz</em> with lot of scripts (the single script at the root of your archive will be call).
-In the modal, choose a name for your operation
-and select the non-native node for your operation. Then, run this new operation on an instance of this node.</p>
-
-<p><img src="../../images/user_guide/application/runtime-operation-view.png" alt="Operation view" /></p>
-
-<h2 id="patch-a-deployed-application">Patch a deployed application</h2>
-
-<p>The patches are like operations: we call a new custom operation on an instance of a deployed node. But a patch
-will be add on your apllication workflow. Furthermore, all patches for a specific node, can be call in the view <code>Application &gt; Runtime &gt; Patch</code> and on the futur instances of your node.</p>
 
         <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.2.0/user_guide/application_management.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
 	  </div>
