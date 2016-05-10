@@ -7,8 +7,8 @@
 
 ga('create', 'UA-73216650-1', 'auto');
 ga('set', {
-  page: '/documentation/1.1.0/user_guide/topology_management.html',
-  title: 'Topology management'
+  page: '/documentation/1.2.0/user_guide/workflows.html',
+  title: 'Workflows'
 });
 ga('send', 'pageview');
 
@@ -23,92 +23,13 @@ ga('send', 'pageview');
       <div id="content" class="col-md-9">
     
         <div style="height: 50px;">
-          <h1 class="pull-left" style="margin-top: 0px;">Topology management</h1>
-          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.1.0/user_guide/topology_management.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+          <h1 class="pull-left" style="margin-top: 0px;">Workflows</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.2.0/user_guide/workflows.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
         </div>
         
 <hr style="margin-top:5px; margin-bottom:5px;" />
 <div class="row"><ul class="nav nav-pills" id="summarypanel"></ul></div>
 <hr style="margin-top:5px; margin-bottom:5px;" />
-
-<div class="note info">
-<p>To understand the topology concept, please refer to <a href="#/documentation/1.1.0/concepts/topologies.html">this section</a>.</p>
-</div>
-
-<h1 id="topology-template">Topology template</h1>
-
-<p>A topology template allows you to create an application structure which we may use
-for a real application root.</p>
-
-<p>You can access to this feature on menu <code>Topology templates</code> and start to create
-a new template with the topology composer or upload a zip file with your template.</p>
-
-<div class="tabsection"><ul class="nav nav-tabs"></ul><div class="tab-content">
-<div class="tab-pane" id="create_a_template" title="Create a template">
-<p>Create a new topology <img src="../../images/user_guide/user_guide_topology_template_new.png" alt="Create template button" class="inline" /> giving at least a
-<code>template name</code> and if you want a <code>description</code>.</p>
-
-<div class="note">
-<p>This template name will identify your template and must be unique.</p>
-</div>
-
-<p>And then compose your template in this view :</p>
-
-<p><img src="../../images/user_guide/user_guide_topology_template_composer.png" alt="Topology template composer" /></p>
-
-</div>
-<div class="tab-pane" id="upload_a_template" title="Upload a template">
-<p>Just drag and drop your zipped topology in the upload area :</p>
-
-<p><a href="../../images/user_guide/user_guide_topology_template.png"><img src="../../images/user_guide/user_guide_topology_template.png" alt="Upload a topology template" /></a></p>
-
-</div>
-
-</div></div>
-
-<h1 id="topology-templates-list">Topology templates list</h1>
-
-<p>Once you have created / uploaded a template you should be able to see it in the template list :</p>
-
-<p><img src="../../images/user_guide/user_guide_topology_template_list.png" alt="Topology template list" /></p>
-
-<p>From now you can use any template when <a href="#/documentation/1.1.0/user_guide/application/application_management.html">creating a new application</a>.</p>
-
-<h1 id="topology-substitution--composition">Topology substitution / composition</h1>
-
-<p>A topology template can also be used in another template as a type. Topology substitution can make existing topology template re-useable. In order to do this, you must:</p>
-
-<ul>
-  <li>Create a type that is inherited from your topology template.</li>
-</ul>
-
-<p>For example, you have a topology template of an Apache server hosted on a compute as shown in this view. If you want to use this template as a type, you need to click <code>subsitution</code> panel, which is over the bottom-right corner in topology composer view.</p>
-
-<p><a href="../../images/user_guide/user_guide_apache_topology_template.png" target="_blank"><img src="../../images/user_guide/user_guide_apache_topology_template.png" alt="Apache topology template" /></a></p>
-
-<ul>
-  <li>Choose the capabilities/requirements you want to expose.</li>
-</ul>
-
-<p>After clicking <code>Subsitutions</code> panel, you can type <code>tosca.nodes.Root</code> in search bar in the panel. It will create empty <code>Capabilities</code> and <code>Requirements</code> fields. Then, you can select the components whose capabilities/requirements you want to expose. By clicking the <code>Expose</code> button next to capabilities/requirements element of the selected component, you can expose these capabilities/requirements, which will become the capabilities and requirements of the composed new type.</p>
-
-<p><a href="../../images/user_guide/user_guide_expose_capa_substitution.png" target="_blank"><img src="../../images/user_guide/user_guide_expose_capa_substitution.png" alt="Expose capabilities and requirements" /></a></p>
-
-<ul>
-  <li>Eventually define inputs and outputs that will become respectively properties and attributes for the created type.</li>
-</ul>
-
-<p>The inputs of your topology template will become properties of the composed type, and what you choose as outputs will be attributes of the new type.</p>
-
-<p>The created type is named like the template and is usable in another template or an application topology. It’s content will be wired at runtime stage.</p>
-
-<h1 id="topology-version">Topology version</h1>
-
-<p>In the <em>topology version</em> page you can create, edit or delete a version. As we already say in the application concept page, if you remove the ‘SNAPSHOT’ qualifier, your topology will be not editable.</p>
-
-<p><a href="../../images/user_guide/topology_version.png" target="_blank"><img src="../../images/user_guide/topology_version.png" alt="*Topology version" /></a></p>
-
-<h1 id="workflows">Workflows</h1>
 
 <p>A workflow defines sequences of steps that act upon topology’s nodes in order to achieve a defined goal.</p>
 
@@ -121,7 +42,7 @@ a new template with the topology composer or upload a zip file with your templat
 
 <p>We can also talk about <strong>deduced</strong> workflows: these workflows are deduced from standard workflows. For example, when you scale up a host, the host node installation sub-workflow is deduced from <strong>install</strong> workflow (by isolating all steps concerning this particular host and ignoring all other hosts and links from/to steps outside this host).</p>
 
-<h3 id="workflow-steps">Workflow steps</h3>
+<h1 id="workflow-steps">Workflow steps</h1>
 
 <p>So a workflow is a set of steps that are eventually linked. Actually it’s an oriented graph.</p>
 
@@ -135,7 +56,7 @@ a new template with the topology composer or upload a zip file with your templat
   <li>if a step has no successors, it will be linked to the workfow end point (end).</li>
 </ul>
 
-<h3 id="workflow-activity">Workflow activity</h3>
+<h1 id="workflow-activity">Workflow activity</h1>
 
 <p>A step is associated to an activity. Currently, an activity can be:</p>
 
@@ -176,7 +97,7 @@ Here, the <strong>create</strong> operation is preceded by a state change to ‘
 These state changes are mainly used as bound when some relationship are added in the topology.</p>
 </div>
 
-<h3 id="workflow-edition">Workflow edition</h3>
+<h1 id="workflow-edition">Workflow edition</h1>
 
 <p>Editing a complex workflow can become a mess if you have a lot of nodes and relationships in your topology. We have tried to build a intuitive editor to help you to customize your workflows.</p>
 
@@ -216,14 +137,14 @@ These state changes are mainly used as bound when some relationship are added in
   <li>you can not add any activity for an abstract node.</li>
 </ul>
 
-<h3 id="workflow-limitations">Workflow limitations</h3>
+<h1 id="workflow-limitations">Workflow limitations</h1>
 
 <div class="note warning">
 <h5>Topology composition</h5>
 <p>Custom workflows are not compatible with topology composition: when you use topology composition (when you add a node of a type that is a result of a template exposition), all your customizations will be lost (the standard workflow will be regenerated).</p>
 </div>
 
-        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.1.0/user_guide/topology_management.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.2.0/user_guide/workflows.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
 	  </div>
     </div>
   </div>
@@ -239,7 +160,7 @@ if(hash && hash!== null && hash.match(/html$/)) {
 <script type="text/javascript" src="/js/post-layout.js"></script>
 <script>
 $(document).ready(function () {
-  makeSideBar('DOCUMENTATION-1.1.0', 'documentation/1.1.0/user_guide/topology_management.md');
+  makeSideBar('DOCUMENTATION-1.2.0', 'documentation/1.2.0/user_guide/workflows.md');
 });
 </script>
 

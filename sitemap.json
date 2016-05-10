@@ -232,10 +232,10 @@
 	},
 
 	{
-		"url": "/documentation/1.1.0/about.html", 
+		"url": "/documentation/1.0.0/about.html", 
 		"section": "Documentation", 
-		"value": "1.1.0 About",
-		"tokens": [ "1.1.0","About"]
+		"value": "1.0.0 About",
+		"tokens": [ "1.0.0","About"]
 	},
 
 	{
@@ -246,10 +246,17 @@
 	},
 
 	{
-		"url": "/documentation/1.0.0/about.html", 
+		"url": "/documentation/1.1.0/about.html", 
 		"section": "Documentation", 
-		"value": "1.0.0 About",
-		"tokens": [ "1.0.0","About"]
+		"value": "1.1.0 About",
+		"tokens": [ "1.1.0","About"]
+	},
+
+	{
+		"url": "/documentation/1.0.0/admin/advanced_configuration.html", 
+		"section": "Documentation", 
+		"value": "Advanced configuration",
+		"tokens": [ "Advanced","configuration"]
 	},
 
 	{
@@ -267,17 +274,10 @@
 	},
 
 	{
-		"url": "/documentation/1.0.0/admin/advanced_configuration.html", 
+		"url": "/documentation/1.2.0/user_guide/application_deployment.html", 
 		"section": "Documentation", 
-		"value": "Advanced configuration",
-		"tokens": [ "Advanced","configuration"]
-	},
-
-	{
-		"url": "/documentation/1.1.0/user_guide/application_management.html", 
-		"section": "Documentation", 
-		"value": "Application(s) management",
-		"tokens": [ "Application(s)","management"]
+		"value": "Application deployment",
+		"tokens": [ "Application","deployment"]
 	},
 
 	{
@@ -288,10 +288,24 @@
 	},
 
 	{
+		"url": "/documentation/1.1.0/user_guide/application_management.html", 
+		"section": "Documentation", 
+		"value": "Application(s) management",
+		"tokens": [ "Application(s)","management"]
+	},
+
+	{
 		"url": "/documentation/1.0.0/user_guide/application_management.html", 
 		"section": "Documentation", 
 		"value": "Application(s) management",
 		"tokens": [ "Application(s)","management"]
+	},
+
+	{
+		"url": "/documentation/1.2.0/user_guide/application_runtime.html", 
+		"section": "Documentation", 
+		"value": "Application runtime",
+		"tokens": [ "Application","runtime"]
 	},
 
 	{
@@ -323,14 +337,14 @@
 	},
 
 	{
-		"url": "/documentation/1.1.0/devops_guide/tosca_grammar/artifact_definition.html", 
+		"url": "/documentation/1.2.0/devops_guide/tosca_grammar/artifact_definition.html", 
 		"section": "Documentation", 
 		"value": "Artifact definition",
 		"tokens": [ "Artifact","definition"]
 	},
 
 	{
-		"url": "/documentation/1.2.0/devops_guide/tosca_grammar/artifact_definition.html", 
+		"url": "/documentation/1.1.0/devops_guide/tosca_grammar/artifact_definition.html", 
 		"section": "Documentation", 
 		"value": "Artifact definition",
 		"tokens": [ "Artifact","definition"]
@@ -344,13 +358,6 @@
 	},
 
 	{
-		"url": "/documentation/1.0.0/devops_guide/tosca_grammar/artifact_type.html", 
-		"section": "Documentation", 
-		"value": "Artifact type",
-		"tokens": [ "Artifact","type"]
-	},
-
-	{
 		"url": "/documentation/1.2.0/devops_guide/tosca_grammar/artifact_type.html", 
 		"section": "Documentation", 
 		"value": "Artifact type",
@@ -358,14 +365,21 @@
 	},
 
 	{
-		"url": "/documentation/1.2.0/devops_guide/tosca_grammar/attribute_definition.html", 
+		"url": "/documentation/1.0.0/devops_guide/tosca_grammar/artifact_type.html", 
+		"section": "Documentation", 
+		"value": "Artifact type",
+		"tokens": [ "Artifact","type"]
+	},
+
+	{
+		"url": "/documentation/1.0.0/devops_guide/tosca_grammar/attribute_definition.html", 
 		"section": "Documentation", 
 		"value": "Attribute definition",
 		"tokens": [ "Attribute","definition"]
 	},
 
 	{
-		"url": "/documentation/1.0.0/devops_guide/tosca_grammar/attribute_definition.html", 
+		"url": "/documentation/1.2.0/devops_guide/tosca_grammar/attribute_definition.html", 
 		"section": "Documentation", 
 		"value": "Attribute definition",
 		"tokens": [ "Attribute","definition"]
@@ -379,7 +393,7 @@
 	},
 
 	{
-		"url": "/documentation/1.2.0/admin_guide/backup_restore.html", 
+		"url": "/documentation/1.1.0/admin_guide/backup_restore.html", 
 		"section": "Documentation", 
 		"value": "Backup and restore",
 		"tokens": [ "Backup","and","restore"]
@@ -393,7 +407,7 @@
 	},
 
 	{
-		"url": "/documentation/1.1.0/admin_guide/backup_restore.html", 
+		"url": "/documentation/1.2.0/admin_guide/backup_restore.html", 
 		"section": "Documentation", 
 		"value": "Backup and restore",
 		"tokens": [ "Backup","and","restore"]
@@ -407,7 +421,7 @@
 	},
 
 	{
-		"url": "/documentation/1.0.0/devops_guide/tosca_grammar/capability_definition.html", 
+		"url": "/documentation/1.1.0/devops_guide/tosca_grammar/capability_definition.html", 
 		"section": "Documentation", 
 		"value": "Capability definition",
 		"tokens": [ "Capability","definition"]
@@ -421,10 +435,17 @@
 	},
 
 	{
-		"url": "/documentation/1.1.0/devops_guide/tosca_grammar/capability_definition.html", 
+		"url": "/documentation/1.0.0/devops_guide/tosca_grammar/capability_definition.html", 
 		"section": "Documentation", 
 		"value": "Capability definition",
 		"tokens": [ "Capability","definition"]
+	},
+
+	{
+		"url": "/documentation/1.0.0/devops_guide/tosca_grammar/capability_type.html", 
+		"section": "Documentation", 
+		"value": "Capability type",
+		"tokens": [ "Capability","type"]
 	},
 
 	{
@@ -436,13 +457,6 @@
 
 	{
 		"url": "/documentation/1.1.0/devops_guide/tosca_grammar/capability_type.html", 
-		"section": "Documentation", 
-		"value": "Capability type",
-		"tokens": [ "Capability","type"]
-	},
-
-	{
-		"url": "/documentation/1.0.0/devops_guide/tosca_grammar/capability_type.html", 
 		"section": "Documentation", 
 		"value": "Capability type",
 		"tokens": [ "Capability","type"]
@@ -505,13 +519,6 @@
 	},
 
 	{
-		"url": "/documentation/1.1.0/user_guide/components_management.html", 
-		"section": "Documentation", 
-		"value": "Components catalog",
-		"tokens": [ "Components","catalog"]
-	},
-
-	{
 		"url": "/documentation/1.0.0/user_guide/components_management.html", 
 		"section": "Documentation", 
 		"value": "Components catalog",
@@ -519,7 +526,14 @@
 	},
 
 	{
-		"url": "/documentation/1.0.0/devops_guide/tosca_grammar/concat_definition.html", 
+		"url": "/documentation/1.1.0/user_guide/components_management.html", 
+		"section": "Documentation", 
+		"value": "Components catalog",
+		"tokens": [ "Components","catalog"]
+	},
+
+	{
+		"url": "/documentation/1.1.0/devops_guide/tosca_grammar/concat_definition.html", 
 		"section": "Documentation", 
 		"value": "concat",
 		"tokens": [ "concat"]
@@ -533,7 +547,7 @@
 	},
 
 	{
-		"url": "/documentation/1.1.0/devops_guide/tosca_grammar/concat_definition.html", 
+		"url": "/documentation/1.0.0/devops_guide/tosca_grammar/concat_definition.html", 
 		"section": "Documentation", 
 		"value": "concat",
 		"tokens": [ "concat"]
@@ -547,14 +561,14 @@
 	},
 
 	{
-		"url": "/documentation/1.2.0/concepts/concepts.html", 
+		"url": "/documentation/1.1.0/concepts/concepts.html", 
 		"section": "Documentation", 
 		"value": "Concepts",
 		"tokens": [ "Concepts"]
 	},
 
 	{
-		"url": "/documentation/1.1.0/concepts/concepts.html", 
+		"url": "/documentation/1.2.0/concepts/concepts.html", 
 		"section": "Documentation", 
 		"value": "Concepts",
 		"tokens": [ "Concepts"]
@@ -568,13 +582,6 @@
 	},
 
 	{
-		"url": "/documentation/1.0.0/devops_guide/tosca_grammar/constraints.html", 
-		"section": "Documentation", 
-		"value": "Constraint clause",
-		"tokens": [ "Constraint","clause"]
-	},
-
-	{
 		"url": "/documentation/1.2.0/devops_guide/tosca_grammar/constraints.html", 
 		"section": "Documentation", 
 		"value": "Constraint clause",
@@ -582,10 +589,10 @@
 	},
 
 	{
-		"url": "/documentation/1.1.0/rest/controller_application-controller.html", 
+		"url": "/documentation/1.0.0/devops_guide/tosca_grammar/constraints.html", 
 		"section": "Documentation", 
-		"value": "Operations on Applications",
-		"tokens": [ "Operations","on","Applications"]
+		"value": "Constraint clause",
+		"tokens": [ "Constraint","clause"]
 	},
 
 	{
@@ -596,14 +603,21 @@
 	},
 
 	{
-		"url": "/documentation/1.1.0/rest/controller_application-deployment-controller.html", 
+		"url": "/documentation/1.1.0/rest/controller_application-controller.html", 
+		"section": "Documentation", 
+		"value": "Operations on Applications",
+		"tokens": [ "Operations","on","Applications"]
+	},
+
+	{
+		"url": "/documentation/1.2.0/rest/controller_application-deployment-controller.html", 
 		"section": "Documentation", 
 		"value": "Manage opertions on deployed application.",
 		"tokens": [ "Manage","opertions","on","deployed","application."]
 	},
 
 	{
-		"url": "/documentation/1.2.0/rest/controller_application-deployment-controller.html", 
+		"url": "/documentation/1.1.0/rest/controller_application-deployment-controller.html", 
 		"section": "Documentation", 
 		"value": "Manage opertions on deployed application.",
 		"tokens": [ "Manage","opertions","on","deployed","application."]
@@ -666,14 +680,14 @@
 	},
 
 	{
-		"url": "/documentation/1.2.0/rest/controller_application-tags-controller.html", 
+		"url": "/documentation/1.1.0/rest/controller_application-tags-controller.html", 
 		"section": "Documentation", 
 		"value": "Application Tags Controller",
 		"tokens": [ "Application","Tags","Controller"]
 	},
 
 	{
-		"url": "/documentation/1.1.0/rest/controller_application-tags-controller.html", 
+		"url": "/documentation/1.2.0/rest/controller_application-tags-controller.html", 
 		"section": "Documentation", 
 		"value": "Application Tags Controller",
 		"tokens": [ "Application","Tags","Controller"]
@@ -694,13 +708,6 @@
 	},
 
 	{
-		"url": "/documentation/1.1.0/rest/controller_audit-controller.html", 
-		"section": "Documentation", 
-		"value": "Audit Controller",
-		"tokens": [ "Audit","Controller"]
-	},
-
-	{
 		"url": "/documentation/1.2.0/rest/controller_audit-controller.html", 
 		"section": "Documentation", 
 		"value": "Audit Controller",
@@ -708,14 +715,21 @@
 	},
 
 	{
-		"url": "/documentation/1.1.0/rest/controller_auth-controller.html", 
+		"url": "/documentation/1.1.0/rest/controller_audit-controller.html", 
+		"section": "Documentation", 
+		"value": "Audit Controller",
+		"tokens": [ "Audit","Controller"]
+	},
+
+	{
+		"url": "/documentation/1.2.0/rest/controller_auth-controller.html", 
 		"section": "Documentation", 
 		"value": "Auth Controller",
 		"tokens": [ "Auth","Controller"]
 	},
 
 	{
-		"url": "/documentation/1.2.0/rest/controller_auth-controller.html", 
+		"url": "/documentation/1.1.0/rest/controller_auth-controller.html", 
 		"section": "Documentation", 
 		"value": "Auth Controller",
 		"tokens": [ "Auth","Controller"]
@@ -736,13 +750,6 @@
 	},
 
 	{
-		"url": "/documentation/1.1.0/rest/controller_cloud-service-archive-controller.html", 
-		"section": "Documentation", 
-		"value": "Cloud Service Archive Controller",
-		"tokens": [ "Cloud","Service","Archive","Controller"]
-	},
-
-	{
 		"url": "/documentation/1.2.0/rest/controller_cloud-service-archive-controller.html", 
 		"section": "Documentation", 
 		"value": "Cloud Service Archive Controller",
@@ -750,10 +757,10 @@
 	},
 
 	{
-		"url": "/documentation/1.1.0/rest/controller_component-controller.html", 
+		"url": "/documentation/1.1.0/rest/controller_cloud-service-archive-controller.html", 
 		"section": "Documentation", 
-		"value": "Component Controller",
-		"tokens": [ "Component","Controller"]
+		"value": "Cloud Service Archive Controller",
+		"tokens": [ "Cloud","Service","Archive","Controller"]
 	},
 
 	{
@@ -764,14 +771,21 @@
 	},
 
 	{
-		"url": "/documentation/1.1.0/rest/controller_csar-git-controller.html", 
+		"url": "/documentation/1.1.0/rest/controller_component-controller.html", 
+		"section": "Documentation", 
+		"value": "Component Controller",
+		"tokens": [ "Component","Controller"]
+	},
+
+	{
+		"url": "/documentation/1.2.0/rest/controller_csar-git-controller.html", 
 		"section": "Documentation", 
 		"value": "Csar Git Controller",
 		"tokens": [ "Csar","Git","Controller"]
 	},
 
 	{
-		"url": "/documentation/1.2.0/rest/controller_csar-git-controller.html", 
+		"url": "/documentation/1.1.0/rest/controller_csar-git-controller.html", 
 		"section": "Documentation", 
 		"value": "Csar Git Controller",
 		"tokens": [ "Csar","Git","Controller"]
@@ -806,14 +820,14 @@
 	},
 
 	{
-		"url": "/documentation/1.2.0/rest/controller_endpoint-mvc-adapter.html", 
+		"url": "/documentation/1.1.0/rest/controller_endpoint-mvc-adapter.html", 
 		"section": "Documentation", 
 		"value": "Endpoint Mvc Adapter",
 		"tokens": [ "Endpoint","Mvc","Adapter"]
 	},
 
 	{
-		"url": "/documentation/1.1.0/rest/controller_endpoint-mvc-adapter.html", 
+		"url": "/documentation/1.2.0/rest/controller_endpoint-mvc-adapter.html", 
 		"section": "Documentation", 
 		"value": "Endpoint Mvc Adapter",
 		"tokens": [ "Endpoint","Mvc","Adapter"]
@@ -890,13 +904,6 @@
 	},
 
 	{
-		"url": "/documentation/1.2.0/rest/controller_location-roles-controller.html", 
-		"section": "Documentation", 
-		"value": "Location Roles Controller",
-		"tokens": [ "Location","Roles","Controller"]
-	},
-
-	{
 		"url": "/documentation/1.1.0/rest/controller_location-roles-controller.html", 
 		"section": "Documentation", 
 		"value": "Location Roles Controller",
@@ -904,10 +911,10 @@
 	},
 
 	{
-		"url": "/documentation/1.2.0/rest/controller_metrics-mvc-endpoint.html", 
+		"url": "/documentation/1.2.0/rest/controller_location-roles-controller.html", 
 		"section": "Documentation", 
-		"value": "Metrics Mvc Endpoint",
-		"tokens": [ "Metrics","Mvc","Endpoint"]
+		"value": "Location Roles Controller",
+		"tokens": [ "Location","Roles","Controller"]
 	},
 
 	{
@@ -918,14 +925,21 @@
 	},
 
 	{
-		"url": "/documentation/1.2.0/rest/controller_orchestrator-configuration.html", 
+		"url": "/documentation/1.2.0/rest/controller_metrics-mvc-endpoint.html", 
+		"section": "Documentation", 
+		"value": "Metrics Mvc Endpoint",
+		"tokens": [ "Metrics","Mvc","Endpoint"]
+	},
+
+	{
+		"url": "/documentation/1.1.0/rest/controller_orchestrator-configuration.html", 
 		"section": "Documentation", 
 		"value": "Get and update orchestrator configuration.",
 		"tokens": [ "Get","and","update","orchestrator","configuration."]
 	},
 
 	{
-		"url": "/documentation/1.1.0/rest/controller_orchestrator-configuration.html", 
+		"url": "/documentation/1.2.0/rest/controller_orchestrator-configuration.html", 
 		"section": "Documentation", 
 		"value": "Get and update orchestrator configuration.",
 		"tokens": [ "Get","and","update","orchestrator","configuration."]
@@ -946,14 +960,14 @@
 	},
 
 	{
-		"url": "/documentation/1.2.0/rest/controller_orchestrator-roles-controller.html", 
+		"url": "/documentation/1.1.0/rest/controller_orchestrator-roles-controller.html", 
 		"section": "Documentation", 
 		"value": "Orchestrator Roles Controller",
 		"tokens": [ "Orchestrator","Roles","Controller"]
 	},
 
 	{
-		"url": "/documentation/1.1.0/rest/controller_orchestrator-roles-controller.html", 
+		"url": "/documentation/1.2.0/rest/controller_orchestrator-roles-controller.html", 
 		"section": "Documentation", 
 		"value": "Orchestrator Roles Controller",
 		"tokens": [ "Orchestrator","Roles","Controller"]
@@ -1002,14 +1016,14 @@
 	},
 
 	{
-		"url": "/documentation/1.2.0/rest/controller_plugins.html", 
+		"url": "/documentation/1.1.0/rest/controller_plugins.html", 
 		"section": "Documentation", 
 		"value": "Manages plugins.",
 		"tokens": [ "Manages","plugins."]
 	},
 
 	{
-		"url": "/documentation/1.1.0/rest/controller_plugins.html", 
+		"url": "/documentation/1.2.0/rest/controller_plugins.html", 
 		"section": "Documentation", 
 		"value": "Manages plugins.",
 		"tokens": [ "Manages","plugins."]
@@ -1030,14 +1044,14 @@
 	},
 
 	{
-		"url": "/documentation/1.2.0/rest/controller_runtime-controller.html", 
+		"url": "/documentation/1.1.0/rest/controller_runtime-controller.html", 
 		"section": "Documentation", 
 		"value": "Runtime Controller",
 		"tokens": [ "Runtime","Controller"]
 	},
 
 	{
-		"url": "/documentation/1.1.0/rest/controller_runtime-controller.html", 
+		"url": "/documentation/1.2.0/rest/controller_runtime-controller.html", 
 		"section": "Documentation", 
 		"value": "Runtime Controller",
 		"tokens": [ "Runtime","Controller"]
@@ -1128,14 +1142,14 @@
 	},
 
 	{
-		"url": "/documentation/1.2.0/rest/controller_user-controller.html", 
+		"url": "/documentation/1.1.0/rest/controller_user-controller.html", 
 		"section": "Documentation", 
 		"value": "User Controller",
 		"tokens": [ "User","Controller"]
 	},
 
 	{
-		"url": "/documentation/1.1.0/rest/controller_user-controller.html", 
+		"url": "/documentation/1.2.0/rest/controller_user-controller.html", 
 		"section": "Documentation", 
 		"value": "User Controller",
 		"tokens": [ "User","Controller"]
@@ -1163,13 +1177,6 @@
 	},
 
 	{
-		"url": "/documentation/1.2.0/rest/definitions_admin-audit-api.html", 
-		"section": "Documentation", 
-		"value": "Definitions",
-		"tokens": [ "Definitions"]
-	},
-
-	{
 		"url": "/documentation/1.1.0/rest/definitions_admin-audit-api.html", 
 		"section": "Documentation", 
 		"value": "Definitions",
@@ -1177,7 +1184,7 @@
 	},
 
 	{
-		"url": "/documentation/1.2.0/rest/definitions_admin-metaproperties-api.html", 
+		"url": "/documentation/1.2.0/rest/definitions_admin-audit-api.html", 
 		"section": "Documentation", 
 		"value": "Definitions",
 		"tokens": [ "Definitions"]
@@ -1185,6 +1192,13 @@
 
 	{
 		"url": "/documentation/1.1.0/rest/definitions_admin-metaproperties-api.html", 
+		"section": "Documentation", 
+		"value": "Definitions",
+		"tokens": [ "Definitions"]
+	},
+
+	{
+		"url": "/documentation/1.2.0/rest/definitions_admin-metaproperties-api.html", 
 		"section": "Documentation", 
 		"value": "Definitions",
 		"tokens": [ "Definitions"]
@@ -1205,14 +1219,14 @@
 	},
 
 	{
-		"url": "/documentation/1.2.0/rest/definitions_admin-plugin-api.html", 
+		"url": "/documentation/1.1.0/rest/definitions_admin-plugin-api.html", 
 		"section": "Documentation", 
 		"value": "Definitions",
 		"tokens": [ "Definitions"]
 	},
 
 	{
-		"url": "/documentation/1.1.0/rest/definitions_admin-plugin-api.html", 
+		"url": "/documentation/1.2.0/rest/definitions_admin-plugin-api.html", 
 		"section": "Documentation", 
 		"value": "Definitions",
 		"tokens": [ "Definitions"]
@@ -1233,13 +1247,6 @@
 	},
 
 	{
-		"url": "/documentation/1.2.0/rest/definitions_applications-api.html", 
-		"section": "Documentation", 
-		"value": "Definitions",
-		"tokens": [ "Definitions"]
-	},
-
-	{
 		"url": "/documentation/1.1.0/rest/definitions_applications-api.html", 
 		"section": "Documentation", 
 		"value": "Definitions",
@@ -1247,7 +1254,7 @@
 	},
 
 	{
-		"url": "/documentation/1.1.0/rest/definitions_components-api.html", 
+		"url": "/documentation/1.2.0/rest/definitions_applications-api.html", 
 		"section": "Documentation", 
 		"value": "Definitions",
 		"tokens": [ "Definitions"]
@@ -1255,6 +1262,13 @@
 
 	{
 		"url": "/documentation/1.2.0/rest/definitions_components-api.html", 
+		"section": "Documentation", 
+		"value": "Definitions",
+		"tokens": [ "Definitions"]
+	},
+
+	{
+		"url": "/documentation/1.1.0/rest/definitions_components-api.html", 
 		"section": "Documentation", 
 		"value": "Definitions",
 		"tokens": [ "Definitions"]
@@ -1296,14 +1310,14 @@
 	},
 
 	{
-		"url": "/documentation/1.1.0/rest/definitions_topology-editor-api.html", 
+		"url": "/documentation/1.2.0/rest/definitions_topology-editor-api.html", 
 		"section": "Documentation", 
 		"value": "Definitions",
 		"tokens": [ "Definitions"]
 	},
 
 	{
-		"url": "/documentation/1.2.0/rest/definitions_topology-editor-api.html", 
+		"url": "/documentation/1.1.0/rest/definitions_topology-editor-api.html", 
 		"section": "Documentation", 
 		"value": "Definitions",
 		"tokens": [ "Definitions"]
@@ -1314,13 +1328,6 @@
 		"section": "Documentation", 
 		"value": "Deployment properties",
 		"tokens": [ "Deployment","properties"]
-	},
-
-	{
-		"url": "/documentation/1.0.0/devops_guide/dev_ops_guide.html", 
-		"section": "Documentation", 
-		"value": "Dev Ops Guide",
-		"tokens": [ "Dev","Ops","Guide"]
 	},
 
 	{
@@ -1338,7 +1345,14 @@
 	},
 
 	{
-		"url": "/documentation/1.0.0/devops_guide/tosca_grammar/function_definition.html", 
+		"url": "/documentation/1.0.0/devops_guide/dev_ops_guide.html", 
+		"section": "Documentation", 
+		"value": "Dev Ops Guide",
+		"tokens": [ "Dev","Ops","Guide"]
+	},
+
+	{
+		"url": "/documentation/1.2.0/devops_guide/tosca_grammar/function_definition.html", 
 		"section": "Documentation", 
 		"value": "Function definition",
 		"tokens": [ "Function","definition"]
@@ -1352,14 +1366,14 @@
 	},
 
 	{
-		"url": "/documentation/1.2.0/devops_guide/tosca_grammar/function_definition.html", 
+		"url": "/documentation/1.0.0/devops_guide/tosca_grammar/function_definition.html", 
 		"section": "Documentation", 
 		"value": "Function definition",
 		"tokens": [ "Function","definition"]
 	},
 
 	{
-		"url": "/documentation/1.0.0/devops_guide/tosca_grammar/get_attribute_definition.html", 
+		"url": "/documentation/1.2.0/devops_guide/tosca_grammar/get_attribute_definition.html", 
 		"section": "Documentation", 
 		"value": "get_attribute",
 		"tokens": [ "get_attribute"]
@@ -1373,7 +1387,7 @@
 	},
 
 	{
-		"url": "/documentation/1.2.0/devops_guide/tosca_grammar/get_attribute_definition.html", 
+		"url": "/documentation/1.0.0/devops_guide/tosca_grammar/get_attribute_definition.html", 
 		"section": "Documentation", 
 		"value": "get_attribute",
 		"tokens": [ "get_attribute"]
@@ -1422,6 +1436,13 @@
 	},
 
 	{
+		"url": "/documentation/1.2.0/devops_guide/tosca_grammar/get_property_definition.html", 
+		"section": "Documentation", 
+		"value": "get_property",
+		"tokens": [ "get_property"]
+	},
+
+	{
 		"url": "/documentation/1.1.0/devops_guide/tosca_grammar/get_property_definition.html", 
 		"section": "Documentation", 
 		"value": "get_property",
@@ -1436,21 +1457,7 @@
 	},
 
 	{
-		"url": "/documentation/1.2.0/devops_guide/tosca_grammar/get_property_definition.html", 
-		"section": "Documentation", 
-		"value": "get_property",
-		"tokens": [ "get_property"]
-	},
-
-	{
 		"url": "/documentation/1.2.0/getting_started/getting_started.html", 
-		"section": "Documentation", 
-		"value": "Getting started",
-		"tokens": [ "Getting","started"]
-	},
-
-	{
-		"url": "/documentation/1.1.0/getting_started/getting_started.html", 
 		"section": "Documentation", 
 		"value": "Getting started",
 		"tokens": [ "Getting","started"]
@@ -1464,14 +1471,21 @@
 	},
 
 	{
-		"url": "/roadmap/index.html", 
+		"url": "/documentation/1.1.0/getting_started/getting_started.html", 
+		"section": "Documentation", 
+		"value": "Getting started",
+		"tokens": [ "Getting","started"]
+	},
+
+	{
+		"url": "/community/index.html", 
 		"section": "", 
 		"value": "ALIEN 4 Cloud",
 		"tokens": [ "ALIEN","4","Cloud"]
 	},
 
 	{
-		"url": "/community/index.html", 
+		"url": "/roadmap/index.html", 
 		"section": "", 
 		"value": "ALIEN 4 Cloud",
 		"tokens": [ "ALIEN","4","Cloud"]
@@ -1485,38 +1499,17 @@
 	},
 
 	{
+		"url": "/release_notes/index.html", 
+		"section": "Release Notes", 
+		"value": "Release Notes",
+		"tokens": [ "Release","Notes"]
+	},
+
+	{
 		"url": "/documentation/1.0.0/cloudify2_driver/index.html", 
 		"section": "Documentation", 
 		"value": "Cloudify 2 PaaS Provider",
 		"tokens": [ "Cloudify","2","PaaS","Provider"]
-	},
-
-	{
-		"url": "/documentation/1.2.0/orchestrators/cloudify3_driver/index.html", 
-		"section": "Documentation", 
-		"value": "Cloudify 3",
-		"tokens": [ "Cloudify","3"]
-	},
-
-	{
-		"url": "/developer_guide/index.html", 
-		"section": "Developer Guide", 
-		"value": "Developer Guide",
-		"tokens": [ "Developer","Guide"]
-	},
-
-	{
-		"url": "/documentation/1.2.0/index.html", 
-		"section": "Documentation", 
-		"value": "ALIEN 4 Cloud - 1.2.0 - Documentation",
-		"tokens": [ "ALIEN","4","Cloud","","1.2.0","","Documentation"]
-	},
-
-	{
-		"url": "/documentation/1.1.0/index.html", 
-		"section": "Documentation", 
-		"value": "ALIEN 4 Cloud - 1.1.0 - Documentation",
-		"tokens": [ "ALIEN","4","Cloud","","1.1.0","","Documentation"]
 	},
 
 	{
@@ -1527,6 +1520,27 @@
 	},
 
 	{
+		"url": "/documentation/1.1.0/index.html", 
+		"section": "Documentation", 
+		"value": "ALIEN 4 Cloud - 1.1.0 - Documentation",
+		"tokens": [ "ALIEN","4","Cloud","","1.1.0","","Documentation"]
+	},
+
+	{
+		"url": "/developer_guide/index.html", 
+		"section": "Developer Guide", 
+		"value": "Developer Guide",
+		"tokens": [ "Developer","Guide"]
+	},
+
+	{
+		"url": "/documentation/1.2.0/orchestrators/cloudify3_driver/index.html", 
+		"section": "Documentation", 
+		"value": "Cloudify 3",
+		"tokens": [ "Cloudify","3"]
+	},
+
+	{
 		"url": "/documentation/1.0.0/index.html", 
 		"section": "Documentation", 
 		"value": "ALIEN 4 Cloud - 1.0.0 - Documentation",
@@ -1534,10 +1548,17 @@
 	},
 
 	{
-		"url": "/release_notes/index.html", 
-		"section": "Release Notes", 
-		"value": "Release Notes",
-		"tokens": [ "Release","Notes"]
+		"url": "/documentation/1.2.0/index.html", 
+		"section": "Documentation", 
+		"value": "ALIEN 4 Cloud - 1.2.0 - Documentation",
+		"tokens": [ "ALIEN","4","Cloud","","1.2.0","","Documentation"]
+	},
+
+	{
+		"url": "/index.html", 
+		"section": "", 
+		"value": "ALIEN 4 Cloud",
+		"tokens": [ "ALIEN","4","Cloud"]
 	},
 
 	{
@@ -1562,13 +1583,6 @@
 	},
 
 	{
-		"url": "/index.html", 
-		"section": "", 
-		"value": "ALIEN 4 Cloud",
-		"tokens": [ "ALIEN","4","Cloud"]
-	},
-
-	{
 		"url": "/documentation/1.0.0/cloudify2_driver/inputs_env_vars.html", 
 		"section": "Documentation", 
 		"value": "Inputs and others variables",
@@ -1576,7 +1590,7 @@
 	},
 
 	{
-		"url": "/documentation/1.0.0/cloudify3_driver/install_config.html", 
+		"url": "/documentation/1.2.0/orchestrators/cloudify3_driver/install_config.html", 
 		"section": "Documentation", 
 		"value": "Installing and configuring",
 		"tokens": [ "Installing","and","configuring"]
@@ -1597,14 +1611,14 @@
 	},
 
 	{
-		"url": "/documentation/1.2.0/orchestrators/cloudify3_driver/install_config.html", 
+		"url": "/documentation/1.0.0/cloudify3_driver/install_config.html", 
 		"section": "Documentation", 
 		"value": "Installing and configuring",
 		"tokens": [ "Installing","and","configuring"]
 	},
 
 	{
-		"url": "/documentation/1.0.0/admin_guide/installation_configuration.html", 
+		"url": "/documentation/1.2.0/admin_guide/installation_configuration.html", 
 		"section": "Documentation", 
 		"value": "Installation and configuration",
 		"tokens": [ "Installation","and","configuration"]
@@ -1618,7 +1632,7 @@
 	},
 
 	{
-		"url": "/documentation/1.2.0/admin_guide/installation_configuration.html", 
+		"url": "/documentation/1.0.0/admin_guide/installation_configuration.html", 
 		"section": "Documentation", 
 		"value": "Installation and configuration",
 		"tokens": [ "Installation","and","configuration"]
@@ -1632,14 +1646,14 @@
 	},
 
 	{
-		"url": "/documentation/1.0.0/devops_guide/tosca_grammar/interface_definition.html", 
+		"url": "/documentation/1.2.0/devops_guide/tosca_grammar/interface_definition.html", 
 		"section": "Documentation", 
 		"value": "Interface definition",
 		"tokens": [ "Interface","definition"]
 	},
 
 	{
-		"url": "/documentation/1.2.0/devops_guide/tosca_grammar/interface_definition.html", 
+		"url": "/documentation/1.0.0/devops_guide/tosca_grammar/interface_definition.html", 
 		"section": "Documentation", 
 		"value": "Interface definition",
 		"tokens": [ "Interface","definition"]
@@ -1653,14 +1667,14 @@
 	},
 
 	{
-		"url": "/documentation/1.0.0/devops_guide/lamp_stack_tutorial/lamp_stack.html", 
+		"url": "/documentation/1.2.0/devops_guide/lamp_stack_tutorial/lamp_stack.html", 
 		"section": "Documentation", 
 		"value": "LAMP Stack Tutorial",
 		"tokens": [ "LAMP","Stack","Tutorial"]
 	},
 
 	{
-		"url": "/documentation/1.2.0/devops_guide/lamp_stack_tutorial/lamp_stack.html", 
+		"url": "/documentation/1.0.0/devops_guide/lamp_stack_tutorial/lamp_stack.html", 
 		"section": "Documentation", 
 		"value": "LAMP Stack Tutorial",
 		"tokens": [ "LAMP","Stack","Tutorial"]
@@ -1671,13 +1685,6 @@
 		"section": "Documentation", 
 		"value": "LAMP Stack Tutorial",
 		"tokens": [ "LAMP","Stack","Tutorial"]
-	},
-
-	{
-		"url": "/documentation/1.0.0/devops_guide/lamp_stack_tutorial/lamp_stack_apache.html", 
-		"section": "Documentation", 
-		"value": "Component Apache HTTP",
-		"tokens": [ "Component","Apache","HTTP"]
 	},
 
 	{
@@ -1695,7 +1702,14 @@
 	},
 
 	{
-		"url": "/documentation/1.0.0/devops_guide/lamp_stack_tutorial/lamp_stack_application.html", 
+		"url": "/documentation/1.0.0/devops_guide/lamp_stack_tutorial/lamp_stack_apache.html", 
+		"section": "Documentation", 
+		"value": "Component Apache HTTP",
+		"tokens": [ "Component","Apache","HTTP"]
+	},
+
+	{
+		"url": "/documentation/1.1.0/devops_guide/lamp_stack_tutorial/lamp_stack_application.html", 
 		"section": "Documentation", 
 		"value": "Stack Application Topology",
 		"tokens": [ "Stack","Application","Topology"]
@@ -1709,7 +1723,7 @@
 	},
 
 	{
-		"url": "/documentation/1.1.0/devops_guide/lamp_stack_tutorial/lamp_stack_application.html", 
+		"url": "/documentation/1.0.0/devops_guide/lamp_stack_tutorial/lamp_stack_application.html", 
 		"section": "Documentation", 
 		"value": "Stack Application Topology",
 		"tokens": [ "Stack","Application","Topology"]
@@ -1737,6 +1751,13 @@
 	},
 
 	{
+		"url": "/documentation/1.2.0/devops_guide/lamp_stack_tutorial/lamp_stack_mysql.html", 
+		"section": "Documentation", 
+		"value": "Component MySQL",
+		"tokens": [ "Component","MySQL"]
+	},
+
+	{
 		"url": "/documentation/1.0.0/devops_guide/lamp_stack_tutorial/lamp_stack_mysql.html", 
 		"section": "Documentation", 
 		"value": "Component MySQL",
@@ -1751,21 +1772,7 @@
 	},
 
 	{
-		"url": "/documentation/1.2.0/devops_guide/lamp_stack_tutorial/lamp_stack_mysql.html", 
-		"section": "Documentation", 
-		"value": "Component MySQL",
-		"tokens": [ "Component","MySQL"]
-	},
-
-	{
 		"url": "/documentation/1.1.0/devops_guide/lamp_stack_tutorial/lamp_stack_php.html", 
-		"section": "Documentation", 
-		"value": "Component PHP",
-		"tokens": [ "Component","PHP"]
-	},
-
-	{
-		"url": "/documentation/1.2.0/devops_guide/lamp_stack_tutorial/lamp_stack_php.html", 
 		"section": "Documentation", 
 		"value": "Component PHP",
 		"tokens": [ "Component","PHP"]
@@ -1779,7 +1786,14 @@
 	},
 
 	{
-		"url": "/documentation/1.1.0/devops_guide/lamp_stack_tutorial/lamp_stack_wordpress.html", 
+		"url": "/documentation/1.2.0/devops_guide/lamp_stack_tutorial/lamp_stack_php.html", 
+		"section": "Documentation", 
+		"value": "Component PHP",
+		"tokens": [ "Component","PHP"]
+	},
+
+	{
+		"url": "/documentation/1.2.0/devops_guide/lamp_stack_tutorial/lamp_stack_wordpress.html", 
 		"section": "Documentation", 
 		"value": "Component Wordpress",
 		"tokens": [ "Component","Wordpress"]
@@ -1793,21 +1807,21 @@
 	},
 
 	{
-		"url": "/documentation/1.2.0/devops_guide/lamp_stack_tutorial/lamp_stack_wordpress.html", 
+		"url": "/documentation/1.1.0/devops_guide/lamp_stack_tutorial/lamp_stack_wordpress.html", 
 		"section": "Documentation", 
 		"value": "Component Wordpress",
 		"tokens": [ "Component","Wordpress"]
 	},
 
 	{
-		"url": "/documentation/1.2.0/admin_guide/ldap.html", 
+		"url": "/documentation/1.0.0/admin/ldap.html", 
 		"section": "Documentation", 
 		"value": "LDAP integration",
 		"tokens": [ "LDAP","integration"]
 	},
 
 	{
-		"url": "/documentation/1.0.0/admin/ldap.html", 
+		"url": "/documentation/1.2.0/admin_guide/ldap.html", 
 		"section": "Documentation", 
 		"value": "LDAP integration",
 		"tokens": [ "LDAP","integration"]
@@ -1891,6 +1905,13 @@
 	},
 
 	{
+		"url": "/documentation/1.2.0/devops_guide/tosca_grammar/node_type.html", 
+		"section": "Documentation", 
+		"value": "Node type",
+		"tokens": [ "Node","type"]
+	},
+
+	{
 		"url": "/documentation/1.0.0/devops_guide/tosca_grammar/node_type.html", 
 		"section": "Documentation", 
 		"value": "Node type",
@@ -1905,14 +1926,7 @@
 	},
 
 	{
-		"url": "/documentation/1.2.0/devops_guide/tosca_grammar/node_type.html", 
-		"section": "Documentation", 
-		"value": "Node type",
-		"tokens": [ "Node","type"]
-	},
-
-	{
-		"url": "/documentation/1.2.0/devops_guide/tosca_grammar/operation_definition.html", 
+		"url": "/documentation/1.0.0/devops_guide/tosca_grammar/operation_definition.html", 
 		"section": "Documentation", 
 		"value": "Operation definition",
 		"tokens": [ "Operation","definition"]
@@ -1926,7 +1940,7 @@
 	},
 
 	{
-		"url": "/documentation/1.0.0/devops_guide/tosca_grammar/operation_definition.html", 
+		"url": "/documentation/1.2.0/devops_guide/tosca_grammar/operation_definition.html", 
 		"section": "Documentation", 
 		"value": "Operation definition",
 		"tokens": [ "Operation","definition"]
@@ -1940,14 +1954,14 @@
 	},
 
 	{
-		"url": "/documentation/1.2.0/user_guide/orchestrator_location_management.html", 
+		"url": "/documentation/1.1.0/user_guide/orchestrator_location_management.html", 
 		"section": "Documentation", 
 		"value": "Orchestrator(s) and location(s) management",
 		"tokens": [ "Orchestrator(s)","and","location(s)","management"]
 	},
 
 	{
-		"url": "/documentation/1.1.0/user_guide/orchestrator_location_management.html", 
+		"url": "/documentation/1.2.0/user_guide/orchestrator_location_management.html", 
 		"section": "Documentation", 
 		"value": "Orchestrator(s) and location(s) management",
 		"tokens": [ "Orchestrator(s)","and","location(s)","management"]
@@ -1975,14 +1989,14 @@
 	},
 
 	{
-		"url": "/documentation/1.2.0/concepts/orchestrators_locations.html", 
+		"url": "/documentation/1.1.0/concepts/orchestrators_locations.html", 
 		"section": "Documentation", 
 		"value": "Orchestrators and locations",
 		"tokens": [ "Orchestrators","and","locations"]
 	},
 
 	{
-		"url": "/documentation/1.1.0/concepts/orchestrators_locations.html", 
+		"url": "/documentation/1.2.0/concepts/orchestrators_locations.html", 
 		"section": "Documentation", 
 		"value": "Orchestrators and locations",
 		"tokens": [ "Orchestrators","and","locations"]
@@ -1996,14 +2010,14 @@
 	},
 
 	{
-		"url": "/documentation/1.1.0/rest/overview.html", 
+		"url": "/documentation/1.2.0/rest/overview.html", 
 		"section": "Documentation", 
 		"value": "Rest API",
 		"tokens": [ "Rest","API"]
 	},
 
 	{
-		"url": "/documentation/1.2.0/rest/overview.html", 
+		"url": "/documentation/1.1.0/rest/overview.html", 
 		"section": "Documentation", 
 		"value": "Rest API",
 		"tokens": [ "Rest","API"]
@@ -2024,13 +2038,6 @@
 	},
 
 	{
-		"url": "/documentation/1.1.0/rest/overview_admin-audit-api.html", 
-		"section": "Documentation", 
-		"value": "admin-audit-api",
-		"tokens": [ "adminaudit-api"]
-	},
-
-	{
 		"url": "/documentation/1.2.0/rest/overview_admin-audit-api.html", 
 		"section": "Documentation", 
 		"value": "admin-audit-api",
@@ -2038,14 +2045,21 @@
 	},
 
 	{
-		"url": "/documentation/1.2.0/rest/overview_admin-metaproperties-api.html", 
+		"url": "/documentation/1.1.0/rest/overview_admin-audit-api.html", 
+		"section": "Documentation", 
+		"value": "admin-audit-api",
+		"tokens": [ "adminaudit-api"]
+	},
+
+	{
+		"url": "/documentation/1.1.0/rest/overview_admin-metaproperties-api.html", 
 		"section": "Documentation", 
 		"value": "admin-metaproperties-api",
 		"tokens": [ "adminmetaproperties-api"]
 	},
 
 	{
-		"url": "/documentation/1.1.0/rest/overview_admin-metaproperties-api.html", 
+		"url": "/documentation/1.2.0/rest/overview_admin-metaproperties-api.html", 
 		"section": "Documentation", 
 		"value": "admin-metaproperties-api",
 		"tokens": [ "adminmetaproperties-api"]
@@ -2094,13 +2108,6 @@
 	},
 
 	{
-		"url": "/documentation/1.2.0/rest/overview_applications-api.html", 
-		"section": "Documentation", 
-		"value": "applications-api",
-		"tokens": [ "applicationsapi"]
-	},
-
-	{
 		"url": "/documentation/1.1.0/rest/overview_applications-api.html", 
 		"section": "Documentation", 
 		"value": "applications-api",
@@ -2108,14 +2115,21 @@
 	},
 
 	{
-		"url": "/documentation/1.2.0/rest/overview_components-api.html", 
+		"url": "/documentation/1.2.0/rest/overview_applications-api.html", 
+		"section": "Documentation", 
+		"value": "applications-api",
+		"tokens": [ "applicationsapi"]
+	},
+
+	{
+		"url": "/documentation/1.1.0/rest/overview_components-api.html", 
 		"section": "Documentation", 
 		"value": "components-api",
 		"tokens": [ "componentsapi"]
 	},
 
 	{
-		"url": "/documentation/1.1.0/rest/overview_components-api.html", 
+		"url": "/documentation/1.2.0/rest/overview_components-api.html", 
 		"section": "Documentation", 
 		"value": "components-api",
 		"tokens": [ "componentsapi"]
@@ -2136,13 +2150,6 @@
 	},
 
 	{
-		"url": "/documentation/1.1.0/rest/overview_topology-editor-api.html", 
-		"section": "Documentation", 
-		"value": "topology-editor-api",
-		"tokens": [ "topologyeditor-api"]
-	},
-
-	{
 		"url": "/documentation/1.2.0/rest/overview_topology-editor-api.html", 
 		"section": "Documentation", 
 		"value": "topology-editor-api",
@@ -2150,10 +2157,10 @@
 	},
 
 	{
-		"url": "/documentation/1.1.0/devops_guide/tosca_grammar/parameter_definition.html", 
+		"url": "/documentation/1.1.0/rest/overview_topology-editor-api.html", 
 		"section": "Documentation", 
-		"value": "Parameter definition",
-		"tokens": [ "Parameter","definition"]
+		"value": "topology-editor-api",
+		"tokens": [ "topologyeditor-api"]
 	},
 
 	{
@@ -2171,17 +2178,17 @@
 	},
 
 	{
+		"url": "/documentation/1.1.0/devops_guide/tosca_grammar/parameter_definition.html", 
+		"section": "Documentation", 
+		"value": "Parameter definition",
+		"tokens": [ "Parameter","definition"]
+	},
+
+	{
 		"url": "/developer_guide/plugin.html", 
 		"section": "Developer Guide", 
 		"value": "Plugins",
 		"tokens": [ "Plugins"]
-	},
-
-	{
-		"url": "/documentation/1.0.0/user_guide/plugin_management.html", 
-		"section": "Documentation", 
-		"value": "Plugin(s) management",
-		"tokens": [ "Plugin(s)","management"]
 	},
 
 	{
@@ -2193,6 +2200,13 @@
 
 	{
 		"url": "/documentation/1.1.0/user_guide/plugin_management.html", 
+		"section": "Documentation", 
+		"value": "Plugin(s) management",
+		"tokens": [ "Plugin(s)","management"]
+	},
+
+	{
+		"url": "/documentation/1.0.0/user_guide/plugin_management.html", 
 		"section": "Documentation", 
 		"value": "Plugin(s) management",
 		"tokens": [ "Plugin(s)","management"]
@@ -2213,6 +2227,13 @@
 	},
 
 	{
+		"url": "/documentation/1.2.0/devops_guide/tosca_grammar/policy.html", 
+		"section": "Documentation", 
+		"value": "Policy",
+		"tokens": [ "Policy"]
+	},
+
+	{
 		"url": "/documentation/1.0.0/devops_guide/tosca_grammar/policy.html", 
 		"section": "Documentation", 
 		"value": "Policy",
@@ -2224,20 +2245,6 @@
 		"section": "Documentation", 
 		"value": "Policy",
 		"tokens": [ "Policy"]
-	},
-
-	{
-		"url": "/documentation/1.2.0/devops_guide/tosca_grammar/policy.html", 
-		"section": "Documentation", 
-		"value": "Policy",
-		"tokens": [ "Policy"]
-	},
-
-	{
-		"url": "/documentation/1.1.0/admin_guide/ports_requirements.html", 
-		"section": "Documentation", 
-		"value": "Ports requirements",
-		"tokens": [ "Ports","requirements"]
 	},
 
 	{
@@ -2255,6 +2262,13 @@
 	},
 
 	{
+		"url": "/documentation/1.1.0/admin_guide/ports_requirements.html", 
+		"section": "Documentation", 
+		"value": "Ports requirements",
+		"tokens": [ "Ports","requirements"]
+	},
+
+	{
 		"url": "/js/post-layout.js", 
 		"section": "", 
 		"value": "",
@@ -2262,21 +2276,28 @@
 	},
 
 	{
-		"url": "/documentation/1.2.0/orchestrators/cloudify3_driver/prerequisites.html", 
+		"url": "/documentation/1.2.0/user_guide/post_deployment.html", 
 		"section": "Documentation", 
-		"value": "Prerequisites",
-		"tokens": [ "Prerequisites"]
+		"value": "Post deployment operations",
+		"tokens": [ "Post","deployment","operations"]
 	},
 
 	{
-		"url": "/documentation/1.1.0/orchestrators/cloudify3_driver/prerequisites.html", 
+		"url": "/documentation/1.2.0/orchestrators/cloudify3_driver/postdeployment_ssl_config.html", 
 		"section": "Documentation", 
-		"value": "Prerequisites",
-		"tokens": [ "Prerequisites"]
+		"value": "Postdeployment SSL configuration",
+		"tokens": [ "Postdeployment","SSL","configuration"]
 	},
 
 	{
 		"url": "/documentation/1.0.0/cloudify2_driver/prerequisites.html", 
+		"section": "Documentation", 
+		"value": "Prerequisites",
+		"tokens": [ "Prerequisites"]
+	},
+
+	{
+		"url": "/documentation/1.2.0/orchestrators/cloudify3_driver/prerequisites.html", 
 		"section": "Documentation", 
 		"value": "Prerequisites",
 		"tokens": [ "Prerequisites"]
@@ -2290,14 +2311,21 @@
 	},
 
 	{
-		"url": "/documentation/1.0.0/devops_guide/tosca_grammar/property_definition.html", 
+		"url": "/documentation/1.1.0/orchestrators/cloudify3_driver/prerequisites.html", 
+		"section": "Documentation", 
+		"value": "Prerequisites",
+		"tokens": [ "Prerequisites"]
+	},
+
+	{
+		"url": "/documentation/1.2.0/devops_guide/tosca_grammar/property_definition.html", 
 		"section": "Documentation", 
 		"value": "Property definition",
 		"tokens": [ "Property","definition"]
 	},
 
 	{
-		"url": "/documentation/1.2.0/devops_guide/tosca_grammar/property_definition.html", 
+		"url": "/documentation/1.0.0/devops_guide/tosca_grammar/property_definition.html", 
 		"section": "Documentation", 
 		"value": "Property definition",
 		"tokens": [ "Property","definition"]
@@ -2318,13 +2346,6 @@
 	},
 
 	{
-		"url": "/documentation/1.0.0/devops_guide/tosca_grammar/relationship_type.html", 
-		"section": "Documentation", 
-		"value": "Relationship type",
-		"tokens": [ "Relationship","type"]
-	},
-
-	{
 		"url": "/documentation/1.1.0/devops_guide/tosca_grammar/relationship_type.html", 
 		"section": "Documentation", 
 		"value": "Relationship type",
@@ -2332,7 +2353,14 @@
 	},
 
 	{
-		"url": "/documentation/1.2.0/devops_guide/tosca_grammar/requirement_definition.html", 
+		"url": "/documentation/1.0.0/devops_guide/tosca_grammar/relationship_type.html", 
+		"section": "Documentation", 
+		"value": "Relationship type",
+		"tokens": [ "Relationship","type"]
+	},
+
+	{
+		"url": "/documentation/1.1.0/devops_guide/tosca_grammar/requirement_definition.html", 
 		"section": "Documentation", 
 		"value": "Requirement definition",
 		"tokens": [ "Requirement","definition"]
@@ -2346,21 +2374,21 @@
 	},
 
 	{
-		"url": "/documentation/1.1.0/devops_guide/tosca_grammar/requirement_definition.html", 
+		"url": "/documentation/1.2.0/devops_guide/tosca_grammar/requirement_definition.html", 
 		"section": "Documentation", 
 		"value": "Requirement definition",
 		"tokens": [ "Requirement","definition"]
 	},
 
 	{
-		"url": "/documentation/1.2.0/concepts/roles.html", 
+		"url": "/documentation/1.0.0/concepts/roles.html", 
 		"section": "Documentation", 
 		"value": "Roles",
 		"tokens": [ "Roles"]
 	},
 
 	{
-		"url": "/documentation/1.0.0/concepts/roles.html", 
+		"url": "/documentation/1.2.0/concepts/roles.html", 
 		"section": "Documentation", 
 		"value": "Roles",
 		"tokens": [ "Roles"]
@@ -2451,13 +2479,6 @@
 	},
 
 	{
-		"url": "/documentation/1.0.0/admin/supported_platforms.html", 
-		"section": "Documentation", 
-		"value": "Supported platforms",
-		"tokens": [ "Supported","platforms"]
-	},
-
-	{
 		"url": "/documentation/1.2.0/admin_guide/supported_platforms.html", 
 		"section": "Documentation", 
 		"value": "Supported platforms",
@@ -2465,10 +2486,10 @@
 	},
 
 	{
-		"url": "/documentation/1.1.0/concepts/topologies.html", 
+		"url": "/documentation/1.0.0/admin/supported_platforms.html", 
 		"section": "Documentation", 
-		"value": "Topologies",
-		"tokens": [ "Topologies"]
+		"value": "Supported platforms",
+		"tokens": [ "Supported","platforms"]
 	},
 
 	{
@@ -2483,6 +2504,20 @@
 		"section": "Documentation", 
 		"value": "Topologies",
 		"tokens": [ "Topologies"]
+	},
+
+	{
+		"url": "/documentation/1.1.0/concepts/topologies.html", 
+		"section": "Documentation", 
+		"value": "Topologies",
+		"tokens": [ "Topologies"]
+	},
+
+	{
+		"url": "/documentation/1.2.0/user_guide/topology_edition.html", 
+		"section": "Documentation", 
+		"value": "Topology edition",
+		"tokens": [ "Topology","edition"]
 	},
 
 	{
@@ -2507,13 +2542,6 @@
 	},
 
 	{
-		"url": "/documentation/1.0.0/devops_guide/tosca_grammar/topology_template.html", 
-		"section": "Documentation", 
-		"value": "Topology template",
-		"tokens": [ "Topology","template"]
-	},
-
-	{
 		"url": "/documentation/1.1.0/devops_guide/tosca_grammar/topology_template.html", 
 		"section": "Documentation", 
 		"value": "Topology template",
@@ -2528,7 +2556,14 @@
 	},
 
 	{
-		"url": "/documentation/1.0.0/concepts/tosca.html", 
+		"url": "/documentation/1.0.0/devops_guide/tosca_grammar/topology_template.html", 
+		"section": "Documentation", 
+		"value": "Topology template",
+		"tokens": [ "Topology","template"]
+	},
+
+	{
+		"url": "/documentation/1.2.0/concepts/tosca.html", 
 		"section": "Documentation", 
 		"value": "TOSCA",
 		"tokens": [ "TOSCA"]
@@ -2542,7 +2577,7 @@
 	},
 
 	{
-		"url": "/documentation/1.2.0/concepts/tosca.html", 
+		"url": "/documentation/1.0.0/concepts/tosca.html", 
 		"section": "Documentation", 
 		"value": "TOSCA",
 		"tokens": [ "TOSCA"]
@@ -2563,10 +2598,10 @@
 	},
 
 	{
-		"url": "/documentation/1.1.0/devops_guide/tosca_concepts.html", 
+		"url": "/documentation/1.0.0/devops_guide/tosca_concepts.html", 
 		"section": "Documentation", 
-		"value": "TOSCA concepts",
-		"tokens": [ "TOSCA","concepts"]
+		"value": "TOSCA guide",
+		"tokens": [ "TOSCA","guide"]
 	},
 
 	{
@@ -2577,17 +2612,10 @@
 	},
 
 	{
-		"url": "/documentation/1.0.0/devops_guide/tosca_concepts.html", 
+		"url": "/documentation/1.1.0/devops_guide/tosca_concepts.html", 
 		"section": "Documentation", 
-		"value": "TOSCA guide",
-		"tokens": [ "TOSCA","guide"]
-	},
-
-	{
-		"url": "/documentation/1.0.0/devops_guide/tosca_concepts_types_custom.html", 
-		"section": "Documentation", 
-		"value": "Writing custom types",
-		"tokens": [ "Writing","custom","types"]
+		"value": "TOSCA concepts",
+		"tokens": [ "TOSCA","concepts"]
 	},
 
 	{
@@ -2605,14 +2633,21 @@
 	},
 
 	{
-		"url": "/documentation/1.1.0/devops_guide/normative_types/tosca_concepts_types_normative.html", 
+		"url": "/documentation/1.0.0/devops_guide/tosca_concepts_types_custom.html", 
+		"section": "Documentation", 
+		"value": "Writing custom types",
+		"tokens": [ "Writing","custom","types"]
+	},
+
+	{
+		"url": "/documentation/1.2.0/devops_guide/normative_types/tosca_concepts_types_normative.html", 
 		"section": "Documentation", 
 		"value": "Normative Types",
 		"tokens": [ "Normative","Types"]
 	},
 
 	{
-		"url": "/documentation/1.2.0/devops_guide/normative_types/tosca_concepts_types_normative.html", 
+		"url": "/documentation/1.1.0/devops_guide/normative_types/tosca_concepts_types_normative.html", 
 		"section": "Documentation", 
 		"value": "Normative Types",
 		"tokens": [ "Normative","Types"]
@@ -2626,7 +2661,7 @@
 	},
 
 	{
-		"url": "/documentation/1.0.0/devops_guide/normative_types/tosca_concepts_types_normative_capabilities.html", 
+		"url": "/documentation/1.2.0/devops_guide/normative_types/tosca_concepts_types_normative_capabilities.html", 
 		"section": "Documentation", 
 		"value": "Capabilities",
 		"tokens": [ "Capabilities"]
@@ -2640,14 +2675,14 @@
 	},
 
 	{
-		"url": "/documentation/1.2.0/devops_guide/normative_types/tosca_concepts_types_normative_capabilities.html", 
+		"url": "/documentation/1.0.0/devops_guide/normative_types/tosca_concepts_types_normative_capabilities.html", 
 		"section": "Documentation", 
 		"value": "Capabilities",
 		"tokens": [ "Capabilities"]
 	},
 
 	{
-		"url": "/documentation/1.0.0/devops_guide/normative_types/tosca_concepts_types_normative_nodes.html", 
+		"url": "/documentation/1.2.0/devops_guide/normative_types/tosca_concepts_types_normative_nodes.html", 
 		"section": "Documentation", 
 		"value": "Nodes",
 		"tokens": [ "Nodes"]
@@ -2661,7 +2696,7 @@
 	},
 
 	{
-		"url": "/documentation/1.2.0/devops_guide/normative_types/tosca_concepts_types_normative_nodes.html", 
+		"url": "/documentation/1.0.0/devops_guide/normative_types/tosca_concepts_types_normative_nodes.html", 
 		"section": "Documentation", 
 		"value": "Nodes",
 		"tokens": [ "Nodes"]
@@ -2710,6 +2745,13 @@
 	},
 
 	{
+		"url": "/documentation/1.0.0/devops_guide/tosca_concepts_workflows_default.html", 
+		"section": "Documentation", 
+		"value": "Workflow generation",
+		"tokens": [ "Workflow","generation"]
+	},
+
+	{
 		"url": "/documentation/1.1.0/devops_guide/tosca_concepts_workflows_default.html", 
 		"section": "Documentation", 
 		"value": "Workflow generation",
@@ -2721,20 +2763,6 @@
 		"section": "Documentation", 
 		"value": "Workflow generation",
 		"tokens": [ "Workflow","generation"]
-	},
-
-	{
-		"url": "/documentation/1.0.0/devops_guide/tosca_concepts_workflows_default.html", 
-		"section": "Documentation", 
-		"value": "Workflow generation",
-		"tokens": [ "Workflow","generation"]
-	},
-
-	{
-		"url": "/documentation/1.2.0/devops_guide/tosca_normative_lifecycle.html", 
-		"section": "Documentation", 
-		"value": "Normative Lifecycle",
-		"tokens": [ "Normative","Lifecycle"]
 	},
 
 	{
@@ -2752,10 +2780,10 @@
 	},
 
 	{
-		"url": "/documentation/1.1.0/devops_guide/design_tutorial/tutorials.html", 
+		"url": "/documentation/1.2.0/devops_guide/tosca_normative_lifecycle.html", 
 		"section": "Documentation", 
-		"value": "Create your own components",
-		"tokens": [ "Create","your","own","components"]
+		"value": "Normative Lifecycle",
+		"tokens": [ "Normative","Lifecycle"]
 	},
 
 	{
@@ -2767,6 +2795,13 @@
 
 	{
 		"url": "/documentation/1.2.0/devops_guide/design_tutorial/tutorials.html", 
+		"section": "Documentation", 
+		"value": "Create your own components",
+		"tokens": [ "Create","your","own","components"]
+	},
+
+	{
+		"url": "/documentation/1.1.0/devops_guide/design_tutorial/tutorials.html", 
 		"section": "Documentation", 
 		"value": "Create your own components",
 		"tokens": [ "Create","your","own","components"]
@@ -2794,7 +2829,7 @@
 	},
 
 	{
-		"url": "/documentation/1.2.0/devops_guide/design_tutorial/tutorials_component_implementation.html", 
+		"url": "/documentation/1.1.0/devops_guide/design_tutorial/tutorials_component_implementation.html", 
 		"section": "Documentation", 
 		"value": "Component implementation",
 		"tokens": [ "Component","implementation"]
@@ -2808,7 +2843,7 @@
 	},
 
 	{
-		"url": "/documentation/1.1.0/devops_guide/design_tutorial/tutorials_component_implementation.html", 
+		"url": "/documentation/1.2.0/devops_guide/design_tutorial/tutorials_component_implementation.html", 
 		"section": "Documentation", 
 		"value": "Component implementation",
 		"tokens": [ "Component","implementation"]
@@ -2822,7 +2857,7 @@
 	},
 
 	{
-		"url": "/documentation/1.0.0/user_guide/user_guide.html", 
+		"url": "/documentation/1.2.0/user_guide/user_guide.html", 
 		"section": "Documentation", 
 		"value": "User Guide",
 		"tokens": [ "User","Guide"]
@@ -2836,7 +2871,7 @@
 	},
 
 	{
-		"url": "/documentation/1.2.0/user_guide/user_guide.html", 
+		"url": "/documentation/1.0.0/user_guide/user_guide.html", 
 		"section": "Documentation", 
 		"value": "User Guide",
 		"tokens": [ "User","Guide"]
@@ -2850,14 +2885,14 @@
 	},
 
 	{
-		"url": "/documentation/1.2.0/user_guide/user_management.html", 
+		"url": "/documentation/1.1.0/user_guide/user_management.html", 
 		"section": "Documentation", 
 		"value": "User(s) and Roles management",
 		"tokens": [ "User(s)","and","Roles","management"]
 	},
 
 	{
-		"url": "/documentation/1.1.0/user_guide/user_management.html", 
+		"url": "/documentation/1.2.0/user_guide/user_management.html", 
 		"section": "Documentation", 
 		"value": "User(s) and Roles management",
 		"tokens": [ "User(s)","and","Roles","management"]
@@ -2871,6 +2906,13 @@
 	},
 
 	{
+		"url": "/documentation/1.2.0/whatsnew.html", 
+		"section": "Documentation", 
+		"value": "New in 1.2.0",
+		"tokens": [ "New","in","1.2.0"]
+	},
+
+	{
 		"url": "/documentation/1.1.0/whatsnew.html", 
 		"section": "Documentation", 
 		"value": "New in 1.1.0",
@@ -2878,10 +2920,10 @@
 	},
 
 	{
-		"url": "/documentation/1.2.0/whatsnew.html", 
+		"url": "/documentation/1.2.0/user_guide/workflows.html", 
 		"section": "Documentation", 
-		"value": "New in 1.2.0",
-		"tokens": [ "New","in","1.2.0"]
+		"value": "Workflows",
+		"tokens": [ "Workflows"]
 	},
 
 	{

@@ -1,0 +1,91 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/1.2.0/user_guide/application_deployment.html',
+  title: 'Application deployment'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container">
+  <div class="row">
+    
+      <div class="col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Application deployment</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.2.0/user_guide/application_deployment.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        
+<hr style="margin-top:5px; margin-bottom:5px;" />
+<div class="row"><ul class="nav nav-pills" id="summarypanel"></ul></div>
+<hr style="margin-top:5px; margin-bottom:5px;" />
+
+<p>To deploy an application you need to setup the context, you can do this in the <code>Applications &gt; Deployments</code> sub-menu.<br />
+The deployment setup is done by going through a number of hierarchical steps.
+Each step perform a validation of the deployment topology, and errors details are displayed. Note that you can not go to the next step  when the current one is still not valid.</p>
+
+<h1 id="location-selection">Location selection</h1>
+<p>The first thing to do is to select, among the displayed location, the one on which you would like to deploy.
+ The proposed locations are determined by matching every existing location against the topology, done by a matcher plugin.</p>
+
+<p><a href="../../images/user_guide/application/deployment/user_guide_deployment_setup.png"><img src="../../images/user_guide/application/deployment/user_guide_deployment_setup.png" alt="Configure your deployment" /></a></p>
+
+<p>For now, note that if no matching plugin is configured by the administrator, a default matcher is used, checking the following:</p>
+
+<ul>
+  <li>The orchestrator managing a location can support all the artifacts contains in your topology (nodes and relationships implementations scripts)</li>
+  <li>The current user have sufficient rights to deploy on the location</li>
+</ul>
+
+<h1 id="node-substitution-">Node substitution :</h1>
+
+<p>Next step is to substitute some abstract nodes from your topology with resources provided by the selected location.<br />
+In the meantime, you can edit some properties if you need to.</p>
+
+<p><a href="../../images/user_guide/application/deployment//user_guide_deployment_setup_substitution.png"><img src="../../images/user_guide/application/deployment/user_guide_deployment_setup_substitution.png" alt="Node substitution" /></a></p>
+
+<h1 id="inputs-properties-and-artifacts">Inputs: properties and artifacts</h1>
+
+<p>Here you set values to inputs and provider deployments properties. Also, you can upload artifacts set as input in the topology.</p>
+
+<p>Here you need to select the value for your <code>inputs</code>. If they are some missing configuration in your topology, a <code>todo list</code> will be displayed.</p>
+
+<p><a href="../../images/user_guide/application/deployment/user_guide_deployment_setup_inputs.png"><img src="../../images/user_guide/application/deployment/user_guide_deployment_setup_inputs.png" alt="Deployment inputs" /></a></p>
+
+<p>Once all those steps are valid, the <em>deploy</em> step is unlocked, and if your topology is valid and ready for deployment, you can hit the deploy button to proceed.<br />
+You can now see what is happening on the <a href="#/documentation/1.2.0/user_guide/application_runtime.html">runtime view</a>.</p>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.2.0/user_guide/application_deployment.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-1.2.0', 'documentation/1.2.0/user_guide/application_deployment.md');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>
