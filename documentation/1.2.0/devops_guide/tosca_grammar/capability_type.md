@@ -17,7 +17,7 @@ A Capability Type is a reusable entity that describes a kind of capability that 
 |:----------------|:--------------------|:---------|:------------|
 | derived_from | string | no | An optional parent Capability Type name the Capability Type derives from. |
 | description | string | no | An optional description for the Capability Type. |
-| properties | [property definitions](#/documentation/1.1.0/devops_guide/tosca_grammar/property_definition.html) | no | An optional list of property definitions for the Capability Type. |
+| properties | [property definitions](#/documentation/1.2.0/devops_guide/tosca_grammar/property_definition.html) | no | An optional list of property definitions for the Capability Type. |
 
 ## Grammar
 
@@ -31,7 +31,7 @@ A Capability Type is a reusable entity that describes a kind of capability that 
 
 See:
 
-- [property_definitions](#/documentation/1.1.0/devops_guide/tosca_grammar/property_definition.html)
+- [property_definitions](#/documentation/1.2.0/devops_guide/tosca_grammar/property_definition.html)
 
 ## Example
 

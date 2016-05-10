@@ -10,14 +10,14 @@ weight: 100
 {%summary%}{%endsummary%}
 
 {%info%}
-To understand the orchestrator and location concepts, please refer to [this section](#/documentation/1.1.0/concepts/orchestrators_locations.html).
+To understand the orchestrator and location concepts, please refer to [this section](#/documentation/1.2.0/concepts/orchestrators_locations.html).
 {%endinfo%}
 
 # Requirements
 
 Alien 4 cloud is not responsible for actual deployment orchestration but rather interact with existing orchestration technologies. In order to define an orchestrator and a location, you must configure plugins that will be used to actually perform deployment(s) on the defined location using the created orchestrator.
 
-In order to configure a set of Orchestrator/locations, you must have installed an orchestrator plugin first see [plugin management](#/documentation/1.1.0/user_guide/plugin_management.html).
+In order to configure a set of Orchestrator/locations, you must have installed an orchestrator plugin first see [plugin management](#/documentation/1.2.0/user_guide/plugin_management.html).
 
 {%info%}
 <h5>Supported orchestrators</h5>
@@ -97,7 +97,7 @@ For example, the  cloudify3 provider defines connexion parameters so that Alien 
 [![Configure the provider](../../images/1.1.0/user_guide/admin/orchestrators/orchestrator-driver-configuration.png)](../../images/1.1.0/user_guide/admin/orchestrators/orchestrator-driver-configuration.png)
 
 {%info%}
-More informations for [cloudify 3](#/documentation/1.1.0/orchestrators/cloudify3_driver/index.html) can be found on her specific documentation.
+More informations for [cloudify 3](#/documentation/1.2.0/orchestrators/cloudify3_driver/index.html) can be found on her specific documentation.
 {%endinfo%}
 
 {%info%}

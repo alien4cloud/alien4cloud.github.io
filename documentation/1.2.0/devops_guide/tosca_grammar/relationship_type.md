@@ -18,9 +18,9 @@ A Relationship Type is a reusable entity that defines the type of one or more re
 | abstract*     | boolean | no | Optional flag to specify if a component is abstract and has no valid implementation. Defaults to false. |
 | derived_from | string | no* | An optional parent Relationship Type name the Relationship Type derives from. |
 | description | string | no | An optional description for the Relationship Type. |
-| properties | [property definitions](#/documentation/1.1.0/devops_guide/tosca_grammar/property_definition.html) | no | An optional list of property definitions for the Relationship Type.|
-| attributes | [attribute definitions](#/documentation/1.1.0/devops_guide/tosca_grammar/attribute_definition.html) | no | An optional list of attribute definitions for the Relationship Type. |
-| interfaces | [interface definitions](#/documentation/1.1.0/devops_guide/tosca_grammar/interface_definition.html) | no | An optional list of named interfaces for the Relationship Type. |
+| properties | [property definitions](#/documentation/1.2.0/devops_guide/tosca_grammar/property_definition.html) | no | An optional list of property definitions for the Relationship Type.|
+| attributes | [attribute definitions](#/documentation/1.2.0/devops_guide/tosca_grammar/attribute_definition.html) | no | An optional list of attribute definitions for the Relationship Type. |
+| interfaces | [interface definitions](#/documentation/1.2.0/devops_guide/tosca_grammar/interface_definition.html) | no | An optional list of named interfaces for the Relationship Type. |
 | valid_sources | string[] | no | An optional list of one or more valid target entities or entity types (i.e., a Node Types or Capability Types). |
 | valid_targets | string[] | yes | A required list of one or more valid target entities or entity types (i.e., a Node Types or Capability Types). |
 
@@ -46,9 +46,9 @@ A Relationship Type is a reusable entity that defines the type of one or more re
 
 See:
 
-- [property_definitions](#/documentation/1.1.0/devops_guide/tosca_grammar/property_definition.html)
-- [attribute definitions](#/documentation/1.1.0/devops_guide/tosca_grammar/attribute_definition.html)
-- [interface definitions](#/documentation/1.1.0/devops_guide/tosca_grammar/interface_definition.html)
+- [property_definitions](#/documentation/1.2.0/devops_guide/tosca_grammar/property_definition.html)
+- [attribute definitions](#/documentation/1.2.0/devops_guide/tosca_grammar/attribute_definition.html)
+- [interface definitions](#/documentation/1.2.0/devops_guide/tosca_grammar/interface_definition.html)
 
 ## Example
 

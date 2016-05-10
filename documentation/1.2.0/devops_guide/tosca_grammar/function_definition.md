@@ -24,7 +24,7 @@ The following keywords may be used in some  TOSCA function in place of a TOSCA N
 
 Supported functions in Alien4Cloud are: 
 
--  [get_property](#/documentation/1.1.0/devops_guide/tosca_grammar/get_property_definition.html)
--  [get_attribute](#/documentation/1.1.0/devops_guide/tosca_grammar/get_attribute_definition.html)
--  [get_operation_output](#/documentation/1.1.0/devops_guide/tosca_grammar/get_operation_output_definition.html)
--  [concat](#/documentation/1.1.0/devops_guide/tosca_grammar/concat_definition.html)
+-  [get_property](#/documentation/1.2.0/devops_guide/tosca_grammar/get_property_definition.html)
+-  [get_attribute](#/documentation/1.2.0/devops_guide/tosca_grammar/get_attribute_definition.html)
+-  [get_operation_output](#/documentation/1.2.0/devops_guide/tosca_grammar/get_operation_output_definition.html)
+-  [concat](#/documentation/1.2.0/devops_guide/tosca_grammar/concat_definition.html)

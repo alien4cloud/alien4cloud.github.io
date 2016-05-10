@@ -11,7 +11,7 @@ weight: 10
 {% summary %}{% endsummary %}
 
 {% info %}
-This section describe installation and configuration of Alien 4 Cloud for a production mode. If you whish to use Alien 4 Cloud for a demo or development mode please refer to the [getting started](#/documentation/1.1.0/getting_started/getting_started.html) guide.
+This section describe installation and configuration of Alien 4 Cloud for a production mode. If you whish to use Alien 4 Cloud for a demo or development mode please refer to the [getting started](#/documentation/1.2.0/getting_started/getting_started.html) guide.
 {% endinfo %}
 
 
@@ -53,7 +53,7 @@ java $JAVA_OPTIONS -jar alien4cloud-ui-1.1.0-{version}-standalone.war
 
 {%info²%}
 <h5> JVM tunning</h5>
-See [JVM tunning section](#/documentation/1.1.0/admin_guide/advanced_configuration.html) for advanced Alien4Cloud JVM options.
+See [JVM tunning section](#/documentation/1.2.0/admin_guide/advanced_configuration.html) for advanced Alien4Cloud JVM options.
 {%endinfo%}
 
 # Logging configuration

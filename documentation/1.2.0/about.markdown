@@ -95,7 +95,7 @@ Basically the question depends on your timeframe, on the features you are lookin
 
 {%warning%}
 <h5>Supported platforms</h5>
-To get more informations about the supported platforms, please refer to [this section](#/documentation/1.1.0/admin_guide/supported_platforms.html).
+To get more informations about the supported platforms, please refer to [this section](#/documentation/1.2.0/admin_guide/supported_platforms.html).
 {%endwarning%}
 
 # Features

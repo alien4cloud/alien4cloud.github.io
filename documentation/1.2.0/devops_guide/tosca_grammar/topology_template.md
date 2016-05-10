@@ -21,7 +21,7 @@ A Topology Template contains the following element keynames:
 | inputs | no | Defines a set of global input parameters passed to the template when its instantiated. This provides a means for template authors to provide points of variability to users of the template in order to customize each instance within certain constraints. |
 | input_artifacts | no | Define artifacts as inputs. |
 | substitution_mappings | no | Describe how this topology can be used as a type in another one. |
-| node_templates | yes | Defines a list of [Node template](#/documentation/1.1.0/devops_guide/tosca_grammar/node_template.html)s that model the components of an application or service’s topology within the Service Template. |
+| node_templates | yes | Defines a list of [Node template](#/documentation/1.2.0/devops_guide/tosca_grammar/node_template.html)s that model the components of an application or service’s topology within the Service Template. |
 | relationship_templates | no | Defines a list of Relationship Templates that are used to model the relationships (e.g., dependencies, links, etc.) between components (i.e., Node Templates) of an application or service’s topology within the Service Template. |
 | outputs | no | This optional section allows for defining a set of output parameters provided to users of the template. For example, this can be used for exposing the URL for logging into a web application that has been set up during the instantiation of a template. |
 | groups | no | This is an optional section that contains grouping definition for node templates. |
@@ -228,7 +228,7 @@ The node templates listed as part of the node_templates block can be mapped to t
 
 see:
 
-- [Node template](#/documentation/1.1.0/devops_guide/tosca_grammar/node_template.html)
+- [Node template](#/documentation/1.2.0/devops_guide/tosca_grammar/node_template.html)
 
 ### relationship_templates
 
@@ -238,7 +238,7 @@ Not yet supported In Alien 4 Cloud
 
 ### groups
 
-The group construct is a composition element used to group one or more node templates within a TOSCA Service Template. It is mainly used to apply a [Policy](#/documentation/1.1.0/devops_guide/tosca_grammar/policy.html) onto a group of nodes.
+The group construct is a composition element used to group one or more node templates within a TOSCA Service Template. It is mainly used to apply a [Policy](#/documentation/1.2.0/devops_guide/tosca_grammar/policy.html) onto a group of nodes.
 
 #### Grammar
 
@@ -285,7 +285,7 @@ groups:
 
 see:
 
-- [Policy](#/documentation/1.1.0/devops_guide/tosca_grammar/policy.html)
+- [Policy](#/documentation/1.2.0/devops_guide/tosca_grammar/policy.html)
 
 ### outputs
 

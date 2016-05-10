@@ -17,7 +17,7 @@ There is multiple types of components in Alien 4 Cloud that directly refers to t
 Node Types are used to define some cloud resources elements (Compute - machine, Block-Storage - persistent disk, Network etc.) as well as software components (Database, WebServer etc.).
 
 {%note%}
-TOSCA Simple profile in YAML provides some pre-defined Node Types, more informations on the various pre-defined node types can be found [here](#/documentation/1.1.0/devops_guide/normative_types/tosca_concepts_types_normative.html).
+TOSCA Simple profile in YAML provides some pre-defined Node Types, more informations on the various pre-defined node types can be found [here](#/documentation/1.2.0/devops_guide/normative_types/tosca_concepts_types_normative.html).
 {%endnote%}
 
 A node type as every component may expose some capabilities (things that the node provides and that other nodes will be able to consume) and requirements (things that nodes actually requires in order to work correctly). For example a Compute node type (that represents a Machine) has the capability to host some softwares and a Software Component (or any inherited node) requires a Compute on which to be hosted on (installed and run).

@@ -16,7 +16,7 @@ weight: 200
 
 # Prepare the archive
 
-Elements in TOSCA and ALIEN are defined in definitions files that can be packed in a [Cloud Service Archive](#/documentation/1.1.0/concepts/tosca.html) (CSAR). The first task therefore is to prepare the directory structure of our Cloud Service Archive.
+Elements in TOSCA and ALIEN are defined in definitions files that can be packed in a [Cloud Service Archive](#/documentation/1.2.0/concepts/tosca.html) (CSAR). The first task therefore is to prepare the directory structure of our Cloud Service Archive.
 
 {% highlight bash %}
 ├── my-definition-file.yml

@@ -9,7 +9,7 @@ weight: 400
 ---
 
 {%info%}
-To understand all TOSCA concepts, please refer to [this section](#/documentation/1.1.0/concepts/tosca.html).
+To understand all TOSCA concepts, please refer to [this section](#/documentation/1.2.0/concepts/tosca.html).
 {%endinfo%}
 
 # TOSCA in Alien 4 Cloud

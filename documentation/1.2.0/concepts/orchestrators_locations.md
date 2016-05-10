@@ -62,4 +62,4 @@ We are currently supporting the opensource orchestrators cloudify 3 but are also
 Only a user with the global ADMIN role can define, configure, enable and grant deployment role to other users or groups on a locations.
 {%endinfo%}
 
-To find more on locations and how to configure them in Alien 4 Cloud please look at the [Getting started](#/documentation/1.1.0/getting_started/getting_started.html) guide if you don't already have an Alien instance running and at the [cloud setup guide](#/documentation/1.1.0/user_guide/cloud_management.html) in order to learn cloud configuration.
+To find more on locations and how to configure them in Alien 4 Cloud please look at the [Getting started](#/documentation/1.2.0/getting_started/getting_started.html) guide if you don't already have an Alien instance running and at the [cloud setup guide](#/documentation/1.2.0/user_guide/cloud_management.html) in order to learn cloud configuration.

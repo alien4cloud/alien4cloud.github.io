@@ -102,14 +102,17 @@ Where the pluginId value should be the id of your plugin as defined in the plugi
 
 # Adding translations files
 You might have some keys to translate when doing ui views. You can register your translations files by using the `registerTranslations` function of the **plugins** module.  
-The function takes as argument, the prefix and the suffix(`json` by default if not provided) of the translation file. For example, assuming you have a languages data folder `data/languages/` with the following files for english and french translation: `my_plugin_locale-en-us.json, my_plugin_locale-fr-fr.json`, you can register them by doing the following (somewhere in one of your scripts, recommended to do it in your entry point script):
+The function takes as argument, the prefix (path to the files, including their prefix) and the suffix(`json` by default if not provided) of the translation file. Note that the files are static resources, thus, you must prefix their access path with the base url of our plugin ui provided by alien4cloud in the __plugins__ module.  
+For example, assuming you have a languages data folder `data/languages/` with the following files for english and french translation: `my_plugin_locale-en-us.json, my_plugin_locale-fr-fr.json`, you can register them by doing the following (somewhere in one of your scripts, recommended to do it in your entry point script):
 
 {% highlight javascript%}
 //[...]
+var pluginId = 'a4c-plugin-sample';
 var plugins = require('plugins');
-//prefix is: my_plugin_locale-
+//local prefix is: my_plugin_locale-
+//global prefix would be: plugins.base(pluginId) + 'data/languages/my_plugin_locale-'
 //suffix is: json
-plugins.registerTranslations('data/languages/my_plugin_locale-', 'json')
+plugins.registerTranslations(plugins.base(pluginId) + 'data/languages/my_plugin_locale-', 'json')
 //[...]
 {% endhighlight%}
 
