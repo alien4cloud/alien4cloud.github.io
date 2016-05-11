@@ -83,6 +83,12 @@ Use this function for inputs parameters.</p>
             <span class="l-Scalar-Plain">CAPA_PORT</span><span class="p-Indicator">:</span> <span class="p-Indicator">{</span> <span class="nv">get_property</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span><span class="nv">SELF</span><span class="p-Indicator">,</span> <span class="nv">endpoint</span><span class="p-Indicator">,</span> <span class="nv">port</span><span class="p-Indicator">]</span> <span class="p-Indicator">}</span>
           <span class="l-Scalar-Plain">implementation</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">config.sh</span></code></pre></div>
 
+<div class="note warning">
+<h4> KNOWN ISSUE </h4>
+<p>Alien4cloud support complex types properties definition on components. However, there is a known issue on using the <code>get_property</code> function to retrieve a nested property of that complex one.<br />
+For example, <code>get_property: [SELF, complex.nestedProp]</code> to retrieve a member <em>nestedProp</em> of a complex property <em>complex</em> will not work.<br />
+This issue will be solve in the next release.</p>
+</div>
 
         <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.1.0/devops_guide/tosca_grammar/get_property_definition.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
 	  </div>
