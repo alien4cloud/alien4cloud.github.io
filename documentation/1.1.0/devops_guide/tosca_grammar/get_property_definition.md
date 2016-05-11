@@ -23,7 +23,7 @@ Use this function for inputs parameters.
 ## Grammar
 
 {% highlight yaml %}
-get_property: [ <modelable_entity_name | SELF | SOURCE | TARGET | HOST>, [<capability_name>], <property_name> ] 
+get_property: [ <modelable_entity_name | SELF | SOURCE | TARGET | HOST>, [<capability_name>], <property_name> ]
 {% endhighlight %}
 
 ## Example
@@ -43,5 +43,12 @@ node_types:
             MY_NAME: { get_property: [SELF, myName] }
             CAPA_PORT: { get_property: [SELF, endpoint, port] }
           implementation: config.sh
-            
+
 {% endhighlight %}
+
+{%warning%}
+<h4> KNOWN ISSUE </h4>
+Alien4cloud support complex types properties definition on components. However, there is a known issue on using the `get_property` function to retrieve a nested property of that complex one.  
+For example, `get_property: [SELF, complex.nestedProp]` to retrieve a member _nestedProp_ of a complex property _complex_ will not work.  
+This issue will be solve in the next release.
+{%endwarning%}
