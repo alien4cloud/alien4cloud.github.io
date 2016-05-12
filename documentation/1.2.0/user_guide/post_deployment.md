@@ -1,18 +1,21 @@
 ---
 layout: post
-title:  Post deployment operations
+title: Post deployment operations
 root: ../../
-categories: DOCUMENTATION-1.2.0
-parent: [user_guide, application_management]
+categories: "DOCUMENTATION-1.2.0"
+parent: 
+  - user_guide
+  - application_management
 node_name: post_deployment
 weight: 300
+published: true
 ---
 
 {% summary %}{% endsummary %}
 
 {% info %}
 <h5>Premium feature</h5>
-This section refers to the a premium feature.
+This section refers to a premium feature.
 {% endinfo %}
 
 Once an application is deployed, we might need to be able to upgrade some file (config, binary, licence file) related to a given component without modifying the topology itself (no change on relationships, no node added, no instances added), or maybe just to execute a custom operation to put or get some informations from the deployed nodes.  
