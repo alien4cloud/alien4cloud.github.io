@@ -44,6 +44,7 @@ An operation can be triggered as many time as we want on a node.
 ## Patches execution
 As stated above, triggering a patch execution is possible via the provided user interface.  
 However and most importantly, once a patch is added for a node, it will be triggered automatically on:
+
 * all the instances of the node, in case of fail-over
 * all the newly created instances in case of scaling up.
 
