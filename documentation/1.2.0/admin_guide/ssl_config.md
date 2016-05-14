@@ -46,7 +46,7 @@ Make sure that you have your key store placed along-side the alien4cloud war fil
 # Post-deployment application
 {% info %}
 <h5>Premium feature</h5>
-This section refers to the a premium feature.
+This section refers to the premium feature.
 {% endinfo %}
 When deploying the patches-application, it is recommended to configure the ssl, to secure the communication with Alien4Cloud.  
 For that to be done, you have to create a keystore (and eventually a truststore in case of mutual authentication) and lunch your application with the proper SSL configuration properties.  
