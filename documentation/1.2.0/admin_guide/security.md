@@ -23,7 +23,7 @@ see [SSL configuration](#/documentation/1.2.0/admin_guide/ssl_config.html)
 
 Please refer to the documentation of the orchestrators
 
-* [cloudify 3](#/documentation/1.2.0/cloudify3_driver/index.html)
+* [Cloudify 3](#/documentation/1.2.0/orchestrators/cloudify3_driver/prerequisites.html)
 
 # authorizations
 
