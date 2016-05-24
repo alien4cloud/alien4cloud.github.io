@@ -63,7 +63,7 @@ When the provider process the topology for deployment,</p>
   <li>Create a volume based on the choosen template</li>
   <li>Format it using <code>ext4</code> file system</li>
   <li>attach it to the compute</li>
-  <li>mount it to the <code>/mountedStorage</code> directory.  </li>
+  <li>mount it to the <code>/mountedStorage</code> directory.</li>
 </ul>
 
 <p>When the volume is created, <code>his Id is updated in the deployed topology</code>, so that it could be reused fro the next deployment.</p>
@@ -81,7 +81,7 @@ When the provider process the topology for deployment,</p>
 
 <h3 id="working-with-scaling-policy">Working with scaling policy</h3>
 <p>If you are deploying the application with more than one instance, you can provide comma separated volumes Ids, ordered by instances id.<br />
-Let take an example for illustration: deploying with the following configuations: </p>
+Let take an example for illustration: deploying with the following configuations:</p>
 
 <div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">minInstances</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">1</span>
 <span class="l-Scalar-Plain">maxInstance</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">3</span>

@@ -26,27 +26,19 @@ ga('send', 'pageview');
           <h1 class="pull-left" style="margin-top: 0px;">Security</h1>
           <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.2.0/admin_guide/security.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
         </div>
-        <p>As an Ops deploying Alien4Cloud, I want to understand all its security features including :</p>
-
-<h1 id="authentication">authentication</h1>
-
-<p>How to secure access to the UI and API</p>
-
-<h1 id="ssl-mode">SSL mode</h1>
-
-<p>see <a href="#/documentation/1.2.0/admin_guide/ssl_config.html">SSL configuration</a></p>
-
-<h1 id="orchestrators-security">Orchestrator(s) security</h1>
-
-<p>Please refer to the documentation of the orchestrators</p>
+        <p>The platform Alien contains multiple components, each component has its own security policy and mechanism.
+On most of the component, Alien use SSL mutual authentication, or SSL + login.</p>
 
 <ul>
-  <li><a href="#/documentation/1.2.0/cloudify3_driver/index.html">cloudify 3</a></li>
+  <li><a href="#/documentation/1.2.0/admin_guide/security_ui_rest.html">Alien4Cloud UI and Rest API</a></li>
+  <li><a href="#/documentation/1.2.0/admin_guide/security_elastic_search.html">Elasticsearch</a></li>
+  <li>Orchestrators security
+    <ul>
+      <li><a href="#/documentation/1.2.0/orchestrators/cloudify3_driver/prerequisites.html">Cloudify 3</a></li>
+    </ul>
+  </li>
+  <li><a href="#/documentation/1.2.0/admin_guide/security_patch.html">Post deployment Web Application</a></li>
 </ul>
-
-<h1 id="authorizations">authorizations</h1>
-
-<p>How to configure and manage Roles Based Access to resources and APIs managed by Alien4Cloud</p>
 
         <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.2.0/admin_guide/security.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
 	  </div>
