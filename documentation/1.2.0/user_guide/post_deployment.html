@@ -41,10 +41,10 @@ The <strong>Cloudify 3 premium plugin</strong> plugin allows you to perform such
 
 <h1 id="what-it-is">What it is?</h1>
 <p>Functionally speaking, a patch / operation can be defined as a set of actions that will be executed on a node, for example upgrading a version or the configuration of a component, accessing some informations about a component, etc&#8230;.  It is linked to a specific version of a node, and can be triggered for one or more instances of that node.<br />
-Technically speaking, it can be a script file, or a zipped set of files, that one will upload once the topology is deployed, via the provided user interface. Supported format are: <em>bash script</em> for linux, <em>power shell</em> for windows, <em>zip</em> and <em>tar.gz</em>.
-&lt;div class="note warning"&gt;</p>
+Technically speaking, it can be a script file, or a zipped set of files, that one will upload once the topology is deployed, via the provided user interface. Supported format are: <em>bash script</em> for linux, <em>power shell</em> for windows, <em>zip</em> and <em>tar.gz</em>.</p>
+<div class="note warning">
 <p>If you provide an archive, you must make sure to have only one script file at the root. If you need to provide additional scripts, just put them in subfolders and refer to them using relative path (at execution stage, the current working folder will be the root of the archive).</p>
-<p>&lt;/div&gt;</p>
+</div>
 
 <h1 id="what-it-is-not">What it is not?</h1>
 <p>This feature is not a <em>hot upgrade</em> assistant: it&#8217;s your responsibility to enhance your TOSCA components once you have provided a patch for a given component.</p>
@@ -87,9 +87,9 @@ However and most importantly, once a patch is added for a node, it will be trigg
   <li>all the newly created instances in case of scaling up.</li>
 </ul>
 
-<p>If the execution is successful, the patch is acknowledged and you can see it on the view.  </p>
+<p>If the execution is successful, the patch is acknowledged and you can see it on the view.</p>
 
-<p><strong><em>TODO</em></strong>: image patch acknowledged  </p>
+<p><strong><em>TODO</em></strong>: image patch acknowledged</p>
 
 <p>Once a patch is executed and acknowledged on an instance, it will not be executed again even if it is triggered.</p>
 
