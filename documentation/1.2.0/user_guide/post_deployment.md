@@ -1,11 +1,14 @@
 ---
 layout: post
-title:  Post deployment operations
+title: Post deployment operations
 root: ../../
-categories: DOCUMENTATION-1.2.0
-parent: [user_guide, application_management]
+categories: "DOCUMENTATION-1.2.0"
+parent: 
+  - user_guide
+  - application_management
 node_name: post_deployment
 weight: 300
+published: true
 ---
 
 {% summary %}{% endsummary %}
