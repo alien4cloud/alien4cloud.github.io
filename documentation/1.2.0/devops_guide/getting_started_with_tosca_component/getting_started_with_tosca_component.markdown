@@ -9,7 +9,7 @@ weight: 400
 ---
 
 {% info %}
-In this section, we will details our JDK componentwhich can be found in our github:
+In this section, we will details our JDK component that can be found in our github:
 [JDK](https://github.com/alien4cloud/samples/blob/master/jdk){:target="_blank"}
 {% endinfo %}
 
@@ -31,7 +31,7 @@ The structure of our JDK’s CSAR is the following:
 
 {% info %}
 A TOSCA file can be written in XML or YAML.  
-Here we choose to use YAML, because this is the format recognized by Alien4Cloud.
+Here we choose to use YAML because this is the format recognized by Alien4Cloud.
 {% endinfo %}
 
 {% note %}
@@ -85,9 +85,8 @@ A little explanation:
 * `tosca-normative-types:1.0.0-SNAPSHOT` means that our JDK component has a dependency to the TOSCA normative which is defined by another CSAR with the following value in its TOSCA file.
 
 {% warning %}
-Alien4Cloud comes with a version of the normative types.  
-Make sure that it matches the version you specify in your TOSCA file.  
-Otherwise, you can import the correct version from our [github](https://github.com/alien4cloud/tosca-normative-types)
+Alien4Cloud comes with a default version of the normative types inside its catalog.  
+Make sure that it matches the version you specify in your TOSCA file. Otherwise, you can import the needed version from our [github](https://github.com/alien4cloud/tosca-normative-types)
 {% endwarning %}
 
 ## Main part: node_types
@@ -95,7 +94,7 @@ Otherwise, you can import the correct version from our [github](https://github.c
 The JDK component has 2 node types: `alien.nodes.JDK` and `alien.nodes.JavaSoftware`.
 
 * `alien.nodes.JDK` is the node which is responsible to install the JDK
-* `alien.nodes.JavaSoftware` is an abstract node to be extended by software which requires a JDK.
+* `alien.nodes.JavaSoftware` is an abstract node to be extended by softwares which require a JDK.
 
 ### The node_type structure
 
@@ -160,10 +159,9 @@ node_types:
 {% endhighlight %}
 
 * `derived_from: tosca.nodes.SoftwareComponent`  
-  The `alien.nodes.JDK` node type is derived from the TOSCA native node `tosca.nodes.SoftwareComponent`.  
-  This is the root type defined by TOSCA to define software components.
+  The `alien.nodes.JDK` node type is derived from the TOSCA native node `tosca.nodes.SoftwareComponent`, the root type defined by TOSCA to define software components.
 * `icon: images/jdk.png`  
-  The node_type will use the image which can be found at `images/jdk.png` inside the CSAR archive.
+  The node will use the image which can be found at `images/jdk.png` inside the CSAR archive.
 * `properties:`  
   The node has 2 properties which will be used by the installation script.
 * `attributes:`  
@@ -171,14 +169,13 @@ node_types:
 * `capabilities:`  
   The node expose a `jdk` capability to provide relationship of type `alien.capabilities.JDK` (defined later in the file). It basically says that any nodes that require an `alien.capabilities.JDK` type can be linked to this node.
 * `interfaces:`  
-  Defines operations on the node.
-  By default, every TOSCA nodes has an implicit default lifecycle composed of several operations which are: `create`, `configure`, `start`, `stop` and `delete`
-   Here we only define the `create` operation which calls the `install_jdk.sh` script inside the CSAR archive.
+  Defines operations on the node.  
+  By default, every TOSCA nodes has an implicit default lifecycle composed of several operations which are: `create`, `configure`, `start`, `stop` and `delete`. Here we only define the `create` operation which calls the `install_jdk.sh` script inside the CSAR archive.
 
 ### The install_jdk.sh
 
 The script installs a jdk on a Linux machine given a tarball archive and a target folder on the machine.  
-What is important to focus on here is the inputs definition.
+What is important to focus on is the inputs definition.
 
 {% highlight bash %}
 inputs:
@@ -221,7 +218,7 @@ alien.nodes.JavaSoftware:
 {% endhighlight %}
 
 * `abstract: true`  
-  This node is an abstract one. Meaning that other node can extend it in order to all of its definition.
+  This node is an abstract one, meaning that other nodes can extend it in order to inherit all of its definition.
 * `requirements:`  
   This node requires to be linked to a node which offers the `alien.capabilities.JDK` capability type with a relationship of type `alien.relationships.JavaSoftwareHostedOnJDK` (defined later in the file).
 
@@ -271,11 +268,11 @@ alien.relationships.JavaSoftwareHostedOnJDK:
 
 * `alien.relationships.JavaSoftwareHostedOnJDK` is the name of our relationship type.
 * `derived_from: tosca.relationships.HostedOn`  
-  The relationship derives from the tosca.relationships.HostedOn TOSCA normative type.
+  The relationship derives from the `tosca.relationships.HostedOn` TOSCA normative type.
 * `valid_sources: [ tosca.nodes.JavaSoftware ]`  
-  The source of the relationship must be of a node with a tosca.nodes.JavaSoftware type in its requirements list.
+  The source of the relationship must be of a node with a `tosca.nodes.JavaSoftware` type in its requirements list.
 * `valid_targets: [ alien.capabilities.JDK ]`  
-  The target of the relationship must be of a node with an alien.capabilities.JDK type in its capabilities list.
+  The target of the relationship must be of a node with an `alien.capabilities.JDK` type in its capabilities list.
 
 {% note %}
 More details about the relationship type [here](#/documentation/1.2.0/devops_guide/tosca_grammar/relationship_type.html)

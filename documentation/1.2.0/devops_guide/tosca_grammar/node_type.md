@@ -16,14 +16,14 @@ A Node Type is a reusable entity that defines the type of one or more Node Templ
 | Keyname         | Type                | Required | Description |
 |:----------------|:--------------------|:---------|:------------|
 | abstract*     | boolean | no | Optional flag to specify if a component is abstract and has no valid implementation. Defaults to false. |
-| derived_from | string | no* | An optional parent Relationship Type name the Relationship Type derives from. |
-| description | string | no | An optional description for the Relationship Type. |
-| properties | [property definitions](#/documentation/1.2.0/devops_guide/tosca_grammar/property_definition.html) | no | An optional list of property definitions for the Relationship Type.|
-| attributes | [attribute definitions](#/documentation/1.2.0/devops_guide/tosca_grammar/attribute_definition.html) | no | An optional list of attribute definitions for the Relationship Type. |
+| derived_from | string | no* | An optional parent Node Type name the Node Type derives from. |
+| description | string | no | An optional description for the Node Type. |
+| properties | [property definitions](#/documentation/1.2.0/devops_guide/tosca_grammar/property_definition.html) | no | An optional list of property definitions for the Node Type.|
+| attributes | [attribute definitions](#/documentation/1.2.0/devops_guide/tosca_grammar/attribute_definition.html) | no | An optional list of attribute definitions for the Node Type. |
 | requirements | [requirement definitions](#/documentation/1.2.0/devops_guide/tosca_grammar/requirement_definition.html) | no | An optional sequenced list of requirement definitions for the Node Type. |
 | capabilities | [capability definitions](#/documentation/1.2.0/devops_guide/tosca_grammar/capability_definition.html) | no | An optional list of capability definitions for the Node Type. |
 | artifacts | [artifact definitions](#/documentation/1.2.0/devops_guide/tosca_grammar/artifact_definition.html) | no | An optional sequenced list of named artifact definitions for the Node Type. |
-| interfaces | [interface definitions](#/documentation/1.2.0/devops_guide/tosca_grammar/interface_definition.html) | no | An optional list of named interfaces for the Relationship Type. |
+| interfaces | [interface definitions](#/documentation/1.2.0/devops_guide/tosca_grammar/interface_definition.html) | no | An optional list of named interfaces for the Node Type. |
 
 {% info %}
  - Abstract flag is specific to Alien 4 Cloud and is not part of TOSCA Simple Profile in YAML.
