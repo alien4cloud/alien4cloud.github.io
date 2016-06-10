@@ -16,7 +16,9 @@ pre {
 }
 
 code {
-  color: #515153;
+  background: #eeffee;
+  color: #00AA00;
+  white-space: nowrap;
 }
 
 /* Wrapper for page content to push down footer */
