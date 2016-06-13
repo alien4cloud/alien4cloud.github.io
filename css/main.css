@@ -1,4 +1,3 @@
-* { margin: 0;}
 html,body{ height:100%; padding-top:0;background-color: #FFF}
 
 img {
@@ -17,6 +16,20 @@ pre {
 
 code {
   color: #515153;
+}
+
+.table-centered tbody tr td {
+  vertical-align: middle;
+}
+
+.features-head th {
+  background-color: #575757;
+  color: #FFFFFF;
+}
+
+.features-title td {
+  background-color: #575757;
+  color: #FFFFFF;
 }
 
 /* Wrapper for page content to push down footer */
