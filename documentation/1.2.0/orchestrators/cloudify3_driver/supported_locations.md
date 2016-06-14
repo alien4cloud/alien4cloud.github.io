@@ -1,30 +1,32 @@
 ---
 layout: post
-title:  Cloudify 3
+title:  Supported locations (IaaSs)
 root: ../../../
 categories: DOCUMENTATION-1.2.0
-parent: [orchestrators]
-node_name: cloudify_3
-weight: 1000
+parent: [orchestrators, cloudify_3]
+node_name: supported_locations
+weight: 2000
 ---
 
-Cloudify 3 is an opensource orchestrator backed by GigaSpaces that aims to support deployment on various different locations.
+In his current state, this provider allows you to deploy your application on several IaaSs, called __locations__.  
 
-This section gives a focus to Cloudify 3 orchestrator plugin for ALIEN, a plugin to manage deployment on various cloud using [Cloudify 3.x](http://getcloudify.org/ "cloudify").
+ - [***Amazon***](#/documentation/1.2.0/orchestrators/cloudify3_driver/location_amazon.html)
+ - [***OpenStack***](#/documentation/1.2.0/orchestrators/cloudify3_driver/location_openstack.html)
+ - you can even ***Bring Your Own Node***
+ - ***V-Sphere*** (***`Premium`***)
+ - [***Azure***](#/documentation/1.2.0/orchestrators/cloudify3_driver/location_azure.html) (***`Premium`***)
 
-## Alien 4 Cloud Cloudify 3 Support
+[![Supported locations][supported_locations]][supported_locations]
 
-The alien 4 cloud plugin for cloudify 3 exposes several nodes so that TOSCA templates can be deployed on Cloudify 3 to various locations, such as ***Amazon***, ***Openstack***, etc... . This allows full portability of topologies (or blueprints) that you have designed.  
 
-See [Supported locations](#/documentation/1.2.0/orchestrators/cloudify3_driver/supported_locations.html) for more details.
 
-<!-- The following tables shows the supported features of our plugin on the various clouds and how they are mapped to TOSCA.
 
-### OpenStack
+[supported_locations]: ../../images/cloudify3_driver/supported_locations.png  "Supported locations"
+<!-- ### OpenStack
 
 ### Amazon
 
-## Policies support in cloudify 3 -->
+## Policies support in cloudify 3
 
 Cloudify 3 currently manages the deployment and un-deployment of blueprints and support the ability to trigger custom workflows that have been shipped within the blueprint at runtime.
 
@@ -85,4 +87,4 @@ Imagine you have a topology containing a compute with a block storage attached o
 To manage such feature, A4C will keep a trace of the volume ID and store it in the deployment topology. When the topology is deployed again, this volume id is used to find the volume in the the IaaS rather than provisoning another one.
 {%endinfo%}
 
-We still have some issues about block storage recovery : the component `LinuxFileSystem` will not manage recovery in case of runtime scaling.
+We still have some issues about block storage recovery : the component `LinuxFileSystem` will not manage recovery in case of runtime scaling. -->
