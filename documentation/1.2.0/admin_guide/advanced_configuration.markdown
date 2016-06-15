@@ -12,7 +12,7 @@ weight: 100
 
 # Using SSL
 
-see [security section](#/documentation/1.2.0/admin_guide/ssl_config.html).
+see [security section](#/documentation/1.2.0/admin_guide/security.html).
 
 # Elastic Search configuration
 
