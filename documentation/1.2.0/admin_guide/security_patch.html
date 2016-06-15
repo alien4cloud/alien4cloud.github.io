@@ -31,13 +31,30 @@ ga('send', 'pageview');
 <p>This section refers to a premium feature.</p>
 </div>
 <p>When deploying the post deployment web application, it is recommended to enable SSL to secure the communication with Alien4Cloud.
-For that to be done, you have to create a keystore, and eventually a truststore in case of mutual authentication (see <a href="#/documentation/1.2.0/admin_guide/certificates.html">Certificate Generation</a>) and launch your application with the proper SSL configuration properties.
-If you already have those, then jump to the <strong>Configure the post-deployment web application</strong> part, otherwise, you can follow these quick steps to have  self-signed certificates.</p>
+For that to be done, you have to create a keystore, and eventually a truststore in case of mutual authentication (see <a href="#/documentation/1.2.0/admin_guide/certificates.html">Certificate Generation</a>) and configure the application with the proper SSL properties.</p>
 
 <h2 id="configure-the-post-deployment-web-application">Configure the post-deployment web application</h2>
-<p>The post-deployment web application is a Spring boot application, thus, there are some properties that needs to be set into the Java JVM running the application.</p>
+<p>The post-deployment web application is a Spring boot application, thus, there are some properties that needs to be set into the Java JVM running the application. Two cases:</p>
 
-<p>In case you only want the server to be authenticated before the clients, you need specify the location of the keystore, by adding the following options to java command:</p>
+<ul>
+  <li>you are using a configuration file <strong><em><code>alien4cloud-config.yml</code></em></strong>: then you should add the options under the in the <code>server</code> section</li>
+  <li>you are not using a configuration file: you should set your java command options.</li>
+</ul>
+
+<p>In case you only want the server to be authenticated before the clients, you need specify the location of the keystore, by adding the following options,</p>
+
+<p><strong>YAML configuration</strong></p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">server</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">port</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">8080</span> <span class="c1"># You might want to change the port to a normalize secured one</span>
+  <span class="p-Indicator">[</span><span class="nv">...</span><span class="p-Indicator">]</span>
+  <span class="l-Scalar-Plain">ssl</span><span class="p-Indicator">:</span>
+    <span class="c1"># Make sure to change the path to a good one</span>
+    <span class="l-Scalar-Plain">key-store</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;relative/path/to/keystore.jks&gt;</span>
+    <span class="l-Scalar-Plain">key-store-password</span><span class="p-Indicator">:</span> <span class="err">******</span>
+    <span class="l-Scalar-Plain">key-password</span><span class="p-Indicator">:</span> <span class="err">******</span></code></pre></div>
+
+<p><strong>JAVA options</strong></p>
 
 <div class="highlight"><pre><code class="language-bash" data-lang="bash">-Dserver.ssl.key-store<span class="o">=</span>path/to/your/server-keystore/server-keystore.jks
 -Dserver.ssl.key-store-password<span class="o">=</span>keyStore-password
@@ -46,6 +63,20 @@ If you already have those, then jump to the <strong>Configure the post-deploymen
 <div class="note warning">
 <p>Note that if you do not want to perform mutual authentication between Alien4Cloud and the post deployment web application, you should skip this step.</p>
 </div>
+
+<p><strong>YAML configuration</strong></p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">server</span><span class="p-Indicator">:</span>
+  <span class="p-Indicator">[</span><span class="nv">...</span><span class="p-Indicator">]</span>
+  <span class="l-Scalar-Plain">ssl</span><span class="p-Indicator">:</span>
+    <span class="p-Indicator">[</span><span class="nv">...</span><span class="p-Indicator">]</span>
+    <span class="c1"># Make sure to change the path to a good one</span>
+    <span class="l-Scalar-Plain">trust-store</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">relativepath/to/your/truststore/server-truststore.jks</span>
+    <span class="l-Scalar-Plain">trust-store-password</span><span class="p-Indicator">:</span> <span class="err">******</span>
+    <span class="c1"># to require client authentication</span>
+    <span class="l-Scalar-Plain">client-auth</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">need</span></code></pre></div>
+
+<p><strong>JAVA options</strong></p>
 
 <div class="highlight"><pre><code class="language-bash" data-lang="bash">-Dserver.ssl.trust-store<span class="o">=</span>path/to/your/truststore/server-truststore.jks
 -Dserver.ssl.trust-store-password<span class="o">=</span>trustStore-password
@@ -64,6 +95,7 @@ If you already have those, then jump to the <strong>Configure the post-deploymen
 
 <div class="highlight"><pre><code class="language-bash" data-lang="bash">-Djavax.net.ssl.keyStore<span class="o">=</span>path/to/your/client-keystore/client-keystore.jks
 -Djavax.net.ssl.keyStorePassword<span class="o">=</span>keyStore-password</code></pre></div>
+
 
         <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.2.0/admin_guide/security_patch.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
 	  </div>
