@@ -1,0 +1,130 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/1.2.0/orchestrators/cloudify3_driver/supported_locations.html',
+  title: 'Supported locations (IaaSs)'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container">
+  <div class="row">
+    
+      <div class="col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Supported locations (IaaSs)</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.2.0/orchestrators/cloudify3_driver/supported_locations.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <p>In his current state, this provider allows you to deploy your application on several IaaSs, called <strong>locations</strong>.</p>
+
+<ul>
+  <li><a href="#/documentation/1.2.0/orchestrators/cloudify3_driver/location_amazon.html"><strong><em>Amazon</em></strong></a></li>
+  <li><a href="#/documentation/1.2.0/orchestrators/cloudify3_driver/location_openstack.html"><strong><em>OpenStack</em></strong></a></li>
+  <li>you can even <strong><em>Bring Your Own Node</em></strong></li>
+  <li><strong><em>V-Sphere</em></strong> (<strong><em><code>Premium</code></em></strong>)</li>
+  <li><a href="#/documentation/1.2.0/orchestrators/cloudify3_driver/location_azure.html"><strong><em>Azure</em></strong></a> (<strong><em><code>Premium</code></em></strong>)</li>
+</ul>
+
+<p><a href="../../images/cloudify3_driver/supported_locations.png" title="Supported locations"><img src="../../images/cloudify3_driver/supported_locations.png" alt="Supported locations" title="Supported locations" /></a></p>
+
+<!-- ### OpenStack
+
+### Amazon
+
+## Policies support in cloudify 3
+
+Cloudify 3 currently manages the deployment and un-deployment of blueprints and support the ability to trigger custom workflows that have been shipped within the blueprint at runtime.
+
+Out of the box cloudify 3.3 doesn't support policies like auto-healing and have a very limited support for Scalability that causes issues in various scenarios.
+
+<div class="note info">
+<p>Note that Cloudify guys are working on 3.4 that should provide much better support for both HA and Scalability concern.</p>
+</div>
+
+### Auto-healing
+
+As stated previously cloudify 3.3 doesn't provide support for auto-healing of services. It provide a basic monitoring feature that we implement in the blueprint we generate from the TOSCA model. This basic monitoring is based on Machine status and not software status meaning that if one of the software in a blueprint crash it won't be detected by the cloudify 3.
+
+We developed as part of Alien 4 Cloud the ability to generate a cron-based mecanism that check the monitoring data in order to trigger an auto-healing workflow. This implementation is quite naïve for now and is disabled by default on deployments but can be enabled per deployment through an orchestrator property.
+
+### Scalability
+
+Scalability behavior is currently not deeply specified in TOSCA and Cloudify has a very simple implementation of scalability management that treats only two kind of relationships, hosted_on (1-1 relationship) and all others (1-n relationships). When scaling a node, all nodes that are hosted_on the given node are scaled, however nodes that are connected or attached to it are not, this includes block-storage and floating ips which is not a correct implementation for most of situations.
+
+We have designed a workaround to change this behavior so that it is possible to scale a node with BlockStorage and Floating IP. This workaround relies on both some updates on alien4cloud blueprint generation and workflow management for cloudify but also on an update of the cloudify plugin so that Compute, BlockStorage and FloatingIPs are considered as a single Compute node in cloudify world with optional list of block storage and floating ips that will be managed per instance.
+
+<div class="note info">
+<p>There is currently some missing details in the TOSCA specification on how relationships can be impacted in scaling scenarios and we are working with bot Cloudify and TOSCA to enhance the specification.</p>
+</div>
+
+#### Setup
+
+The provider plugin embeds the cloudify opentack plugin that contains this workaround.
+
+To be sure you're deployments will use this plugin rather than the original one, just ensure that the import settings for your orchestrator (location openstack) contains `openstack-plugin.yaml` rather than `http://www.getcloudify.org/spec/openstack-plugin/1.3.1/plugin.yaml`.
+
+You'll also need to execute the following operations on the cloudify manager:
+
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">sudo yum install gcc
+sudo yum install python-devel</code></pre></div>
+
+
+#### IaaS limitations
+
+The workaround mentioned above has only been developed for OpenStack. This means that for Amazon for example, you will be able to scale a compute, but if it is attached to a public network, only one of them will have a floating IP attachment.
+
+Here is a table that shows the limitations about scaling per IaaS:
+
+{: .table .table-bordered}
+|       |  OpenStack  | Amazon  | BYON  |
+|:--------|:---------|:-------|
+| Single Compute  | OK  | OK  | OK  |
+| Compute + Network + Block Storage   | OK  | KO  | N/A   |
+
+#### Block storage recovery limitation
+
+<div class="note info">
+<p>Block storage recovery is the ability to reuse an already created block storage.</p>
+
+<p>Imagine you have a topology containing a compute with a block storage attached on it. You deploy the topology, the VM is started, the block storage is provisionned and attached to the VM, and then some process write data to the disk. If you don’t use a <code>DeletableBlockStorage</code>, this means that you want the data written to the disk to be persistent : if the topology is undeployed then deployed again, you want the block storage to be reused.</p>
+
+<p>To manage such feature, A4C will keep a trace of the volume ID and store it in the deployment topology. When the topology is deployed again, this volume id is used to find the volume in the the IaaS rather than provisoning another one.</p>
+</div>
+
+We still have some issues about block storage recovery : the component `LinuxFileSystem` will not manage recovery in case of runtime scaling. -->
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.2.0/orchestrators/cloudify3_driver/supported_locations.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-1.2.0', 'documentation/1.2.0/orchestrators/cloudify3_driver/supported_locations.md');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>
