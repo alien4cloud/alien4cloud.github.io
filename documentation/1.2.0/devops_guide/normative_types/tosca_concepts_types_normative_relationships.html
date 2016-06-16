@@ -65,7 +65,7 @@ ga('send', 'pageview');
 
 <div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">tosca.relationships.DependsOn</span><span class="p-Indicator">:</span>
   <span class="l-Scalar-Plain">derived_from</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.relationships.Root</span>
-  <span class="l-Scalar-Plain">valid_targets</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span> <span class="nv">tosca.capabilities.Root</span> <span class="p-Indicator">]</span></code></pre></div>
+  <span class="l-Scalar-Plain">valid_target_types</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span> <span class="nv">tosca.capabilities.Root</span> <span class="p-Indicator">]</span></code></pre></div>
 
 <h1 id="toscarelationshipshostedon">tosca.relationships.HostedOn</h1>
 
@@ -75,7 +75,7 @@ ga('send', 'pageview');
 
 <div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">tosca.relationships.HostedOn</span><span class="p-Indicator">:</span>
     <span class="l-Scalar-Plain">derived_from</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.relationships.DependsOn</span>
-    <span class="l-Scalar-Plain">valid_targets</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span> <span class="nv">tosca.capabilities.Container</span> <span class="p-Indicator">]</span></code></pre></div>
+    <span class="l-Scalar-Plain">valid_target_types</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span> <span class="nv">tosca.capabilities.Container</span> <span class="p-Indicator">]</span></code></pre></div>
 
 <h1 id="toscarelationshipsconnectsto">tosca.relationships.ConnectsTo</h1>
 
@@ -85,7 +85,7 @@ ga('send', 'pageview');
 
 <div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">tosca.relationships.ConnectsTo</span><span class="p-Indicator">:</span>
   <span class="l-Scalar-Plain">derived_from</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.relationships.DependsOn</span>
-  <span class="l-Scalar-Plain">valid_targets</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span> <span class="nv">tosca.capabilities.Endpoint</span> <span class="p-Indicator">]</span></code></pre></div>
+  <span class="l-Scalar-Plain">valid_target_types</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span> <span class="nv">tosca.capabilities.Endpoint</span> <span class="p-Indicator">]</span></code></pre></div>
 
 <h1 id="toscarelationshipsattachto">tosca.relationships.AttachTo</h1>
 
@@ -97,7 +97,7 @@ ga('send', 'pageview');
 
 <div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">tosca.relationships.AttachTo</span><span class="p-Indicator">:</span>
   <span class="l-Scalar-Plain">derived_from</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.relationships.Root</span>
-  <span class="l-Scalar-Plain">valid_targets</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span> <span class="nv">tosca.capabilities.Attachement</span> <span class="p-Indicator">]</span>
+  <span class="l-Scalar-Plain">valid_target_types</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span> <span class="nv">tosca.capabilities.Attachement</span> <span class="p-Indicator">]</span>
   <span class="l-Scalar-Plain">properties</span><span class="p-Indicator">:</span>
     <span class="l-Scalar-Plain">location</span><span class="p-Indicator">:</span>
       <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">string</span>

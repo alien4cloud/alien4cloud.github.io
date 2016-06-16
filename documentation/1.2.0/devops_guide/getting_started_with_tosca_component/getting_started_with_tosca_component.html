@@ -163,7 +163,7 @@ Make sure that it matches the version you specify in your TOSCA file. Otherwise,
     <span class="l-Scalar-Plain">capabilities</span><span class="p-Indicator">:</span>
       <span class="l-Scalar-Plain">jdk</span><span class="p-Indicator">:</span>
         <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">alien.capabilities.JDK</span>
-        <span class="l-Scalar-Plain">upper_bound</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">unbounded</span>
+        <span class="l-Scalar-Plain">occurences</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span><span class="nv">0</span><span class="p-Indicator">,</span> <span class="nv">unbounded</span><span class="p-Indicator">]</span>
     <span class="l-Scalar-Plain">interfaces</span><span class="p-Indicator">:</span>
       <span class="l-Scalar-Plain">Standard</span><span class="p-Indicator">:</span>
         <span class="l-Scalar-Plain">create</span><span class="p-Indicator">:</span>
@@ -258,7 +258,7 @@ This node requires to be linked to a node which offers the <code>alien.capabilit
   <span class="l-Scalar-Plain">derived_from</span><span class="p-Indicator">:</span> <span class="c1"># Optional parent Relationship Type name the Relationship Type derives from</span>
   <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="c1"># Optional description</span>
   <span class="l-Scalar-Plain">valid_sources</span><span class="p-Indicator">:</span> <span class="c1"># Optional list of one or more valid target entities or entity types (i.e., a Node Types or Capability Types).</span>
-  <span class="l-Scalar-Plain">valid_targets</span><span class="p-Indicator">:</span> <span class="c1"># Required list of one or more valid target entities or entity types (i.e., a Node Types or Capability Types).</span></code></pre></div>
+  <span class="l-Scalar-Plain">valid_target_types</span><span class="p-Indicator">:</span> <span class="c1"># Required list of one or more valid target entities or entity types (i.e., a Node Types or Capability Types).</span></code></pre></div>
 
 <p>In the source file:</p>
 
@@ -266,7 +266,7 @@ This node requires to be linked to a node which offers the <code>alien.capabilit
     <span class="l-Scalar-Plain">derived_from</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.relationships.HostedOn</span>
     <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Relationship use to describe that the SoftwareComponent is hosted on the JDK.</span>
     <span class="l-Scalar-Plain">valid_sources</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span> <span class="nv">tosca.nodes.JavaSoftware</span> <span class="p-Indicator">]</span>
-    <span class="l-Scalar-Plain">valid_targets</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span> <span class="nv">alien.capabilities.JDK</span> <span class="p-Indicator">]</span></code></pre></div>
+    <span class="l-Scalar-Plain">valid_target_types</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span> <span class="nv">alien.capabilities.JDK</span> <span class="p-Indicator">]</span></code></pre></div>
 
 <ul>
   <li><code>alien.relationships.JavaSoftwareHostedOnJDK</code> is the name of our relationship type.</li>
@@ -274,7 +274,7 @@ This node requires to be linked to a node which offers the <code>alien.capabilit
 The relationship derives from the <code>tosca.relationships.HostedOn</code> TOSCA normative type.</li>
   <li><code>valid_sources: [ tosca.nodes.JavaSoftware ]</code><br />
 The source of the relationship must be of a node with a <code>tosca.nodes.JavaSoftware</code> type in its requirements list.</li>
-  <li><code>valid_targets: [ alien.capabilities.JDK ]</code><br />
+  <li><code>valid_target_types: [ alien.capabilities.JDK ]</code><br />
 The target of the relationship must be of a node with an <code>alien.capabilities.JDK</code> type in its capabilities list.</li>
 </ul>
 

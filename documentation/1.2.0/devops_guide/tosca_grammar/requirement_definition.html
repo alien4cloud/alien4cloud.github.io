@@ -47,16 +47,10 @@ ga('send', 'pageview');
       <td style="text-align: left">The optional reserved keyname used to provide a named Relationship Type to use when fulfilling the associated named requirement.</td>
     </tr>
     <tr>
-      <td style="text-align: left">lower_bound</td>
-      <td style="text-align: left">integer</td>
+      <td style="text-align: left">occurences</td>
+      <td style="text-align: left">range</td>
       <td style="text-align: left">no</td>
-      <td style="text-align: left">Lower boundary by which a requirement MUST be matched. Valid values are any positive number, 0 meaning that the requirement is optional. Defaults to 1.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">upper_bound</td>
-      <td style="text-align: left">integer (or <em>unbounded</em> string)</td>
-      <td style="text-align: left">no</td>
-      <td style="text-align: left">Upper boundary by which a requirement MUST be matched for Node Templates. Valid values are any positive number or <em>unbounded</em> string that means that there is no upper limit. Defaults to 1.</td>
+      <td style="text-align: left">Lower boundary by which a requirement MUST be matched. Valid values are any positive number, 0 meaning that the requirement is optional. Defaults to 1. and Upper boundary by which a requirement MUST be matched for Node Templates. Valid values are any positive number or <em>unbounded</em> string that means that there is no upper limit. Defaults to 1.</td>
     </tr>
   </tbody>
 </table>
@@ -66,14 +60,12 @@ ga('send', 'pageview');
 <div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="c1"># using type</span>
 <span class="l-Scalar-Plain">&lt;requirement_name&gt;</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;capability_type or node_type&gt;</span>
 <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;relationship_type&gt;</span>
-<span class="l-Scalar-Plain">lower_bound</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;lower_bound&gt;</span>
-<span class="l-Scalar-Plain">upper_bound</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;upper_bound&gt;</span>
+<span class="l-Scalar-Plain">occurences</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;occurences&gt;</span>
 
 <span class="c1"># alien 4 cloud specific support more meaningful</span>
 <span class="l-Scalar-Plain">&lt;requirement_name&gt;</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;capability_type or node_type&gt;</span>
 <span class="l-Scalar-Plain">relationship_type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;relationship_type&gt;</span>
-<span class="l-Scalar-Plain">lower_bound</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;lower_bound&gt;</span>
-<span class="l-Scalar-Plain">upper_bound</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;upper_bound&gt;</span></code></pre></div>
+<span class="l-Scalar-Plain">occurences</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;occurences&gt;</span></code></pre></div>
 
 <h2 id="example">Example</h2>
 
@@ -82,8 +74,7 @@ ga('send', 'pageview');
   <span class="l-Scalar-Plain">requirements</span><span class="p-Indicator">:</span>
     <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">host</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.nodes.Compute</span>
       <span class="l-Scalar-Plain">relationship_type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.relationships.HostedOn</span>
-      <span class="l-Scalar-Plain">lower_bound</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">0</span>
-      <span class="l-Scalar-Plain">upper_bound</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">unbounded</span></code></pre></div>
+      <span class="l-Scalar-Plain">occurences</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span><span class="nv">0</span><span class="p-Indicator">,</span> <span class="nv">unbounded</span><span class="p-Indicator">]</span></code></pre></div>
 
 
         <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.2.0/devops_guide/tosca_grammar/requirement_definition.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>

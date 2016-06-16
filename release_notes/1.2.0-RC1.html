@@ -1,0 +1,161 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/release_notes/1.2.0-RC1.html',
+  title: 'ALIEN for Cloud 1.2.0-RC1'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container">
+  <div class="row">
+    
+      <div class="col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">ALIEN for Cloud 1.2.0-RC1</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/release_notes/1.2.0-RC1.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <p><i class="fa fa-plus text-success"></i> New feature <i class="fa fa-level-up text-primary"></i> Improvement  <i class="fa fa-bug text-danger"></i> Bug <i class="fa fa-exclamation-triangle text-warning"></i> Breaking change</p>
+
+<h3 id="cloudify-3-paas-provider">Cloudify 3 PaaS Provider</h3>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Id</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-plus text-success"></i></td>
+      <td style="text-align: left">ALIEN-1559</td>
+      <td style="text-align: left">Support deployment of Linux compute nodes on Azure / http://alien4cloud.org/#/documentation/1.2.0/orchestrators/cloudify3_driver/location_azure.html</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-plus text-success"></i></td>
+      <td style="text-align: left">ALIEN-1560</td>
+      <td style="text-align: left">Support deployment of windows compute nodes on Azure / http://alien4cloud.org/#/documentation/1.2.0/orchestrators/cloudify3_driver/location_azure.html</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-1552</td>
+      <td style="text-align: left">Fixed an issue on state synchronization with alien and cloudify when trying to undeploy just after a click on deploy (alien still didn’t reached cfy) /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-1590</td>
+      <td style="text-align: left">Fixed an issue in premium edition to allow deployment without patch web app. /</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="marathon">Marathon</h3>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Id</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-plus text-success"></i></td>
+      <td style="text-align: left">ALIEN-1578</td>
+      <td style="text-align: left">Initial plugin to support docker deployments through Marathon, not yet open to the community, stay tuned! /</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="alien-4-cloud">Alien 4 Cloud</h3>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Id</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-plus text-success"></i></td>
+      <td style="text-align: left">ALIEN-1441</td>
+      <td style="text-align: left">Get property is now supported for capabilities complex properties. / http://alien4cloud.org/#/documentation/1.2.0/devops_guide/tosca_grammar/get_property_definition.html</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-plus text-success"></i></td>
+      <td style="text-align: left">ALIEN-1575</td>
+      <td style="text-align: left">get_property on complex properties is now supported for relationships properties. / http://alien4cloud.org/#/documentation/1.2.0/devops_guide/tosca_grammar/get_property_definition.html</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
+      <td style="text-align: left">ALIEN-1161</td>
+      <td style="text-align: left">alien_dsl_1_2_0: valid_target_types keyword can now be parsed on a relationship /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
+      <td style="text-align: left">ALIEN-1163</td>
+      <td style="text-align: left">alien_dsl_1_2_0: occurences keyword can now be parsed rather than upper_bound and lower_bound / http://alien4cloud.org/#/documentation/1.2.0/devops_guide/tosca_grammar/requirement_definition.html</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
+      <td style="text-align: left">ALIEN-1593</td>
+      <td style="text-align: left">Improved TOSCA yaml generation to support complex property values. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-1520</td>
+      <td style="text-align: left">Fixed an issue in node filters validation when some inputs had to be taken in account. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-1591</td>
+      <td style="text-align: left">Fixed a critical issue in ElasticSearch mapping causing conflict when properties with the same name have different types on different types. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-1592</td>
+      <td style="text-align: left">Fixed an issue when the selected environment in an application (for example in application view) is deleted /</td>
+    </tr>
+  </tbody>
+</table>
+
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/release_notes/1.2.0-RC1.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('RELEASE_NOTES', 'release_notes/1.2.0-RC1.markdown');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

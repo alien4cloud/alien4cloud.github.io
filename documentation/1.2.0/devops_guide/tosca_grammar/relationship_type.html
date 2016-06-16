@@ -83,7 +83,7 @@ ga('send', 'pageview');
       <td style="text-align: left">An optional list of one or more valid target entities or entity types (i.e., a Node Types or Capability Types).</td>
     </tr>
     <tr>
-      <td style="text-align: left">valid_targets</td>
+      <td style="text-align: left">valid_target_types</td>
       <td style="text-align: left">string[]</td>
       <td style="text-align: left">yes</td>
       <td style="text-align: left">A required list of one or more valid target entities or entity types (i.e., a Node Types or Capability Types).</td>
@@ -109,7 +109,7 @@ ga('send', 'pageview');
     <span class="l-Scalar-Plain">&lt;attribute_definitions&gt;</span>
   <span class="l-Scalar-Plain">interfaces</span><span class="p-Indicator">:</span>
     <span class="l-Scalar-Plain">&lt;interface_definitions&gt;</span>
-  <span class="l-Scalar-Plain">valid_targets</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span> <span class="nv">&lt;entity_name_or_type_1&gt;</span><span class="p-Indicator">,</span> <span class="nv">...</span><span class="p-Indicator">,</span> <span class="nv">&lt;entity_name_or_type_n&gt;</span> <span class="p-Indicator">]</span></code></pre></div>
+  <span class="l-Scalar-Plain">valid_target_types</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span> <span class="nv">&lt;entity_name_or_type_1&gt;</span><span class="p-Indicator">,</span> <span class="nv">...</span><span class="p-Indicator">,</span> <span class="nv">&lt;entity_name_or_type_n&gt;</span> <span class="p-Indicator">]</span></code></pre></div>
 
 <p>See:</p>
 
@@ -123,7 +123,7 @@ ga('send', 'pageview');
 
 <div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">mycompanytypes.myrelationships.AppDependency</span><span class="p-Indicator">:</span>
   <span class="l-Scalar-Plain">derived_from</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.relationships.DependsOn</span>
-  <span class="l-Scalar-Plain">valid_targets</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span> <span class="nv">mycompanytypes.mycapabilities.SomeAppCapability</span> <span class="p-Indicator">]</span></code></pre></div>
+  <span class="l-Scalar-Plain">valid_target_types</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span> <span class="nv">mycompanytypes.mycapabilities.SomeAppCapability</span> <span class="p-Indicator">]</span></code></pre></div>
 
 
         <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.2.0/devops_guide/tosca_grammar/relationship_type.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
