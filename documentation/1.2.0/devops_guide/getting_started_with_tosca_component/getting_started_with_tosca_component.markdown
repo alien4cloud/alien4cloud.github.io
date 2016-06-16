@@ -148,7 +148,7 @@ node_types:
     capabilities:
       jdk:
         type: alien.capabilities.JDK
-        upper_bound: unbounded
+        occurences: [0, unbounded]
     interfaces:
       Standard:
         create:
@@ -253,7 +253,7 @@ Here the structure of the `relationship_type` used in the `jdk-type.yml` file:
   derived_from: # Optional parent Relationship Type name the Relationship Type derives from
   description: # Optional description
   valid_sources: # Optional list of one or more valid target entities or entity types (i.e., a Node Types or Capability Types).
-  valid_targets: # Required list of one or more valid target entities or entity types (i.e., a Node Types or Capability Types).
+  valid_target_types: # Required list of one or more valid target entities or entity types (i.e., a Node Types or Capability Types).
 {% endhighlight %}
 
 In the source file:
@@ -263,7 +263,7 @@ alien.relationships.JavaSoftwareHostedOnJDK:
     derived_from: tosca.relationships.HostedOn
     description: Relationship use to describe that the SoftwareComponent is hosted on the JDK.
     valid_sources: [ tosca.nodes.JavaSoftware ]
-    valid_targets: [ alien.capabilities.JDK ]
+    valid_target_types: [ alien.capabilities.JDK ]
 {% endhighlight %}
 
 * `alien.relationships.JavaSoftwareHostedOnJDK` is the name of our relationship type.
@@ -271,7 +271,7 @@ alien.relationships.JavaSoftwareHostedOnJDK:
   The relationship derives from the `tosca.relationships.HostedOn` TOSCA normative type.
 * `valid_sources: [ tosca.nodes.JavaSoftware ]`  
   The source of the relationship must be of a node with a `tosca.nodes.JavaSoftware` type in its requirements list.
-* `valid_targets: [ alien.capabilities.JDK ]`  
+* `valid_target_types: [ alien.capabilities.JDK ]`  
   The target of the relationship must be of a node with an `alien.capabilities.JDK` type in its capabilities list.
 
 {% note %}

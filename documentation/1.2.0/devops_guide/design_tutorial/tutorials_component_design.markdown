@@ -93,10 +93,10 @@ The other requirement for a Tomcat node is to have a java installed. We will mod
 A requirements can express constraints on some of the target capability or node, properties. Here we reference a requirement on a Java Node and specify a constraint on the version of the java node.
 
 {: .table .table-bordered}
-| Name            | Type                   | Lower bound | Upper bound | Constraints             | Notes                                        |
-|:----------------|:-----------------------|:------------|:------------|:------------------------|----------------------------------------------|
-| host            | tosca.nodes.Compute    | 1 (default) | 1 (default) |                         | Inherited from tosca.nodes.SoftwareComponent |
-| java            | fastconnect.nodes.Java | 1 (default) | 1 (default) | Greater or equal than 7 |                                              |
+| Name            | Type                   | occurences                | Constraints             | Notes                                        |
+|:----------------|:-----------------------|:--------------------------|:------------------------|----------------------------------------------|
+| host            | tosca.nodes.Compute    | [1, 1] (default)          |                         | Inherited from tosca.nodes.SoftwareComponent |
+| java            | fastconnect.nodes.Java | [1, 1] (default)          | Greater or equal than 7 |                                              |
 
 {% highlight yaml %}
 fastconnect.nodes.Tomcat:
@@ -128,10 +128,10 @@ Tomcat node inherit from the requirement on a hosting compute node that is defin
 Tomcat has multiple capabilities and the two main capabilities that we want to define in this tutorial are the ability to hort some War node(s) on top of Tomcat as well as it's http endpoint.
 
 {: .table .table-bordered}
-| Name      | Type                         | Lower bound | Upper bound         |
-|:----------|:-----------------------------|:------------|:--------------------|
-| http      | tosca.capabilities.Endpoint  | 0 (default) | unbounded (default) |
-| war_host  | fastconnect.nodes.War        | 0 (default) | unbounded (default) |
+| Name      | Type                         | Occurences               |
+|:----------|:-----------------------------|:-------------------------|
+| http      | tosca.capabilities.Endpoint  | [0, unbounded] (default) |
+| war_host  | fastconnect.nodes.War        | [0, unbounded] (default) |
 
 In case of the http capability we want to define the port of the tosca.capabilties.Endpoint to be actually the one define in the
 

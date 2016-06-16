@@ -48,7 +48,7 @@ This type represents a general dependency relationship between two nodes. Depend
 {% highlight yaml %}
 tosca.relationships.DependsOn:
   derived_from: tosca.relationships.Root
-  valid_targets: [ tosca.capabilities.Root ]
+  valid_target_types: [ tosca.capabilities.Root ]
 {% endhighlight %}
 
 # tosca.relationships.HostedOn
@@ -60,7 +60,7 @@ This type represents a hosting relationship between two nodes.
 {% highlight yaml %}
   tosca.relationships.HostedOn:
     derived_from: tosca.relationships.DependsOn
-    valid_targets: [ tosca.capabilities.Container ]
+    valid_target_types: [ tosca.capabilities.Container ]
 {% endhighlight %}
 
 # tosca.relationships.ConnectsTo
@@ -72,7 +72,7 @@ This type represents a network connection relationship between two nodes.
 {% highlight yaml %}
 tosca.relationships.ConnectsTo:
   derived_from: tosca.relationships.DependsOn
-  valid_targets: [ tosca.capabilities.Endpoint ]
+  valid_target_types: [ tosca.capabilities.Endpoint ]
 {% endhighlight %}
 
 # tosca.relationships.AttachTo
@@ -86,7 +86,7 @@ This type represents an attachment relationship between two nodes.  For example,
 {% highlight yaml %}
 tosca.relationships.AttachTo:
   derived_from: tosca.relationships.Root
-  valid_targets: [ tosca.capabilities.Attachement ]
+  valid_target_types: [ tosca.capabilities.Attachement ]
   properties:
     location:
       type: string

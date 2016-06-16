@@ -19,11 +19,7 @@ A capability definition defines a named, typed set of data that can be associate
 | description     | string              | no       | The optional description of the Capability Type. |
 | properties      | list of properties values | no      | Properties values for the properties defined on the capability type. |
 | attributes      | list of attributes values | no      | Attributes values for the attributes defined on the capability type. |
-| upper_bound     | integer (or _unbounded_ string) | no       | Specifies the upper boundary of client requirements the defined capability can serve. A value of unbounded indicates that there is no upper boundary. Defaults to unbounded. |
-
-{% info %}
-upper_bound is an Alien specific property that is currently not part of the official specification for the TOSCA simple profile in YAML.
-{% endinfo %}
+| occurences     | range | no       | Specifies the boundaries of client requirements the defined capability can serve. A value of unbounded indicates that there is no upper boundary. Defaults to [0, unbounded]. |
 
 ## Grammar
 
@@ -39,7 +35,7 @@ upper_bound is an Alien specific property that is currently not part of the offi
     <property_values>
   attributes:
     <attribute_values>
-  upper_bound: <upper_bound>
+  occurences: <occurences>
 {% endhighlight %}
 
 ## Example
@@ -56,5 +52,5 @@ node_types:
         type: mytypes.mycapabilities.MyCapabilityTypeName
         properties:
           limit: 100
-        upper_bound: 3
+        occurences: [0, 3]
 {% endhighlight %}

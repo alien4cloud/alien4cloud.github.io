@@ -22,7 +22,7 @@ A Relationship Type is a reusable entity that defines the type of one or more re
 | attributes | [attribute definitions](#/documentation/1.2.0/devops_guide/tosca_grammar/attribute_definition.html) | no | An optional list of attribute definitions for the Relationship Type. |
 | interfaces | [interface definitions](#/documentation/1.2.0/devops_guide/tosca_grammar/interface_definition.html) | no | An optional list of named interfaces for the Relationship Type. |
 | valid_sources | string[] | no | An optional list of one or more valid target entities or entity types (i.e., a Node Types or Capability Types). |
-| valid_targets | string[] | yes | A required list of one or more valid target entities or entity types (i.e., a Node Types or Capability Types). |
+| valid_target_types | string[] | yes | A required list of one or more valid target entities or entity types (i.e., a Node Types or Capability Types). |
 
 {% info %}
  - Abstract flag is specific to Alien 4 Cloud and is not part of TOSCA Simple Profile in YAML.
@@ -41,7 +41,7 @@ A Relationship Type is a reusable entity that defines the type of one or more re
     <attribute_definitions>
   interfaces:
     <interface_definitions>
-  valid_targets: [ <entity_name_or_type_1>, ..., <entity_name_or_type_n> ]
+  valid_target_types: [ <entity_name_or_type_1>, ..., <entity_name_or_type_n> ]
 {% endhighlight %}
 
 See:
@@ -55,5 +55,5 @@ See:
 {% highlight yaml %}
 mycompanytypes.myrelationships.AppDependency:
   derived_from: tosca.relationships.DependsOn
-  valid_targets: [ mycompanytypes.mycapabilities.SomeAppCapability ]
+  valid_target_types: [ mycompanytypes.mycapabilities.SomeAppCapability ]
 {% endhighlight %}
