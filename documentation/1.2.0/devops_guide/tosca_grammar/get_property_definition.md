@@ -117,10 +117,3 @@ NESTED is toto
 NESTED_ARRAY_ELEMENT is titi
 NESTED_MAP_ELEMENT is tata
 {%endhighlight%}
-
-{%warning%}
-<h5>Limitations</h5>
-
-Getting a nested property on a capability or a requirement with `get_property` function is not yet supported.
-
-{%endwarning%}
