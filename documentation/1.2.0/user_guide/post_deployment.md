@@ -1,11 +1,14 @@
 ---
 layout: post
-title:  Post deployment operations
+title: Post deployment operations
 root: ../../
 categories: DOCUMENTATION-1.2.0
-parent: [user_guide, application_management]
+parent:
+  - user_guide
+  - application_management
 node_name: post_deployment
 weight: 300
+published: true
 ---
 
 {% summary %}{% endsummary %}
@@ -75,7 +78,7 @@ Some inputs are auto-generated when the operation is added while blueprint is ge
 Attribute names are prefixed by `self_attribute_` and property names by `self_property_`. Like any inputs in any operation implementation script, you can access them in your script using environment variables.
 
 # Deletion
-You can remove a patch / operation if you need to via the provided user interface. However, note that if the patch / operation has already been executed on some instances, deleting it will not undo the changes on those instances.  
+You can remove a patch / operation if you need to via the provided user interface. **However, note that if the patch / operation has already been executed on some instances, deleting it will not undo the changes on those instances**.  
 Also, when an application environment is deleted, all patches and operations related to a deployment with that environment are deleted.
 
 [operation_view]: ../../images/user_guide/application/runtime-operation-view.png
