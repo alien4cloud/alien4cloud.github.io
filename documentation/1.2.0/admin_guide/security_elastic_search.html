@@ -50,19 +50,27 @@ ga('send', 'pageview');
   <li>Modify $ELASTIC_SEARCH_HOME/config/elasticsearch.yml, add following section for search-guard ssl (it’s just a sample, feel free to modify it to follow your cluster architecture) :</li>
 </ul>
 
-<div class="highlight"><pre><code class="language-properties" data-lang="properties"><span class="na">cluster.name</span><span class="o">:</span> <span class="s">mkv-cluster</span>
+<div class="highlight"><pre><code class="language-properties" data-lang="properties"><span class="na">cluster.name</span><span class="o">:</span> <span class="s">my-cluster</span>
 <span class="na">network.host</span><span class="o">:</span> <span class="s">_eth0:ipv4_</span>
 <span class="na">searchguard.ssl.http.clientauth_mode</span><span class="o">:</span> <span class="s">REQUIRE</span>
 <span class="na">searchguard.ssl.http.enable_openssl_if_available</span><span class="o">:</span> <span class="s">false</span>
 <span class="na">searchguard.ssl.http.enabled</span><span class="o">:</span> <span class="s">true</span>
 <span class="na">searchguard.ssl.http.keystore_filepath</span><span class="o">:</span> <span class="s">server-keystore.jks</span>
+<span class="c"># Keystore password (default: changeit)</span>
+<span class="na">searchguard.ssl.http.keystore_password</span><span class="o">:</span> <span class="s">changeit</span>
 <span class="na">searchguard.ssl.http.truststore_filepath</span><span class="o">:</span> <span class="s">server-truststore.jks</span>
+<span class="c"># Truststore password (default: changeit)</span>
+<span class="na">searchguard.ssl.http.truststore_password</span><span class="o">:</span> <span class="s">changeit</span>
 <span class="na">searchguard.ssl.transport.enable_openssl_if_available</span><span class="o">:</span> <span class="s">false</span>
 <span class="na">searchguard.ssl.transport.enabled</span><span class="o">:</span> <span class="s">true</span>
 <span class="na">searchguard.ssl.transport.enforce_hostname_verification</span><span class="o">:</span> <span class="s">true</span>
 <span class="na">searchguard.ssl.transport.resolve_hostname</span><span class="o">:</span> <span class="s">false</span>
 <span class="na">searchguard.ssl.transport.keystore_filepath</span><span class="o">:</span> <span class="s">server-keystore.jks</span>
+<span class="c"># Keystore password (default: changeit)</span>
+<span class="na">searchguard.ssl.transport.keystore_password</span><span class="o">:</span> <span class="s">changeit</span>
 <span class="na">searchguard.ssl.transport.truststore_filepath</span><span class="o">:</span> <span class="s">server-truststore.jks</span>
+<span class="c"># Truststore password (default: changeit)</span>
+<span class="na">searchguard.ssl.transport.truststore_password</span><span class="o">:</span> <span class="s">changeit</span>
 <span class="na">discovery.zen.ping.unicast.hosts</span><span class="o">:</span> <span class="s">[&quot;10.67.79.5&quot;]</span>
 <span class="na">discovery.zen.ping.multicast.enabled</span><span class="o">:</span> <span class="s">false</span>
 <span class="na">discovery.zen.ping.unicast.enabled</span><span class="o">:</span> <span class="s">true</span>
@@ -80,7 +88,7 @@ ga('send', 'pageview');
 </ul>
 
 <div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">elasticSearch</span><span class="p-Indicator">:</span>
-  <span class="l-Scalar-Plain">clusterName</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">mkv-cluster</span>
+  <span class="l-Scalar-Plain">clusterName</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">my-cluster</span>
   <span class="l-Scalar-Plain">local</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">false</span>
   <span class="l-Scalar-Plain">client</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
   <span class="l-Scalar-Plain">prefix_max_expansions</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">10</span>
@@ -104,13 +112,21 @@ ga('send', 'pageview');
 <span class="l-Scalar-Plain">searchguard.ssl.http.enable_openssl_if_available</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">false</span>
 <span class="l-Scalar-Plain">searchguard.ssl.http.enabled</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
 <span class="l-Scalar-Plain">searchguard.ssl.http.keystore_filepath</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">client-keystore.jks</span>
+<span class="c1"># Keystore password (default: changeit)</span>
+<span class="l-Scalar-Plain">searchguard.ssl.http.keystore_password</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">changeit</span>
 <span class="l-Scalar-Plain">searchguard.ssl.http.truststore_filepath</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">server-truststore.jks</span>
+<span class="c1"># Truststore password (default: changeit)</span>
+<span class="l-Scalar-Plain">searchguard.ssl.http.truststore_password</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">changeit</span>
 <span class="l-Scalar-Plain">searchguard.ssl.transport.enable_openssl_if_available</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">false</span>
 <span class="l-Scalar-Plain">searchguard.ssl.transport.enabled</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
 <span class="l-Scalar-Plain">searchguard.ssl.transport.enforce_hostname_verification</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
 <span class="l-Scalar-Plain">searchguard.ssl.transport.resolve_hostname</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">false</span>
 <span class="l-Scalar-Plain">searchguard.ssl.transport.keystore_filepath</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">client-keystore.jks</span>
-<span class="l-Scalar-Plain">searchguard.ssl.transport.truststore_filepath</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">server-truststore.jks</span></code></pre></div>
+<span class="c1"># Keystore password (default: changeit)</span>
+<span class="l-Scalar-Plain">searchguard.ssl.transport.keystore_password</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">changeit</span>
+<span class="l-Scalar-Plain">searchguard.ssl.transport.truststore_filepath</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">server-truststore.jks</span>
+<span class="c1"># Truststore password (default: changeit)</span>
+<span class="l-Scalar-Plain">searchguard.ssl.transport.truststore_password</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">changeit</span></code></pre></div>
 
 <ul>
   <li>Start Alien, if index is created then your configuration is correct and working !</li>
