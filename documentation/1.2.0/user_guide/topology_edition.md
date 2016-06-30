@@ -11,9 +11,17 @@ weight: 100
 published: true
 ---
 
-
-
 {% summary %}{% endsummary %}
+
+# Suggestions
+
+Suggestions provide default values for some usual fields. For example, when I set the distribution property of a Compute, Alien will suggest some value.
+
+![Property suggestions](../../images/user_guide/topology/suggestion_list.png)
+
+If my value is not in the suggestions, a modal will appear and I can add the new value to the suggestions values.
+
+![Property modal](../../images/user_guide/topology/property_modal.png)
 
 # Advanced inputs
 
