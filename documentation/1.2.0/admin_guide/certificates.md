@@ -23,7 +23,7 @@ openssl req -new -x509 -days 365 -key ca-key.pem -sha256 -out ca.pem
 {% highlight bash%}
 openssl genrsa -out server-key.pem 4096
 openssl req -subj "/CN=<YOUR_DOMAIN_NAME>" -sha256 -new -key server-key.pem -out server.csr
-echo subjectAltName = DNS:\*.YOUR_DOMAIN_NAME > extfile.cnf  ##this will allow to generate a certificate for all computes of you domain
+echo subjectAltName = DNS:\*.YOUR_DOMAIN_NAME > extfile.cnf  ##this will allow to generate a certificate for all computes of you domain, you can also specify IP:YOUR_IP to fix one or multiple IPs
 openssl x509 -req -days 365 -sha256 -in server.csr -CA ca.pem -CAkey ca-key.pem -CAcreateserial -out server-cert.pem -extfile extfile.cnf
 {% endhighlight %}
 

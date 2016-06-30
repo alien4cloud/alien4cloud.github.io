@@ -29,21 +29,29 @@ Generate certificates for your elasticsearch cluster (see [Certificate Generatio
 ./plugin --install search-guard-ssl --url file://$SEARCH_GUARD_PROJECT/target/releases/search-guard-ssl-1.7.0-SNAPSHOT.zip
 {% endhighlight %}
 * Copy your certificates to $ELASTIC_SEARCH_HOME/config
-* Modify $ELASTIC_SEARCH_HOME/config/elasticsearch.yml, add following section for search-guard ssl (it's just a sample, feel free to modify it to follow your cluster architecture) :
+* Modify $ELASTIC_SEARCH_HOME/config/elasticsearch.yml, add following section for search-guard ssl (it's just a sample, feel free to modify it to follow your cluster architecture, all available configuration keys can be found [here](https://github.com/alien4cloud/search-guard-ssl/blob/master/searchguard-ssl-config-template.yml)) :
 {% highlight properties%}
-cluster.name: mkv-cluster
+cluster.name: my-cluster
 network.host: _eth0:ipv4_
 searchguard.ssl.http.clientauth_mode: REQUIRE
 searchguard.ssl.http.enable_openssl_if_available: false
 searchguard.ssl.http.enabled: true
 searchguard.ssl.http.keystore_filepath: server-keystore.jks
+# Keystore password (default: changeit)
+searchguard.ssl.http.keystore_password: changeit
 searchguard.ssl.http.truststore_filepath: server-truststore.jks
+# Truststore password (default: changeit)
+searchguard.ssl.http.truststore_password: changeit
 searchguard.ssl.transport.enable_openssl_if_available: false
 searchguard.ssl.transport.enabled: true
 searchguard.ssl.transport.enforce_hostname_verification: true
 searchguard.ssl.transport.resolve_hostname: false
 searchguard.ssl.transport.keystore_filepath: server-keystore.jks
+# Keystore password (default: changeit)
+searchguard.ssl.transport.keystore_password: changeit
 searchguard.ssl.transport.truststore_filepath: server-truststore.jks
+# Truststore password (default: changeit)
+searchguard.ssl.transport.truststore_password: changeit
 discovery.zen.ping.unicast.hosts: ["10.67.79.5"]
 discovery.zen.ping.multicast.enabled: false
 discovery.zen.ping.unicast.enabled: true
@@ -57,7 +65,7 @@ index.number_of_replicas: 1
 * In $ALIEN_HOME/config/alien4cloud-config.yml, configure Alien as an elasticsearch transport client:
 {% highlight yaml %}
 elasticSearch:
-  clusterName: mkv-cluster
+  clusterName: my-cluster
   local: false
   client: true
   prefix_max_expansions: 10
@@ -67,7 +75,7 @@ elasticSearch:
   hosts: 10.67.79.4:9300,10.67.79.5:9300
 {% endhighlight %}
 
-* Modify the configuration for elasticsearch $ALIEN_HOME/config/elasticsearch.yml to suit your need:
+* Modify the configuration for elasticsearch $ALIEN_HOME/config/elasticsearch.yml to suit your need (all available configuration keys can be found [here](https://github.com/alien4cloud/search-guard-ssl/blob/master/searchguard-ssl-config-template.yml)):
 {% highlight yaml %}
 path:
   conf: config
@@ -80,12 +88,20 @@ searchguard.ssl.http.clientauth_mode: REQUIRE
 searchguard.ssl.http.enable_openssl_if_available: false
 searchguard.ssl.http.enabled: true
 searchguard.ssl.http.keystore_filepath: client-keystore.jks
+# Keystore password (default: changeit)
+searchguard.ssl.http.keystore_password: changeit
 searchguard.ssl.http.truststore_filepath: server-truststore.jks
+# Truststore password (default: changeit)
+searchguard.ssl.http.truststore_password: changeit
 searchguard.ssl.transport.enable_openssl_if_available: false
 searchguard.ssl.transport.enabled: true
 searchguard.ssl.transport.enforce_hostname_verification: true
 searchguard.ssl.transport.resolve_hostname: false
 searchguard.ssl.transport.keystore_filepath: client-keystore.jks
+# Keystore password (default: changeit)
+searchguard.ssl.transport.keystore_password: changeit
 searchguard.ssl.transport.truststore_filepath: server-truststore.jks
+# Truststore password (default: changeit)
+searchguard.ssl.transport.truststore_password: changeit
 {% endhighlight %}
 * Start Alien, if index is created then your configuration is correct and working !
