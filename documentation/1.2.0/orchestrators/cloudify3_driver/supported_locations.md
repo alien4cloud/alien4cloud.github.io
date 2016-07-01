@@ -13,7 +13,7 @@ In his current state, this provider allows you to deploy your application on sev
  - [***Amazon***](#/documentation/1.2.0/orchestrators/cloudify3_driver/location_amazon.html)
  - [***Azure***](#/documentation/1.2.0/orchestrators/cloudify3_driver/location_azure.html) (***`Premium`***)
  - [***OpenStack***](#/documentation/1.2.0/orchestrators/cloudify3_driver/location_openstack.html)
- - ***vSphere*** (***`Premium`***)
+ - [***vSphere***](#/documentation/1.2.0/orchestrators/cloudify3_driver/location_vsphere.html) (***`Premium`***)
  - you can even [***Bring Your Own Node***](#/documentation/1.2.0/orchestrators/cloudify3_driver/location_byon.html)
 
 [![Supported locations][supported_locations]][supported_locations]
