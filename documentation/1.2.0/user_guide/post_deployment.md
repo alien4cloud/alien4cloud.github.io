@@ -50,8 +50,13 @@ Note that in the list of nodes, there are not nodes such as ___Compute___, ___Ne
 <!-- [![add patch][config_orchestrator_postdeployment_ssl]][config_orchestrator_postdeployment_ssl]{:target="_blank"} -->
 [![add patch][add_patch]][add_patch]{:target="_blank"}
 
-# execution
+# Execution
 Alien4Cloud interface allows the user to trigger a patch/operation execution for one or all instances of a node. There are somehow specific behaviors.
+
+{%warning%}
+<h5>Known issue</h5>
+Actually, the result we see on the UI doesn't represent the real result of the execution of the operation or patch command.
+{%endwarning%}
 
 ## Operation execution
 An operation can be triggered as many time as we want on a node.
