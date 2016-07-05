@@ -26,46 +26,51 @@ ga('send', 'pageview');
           <h1 class="pull-left" style="margin-top: 0px;">Amazon (AWS)</h1>
           <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.2.0/orchestrators/cloudify3_driver/location_amazon.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
         </div>
-        <p>The open source cloudify 3 orchestrator plugin allows you to deploy an application on Amazon.</p>
+        <p>The open source cloudify 3 orchestrator plugin allows you to deploy applications on Amazon.</p>
 
 <h2 id="configuration">Configuration</h2>
 <p>The configuration of the location is done while configuring the orchestrator, before or after activation.
 Normally there is nothing to do here, as the default provided configurations are good enough to have the location working.</p>
 
 <h2 id="tosca-mapped--location-exposed-types">Tosca mapped / location exposed types</h2>
-<p>The Amazon location exposes some types to help you configure a deployment and map the native Tosca types. Theses nodes are exposed as <strong><em><code>on demand resources</code></em></strong> on the location management view.</p>
+<p>The Amazon location exposes some types to help you configure a deployment and map the native Tosca types. Theses nodes are exposed as <code>on demand resources</code> on the location management view.  </p>
 
 <h3 id="compute">Compute</h3>
-<p>The tosca type <strong><em><code>tosca.nodes.Compute</code></em></strong> is mapped to the amazon nodes:</p>
+<p>The tosca type <code>tosca.nodes.Compute</code> is mapped to the amazon nodes:</p>
 
 <ul>
-  <li><strong><em><code>alien.cloudify.aws.nodes.Compute</code></em></strong> for a linux compute,</li>
-  <li><strong><em><code>alien.cloudify.aws.nodes.WindowsCompute</code></em></strong> for a windows compute.</li>
+  <li><code>alien.cloudify.aws.nodes.Compute</code> for a linux compute,</li>
+  <li><code>alien.cloudify.aws.nodes.WindowsCompute</code> for a windows compute.</li>
 </ul>
 
-<p>To help you generate those, configuration resources <strong><em><code>alien.cloudify.aws.nodes.Image</code></em></strong> and <strong><em><code>alien.cloudify.aws.nodes.InstanceType</code></em></strong> can be created, and then used to auto generate Computes nodes.</p>
+<p>To help you generate those, configuration resources <code>alien.cloudify.aws.nodes.Image</code> and <code>alien.cloudify.aws.nodes.InstanceType</code> can be created, and then used to auto generate Computes nodes.</p>
 
 <h3 id="network">Network</h3>
-<p>The tosca type <strong><em><code>tosca.nodes.Network</code></em></strong> can be mapped as two types of network:</p>
+<p>The tosca type <code>tosca.nodes.Network</code> can be mapped as two types of network:</p>
 
 <h4 id="public-network">Public Network</h4>
-<p>Exposed as the location type a public network <strong><em><code>alien.nodes.aws.PublicNetwork</code></em></strong>, which will result to the attribution of an elastic ip to the linked resource (compute).</p>
+<p>Exposed as the location type a public network <code>alien.nodes.aws.PublicNetwork</code>, which will result to the attribution of an elastic ip to the linked resource (compute).  </p>
 
 <h4 id="private-network">Private Network</h4>
-<p><strong><em>NOT SUPPORTED</em></strong></p>
+<div class="note warning">
+<p>No supported yet.</p>
+</div>
 
 <h3 id="volumes">Volumes</h3>
-<p>The tosca type <strong><em><code>tosca.nodes.BlockStorage</code></em></strong> can be mapped as two types of volumes:</p>
+<p>The tosca type <code>tosca.nodes.BlockStorage</code> can be mapped as two types of volumes:  </p>
 
 <h4 id="deletable-volumes">Deletable volumes</h4>
-<p>Exposed as the location type <strong><em><code>alien.cloudify.aws.nodes.DeletableVolume</code></em></strong>, this is a volume that will ALWAYS be DELETED when undeploying the application, leading therefore to the lost of all data stored on it.</p>
+<p>Exposed as the location type <code>alien.cloudify.aws.nodes.DeletableVolume</code>, this is a volume that will ALWAYS be DELETED when undeploying the application, leading therefore to the lost of all data stored on it.</p>
 
 <h4 id="reusable-volumes">Reusable volumes</h4>
-<p>Exposed as the location type <strong><em><code>alien.cloudify.aws.nodes.Volume</code></em></strong>, this is a volume that will not be deleted at the end of the application life-cycle. It can therefore, between two deployment of the same application on the same environment and location, be re-used and attached to a compute, rending accessible the data previously stored on it.</p>
+<p>Exposed as the location type <code>alien.cloudify.aws.nodes.Volume</code>, this is a volume that will not be deleted at the end of the application life-cycle. It can therefore, between two deployment of the same application on the same environment and location, be re-used and attached to a compute, rending accessible the data previously stored on it.</p>
 
 <h2 id="scaling">Scaling</h2>
+<div class="note warning">
 <p>For now, Scaling is supported on for a single compute, ie a Compute which is not linked to a network, or doesn’t have any volumes attached to.<br />
 This should be fixed with the cloudify 3.4 version.</p>
+</div>
+
 
         <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.2.0/orchestrators/cloudify3_driver/location_amazon.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
 	  </div>

@@ -26,45 +26,45 @@ ga('send', 'pageview');
           <h1 class="pull-left" style="margin-top: 0px;">Openstack</h1>
           <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.2.0/orchestrators/cloudify3_driver/location_openstack.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
         </div>
-        <p>The open source cloudify 3 orchestrator plugin allows you to deploy an application on openstack.</p>
+        <p>The open source cloudify 3 orchestrator plugin allows you to deploy applications on openstack.</p>
 
 <h2 id="configuration">Configuration</h2>
 <p>The configuration of the location is done while configuring the orchestrator, before or after activation.
 Normally there is nothing to do here, as the default provided configurations are good enough to have the location working.</p>
 
 <h2 id="tosca-mapped--location-exposed-types">Tosca mapped / location exposed types</h2>
-<p>The Openstack location exposes some types to help you configure a deployment and map the native Tosca types. Theses nodes are exposed as <strong><em><code>on demand resources</code></em></strong> on the location management view.</p>
+<p>The Openstack location exposes some types to help you configure a deployment and map the native Tosca types. Theses nodes are exposed as <code>on demand resources</code> on the location management view.  </p>
 
 <h3 id="compute">Compute</h3>
-<p>The tosca type <strong><em><code>tosca.nodes.Compute</code></em></strong> is mapped to the openstack nodes:</p>
+<p>The tosca type <code>tosca.nodes.Compute</code> is mapped to the openstack nodes:</p>
 
 <ul>
-  <li><strong><em><code>alien.nodes.openstack.Compute</code></em></strong> for a linux compute,</li>
-  <li><strong><em><code>alien.nodes.openstack.WindowsCompute</code></em></strong> for a windows compute.</li>
+  <li><code>alien.nodes.openstack.Compute</code> for a linux compute,</li>
+  <li><code>alien.nodes.openstack.WindowsCompute</code> for a windows compute.</li>
 </ul>
 
-<p>To help you generate those, configuration resources <strong><em><code>alien.nodes.openstack.Image</code></em></strong> and <strong><em><code>alien.nodes.openstack.Flavor</code></em></strong> can be created, and then used to auto generate Computes nodes.</p>
+<p>To help you generate those, configuration resources <code>alien.nodes.openstack.Image</code> and <code>alien.nodes.openstack.Flavor</code> can be created, and then used to auto generate Computes nodes.</p>
 
 <h3 id="network">Network</h3>
-<p>The tosca type <strong><em><code>tosca.nodes.Network</code></em></strong> can be mapped as two types of network:</p>
+<p>The tosca type <code>tosca.nodes.Network</code> can be mapped as two types of network:</p>
 
 <h4 id="public-network">Public Network</h4>
-<p>Exposed as the location type a public network <strong><em><code>alien.nodes.openstack.PublicNetwork</code></em></strong>, which will result to the attribution of a floating ip to the linked resource (compute).<br />
+<p>Exposed as the location type a public network <code>alien.nodes.openstack.PublicNetwork</code>, which will result to the attribution of a floating ip to the linked resource (compute).<br />
 Make sure to fill in the required property <em><code>floatingip</code></em>, by providing the name of an existing network name on which the linked resources will be connected.</p>
 
 <p><a href="../../images/cloudify3_driver/pub_net_config.png" title="public network config"><img src="../../images/cloudify3_driver/pub_net_config.png" alt="public network config" title="public network config" /></a></p>
 
 <h4 id="private-network">Private Network</h4>
-<p>The tosca type <strong><em><code>tosca.nodes.Network</code></em></strong> can also be mapped as a private network using a location node of type <strong><em><code>alien.nodes.openstack.PrivateNetwork</code></em></strong>.</p>
+<p>The tosca type <code>tosca.nodes.Network</code> can also be mapped as a private network using a location node of type <code>alien.nodes.openstack.PrivateNetwork</code>.  </p>
 
 <h3 id="volumes">Volumes</h3>
-<p>The tosca type <strong><em><code>tosca.nodes.BlockStorage</code></em></strong> can be mapped as two types of volumes:</p>
+<p>The tosca type <code>tosca.nodes.BlockStorage</code> can be mapped as two types of volumes:  </p>
 
 <h4 id="deletable-volumes">Deletable volumes</h4>
-<p>Exposed as the location type <strong><em><code>alien.cloudify.openstack.nodes.DeletableVolume</code></em></strong>, this is a volume that will ALWAYS be DELETED when undeploying the application, leading therefore to the lost of all data stored on it.</p>
+<p>Exposed as the location type <code>alien.cloudify.openstack.nodes.DeletableVolume</code>, this is a volume that will ALWAYS be DELETED when undeploying the application, leading therefore to the lost of all data stored on it.</p>
 
 <h4 id="reusable-volumes">Reusable volumes</h4>
-<p>Exposed as the location type <strong><em><code>alien.cloudify.openstack.nodes.Volume</code></em></strong>, this is a volume that will not be deleted at the end of the application life-cycle. It can therefore, between two deployment of the same application on the same environment and location, be re-used and attached to a compute, rending accessible the data previously stored on it.</p>
+<p>Exposed as the location type <code>alien.cloudify.openstack.nodes.Volume</code>, this is a volume that will not be deleted at the end of the application life-cycle. It can therefore, between two deployment of the same application on the same environment and location, be re-used and attached to a compute, rending accessible the data previously stored on it.</p>
 
 <h2 id="scaling">Scaling</h2>
 <p>Scaling a topology like Compute + Network + storage is supported on the openstack location.

@@ -40,14 +40,15 @@ ga('send', 'pageview');
 The <strong>Cloudify 3 premium plugin</strong> plugin allows you to perform such actions. When the plugin is enabled, you can see <code>patches</code> and <code>operations</code> sub menu on the left side bar on the runtime view. The two concepts are very similar in some ways.</p>
 
 <h1 id="what-it-is">What it is?</h1>
-<p>Functionally speaking, a patch / operation can be defined as a set of actions that will be executed on a node, for example upgrading a version or the configuration of a component, accessing some informations about a component, etc&#8230;.  It is linked to a specific version of a node, and can be triggered for one or more instances of that node.<br />
+<p>Functionally speaking, a patch / operation can be defined as a set of actions that will be executed on a node, for example upgrading a version or the configuration of a component, accessing some informations about a component, etc….  It is linked to a specific version of a node, and can be triggered for one or more instances of that node.<br />
 Technically speaking, it can be a script file, or a zipped set of files, that one will upload once the topology is deployed, via the provided user interface. Supported format are: <em>bash script</em> for linux, <em>power shell</em> for windows, <em>zip</em> and <em>tar.gz</em>.</p>
+
 <div class="note warning">
 <p>If you provide an archive, you must make sure to have only one script file at the root. If you need to provide additional scripts, just put them in subfolders and refer to them using relative path (at execution stage, the current working folder will be the root of the archive).</p>
 </div>
 
 <h1 id="what-it-is-not">What it is not?</h1>
-<p>This feature is not a <em>hot upgrade</em> assistant: it&#8217;s your responsibility to enhance your TOSCA components once you have provided a patch for a given component.</p>
+<p>This feature is not a <em>hot upgrade</em> assistant: it’s your responsibility to enhance your TOSCA components once you have provided a patch for a given component.</p>
 
 <p>A real life scenario could be:</p>
 
@@ -60,7 +61,7 @@ Technically speaking, it can be a script file, or a zipped set of files, that on
   <li>you upgrade your topology to make it use your new component version. By the way you will probably release a new version V2 of your application topology.</li>
 </ul>
 
-<p>Then, if you redeploy the application V1, the patches will be executed but if you deploy V2, they won&#8217;t be (since a patch is associated to a component version).</p>
+<p>Then, if you redeploy the application V1, the patches will be executed but if you deploy V2, they won’t be (since a patch is associated to a component version).</p>
 
 <h1 id="creation">Creation</h1>
 <p>Once you have your script or archive, you can upload it. In the modal, choose a name for your operation, eventually add a description,
@@ -70,8 +71,13 @@ Note that in the list of nodes, there are not nodes such as <strong><em>Compute<
 <!-- [![add patch][config_orchestrator_postdeployment_ssl]][config_orchestrator_postdeployment_ssl]{:target="_blank"} -->
 <p><a href="../../images/user_guide/application/deployment/add_patch.png" target="_blank"><img src="../../images/user_guide/application/deployment/add_patch.png" alt="add patch" /></a></p>
 
-<h1 id="execution">execution</h1>
+<h1 id="execution">Execution</h1>
 <p>Alien4Cloud interface allows the user to trigger a patch/operation execution for one or all instances of a node. There are somehow specific behaviors.</p>
+
+<div class="note warning">
+<h5>Known issue</h5>
+<p>Actually, the result we see on the UI doesn’t represent the real result of the execution of the operation or patch command.</p>
+</div>
 
 <h2 id="operation-execution">Operation execution</h2>
 <p>An operation can be triggered as many time as we want on a node.</p>
@@ -87,15 +93,15 @@ However and most importantly, once a patch is added for a node, it will be trigg
   <li>all the newly created instances in case of scaling up.</li>
 </ul>
 
-<p>If the execution is successful, the patch is acknowledged and you can see it on the view.</p>
+<p>If the execution is successful, the patch is acknowledged and you can see it on the view.  </p>
 
-<p><strong><em>TODO</em></strong>: image patch acknowledged</p>
+<p><strong><em>TODO</em></strong>: image patch acknowledged  </p>
 
 <p>Once a patch is executed and acknowledged on an instance, it will not be executed again even if it is triggered.</p>
 
 <h2 id="node-properties-and-attributes">Node properties and attributes</h2>
 
-<p>Some inputs are auto-generated when the operation is added while blueprint is generated, so for a given node, in any patch or post deployment operation, you can access the node&#8217;s properties and attributes.</p>
+<p>Some inputs are auto-generated when the operation is added while blueprint is generated, so for a given node, in any patch or post deployment operation, you can access the node’s properties and attributes.</p>
 
 <p>Attribute names are prefixed by <code>self_attribute_</code> and property names by <code>self_property_</code>. Like any inputs in any operation implementation script, you can access them in your script using environment variables.</p>
 
