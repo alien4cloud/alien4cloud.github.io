@@ -17,7 +17,7 @@ published: true
 
 {%info%}
 <h5>Premium feature</h5>
-Portability insight is a Premium feature
+Portability insight is a Premium feature.
 {%endinfo%}
 
 Alien4Cloud holds a catalog of components, which are added by uploading archives (CSARS). Also, orchestrators plugins can provide the catalog with specific components they need to run, thus, rendering them accessible when browsing or editing a topology.  Using them in an abstract topology is a bad practice as they will lower the portability of the topology (only deployable on the location (or with the orchestrator) which provided them).

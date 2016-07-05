@@ -8,7 +8,10 @@ node_name: vsphere
 weight: 1000
 ---
 
-The premium version of the cloudify 3 orchestrator plugin allows you to deploy applications on vSphere.
+{%info%}
+<h5>Premium feature</h5>
+vSphere is a Premium feature.
+{%endinfo%}
 
 ## Configuration
 The configuration of the location is done while configuring the orchestrator, before or after activation.
@@ -49,4 +52,3 @@ Known limitation: Using multiple volumes per compute is not supported at the mom
 For now, scaling is supported on for a single compute, i.e. a compute which is not linked to a network or doesn’t have any volumes attached to it.
 This should be fixed with the cloudify 3.4 version.
 {% endwarning %}
-

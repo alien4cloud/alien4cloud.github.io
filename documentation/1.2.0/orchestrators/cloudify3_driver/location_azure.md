@@ -8,7 +8,10 @@ node_name: azure
 weight: 1000
 ---
 
-The premium version of the cloudify 3 orchestrator plugin allows you to deploy applications on Azure.
+{%info%}
+<h5>Premium feature</h5>
+Azure is a Premium feature.
+{%endinfo%}
 
 ## Configuration
  Note that all the location azure configuration's properties are required.  
@@ -55,4 +58,3 @@ Not supported yet
 For now, Scaling is supported on for a single compute, ie a Compute which is not linked to a network, or doesn't have any volumes attached to.
 This should be fixed with the cloudify 3.4 version.
 {% endwarning %}
-

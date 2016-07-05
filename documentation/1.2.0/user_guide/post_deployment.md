@@ -24,6 +24,7 @@ The **Cloudify 3 premium plugin** plugin allows you to perform such actions. Whe
 # What it is?
 Functionally speaking, a patch / operation can be defined as a set of actions that will be executed on a node, for example upgrading a version or the configuration of a component, accessing some informations about a component, etc....  It is linked to a specific version of a node, and can be triggered for one or more instances of that node.  
 Technically speaking, it can be a script file, or a zipped set of files, that one will upload once the topology is deployed, via the provided user interface. Supported format are: *bash script* for linux, *power shell* for windows, *zip* and *tar.gz*.
+
 {%warning%}
 If you provide an archive, you must make sure to have only one script file at the root. If you need to provide additional scripts, just put them in subfolders and refer to them using relative path (at execution stage, the current working folder will be the root of the archive).
 {%endwarning%}
