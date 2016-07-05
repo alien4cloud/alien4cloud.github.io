@@ -64,6 +64,12 @@ Technically speaking, it can be a script file, or a zipped set of files, that on
 <p>Then, if you redeploy the application V1, the patches will be executed but if you deploy V2, they won’t be (since a patch is associated to a component version).</p>
 
 <h1 id="creation">Creation</h1>
+
+<div class="note info">
+<h5>Requirements</h5>
+<p>To use this feature, your orchestrator should be configure with a functional URL for the <a href="#/documentation/1.2.0/admin_guide/post_deployment_application.html">post-deployment application</a>.</p>
+</div>
+
 <p>Once you have your script or archive, you can upload it. In the modal, choose a name for your operation, eventually add a description,
 and select a node.<br />
 Note that in the list of nodes, there are not nodes such as <strong><em>Compute</em></strong>, <strong><em>Network</em></strong> and <strong><em>Storage</em></strong> nodes (nodes provided by the IAAS).</p>
