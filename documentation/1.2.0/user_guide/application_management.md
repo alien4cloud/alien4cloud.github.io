@@ -5,7 +5,7 @@ root: ../../
 categories: DOCUMENTATION-1.2.0
 parent: [user_guide]
 node_name: application_management
-weight: 500
+weight: 490
 ---
 
 {% summary %}{% endsummary %}
