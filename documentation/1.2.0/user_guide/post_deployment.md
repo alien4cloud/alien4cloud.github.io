@@ -44,6 +44,12 @@ A real life scenario could be:
 Then, if you redeploy the application V1, the patches will be executed but if you deploy V2, they won't be (since a patch is associated to a component version).
 
 # Creation
+
+{%info%}
+<h5>Requirements</h5>
+To use this feature, your orchestrator should be configure with a functional URL for the [post-deployment application](#/documentation/1.2.0/admin_guide/post_deployment_application.html).
+{%endinfo%}
+
 Once you have your script or archive, you can upload it. In the modal, choose a name for your operation, eventually add a description,
 and select a node.  
 Note that in the list of nodes, there are not nodes such as ___Compute___, ___Network___ and ___Storage___ nodes (nodes provided by the IAAS).
