@@ -33,13 +33,56 @@ ga('send', 'pageview');
 
 <p>This section is incomplete and we suggest you to refer to the roadmap section in order to have a preview on the planned features for 1.2.0 version.</p>
 
+<h1 id="ui-improvements">UI improvements</h1>
+
+<ul>
+  <li>Better visibility of required properties</li>
+  <li>Location and orchestrator informations on runtime view.</li>
+</ul>
+
 <h1 id="tosca-support">TOSCA Support</h1>
 
-<p>Alien 4 Cloud now supports TOSCA Simple Profile</p>
+<p>TOSCA Support has been improved in 1.2.0 even if still not fully compliant with 1.0.0 TOSCA Simple Profile in YAML. More details and explanations can be found <a href="#/documentation/1.2.0/devops_guide/dev_ops_guide.html">here</a>.</p>
 
-<p>The previous supported dsl version is now deprecated.</p>
+<h1 id="premium-version">Premium version</h1>
 
-<p>We also support the alien_dsl in the enterprise version. It is a subset of the TOSCA 1.0 dsl that allows the definition of some additional information like portability data.</p>
+<p>1.2.0 introduce our premium version that is based on the OpenSource version and provide some advanced features through additional plugins.</p>
+
+<h2 id="logs-plugin">Logs plugin</h2>
+
+<p>The log plugin allows to fetch orchestrator logs in alien4cloud and to display them directly from the runtime view.</p>
+
+<h2 id="saml-integration">SAML integration</h2>
+
+<p>Premium users can now leverage SAML authentication in alien4cloud, <a href="#/documentation/1.2.0/admin_guide/saml.html">more here</a>.</p>
+
+<h2 id="improved-security">Improved Security</h2>
+
+<p>Alien 4 Cloud now support mutual authentication with ElasticSearch and SSL connection to ElasticSearch. Cloudify plugin also supports mutual authentication to the cloudify manager. <a href="#/documentation/1.2.0/admin_guide/security.html">more here</a></p>
+
+<h2 id="dashboard-plugin">Dashboard plugin</h2>
+
+<p>First version of the dashboard plugin allows to view the resource usages under multiple axis and to view the global nodes usages of the platform.</p>
+
+<p>TODO link to doc</p>
+
+<h2 id="portability-insights-plugin">Portability insights plugin</h2>
+
+<p>Portability insights plugin allows to check the portability of a Topology against the TOSCA standard and the locations configured in alien4cloud <a href="#/documentation/1.2.0/user_guide/topology_portability.html">more here</a>.</p>
+
+<h2 id="patch-and-runtime-operation-support">Patch and Runtime operation support</h2>
+
+<p>Patch and runtime operation support allows to dynamically change the lifecycle of components in a topology by adding some patches to be applied on a topology. Patches are triggered manually on the first time, can be applied to a subset of instances in a first time or to all instances of nodes. They are also added to the node lifecycle so that scale up or self healing take them into account.</p>
+
+<p>The runtime operations features is similar to patches except that it doesn&#8217;t impact node lifecycle. This is more dedicated to post deployment management operations (backup etc.).</p>
+
+<p><a href="#/documentation/1.2.0/user_guide/post_deployment.html">more here</a></p>
+
+<h2 id="iaas-support">IaaS support</h2>
+
+<p>We now support deployment on Azure through cloudify 3.</p>
+
+<p><a href="#/documentation/1.2.0/orchestrators/cloudify3_driver/location_azure.html">more here</a></p>
 
         <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.2.0/whatsnew.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
 	  </div>
