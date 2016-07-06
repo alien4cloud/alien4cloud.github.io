@@ -10,12 +10,17 @@ weight: 50
 
 {% summary %}{% endsummary %}
 
-{%warning%}
+{%info%}
 <h5>LDAP integration</h5>
 If you wish to integrate with an LDAP directory please go [here](#/documentation/1.2.0/admin_guide/ldap.html).
 
 Note that you can use LDAP for users and eventually role management. You can also manage roles in Alien even for LDAP user if you wish. In addition you can have users managed in LDAP and create some additional user that will be managed within Alien.
-{%endwarning%}
+{%endinfo%}
+
+{%info%}
+<h5>SAML integration</h5>
+If you use the premium version and wish To use SAML please check the documentation [here](#/documentation/1.2.0/admin_guide/saml.html).
+{%endinfo%}
 
 {%info%}
 <h5>Roles</h5>
