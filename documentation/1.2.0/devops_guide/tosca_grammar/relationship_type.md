@@ -21,7 +21,6 @@ A Relationship Type is a reusable entity that defines the type of one or more re
 | properties | [property definitions](#/documentation/1.2.0/devops_guide/tosca_grammar/property_definition.html) | no | An optional list of property definitions for the Relationship Type.|
 | attributes | [attribute definitions](#/documentation/1.2.0/devops_guide/tosca_grammar/attribute_definition.html) | no | An optional list of attribute definitions for the Relationship Type. |
 | interfaces | [interface definitions](#/documentation/1.2.0/devops_guide/tosca_grammar/interface_definition.html) | no | An optional list of named interfaces for the Relationship Type. |
-| valid_sources | string[] | no | An optional list of one or more valid target entities or entity types (i.e., a Node Types or Capability Types). |
 | valid_target_types | string[] | yes | A required list of one or more valid target entities or entity types (i.e., a Node Types or Capability Types). |
 
 {% info %}
