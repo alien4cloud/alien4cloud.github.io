@@ -1,11 +1,15 @@
 ---
 layout: post
-title:  Artifact definition
+title: Artifact definition
 root: ../../../
 categories: DOCUMENTATION-1.2.0
-parent: [devops, tosca_concepts, tosca_ref_definitions]
+parent:
+  - devops
+  - tosca_concepts
+  - tosca_ref_definitions
 node_name: tosca_ref_types_artifact_definition
 weight: 700
+published: true
 ---
 
 An artifact definition defines a named, typed file that can be associated with Node Type or Node Template and used by orchestration engine to facilitate deployment and implementation of interface operations.
@@ -15,10 +19,10 @@ An artifact definition defines a named, typed file that can be associated with N
 {: .table .table-bordered}
 | Keyname         | Type                | Required | Description |
 |:----------------|:--------------------|:---------|:------------|
-| type | no | string | The optional data type for the artifact definition. |
-| description | no | string | The optional description for the artifact definition. |
-| mime_type | no | string | The optional Mime type for finding the correct artifact definition when it is not clear from the file extension.|
-| deploy_path | no | string | The file path the associated file would be deployed into within the target node’s container. |
+| type | string | no | The optional data type for the artifact definition. |
+| description | string | no | The optional description for the artifact definition. |
+| mime_type | string | no | The optional Mime type for finding the correct artifact definition when it is not clear from the file extension.|
+| deploy_path | string | no | The file path the associated file would be deployed into within the target node’s container. |
 
 
 {% warning %}
