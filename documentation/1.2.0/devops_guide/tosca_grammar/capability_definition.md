@@ -19,7 +19,7 @@ A capability definition defines a named, typed set of data that can be associate
 | description     | string              | no       | The optional description of the Capability Type. |
 | properties      | list of properties values | no      | Properties values for the properties defined on the capability type. |
 | attributes      | list of attributes values | no      | Attributes values for the attributes defined on the capability type. |
-| occurences     | range | no       | Specifies the boundaries of client requirements the defined capability can serve. A value of unbounded indicates that there is no upper boundary. Defaults to [0, unbounded]. |
+| occurrences     | range | no       | Specifies the boundaries of client requirements the defined capability can serve. A value of unbounded indicates that there is no upper boundary. Defaults to [0, unbounded]. |
 
 ## Grammar
 
@@ -35,7 +35,7 @@ A capability definition defines a named, typed set of data that can be associate
     <property_values>
   attributes:
     <attribute_values>
-  occurences: <occurences>
+  occurrences: <occurrences>
 {% endhighlight %}
 
 ## Example
@@ -52,5 +52,5 @@ node_types:
         type: mytypes.mycapabilities.MyCapabilityTypeName
         properties:
           limit: 100
-        occurences: [0, 3]
+        occurrences: [0, 3]
 {% endhighlight %}

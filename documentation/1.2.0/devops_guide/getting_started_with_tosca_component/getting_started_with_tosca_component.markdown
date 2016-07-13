@@ -148,7 +148,7 @@ node_types:
     capabilities:
       jdk:
         type: alien.capabilities.JDK
-        occurences: [0, unbounded]
+        occurrences: [0, unbounded]
     interfaces:
       Standard:
         create:

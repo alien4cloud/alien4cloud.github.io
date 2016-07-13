@@ -50,7 +50,7 @@ exclude_from_search: true
     |  <i class="fa fa-plus text-success"></i> | ALIEN-1441 | Get property is now supported for capabilities complex properties. / http://alien4cloud.org/#/documentation/1.2.0/devops_guide/tosca_grammar/get_property_definition.html |
     |  <i class="fa fa-plus text-success"></i> | ALIEN-1575 | get_property on complex properties is now supported for relationships properties. / http://alien4cloud.org/#/documentation/1.2.0/devops_guide/tosca_grammar/get_property_definition.html |
       |  <i class="fa fa-level-up text-primary"></i> | ALIEN-1161 | alien_dsl_1_2_0: valid_target_types keyword can now be parsed on a relationship /  |
-    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-1163 | alien_dsl_1_2_0: occurences keyword can now be parsed rather than upper_bound and lower_bound / http://alien4cloud.org/#/documentation/1.2.0/devops_guide/tosca_grammar/requirement_definition.html |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-1163 | alien_dsl_1_2_0: occurrences keyword can now be parsed rather than upper_bound and lower_bound / http://alien4cloud.org/#/documentation/1.2.0/devops_guide/tosca_grammar/requirement_definition.html |
     |  <i class="fa fa-level-up text-primary"></i> | ALIEN-1593 | Improved TOSCA yaml generation to support complex property values. /  |
       |  <i class="fa fa-bug text-danger"></i> | ALIEN-1520 | Fixed an issue in node filters validation when some inputs had to be taken in account. /  |
     |  <i class="fa fa-bug text-danger"></i> | ALIEN-1591 | Fixed a critical issue in ElasticSearch mapping causing conflict when properties with the same name have different types on different types. /  |

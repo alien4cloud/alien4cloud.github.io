@@ -93,7 +93,7 @@ The other requirement for a Tomcat node is to have a java installed. We will mod
 A requirements can express constraints on some of the target capability or node, properties. Here we reference a requirement on a Java Node and specify a constraint on the version of the java node.
 
 {: .table .table-bordered}
-| Name            | Type                   | occurences                | Constraints             | Notes                                        |
+| Name            | Type                   | occurrences                | Constraints             | Notes                                        |
 |:----------------|:-----------------------|:--------------------------|:------------------------|----------------------------------------------|
 | host            | tosca.nodes.Compute    | [1, 1] (default)          |                         | Inherited from tosca.nodes.SoftwareComponent |
 | java            | fastconnect.nodes.Java | [1, 1] (default)          | Greater or equal than 7 |                                              |

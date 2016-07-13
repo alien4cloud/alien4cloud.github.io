@@ -38,7 +38,7 @@ node_types:
     requirements:
       dependency:
         type: tosca.capabilities.Root
-        occurences: [0, unbounded]
+        occurrences: [0, unbounded]
     interfaces:
       lifecycle:
         description: Default lifecycle for nodes in TOSCA.
