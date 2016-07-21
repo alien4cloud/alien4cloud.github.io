@@ -1,0 +1,193 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/1.2.0/admin_guide/backup_restore_migrate.html',
+  title: 'Backup, restore and migrate data'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container">
+  <div class="row">
+    
+      <div class="col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Backup, restore and migrate data</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.2.0/admin_guide/backup_restore_migrate.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        
+<hr style="margin-top:5px; margin-bottom:5px;" />
+<div class="row"><ul class="nav nav-pills" id="summarypanel"></ul></div>
+<hr style="margin-top:5px; margin-bottom:5px;" />
+
+<p>Alien4Cloud uses several places to store it’s data.</p>
+
+<ul>
+  <li>Cloud service archives</li>
+  <li>Artifacts that may have been uploaded to build topologies</li>
+  <li>Indexed data (stored in elastic-search)</li>
+  <li>Plugins binaries</li>
+  <li>Eventually you should make sure to backup also your alien4cloud yaml configuration file as well as your elastic search configuration file</li>
+</ul>
+
+<p>In order to backup / restore or migrate Alien4Cloud you must download the <a href="http://fastconnect.org/maven/service/local/artifact/maven/redirect?r=fastconnect-snapshot&amp;g=alien4cloud&amp;a=alien4cloud-1_2_0-migration&amp;v=LATEST&amp;p=zip&amp;c=distrib">administration tool</a> and copy it to the machine where Alien’s running (or anywhere which has access to Alien’s data folders).
+After unzipping the archive, the tool can be configured at path_to_admin_tool/config/admin-tool-config.yml</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">elasticsearch</span><span class="p-Indicator">:</span>
+<span class="c1"># Name of your elasticsearch cluster</span>
+  <span class="l-Scalar-Plain">cluster_name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">alien4cloud</span>
+<span class="c1"># Addresses of elasticsearch cluster nodes</span>
+  <span class="l-Scalar-Plain">addresses</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">129.185.67.37:9300,129.185.67.26:9300</span>
+
+<span class="c1"># The poller polls elasticsearch to export data for migration</span>
+<span class="l-Scalar-Plain">poller</span><span class="p-Indicator">:</span>
+<span class="c1"># The poller&#39;s scroll lease and batch size see https://www.elastic.co/guide/en/elasticsearch/guide/1.x/scan-scroll.html</span>
+  <span class="l-Scalar-Plain">scroll</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">lease</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">120</span>
+    <span class="l-Scalar-Plain">batch_size</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">100</span>
+
+<span class="c1"># Where migrated elasticsearch data will be exported</span>
+<span class="l-Scalar-Plain">exporter.dir</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">/opt/alien4cloud/backups/export</span>
+
+<span class="c1"># Where Alien4Cloud&#39;s backup files are stored</span>
+<span class="l-Scalar-Plain">backup.files_dir</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">/opt/alien4cloud/backups/files</span>
+
+<span class="c1"># Where Alien4Cloud&#39;s files are stored, backup operation will copy data from alien4cloud.dir to backup.files_dir and restore will do inversely</span>
+<span class="l-Scalar-Plain">alien4cloud.dir</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">/opt/alien4cloud/data</span></code></pre></div>
+
+<h1 id="backup">Backup</h1>
+
+<div class="note">
+<p>In order to perform backup:</p>
+
+<ul>
+  <li>Configure ‘path.repo’ on all your elasticsearch cluster nodes. Elasticsearch index snapshots will be saved at this location.</li>
+</ul>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">path.repo</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">/home/elasticsearch/backups</span></code></pre></div>
+
+<p>Restart elasticsearch so that the new configuration is taken into account :</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">sudo /etc/init.d/elasticsearch restart</code></pre></div>
+
+<ul>
+  <li>Mount shared file system between all your elasticsearch cluster nodes. Here’s an example with sshfs :</li>
+</ul>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="c"># On the file server machine where elasticsearch backups will be hosted</span>
+sudo adduser elasticsearch
+<span class="c"># Copy key file that enable ssh login for this user</span>
+sudo -u elasticsearch mkdir /home/elasticsearch/.ssh
+sudo -u elasticsearch cp authorized_keys /home/elasticsearch/.ssh
+<span class="c"># Create the shared remote folder that will be used for elasticsearch backups</span>
+sudo -u elasticsearch mkdir /home/elasticsearch/backups
+
+<span class="c"># On elasticsearch machines</span>
+<span class="c"># Install sshfs</span>
+sudo apt-get install sshfs
+<span class="c"># Create backup folders</span>
+sudo -u elasticsearch mkdir -p /home/elasticsearch/backups
+<span class="c"># Mount the remote folder</span>
+sudo sshfs -o allow_other -o <span class="nv">uid</span><span class="o">=</span><span class="k">$(</span>id -u elasticsearch<span class="k">)</span> -o <span class="nv">gid</span><span class="o">=</span><span class="k">$(</span>id -g elasticsearch<span class="k">)</span> -o <span class="nv">IdentityFile</span><span class="o">=</span>/home/elasticsearch/key.pem elasticsearch@192.168.1.4:/home/elasticsearch/backups /home/elasticsearch/backups
+<span class="c"># Test that elasticsearch can write to the backups folder</span>
+sudo -u elasticsearch touch /home/elasticsearch/backups/test.txt
+sudo -u elasticsearch rm /home/elasticsearch/backups/test.txt</code></pre></div>
+
+</div>
+
+<p>To backup Alien4Cloud :</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">./a4c-admin-tool.sh -backup 1.1.0 -n backup110</code></pre></div>
+
+<h1 id="restore">Restore</h1>
+
+<div class="note info">
+<p>We recommend users to stop Alien4Cloud but not ElasticSearch in order to perform the restore. Alien4Cloud should be restarted once restore is completed.</p>
+
+<p>However, if you 100% sure that restore operation has no impact on clouds or plugins configuration you can perform a ‘hot restore’ and don’t need to stop Alien4Cloud.</p>
+</div>
+
+<div class="note">
+<p>In order to perform a restore with elasticsearch up and alien down you should be running in a classical production setup where elasticsearch process is independant from Alien4Cloud. See <a href="#/documentation/1.2.0/admin_guide/advanced_configuration.html">advanced configuration</a> for more details.</p>
+</div>
+
+<p>Before to run the script below you should make sure that Alien4Cloud is stopped and elastic-search is running.</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">./a4c-admin-tool.sh -restore 1.1.0 -n backup110</code></pre></div>
+
+<p>Once data is restored you can restart Alien4Cloud server.</p>
+
+<h1 id="migrate">Migrate</h1>
+<div class="note">
+<p>Before migrating data, please make sure to backup your data before. This guide can only used for migration from 1.1.0 to 1.2.0.</p>
+</div>
+
+<ul>
+  <li>Perform those following commands to migrate data</li>
+</ul>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">./a4c-admin-tool.sh -migrate 1.1.0
+<span class="c"># As there are breaking changes between cloudify 3 plugin 1.1.0 and 1.2.0, you will be obliged to swap plugin code of old version with the new one</span>
+cp /opt/alien4cloud/alien4cloud-premium/init/plugins/alien4cloud-cloudify3-provider-1.2.0.zip .
+unzip alien4cloud-cloudify3-provider-1.2.0.zip
+<span class="c"># &#39;112a6d4c-1744-496e-b837-76ac2199f7d1&#39; is id of your cloudify 3 plugins, it will be different than the one in this guide</span>
+<span class="c"># Those commands swap old plugin&#39;s code with new version</span>
+rm -rf /opt/alien4cloud/data/work/plugins/content/112a6d4c-1744-496e-b837-76ac2199f7d1/*
+mv * /opt/alien4cloud/data/work/plugins/content/112a6d4c-1744-496e-b837-76ac2199f7d1/
+<span class="c"># Start Alien after migration</span>
+<span class="nb">cd</span> /opt/alien4cloud/alien4cloud-premium/
+./alien4cloud.sh</code></pre></div>
+
+<ul>
+  <li>Once Alien is up, you should go to cloudify 3 orchestrator’s configuration and fill in those keys then re-enable the orchestrator</li>
+</ul>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">delayBetweenDeploymentStatusPolling</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">30</span>
+<span class="l-Scalar-Plain">delayBetweenInProgressDeploymentStatusPolling</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">5</span>
+<span class="l-Scalar-Plain">delayBetweenLogPolling</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">2</span></code></pre></div>
+
+<ul>
+  <li>
+    <p>Verify that all plugins have been re-uploaded properly else re-upload them and refresh your browser by emptying its cache so that new plugins’ UI can be loaded.</p>
+  </li>
+  <li>
+    <p>As you could see, your old plugin which is marked as of version 1.1.0 is now using code of the version 1.2.0 after the swap operation. It works but it’s a bad practice for maintainability (plugin 1.1.0 but in fact 1.2.0). We suggest that you create new orchestrator with the new version of the plugin, then migrate in an incremental manner all your applications to the new orchestrator.</p>
+  </li>
+</ul>
+
+<p>Normally with this procedure, you should have your Alien functional with new version 1.2.0.</p>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.2.0/admin_guide/backup_restore_migrate.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-1.2.0', 'documentation/1.2.0/admin_guide/backup_restore_migrate.md');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

@@ -119,8 +119,6 @@ var node, children;
     
   
     
-  
-    
       var parent = sidebarTree["DOCUMENTATION"];
       
         
@@ -165,8 +163,6 @@ var node, children;
       node.url = "documentation/1.0.0/admin/advanced_configuration.html";
       node.weight =  100;
       node.root = "../../";
-    
-  
     
   
     
@@ -227,6 +223,10 @@ var node, children;
     
   
     
+  
+    
+  
+    
       var parent = sidebarTree["DOCUMENTATION"];
       
         
@@ -271,10 +271,6 @@ var node, children;
       node.url = "documentation/1.0.0/concepts/applications.html";
       node.weight =  400;
       node.root = "../../";
-    
-  
-    
-  
     
   
     
@@ -360,6 +356,10 @@ var node, children;
       node.url = "documentation/1.0.0/devops_guide/tosca_grammar/artifact_definition.html";
       node.weight =  700;
       node.root = "../../../";
+    
+  
+    
+  
     
   
     
@@ -452,6 +452,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DOCUMENTATION"];
       
         
@@ -535,10 +537,6 @@ var node, children;
     
   
     
-  
-    
-  
-    
       var parent = sidebarTree["DOCUMENTATION"];
       
         
@@ -583,6 +581,8 @@ var node, children;
       node.url = "documentation/1.0.0/admin/backup_restore.html";
       node.weight =  200;
       node.root = "../../";
+    
+  
     
   
     
@@ -650,8 +650,6 @@ var node, children;
       node.url = "documentation/1.0.0/cloudify2_driver/blockstorage.html";
       node.weight =  100;
       node.root = "../../";
-    
-  
     
   
     
@@ -829,6 +827,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DOCUMENTATION"];
       
         
@@ -992,8 +992,6 @@ var node, children;
     
   
     
-  
-    
       var parent = sidebarTree["DOCUMENTATION"];
       
         
@@ -1043,8 +1041,6 @@ var node, children;
     
   
     
-  
-    
       var parent = sidebarTree["DOCUMENTATION"];
       
         
@@ -1089,6 +1085,8 @@ var node, children;
       node.url = "documentation/1.0.0/user_guide/components_management.html";
       node.weight =  200;
       node.root = "../../";
+    
+  
     
   
     
@@ -1225,6 +1223,8 @@ var node, children;
       node.url = "documentation/1.0.0/concepts/concepts.html";
       node.weight =  100;
       node.root = "../../";
+    
+  
     
   
     
@@ -6300,6 +6300,10 @@ var node, children;
     
   
     
+  
+    
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.1.0"];
       
         
@@ -6344,10 +6348,6 @@ var node, children;
       node.url = "documentation/1.1.0/user_guide/application_management.html";
       node.weight =  400;
       node.root = "../../";
-    
-  
-    
-  
     
   
     
@@ -6578,6 +6578,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.1.0"];
       
         
@@ -6718,6 +6720,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.1.0"];
       
         
@@ -6803,8 +6807,6 @@ var node, children;
     
   
     
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.1.0"];
       
         
@@ -6885,6 +6887,8 @@ var node, children;
       node.url = "documentation/1.1.0/devops_guide/tosca_grammar/capability_type.html";
       node.weight =  200;
       node.root = "../../../";
+    
+  
     
   
     
@@ -7002,8 +7006,6 @@ var node, children;
     
   
     
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.1.0"];
       
         
@@ -7102,8 +7104,6 @@ var node, children;
       node.url = "documentation/1.1.0/devops_guide/tosca_grammar/concat_definition.html";
       node.weight =  500;
       node.root = "../../../";
-    
-  
     
   
     
@@ -14985,6 +14985,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.2.0"];
       
         
@@ -15029,8 +15031,6 @@ var node, children;
       node.url = "documentation/1.2.0/admin_guide/advanced_configuration.html";
       node.weight =  100;
       node.root = "../../";
-    
-  
     
   
     
@@ -15268,6 +15268,10 @@ var node, children;
     
   
     
+  
+    
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.2.0"];
       
         
@@ -15348,10 +15352,6 @@ var node, children;
       node.url = "documentation/1.2.0/devops_guide/tosca_grammar/artifact_definition.html";
       node.weight =  700;
       node.root = "../../../";
-    
-  
-    
-  
     
   
     
@@ -15442,10 +15442,6 @@ var node, children;
     
   
     
-  
-    
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.2.0"];
       
         
@@ -15533,6 +15529,10 @@ var node, children;
     
   
     
+  
+    
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.2.0"];
       
         
@@ -15559,7 +15559,7 @@ var node, children;
         // try to find the node if exists already
         node = null;
         for (var i=0; i<children.length; i++) {
-          if(children[i].name === 'backup_restore') {
+          if(children[i].name === 'backup_restore_migrate') {
             node = children[i];
           }
         }
@@ -15572,13 +15572,11 @@ var node, children;
         }
       
 
-      node.name = "backup_restore";
-      node.title = "Backup and restore";
-      node.url = "documentation/1.2.0/admin_guide/backup_restore.html";
+      node.name = "backup_restore_migrate";
+      node.title = "Backup, restore and migrate data";
+      node.url = "documentation/1.2.0/admin_guide/backup_restore_migrate.html";
       node.weight =  200;
       node.root = "../../";
-    
-  
     
   
     
@@ -15664,6 +15662,8 @@ var node, children;
       node.url = "documentation/1.2.0/devops_guide/tosca_grammar/capability_definition.html";
       node.weight =  600;
       node.root = "../../../";
+    
+  
     
   
     
@@ -15829,8 +15829,6 @@ var node, children;
     
   
     
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.2.0"];
       
         
@@ -15875,6 +15873,8 @@ var node, children;
       node.url = "documentation/1.2.0/concepts/components.html";
       node.weight =  200;
       node.root = "../../";
+    
+  
     
   
     
@@ -16036,6 +16036,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.2.0"];
       
         
@@ -16062,8 +16064,6 @@ var node, children;
       node.url = "documentation/1.2.0/concepts/concepts.html";
       node.weight =  100;
       node.root = "../../";
-    
-  
     
   
     

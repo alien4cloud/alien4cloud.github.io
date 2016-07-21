@@ -288,14 +288,14 @@
 	},
 
 	{
-		"url": "/documentation/1.2.0/admin_guide/advanced_configuration.html", 
+		"url": "/documentation/1.0.0/admin/advanced_configuration.html", 
 		"section": "Documentation", 
 		"value": "Advanced configuration",
 		"tokens": [ "Advanced","configuration"]
 	},
 
 	{
-		"url": "/documentation/1.0.0/admin/advanced_configuration.html", 
+		"url": "/documentation/1.2.0/admin_guide/advanced_configuration.html", 
 		"section": "Documentation", 
 		"value": "Advanced configuration",
 		"tokens": [ "Advanced","configuration"]
@@ -316,7 +316,7 @@
 	},
 
 	{
-		"url": "/documentation/1.1.0/user_guide/application_management.html", 
+		"url": "/documentation/1.0.0/user_guide/application_management.html", 
 		"section": "Documentation", 
 		"value": "Application(s) management",
 		"tokens": [ "Application(s)","management"]
@@ -330,7 +330,7 @@
 	},
 
 	{
-		"url": "/documentation/1.0.0/user_guide/application_management.html", 
+		"url": "/documentation/1.1.0/user_guide/application_management.html", 
 		"section": "Documentation", 
 		"value": "Application(s) management",
 		"tokens": [ "Application(s)","management"]
@@ -365,7 +365,7 @@
 	},
 
 	{
-		"url": "/documentation/1.2.0/devops_guide/tosca_grammar/artifact_definition.html", 
+		"url": "/documentation/1.0.0/devops_guide/tosca_grammar/artifact_definition.html", 
 		"section": "Documentation", 
 		"value": "Artifact definition",
 		"tokens": [ "Artifact","definition"]
@@ -379,7 +379,7 @@
 	},
 
 	{
-		"url": "/documentation/1.0.0/devops_guide/tosca_grammar/artifact_definition.html", 
+		"url": "/documentation/1.2.0/devops_guide/tosca_grammar/artifact_definition.html", 
 		"section": "Documentation", 
 		"value": "Artifact definition",
 		"tokens": [ "Artifact","definition"]
@@ -407,6 +407,13 @@
 	},
 
 	{
+		"url": "/documentation/1.2.0/devops_guide/tosca_grammar/attribute_definition.html", 
+		"section": "Documentation", 
+		"value": "Attribute definition",
+		"tokens": [ "Attribute","definition"]
+	},
+
+	{
 		"url": "/documentation/1.1.0/devops_guide/tosca_grammar/attribute_definition.html", 
 		"section": "Documentation", 
 		"value": "Attribute definition",
@@ -421,10 +428,10 @@
 	},
 
 	{
-		"url": "/documentation/1.2.0/devops_guide/tosca_grammar/attribute_definition.html", 
+		"url": "/documentation/1.0.0/admin/backup_restore.html", 
 		"section": "Documentation", 
-		"value": "Attribute definition",
-		"tokens": [ "Attribute","definition"]
+		"value": "Backup and restore",
+		"tokens": [ "Backup","and","restore"]
 	},
 
 	{
@@ -435,17 +442,10 @@
 	},
 
 	{
-		"url": "/documentation/1.0.0/admin/backup_restore.html", 
+		"url": "/documentation/1.2.0/admin_guide/backup_restore_migrate.html", 
 		"section": "Documentation", 
-		"value": "Backup and restore",
-		"tokens": [ "Backup","and","restore"]
-	},
-
-	{
-		"url": "/documentation/1.2.0/admin_guide/backup_restore.html", 
-		"section": "Documentation", 
-		"value": "Backup and restore",
-		"tokens": [ "Backup","and","restore"]
+		"value": "Backup, restore and migrate data",
+		"tokens": [ "Backup,","restore","and","migrate","data"]
 	},
 
 	{
@@ -453,13 +453,6 @@
 		"section": "Documentation", 
 		"value": "Defaut Blockstorage",
 		"tokens": [ "Defaut","Blockstorage"]
-	},
-
-	{
-		"url": "/documentation/1.1.0/devops_guide/tosca_grammar/capability_definition.html", 
-		"section": "Documentation", 
-		"value": "Capability definition",
-		"tokens": [ "Capability","definition"]
 	},
 
 	{
@@ -477,14 +470,21 @@
 	},
 
 	{
-		"url": "/documentation/1.1.0/devops_guide/tosca_grammar/capability_type.html", 
+		"url": "/documentation/1.1.0/devops_guide/tosca_grammar/capability_definition.html", 
+		"section": "Documentation", 
+		"value": "Capability definition",
+		"tokens": [ "Capability","definition"]
+	},
+
+	{
+		"url": "/documentation/1.0.0/devops_guide/tosca_grammar/capability_type.html", 
 		"section": "Documentation", 
 		"value": "Capability type",
 		"tokens": [ "Capability","type"]
 	},
 
 	{
-		"url": "/documentation/1.0.0/devops_guide/tosca_grammar/capability_type.html", 
+		"url": "/documentation/1.1.0/devops_guide/tosca_grammar/capability_type.html", 
 		"section": "Documentation", 
 		"value": "Capability type",
 		"tokens": [ "Capability","type"]
@@ -533,13 +533,6 @@
 	},
 
 	{
-		"url": "/documentation/1.1.0/concepts/components.html", 
-		"section": "Documentation", 
-		"value": "Components",
-		"tokens": [ "Components"]
-	},
-
-	{
 		"url": "/documentation/1.2.0/concepts/components.html", 
 		"section": "Documentation", 
 		"value": "Components",
@@ -554,7 +547,14 @@
 	},
 
 	{
-		"url": "/documentation/1.1.0/user_guide/components_management.html", 
+		"url": "/documentation/1.1.0/concepts/components.html", 
+		"section": "Documentation", 
+		"value": "Components",
+		"tokens": [ "Components"]
+	},
+
+	{
+		"url": "/documentation/1.0.0/user_guide/components_management.html", 
 		"section": "Documentation", 
 		"value": "Components catalog",
 		"tokens": [ "Components","catalog"]
@@ -568,21 +568,21 @@
 	},
 
 	{
-		"url": "/documentation/1.0.0/user_guide/components_management.html", 
+		"url": "/documentation/1.1.0/user_guide/components_management.html", 
 		"section": "Documentation", 
 		"value": "Components catalog",
 		"tokens": [ "Components","catalog"]
 	},
 
 	{
-		"url": "/documentation/1.1.0/devops_guide/tosca_grammar/concat_definition.html", 
+		"url": "/documentation/1.0.0/devops_guide/tosca_grammar/concat_definition.html", 
 		"section": "Documentation", 
 		"value": "concat",
 		"tokens": [ "concat"]
 	},
 
 	{
-		"url": "/documentation/1.0.0/devops_guide/tosca_grammar/concat_definition.html", 
+		"url": "/documentation/1.1.0/devops_guide/tosca_grammar/concat_definition.html", 
 		"section": "Documentation", 
 		"value": "concat",
 		"tokens": [ "concat"]
@@ -596,14 +596,14 @@
 	},
 
 	{
-		"url": "/documentation/1.2.0/concepts/concepts.html", 
+		"url": "/documentation/1.0.0/concepts/concepts.html", 
 		"section": "Documentation", 
 		"value": "Concepts",
 		"tokens": [ "Concepts"]
 	},
 
 	{
-		"url": "/documentation/1.0.0/concepts/concepts.html", 
+		"url": "/documentation/1.2.0/concepts/concepts.html", 
 		"section": "Documentation", 
 		"value": "Concepts",
 		"tokens": [ "Concepts"]
