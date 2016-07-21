@@ -30,7 +30,7 @@ Generate certificates for your elasticsearch cluster (see [Certificate Generatio
 {% endhighlight %}
 * Copy your certificates to $ELASTIC_SEARCH_HOME/config
 * Modify $ELASTIC_SEARCH_HOME/config/elasticsearch.yml, add following section for search-guard ssl (it's just a sample, feel free to modify it to follow your cluster architecture, all available configuration keys can be found [here](https://github.com/alien4cloud/search-guard-ssl/blob/master/searchguard-ssl-config-template.yml)) :
-{% highlight properties%}
+{% highlight yaml%}
 cluster.name: my-cluster
 network.host: _eth0:ipv4_
 searchguard.ssl.http.clientauth_mode: REQUIRE
