@@ -5,10 +5,13 @@ root: ../../../
 categories: DOCUMENTATION-1.2.0
 parent: [orchestrators, cloudify_3, supported_locations]
 node_name: azure
-weight: 5000
+weight: 1000
 ---
 
-The premium version of the cloudify 3 orchestrator plugin allows you to deploy an application on Azure.
+{%info%}
+<h5>Premium feature</h5>
+Azure is a Premium feature.
+{%endinfo%}
 
 ## Configuration
  Note that all the location azure configuration's properties are required.  
@@ -26,10 +29,10 @@ It is important to mention that the resources, when deploying an application (vi
 The Azure location exposes some types to help you configure a deployment and map the native Tosca types. Theses nodes are exposed as `on demand resources` the location management view.  
 
 ### Compute
-The tosca type ***`tosca.nodes.Compute`*** is mapped to the azure nodes:
+The tosca type `tosca.nodes.Compute` is mapped to the azure nodes:
 
- - ***`alien.cloudify.azure.nodes.Compute`*** for a linux compute,
- - ***`alien.cloudify.azure.nodes.WindowsCompute`*** for a windows compute.
+ - `alien.cloudify.azure.nodes.Compute` for a linux compute,
+ - `alien.cloudify.azure.nodes.WindowsCompute` for a windows compute.
 
 Their configurations required to be familiar with the azure way to describe an image (see  [image reference](https://msdn.microsoft.com/en-us/library/azure/mt163591.aspx#bk_imageref){:target="_blank"} ) and flavor  (see [hardware profile](https://msdn.microsoft.com/en-us/library/azure/mt163591.aspx#bk_hardware){:target="_blank"} )
 
@@ -38,10 +41,20 @@ Their configurations required to be familiar with the azure way to describe an i
 ### Network
 
 #### Public Network
-The tosca type ***`tosca.nodes.Network`*** can be mapped as a public network ***`alien.cloudify.azure.nodes.PublicNetwork`***.  
+The tosca type `tosca.nodes.Network` can be mapped as a public network `alien.cloudify.azure.nodes.PublicNetwork`.  
 
 #### Private Network
-***NOT YET SUPPORTED***
+{% warning %}
+Not supported yet
+{% endwarning %}
 
 ### Volumes
-***NOT YET SUPPORTED***
+{% warning %}
+Not supported yet
+{% endwarning %}
+
+## Scaling
+{% warning %}
+For now, Scaling is supported on for a single compute, ie a Compute which is not linked to a network, or doesn't have any volumes attached to.
+This should be fixed with the cloudify 3.4 version.
+{% endwarning %}
