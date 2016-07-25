@@ -1,11 +1,14 @@
 ---
 layout: post
-title: Manage opertions on deployed application.
+title: Manage operations on deployed application.
 root: ../../
 categories: DOCUMENTATION-1.2.0
-parent: [rest_api, rest_api_applications-api]
+parent:
+  - rest_api
+  - rest_api_applications-api
 node_name: rest_api_controller_application-deployment-controller
 weight: 17
+published: true
 ---
 
 ### Deploys the application on the configured Cloud.
@@ -405,4 +408,3 @@ POST /rest/applications/{applicationId}/environments/{applicationEnvironmentId}/
 #### Produces
 
 * application/json
-
