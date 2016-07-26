@@ -21,12 +21,15 @@ For that to be done, you have to create a keystore, and eventually a truststore 
 ## Configure the post-deployment web application
 The post-deployment web application is a Spring boot application, thus, there are some properties that needs to be set into the Java JVM running the application. Two cases:
 
-* you are using a configuration file ***`alien4cloud-config.yml`***: then you should add the options under the in the `server` section
+* you are using a configuration file ***`alien4cloud-post-deployment-config.yml`***: then you should add the options under the in the `server` section
 * you are not using a configuration file: you should set your java command options.
 
 In case you only want the server to be authenticated before the clients, you need specify the location of the keystore, by adding the following options,  
 
-**YAML configuration**
+{%inittab%}
+
+{% tabcontent YAML configuration %}
+
 {% highlight yaml %}
 server:
   port: 8080 # You might want to change the port to a normalize secured one
@@ -38,19 +41,10 @@ server:
     key-password: ******
 {% endhighlight %}
 
-**JAVA options**
-{% highlight bash%}
--Dserver.ssl.key-store=path/to/your/server-keystore/server-keystore.jks
--Dserver.ssl.key-store-password=keyStore-password
--Dserver.ssl.key-password=key-password
-{% endhighlight %}
-
 {% warning %}
 Note that if you do not want to perform mutual authentication between Alien4Cloud and the post deployment web application, you should skip this step.
 {% endwarning %}
 
-
-**YAML configuration**
 {% highlight yaml %}
 server:
   [...]
@@ -63,13 +57,30 @@ server:
     client-auth: need
 {% endhighlight %}
 
-**JAVA options**
+{% endtabcontent %}
+
+{% tabcontent JAVA options %}
+{% highlight bash%}
+-Dserver.ssl.key-store=path/to/your/server-keystore/server-keystore.jks
+-Dserver.ssl.key-store-password=keyStore-password
+-Dserver.ssl.key-password=key-password
+{% endhighlight %}
+
+{% warning %}
+Note that if you do not want to perform mutual authentication between Alien4Cloud and the post deployment web application, you should skip this step.
+{% endwarning %}
+
 {% highlight bash%}
 -Dserver.ssl.trust-store=path/to/your/truststore/server-truststore.jks
 -Dserver.ssl.trust-store-password=trustStore-password
 // the following option is to require client authentication
 -Dserver.ssl.client-auth=need
 {% endhighlight %}
+
+{% endtabcontent %}
+
+{%endinittab%}
+
 
 ## Configure Alien4Cloud UI / Rest API
 You have to modify the launch command to add the following java options, so that Alien4Cloud trust the certificate of the post deployment web application :

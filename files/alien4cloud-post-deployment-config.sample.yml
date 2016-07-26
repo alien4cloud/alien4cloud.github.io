@@ -1,0 +1,32 @@
+server:
+  port: 8089
+## ssl options
+#  ssl:
+#    key-store: ssl/server-keystore.jks
+#    key-store-password: changeit
+#    key-password: changeit
+
+## in case of mutual authentication
+#    trust-store: ssl/server-truststore.jks
+#    trust-store-password: changeit
+#    client-auth: need
+
+
+# Configuration of alien4cloud's CSAR repository, temporary folder and upload settings.
+directories:
+  # alien4cloud post deployment runtime directory (next directories are relative path to this one)
+  alien_post_deployment: runtime
+  # directory in which to stores uploaded artifacts related to the operations/patches(war etc.).
+  artifact_repository: artifacts
+
+# configuration for the upload module.
+upload:
+  max_archive_size: 52428800
+
+# Configuration of the elastic search cluster.
+elasticSearch:
+  clusterName: post_deployment_escluster
+  local: false
+  client: false
+  resetData: false
+  prefix_max_expansions: 10
