@@ -104,3 +104,7 @@ i.fa-slack {
 .inline {
   display: inline;
 }
+
+.nav-tabs>li>a {
+  font-weight: bold;
+}
