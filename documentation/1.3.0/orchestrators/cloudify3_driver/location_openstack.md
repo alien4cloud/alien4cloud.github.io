@@ -50,6 +50,7 @@ Exposed as the location type `alien.cloudify.openstack.nodes.Volume`, this is a 
 Scaling a topology like Compute + Network + storage is supported on the openstack location.
 see [Scalability section](#/documentation/1.3.0/orchestrators/cloudify3_driver/index.html)
 
-
-
 [pub_net_floatingIP]: ../../images/cloudify3_driver/pub_net_config.png  "public network config"
+
+## Availability zone
+You can add a `alien.cloudify.openstack.nodes.AvailabilityZone` with the value of your availability zone on OpenStack. To use the non affitinity placement policy, at least two zones are necessery. After that, you can add your node (on the topology view) to the a same group, Alien will try to put this server on different zones during the deployment. When you redeploy an application with volume, Alien try to put all volumes attached to a server on the same zone, and, if a volume has already a zone, on the zone of this volume. The algorithm of placement policy equitably distributed the server on eatch zones.
