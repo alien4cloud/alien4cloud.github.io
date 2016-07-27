@@ -1,0 +1,174 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/release_notes/1.3.0-SM2.html',
+  title: 'ALIEN for Cloud 1.3.0-SM2'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container">
+  <div class="row">
+    
+      <div class="col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">ALIEN for Cloud 1.3.0-SM2</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/release_notes/1.3.0-SM2.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <p><i class="fa fa-plus text-success"></i> New feature <i class="fa fa-level-up text-primary"></i> Improvement  <i class="fa fa-bug text-danger"></i> Bug <i class="fa fa-exclamation-triangle text-warning"></i> Breaking change</p>
+
+<h3 id="alien-4-cloud-premium">Alien 4 Cloud Premium</h3>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Id</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-1664</td>
+      <td style="text-align: left">Logs are not lost in case of connection issues to the cloudify server. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-1665</td>
+      <td style="text-align: left">Logs in the runtime view are now filtered to display only the logs of the current deployment. Log screen in application display logs for all deployments. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-1684</td>
+      <td style="text-align: left">Fixed a potential NPE in portability validation when location resource doesn’t specifies artifacts or runtime properties. /</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="cloudify-3-paas-provider">Cloudify 3 PaaS Provider</h3>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Id</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-1670</td>
+      <td style="text-align: left">Fix the error handling when deploying an node with a deployment artifact that doesn’t specifies a path in it’s type (Cfy 3 provider actually uses that path to copy the artifact at a given location). /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-1673</td>
+      <td style="text-align: left">Fixed issues in availability zones round robin assignment in a group when some instances already have zones assigned. /</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="marathon">Marathon</h3>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Id</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-plus text-success"></i></td>
+      <td style="text-align: left">ALIEN-1644</td>
+      <td style="text-align: left">Marathon orchestrator now get retrieve status from deployed applications. /</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="alien-4-cloud">Alien 4 Cloud</h3>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Id</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-1289</td>
+      <td style="text-align: left">Fix issues in validation of property constraints for complex properties. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-1351</td>
+      <td style="text-align: left">Fixed issues in error handling on deployment errors before the orchestrator is reached and potential NPE in some situations. Errors now generates a message event and a log event for better user feedback. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-1648</td>
+      <td style="text-align: left">Topology editor now displays ‘component_version’ if specified on a component. fallback to ‘version’ for backward compatibility. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-1663</td>
+      <td style="text-align: left">Fixed missing translation key for email validation on new user modal. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-1671</td>
+      <td style="text-align: left">Check application name pattern to avoid deployment issues if special characters are used. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-1672</td>
+      <td style="text-align: left">Fixed issues in reset input fields for complex types. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-1680</td>
+      <td style="text-align: left">Generated yaml defines ‘alien4cloud_dsl_1_2_0’ tosca definitions version. /</td>
+    </tr>
+  </tbody>
+</table>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/release_notes/1.3.0-SM2.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('RELEASE_NOTES', 'release_notes/1.3.0-SM2.markdown');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

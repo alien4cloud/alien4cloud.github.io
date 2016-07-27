@@ -70,6 +70,8 @@ Make sure to fill in the required property <em><code>floatingip</code></em>, by 
 <p>Scaling a topology like Compute + Network + storage is supported on the openstack location.
 see <a href="#/documentation/1.2.0/orchestrators/cloudify3_driver/index.html">Scalability section</a></p>
 
+<h2 id="availability-zone">Availability zone</h2>
+<p>You can add a <code>alien.cloudify.openstack.nodes.AvailabilityZone</code> with the value of your availability zone on OpenStack. To use the non affitinity placement policy, at least two zones are necessery. After that, you can add your node (on the topology view) to the a same group, Alien will try to put this server on different zones during the deployment. When you redeploy an application with volume, Alien try to put all volumes attached to a server on the same zone, and, if a volume has already a zone, on the zone of this volume. The algorithm of placement policy equitably distributed the server on eatch zones.</p>
 
         <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.2.0/orchestrators/cloudify3_driver/location_openstack.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
 	  </div>
