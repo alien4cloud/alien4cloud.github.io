@@ -11,8 +11,6 @@ published: true
 
 {%summary%}{%endsummary%}
 
-This section is incomplete and we suggest you to refer to the roadmap section in order to have a preview on the planned features for 1.2.0 version.
-
 # UI improvements
 
 * Better visibility of required properties

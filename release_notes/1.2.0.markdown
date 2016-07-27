@@ -1,0 +1,57 @@
+---
+layout: post
+title:  ALIEN for Cloud 1.2.0
+root: ../
+categories: RELEASE_NOTES
+parent: [release_note]
+node_name: 1.2.0
+weight: 9963
+exclude_from_search: true
+---
+
+
+
+
+<i class="fa fa-plus text-success"></i> New feature <i class="fa fa-level-up text-primary"></i> Improvement  <i class="fa fa-bug text-danger"></i> Bug <i class="fa fa-exclamation-triangle text-warning"></i> Breaking change
+
+
+### Alien 4 Cloud Premium
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-1637 | Migration tool from 1.1.x to 1.2.0 /  |
+        |  <i class="fa fa-bug text-danger"></i> | ALIEN-1664 | Logs are not lost in case of connection issues to the cloudify server. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1665 | Logs in the runtime view are now filtered to display only the logs of the current deployment. Log screen in application display logs for all deployments. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1684 | Fixed a potential NPE in portability validation when location resource doesn't specifies artifacts or runtime properties. /  |
+
+
+
+### Cloudify 3 PaaS Provider
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+        |  <i class="fa fa-bug text-danger"></i> | ALIEN-1670 | Fix the error handling when deploying an node with a deployment artifact that doesn't specifies a path in it's type (Cfy 3 provider actually uses that path to copy the artifact at a given location). /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1673 | Fixed issues in availability zones round robin assignment in a group when some instances already have zones assigned. /  |
+
+
+
+### Alien 4 Cloud
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+        |  <i class="fa fa-bug text-danger"></i> | ALIEN-1289 | Fix issues in validation of property constraints for complex properties. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1351 | Fixed issues in error handling on deployment errors before the orchestrator is reached and potential NPE in some situations. Errors now generates a message event and a log event for better user feedback. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1648 | Topology editor now displays 'component_version' if specified on a component. fallback to 'version' for backward compatibility. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1663 | Fixed missing translation key for email validation on new user modal. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1671 | Check application name pattern to avoid deployment issues if special characters are used. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1672 | Fixed issues in reset input fields for complex types. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1680 | Generated yaml defines ‘alien4cloud_dsl_1_2_0’ tosca definitions version. /  |
