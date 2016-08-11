@@ -71,6 +71,12 @@ ga('send', 'pageview');
 <p>Current implementation of Alien 4 Cloud does not take the deploy_path in account but rather keeps the archive layout for scripts copy.</p>
 </div>
 
+<div class="note info">
+<h5>Getting the artifact from your scripts :</h5>
+<p>Alien 4 Cloud does not support get_artifact function to retrieve a specified artifact. It will however provide an input environment variable named based on the artifact name in all scripts of the node/relationship that defines the artifact.
+The value of the environment variable is equal to the local path of the file.</p>
+</div>
+
 <h2 id="grammar">Grammar</h2>
 
 <div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="c1"># Simple form - type and mime inferred from file URI</span>
