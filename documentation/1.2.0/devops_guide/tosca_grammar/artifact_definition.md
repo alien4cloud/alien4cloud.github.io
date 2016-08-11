@@ -29,6 +29,12 @@ An artifact definition defines a named, typed file that can be associated with N
 Current implementation of Alien 4 Cloud does not take the deploy_path in account but rather keeps the archive layout for scripts copy.
 {% endwarning %}
 
+{% info %}
+<h5>Getting the artifact from your scripts :</h5>
+Alien 4 Cloud does not support get_artifact function to retrieve a specified artifact. It will however provide an input environment variable named based on the artifact name in all scripts of the node/relationship that defines the artifact.
+The value of the environment variable is equal to the local path of the file.
+{% endinfo %}
+
 ## Grammar
 
 {% highlight yaml %}
