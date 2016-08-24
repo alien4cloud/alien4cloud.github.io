@@ -54,13 +54,27 @@ It also collects important information for billing purpose like maximum nodes th
 
 <h2 id="home-view">Home view</h2>
 
-<p>On home view we can find (from left to right) :</p>
+<p>On home view we can find (from top to bottom) :</p>
 
 <ul>
   <li>Maximum number of nodes ever reached and when it has been reached</li>
+  <li>Current number of running nodes</li>
+  <li>Last refresh date and &#8220;Refresh&#8221; button</li>
+  <li>List of available charts, &#8220;Add Chart&#8221; button and &#8220;Save Dashboard&#8221; button</li>
   <li>A sunburst graph about nodes hierarchy</li>
   <li>A timeline graph about number of nodes deployed</li>
   <li>A sunburst graph about number of compute nodes by app, by Iaas</li>
+</ul>
+
+<p>Button Descriptions :</p>
+
+<ul>
+  <li>Refresh :
+ Snapshots of all running application are regularly performed depending on a configurable cron expression (see &#8220;Configure it&#8221; section). The refresh button allows the user to force the execution on the snapshot task. The Refresh button will make a new snapshot of all running applications and update charts with fresh data.</li>
+  <li>Add Chart :
+ Add the currently selected chart (in list of available charts) to the dashboard view</li>
+  <li>Save Dashboard :
+ Save the current organization of chart in the dashboard (size and positions of charts)</li>
 </ul>
 
 <p><img src="../../images/1.2.0/user_guide/dashboard/screen_home.png" alt="Home view" /></p>
@@ -76,7 +90,6 @@ It also collects important information for billing purpose like maximum nodes th
 - A timeline graph about number of resources deployed on a period. It displayed on line by type of nodes : alien.nodes.Compute, alien.nodes.Network and alien.nodes.BlockStorage.
 - A bar chart graph a resources currently running by type : alien.nodes.Compute, alien.nodes.Network and alien.nodes.BlockStorage.
 <img src="../../images/1.2.0/user_guide/dashboard/screen_orc.png" alt="Orchestrator view" /></p>
-
 
         <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.2.0/user_guide/dashboard_plugin.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
 	  </div>
