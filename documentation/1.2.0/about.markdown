@@ -84,7 +84,7 @@ We believe that there are already a number of viable options there (some of them
 We do it in an open way through [plug-in approach](../developer_guide/plugin.html){:target="_blank"} to allow you to leverage your best tools or skills.
 
 # Status
-1.2.0 has been released on 06/07/2016 (to see what is new in 1.2.0 check out [new in 1.2.0](whatsnew))
+1.2.1 has been released on 17/08/2016 (to see what is new in 1.2.x check out [new in 1.2.0](whatsnew))
 
 {%warning%}
 <h5>Supported platforms</h5>

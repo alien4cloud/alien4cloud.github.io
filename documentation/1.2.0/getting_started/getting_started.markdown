@@ -31,12 +31,12 @@ java following instructions [here](https://www.java.com/fr/download/manual.jsp){
 
 # Install Alien4Cloud
 
-Download Alien4Cloud distribution package [alien4cloud-dist](http://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource&g=alien4cloud&a=alien4cloud-dist&v=1.1.0&p=tar.gz&c=dist) and extract the archive it in your desired location.
+Download Alien4Cloud distribution package [alien4cloud-dist](http://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource&g=alien4cloud&a=alien4cloud-dist&v=1.2.1&p=tar.gz&c=dist) and extract the archive it in your desired location.
 
 Once extracted you should have the following content:
 
 {% highlight bash %}
-├── alien4cloud-ui-1.2.0.war
+├── alien4cloud-ui-1.2.1.war
 ├── alien4cloud.sh
 ├── config
 │   └── alien4cloud-config.yml
@@ -47,7 +47,7 @@ Once extracted you should have the following content:
 │   │   └── alien-tosca-normative-types.zip
 │   │   └── alien-xtended-storage-types.zip
 │   │   plugins
-│   │   └── alien4cloud-cloudify3-provider-1.2.0.zip
+│   │   └── alien4cloud-cloudify3-provider-1.2.1.zip
 {% endhighlight %}
 
 # Start Alien4Cloud
