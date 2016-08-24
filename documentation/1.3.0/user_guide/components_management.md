@@ -147,3 +147,13 @@ After the search, you can have an overview of the component. Just move the mouse
 If it is the one you are looking for, or if you want further informations about it, you can now select it and see its details.
 
 [![Component details](../../images/components_guide/component-details.png)](../../images/components_guide/component-details.png)
+
+
+# Artifact repository
+
+{% info %}
+<h5>Premium feature</h5>
+This section refers to a premium feature.
+{% endinfo %}
+
+An repository artifact is way to used a remote artifact. In the components view you can define new repositories artifact configuration. This configuration offer you the possibily to add credentials for your artifact resolver (who is in charge to fetch your remote artifact). If a CSAR as a reference to an artifact repository for which credentials is a requirement, you need to create this configuration before the upload of our component.
