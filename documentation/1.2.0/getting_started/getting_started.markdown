@@ -31,12 +31,12 @@ java following instructions [here](https://www.java.com/fr/download/manual.jsp){
 
 # Install Alien4Cloud
 
-Download Alien4Cloud distribution package [alien4cloud-dist](http://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource&g=alien4cloud&a=alien4cloud-dist&v=1.1.0&p=tar.gz&c=dist) and extract the archive it in your desired location.
+Download Alien4Cloud distribution package [alien4cloud-dist](http://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource&g=alien4cloud&a=alien4cloud-dist&v=1.2.1&p=tar.gz&c=dist) and extract the archive it in your desired location.
 
 Once extracted you should have the following content:
 
 {% highlight bash %}
-├── alien4cloud-ui-1.1.0.war
+├── alien4cloud-ui-1.2.1.war
 ├── alien4cloud.sh
 ├── config
 │   └── alien4cloud-config.yml
@@ -47,7 +47,7 @@ Once extracted you should have the following content:
 │   │   └── alien-tosca-normative-types.zip
 │   │   └── alien-xtended-storage-types.zip
 │   │   plugins
-│   │   └── alien4cloud-cloudify3-provider-1.1.0.zip
+│   │   └── alien4cloud-cloudify3-provider-1.2.1.zip
 {% endhighlight %}
 
 # Start Alien4Cloud
@@ -75,7 +75,7 @@ The admin user is granted will all rights on the platform. This getting started 
 
 ### Create and configure an orchestrator
 
-Now that we are logged in Alien4Cloud we must define a location (where we will actually deploy applications). In Alien4Cloud every location is managed by an orchestrator. To create an orchestrator, go to ![Go to admin](../../images/getting_started/administration-btn.png){: .inline} and in the ![Go to orchestrator](../../images/getting_started/orchestrator-menu-btn.png){: .inline} sub-menu. Create an orchestrator named `Cloudify3` with the **plugin** `Cloudify 3 Orchestrator : 1.1.0`.
+Now that we are logged in Alien4Cloud we must define a location (where we will actually deploy applications). In Alien4Cloud every location is managed by an orchestrator. To create an orchestrator, go to ![Go to admin](../../images/getting_started/administration-btn.png){: .inline} and in the ![Go to orchestrator](../../images/getting_started/orchestrator-menu-btn.png){: .inline} sub-menu. Create an orchestrator named `Cloudify3` with the **plugin** `Cloudify 3 Orchestrator : 1.2.0`.
 
 At this moment your orchestrator is create but not enable. Click on your orchestrator to see the informations page, and then click on the configuration menu icon ![Go to orchestrator configuration](../../images/getting_started/orchestrator-config-btn.png){: .inline}. In the **Driver configuration** part, add the URL of your manager and return to the previous page to enable your orchestrator.
 
@@ -130,7 +130,7 @@ Find detailed informations about the Wordpress topology in the [devops guide](#/
 
 # Create a Wordpress application
 
-Now we have the Wordpress template ready to use, we can create an application based on it. To do this, go to ![application](../../images/getting_started/application-btn.png){: .inline} section. Click on ![new application btn](../../images/getting_started/new-application-btn.png){: .inline} button and select the `wordpress-template` in the **topology template** drop-down and the `1.1.0-SNAPHOT` version in **Topology template**.
+Now we have the Wordpress template ready to use, we can create an application based on it. To do this, go to ![application](../../images/getting_started/application-btn.png){: .inline} section. Click on ![new application btn](../../images/getting_started/new-application-btn.png){: .inline} button and select the `wordpress-template` in the **topology template** drop-down and the `2.0.0-SNAPHOT` version in **Topology template**.
 
 The application creation should redirect you on the application informations page.
 To see your application topology, go to ![application topology](../../images/getting_started/app-topo-btn.png){: .inline} page, you will see the following screen.
