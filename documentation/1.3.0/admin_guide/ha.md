@@ -26,6 +26,7 @@ Note that this page focus only on A4C HA: we don't consider HA for orchestrators
 Our HA solution is based on a primary/backup mecanism: you'll need to deploy several instances of A4C to ensure one will be available at a given time.
 
 The _alien4cloud-premium-ha_ plugin leverages on [Consul](https://www.consul.io) features: 
+
 - Key/Value Storage: a distrubuted key/value is used to determine which A4C instance is the leader. 
 - Failure Detection: Consul is in charge of checking the liveness of A4C instances.
 
@@ -44,6 +45,7 @@ So the whole architecture could look like this:
 ## How A4C works in HA mode
 
 In a very first stage, A4C will start in backup mode, which is a limited mode, with only a ligthweight bootstrap context started:
+
 - Not all REST endpoints will be avalaible. Basically, only the health check endpoint will be available.
 - All plugins are disabled (for instance, orchestrator are not enabled, so no background threads will run).
 At this early stage, A4C is not usable.
