@@ -46,9 +46,12 @@ ga('send', 'pageview');
 
 <p>Our HA solution is based on a primary/backup mecanism: you’ll need to deploy several instances of A4C to ensure one will be available at a given time.</p>
 
-<p>The <em>alien4cloud-premium-ha</em> plugin leverages on <a href="https://www.consul.io">Consul</a> features: 
-- Key/Value Storage: a distrubuted key/value is used to determine which A4C instance is the leader. 
-- Failure Detection: Consul is in charge of checking the liveness of A4C instances.</p>
+<p>The <em>alien4cloud-premium-ha</em> plugin leverages on <a href="https://www.consul.io">Consul</a> features:</p>
+
+<ul>
+  <li>Key/Value Storage: a distrubuted key/value is used to determine which A4C instance is the leader.</li>
+  <li>Failure Detection: Consul is in charge of checking the liveness of A4C instances.</li>
+</ul>
 
 <p>As a consequence, to use this plugin you will need a Consul server (but you’ll probably use a consul cluster !).</p>
 
@@ -64,10 +67,13 @@ ga('send', 'pageview');
 
 <h2 id="how-a4c-works-in-ha-mode">How A4C works in HA mode</h2>
 
-<p>In a very first stage, A4C will start in backup mode, which is a limited mode, with only a ligthweight bootstrap context started:
-- Not all REST endpoints will be avalaible. Basically, only the health check endpoint will be available.
-- All plugins are disabled (for instance, orchestrator are not enabled, so no background threads will run).
-At this early stage, A4C is not usable.</p>
+<p>In a very first stage, A4C will start in backup mode, which is a limited mode, with only a ligthweight bootstrap context started:</p>
+
+<ul>
+  <li>Not all REST endpoints will be avalaible. Basically, only the health check endpoint will be available.</li>
+  <li>All plugins are disabled (for instance, orchestrator are not enabled, so no background threads will run).
+At this early stage, A4C is not usable.</li>
+</ul>
 
 <p>A4C will then open a session onto consul and try to acquire a lock onto a consul key. If the lock is already acquired (by another instance), it will still in this boostrap mode and will wait for changes on this key. A health check is associated with the sesssion, so consul will check for the liveness of this A4C instance.</p>
 
