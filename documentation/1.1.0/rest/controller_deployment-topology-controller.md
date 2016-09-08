@@ -1,5 +1,6 @@
 ---
 layout: post
+exclude_from_search: true
 title: Prepare a topology to be deployed on a specific environment (location matching, node matching and inputs configuration).
 root: ../../
 categories: DOCUMENTATION-1.1.0

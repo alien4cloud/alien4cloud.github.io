@@ -1,5 +1,6 @@
 ---
 layout: post
+exclude_from_search: true
 title:  Cloudify 3 Plugin
 root: ../
 categories: DEVELOPER_GUIDE

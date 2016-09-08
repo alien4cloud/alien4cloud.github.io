@@ -1,5 +1,6 @@
 ---
 layout: post
+exclude_from_search: true
 title: Full
 root: ../
 categories: DEVELOPER_GUIDE

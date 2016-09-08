@@ -1,5 +1,6 @@
 ---
 layout: post
+exclude_from_search: true
 title:  Constraint clause
 root: ../../
 categories: DOCUMENTATION-1.1.0

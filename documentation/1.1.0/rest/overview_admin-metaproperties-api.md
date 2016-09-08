@@ -1,5 +1,6 @@
 ---
 layout: post
+exclude_from_search: true
 title: admin-metaproperties-api
 root: ../../
 categories: DOCUMENTATION-1.1.0

@@ -1,5 +1,6 @@
 ---
 layout: post
+exclude_from_search: true
 title:  Artifact type
 root: ../../../
 categories: DOCUMENTATION-1.1.0

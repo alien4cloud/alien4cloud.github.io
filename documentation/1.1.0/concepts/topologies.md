@@ -1,5 +1,6 @@
 ---
 layout: post
+exclude_from_search: true
 title: Topologies
 root: ../../
 categories: DOCUMENTATION-1.1.0
