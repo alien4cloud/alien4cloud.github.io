@@ -12,9 +12,9 @@ published: true
 
 ## Building alien 4 Cloud
 
-Alien 4 Cloud is written in java for the backend and requires a JDK 7 or newer (note that we test it using JDK 7 only for now).
+Alien 4 Cloud is written in java for the backend and requires a JDK 8 or newer (note that we test it using JDK 8 only for now).
 
-* make sure you have a JDK 7 installed
+* make sure you have a JDK 8 installed
 * make sure you have Maven installed (team is using 3.0.5)
 * install Ruby
 * install Python
