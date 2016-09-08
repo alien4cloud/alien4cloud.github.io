@@ -6,7 +6,7 @@ root: ../
 categories: RELEASE_NOTES
 parent: [release_note]
 node_name: 1.2.1
-weight: 9999
+weight: 9960
 exclude_from_search: true
 ---
 
@@ -24,7 +24,7 @@ exclude_from_search: true
   | Type        | Id         | Description |
   |:------------|:-----------|:------------|
         |  <i class="fa fa-bug text-danger"></i> | ALIEN-1719 | Fixed issues in SAML plugin packaging. /  |
-  
+
 
 
 ### Cloudify 3 PaaS Provider
@@ -35,7 +35,7 @@ exclude_from_search: true
   | Type        | Id         | Description |
   |:------------|:-----------|:------------|
         |  <i class="fa fa-bug text-danger"></i> | ALIEN-1747 | Fix an issue in cloudify provider that didn't supported when the type artifact had no reference even when user provided an artifact in the UI. /  |
-  
+
 
 
 ### Alien 4 Cloud
@@ -53,5 +53,3 @@ exclude_from_search: true
     |  <i class="fa fa-bug text-danger"></i> | ALIEN-1731 | Improved the error message of portability when artifact are not matching the location resources supported artifact configuration. /  |
     |  <i class="fa fa-bug text-danger"></i> | ALIEN-1735 | Alien4Cloud now add a parsing error when a get_artifact function is used as alien does not support it yet. /  |
     |  <i class="fa fa-bug text-danger"></i> | ALIEN-1739 | Fixed a UI regression as you cannot cancel edition by removing the text in a property field. /  |
-  
-
