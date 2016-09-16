@@ -1,0 +1,62 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/developer_guide/archive_catalog.html',
+  title: 'Archive catalog'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container">
+  <div class="row">
+    
+      <div class="col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Archive catalog</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/developer_guide/archive_catalog.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <p>At the heart of alien 4 cloud is the TOSCA catalog. The catalog provides:
+* indexes of TOSCA types and topology templates to easily browse and find them and use them in the composer
+* repository to download or browse content of archives
+* ACL features to control who can access the archives</p>
+
+<h1 id="alien-4-cloud-indexes">Alien 4 Cloud indexes</h1>
+
+<p>Alien 4 cloud indexing is managed by elasticsearch. It allows faceted search (through aggregations) and other features.</p>
+
+<h1 id="the-archive-repository">The archive repository</h1>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/developer_guide/archive_catalog.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DEVELOPER_GUIDE', 'developer_guide/archive_catalog.md');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>
