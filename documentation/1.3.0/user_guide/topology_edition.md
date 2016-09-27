@@ -15,7 +15,7 @@ published: true
 
 # Edition menu
 
-With the edition menu you can do/redo your operations on topology and save it. When you save the topology, your changes are save in Alien and you cannot undo the operation create before the save. 
+With the edition menu you can do/redo your operations on topology and save it. When you save the topology, your changes are save in Alien and you cannot do/undo the operation create before the save. 
 
 
 # Advanced inputs

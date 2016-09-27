@@ -149,11 +149,11 @@ If it is the one you are looking for, or if you want further informations about 
 [![Component details](../../images/components_guide/component-details.png)](../../images/components_guide/component-details.png)
 
 
-# Artifact repository
+# Repositories
 
 {% info %}
 <h5>Premium feature</h5>
 This section refers to a premium feature.
 {% endinfo %}
 
-An repository artifact is way to used a remote artifact. In the components view you can define new repositories artifact configuration. This configuration offer you the possibily to add credentials for your artifact resolver (who is in charge to fetch your remote artifact). If a CSAR as a reference to an artifact repository for which credentials is a requirement, you need to create this configuration before the upload of our component.
+An repository artifact is way to used a remote artifact. In the components view you can define new repositories artifact configuration. This configuration offer you the possibily to add credentials for your artifact resolver (who is in charge to fetch your remote artifact). Note : the repository can directly define on the CSARs definition, you can found more informations [here](#/documentation/1.3.0/devops_guide/tosca_grammar/repository_definition.html).
