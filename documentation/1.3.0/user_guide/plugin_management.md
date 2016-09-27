@@ -3,9 +3,9 @@ layout: post
 title:  Plugin(s) management
 root: ../../
 categories: DOCUMENTATION-1.3.0
-parent: [user_guide]
+parent: [user_guide, admin]
 node_name: plugin_management
-weight: 75
+weight: 100
 ---
 
 {% summary %}{% endsummary %}
