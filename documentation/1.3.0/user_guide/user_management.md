@@ -3,9 +3,9 @@ layout: post
 title:  User(s) and Roles management
 root: ../../
 categories: DOCUMENTATION-1.3.0
-parent: [user_guide]
+parent: [user_guide, admin]
 node_name: user_management
-weight: 50
+weight: 10
 ---
 
 {% summary %}{% endsummary %}

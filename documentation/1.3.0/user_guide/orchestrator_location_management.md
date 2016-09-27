@@ -3,9 +3,9 @@ layout: post
 title:  Orchestrator(s) and location(s) management
 root: ../../
 categories: DOCUMENTATION-1.3.0
-parent: [user_guide]
+parent: [user_guide, admin]
 node_name: orchestrator_location_management
-weight: 100
+weight: 200
 ---
 {%summary%}{%endsummary%}
 
