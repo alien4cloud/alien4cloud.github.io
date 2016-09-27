@@ -6,12 +6,12 @@ This repository contains the documentation for Application LIfecycle ENabler for
 
 This section guides you on how to run and browse the documentation website locally.
 
- * The first step is to install Jekyll on your machine. Instructions can be found [here](http://jekyllrb.com/docs/installation/) for linux and MacOS users and [here](http://forresst.github.io/2012/03/20/Installer-Jekyll-Sous-Windows/) for windows users.
+ * The first step is to install **Jekyll 2.5.3** on your machine. Instructions can be found [here](http://jekyllrb.com/docs/installation/) for linux and MacOS users and [here](http://forresst.github.io/2012/03/20/Installer-Jekyll-Sous-Windows/) for windows users.
 
  * Second step is to install the [Kramdown markdown converter](http://kramdown.gettalong.org/installation.html) that jekyll will leverage to generate the site.
 
  * Third step is to install the [Nokogiri HTML, XML, SAX, and Reader parser](http://www.nokogiri.org/tutorials/installing_nokogiri.html)
- 
+
  * Next clone ALIEN's documentation sources branch (if not done already) and go to the **sources** branch.
 
  * You can now run the site using `jekyll serve` command to start the site. If you want to update the doc you can run `jekyll serve -w` that will automatically refresh the site when you update the markup.
