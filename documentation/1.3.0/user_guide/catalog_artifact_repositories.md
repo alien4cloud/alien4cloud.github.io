@@ -8,35 +8,88 @@ node_name: tosca_catalog_artifact_repositories
 weight: 400
 ---
 
-IS THIS TRUE ? WHAT IS PREMIUM AND WHAT IS NOT ? THERE IS A REPOSITORY MENU IN OPENSOURCE!!!!!! IS HTTP REPO an OPENSOURCE feature ?
+{% summary %}{% endsummary %}
 
-{% info %}
-<h5>Premium feature</h5>
-This section refers to a premium feature.
-{% endinfo %}
 
-An repository artifact is way to used a remote artifact. In the components view you can define new repositories artifact configuration. This configuration offer you the possibily to add credentials for your artifact resolver (who is in charge to fetch your remote artifact). Note : the repository can directly define on the CSARs definition, you can found more informations [here](#/documentation/1.3.0/devops_guide/tosca_grammar/repository_definition.html).
+# How the repositories are managed
 
-# EXPLAIN HOW REPOSITORIES ARE MANAGED
+When a CSARs with a repository inside is upload, Alien try to fetch the artifact from the remote repository. If the type is not supported or if
+the artifact is not available (wrong URL or wrong credential), an error is throw during the parsing. On a CSAR, I can reference a repository by this URL.
 
-=> On archive side what do I have can users reference a repositoty ?
-=> What are the validation(s) performed by alien when an artifact reference a repository ?
-=> How does alien store the repository info from the archive ? In the CSAR? In every artifacts in node types and/or templates ?
 
-=> How you can define a repo in Alien4cloud to define password and other settings ?
-=> How is it stored in alien (not secured yet ?)
-=> Which users can do that ? View that ? View what ?
+In the components view you can define new repositories artifact configuration. This configuration offer you the possibily to add credentials for your artifact resolver (who is in charge to fetch your remote artifact).
+Credentials are stocked in Alien 4 cloud database. Only the user of a repository can see it's repositories credentials in Alien but a persorn with an access to the database can found it. The credentials are not use in the deployment blueprint. Indeed, if I have a repository in Alien with an URL and an other repository in an CSAR with the same URL, Alien will used the credentials of the repository create in Alien to resolve the artifact contains in the archive. Furthermore, the repository informations are stocked in the artifact definition.
 
-=> How is performed the matching between a repo defined in my archive and a repo in alien ?
-  - Can I use Id of the repo to even change the URL (for proxy kind of use ?)
-  - Current status and limitations section to be planned.
 
-# WHAT IS SPECIFIC TO PREMIUM Edition ?
+## Http
 
-MAVEN ?
-GIT ?
-OTHERS ?
+HTTP plugin resolver is the only one opensource plugin repository. The concat of the repository URL and the artifact file attribute should be the complete path to your file.
 
-HOW DO THEY WORK ?
- - Define artifact in the archive ?
- - Reference the repo in premium ?
+Example :
+{% highlight yaml %}
+repositories:
+  fastconnect:
+    url: https://fastconnect.org/maven/service/local/repositories/opensource/content
+    type: http
+
+[...]
+
+node_types:
+  alien.nodes.Example:
+    artifacts:
+    - http_artifact:
+        file: alien4cloud/alien4cloud-cloudify3-provider/1.3.0-SM2/alien4cloud-cloudify3-provider-1.3.0-SM2.zip
+        repository: fastconnect
+        type: tosca.artifacts.File
+{% endhighlight %}
+
+# Repositories specific to the premium version
+
+Two repositories plugins are premium : git and maven. All repositories plugins are package in the Alien 4 cloud premium dist.
+
+## Git
+
+In git, the reference of an artifact is this path inside the git project. If your repo as a new commit between two deployments, Alien will redownload your artifact.
+
+Example :
+{% highlight yaml %}
+repositories:
+  aliengithub:
+    url: https://github.com/alien4cloud/samples.git
+    type: git
+
+[...]
+
+node_types:
+  alien.nodes.Example:
+    artifacts:
+    - git_artifact:
+        file: demo-repository/artifacts/settings.properties
+        repository: aliengithub
+        type: tosca.artifacts.File
+{% endhighlight %}
+
+## Maven
+
+In maven, you need to use the following syntax to refer to your artifact file : `<maven-group-id>:<artifact-id>:<artifact-version>@war`.
+
+If your maven artifact as no maven classifier SNAPSHOT, Alien 4 cloud will donwload your file the firt time and only this time. Conversly, if your artifact as
+a SNAPSHOT classifier and change between two deployments, Alien will redownload your artifact.
+
+Example :
+{% highlight yaml %}
+repositories:
+  fastconnect_nexus:
+    url: https://fastconnect.org/maven/content/repositories/opensource
+    type: maven
+
+[...]
+
+node_types:
+  alien.nodes.Example:
+    artifacts:
+    - maven_artifact:
+        file: alien4cloud:alien4cloud-cloudify3-provider:1.2.0@zip
+        repository: fastconnect_nexus
+        type: tosca.artifacts.File
+{% endhighlight %}
