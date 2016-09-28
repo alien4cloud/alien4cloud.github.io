@@ -10,10 +10,6 @@ weight: 750
 
 A repository definition defines a named external repository which contains deployment and implementation artifacts that are referenced within the TOSCA Service Template.
 
-{% warning %}
-To use repositories in your CSARs, use the appropriate [tosca definitions version](#/documentation/1.3.0/devops_guide/dev_ops_guide.html) (**alien_dsl_1_3_0** or greater).
-{% endwarning %}
-
 ## Keynames
 
 {: .table .table-bordered}
@@ -22,7 +18,7 @@ To use repositories in your CSARs, use the appropriate [tosca definitions versio
 | description     | string         | no       | The optional description for the repository. |
 | url             | string         | yes      | The URL or network address used to access the repository. |
 | type            | string         | no       | Repository type is an optional string to find how to fetch elements from a repository. |
-| credential      | string:string  | no       | The optional credential used to authorize access to the repository. |
+| credential      | [credential](#/documentation/1.3.0/devops_guide/tosca_grammar/data_type.html)     | no       | The optional credential used to authorize access to the repository. |
 
 {% info %}
 <h5>Repositories available in Alien 4 cloud</h5>

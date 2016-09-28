@@ -13,17 +13,23 @@ weight: 400
 
 # How the repositories are managed
 
-When a CSARs with a repository inside is upload, Alien try to fetch the artifact from the remote repository. If the type is not supported or if
-the artifact is not available (wrong URL or wrong credential), an error is throw during the parsing. On a CSAR, I can reference a repository by this URL.
+When you upload a CSARs with a repository inside, Alien try to fetch the artifact from the remote repository. If this type is not supported or if
+the artifact is not available (wrong URL or wrong credential), an error is throw during the parsing. In a CSAR, I can reference a repository by this URL.
 
 
-In the components view you can define new repositories artifact configuration. This configuration offer you the possibily to add credentials for your artifact resolver (who is in charge to fetch your remote artifact).
-Credentials are stocked in Alien 4 cloud database. Only the user of a repository can see it's repositories credentials in Alien but a persorn with an access to the database can found it. The credentials are not use in the deployment blueprint. Indeed, if I have a repository in Alien with an URL and an other repository in an CSAR with the same URL, Alien will used the credentials of the repository create in Alien to resolve the artifact contains in the archive. Furthermore, the repository informations are stocked in the artifact definition.
+In the components view you can define new repositories artifact configuration. This configuration offer you the possibility to add credentials for your artifact resolver (who is in charge to fetch your remote artifact).
+Credentials are stocked in Alien 4 cloud database. Only the user of a repository can see his repositories credentials in Alien but a person with an access to the database can found it. The credentials are not use in the deployment blueprint. Indeed, if I have a repository in Alien with an URL and an other repository in an CSAR with the same URL, Alien will used the credentials of the repository create in Alien to resolve the artifact contains in the archive. Furthermore, the repository informations are stocked in the artifact definition.
 
+{% warning %}
+<h5>Tosca support</h5>
+To use repositories in your CSARs use [tosca definitions version](#/documentation/1.3.0/devops_guide/dev_ops_guide.html) **alien_dsl_1_3_0** or greater.
+{% endwarning %}
+
+[![components repository view](../../images/1.3.0/user_guide/components-repository-view.png)](../../images/1.3.0/user_guide/components-repository-view.png)
 
 ## Http
 
-HTTP plugin resolver is the only one opensource plugin repository. The concat of the repository URL and the artifact file attribute should be the complete path to your file.
+**HTTP** plugin resolver is the only one opensource plugin repository. The concat of the repository URL and the artifact file attribute should be the complete path to your file.
 
 Example :
 {% highlight yaml %}
@@ -45,7 +51,7 @@ node_types:
 
 # Repositories specific to the premium version
 
-Two repositories plugins are premium : git and maven. All repositories plugins are package in the Alien 4 cloud premium dist.
+Two repositories plugins are premium : **git** and **maven**. All repositories plugins are package in the Alien 4 cloud premium dist.
 
 ## Git
 
@@ -73,8 +79,7 @@ node_types:
 
 In maven, you need to use the following syntax to refer to your artifact file : `<maven-group-id>:<artifact-id>:<artifact-version>@war`.
 
-If your maven artifact as no maven classifier SNAPSHOT, Alien 4 cloud will donwload your file the firt time and only this time. Conversly, if your artifact as
-a SNAPSHOT classifier and change between two deployments, Alien will redownload your artifact.
+If your maven artifact as no SNAPSHOT maven classifier, Alien 4 cloud will download your file the first time and only this time. Conversely, if your artifact as a SNAPSHOT classifier and has changed between two deployments, Alien will redownload your artifact.
 
 Example :
 {% highlight yaml %}
