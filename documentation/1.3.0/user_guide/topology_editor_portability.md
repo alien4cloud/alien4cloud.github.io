@@ -1,17 +1,12 @@
 ---
 layout: post
-title: Topology portability
-root: ../../
-categories: "DOCUMENTATION-1.3.0"
-parent:
-  - user_guide
-  - topology_management
-node_name: topology_portability
-weight: 200
-published: true
+title: Portability insights
+root: ../../..
+categories: DOCUMENTATION-1.3.0
+parent: [user_guide, topology_editor]
+node_name: topology_editor_portability
+weight: 800
 ---
-
-
 
 {% summary %}{% endsummary %}
 

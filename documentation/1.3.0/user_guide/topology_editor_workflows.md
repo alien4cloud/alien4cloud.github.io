@@ -3,14 +3,10 @@ layout: post
 title: Workflows
 root: ../../
 categories: DOCUMENTATION-1.3.0
-parent:
-  - user_guide
-  - topology_management
-node_name: topology_workflows
-weight: 500
+parent: [user_guide, topology_editor]
+node_name: topology_editor_workflows
+weight: 180
 ---
-
-
 
 {% summary %}{% endsummary %}
 

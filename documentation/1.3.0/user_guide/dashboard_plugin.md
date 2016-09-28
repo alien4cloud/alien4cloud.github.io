@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Dashboard plugin
+title: Dashboards
 root: ../../
 categories: "DOCUMENTATION-1.3.0"
 parent:
