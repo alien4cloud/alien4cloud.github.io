@@ -88,4 +88,8 @@ Alien 4 Cloud performs validation of your archive agains the TOSCA specification
 The following image shows the upload of an archive with an error :
 [![Upload an archive with error](../../images/components_guide/csar-upload-errors.png)](../../images/components_guide/csar-upload-errors.png)
 
-If a node template name contains some special character (is: not an alphanumeric character from the basic Latin alphabet and the underscore) we will replace this caractere by an underscore.
+{%note%}
+When deploying on some cloud technologies alien4cloud uses some node template names in the name of the generated ressources (VMs, BlockStorage etc.). Some cloud APIs do not manage special characters as dashes or underscore. In addition some people like to set the hostname based on the name of the node template. Therefore and while this is authorized in TOSCA alien4cloud prevent naming the node template with such characters.
+
+If a node template name contains some special character (is: not an alphanumeric character from the basic Latin alphabet and the underscore) we will automatically replace these characters.
+{%endnote%}
