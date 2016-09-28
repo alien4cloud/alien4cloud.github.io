@@ -28,12 +28,20 @@ There are three ways to upload components descriptions in ALIEN regarding you br
 *Drag* you archive file > *Drop* it on the **dash dotted** area
 
 [![Upload an archive file with D&D](../../images/components_guide/upload-components-en.png)](../../images/components_guide/upload-components-en.png)
+
+Once upload has been completed successfully you should be able to see the node types contained in the archive in the components browsing panel.
+
+[![Completed  archive file upload](../../images/components_guide/upload-components-finished-en.png)](../../images/components_guide/upload-components-finished-en.png)
 {%endtabcontent%}
 {% tabcontent Drag and Drop disabled %}
 
 Click on *[Upload CSAR]* > *Select* your archive (The file is automaticly uploaded)
 
 [![Upload an archive file without D&D](../../images/components_guide/upload-components-button-en.png)](../../images/components_guide/upload-components-button-en.png)
+
+Once upload has been completed successfully you should be able to see the node types contained in the archive in the components browsing panel.
+
+[![Completed  archive file upload](../../images/components_guide/upload-components-finished-en.png)](../../images/components_guide/upload-components-finished-en.png)
 {%endtabcontent%}
 
 {% tabcontent Import from a Git location %}
@@ -48,11 +56,11 @@ If the folder is based on an older TOSCA recommandation, please ensure you have 
 {%endwarning%}
 
 
-*Click* on create new CSAR > *Fill* the modal and click on **New CSAR**.
+Click on ![Git location](../../images/components_guide/git_location.png){: .inline}
 
-[![Create an archive from a git location](../../images/components_guide/csar-list-view.png)](../../images/components_guide/csar-list-view.png)
+[![Create an archive from a git location](../../images/1.3.0/user_guide/component_git_locations.png)](../../images/1.3.0/user_guide/component_git_locations.png)
 
-Fill the modal by typing expected values and click on *create*.
+Fill the modal by typing expected values and save.
 
 {%note%}
 In the Archive's folder text field : put the name of the folder containing the yaml file *for example **apache** to import Apache component in the Samples repository*.
@@ -63,23 +71,19 @@ Click on *Save the repository locally* if you want the repository to be stored o
 
 [![Csar view an archive from a location](../../images/components_guide/csar-modal-v2.png)](../../images/components_guide/csar-modal-v2.png)
 
-Now you should be able to see the Csargit created in the tab below
+Now you should be able to see the Csar git location created in the tab below
 
-Click on the icon *Import* to trigger the import process
+[![Trigger an archive from a location](../../images/1.3.0/user_guide/component_git_location_list.png)](../../images/1.3.0/user_guide/component_git_location_list.png)
 
-[![Trigger an archive from a location](../../images/components_guide/csar-tab-view.png)](../../images/components_guide/csar-tab-view.png)
+Click on ![Git location](../../images/1.3.0/user_guide/git_import_btn.png){: .inline} to trigger the import process.  
 
 Now you should be able to see the imported Csar in the *Csars added* tab and the related import result in the tab below.
 
-[![Result of an import](../../images/components_guide/csar-import-resultV2.png)](../../images/components_guide/csar-import-resultV2.png)
+[![Result of an import](../../images/1.3.0/user_guide/git_import_result.png)](../../images/1.3.0/user_guide/git_import_result.png)
 {%endtabcontent%}
 {%endinittab%}
 
-Once upload has been completed successfully you should be able to see the node types contained in the archive in the components browsing panel.
-
-[![Completed  archive file upload](../../images/components_guide/upload-components-finished-en.png)](../../images/components_guide/upload-components-finished-en.png)
-
-You can now [browse and search for components](#/documentation/1.3.0/user_guide/components/components_search.html).
+You can now [browse and search for components](#/documentation/1.3.0/user_guide/catalog_type_search.html).
 
 ## Upload issues
 
