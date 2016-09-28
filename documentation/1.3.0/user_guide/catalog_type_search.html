@@ -1,0 +1,86 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/1.3.0/user_guide/catalog_type_search.html',
+  title: 'Components/types search'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container">
+  <div class="row">
+    
+      <div class="col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Components/types search</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.3.0/user_guide/catalog_type_search.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <p>Alien4Cloud  provides ways to browse the uploaded components, with a search engine allowing filters.</p>
+
+<div class="note warning">
+<h5>Roles and security</h5>
+<p>In order to be able to search the repository you must have the <em>COMPONENT_BROWSER</em> role.</p>
+</div>
+
+<p><a href="../../images/components_guide/components-list-en.png"><img src="../../images/components_guide/components-list-en.png" alt="Component list" /></a></p>
+
+<h2 id="how-to-make-a-simple-search">How to make a simple search</h2>
+
+<p>On the left of the components list page, there is a search pannel (see figure above: <strong>A</strong>).<br />
+For a  simple search, just type the searched text in the seach field and press the magnifier next to it (or press the <strong>Enter</strong> keybord instead). The result of your research will be displayed on the center pannel (see figure above: <strong>B</strong>).</p>
+
+<h2 id="how-to-make-a-filtered-search">How to make a filtered search</h2>
+
+<p>You might wish to filter your search or results, for there are too many components corresponding to the simple search.
+Still on the left search pannel, you can select one or more filters (facets). You can also remove them if they do not fit you.</p>
+
+<p><a href="../../images/components_guide/components-list-search-facets.png"><img src="../../images/components_guide/components-list-search-facets.png" alt="Component facets filters" /></a></p>
+
+<div class="note info">
+<p>Note that when more than one filter are selected, Alien4Cloud applies an AND policy.</p>
+</div>
+
+<h2 id="component-overview">Component overview</h2>
+
+<p>After the search, you can have an overview of the component. Just move the mouse on one component and you will have the right pannel display its summary:(see figure above: <strong>C</strong>).</p>
+
+<p><a href="../../images/components_guide/components-overview.png"><img src="../../images/components_guide/components-overview.png" alt="Component facets filters" /></a></p>
+
+<p>If it is the one you are looking for, or if you want further informations about it, you can now select it and see its details.</p>
+
+<p><a href="../../images/components_guide/component-details.png"><img src="../../images/components_guide/component-details.png" alt="Component details" /></a></p>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.3.0/user_guide/catalog_type_search.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-1.3.0', 'documentation/1.3.0/user_guide/catalog_type_search.md');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

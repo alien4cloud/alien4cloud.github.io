@@ -55,21 +55,30 @@ ga('send', 'pageview');
     <tr>
       <td style="text-align: left">type</td>
       <td style="text-align: left">string</td>
-      <td style="text-align: left">yes</td>
-      <td style="text-align: left">Repository type is a required string to find how to fetch elements from a repository.</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">Repository type is an optional string to find how to fetch elements from a repository.</td>
     </tr>
     <tr>
       <td style="text-align: left">credential</td>
-      <td style="text-align: left">string:string</td>
+      <td style="text-align: left"><a href="#/documentation/1.3.0/devops_guide/tosca_grammar/data_type.html">credential</a></td>
       <td style="text-align: left">no</td>
       <td style="text-align: left">The optional credential used to authorize access to the repository.</td>
     </tr>
   </tbody>
 </table>
 
+<div class="note info">
+<h5>Repositories available in Alien 4 cloud</h5>
+<p>Alien 4 cloud premium support the following external repository : http, git maven.</p>
+</div>
+
 <h2 id="grammar">Grammar</h2>
 
-<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">&lt;repository_name&gt;</span><span class="p-Indicator">:</span>
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="c1"># Simple definition is as follows:</span>
+<span class="l-Scalar-Plain">&lt;repository_name&gt;</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;repository_address&gt;</span>
+
+<span class="c1"># The full definition is as follows:</span>
+<span class="l-Scalar-Plain">&lt;repository_name&gt;</span><span class="p-Indicator">:</span>
   <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;repository_description&gt;</span>
   <span class="l-Scalar-Plain">url</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;repository_address&gt;</span>
   <span class="l-Scalar-Plain">credential</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;authorization_credential&gt;</span></code></pre></div>
