@@ -5,7 +5,7 @@ root: ../../
 categories: DOCUMENTATION-1.3.0
 parent: [user_guide, tosca_catalog]
 node_name: tosca_catalog_workspaces
-weight: 10
+weight: 500
 ---
 
 Workspaces feature is a new feature introduced in 1.3.0 version. Thanks to workspaces Applications can define topologies and types in their backing archive and benefits from all the indexing features without sharing specific types across applications.
