@@ -66,11 +66,7 @@ Normally there is nothing to do here, as the default provided configurations are
 <p>Exposed as the location type <code>alien.cloudify.aws.nodes.Volume</code>, this is a volume that will not be deleted at the end of the application life-cycle. It can therefore, between two deployment of the same application on the same environment and location, be re-used and attached to a compute, rending accessible the data previously stored on it.</p>
 
 <h2 id="scaling">Scaling</h2>
-<div class="note warning">
-<p>For now, Scaling is supported on for a single compute, ie a Compute which is not linked to a network, or doesn’t have any volumes attached to.<br />
-This should be fixed with the cloudify 3.4 version.</p>
-</div>
-
+<p>Scaling is now fully supported. Means we can scale a single <code>Compute</code>, or a <code>Compute + Storage + IP-Address</code> association.</p>
 
         <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.3.0/orchestrators/cloudify3_driver/location_amazon.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
 	  </div>
