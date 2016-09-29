@@ -56,5 +56,5 @@ Not supported yet
 ## Scaling
 {% warning %}
 For now, Scaling is supported on for a single compute, ie a Compute which is not linked to a network, or doesn't have any volumes attached to.
-This should be fixed with the cloudify 3.4 version.
+This should be fixed with the next cloudify version.
 {% endwarning %}

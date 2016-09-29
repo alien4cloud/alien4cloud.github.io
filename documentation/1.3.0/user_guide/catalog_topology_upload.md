@@ -24,8 +24,9 @@ a new template with the topology composer or upload a zip file with your templat
 
 {% tabcontent Create a template %}
 
-Create a new topology ![Create template button](../../images/user_guide/user_guide_topology_template_new.png){: .inline} giving at least a
-`template name` and if you want a `description`.
+Click on ![Create template button](../../images/user_guide/user_guide_topology_template_new.png){: .inline} and fill in the form.
+
+![Topology template composer](../../images/1.3.0/user_guide/catalog_new_topo_template.png)
 
 {% note %}
 This template name will identify your template and must be unique.

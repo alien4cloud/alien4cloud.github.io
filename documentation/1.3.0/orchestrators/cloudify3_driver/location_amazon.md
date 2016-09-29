@@ -46,8 +46,4 @@ Exposed as the location type `alien.cloudify.aws.nodes.DeletableVolume`, this is
 Exposed as the location type `alien.cloudify.aws.nodes.Volume`, this is a volume that will not be deleted at the end of the application life-cycle. It can therefore, between two deployment of the same application on the same environment and location, be re-used and attached to a compute, rending accessible the data previously stored on it.
 
 ## Scaling
-{% warning %}
-For now, Scaling is supported on for a single compute, ie a Compute which is not linked to a network, or doesn't have any volumes attached to.  
-This should be fixed with the cloudify 3.4 version.
-{% endwarning %}
-
+Scaling is now fully supported. Means we can scale a single `Compute`, or a `Compute + Storage + IP-Address` association.

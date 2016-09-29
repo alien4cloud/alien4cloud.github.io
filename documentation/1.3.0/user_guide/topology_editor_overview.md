@@ -12,6 +12,8 @@ weight: 1
 The topology editor in alien 4 cloud 1.3 has been rewritten and usage has changed from the ground. While editor in previous versions was auto-saving changes the users now have to trigger save operation manually.
 {%endinfo%}
 
+[![topology editor](../../images/1.3.0/user_guide/topology_editor.png)](../../images/1.3.0/user_guide/topology_editor.png)
+
 # Editor operations, save, undo, redo
 
 When performing changes in the editor you actually perform an 'Operation', operations basically relates to any change you make on the topology from adding a node, changing the value of a property, adding inputs to adding files in the catalog.

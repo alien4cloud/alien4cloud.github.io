@@ -50,5 +50,5 @@ Known limitation: Using multiple volumes per compute is not supported at the mom
 ## Scaling
 {% warning %}
 For now, scaling is supported on for a single compute, i.e. a compute which is not linked to a network or doesn’t have any volumes attached to it.
-This should be fixed with the cloudify 3.4 version.
+This should be fixed with the next cloudify version.
 {% endwarning %}

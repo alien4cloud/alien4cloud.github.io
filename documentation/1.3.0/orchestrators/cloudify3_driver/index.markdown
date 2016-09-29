@@ -42,40 +42,57 @@ We developed as part of Alien 4 Cloud the ability to generate a cron-based mecan
 
 ### Scalability
 
-Scalability behavior is currently not deeply specified in TOSCA and Cloudify has a very simple implementation of scalability management that treats only two kind of relationships, hosted_on (1-1 relationship) and all others (1-n relationships). When scaling a node, all nodes that are hosted_on the given node are scaled, however nodes that are connected or attached to it are not, this includes block-storage and floating ips which is not a correct implementation for most of situations.
-
-We have designed a workaround to change this behavior so that it is possible to scale a node with BlockStorage and Floating IP. This workaround relies on both some updates on alien4cloud blueprint generation and workflow management for cloudify but also on an update of the cloudify plugin so that Compute, BlockStorage and FloatingIPs are considered as a single Compute node in cloudify world with optional list of block storage and floating ips that will be managed per instance.
+Scalability behavior is currently not deeply specified in TOSCA. When scaling a node, all nodes that are hosted_on the given node are scaled. Also, nodes that are connected or attached to it, this includes block-storage and floating ips.  
+As the new Cloudify 3.4 has improved his way of handling the scaling, we do not need anymore, as it was the case for the previous version Alien4Cloud 1.2.x, the workaround scaling plugin and configurations.  
+However, refers to the table below to see IaaS limitations.
 
 {%info%}
 There is currently some missing details in the TOSCA specification on how relationships can be impacted in scaling scenarios and we are working with bot Cloudify and TOSCA to enhance the specification.
 {%endinfo%}
 
-#### Setup
-
-The provider plugin embeds the cloudify opentack plugin that contains this workaround.
-
-To be sure you're deployments will use this plugin rather than the original one, just ensure that the import settings for your orchestrator (location openstack) contains `openstack-plugin.yaml` rather than `http://www.getcloudify.org/spec/openstack-plugin/1.3.1/plugin.yaml`.
-
-You'll also need to execute the following operations on the cloudify manager:
-
-{% highlight bash %}
-sudo yum install gcc
-sudo yum install python-devel
-{% endhighlight %}
 
 #### IaaS limitations
 
-The workaround mentioned above has only been developed for OpenStack. This means that for Amazon for example, you will be able to scale a compute, but if it is attached to a public network, only one of them will have a floating IP attachment.
-
 Here is a table that shows the limitations about scaling per IaaS:
 
-{: .table .table-bordered}
+<!-- {: .table .table-bordered}
 |       |  OpenStack  | Amazon  | BYON  | Azure (***`Premium`***) | vSphere (***`Premium`***) |
 |:--------|:---------|:-------|:-------|:-------|:-------|
 | Single Compute  | OK  | OK  | OK  | OK  | OK
-| Compute + Network + Block Storage   | OK  | KO  | N/A   | KO  | KO  |
+| Compute + Network + Block Storage   | OK  | KO  | N/A   | KO  | KO  | -->
 
-#### Block storage recovery limitation
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>&nbsp;</th>
+      <th>OpenStack</th>
+      <th>Amazon</th>
+      <th>BYON</th>
+      <th>Azure (<em><code>Premium</code></em>)</th>
+      <th>vSphere (<em><code>Premium</code></em>)</th>
+    </tr>
+  </thead>
+  <tbody style="text-align: center;">
+    <tr>
+      <td>Single Compute</td>
+      <td><i class="text-success fa fa-check fa-2x"></i></td>
+      <td><i class="text-success fa fa-check fa-2x"></i></td>
+      <td><i class="text-success fa fa-check fa-2x"></i></td>
+      <td><i class="text-success fa fa-check fa-2x"></i></td>
+      <td><i class="text-success fa fa-check fa-2x"></i></td>
+    </tr>
+    <tr>
+      <td>Compute + Network + Block Storage</td>
+      <td><i class="text-success fa fa-check fa-2x"></i></td>
+      <td><i class="text-success fa fa-check fa-2x"></i></td>
+      <td>N/A</td>
+      <td ><i class="text-danger fa fa-remove fa-2x"></i></td>
+      <td ><i class="text-danger fa fa-remove fa-2x"></i></td>
+    </tr>
+  </tbody>
+</table>
+
+### Block storage recovery limitation
 
 {%info%}
 Block storage recovery is the ability to reuse an already created block storage.
