@@ -1,11 +1,13 @@
 ---
 layout: post
-title:  Backup, restore and migrate data
+title: 'Backup, restore and migrate data'
 categories: DOCUMENTATION-1.3.0
 root: ../../
-parent: [admin]
+parent:
+  - admin
 node_name: backup_restore_migrate
 weight: 200
+published: true
 ---
 
 {% summary %}{% endsummary %}
@@ -20,7 +22,7 @@ Alien4Cloud uses several places to store it's data.
 - Plugins binaries
 - Eventually you should make sure to backup also your alien4cloud yaml configuration file as well as your elastic search configuration file
 
-# Backup && Restore
+# Backup & Restore
 
 In order to backup / restore Alien4Cloud you must download the [ backup/restore tool ](http://fastconnect.org/maven/service/local/artifact/maven/redirect?r=fastconnect-snapshot&g=alien4cloud&a=alien4cloud-backup-restore-tools&v=LATEST&p=zip&c=distrib) and copy it to the machine where Alien's running (or anywhere which has access to Alien's data folders).
 After unzipping the archive, the tool can be configured at ***path_to_unzipped_tool/config/config.yml***
