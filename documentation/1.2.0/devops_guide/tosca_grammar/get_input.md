@@ -1,5 +1,6 @@
 ---
 layout: post
+exclude_from_search: true
 title:  get_input
 root: ../../../
 categories: DOCUMENTATION-1.2.0

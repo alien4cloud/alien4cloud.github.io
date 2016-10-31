@@ -1,5 +1,6 @@
 ---
 layout: post
+exclude_from_search: true
 title: Update values for meta-properties associated with locations.
 root: ../../
 categories: DOCUMENTATION-1.2.0

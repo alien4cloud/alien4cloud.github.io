@@ -1,5 +1,6 @@
 ---
 layout: post
+exclude_from_search: true
 title: Get matching options for a given topology.
 root: ../../
 categories: DOCUMENTATION-1.2.0
