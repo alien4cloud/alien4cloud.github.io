@@ -45,8 +45,8 @@ ga('send', 'pageview');
 
 <h1 id="backup--restore">Backup &amp; Restore</h1>
 
-<p>In order to backup / restore Alien4Cloud you must download the <a href="http://fastconnect.org/maven/service/local/artifact/maven/redirect?r=fastconnect-snapshot&amp;g=alien4cloud&amp;a=alien4cloud-backup-restore-tools&amp;v=LATEST&amp;p=zip&amp;c=distrib"> backup/restore tool </a> and copy it to the machine where Alien’s running (or anywhere which has access to Alien’s data folders).
-After unzipping the archive, the tool can be configured at <strong><em>path_to_unzipped_tool/config/config.yml</em></strong></p>
+<p>In order to backup / restore Alien4Cloud you must download the <a href="http://fastconnect.org/maven/service/local/artifact/maven/redirect?r=fastconnect-snapshot&amp;g=alien4cloud&amp;a=alien4cloud-backup-restore-tools&amp;v=LATEST&amp;p=zip&amp;c=distrib"> backup/restore tool </a> and copy it on the machine where Alien is running (or anywhere else having access to Alien’s data folders).
+After unzipping the archive, the tool can be configured by editing the file <strong><em>path_to_unzipped_tool/config/config.yml</em></strong></p>
 
 <div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">elasticsearch</span><span class="p-Indicator">:</span>
 <span class="c1"># Name of your elasticsearch cluster</span>
@@ -100,7 +100,7 @@ sudo -u elasticsearch rm /home/elasticsearch/backups/test.txt</code></pre></div>
 
 <h2 id="perform-backup">Perform backup</h2>
 
-<p>To backup Alien4Cloud, go to the bin folder, and perform the command:</p>
+<p>To backup Alien4Cloud, from the root directory of the unzipped tool, perform the command:</p>
 
 <div class="highlight"><pre><code class="language-sh" data-lang="sh">./backup-restore-tool.sh -backup -n backup121</code></pre></div>
 
@@ -111,20 +111,19 @@ sudo -u elasticsearch rm /home/elasticsearch/backups/test.txt</code></pre></div>
 <h2 id="perform-restore">Perform restore</h2>
 
 <div class="note warning">
-<p>We recommend users to stop Alien4Cloud but not ElasticSearch in order to perform the restore. Alien4Cloud should be restarted once restore is completed.</p>
-
-<p>However, if you 100% sure that restore operation has no impact on clouds or plugins configuration you can perform a ‘hot restore’ and don’t need to stop Alien4Cloud.</p>
+<h5>Alien4Cloud and ElasticSearch states</h5>
+<p>We recommend to stop Alien4Cloud before performing the restore. <strong>ElasticSearch MUST be up and running</strong>. Alien4Cloud should be restarted once the restoration process is completed.  This is quite trivial to do when running in a classical production setup where elasticsearch process is independant from Alien4Cloud ( See <a href="#/documentation/1.3.0/admin_guide/advanced_configuration.html">advanced configuration</a> for more details ).<br />
+<br />
+However, if running in an embedded configuration, you can’t stop Alien4Cloud without stopping ElasticSearch. Then, just make sure the plateform is not used during the process.<br />
+<br />
+Anyway, if you 100% sure that restore operation has no impact on clouds or plugins configuration you can perform a ‘hot restore’ and don’t need to stop Alien4Cloud.</p>
 </div>
 
-<div class="note info">
-<p>In order to perform a restore with elasticsearch up and alien down you should be running in a classical production setup where elasticsearch process is independant from Alien4Cloud. See <a href="#/documentation/1.3.0/admin_guide/advanced_configuration.html">advanced configuration</a> for more details.</p>
-</div>
-
-<p>Before to run the script below you should make sure that Alien4Cloud is stopped and elastic-search is running.</p>
+<p>To restore Alien4Cloud, from the root directory of the unzipped tool, perform the command:</p>
 
 <div class="highlight"><pre><code class="language-sh" data-lang="sh">./backup-restore-tool.sh -restore -n backup121</code></pre></div>
 
-<p>Once data is restored you can restart Alien4Cloud server.</p>
+<p>Once data is restored, you can restart Alien4Cloud server if needed.</p>
 
 <h1 id="migrate">Migrate</h1>
 <div class="note warning">
@@ -137,7 +136,20 @@ sudo -u elasticsearch rm /home/elasticsearch/backups/test.txt</code></pre></div>
 We do not guarantee the compatibility of those with the new Alien4cloud version.</p>
 </div>
 
-<p>In order to migrate Alien4Cloud you must download the <a href="http://fastconnect.org/maven/service/local/artifact/maven/redirect?r=fastconnect-snapshot&amp;g=alien4cloud&amp;a=alien4cloud-migration&amp;v=LATEST&amp;p=zip&amp;c=distrib"> migration tool </a> and copy it to the machine where Alien’s running (or anywhere which has access to Alien’s data folders).
+<p>The migration tool takes as input old data, and transform them to be complient with the new alien4cloud version.<br />
+Concerning either Alien4Cloud or elasticsearch data, no copy or transfert is made, meaning the existing data are really transformed and modified. Therefore, to be able to run the new version of the product with the migrated data, <strong>make sure the two instances of Alien4Cloud are configured to use the same and identical data path</strong>.<br />
+<br />
+In addition, <strong>they have to be bind to the same elasticsearch cluster</strong>, or, if running in an embedded mode, <strong>the elasticsearch configurations must be the same in term of data paths</strong>.</p>
+
+<div class="note warning">
+<h5>Alien4Cloud and ElasticSearch states</h5>
+<p>We recommend to stop Alien4Cloud before performing the migration. <strong>ElasticSearch MUST be up and running</strong>. Alien4Cloud should be restarted once the process is completed.  This is quite trivial to do when running in a classical production setup where elasticsearch process is independant from Alien4Cloud ( See <a href="#/documentation/1.3.0/admin_guide/advanced_configuration.html">advanced configuration</a> for more details ).<br />
+<br />
+However, if running in an embedded configuration, you can’t stop Alien4Cloud without stopping ElasticSearch. Then, just make sure the plateform is not used during the process.</p>
+
+</div>
+
+<p>In order to migrate Alien4Cloud you must download the <a href="http://fastconnect.org/maven/service/local/artifact/maven/redirect?r=fastconnect-snapshot&amp;g=alien4cloud&amp;a=alien4cloud-migration&amp;v=LATEST&amp;p=zip&amp;c=distrib"> migration tool </a> and copy it on the machine where Alien is running (or anywhere which has access to Alien’s data folders).
 After unzipping the archive, the tool can be configured at <strong><em>path_to_unzipped_tool/config/config.yml</em></strong></p>
 
 <div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">elasticsearch</span><span class="p-Indicator">:</span>
@@ -172,13 +184,16 @@ After unzipping the archive, the tool can be configured at <strong><em>path_to_u
   <span class="l-Scalar-Plain">csar_repository</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">csar</span></code></pre></div>
 
 <ul>
-  <li>Perform the following commands to migrate data</li>
+  <li>From the root directory of the unzipped tool, perform the command:</li>
 </ul>
 
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">./migration-tool.sh -migrate -v 1.2.0
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">./migration-tool.sh -migrate -v 1.2.0</code></pre></div>
 
-<span class="c"># Start your new Alien4cloud configured properly, after migration</span>
-<span class="nb">cd</span> /opt/alien4cloud/alien4cloud-premium/
+<ul>
+  <li>Start your new Alien4cloud configured properly, after migration</li>
+</ul>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nb">cd</span> /opt/alien4cloud/alien4cloud-premium/
 ./alien4cloud.sh</code></pre></div>
 
 <ul>
@@ -187,7 +202,8 @@ After unzipping the archive, the tool can be configured at <strong><em>path_to_u
 
     <ul>
       <li><strong>dsl</strong>: <strong><em>cloudify_dsl_1_3</em></strong></li>
-      <li><strong>imports</strong>: on the imports of types.yaml, change the version <strong><em>3.3.1</em></strong> to <strong><em>3.4</em></strong></li>
+      <li><strong>imports</strong>: on the imports of types.yaml, change the version <strong><em>3.3.1</em></strong> to <strong><em>3.4</em></strong><br />
+<br /></li>
     </ul>
   </li>
   <li>
