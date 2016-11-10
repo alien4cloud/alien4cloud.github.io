@@ -20,6 +20,14 @@ Note that the plugin has been tested only on clusters running on EC2 or Openstac
 
 We modeled Mesos, Marathon, the Docker engine and other useful components into TOSCA node types. You can create your own custom Mesos TOSCA composition or use one of the provided templates. We recommend using the Marathon template which will provide automated service discovery.
 
+{% warning %}
+Supported distributions for Mesos + Marathon :
+- Ubuntu 14.10, 16.04
+- Debian 7 (wheezy)
+- RedHat 6, 7
+- CentOS 6, 7
+{% endwarning %}
+
 - First, upload the following CSARs into Alien using the [GIT importer](#/documentation/1.3.0/user_guide/catalog_type_upload):
   - [docker-engine](https://github.com/alien4cloud/docker-engine)
   - [mesos-types](https://github.com/alien4cloud/mesos-tosca-blueprints)
