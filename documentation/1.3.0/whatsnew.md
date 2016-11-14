@@ -33,7 +33,9 @@ TOSCA archives are now uploaded within workspaces. OpenSource support allow bett
 
 ## Complex inputs
 
-Alien 4 Cloud now supports complex data types (including lists and maps) for topology inputs. Remember that you can access your complex properties using the get_property input in TOSCA [Read more here...](#/documentation/1.3.0/devops_guide/tosca_grammar/get_property_definition.html)
+Alien 4 Cloud now supports complex data types (including lists and maps) for topology inputs. Remember that you can access your complex properties using the get_property input in TOSCA
+
+[Read more here...](#/documentation/1.3.0/devops_guide/tosca_grammar/get_property_definition.html)
 
 ## Repositories support
 
@@ -48,9 +50,13 @@ TODO.
 Ability to define artifact repositories to override url and credential based on artifact id (usefull when behind proxy).
 
 Support of various repository types:
- - Http
- - Maven/Nexus [Premium only]
- - Git [Premium only]
+
+* Http
+* Maven/Nexus (***`Premium`***)
+* Git (***`Premium`***)
+
+[Read more here...](#/documentation/1.3.0/user_guide/catalog_artifact_repositories.html)
+
 
 # API improvements
 
@@ -58,9 +64,12 @@ Support for single call topology update or git pull making it easy to update you
 
 # Alien4Cloud High Availability - Premium
 
+HA support allowing a 24/7 availability of Alien4Cloud, using a primary / backup system.
+
+[Read more here...](#/documentation/1.3.0/admin_guide/ha.html)
 
 # Docker support
 
-Support for docker deployment using our Marathon plugin and experimental support for Kubernetes through cloudify
+Support for docker deployment using our **Marathon plugin (alpha state)** and experimental support for Kubernetes through cloudify
 
-## Marathon plugin
+[Read more here...](#/documentation/1.3.0/orchestrators/marathon_driver/marathon_driver.html)
