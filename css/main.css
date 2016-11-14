@@ -1,4 +1,10 @@
-html,body{ height:100%; padding-top:0;background-color: #FFF}
+html,body{
+  height:100%;
+  padding-top:0;
+  background-color: #FFF;
+  line-height: 26px;
+  font-size: 16px;
+}
 
 img {
   display:block;
@@ -26,7 +32,7 @@ code {
 
 .features-head th {
   background-color: #575757;
-  color: #FFFFFF;
+  color: #FFFFFF;line
 }
 
 .features-title td {

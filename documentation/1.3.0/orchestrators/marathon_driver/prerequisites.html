@@ -1,0 +1,84 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/1.3.0/orchestrators/marathon_driver/prerequisites.html',
+  title: 'Prerequisites'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container">
+  <div class="row">
+    
+      <div class="col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Prerequisites</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.3.0/orchestrators/marathon_driver/prerequisites.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <p>You can start orchestrating containers with the Marathon plugin in just a few simple steps. Here’s how.</p>
+
+<h2 id="requirements">Requirements</h2>
+
+<p>To operate the plugin, you will need a Mesos cluster running Marathon. You can use an already existing cluster or let Alien4Cloud do all the heavy-lifting and setup one for you. You will also need to upload the <a href="https://github.com/alien4cloud/docker-tosca-types/tree/master/docker-types">Docker TOSCA node types</a> into Alien.</p>
+
+<p>Note that the plugin has been tested only on clusters running on EC2 or Openstack but should work with other IaaS as well as on a bare metal infrastructure.</p>
+
+<h3 id="setup-a-marathonmesos-cluster-using-alien">Setup a Marathon+Mesos cluster using Alien</h3>
+
+<p>We modeled Mesos, Marathon, the Docker engine and other useful components into TOSCA node types. You can create your own custom Mesos TOSCA composition or use one of the provided templates. We recommend using the Marathon template which will provide automated service discovery.</p>
+
+<div class="note warning">
+<p>Supported distributions for Mesos + Marathon :
+- Ubuntu 14.10, 16.04
+- Debian 7 (wheezy)
+- RedHat 6, 7
+- CentOS 6, 7</p>
+</div>
+
+<ul>
+  <li>First, upload the following CSARs into Alien using the <a href="#/documentation/1.3.0/user_guide/catalog_type_upload">GIT importer</a>:
+    <ul>
+      <li><a href="https://github.com/alien4cloud/docker-engine">docker-engine</a></li>
+      <li><a href="https://github.com/alien4cloud/mesos-tosca-blueprints">mesos-types</a></li>
+      <li>and <a href="https://github.com/alien4cloud/docker-tosca-types/tree/master/docker-types">docker-types</a>, which are not necessary to setup the cluster but are required by the plugin, so you might as well want to install them now too.</li>
+    </ul>
+  </li>
+  <li>Then, create your own custom Mesos TOSCA composition or use one of our templates. Note that if your IaaS doesn’t automatically assigns public IPs you’ll have to add a public network to your template.</li>
+</ul>
+
+<p>You can also follow our demonstration <a href="https://youtu.be/IoOzf7wwCnM">video</a>.</p>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.3.0/orchestrators/marathon_driver/prerequisites.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-1.3.0', 'documentation/1.3.0/orchestrators/marathon_driver/prerequisites.markdown');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>
