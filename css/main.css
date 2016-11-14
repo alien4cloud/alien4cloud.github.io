@@ -2,6 +2,9 @@ html,body{
   height:100%;
   padding-top:0;
   background-color: #FFF;
+}
+
+body .container {
   line-height: 26px;
   font-size: 16px;
 }
