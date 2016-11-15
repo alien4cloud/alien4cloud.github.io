@@ -86,7 +86,7 @@ Here is a table that shows the limitations about scaling per IaaS:
       <td><i class="text-success fa fa-check fa-2x"></i></td>
       <td><i class="text-success fa fa-check fa-2x"></i></td>
       <td>N/A</td>
-      <td ><i class="text-danger fa fa-remove fa-2x"></i></td>
+      <td><i class="text-success fa fa-check fa-2x"></i></td>
       <td ><i class="text-danger fa fa-remove fa-2x"></i></td>
     </tr>
   </tbody>
@@ -95,11 +95,10 @@ Here is a table that shows the limitations about scaling per IaaS:
 ### Block storage recovery limitation
 
 {%info%}
-Block storage recovery is the ability to reuse an already created block storage.
-
+Block storage recovery is the ability to reuse an already created block storage.  
+    
 Imagine you have a topology containing a compute with a block storage attached on it. You deploy the topology, the VM is started, the block storage is provisionned and attached to the VM, and then some process write data to the disk. If you don't use a `DeletableBlockStorage`, this means that you want the data written to the disk to be persistent : if the topology is undeployed then deployed again, you want the block storage to be reused.  
-
+  
 To manage such feature, A4C will keep a trace of the volume ID and store it in the deployment topology. When the topology is deployed again, this volume id is used to find the volume in the the IaaS rather than provisoning another one.
 {%endinfo%}
 
-We still have some issues about block storage recovery : the component `LinuxFileSystem` will not manage recovery in case of runtime scaling.

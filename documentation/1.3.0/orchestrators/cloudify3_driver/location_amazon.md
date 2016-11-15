@@ -47,3 +47,10 @@ Exposed as the location type `alien.cloudify.aws.nodes.Volume`, this is a volume
 
 ## Scaling
 Scaling is now fully supported. Means we can scale a single `Compute`, or a `Compute + Storage + IP-Address` association.
+
+{% warning %}
+**Known limitation when scaling a reusable volume**  
+When scaling a compute with a reusable volume, A4C will keep trace of the volume ID and zone (more details [here](/#/documentation/1.3.0/orchestrators/cloudify3_driver/index.html)).  
+Unfortunately the zone information are not correctly handled when the volumes are in the same availability zone thus make sure to check the volumes id and zones properties before redeploying your application.  
+**_This limitation will be fixed very shortly._**
+{% endwarning%}
