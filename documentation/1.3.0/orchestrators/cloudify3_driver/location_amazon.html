@@ -68,6 +68,13 @@ Normally there is nothing to do here, as the default provided configurations are
 <h2 id="scaling">Scaling</h2>
 <p>Scaling is now fully supported. Means we can scale a single <code>Compute</code>, or a <code>Compute + Storage + IP-Address</code> association.</p>
 
+<div class="note warning">
+<p><strong>Known limitation when scaling a reusable volume</strong><br />
+When scaling a compute with a reusable volume, A4C will keep trace of the volume ID and zone (more details <a href="/#/documentation/1.3.0/orchestrators/cloudify3_driver/index.html">here</a>).<br />
+Unfortunately the zone information are not correctly handled when the volumes are in the same availability zone thus make sure to check the volumes id and zones properties before redeploying your application.<br />
+<strong><em>This limitation will be fixed very shortly.</em></strong></p>
+</div>
+
         <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.3.0/orchestrators/cloudify3_driver/location_amazon.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
 	  </div>
     </div>
