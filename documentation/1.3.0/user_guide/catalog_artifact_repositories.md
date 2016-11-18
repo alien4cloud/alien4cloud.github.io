@@ -55,7 +55,8 @@ Two repositories plugins are premium : **git** and **maven**. All repositories p
 
 ## Git
 
-In git, the reference of an artifact is this path inside the git project. If your repo as a new commit between two deployments, Alien will redownload your artifact.
+In git, the reference of an artifact is this path inside the git project. If your repo as a new commit between two deployments, Alien will redownload your artifact. To refer to your artifact file, use the following syntax : `<branch or tag>:<file path>`. If you don't specific a branch or a tag, the default branch 'master' will be used.
+
 
 Example :
 {% highlight yaml %}
@@ -70,14 +71,14 @@ node_types:
   alien.nodes.Example:
     artifacts:
     - git_artifact:
-        file: demo-repository/artifacts/settings.properties
+        file: master:demo-repository/artifacts/settings.properties
         repository: aliengithub
         type: tosca.artifacts.File
 {% endhighlight %}
 
 ## Maven
 
-In maven, you need to use the following syntax to refer to your artifact file : `<maven-group-id>:<artifact-id>:<artifact-version>@war`.
+In maven, you need to use the following syntax to refer to your artifact file : `<maven-group-id>:<artifact-id>:<artifact-version>@<file-extension>`.
 
 If your maven artifact as no SNAPSHOT maven classifier, Alien 4 cloud will download your file the first time and only this time. Conversely, if your artifact as a SNAPSHOT classifier and has changed between two deployments, Alien will redownload your artifact.
 
