@@ -26,12 +26,12 @@ exclude_from_search: true
       |  <i class="fa fa-bug text-danger"></i> | ALIEN-1376 | Fix bug LinuxFileSystem's malfunction when reusing existing volume ids and scale dynamically /  |
     |  <i class="fa fa-bug text-danger"></i> | ALIEN-1815 | Inputs from app_meta/ loc_meta and app_tags are not refreshed correctly /  |
     |  <i class="fa fa-bug text-danger"></i> | ALIEN-1818 | Fix broken link on component view to go to substitution topology view. /  |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1819 | $issue.description /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1819 | Bad display of portability topology title /  |
     |  <i class="fa fa-bug text-danger"></i> | ALIEN-1823 | Fix bug DEPLOYER roles on every menu and sub menu of application is not managed correctly /  |
     |  <i class="fa fa-bug text-danger"></i> | ALIEN-1824 | fixed ui glitches on runtime view /  |
     |  <i class="fa fa-bug text-danger"></i> | ALIEN-1828 | Fix Bug User can't display deployment view in a multi-environments application /  |
     |  <i class="fa fa-bug text-danger"></i> | ALIEN-1829 | fixed creation of a new app (topology) version from another existing one /  |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1830 | $issue.description /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1830 | Prevent create meta properties with empty name /  |
     |  <i class="fa fa-bug text-danger"></i> | ALIEN-1831 | Fixed a bug preventing to have two relationships of the same type between two components /  |
     |  <i class="fa fa-bug text-danger"></i> | ALIEN-1832 | Added french translation for artifacts rapositories view /  |
     |  <i class="fa fa-bug text-danger"></i> | ALIEN-1835 | Fixed bug preventing to edit a complex property of a substitution node on deployment matching view /  |
@@ -39,3 +39,5 @@ exclude_from_search: true
     |  <i class="fa fa-bug text-danger"></i> | ALIEN-1837 | Fix bug user with APPLICATION_MANAGER cannot create versions/environments /  |
     |  <i class="fa fa-bug text-danger"></i> | ALIEN-1838 | Fixed authorizations bug preventing to browse the content of a topology archive from the editor /  |
     |  <i class="fa fa-bug text-danger"></i> | ALIEN-1840 | Fix bug text not properly double quoted in the YAML view of the topology editor /  |
+  
+
