@@ -80,7 +80,8 @@ code {
 }
 
 .download-button {
-  margin-right: 10px;
+  margin-right: 2em;
+  margin-left: 1em;
 }
 
 .community-icons {
