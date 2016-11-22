@@ -53,14 +53,13 @@ Inputs will be converted into environment variables, docker run arguments, or do
 
 <h3 id="docker-images">Docker images</h3>
 <p>Docker images are defined using a new artifact type combined with a repository definition.
-To specify which image a container use, you must defined the image as the implementation artifact of the container’s <strong>Create</strong> operation, like this:
-<code>
-create:
-  implementation:
-    file: mongo:latest
-    repository: docker
-    type: tosca.artifacts.Deployment.Image.Container.Docker
-</code></p>
+To specify which image a container use, you must defined the image as the implementation artifact of the container’s <strong>Create</strong> operation, like this:</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">create</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">implementation</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">file</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">mongo:latest</span>
+    <span class="l-Scalar-Plain">repository</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">docker</span>
+    <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.artifacts.Deployment.Image.Container.Docker</span></code></pre></div>
 
 <h3 id="adding-external-storage-as-docker-volumes">Adding External Storage as Docker Volumes</h3>
 
@@ -69,8 +68,8 @@ create:
 <h3 id="getting-a-property-from-a-requirement-target">Getting a property from a requirement target</h3>
 
 <p>To implement a dependency from a container to another component in a flexible way, we want to allow users to use either environment variables, docker run arguments or a custom command, as they see fit. To achieve this, we need a way to request a property of a requirement TARGET from within the SOURCE properties definition. see <a href="/examples/nodecellar_types_sample.yml">Nodecellar sample</a> for an example.
-This means that within a node definition, given a requirement name, we want to access a property defined in the <em>TARGET</em> of such requirement.  For example :
-<code>{ get_property: [REQ_TARGET, mongo_db, port] }</code> should return the <em>port</em> property of the TARGET of the <em>mongo_db</em> requirement, which is a capability. If the property cannot be found, we will look for it in the TARGET node itself.</p>
+This means that within a node definition, given a requirement name, we want to access a property defined in the <em>TARGET</em> of such requirement.<br />
+For example : <code>{ get_property: [REQ_TARGET, mongo_db, port] }</code> should return the <em>port</em> property of the TARGET of the <em>mongo_db</em> requirement, which is a capability. If the property cannot be found, we will look for it in the TARGET node itself.</p>
 
 <h3 id="tuning-the-container">Tuning the container</h3>
 
@@ -92,10 +91,13 @@ This means that within a node definition, given a requirement name, we want to a
 <h3 id="defining-capabilities">Defining capabilities</h3>
 
 <h4 id="modularity">Modularity</h4>
-<p>We aim for topologies where Docker containers and non-docker apps can live together. As such, capabilities for Docker containers should inherit usual capabilities. For instance, in the <a href="nodecellar-sample-types/nodecellar-types.yml">Nodecellar sample</a>, we defined :
-- The <strong>alien.capabilities.endpoint.Mongo</strong> capability, which inherits <em>tosca.capabilities.Endpoint</em> and is the generic ability to expose a Mongo database,
-- The <strong>alien.capabilities.endpoint.docker.Mongo</strong> capability, which derives from the latter. This capability is exposed by the <em>mongo_db</em> capability of the <em>MongoDocker</em> Node-type.
-Using inheritance, this means that any other Node-type requiring <em>alien.capabilities.endpoint.Mongo</em> can use the MongoDocker through a classic <strong>ConnectsTo</strong> relationship.</p>
+<p>We aim for topologies where Docker containers and non-docker apps can live together. As such, capabilities for Docker containers should inherit usual capabilities. For instance, in the <a href="nodecellar-sample-types/nodecellar-types.yml">Nodecellar sample</a>, we defined :</p>
+
+<ul>
+  <li>The <strong>alien.capabilities.endpoint.Mongo</strong> capability, which inherits <em>tosca.capabilities.Endpoint</em> and is the generic ability to expose a Mongo database,</li>
+  <li>The <strong>alien.capabilities.endpoint.docker.Mongo</strong> capability, which derives from the latter. This capability is exposed by the <em>mongo_db</em> capability of the <em>MongoDocker</em> Node-type.
+Using inheritance, this means that any other Node-type requiring <em>alien.capabilities.endpoint.Mongo</em> can use the MongoDocker through a classic <strong>ConnectsTo</strong> relationship.</li>
+</ul>
 
 <h4 id="bridging-between-container-and-host-ports">Bridging between container and host ports</h4>
 <p>To allow bridge networking between the container and it’s host, we added the <em>docker_port_mapping</em> property to the <em>alien.capabilities.endpoint.docker.Mongo</em> relationship. This will be interpreted by the Orchestrator as the Host port, while the <em>port</em> property (which we inherited from the Endpoint capability) represents the port inside the container. If the value is 0, the Orchestrator will randomly allocate a port. If no value is specified, then Host networking will be used.</p>

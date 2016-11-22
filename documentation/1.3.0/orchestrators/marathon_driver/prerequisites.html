@@ -38,12 +38,13 @@ ga('send', 'pageview');
 
 <p>We modeled Mesos, Marathon, the Docker engine and other useful components into TOSCA node types. You can create your own custom Mesos TOSCA composition or use one of the provided templates. We recommend using the Marathon template which will provide automated service discovery.</p>
 
-<div class="note warning">
-<p>Supported distributions for Mesos + Marathon :
-- Ubuntu 14.10, 16.04
+<p>To deploy the cluster, we currently leverage the Cloudify orchestrator. Supported distributions are :
+- Ubuntu 14.04
 - Debian 7 (wheezy)
-- RedHat 6, 7
-- CentOS 6, 7</p>
+- RedHat 6.2, 7.1
+- CentOS 6.2, 7.1</p>
+<div class="note warning">
+<p>Marathon requires Java8+. For Ubuntu 14.04, we use unofficial third-party repositories from webupd8team to install Oracle’s JDK - use it at your own risk.</p>
 </div>
 
 <ul>
