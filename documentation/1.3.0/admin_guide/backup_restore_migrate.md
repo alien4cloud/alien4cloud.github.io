@@ -100,8 +100,7 @@ For more commands and options, you can have the help doc displayed:
 {% warning %}
 <h5>Alien4Cloud and ElasticSearch states</h5>
 We recommend to stop Alien4Cloud before performing the restore. **ElasticSearch MUST be up and running**. Alien4Cloud should be restarted once the restoration process is completed.  This is quite trivial to do when running in a classical production setup where elasticsearch process is independant from Alien4Cloud ( See [advanced configuration](#/documentation/1.3.0/admin_guide/advanced_configuration.html) for more details ).  
-<br/>
-However, if running in an embedded configuration, you can't stop Alien4Cloud without stopping ElasticSearch. Then, just make sure the plateform is not used during the process.  
+However, if running in an embedded configuration, you can't stop Alien4Cloud without stopping ElasticSearch. Then, just make sure the plateform is not used during the process.
 <br/>
 Anyway, if you 100% sure that restore operation has no impact on clouds or plugins configuration you can perform a 'hot restore' and don't need to stop Alien4Cloud.
 {% endwarning %}
@@ -126,20 +125,20 @@ We do not guarantee the compatibility of those with the new Alien4cloud version.
 {% endwarning %}
 
 The migration tool takes as input old data, and transform them to be complient with the new alien4cloud version.  
-Concerning either Alien4Cloud or elasticsearch data, no copy or transfert is made, meaning the existing data are really transformed and modified. Therefore, to be able to run the new version of the product with the migrated data, **make sure the two instances of Alien4Cloud are configured to use the same and identical data path**.  
-<br/>
+Concerning either Alien4Cloud or elasticsearch data, no copy or transfert is made, meaning the existing data are really transformed and modified. Therefore, to be able to run the new version of the product with the migrated data, **make sure the two instances of Alien4Cloud are configured to use the same and identical data path**.
+
 In addition, **they have to be bind to the same elasticsearch cluster**, or, if running in an embedded mode, **the elasticsearch configurations must be the same in term of data paths**.
 
 {% warning %}
 <h5>Alien4Cloud and ElasticSearch states</h5>
 We recommend to stop Alien4Cloud before performing the migration. **ElasticSearch MUST be up and running**. Alien4Cloud should be restarted once the process is completed.  This is quite trivial to do when running in a classical production setup where elasticsearch process is independant from Alien4Cloud ( See [advanced configuration](#/documentation/1.3.0/admin_guide/advanced_configuration.html) for more details ).  
-<br>
 However, if running in an embedded configuration, you can't stop Alien4Cloud without stopping ElasticSearch. Then, just make sure the plateform is not used during the process.  
-
 {% endwarning %}
 
-In order to migrate Alien4Cloud you must download the [ migration tool ](http://fastconnect.org/maven/service/local/artifact/maven/redirect?r=fastconnect-snapshot&g=alien4cloud&a=alien4cloud-migration&v=LATEST&p=zip&c=distrib) and copy it on the machine where Alien is running (or anywhere which has access to Alien's data folders).
-After unzipping the archive, the tool can be configured at ***path_to_unzipped_tool/config/config.yml***
+In order to migrate Alien4Cloud you must download the [ migration tool ](http://fastconnect.org/maven/service/local/artifact/maven/redirect?r=fastconnect-snapshot&g=alien4cloud&a=alien4cloud-migration&v=LATEST&p=zip&c=distrib) and copy it on the machine where Alien is running (or anywhere which has access to Alien's data folders).  
+After unzipping the archive, the tool can be configured by editing the files in ***path_to_unzipped_tool/config***
+
+***config.yml***
 
 {% highlight yaml %}
 
@@ -175,11 +174,31 @@ alien4cloud:
   csar_repository: csar
 {% endhighlight %}
 
+## Orchestrators migration
+
+Orchestrators in alien4cloud are bound to Orchestrators' plugins. If you are using a custom orchestrator plugin, as stated above, it will discarded after the migration.  
+However you can follow theses steps for the orchestrator's migration to be comleted:
+
+ *  Edit the ***plugin-mapping.yml***: add mapping for your orcheschestrators' plugins, so that the tools wold know what is the new Id and version of the plugin. Make sure to not forget the quotes '""' as this is ymal fil and the colon ":" char is a delimiter:
+
+{% highlight yaml %}
+# plugins mapping. "oldPluginId:oldVersion":"newPluginId:newVersion"
+# In this example, we say that the plugin with id alien-cloudify-3-orchestrator-premium and version 1.2.1 is now with Id alien-cloudify-3-orchestrator-premium and version 1.3.0
+"alien-cloudify-3-orchestrator-premium:1.2.1": "alien-cloudify-3-orchestrator-premium:1.3.0"
+{% endhighlight %}
+
+ * Place your zipped plugin into the ***init/plugins*** directory of your Alien4cloud 1.3.0, so that it will be loaded on start.
+
+## perform migration
 
 * From the root directory of the unzipped tool, perform the command:
-
 {% highlight sh %}
 ./migration-tool.sh -migrate -v 1.2.0
+{% endhighlight %}
+
+For more commands and options, you can have the help doc displayed:
+{% highlight sh %}
+./migration-tool.sh -help
 {% endhighlight %}
 
 * Start your new Alien4cloud configured properly, after migration

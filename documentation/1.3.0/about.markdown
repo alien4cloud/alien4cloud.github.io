@@ -91,8 +91,9 @@ We do it in an open way through [plug-in approach](../developer_guide/plugin.htm
 {%info%}
 <h5>Which version to choose ?</h5>
 Basically the question depends on your timeframe, on the features you are looking from and on the support level you need.
-* 1.2.1 is our most stable version and is the latest version that we support.
-* 1.3.0 is still in development and things can change if you start using it. On the other hand all new features are developed in 1.3.0 so you may get more by choosing to start working with this version. We especially recommend that new POCs or project that will really start after we released the 1.3.0 (check our [roadmap](../../roadmap).
+
+* __1.2.1__ is our most stable version and is the latest version that we support.
+* __1.3.0__ is still in development and things can change if you start using it. On the other hand all new features are developed in 1.3.0 so you may get more by choosing to start working with this version. We especially recommend that new POCs or project that will really start after we released the 1.3.0 (check our [roadmap](../../roadmap)).
 {%endinfo%}
 
 {%warning%}
