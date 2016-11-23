@@ -117,6 +117,15 @@ function loadLunrIndex() {
       </li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
+      <li>
+        <div id="search">
+          <form class="navbar-form navbar-right" action="#" method="get" role="search">
+            <div class="form-group">
+              <input class="form-control" type="text" id="search-query" name="q" placeholder="Search" autocomplete="off" onfocus="loadLunrIndex()">
+            </div>
+          </form>
+        </div>
+      </li>
       <li class="dropdown">
         <button type="button" class="btn navbar-btn btn-success download-button dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-download"></i> Downloads</button>
         <ul class="dropdown-menu" role="menu">
@@ -143,13 +152,6 @@ function loadLunrIndex() {
         </ul>
       </li>
     </ul>
-    <div id="search">
-      <form class="navbar-form navbar-right" action="#" method="get" role="search">
-        <div class="form-group">
-          <input class="form-control" type="text" id="search-query" name="q" placeholder="Search" autocomplete="off" onfocus="loadLunrIndex()">
-        </div>
-      </form>
-    </div>
   </div>
 </div>
 <section id="search-results" class="search-results-section" style="display: none;">
