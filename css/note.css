@@ -8,6 +8,7 @@
     border-left-width: 5px;
     border-radius: 3px;
     position: relative;
+    font-size: 14px;
 }
 
 @media (max-width: 568px) { .note {
@@ -30,7 +31,6 @@
 }
 .note p {
     font-weight: 400;
-    font-size: 14px;
 }
 
 .info {
