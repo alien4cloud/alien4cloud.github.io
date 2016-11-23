@@ -79,10 +79,10 @@ code {
   margin-top: 50px;
 }
 
-.download-button {
+/*.download-button {
   margin-right: 2em;
   margin-left: 1em;
-}
+}*/
 
 .community-icons {
   text-align: center;
@@ -117,4 +117,14 @@ i.fa-slack {
 
 .nav-tabs>li>a {
   font-weight: bold;
+}
+
+.navbar-nav.navbar-right:last-child {
+    margin-right: 0;
+}
+
+@media (min-width: 1335px) {
+  .navbar-nav.navbar-right>li {
+      padding: 0 5px 0 5px;
+  }
 }
