@@ -69,6 +69,10 @@
               <input class="form-control" type="text" id="search-query" name="q" placeholder="Search" autocomplete="off" onfocus="loadLunrIndex()">
             </div>
           </form>
+          <section id="search-results" class="search-results-section" style="display: none;">
+            <div class="entries">
+            </div>
+          </section>
         </div>
       </li>
       <li class="dropdown">
@@ -99,10 +103,6 @@
     </ul>
   </div>
 </div>
-<section id="search-results" class="search-results-section" style="display: none;">
-  <div class="entries">
-  </div>
-</section>
 
 <script>
 $('[target=_blank]').append(" <i class=\"icon-external-link\" style=\"font-size:10px\"></i>");
