@@ -38,5 +38,5 @@ This option will delete everything within the topology, leaving it completely em
 
 {%warning%}
 <h5>No rollback possible</h5>
-Beware that these actions will automatically save the topology after being executed, then there is no way back we undo/mechanism.
+Beware that these actions will automatically save the topology after being executed, then there is no way back with undo/redo mechanism.
 {%endwarning%}
