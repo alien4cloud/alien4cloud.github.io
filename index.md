@@ -12,7 +12,7 @@ root: ../
           Application LIfecycle ENabler 4 Cloud <br>
           <small>application management on the cloud for enterprise.</small>
         </p>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/Aakv7KJ1w3k" frameborder="0" allowfullscreen></iframe>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/xYgIEbPsQZA" frameborder="0" allowfullscreen></iframe>
       </div>
       <div class="col-md-offset-1 col-md-4 text-center">
         <img src="/images/cloudalien.png" class="img-responsive">
@@ -27,7 +27,7 @@ root: ../
         <img src="/images/compose.png" class="img-responsive">
         <h3>Compose</h3>
         <p>Create or reuse portable TOSCA blueprints and components.</p>
-        <p>Leverage your existing shell, chef or puppet scripts.</p>
+        <p>Leverage your existing Shell, Chef, Puppet or Ansible scripts.</p>
       </div>
       <div class="col-md-4">
         <h3>Collaborate</h3>

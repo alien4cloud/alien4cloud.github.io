@@ -79,10 +79,10 @@ code {
   margin-top: 50px;
 }
 
-.download-button {
+/*.download-button {
   margin-right: 2em;
   margin-left: 1em;
-}
+}*/
 
 .community-icons {
   text-align: center;
@@ -99,9 +99,13 @@ i.fa-slack {
     transform: rotate(19deg);
 }
 
+#search {
+  position: relative;
+}
+
 .search-results-section {
   position: absolute;
-  right: 0px;
+  right: -113px;
   top: 50px;
   background-color: #f8f8f8;
   border-left: 1px solid #e7e7e7;
@@ -117,4 +121,19 @@ i.fa-slack {
 
 .nav-tabs>li>a {
   font-weight: bold;
+}
+
+.navbar-nav.navbar-right:last-child {
+    margin-right: 0;
+}
+
+@media (min-width: 1367px) {
+  .navbar-nav.navbar-right>li {
+      padding: 0 5px 0 5px;
+  }
+
+  .search-results-section {
+    right: -128px;
+  }
+
 }
