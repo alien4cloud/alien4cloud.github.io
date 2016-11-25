@@ -124,6 +124,10 @@ function loadLunrIndex() {
               <input class="form-control" type="text" id="search-query" name="q" placeholder="Search" autocomplete="off" onfocus="loadLunrIndex()">
             </div>
           </form>
+          <section id="search-results" class="search-results-section" style="display: none;">
+            <div class="entries">
+            </div>
+          </section>
         </div>
       </li>
       <li class="dropdown">
@@ -154,10 +158,6 @@ function loadLunrIndex() {
     </ul>
   </div>
 </div>
-<section id="search-results" class="search-results-section" style="display: none;">
-  <div class="entries">
-  </div>
-</section>
 
 <script>
 $('[target=_blank]').append(" <i class=\"icon-external-link\" style=\"font-size:10px\"></i>");
@@ -189,7 +189,7 @@ $('#git-icon').tooltip();
         <img src="/images/compose.png" class="img-responsive" />
         <h3>Compose</h3>
         <p>Create or reuse portable TOSCA blueprints and components.</p>
-        <p>Leverage your existing shell, chef or puppet scripts.</p>
+        <p>Leverage your existing Shell, Chef, Puppet or Ansible scripts.</p>
       </div>
       <div class="col-md-4">
         <h3>Collaborate</h3>
@@ -222,10 +222,9 @@ $('#git-icon').tooltip();
 		          	</ul>
 		        </div>
 		        <div class="col-m-footer-group col-sm-3">
-		        	<h5>Patners</h5>
+		        	<h5>Partners</h5>
 		          	<ul>
 									<li><a data-category="Footer" href="https://www.oasis-open.org">OASIS</a></li>
-									<li><a data-category="Footer" href="http://brooklyn.io">Brooklyn</a></li>
 		          		<li><a data-category="Footer" href="http://getcloudify.org">Cloudify</a></li>
 		          	</ul>
 		        </div>

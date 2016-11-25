@@ -99,9 +99,13 @@ i.fa-slack {
     transform: rotate(19deg);
 }
 
+#search {
+  position: relative;
+}
+
 .search-results-section {
   position: absolute;
-  right: 0px;
+  right: -113px;
   top: 50px;
   background-color: #f8f8f8;
   border-left: 1px solid #e7e7e7;
@@ -123,8 +127,13 @@ i.fa-slack {
     margin-right: 0;
 }
 
-@media (min-width: 1335px) {
+@media (min-width: 1367px) {
   .navbar-nav.navbar-right>li {
       padding: 0 5px 0 5px;
   }
+
+  .search-results-section {
+    right: -128px;
+  }
+
 }
