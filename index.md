@@ -27,7 +27,7 @@ root: ../
         <img src="/images/compose.png" class="img-responsive">
         <h3>Compose</h3>
         <p>Create or reuse portable TOSCA blueprints and components.</p>
-        <p>Leverage your existing shell, chef or puppet scripts.</p>
+        <p>Leverage your existing Shell, Chef, Puppet or Ansible scripts.</p>
       </div>
       <div class="col-md-4">
         <h3>Collaborate</h3>
