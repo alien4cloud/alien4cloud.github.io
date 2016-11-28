@@ -68,8 +68,16 @@ HA support allowing a 24/7 availability of Alien4Cloud, using a primary / backup
 
 [Read more here...](#/documentation/1.3.0/admin_guide/ha.html)
 
+# Cloudify 3.4 support
+
+Alien4Cloud 1.3 officially supports cloudify 3.4 that bring support for scalability groups. We now removed our custom OpenStack plugin that worked-around scalability issues in cloudify 3 to leverage scalability groups.
+
+As Scalability Groups have limitations for block storage scalability we include custom wrappers that enable full Block Storage scalability and all that fully transparent for the user!
+
+[Read more here...](#/documentation/1.3.0/orchestrators/cloudify3_driver/index.html)
+
 # Docker support
 
-Support for docker deployment using our **Marathon plugin (alpha state)** and experimental support for Kubernetes through cloudify
+Support for docker deployment using our **Marathon plugin (beta state)** and experimental support for Kubernetes through cloudify
 
 [Read more here...](#/documentation/1.3.0/orchestrators/marathon_driver/marathon_driver.html)

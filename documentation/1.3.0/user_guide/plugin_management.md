@@ -10,7 +10,7 @@ weight: 100
 
 {% summary %}{% endsummary %}
 
-Plugins allows to provide some additional functionalities to Alien 4 Cloud. 1.1.0 introduce the ability to create different type of plugins (or plugins with multiple features):
+Plugins allows to provide some additional functionalities to Alien 4 Cloud. Users can create different type of plugins (or plugins with multiple features):
 
 * __Orchestrator plugins__ allows to provide additional orchestrators support to alien 4 cloud to use some other technologies to deploy TOSCA or Specific topologies.
 * __Location matching plugins__ allows to override the basic location matching logic provided within Alien 4 Cloud. Only a single Location Matching plugin can be defined in Alien 4 Cloud currently. If more than one location matching plugin is enabled in Alien then one will be picked up randomly.
@@ -35,6 +35,11 @@ Click on *[Upload plugin]* > *Select* your archive (The file is automaticly uplo
 [![Upload an archive file without D&D](../../images/user_guide/upload-plugin-wihout-drag-and-drop.png)](../../images/user_guide/upload-plugin-wihout-drag-and-drop.png)
 {%endtabcontent%}
 {%endinittab%}
+
+{%warning%}
+After installing, removing, disabling or enabling a plugin that provides UI components user must refresh it's browser page in order to reload plugin's javascript code that may have changed.
+This is especially true when removing or disabling a plugin as the rest services used by the plugin's UI won't be available anymore eventually causing unexpected 500 errors.
+{%endwarning%}
 
 ## Plugin configuration
 
