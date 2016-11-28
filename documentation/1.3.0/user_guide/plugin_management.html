@@ -31,7 +31,7 @@ ga('send', 'pageview');
 <div class="row"><ul class="nav nav-pills" id="summarypanel"></ul></div>
 <hr style="margin-top:5px; margin-bottom:5px;" />
 
-<p>Plugins allows to provide some additional functionalities to Alien 4 Cloud. 1.1.0 introduce the ability to create different type of plugins (or plugins with multiple features):</p>
+<p>Plugins allows to provide some additional functionalities to Alien 4 Cloud. Users can create different type of plugins (or plugins with multiple features):</p>
 
 <ul>
   <li><strong>Orchestrator plugins</strong> allows to provide additional orchestrators support to alien 4 cloud to use some other technologies to deploy TOSCA or Specific topologies.</li>
@@ -56,6 +56,11 @@ ga('send', 'pageview');
 <p><a href="../../images/user_guide/upload-plugin-wihout-drag-and-drop.png"><img src="../../images/user_guide/upload-plugin-wihout-drag-and-drop.png" alt="Upload an archive file without D&amp;D" /></a></p>
 </div>
 </div></div>
+
+<div class="note warning">
+<p>After installing, removing, disabling or enabling a plugin that provides UI components user must refresh it’s browser page in order to reload plugin’s javascript code that may have changed.
+This is especially true when removing or disabling a plugin as the rest services used by the plugin’s UI won’t be available anymore eventually causing unexpected 500 errors.</p>
+</div>
 
 <h2 id="plugin-configuration">Plugin configuration</h2>
 
