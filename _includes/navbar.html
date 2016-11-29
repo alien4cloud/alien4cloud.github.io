@@ -63,10 +63,10 @@
         <div id="search">
           <form class="navbar-form navbar-right" action="#" method="get" role="search">
             <div class="form-group">
-              <input class="form-control" type="text" id="search-query" name="q" placeholder="Search" autocomplete="off" onfocus="loadLunrIndex()">
+              <input class="form-control" type="text" id="search-query" name="q" placeholder="Search" autocomplete="off" onfocus="loadLunrIndex()" onblur="hideSearchResults()">
             </div>
           </form>
-          <section id="search-results" class="search-results-section" style="display: none;">
+          <section id="search-results" class="search-results-section" style="display: none;" onmousedown="event.preventDefault();">
             <div class="entries">
             </div>
           </section>
