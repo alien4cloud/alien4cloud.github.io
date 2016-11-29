@@ -30,7 +30,7 @@ Marathon requires Java8+. For Ubuntu 14.04, we use unofficial third-party reposi
 {% endwarning %}
 
 - First, upload the following CSARs into Alien using the [GIT importer](#/documentation/1.3.0/user_guide/catalog_type_upload):
-  - [docker-engine](https://github.com/alien4cloud/docker-engine)
+  - [docker-engine](https://github.com/alien4cloud/samples/tree/master/docker-engine)
   - [mesos-types](https://github.com/alien4cloud/mesos-tosca-blueprints)
   - and [docker-types](https://github.com/alien4cloud/docker-tosca-types/tree/master/docker-types), which are not necessary to setup the cluster but are required by the plugin, so you might as well want to install them now too.
 - Then, create your own custom Mesos TOSCA composition or use one of our templates. Note that if your IaaS doesn't automatically assigns public IPs you'll have to add a public network to your template.
