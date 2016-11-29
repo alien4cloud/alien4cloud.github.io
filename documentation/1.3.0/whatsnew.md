@@ -41,10 +41,6 @@ Alien 4 Cloud now supports complex data types (including lists and maps) for top
 
 Alien 4 Cloud now support artifact repositories definition and parsing. See more in _Artifact repositories support_ section below.
 
-## Implementation artifact primary and dependencies support
-
-TODO.
-
 # Artifact repositories support
 
 Ability to define artifact repositories to override url and credential based on artifact id (usefull when behind proxy).
