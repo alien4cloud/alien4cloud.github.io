@@ -1,0 +1,254 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/release_notes/1.3.0.html',
+  title: 'ALIEN for Cloud 1.3.0'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container">
+  <div class="row">
+    
+      <div class="col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">ALIEN for Cloud 1.3.0</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/release_notes/1.3.0.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <p><i class="fa fa-plus text-success"></i> New feature <i class="fa fa-level-up text-primary"></i> Improvement  <i class="fa fa-bug text-danger"></i> Bug <i class="fa fa-exclamation-triangle text-warning"></i> Breaking change</p>
+
+<h3 id="migration-tool">Migration tool</h3>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Id</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-plus text-success"></i></td>
+      <td style="text-align: left">ALIEN-1871</td>
+      <td style="text-align: left">Add migration feature for custom user orchestrators plugins. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
+      <td style="text-align: left">ALIEN-1860</td>
+      <td style="text-align: left">Migration tool performs update of application ids for dashboard data after migrating them (as id generations is changed from 1.2 to 1.3). /</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="cloudify-3-paas-provider">Cloudify 3 PaaS Provider</h3>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Id</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
+      <td style="text-align: left">ALIEN-1875</td>
+      <td style="text-align: left">Fail orchestrator enablement if bad credentials are provided in configuration /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-1874</td>
+      <td style="text-align: left">Fixed an issue with the deployment state in case of network failure when triggering deploy / undeploy /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-1895</td>
+      <td style="text-align: left">Fixed the trigger of the remove_source operation when scaling down a component. /</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="marathon">Marathon</h3>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Id</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-plus text-success"></i></td>
+      <td style="text-align: left">ALIEN-1858</td>
+      <td style="text-align: left">Upgrade storage abstraction to use RexRay 4.0 client-server architecture /</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="alien-4-cloud">Alien 4 Cloud</h3>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Id</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
+      <td style="text-align: left">ALIEN-1885</td>
+      <td style="text-align: left">Parsing errors are now dislayed when performing a pull from a remote on topology editor /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-1859</td>
+      <td style="text-align: left">Fixed rest api that was not generated anymore. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-1862</td>
+      <td style="text-align: left">Definition of a tosca type in different archives (with different versions) could cause conflicts when both archives where imported in a third one. This is invalid usage and alien now performs validation to avoid definition of a type in multiple archives. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-1863</td>
+      <td style="text-align: left">Fixed the link to go to deployment view when clicking on a specific environment from the application list page. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-1864</td>
+      <td style="text-align: left">Fixed UI glitch when a user was switching to runtime view while not having deployment rights on the current selected environment. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-1867</td>
+      <td style="text-align: left">Fixed issues on transitive dependencies by not allowing a topology to have transitive dependencies from other versions. Transitive dependencies management will be improved in 1.4.0. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-1868</td>
+      <td style="text-align: left">Fixed an issue causing the delete topology template button tooltip to hide the button preventing deletion in french language. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-1869</td>
+      <td style="text-align: left">Fixed issue with component import from git: all ymal files were considered as a tosca file /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-1870</td>
+      <td style="text-align: left">Fixed some issues in transitive dependencies management when changing dependencies versions in the topology. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-1872</td>
+      <td style="text-align: left">Fixed an issue on catalog git import when more than one branch is defined. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-1873</td>
+      <td style="text-align: left">Fixed issue with remote topology pulling from the editor. Now the topology is refreshed if there are no errors. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-1880</td>
+      <td style="text-align: left">Fixed UI call for quick search function. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-1886</td>
+      <td style="text-align: left">Fixed issue with “Save the repository locally” option on components import from git location  /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-1888</td>
+      <td style="text-align: left">Fixed an issue when removing a user role for an application environment. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-1889</td>
+      <td style="text-align: left">Fixed an issue that prevented to select the version of the archive of a given relationship. Note right now all versions are exposed without filtering, this should be improved. /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-1890</td>
+      <td style="text-align: left">Fixed an issue in application user roles initialisation when the user has no roles on the application but the user is actually ADMIN. / 1.3.0-RC5</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-1891</td>
+      <td style="text-align: left">Missing translation /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-1892</td>
+      <td style="text-align: left">Missing translation /</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-1893</td>
+      <td style="text-align: left">Fixed a ui glitch when displaying the runtime topology and the current selected environment is not deployed. /</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="workspaces-plugin">Workspaces plugin</h3>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Id</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-1861</td>
+      <td style="text-align: left">Missing translations /</td>
+    </tr>
+  </tbody>
+</table>
+
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/release_notes/1.3.0.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('RELEASE_NOTES', 'release_notes/1.3.0.markdown');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>
