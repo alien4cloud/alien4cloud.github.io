@@ -47,7 +47,7 @@ Once upload has been completed successfully you should be able to see the node t
 {% tabcontent Import from a Git location %}
 
 {%warning%}
-<h5>Git repository hierarchie</h5>
+<h5>Git repository hierarchy</h5>
 In order to be able to import components properly, this feature required a folder organisation based on TOSCA recommendation
 For example, if you want to import one of the Samples repository, the folder to import musn't contains a Yaml file at its root.
 *See apache archive for examples  [Github apache example](https://github.com/alien4cloud/samples/tree/master/apache).*
