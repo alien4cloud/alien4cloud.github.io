@@ -2,7 +2,7 @@
 layout: post
 title: Manages locations for a given orchestrator.
 root: ../../
-categories: DOCUMENTATION-1.1.0
+categories: DOCUMENTATION-1.3.0
 parent: [rest_api, rest_api_admin-orchestrator-api]
 node_name: rest_api_controller_location-resources-controller
 weight: 6

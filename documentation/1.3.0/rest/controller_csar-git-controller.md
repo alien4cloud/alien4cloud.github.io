@@ -2,7 +2,7 @@
 layout: post
 title: Operations on CSAR Git
 root: ../../
-categories: DOCUMENTATION-1.1.0
+categories: DOCUMENTATION-1.3.0
 parent: [rest_api, rest_api_catalog-api]
 node_name: rest_api_controller_csar-git-controller
 weight: 15

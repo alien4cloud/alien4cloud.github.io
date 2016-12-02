@@ -2,7 +2,7 @@
 layout: post
 title: Prepare a topology to be deployed on a specific environment (location matching, node matching and inputs configuration).
 root: ../../
-categories: DOCUMENTATION-1.1.0
+categories: DOCUMENTATION-1.3.0
 parent: [rest_api, rest_api_applications-api]
 node_name: rest_api_controller_deployment-topology-controller
 weight: 25

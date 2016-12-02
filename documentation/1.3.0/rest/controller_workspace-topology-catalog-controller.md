@@ -2,7 +2,7 @@
 layout: post
 title: Topology catalog with workspace.
 root: ../../
-categories: DOCUMENTATION-1.1.0
+categories: DOCUMENTATION-1.3.0
 parent: [rest_api, rest_api_workspaces-api]
 node_name: rest_api_controller_workspace-topology-catalog-controller
 weight: 19

@@ -2,7 +2,7 @@
 layout: post
 title: Get matching options for a given topology.
 root: ../../
-categories: DOCUMENTATION-1.1.0
+categories: DOCUMENTATION-1.3.0
 parent: [rest_api, rest_api_topology-editor-api]
 node_name: rest_api_controller_topology-location-matching-controller
 weight: 32

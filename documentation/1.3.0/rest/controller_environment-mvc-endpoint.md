@@ -2,7 +2,7 @@
 layout: post
 title: Environment Mvc Endpoint
 root: ../../
-categories: DOCUMENTATION-1.1.0
+categories: DOCUMENTATION-1.3.0
 parent: [rest_api, rest_api_admin-api]
 node_name: rest_api_controller_environment-mvc-endpoint
 weight: 43

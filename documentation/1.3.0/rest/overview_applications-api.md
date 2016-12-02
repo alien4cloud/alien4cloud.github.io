@@ -2,7 +2,7 @@
 layout: post
 title: applications-api
 root: ../../
-categories: DOCUMENTATION-1.1.0
+categories: DOCUMENTATION-1.3.0
 parent: [rest_api]
 node_name: rest_api_applications-api
 weight: 8
