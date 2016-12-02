@@ -28,7 +28,7 @@ ga('send', 'pageview');
         </div>
         <h3 id="create-a-new-application-in-the-system">Create a new application in the system.</h3>
 <p><code>
-POST /rest/applications
+POST /rest/v1/applications
 </code></p>
 
 <h4 id="description">Description</h4>
@@ -108,7 +108,7 @@ POST /rest/applications
 
 <h3 id="search-for-applications">Search for applications</h3>
 <p><code>
-POST /rest/applications/search
+POST /rest/v1/applications/search
 </code></p>
 
 <h4 id="description-1">Description</h4>
@@ -202,7 +202,7 @@ POST /rest/applications/search
 
 <h3 id="get-an-application-based-from-its-id">Get an application based from its id.</h3>
 <p><code>
-GET /rest/applications/{applicationId}
+GET /rest/v1/applications/{applicationId}
 </code></p>
 
 <h4 id="description-2">Description</h4>
@@ -291,7 +291,7 @@ GET /rest/applications/{applicationId}
 
 <h3 id="updates-by-merging-the-given-request-into-the-given-application-">Updates by merging the given request into the given application .</h3>
 <p><code>
-PUT /rest/applications/{applicationId}
+PUT /rest/v1/applications/{applicationId}
 </code></p>
 
 <h4 id="description-3">Description</h4>
@@ -322,8 +322,8 @@ PUT /rest/applications/{applicationId}
     </tr>
     <tr>
       <td>BodyParameter</td>
-      <td>applicationUpdateRequest</td>
-      <td>applicationUpdateRequest</td>
+      <td>request</td>
+      <td>request</td>
       <td>true</td>
       <td>UpdateApplicationRequest</td>
       <td> </td>
@@ -384,7 +384,7 @@ PUT /rest/applications/{applicationId}
 
 <h3 id="delete-an-application-from-its-id">Delete an application from its id.</h3>
 <p><code>
-DELETE /rest/applications/{applicationId}
+DELETE /rest/v1/applications/{applicationId}
 </code></p>
 
 <h4 id="description-4">Description</h4>
@@ -464,7 +464,7 @@ DELETE /rest/applications/{applicationId}
 
 <h3 id="updates-the-image-for-the-application">Updates the image for the application.</h3>
 <p><code>
-POST /rest/applications/{applicationId}/image
+POST /rest/v1/applications/{applicationId}/image
 </code></p>
 
 <h4 id="description-5">Description</h4>
@@ -496,7 +496,7 @@ POST /rest/applications/{applicationId}/image
     <tr>
       <td>FormDataParameter</td>
       <td>file</td>
-      <td>image</td>
+      <td>file</td>
       <td>true</td>
       <td>file</td>
       <td> </td>

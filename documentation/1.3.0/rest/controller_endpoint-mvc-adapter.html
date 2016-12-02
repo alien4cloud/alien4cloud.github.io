@@ -74,12 +74,12 @@ GET /rest/admin/autoconfig
 <h4 id="produces">Produces</h4>
 
 <ul>
-  <li><em>/</em></li>
+  <li>application/json</li>
 </ul>
 
 <h3 id="invoke-1">invoke</h3>
 <p><code>
-GET /rest/admin/beans
+GET /rest/admin/autoconfig.json
 </code></p>
 
 <h4 id="responses-1">Responses</h4>
@@ -125,12 +125,12 @@ GET /rest/admin/beans
 <h4 id="produces-1">Produces</h4>
 
 <ul>
-  <li><em>/</em></li>
+  <li>application/json</li>
 </ul>
 
 <h3 id="invoke-2">invoke</h3>
 <p><code>
-GET /rest/admin/configprops
+GET /rest/admin/beans
 </code></p>
 
 <h4 id="responses-2">Responses</h4>
@@ -176,12 +176,12 @@ GET /rest/admin/configprops
 <h4 id="produces-2">Produces</h4>
 
 <ul>
-  <li><em>/</em></li>
+  <li>application/json</li>
 </ul>
 
 <h3 id="invoke-3">invoke</h3>
 <p><code>
-GET /rest/admin/dump
+GET /rest/admin/beans.json
 </code></p>
 
 <h4 id="responses-3">Responses</h4>
@@ -227,12 +227,12 @@ GET /rest/admin/dump
 <h4 id="produces-3">Produces</h4>
 
 <ul>
-  <li><em>/</em></li>
+  <li>application/json</li>
 </ul>
 
 <h3 id="invoke-4">invoke</h3>
 <p><code>
-GET /rest/admin/info
+GET /rest/admin/configprops
 </code></p>
 
 <h4 id="responses-4">Responses</h4>
@@ -278,12 +278,12 @@ GET /rest/admin/info
 <h4 id="produces-4">Produces</h4>
 
 <ul>
-  <li><em>/</em></li>
+  <li>application/json</li>
 </ul>
 
 <h3 id="invoke-5">invoke</h3>
 <p><code>
-GET /rest/admin/mappings
+GET /rest/admin/configprops.json
 </code></p>
 
 <h4 id="responses-5">Responses</h4>
@@ -329,12 +329,12 @@ GET /rest/admin/mappings
 <h4 id="produces-5">Produces</h4>
 
 <ul>
-  <li><em>/</em></li>
+  <li>application/json</li>
 </ul>
 
 <h3 id="invoke-6">invoke</h3>
 <p><code>
-GET /rest/admin/trace
+GET /rest/admin/dump
 </code></p>
 
 <h4 id="responses-6">Responses</h4>
@@ -380,7 +380,364 @@ GET /rest/admin/trace
 <h4 id="produces-6">Produces</h4>
 
 <ul>
-  <li><em>/</em></li>
+  <li>application/json</li>
+</ul>
+
+<h3 id="invoke-7">invoke</h3>
+<p><code>
+GET /rest/admin/dump.json
+</code></p>
+
+<h4 id="responses-7">Responses</h4>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>HTTP Code</th>
+      <th>Description</th>
+      <th>Schema</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>200</td>
+      <td>OK</td>
+      <td>object</td>
+    </tr>
+    <tr>
+      <td>401</td>
+      <td>Unauthorized</td>
+      <td>No Content</td>
+    </tr>
+    <tr>
+      <td>403</td>
+      <td>Forbidden</td>
+      <td>No Content</td>
+    </tr>
+    <tr>
+      <td>404</td>
+      <td>Not Found</td>
+      <td>No Content</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="consumes-7">Consumes</h4>
+
+<ul>
+  <li>application/json</li>
+</ul>
+
+<h4 id="produces-7">Produces</h4>
+
+<ul>
+  <li>application/json</li>
+</ul>
+
+<h3 id="invoke-8">invoke</h3>
+<p><code>
+GET /rest/admin/info
+</code></p>
+
+<h4 id="responses-8">Responses</h4>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>HTTP Code</th>
+      <th>Description</th>
+      <th>Schema</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>200</td>
+      <td>OK</td>
+      <td>object</td>
+    </tr>
+    <tr>
+      <td>401</td>
+      <td>Unauthorized</td>
+      <td>No Content</td>
+    </tr>
+    <tr>
+      <td>403</td>
+      <td>Forbidden</td>
+      <td>No Content</td>
+    </tr>
+    <tr>
+      <td>404</td>
+      <td>Not Found</td>
+      <td>No Content</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="consumes-8">Consumes</h4>
+
+<ul>
+  <li>application/json</li>
+</ul>
+
+<h4 id="produces-8">Produces</h4>
+
+<ul>
+  <li>application/json</li>
+</ul>
+
+<h3 id="invoke-9">invoke</h3>
+<p><code>
+GET /rest/admin/info.json
+</code></p>
+
+<h4 id="responses-9">Responses</h4>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>HTTP Code</th>
+      <th>Description</th>
+      <th>Schema</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>200</td>
+      <td>OK</td>
+      <td>object</td>
+    </tr>
+    <tr>
+      <td>401</td>
+      <td>Unauthorized</td>
+      <td>No Content</td>
+    </tr>
+    <tr>
+      <td>403</td>
+      <td>Forbidden</td>
+      <td>No Content</td>
+    </tr>
+    <tr>
+      <td>404</td>
+      <td>Not Found</td>
+      <td>No Content</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="consumes-9">Consumes</h4>
+
+<ul>
+  <li>application/json</li>
+</ul>
+
+<h4 id="produces-9">Produces</h4>
+
+<ul>
+  <li>application/json</li>
+</ul>
+
+<h3 id="invoke-10">invoke</h3>
+<p><code>
+GET /rest/admin/mappings
+</code></p>
+
+<h4 id="responses-10">Responses</h4>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>HTTP Code</th>
+      <th>Description</th>
+      <th>Schema</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>200</td>
+      <td>OK</td>
+      <td>object</td>
+    </tr>
+    <tr>
+      <td>401</td>
+      <td>Unauthorized</td>
+      <td>No Content</td>
+    </tr>
+    <tr>
+      <td>403</td>
+      <td>Forbidden</td>
+      <td>No Content</td>
+    </tr>
+    <tr>
+      <td>404</td>
+      <td>Not Found</td>
+      <td>No Content</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="consumes-10">Consumes</h4>
+
+<ul>
+  <li>application/json</li>
+</ul>
+
+<h4 id="produces-10">Produces</h4>
+
+<ul>
+  <li>application/json</li>
+</ul>
+
+<h3 id="invoke-11">invoke</h3>
+<p><code>
+GET /rest/admin/mappings.json
+</code></p>
+
+<h4 id="responses-11">Responses</h4>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>HTTP Code</th>
+      <th>Description</th>
+      <th>Schema</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>200</td>
+      <td>OK</td>
+      <td>object</td>
+    </tr>
+    <tr>
+      <td>401</td>
+      <td>Unauthorized</td>
+      <td>No Content</td>
+    </tr>
+    <tr>
+      <td>403</td>
+      <td>Forbidden</td>
+      <td>No Content</td>
+    </tr>
+    <tr>
+      <td>404</td>
+      <td>Not Found</td>
+      <td>No Content</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="consumes-11">Consumes</h4>
+
+<ul>
+  <li>application/json</li>
+</ul>
+
+<h4 id="produces-11">Produces</h4>
+
+<ul>
+  <li>application/json</li>
+</ul>
+
+<h3 id="invoke-12">invoke</h3>
+<p><code>
+GET /rest/admin/trace
+</code></p>
+
+<h4 id="responses-12">Responses</h4>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>HTTP Code</th>
+      <th>Description</th>
+      <th>Schema</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>200</td>
+      <td>OK</td>
+      <td>object</td>
+    </tr>
+    <tr>
+      <td>401</td>
+      <td>Unauthorized</td>
+      <td>No Content</td>
+    </tr>
+    <tr>
+      <td>403</td>
+      <td>Forbidden</td>
+      <td>No Content</td>
+    </tr>
+    <tr>
+      <td>404</td>
+      <td>Not Found</td>
+      <td>No Content</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="consumes-12">Consumes</h4>
+
+<ul>
+  <li>application/json</li>
+</ul>
+
+<h4 id="produces-12">Produces</h4>
+
+<ul>
+  <li>application/json</li>
+</ul>
+
+<h3 id="invoke-13">invoke</h3>
+<p><code>
+GET /rest/admin/trace.json
+</code></p>
+
+<h4 id="responses-13">Responses</h4>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>HTTP Code</th>
+      <th>Description</th>
+      <th>Schema</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>200</td>
+      <td>OK</td>
+      <td>object</td>
+    </tr>
+    <tr>
+      <td>401</td>
+      <td>Unauthorized</td>
+      <td>No Content</td>
+    </tr>
+    <tr>
+      <td>403</td>
+      <td>Forbidden</td>
+      <td>No Content</td>
+    </tr>
+    <tr>
+      <td>404</td>
+      <td>Not Found</td>
+      <td>No Content</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="consumes-13">Consumes</h4>
+
+<ul>
+  <li>application/json</li>
+</ul>
+
+<h4 id="produces-13">Produces</h4>
+
+<ul>
+  <li>application/json</li>
 </ul>
 
 

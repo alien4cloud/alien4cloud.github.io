@@ -7,8 +7,8 @@
 
 ga('create', 'UA-73216650-1', 'auto');
 ga('set', {
-  page: '/documentation/1.3.0/rest/controller_orchestrator-location-resources.html',
-  title: 'Manages locations for a given orchestrator.'
+  page: '/documentation/1.3.0/rest/controller_plugin-controller.html',
+  title: 'Manages plugins.'
 });
 ga('send', 'pageview');
 
@@ -23,12 +23,12 @@ ga('send', 'pageview');
       <div id="content" class="col-md-9">
     
         <div style="height: 50px;">
-          <h1 class="pull-left" style="margin-top: 0px;">Manages locations for a given orchestrator.</h1>
-          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.3.0/rest/controller_orchestrator-location-resources.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+          <h1 class="pull-left" style="margin-top: 0px;">Manages plugins.</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.3.0/rest/controller_plugin-controller.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
         </div>
-        <h3 id="add-resource-template-to-a-location">Add resource template to a location.</h3>
+        <h3 id="search-for-plugins-registered-in-alien">Search for plugins registered in ALIEN.</h3>
 <p><code>
-POST /rest/orchestrators/{orchestratorId}/locations/{locationId}/resources
+GET /rest/v1/plugins
 </code></p>
 
 <h4 id="parameters">Parameters</h4>
@@ -46,27 +46,27 @@ POST /rest/orchestrators/{orchestratorId}/locations/{locationId}/resources
   </thead>
   <tbody>
     <tr>
-      <td>PathParameter</td>
-      <td>orchestratorId</td>
-      <td>Id of the orchestrator for which to add resource template.</td>
-      <td>true</td>
+      <td>QueryParameter</td>
+      <td>query</td>
+      <td>Query text.</td>
+      <td>false</td>
       <td>string</td>
       <td> </td>
     </tr>
     <tr>
-      <td>PathParameter</td>
-      <td>locationId</td>
-      <td>Id of the location of the orchestrator to add resource template.</td>
-      <td>true</td>
-      <td>string</td>
+      <td>QueryParameter</td>
+      <td>from</td>
+      <td>Query from the given index.</td>
+      <td>false</td>
+      <td>integer (int32)</td>
       <td> </td>
     </tr>
     <tr>
-      <td>BodyParameter</td>
-      <td>resourceTemplateRequest</td>
-      <td>resourceTemplateRequest</td>
-      <td>true</td>
-      <td>Request for creation of a new location’s resource.</td>
+      <td>QueryParameter</td>
+      <td>size</td>
+      <td>Maximum number of results to retrieve.</td>
+      <td>false</td>
+      <td>integer (int32)</td>
       <td> </td>
     </tr>
   </tbody>
@@ -86,12 +86,7 @@ POST /rest/orchestrators/{orchestratorId}/locations/{locationId}/resources
     <tr>
       <td>200</td>
       <td>OK</td>
-      <td>RestResponse«LocationResourceTemplate»</td>
-    </tr>
-    <tr>
-      <td>201</td>
-      <td>Created</td>
-      <td>No Content</td>
+      <td>RestResponse«GetMultipleDataResult«Plugin»»</td>
     </tr>
     <tr>
       <td>401</td>
@@ -123,10 +118,14 @@ POST /rest/orchestrators/{orchestratorId}/locations/{locationId}/resources
   <li>application/json</li>
 </ul>
 
-<h3 id="auto-configure-the-resources-if-the-location-configurator-plugin-provides-a-way-for">Auto configure the resources, if the location configurator plugin provides a way for.</h3>
+<h3 id="upload-a-plugin-archive">Upload a plugin archive.</h3>
 <p><code>
-GET /rest/orchestrators/{orchestratorId}/locations/{locationId}/resources/auto-configure
+POST /rest/v1/plugins
 </code></p>
+
+<h4 id="description">Description</h4>
+
+<p>Content of the zip file must be compliant with the expected alien 4 cloud plugin structure.</p>
 
 <h4 id="parameters-1">Parameters</h4>
 
@@ -143,125 +142,17 @@ GET /rest/orchestrators/{orchestratorId}/locations/{locationId}/resources/auto-c
   </thead>
   <tbody>
     <tr>
-      <td>PathParameter</td>
-      <td>orchestratorId</td>
-      <td>Id of the orchestrator for which to Auto configure the resources.</td>
+      <td>FormDataParameter</td>
+      <td>file</td>
+      <td>Zip file that contains the plugin.</td>
       <td>true</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>PathParameter</td>
-      <td>locationId</td>
-      <td>Id of the location of the orchestrator to Auto configure the resources.</td>
-      <td>true</td>
-      <td>string</td>
+      <td>file</td>
       <td> </td>
     </tr>
   </tbody>
 </table>
 
 <h4 id="responses-1">Responses</h4>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>HTTP Code</th>
-      <th>Description</th>
-      <th>Schema</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>200</td>
-      <td>OK</td>
-      <td>RestResponse«List«LocationResourceTemplate»»</td>
-    </tr>
-    <tr>
-      <td>401</td>
-      <td>Unauthorized</td>
-      <td>No Content</td>
-    </tr>
-    <tr>
-      <td>403</td>
-      <td>Forbidden</td>
-      <td>No Content</td>
-    </tr>
-    <tr>
-      <td>404</td>
-      <td>Not Found</td>
-      <td>No Content</td>
-    </tr>
-  </tbody>
-</table>
-
-<h4 id="consumes-1">Consumes</h4>
-
-<ul>
-  <li>application/json</li>
-</ul>
-
-<h4 id="produces-1">Produces</h4>
-
-<ul>
-  <li>application/json</li>
-</ul>
-
-<h3 id="update-locations-resource">Update location’s resource.</h3>
-<p><code>
-PUT /rest/orchestrators/{orchestratorId}/locations/{locationId}/resources/{id}
-</code></p>
-
-<h4 id="parameters-2">Parameters</h4>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Type</th>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Required</th>
-      <th>Schema</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>PathParameter</td>
-      <td>orchestratorId</td>
-      <td>Id of the orchestrator for which to update resource template.</td>
-      <td>true</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>PathParameter</td>
-      <td>locationId</td>
-      <td>Id of the location of the orchestrator to update resource template.</td>
-      <td>true</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>PathParameter</td>
-      <td>id</td>
-      <td>Id of the location’s resource.</td>
-      <td>true</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>BodyParameter</td>
-      <td>mergeRequest</td>
-      <td>mergeRequest</td>
-      <td>true</td>
-      <td>Request to update a location resource.</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<h4 id="responses-2">Responses</h4>
 
 <table class="table table-bordered">
   <thead>
@@ -300,6 +191,86 @@ PUT /rest/orchestrators/{orchestratorId}/locations/{locationId}/resources/{id}
   </tbody>
 </table>
 
+<h4 id="consumes-1">Consumes</h4>
+
+<ul>
+  <li>multipart/form-data</li>
+</ul>
+
+<h4 id="produces-1">Produces</h4>
+
+<ul>
+  <li>application/json</li>
+</ul>
+
+<h3 id="remove-a-plugin">Remove a plugin.</h3>
+<p><code>
+DELETE /rest/v1/plugins/{pluginId}
+</code></p>
+
+<h4 id="description-1">Description</h4>
+
+<p>Remove a plugin (and unloads it if enabled). Note that if the plugin is used (deployment plugin for example) it won’t be disabled but will be marked as deprecated. In such situation an error code 350 is returned as part of the error and a list of plugin usages will be returned as part of the returned data. Role required [ ADMIN ]</p>
+
+<h4 id="parameters-2">Parameters</h4>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>PathParameter</td>
+      <td>pluginId</td>
+      <td>pluginId</td>
+      <td>true</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="responses-2">Responses</h4>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>HTTP Code</th>
+      <th>Description</th>
+      <th>Schema</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>200</td>
+      <td>OK</td>
+      <td>RestResponse«List«PluginUsage»»</td>
+    </tr>
+    <tr>
+      <td>401</td>
+      <td>Unauthorized</td>
+      <td>No Content</td>
+    </tr>
+    <tr>
+      <td>204</td>
+      <td>No Content</td>
+      <td>No Content</td>
+    </tr>
+    <tr>
+      <td>403</td>
+      <td>Forbidden</td>
+      <td>No Content</td>
+    </tr>
+  </tbody>
+</table>
+
 <h4 id="consumes-2">Consumes</h4>
 
 <ul>
@@ -312,10 +283,14 @@ PUT /rest/orchestrators/{orchestratorId}/locations/{locationId}/resources/{id}
   <li>application/json</li>
 </ul>
 
-<h3 id="delete-locations-resource">Delete location’s resource.</h3>
+<h3 id="get-a-plugin-configuration-object">Get a plugin configuration object.</h3>
 <p><code>
-DELETE /rest/orchestrators/{orchestratorId}/locations/{locationId}/resources/{id}
+GET /rest/v1/plugins/{pluginId}/config
 </code></p>
+
+<h4 id="description-2">Description</h4>
+
+<p>Retrieve a plugin configuration object.  Role required [ ADMIN ]</p>
 
 <h4 id="parameters-3">Parameters</h4>
 
@@ -333,24 +308,8 @@ DELETE /rest/orchestrators/{orchestratorId}/locations/{locationId}/resources/{id
   <tbody>
     <tr>
       <td>PathParameter</td>
-      <td>orchestratorId</td>
-      <td>Id of the orchestrator for which to delete resource template.</td>
-      <td>true</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>PathParameter</td>
-      <td>locationId</td>
-      <td>Id of the location of the orchestrator to delete resource template.</td>
-      <td>true</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>PathParameter</td>
-      <td>id</td>
-      <td>Id of the location’s resource.</td>
+      <td>pluginId</td>
+      <td>pluginId</td>
       <td>true</td>
       <td>string</td>
       <td> </td>
@@ -372,7 +331,7 @@ DELETE /rest/orchestrators/{orchestratorId}/locations/{locationId}/resources/{id
     <tr>
       <td>200</td>
       <td>OK</td>
-      <td>RestResponse«Void»</td>
+      <td>RestResponse«object»</td>
     </tr>
     <tr>
       <td>401</td>
@@ -380,13 +339,13 @@ DELETE /rest/orchestrators/{orchestratorId}/locations/{locationId}/resources/{id
       <td>No Content</td>
     </tr>
     <tr>
-      <td>204</td>
-      <td>No Content</td>
+      <td>403</td>
+      <td>Forbidden</td>
       <td>No Content</td>
     </tr>
     <tr>
-      <td>403</td>
-      <td>Forbidden</td>
+      <td>404</td>
+      <td>Not Found</td>
       <td>No Content</td>
     </tr>
   </tbody>
@@ -404,10 +363,14 @@ DELETE /rest/orchestrators/{orchestratorId}/locations/{locationId}/resources/{id
   <li>application/json</li>
 </ul>
 
-<h3 id="update-locations-resources-capability-template-capability-property">Update location’s resource’s capability template capability property.</h3>
+<h3 id="save-a-configuration-object-for-a-plugin">Save a configuration object for a plugin.</h3>
 <p><code>
-POST /rest/orchestrators/{orchestratorId}/locations/{locationId}/resources/{id}/template/capabilities/{capabilityName}/properties
+POST /rest/v1/plugins/{pluginId}/config
 </code></p>
+
+<h4 id="description-3">Description</h4>
+
+<p>Save a configuration object for a plugin. Returns the newly saved configuration.  Role required [ ADMIN ]</p>
 
 <h4 id="parameters-4">Parameters</h4>
 
@@ -425,42 +388,18 @@ POST /rest/orchestrators/{orchestratorId}/locations/{locationId}/resources/{id}/
   <tbody>
     <tr>
       <td>PathParameter</td>
-      <td>orchestratorId</td>
-      <td>Id of the orchestrator for which to update resource template capability property.</td>
-      <td>true</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>PathParameter</td>
-      <td>locationId</td>
-      <td>Id of the location of the orchestrator to update resource template capability property.</td>
-      <td>true</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>PathParameter</td>
-      <td>id</td>
-      <td>Id of the location’s resource.</td>
-      <td>true</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>PathParameter</td>
-      <td>capabilityName</td>
-      <td>Id of the location’s resource template capability.</td>
+      <td>pluginId</td>
+      <td>pluginId</td>
       <td>true</td>
       <td>string</td>
       <td> </td>
     </tr>
     <tr>
       <td>BodyParameter</td>
-      <td>updateRequest</td>
-      <td>updateRequest</td>
+      <td>configObjectRequest</td>
+      <td>configObjectRequest</td>
       <td>true</td>
-      <td>Request to update a location resource template property.</td>
+      <td>object</td>
       <td> </td>
     </tr>
   </tbody>
@@ -480,7 +419,7 @@ POST /rest/orchestrators/{orchestratorId}/locations/{locationId}/resources/{id}/
     <tr>
       <td>200</td>
       <td>OK</td>
-      <td>RestResponse«ConstraintInformation»</td>
+      <td>RestResponse«object»</td>
     </tr>
     <tr>
       <td>201</td>
@@ -517,10 +456,14 @@ POST /rest/orchestrators/{orchestratorId}/locations/{locationId}/resources/{id}/
   <li>application/json</li>
 </ul>
 
-<h3 id="update-locations-resources-template-property">Update location’s resource’s template property.</h3>
+<h3 id="disable-a-plugin">Disable a plugin.</h3>
 <p><code>
-POST /rest/orchestrators/{orchestratorId}/locations/{locationId}/resources/{id}/template/properties
+GET /rest/v1/plugins/{pluginId}/disable
 </code></p>
+
+<h4 id="description-4">Description</h4>
+
+<p>Disable a plugin (and unloads it if enabled). Note that if the plugin is used (deployment plugin for example) it won’t be disabled but will be marked as deprecated. In such situation an error code 350 is returned as part of the error and a list of plugin usages will be returned as part of the returned data. Role required [ ADMIN ]</p>
 
 <h4 id="parameters-5">Parameters</h4>
 
@@ -538,34 +481,10 @@ POST /rest/orchestrators/{orchestratorId}/locations/{locationId}/resources/{id}/
   <tbody>
     <tr>
       <td>PathParameter</td>
-      <td>orchestratorId</td>
-      <td>Id of the orchestrator for which to update resource template property.</td>
+      <td>pluginId</td>
+      <td>pluginId</td>
       <td>true</td>
       <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>PathParameter</td>
-      <td>locationId</td>
-      <td>Id of the location of the orchestrator to update resource template property.</td>
-      <td>true</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>PathParameter</td>
-      <td>id</td>
-      <td>Id of the location’s resource.</td>
-      <td>true</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>BodyParameter</td>
-      <td>updateRequest</td>
-      <td>updateRequest</td>
-      <td>true</td>
-      <td>Request to update a location resource template property.</td>
       <td> </td>
     </tr>
   </tbody>
@@ -585,12 +504,7 @@ POST /rest/orchestrators/{orchestratorId}/locations/{locationId}/resources/{id}/
     <tr>
       <td>200</td>
       <td>OK</td>
-      <td>RestResponse«ConstraintInformation»</td>
-    </tr>
-    <tr>
-      <td>201</td>
-      <td>Created</td>
-      <td>No Content</td>
+      <td>RestResponse«List«PluginUsage»»</td>
     </tr>
     <tr>
       <td>401</td>
@@ -622,8 +536,88 @@ POST /rest/orchestrators/{orchestratorId}/locations/{locationId}/resources/{id}/
   <li>application/json</li>
 </ul>
 
+<h3 id="enable-a-plugin">Enable a plugin.</h3>
+<p><code>
+GET /rest/v1/plugins/{pluginId}/enable
+</code></p>
 
-        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.3.0/rest/controller_orchestrator-location-resources.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+<h4 id="description-5">Description</h4>
+
+<p>Enable and load a plugin. Role required [ ADMIN ]</p>
+
+<h4 id="parameters-6">Parameters</h4>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>PathParameter</td>
+      <td>pluginId</td>
+      <td>pluginId</td>
+      <td>true</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="responses-6">Responses</h4>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>HTTP Code</th>
+      <th>Description</th>
+      <th>Schema</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>200</td>
+      <td>OK</td>
+      <td>RestResponse«Void»</td>
+    </tr>
+    <tr>
+      <td>401</td>
+      <td>Unauthorized</td>
+      <td>No Content</td>
+    </tr>
+    <tr>
+      <td>403</td>
+      <td>Forbidden</td>
+      <td>No Content</td>
+    </tr>
+    <tr>
+      <td>404</td>
+      <td>Not Found</td>
+      <td>No Content</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="consumes-6">Consumes</h4>
+
+<ul>
+  <li>application/json</li>
+</ul>
+
+<h4 id="produces-6">Produces</h4>
+
+<ul>
+  <li>application/json</li>
+</ul>
+
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.3.0/rest/controller_plugin-controller.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
 	  </div>
     </div>
   </div>
@@ -639,7 +633,7 @@ if(hash && hash!== null && hash.match(/html$/)) {
 <script type="text/javascript" src="/js/post-layout.js"></script>
 <script>
 $(document).ready(function () {
-  makeSideBar('DOCUMENTATION-1.3.0', 'documentation/1.3.0/rest/controller_orchestrator-location-resources.md');
+  makeSideBar('DOCUMENTATION-1.3.0', 'documentation/1.3.0/rest/controller_plugin-controller.md');
 });
 </script>
 

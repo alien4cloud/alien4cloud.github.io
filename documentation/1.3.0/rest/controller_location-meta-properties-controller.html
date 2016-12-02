@@ -7,8 +7,8 @@
 
 ga('create', 'UA-73216650-1', 'auto');
 ga('set', {
-  page: '/documentation/1.3.0/rest/controller_plugin-components.html',
-  title: 'Allow to query for enabled plugin components.'
+  page: '/documentation/1.3.0/rest/controller_location-meta-properties-controller.html',
+  title: 'Update values for meta-properties associated with locations.'
 });
 ga('send', 'pageview');
 
@@ -23,12 +23,12 @@ ga('send', 'pageview');
       <div id="content" class="col-md-9">
     
         <div style="height: 50px;">
-          <h1 class="pull-left" style="margin-top: 0px;">Allow to query for enabled plugin components.</h1>
-          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.3.0/rest/controller_plugin-components.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+          <h1 class="pull-left" style="margin-top: 0px;">Update values for meta-properties associated with locations.</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.3.0/rest/controller_location-meta-properties-controller.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
         </div>
-        <h3 id="search-for-plugin-components">Search for plugin components.</h3>
+        <h3 id="upsertmetaproperty">upsertMetaProperty</h3>
 <p><code>
-GET /rest/plugincomponents
+POST /rest/v1/orchestrators/{orchestratorId}/locations/{locationId}/properties
 </code></p>
 
 <h4 id="parameters">Parameters</h4>
@@ -46,11 +46,27 @@ GET /rest/plugincomponents
   </thead>
   <tbody>
     <tr>
-      <td>QueryParameter</td>
-      <td>type</td>
-      <td>Type of plugin component to query for.</td>
+      <td>PathParameter</td>
+      <td>orchestratorId</td>
+      <td>Id of the orchestrator for which the location is defined.</td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>PathParameter</td>
+      <td>locationId</td>
+      <td>Id of the location to get</td>
       <td>true</td>
       <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>BodyParameter</td>
+      <td>propertyRequest</td>
+      <td>Id of the location to get</td>
+      <td>true</td>
+      <td>Request to update or check the value of a property.</td>
       <td> </td>
     </tr>
   </tbody>
@@ -70,7 +86,12 @@ GET /rest/plugincomponents
     <tr>
       <td>200</td>
       <td>OK</td>
-      <td>RestResponse«List«Result for a request for specific plugin components.»»</td>
+      <td>RestResponse«ConstraintInformation»</td>
+    </tr>
+    <tr>
+      <td>201</td>
+      <td>Created</td>
+      <td>No Content</td>
     </tr>
     <tr>
       <td>401</td>
@@ -103,7 +124,7 @@ GET /rest/plugincomponents
 </ul>
 
 
-        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.3.0/rest/controller_plugin-components.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.3.0/rest/controller_location-meta-properties-controller.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
 	  </div>
     </div>
   </div>
@@ -119,7 +140,7 @@ if(hash && hash!== null && hash.match(/html$/)) {
 <script type="text/javascript" src="/js/post-layout.js"></script>
 <script>
 $(document).ready(function () {
-  makeSideBar('DOCUMENTATION-1.3.0', 'documentation/1.3.0/rest/controller_plugin-components.md');
+  makeSideBar('DOCUMENTATION-1.3.0', 'documentation/1.3.0/rest/controller_location-meta-properties-controller.md');
 });
 </script>
 

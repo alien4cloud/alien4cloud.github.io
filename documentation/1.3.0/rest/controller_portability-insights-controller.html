@@ -7,8 +7,8 @@
 
 ga('create', 'UA-73216650-1', 'auto');
 ga('set', {
-  page: '/documentation/1.3.0/rest/controller_auth-controller.html',
-  title: 'Auth Controller'
+  page: '/documentation/1.3.0/rest/controller_portability-insights-controller.html',
+  title: 'Portability Insights Controller'
 });
 ga('send', 'pageview');
 
@@ -23,17 +23,13 @@ ga('send', 'pageview');
       <div id="content" class="col-md-9">
     
         <div style="height: 50px;">
-          <h1 class="pull-left" style="margin-top: 0px;">Auth Controller</h1>
-          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.3.0/rest/controller_auth-controller.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+          <h1 class="pull-left" style="margin-top: 0px;">Portability Insights Controller</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.3.0/rest/controller_portability-insights-controller.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
         </div>
-        <h3 id="get-the-current-authentication-status-and-users-roles">Get the current authentication status and user’s roles.</h3>
+        <h3 id="get-all-the-portability-definitions">Get all the portability definitions.</h3>
 <p><code>
-GET /rest/v1/auth/status
+GET /rest/v1/portability/definitions
 </code></p>
-
-<h4 id="description">Description</h4>
-
-<p>Return the current user’s status and it’s roles.</p>
 
 <h4 id="responses">Responses</h4>
 
@@ -49,7 +45,7 @@ GET /rest/v1/auth/status
     <tr>
       <td>200</td>
       <td>OK</td>
-      <td>RestResponse«UserStatus»</td>
+      <td>RestResponse«object»</td>
     </tr>
     <tr>
       <td>401</td>
@@ -82,7 +78,7 @@ GET /rest/v1/auth/status
 </ul>
 
 
-        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.3.0/rest/controller_auth-controller.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.3.0/rest/controller_portability-insights-controller.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
 	  </div>
     </div>
   </div>
@@ -98,7 +94,7 @@ if(hash && hash!== null && hash.match(/html$/)) {
 <script type="text/javascript" src="/js/post-layout.js"></script>
 <script>
 $(document).ready(function () {
-  makeSideBar('DOCUMENTATION-1.3.0', 'documentation/1.3.0/rest/controller_auth-controller.md');
+  makeSideBar('DOCUMENTATION-1.3.0', 'documentation/1.3.0/rest/controller_portability-insights-controller.md');
 });
 </script>
 

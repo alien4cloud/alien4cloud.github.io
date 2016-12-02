@@ -7,7 +7,7 @@
 
 ga('create', 'UA-73216650-1', 'auto');
 ga('set', {
-  page: '/documentation/1.3.0/rest/definitions_admin-orchestrator-api.html',
+  page: '/documentation/1.3.0/rest/definitions_catalog-api.html',
   title: 'Definitions'
 });
 ga('send', 'pageview');
@@ -24,42 +24,14 @@ ga('send', 'pageview');
     
         <div style="height: 50px;">
           <h1 class="pull-left" style="margin-top: 0px;">Definitions</h1>
-          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.3.0/rest/definitions_admin-orchestrator-api.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.3.0/rest/definitions_catalog-api.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
         </div>
         
 <hr style="margin-top:5px; margin-bottom:5px;" />
 <div class="row"><ul class="nav nav-pills" id="summarypanel"></ul></div>
 <hr style="margin-top:5px; margin-bottom:5px;" />
 
-<h1 id="restresponseorchestratorconfiguration">RestResponse«OrchestratorConfiguration»</h1>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Required</th>
-      <th>Schema</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>data</td>
-      <td> </td>
-      <td>false</td>
-      <td>OrchestratorConfiguration</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>error</td>
-      <td> </td>
-      <td>false</td>
-      <td>RestError</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
+<h1 id="mapstringabstractstep">Map«string,AbstractStep»</h1>
 
 <h1 id="restresponselistusage">RestResponse«List«Usage»»</h1>
 
@@ -170,9 +142,7 @@ ga('send', 'pageview');
   </tbody>
 </table>
 
-<h1 id="orchestrator-update-request">Orchestrator update request.</h1>
-
-<p>A request object to pass when updating an orchestrator. Contains updatable fields. a topology deployment. An orchestrator may manage one or multiple locations.</p>
+<h1 id="recommendationrequest">RecommendationRequest</h1>
 
 <table class="table table-bordered">
   <thead>
@@ -186,10 +156,70 @@ ga('send', 'pageview');
   </thead>
   <tbody>
     <tr>
-      <td>deploymentNamePattern</td>
+      <td>capability</td>
       <td> </td>
       <td>false</td>
       <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>componentId</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="restresponsenodetype">RestResponse«NodeType»</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>data</td>
+      <td> </td>
+      <td>false</td>
+      <td>NodeType</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>error</td>
+      <td> </td>
+      <td>false</td>
+      <td>RestError</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="abstractstep">AbstractStep</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>followingSteps</td>
+      <td> </td>
+      <td>false</td>
+      <td>string array</td>
       <td> </td>
     </tr>
     <tr>
@@ -199,8 +229,17 @@ ga('send', 'pageview');
       <td>string</td>
       <td> </td>
     </tr>
+    <tr>
+      <td>precedingSteps</td>
+      <td> </td>
+      <td>false</td>
+      <td>string array</td>
+      <td> </td>
+    </tr>
   </tbody>
 </table>
+
+<h1 id="mapstringarraystring">Map«string,Array«string»»</h1>
 
 <h1 id="filterdefinition">FilterDefinition</h1>
 
@@ -220,6 +259,103 @@ ga('send', 'pageview');
       <td> </td>
       <td>false</td>
       <td>object</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="catalogversionresult">CatalogVersionResult</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>id</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>version</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="filteredsearchrequest">FilteredSearchRequest</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>filters</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>from</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int32)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>query</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>size</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int32)</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="restresponsevoid">RestResponse«Void»</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>error</td>
+      <td> </td>
+      <td>false</td>
+      <td>RestError</td>
       <td> </td>
     </tr>
   </tbody>
@@ -311,28 +447,9 @@ ga('send', 'pageview');
   </tbody>
 </table>
 
-<h1 id="restresponsevoid">RestResponse«Void»</h1>
+<h1 id="mapstringworkflow">Map«string,Workflow»</h1>
 
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Required</th>
-      <th>Schema</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>error</td>
-      <td> </td>
-      <td>false</td>
-      <td>RestError</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
+<h1 id="abstractworkflowerror">AbstractWorkflowError</h1>
 
 <h1 id="version">Version</h1>
 
@@ -385,7 +502,51 @@ ga('send', 'pageview');
   </tbody>
 </table>
 
-<h1 id="restresponselocationresourcetemplate">RestResponse«LocationResourceTemplate»</h1>
+<h1 id="createtopologyrequest">CreateTopologyRequest</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>description</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>fromTopologyId</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>name</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>version</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="restresponsecsaruploadresult">RestResponse«CsarUploadResult»</h1>
 
 <table class="table table-bordered">
   <thead>
@@ -402,7 +563,7 @@ ga('send', 'pageview');
       <td>data</td>
       <td> </td>
       <td>false</td>
-      <td>LocationResourceTemplate</td>
+      <td>CsarUploadResult</td>
       <td> </td>
     </tr>
     <tr>
@@ -415,7 +576,9 @@ ga('send', 'pageview');
   </tbody>
 </table>
 
-<h1 id="request-to-update-a-location-resource">Request to update a location resource.</h1>
+<h1 id="mapstringarrayfacetedsearchfacet">Map«string,Array«FacetedSearchFacet»»</h1>
+
+<h1 id="csaruploadresult">CsarUploadResult</h1>
 
 <table class="table table-bordered">
   <thead>
@@ -429,47 +592,17 @@ ga('send', 'pageview');
   </thead>
   <tbody>
     <tr>
-      <td>enabled</td>
-      <td>Flag to know if the resource is available to be used for configuration or matching.</td>
+      <td>csar</td>
+      <td> </td>
       <td>false</td>
-      <td>boolean</td>
+      <td>Csar</td>
       <td> </td>
     </tr>
     <tr>
-      <td>name</td>
-      <td>New name of the resource.</td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<h1 id="locationsupport">LocationSupport</h1>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Required</th>
-      <th>Schema</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>multipleLocations</td>
+      <td>errors</td>
       <td> </td>
       <td>false</td>
-      <td>boolean</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>types</td>
-      <td> </td>
-      <td>false</td>
-      <td>string array</td>
+      <td>object</td>
       <td> </td>
     </tr>
   </tbody>
@@ -528,43 +661,6 @@ ga('send', 'pageview');
       <td> </td>
       <td>false</td>
       <td>string array</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<h1 id="request-for-creation-of-a-new-orchestrators">Request for creation of a new orchestrators.</h1>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Required</th>
-      <th>Schema</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>name</td>
-      <td>Name of the orchestrators (must be unique as this allow users to identify it).</td>
-      <td>true</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>pluginBean</td>
-      <td>Id of the element of the plugin to use to manage communication with the orchestrators (plugins may have multiple components).</td>
-      <td>true</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>pluginId</td>
-      <td>Id of the plugin to use to manage communication with the orchestrators.</td>
-      <td>true</td>
-      <td>string</td>
       <td> </td>
     </tr>
   </tbody>
@@ -663,69 +759,9 @@ ga('send', 'pageview');
   </tbody>
 </table>
 
-<h1 id="locationdto">LocationDTO</h1>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Required</th>
-      <th>Schema</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>location</td>
-      <td> </td>
-      <td>false</td>
-      <td>Location</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>resources</td>
-      <td> </td>
-      <td>false</td>
-      <td>Contains the types and templates of elements configured for a given location.</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
 <h1 id="mapstringfilterdefinition">Map«string,FilterDefinition»</h1>
 
-<h1 id="updatelocationrequest">UpdateLocationRequest</h1>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Required</th>
-      <th>Schema</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>environmentType</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>name</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<h1 id="restresponsegetmultipledataresultorchestrator">RestResponse«GetMultipleDataResult«Orchestrator.»»</h1>
+<h1 id="restresponsetopology">RestResponse«Topology»</h1>
 
 <table class="table table-bordered">
   <thead>
@@ -742,7 +778,7 @@ ga('send', 'pageview');
       <td>data</td>
       <td> </td>
       <td>false</td>
-      <td>GetMultipleDataResult«Orchestrator.»</td>
+      <td>Topology</td>
       <td> </td>
     </tr>
     <tr>
@@ -750,6 +786,80 @@ ga('send', 'pageview');
       <td> </td>
       <td>false</td>
       <td>RestError</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="nodegroup">NodeGroup</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>index</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int32)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>members</td>
+      <td> </td>
+      <td>false</td>
+      <td>string array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>name</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>policies</td>
+      <td> </td>
+      <td>false</td>
+      <td>AbstractPolicy array</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="parsingcontext">ParsingContext</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>fileName</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>parsingErrors</td>
+      <td> </td>
+      <td>false</td>
+      <td>ParsingError array</td>
       <td> </td>
     </tr>
   </tbody>
@@ -780,145 +890,6 @@ ga('send', 'pageview');
       <td> </td>
       <td>false</td>
       <td>string</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<h1 id="contains-the-types-and-templates-of-elements-configured-for-a-given-location">Contains the types and templates of elements configured for a given location.</h1>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Required</th>
-      <th>Schema</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>allNodeTypes</td>
-      <td>Map that contains all node types.</td>
-      <td>false</td>
-      <td>object</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>capabilityTypes</td>
-      <td>Map that contains the capability types used by the configuration types or node types.</td>
-      <td>false</td>
-      <td>object</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>configurationTemplates</td>
-      <td>List of configuration templates already configured for the location. Usually abstract  types.</td>
-      <td>false</td>
-      <td>LocationResourceTemplate array</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>configurationTypes</td>
-      <td>Map of node types id, node type used to configure a given location.</td>
-      <td>false</td>
-      <td>object</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>nodeTemplates</td>
-      <td>List of node templates already configured for the location.</td>
-      <td>false</td>
-      <td>LocationResourceTemplate array</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>nodeTypes</td>
-      <td>Map of node types id, node type used to configure the templates of on-demand resources in a location.</td>
-      <td>false</td>
-      <td>object</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>onDemandTypes</td>
-      <td>Map that contains the on demdand types.</td>
-      <td>false</td>
-      <td>object</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<h1 id="orchestrator">Orchestrator.</h1>
-
-<p>An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connects to in order to orchestrate a topology deployment. An orchestrator may manage one or multiple locations.</p>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Required</th>
-      <th>Schema</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>authorizedGroups</td>
-      <td> </td>
-      <td>false</td>
-      <td>string array</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>authorizedUsers</td>
-      <td> </td>
-      <td>false</td>
-      <td>string array</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>deploymentNamePattern</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>id</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>name</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>pluginBean</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>pluginId</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>state</td>
-      <td> </td>
-      <td>false</td>
-      <td>enum (DISABLED, CONNECTING, CONNECTED, DISCONNECTED)</td>
       <td> </td>
     </tr>
   </tbody>
@@ -956,7 +927,7 @@ ga('send', 'pageview');
 
 <h1 id="mapstringcapability">Map«string,Capability»</h1>
 
-<h1 id="request-to-update-a-location-resource-template-property">Request to update a location resource template property.</h1>
+<h1 id="restresponselistparsingresultcsar">RestResponse«List«ParsingResult«Csar»»»</h1>
 
 <table class="table table-bordered">
   <thead>
@@ -970,17 +941,17 @@ ga('send', 'pageview');
   </thead>
   <tbody>
     <tr>
-      <td>propertyName</td>
-      <td>Name of the property to update.</td>
+      <td>data</td>
+      <td> </td>
       <td>false</td>
-      <td>string</td>
+      <td>ParsingResult«Csar» array</td>
       <td> </td>
     </tr>
     <tr>
-      <td>propertyValue</td>
-      <td>Value of the property to update, the type must be equal to the type of the property that will be updated.</td>
+      <td>error</td>
+      <td> </td>
       <td>false</td>
-      <td>object</td>
+      <td>RestError</td>
       <td> </td>
     </tr>
   </tbody>
@@ -1016,15 +987,7 @@ ga('send', 'pageview');
   </tbody>
 </table>
 
-<h1 id="mapstringinterface">Map«string,Interface»</h1>
-
-<h1 id="mapstringrelationshiptemplate">Map«string,RelationshipTemplate»</h1>
-
-<h1 id="mapstringpropertydefinition">Map«string,PropertyDefinition»</h1>
-
-<h1 id="mapstringlistpropertyconstraint">Map«string,List«PropertyConstraint»»</h1>
-
-<h1 id="restresponsearraystring">RestResponse«Array«string»»</h1>
+<h1 id="workflow">Workflow</h1>
 
 <table class="table table-bordered">
   <thead>
@@ -1038,17 +1001,290 @@ ga('send', 'pageview');
   </thead>
   <tbody>
     <tr>
-      <td>data</td>
+      <td>description</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>errors</td>
+      <td> </td>
+      <td>false</td>
+      <td>AbstractWorkflowError array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>hosts</td>
       <td> </td>
       <td>false</td>
       <td>string array</td>
       <td> </td>
     </tr>
     <tr>
-      <td>error</td>
+      <td>name</td>
       <td> </td>
       <td>false</td>
-      <td>RestError</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>standard</td>
+      <td> </td>
+      <td>false</td>
+      <td>boolean</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>steps</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="mapstringinterface">Map«string,Interface»</h1>
+
+<h1 id="mapstringrelationshiptemplate">Map«string,RelationshipTemplate»</h1>
+
+<h1 id="mapstringpropertydefinition">Map«string,PropertyDefinition»</h1>
+
+<h1 id="csargitrepository">CsarGitRepository</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>id</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>importLocations</td>
+      <td> </td>
+      <td>false</td>
+      <td>Information of the branch and eventually folder on the branch to import as an alien csar. array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>password</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>repositoryUrl</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>storedLocally</td>
+      <td> </td>
+      <td>false</td>
+      <td>boolean</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>username</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="topology">Topology</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>archiveName</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>archiveVersion</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>creationDate</td>
+      <td> </td>
+      <td>false</td>
+      <td>string (date-time)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>dependencies</td>
+      <td> </td>
+      <td>false</td>
+      <td>CSARDependency array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>description</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>empty</td>
+      <td> </td>
+      <td>false</td>
+      <td>boolean</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>groups</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>id</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>inputArtifacts</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>inputs</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>lastUpdateDate</td>
+      <td> </td>
+      <td>false</td>
+      <td>string (date-time)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>nestedVersion</td>
+      <td> </td>
+      <td>false</td>
+      <td>Version</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>nodeTemplates</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>outputAttributes</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>outputCapabilityProperties</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>outputProperties</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>substitutionMapping</td>
+      <td> </td>
+      <td>false</td>
+      <td>SubstitutionMapping</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>workflows</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>workspace</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="mapstringlistpropertyconstraint">Map«string,List«PropertyConstraint»»</h1>
+
+<h1 id="information-of-the-branch-and-eventually-folder-on-the-branch-to-import-as-an-alien-csar">Information of the branch and eventually folder on the branch to import as an alien csar.</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>branchId</td>
+      <td>Id of the git branch to import.</td>
+      <td>true</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>subPath</td>
+      <td>Optional path of the location in which lies the csar to be imported.</td>
+      <td>false</td>
+      <td>string</td>
       <td> </td>
     </tr>
   </tbody>
@@ -1156,6 +1392,8 @@ ga('send', 'pageview');
   </tbody>
 </table>
 
+<h1 id="mapstringmapstringsetstring">Map«string,Map«string,Set«string»»»</h1>
+
 <h1 id="nodetemplate">NodeTemplate</h1>
 
 <table class="table table-bordered">
@@ -1249,7 +1487,7 @@ ga('send', 'pageview');
   </tbody>
 </table>
 
-<h1 id="restresponseconstraintinformation">RestResponse«ConstraintInformation»</h1>
+<h1 id="restresponsefacetedsearchresulttopology">RestResponse«FacetedSearchResult«Topology»»</h1>
 
 <table class="table table-bordered">
   <thead>
@@ -1266,7 +1504,7 @@ ga('send', 'pageview');
       <td>data</td>
       <td> </td>
       <td>false</td>
-      <td>ConstraintInformation</td>
+      <td>FacetedSearchResult«Topology»</td>
       <td> </td>
     </tr>
     <tr>
@@ -1274,6 +1512,94 @@ ga('send', 'pageview');
       <td> </td>
       <td>false</td>
       <td>RestError</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="mapstringlistparsingerror">Map«string,List«ParsingError»»</h1>
+
+<h1 id="abstracttoscatype">AbstractToscaType</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>archiveName</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>archiveVersion</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>creationDate</td>
+      <td> </td>
+      <td>false</td>
+      <td>string (date-time)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>description</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>elementId</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>id</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>lastUpdateDate</td>
+      <td> </td>
+      <td>false</td>
+      <td>string (date-time)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>nestedVersion</td>
+      <td> </td>
+      <td>false</td>
+      <td>Version</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>tags</td>
+      <td> </td>
+      <td>false</td>
+      <td>Tag array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>workspace</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
       <td> </td>
     </tr>
   </tbody>
@@ -1449,7 +1775,7 @@ ga('send', 'pageview');
   </tbody>
 </table>
 
-<h1 id="request-for-creation-of-a-new-location">Request for creation of a new location.</h1>
+<h1 id="request-for-creation-of-a-new-csar-git-repository">Request for creation of a new csar git repository.</h1>
 
 <table class="table table-bordered">
   <thead>
@@ -1463,17 +1789,121 @@ ga('send', 'pageview');
   </thead>
   <tbody>
     <tr>
-      <td>infrastructureType</td>
-      <td>Type of the infrastructure of the new location.</td>
+      <td>importLocations</td>
+      <td>Information of branches and eventually folders to import for the given repository.</td>
+      <td>true</td>
+      <td>Information of the branch and eventually folder on the branch to import as an alien csar. array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>password</td>
+      <td>Password to access the git repository.</td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>repositoryUrl</td>
+      <td>Url of the git repository.</td>
       <td>true</td>
       <td>string</td>
       <td> </td>
     </tr>
     <tr>
-      <td>name</td>
-      <td>Name of the location (must be unique for this orchestrator as this allow users to identify it).</td>
-      <td>true</td>
+      <td>storedLocally</td>
+      <td>Flag to know if the repository should be kept on the alien4cloud server disk (so next imports will be faster).</td>
+      <td>false</td>
+      <td>boolean</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>username</td>
+      <td>Username to access the git repository.</td>
+      <td>false</td>
       <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="mapstringnodegroup">Map«string,NodeGroup»</h1>
+
+<h1 id="searchrequest">SearchRequest</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>filters</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>from</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int32)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>query</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>size</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int32)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>type</td>
+      <td> </td>
+      <td>false</td>
+      <td>enum (NODE_TYPE, CAPABILITY_TYPE, RELATIONSHIP_TYPE, ARTIFACT_TYPE)</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="parsingresultcsar">ParsingResult«Csar»</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>context</td>
+      <td> </td>
+      <td>false</td>
+      <td>ParsingContext</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>result</td>
+      <td> </td>
+      <td>false</td>
+      <td>Csar</td>
       <td> </td>
     </tr>
   </tbody>
@@ -1509,9 +1939,7 @@ ga('send', 'pageview');
   </tbody>
 </table>
 
-<h1 id="mapstringnodetype">Map«string,NodeType»</h1>
-
-<h1 id="request-for-creation-of-a-new-locations-resource">Request for creation of a new location’s resource.</h1>
+<h1 id="simplemark">SimpleMark</h1>
 
 <table class="table table-bordered">
   <thead>
@@ -1525,102 +1953,23 @@ ga('send', 'pageview');
   </thead>
   <tbody>
     <tr>
-      <td>resourceName</td>
-      <td>Name of the location’s resource.</td>
-      <td>true</td>
-      <td>string</td>
+      <td>column</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int32)</td>
       <td> </td>
     </tr>
     <tr>
-      <td>resourceType</td>
-      <td>Type of the location’s resource.</td>
-      <td>true</td>
-      <td>string</td>
+      <td>line</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int32)</td>
       <td> </td>
     </tr>
   </tbody>
 </table>
 
-<h1 id="locationresourcetemplate">LocationResourceTemplate</h1>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Required</th>
-      <th>Schema</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>enabled</td>
-      <td> </td>
-      <td>false</td>
-      <td>boolean</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>generated</td>
-      <td> </td>
-      <td>false</td>
-      <td>boolean</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>id</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>locationId</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>name</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>portabilityDefinitions</td>
-      <td> </td>
-      <td>false</td>
-      <td>object</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>service</td>
-      <td> </td>
-      <td>false</td>
-      <td>boolean</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>template</td>
-      <td> </td>
-      <td>false</td>
-      <td>NodeTemplate</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>types</td>
-      <td> </td>
-      <td>false</td>
-      <td>string array</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<h1 id="restresponselocationdto">RestResponse«LocationDTO»</h1>
+<h1 id="restresponsegetmultipledataresultcsargitrepository">RestResponse«GetMultipleDataResult«CsarGitRepository»»</h1>
 
 <table class="table table-bordered">
   <thead>
@@ -1637,7 +1986,7 @@ ga('send', 'pageview');
       <td>data</td>
       <td> </td>
       <td>false</td>
-      <td>LocationDTO</td>
+      <td>GetMultipleDataResult«CsarGitRepository»</td>
       <td> </td>
     </tr>
     <tr>
@@ -1645,6 +1994,36 @@ ga('send', 'pageview');
       <td> </td>
       <td>false</td>
       <td>RestError</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="updatetagrequest">UpdateTagRequest</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>tagKey</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>tagValue</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
       <td> </td>
     </tr>
   </tbody>
@@ -1703,6 +2082,140 @@ ga('send', 'pageview');
   </tbody>
 </table>
 
+<h1 id="substitutionmapping">SubstitutionMapping</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>capabilities</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>requirements</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>substitutionType</td>
+      <td> </td>
+      <td>false</td>
+      <td>NodeType</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="restresponseabstracttoscatype">RestResponse«AbstractToscaType»</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>data</td>
+      <td> </td>
+      <td>false</td>
+      <td>AbstractToscaType</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>error</td>
+      <td> </td>
+      <td>false</td>
+      <td>RestError</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="facetedsearchresultabstracttoscatype">FacetedSearchResult«AbstractToscaType»</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>data</td>
+      <td> </td>
+      <td>false</td>
+      <td>AbstractToscaType array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>facets</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>from</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int32)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>queryDuration</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int64)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>to</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int32)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>totalResults</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int64)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>types</td>
+      <td> </td>
+      <td>false</td>
+      <td>string array</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="mapstringsubstitutiontarget">Map«string,SubstitutionTarget»</h1>
+
 <h1 id="propertyconstraint">PropertyConstraint</h1>
 
 <h1 id="ivalue">IValue</h1>
@@ -1723,6 +2236,36 @@ ga('send', 'pageview');
       <td> </td>
       <td>false</td>
       <td>boolean</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="restresponsefacetedsearchresultabstracttoscatype">RestResponse«FacetedSearchResult«AbstractToscaType»»</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>data</td>
+      <td> </td>
+      <td>false</td>
+      <td>FacetedSearchResult«AbstractToscaType»</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>error</td>
+      <td> </td>
+      <td>false</td>
+      <td>RestError</td>
       <td> </td>
     </tr>
   </tbody>
@@ -1760,7 +2303,37 @@ ga('send', 'pageview');
 
 <h1 id="mapstringsetstring">Map«string,Set«string»»</h1>
 
-<h1 id="restresponselistlocationdto">RestResponse«List«LocationDTO»»</h1>
+<h1 id="abstractpolicy">AbstractPolicy</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>name</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>type</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="facetedsearchresulttopology">FacetedSearchResult«Topology»</h1>
 
 <table class="table table-bordered">
   <thead>
@@ -1777,22 +2350,55 @@ ga('send', 'pageview');
       <td>data</td>
       <td> </td>
       <td>false</td>
-      <td>LocationDTO array</td>
+      <td>Topology array</td>
       <td> </td>
     </tr>
     <tr>
-      <td>error</td>
+      <td>facets</td>
       <td> </td>
       <td>false</td>
-      <td>RestError</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>from</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int32)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>queryDuration</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int64)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>to</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int32)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>totalResults</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int64)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>types</td>
+      <td> </td>
+      <td>false</td>
+      <td>string array</td>
       <td> </td>
     </tr>
   </tbody>
 </table>
 
-<h1 id="mapstringivalue">Map«string,IValue»</h1>
-
-<h1 id="capabilitytype">CapabilityType</h1>
+<h1 id="facetedsearchresult">FacetedSearchResult</h1>
 
 <table class="table table-bordered">
   <thead>
@@ -1806,45 +2412,96 @@ ga('send', 'pageview');
   </thead>
   <tbody>
     <tr>
-      <td>abstract</td>
+      <td>data</td>
       <td> </td>
       <td>false</td>
-      <td>boolean</td>
+      <td>object array</td>
       <td> </td>
     </tr>
     <tr>
-      <td>archiveName</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>archiveVersion</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>attributes</td>
+      <td>facets</td>
       <td> </td>
       <td>false</td>
       <td>object</td>
       <td> </td>
     </tr>
     <tr>
-      <td>creationDate</td>
+      <td>from</td>
       <td> </td>
       <td>false</td>
-      <td>string (date-time)</td>
+      <td>integer (int32)</td>
       <td> </td>
     </tr>
     <tr>
-      <td>derivedFrom</td>
+      <td>queryDuration</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int64)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>to</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int32)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>totalResults</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int64)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>types</td>
       <td> </td>
       <td>false</td>
       <td>string array</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="csar">Csar</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>definitionHash</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>delegateId</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>delegateType</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>dependencies</td>
+      <td> </td>
+      <td>false</td>
+      <td>CSARDependency array</td>
       <td> </td>
     </tr>
     <tr>
@@ -1855,7 +2512,7 @@ ga('send', 'pageview');
       <td> </td>
     </tr>
     <tr>
-      <td>elementId</td>
+      <td>hash</td>
       <td> </td>
       <td>false</td>
       <td>string</td>
@@ -1869,10 +2526,31 @@ ga('send', 'pageview');
       <td> </td>
     </tr>
     <tr>
-      <td>lastUpdateDate</td>
+      <td>importDate</td>
       <td> </td>
       <td>false</td>
       <td>string (date-time)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>importSource</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>license</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>name</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
       <td> </td>
     </tr>
     <tr>
@@ -1883,13 +2561,6 @@ ga('send', 'pageview');
       <td> </td>
     </tr>
     <tr>
-      <td>properties</td>
-      <td> </td>
-      <td>false</td>
-      <td>object</td>
-      <td> </td>
-    </tr>
-    <tr>
       <td>tags</td>
       <td> </td>
       <td>false</td>
@@ -1897,14 +2568,42 @@ ga('send', 'pageview');
       <td> </td>
     </tr>
     <tr>
-      <td>validSources</td>
+      <td>templateAuthor</td>
       <td> </td>
       <td>false</td>
-      <td>string array</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>toscaDefaultNamespace</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>toscaDefinitionsVersion</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>version</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
       <td> </td>
     </tr>
     <tr>
       <td>workspace</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>yamlFilePath</td>
       <td> </td>
       <td>false</td>
       <td>string</td>
@@ -1957,7 +2656,9 @@ ga('send', 'pageview');
   </tbody>
 </table>
 
-<h1 id="getmultipledataresultorchestrator">GetMultipleDataResult«Orchestrator.»</h1>
+<h1 id="mapstringivalue">Map«string,IValue»</h1>
+
+<h1 id="getmultipledataresultcsargitrepository">GetMultipleDataResult«CsarGitRepository»</h1>
 
 <table class="table table-bordered">
   <thead>
@@ -1974,7 +2675,7 @@ ga('send', 'pageview');
       <td>data</td>
       <td> </td>
       <td>false</td>
-      <td>Orchestrator. array</td>
+      <td>CsarGitRepository array</td>
       <td> </td>
     </tr>
     <tr>
@@ -2017,7 +2718,7 @@ ga('send', 'pageview');
 
 <h1 id="mapstringrequirement">Map«string,Requirement»</h1>
 
-<h1 id="restresponseorchestrator">RestResponse«Orchestrator.»</h1>
+<h1 id="restresponsearraycatalogversionresult">RestResponse«Array«CatalogVersionResult»»</h1>
 
 <table class="table table-bordered">
   <thead>
@@ -2034,7 +2735,7 @@ ga('send', 'pageview');
       <td>data</td>
       <td> </td>
       <td>false</td>
-      <td>Orchestrator.</td>
+      <td>CatalogVersionResult array</td>
       <td> </td>
     </tr>
     <tr>
@@ -2047,7 +2748,7 @@ ga('send', 'pageview');
   </tbody>
 </table>
 
-<h1 id="constraintinformation">ConstraintInformation</h1>
+<h1 id="csarinfodto">CsarInfoDTO</h1>
 
 <table class="table table-bordered">
   <thead>
@@ -2061,35 +2762,44 @@ ga('send', 'pageview');
   </thead>
   <tbody>
     <tr>
-      <td>name</td>
+      <td>csar</td>
+      <td> </td>
+      <td>false</td>
+      <td>Csar</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>relatedResources</td>
+      <td> </td>
+      <td>false</td>
+      <td>Usage array</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="substitutiontarget">SubstitutionTarget</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>nodeTemplateName</td>
       <td> </td>
       <td>false</td>
       <td>string</td>
       <td> </td>
     </tr>
     <tr>
-      <td>path</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>reference</td>
-      <td> </td>
-      <td>false</td>
-      <td>object</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>type</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>value</td>
+      <td>targetId</td>
       <td> </td>
       <td>false</td>
       <td>string</td>
@@ -2098,7 +2808,7 @@ ga('send', 'pageview');
   </tbody>
 </table>
 
-<h1 id="restresponselocationsupport">RestResponse«LocationSupport»</h1>
+<h1 id="restresponsecsarinfodto">RestResponse«CsarInfoDTO»</h1>
 
 <table class="table table-bordered">
   <thead>
@@ -2115,37 +2825,7 @@ ga('send', 'pageview');
       <td>data</td>
       <td> </td>
       <td>false</td>
-      <td>LocationSupport</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>error</td>
-      <td> </td>
-      <td>false</td>
-      <td>RestError</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<h1 id="restresponselistlocationresourcetemplate">RestResponse«List«LocationResourceTemplate»»</h1>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Required</th>
-      <th>Schema</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>data</td>
-      <td> </td>
-      <td>false</td>
-      <td>LocationResourceTemplate array</td>
+      <td>CsarInfoDTO</td>
       <td> </td>
     </tr>
     <tr>
@@ -2232,36 +2912,6 @@ ga('send', 'pageview');
 
 <h1 id="mapstringabstractpropertyvalue">Map«string,AbstractPropertyValue»</h1>
 
-<h1 id="orchestratorconfiguration">OrchestratorConfiguration</h1>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Required</th>
-      <th>Schema</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>configuration</td>
-      <td> </td>
-      <td>false</td>
-      <td>object</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>id</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
 <h1 id="csardependency">CSARDependency</h1>
 
 <table class="table table-bordered">
@@ -2299,13 +2949,9 @@ ga('send', 'pageview');
   </tbody>
 </table>
 
-<h1 id="mapstringcapabilitytype">Map«string,CapabilityType»</h1>
+<h1 id="mapstringnodetemplate">Map«string,NodeTemplate»</h1>
 
-<h1 id="mapstringstring">Map«string,string»</h1>
-
-<h1 id="mapstringdeploymentartifact">Map«string,DeploymentArtifact»</h1>
-
-<h1 id="request-to-update-or-check-the-value-of-a-property">Request to update or check the value of a property.</h1>
+<h1 id="parsingerror">ParsingError</h1>
 
 <table class="table table-bordered">
   <thead>
@@ -2319,23 +2965,157 @@ ga('send', 'pageview');
   </thead>
   <tbody>
     <tr>
-      <td>definitionId</td>
-      <td>Id of the property to set.</td>
-      <td>true</td>
+      <td>context</td>
+      <td> </td>
+      <td>false</td>
       <td>string</td>
       <td> </td>
     </tr>
     <tr>
-      <td>value</td>
-      <td>Value to set for the property.</td>
-      <td>true</td>
+      <td>endMark</td>
+      <td> </td>
+      <td>false</td>
+      <td>SimpleMark</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>errorCode</td>
+      <td> </td>
+      <td>false</td>
+      <td>enum (INVALID_YAML, CSAR_ALREADY_INDEXED, CSAR_ALREADY_EXISTS, CSAR_ALREADY_EXISTS_IN_ANOTHER_WORKSPACE, DEPENDENCY_NOT_VISIBLE_FROM_TARGET_WORKSPACE, CSAR_USED_IN_ACTIVE_DEPLOYMENT, SINGLE_DEFINITION_SUPPORTED, ENTRY_DEFINITION_NOT_FOUND, ERRONEOUS_ARCHIVE_FILE, SYNTAX_ERROR, MISSING_TOSCA_VERSION, UNKNOWN_TOSCA_VERSION, TOSCA_VERSION_NOT_FIRST, UNRECOGNIZED_PROPERTY, UNKNWON_DISCRIMINATOR_KEY, MISSING_FILE, FAILED_TO_READ_FILE, DUPLICATED_ELEMENT_DECLARATION, TYPE_NOT_FOUND, CYCLIC_DERIVED_FROM, INVALID_ICON_FORMAT, ALIEN_MAPPING_ERROR, VALIDATION_ERROR, UNKNOWN_CONSTRAINT, INVALID_CONSTRAINT, MISSING_DEPENDENCY, SNAPSHOT_DEPENDENCY, INVALID_SCALAR_UNIT, POTENTIAL_BAD_PROPERTY_VALUE, UNKNOWN_ARTIFACT_KEY, UNKNOWN_REPOSITORY, INVALID_ARTIFACT_REFERENCE, UNRESOLVED_ARTIFACT, TOPOLOGY_DETECTED, TOPOLOGY_UPDATED, MISSING_TOPOLOGY_INPUT, YAML_SEQUENCE_EXPECTED, YAML_MAPPING_NODE_EXPECTED, YAML_SCALAR_NODE_EXPECTED, UNKNOWN_CAPABILITY, REQUIREMENT_TARGET_NODE_TEMPLATE_NAME_REQUIRED, REQUIREMENT_NOT_FOUND, REQUIREMENT_TARGET_NOT_FOUND, REQUIREMENT_CAPABILITY_NOT_FOUND, OUTPUTS_BAD_PARAMS_COUNT, OUTPUTS_UNKNOWN_FUNCTION, UNKOWN_GROUP_POLICY, UNKOWN_GROUP_MEMBER, EMPTY_TOPOLOGY, UNKNWON_WORKFLOW_STEP, WORKFLOW_HAS_ERRORS, INVALID_NODE_TEMPLATE_NAME, TOSCA_TYPE_ALREADY_EXISTS_IN_OTHER_CSAR, DEPENDENCY_VERSION_CONFLICT)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>errorLevel</td>
+      <td> </td>
+      <td>false</td>
+      <td>enum (ERROR, WARNING, INFO)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>note</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>problem</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>startMark</td>
+      <td> </td>
+      <td>false</td>
+      <td>SimpleMark</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="elementfromarchiverequest">ElementFromArchiveRequest</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>componentType</td>
+      <td> </td>
+      <td>false</td>
+      <td>enum (NODE_TYPE, CAPABILITY_TYPE, RELATIONSHIP_TYPE, ARTIFACT_TYPE)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>dependencies</td>
+      <td> </td>
+      <td>false</td>
+      <td>CSARDependency array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>elementName</td>
+      <td> </td>
+      <td>false</td>
       <td>string</td>
       <td> </td>
     </tr>
   </tbody>
 </table>
 
+<h1 id="mapstringdeploymentartifact">Map«string,DeploymentArtifact»</h1>
+
+<h1 id="restresponsefacetedsearchresult">RestResponse«FacetedSearchResult»</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>data</td>
+      <td> </td>
+      <td>false</td>
+      <td>FacetedSearchResult</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>error</td>
+      <td> </td>
+      <td>false</td>
+      <td>RestError</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
 <h1 id="mapstringliststring">Map«string,List«string»»</h1>
+
+<h1 id="restresponsecsargitrepository">RestResponse«CsarGitRepository»</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>data</td>
+      <td> </td>
+      <td>false</td>
+      <td>CsarGitRepository</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>error</td>
+      <td> </td>
+      <td>false</td>
+      <td>RestError</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
 
 <h1 id="tag">Tag</h1>
 
@@ -2427,101 +3207,6 @@ ga('send', 'pageview');
   </tbody>
 </table>
 
-<h1 id="location">Location</h1>
-
-<p>A location represents a cloud, a region of a cloud, a set of machines and resources.basically any location on which alien will be allowed to perform deployment. Locations are managed by orchestrators.</p>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Required</th>
-      <th>Schema</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>creationDate</td>
-      <td> </td>
-      <td>false</td>
-      <td>string (date-time)</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>dependencies</td>
-      <td> </td>
-      <td>false</td>
-      <td>CSARDependency array</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>environmentType</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>groupRoles</td>
-      <td> </td>
-      <td>false</td>
-      <td>object</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>id</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>infrastructureType</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>lastUpdateDate</td>
-      <td> </td>
-      <td>false</td>
-      <td>string (date-time)</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>metaProperties</td>
-      <td> </td>
-      <td>false</td>
-      <td>object</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>name</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>orchestratorId</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>userRoles</td>
-      <td> </td>
-      <td>false</td>
-      <td>object</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
 <h1 id="nodefilter">NodeFilter</h1>
 
 <table class="table table-bordered">
@@ -2553,7 +3238,7 @@ ga('send', 'pageview');
 </table>
 
 
-        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.3.0/rest/definitions_admin-orchestrator-api.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.3.0/rest/definitions_catalog-api.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
 	  </div>
     </div>
   </div>
@@ -2569,7 +3254,7 @@ if(hash && hash!== null && hash.match(/html$/)) {
 <script type="text/javascript" src="/js/post-layout.js"></script>
 <script>
 $(document).ready(function () {
-  makeSideBar('DOCUMENTATION-1.3.0', 'documentation/1.3.0/rest/definitions_admin-orchestrator-api.md');
+  makeSideBar('DOCUMENTATION-1.3.0', 'documentation/1.3.0/rest/definitions_catalog-api.md');
 });
 </script>
 

@@ -28,7 +28,7 @@ ga('send', 'pageview');
         </div>
         <h3 id="create-a-new-user-in-alien">Create a new user in ALIEN.</h3>
 <p><code>
-POST /rest/users
+POST /rest/v1/users
 </code></p>
 
 <h4 id="parameters">Parameters</h4>
@@ -109,7 +109,7 @@ POST /rest/users
 
 <h3 id="get-multiple-users-from-their-usernames">Get multiple users from their usernames.</h3>
 <p><code>
-POST /rest/users/getUsers
+POST /rest/v1/users/getUsers
 </code></p>
 
 <h4 id="description">Description</h4>
@@ -194,7 +194,7 @@ POST /rest/users/getUsers
 
 <h3 id="search-for-users-registered-in-alien">Search for user’s registered in alien.</h3>
 <p><code>
-POST /rest/users/search
+POST /rest/v1/users/search
 </code></p>
 
 <h4 id="parameters-2">Parameters</h4>
@@ -275,7 +275,7 @@ POST /rest/users/search
 
 <h3 id="get-a-user-based-on-its-username">Get a user based on it’s username.</h3>
 <p><code>
-GET /rest/users/{username}
+GET /rest/v1/users/{username}
 </code></p>
 
 <h4 id="description-1">Description</h4>
@@ -355,7 +355,7 @@ GET /rest/users/{username}
 
 <h3 id="update-an-user-by-merging-the-userupdaterequest-into-the-existing-user">Update an user by merging the userUpdateRequest into the existing user</h3>
 <p><code>
-PUT /rest/users/{username}
+PUT /rest/v1/users/{username}
 </code></p>
 
 <h4 id="parameters-4">Parameters</h4>
@@ -444,7 +444,7 @@ PUT /rest/users/{username}
 
 <h3 id="delete-an-existing-user-from-the-internal-users-repository">Delete an existing user from the internal user’s repository.</h3>
 <p><code>
-DELETE /rest/users/{username}
+DELETE /rest/v1/users/{username}
 </code></p>
 
 <h4 id="parameters-5">Parameters</h4>
@@ -520,7 +520,7 @@ DELETE /rest/users/{username}
 
 <h3 id="add-a-role-to-a-user">Add a role to a user.</h3>
 <p><code>
-PUT /rest/users/{username}/roles/{role}
+PUT /rest/v1/users/{username}/roles/{role}
 </code></p>
 
 <h4 id="parameters-6">Parameters</h4>
@@ -609,7 +609,7 @@ PUT /rest/users/{username}/roles/{role}
 
 <h3 id="remove-a-role-from-a-user">Remove a role from a user.</h3>
 <p><code>
-DELETE /rest/users/{username}/roles/{role}
+DELETE /rest/v1/users/{username}/roles/{role}
 </code></p>
 
 <h4 id="parameters-7">Parameters</h4>

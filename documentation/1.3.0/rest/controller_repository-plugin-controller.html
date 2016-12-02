@@ -7,8 +7,8 @@
 
 ga('create', 'UA-73216650-1', 'auto');
 ga('set', {
-  page: '/documentation/1.3.0/rest/controller_location-matching.html',
-  title: 'Get matching options for a given topology.'
+  page: '/documentation/1.3.0/rest/controller_repository-plugin-controller.html',
+  title: 'Allow to list all repository plugins (artifact resolver).'
 });
 ga('send', 'pageview');
 
@@ -23,38 +23,13 @@ ga('send', 'pageview');
       <div id="content" class="col-md-9">
     
         <div style="height: 50px;">
-          <h1 class="pull-left" style="margin-top: 0px;">Get matching options for a given topology.</h1>
-          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.3.0/rest/controller_location-matching.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+          <h1 class="pull-left" style="margin-top: 0px;">Allow to list all repository plugins (artifact resolver).</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.3.0/rest/controller_repository-plugin-controller.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
         </div>
-        <h3 id="retrieve-the-list-of-locations-on-which-the-current-user-can-deploy-the-topology">Retrieve the list of locations on which the current user can deploy the topology.</h3>
+        <h3 id="search-for-repository-resolver-plugins">Search for repository resolver plugins.</h3>
 <p><code>
-GET /rest/topologies/{topologyId}/locations
+GET /rest/v1/repository-plugins
 </code></p>
-
-<h4 id="parameters">Parameters</h4>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Type</th>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Required</th>
-      <th>Schema</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>PathParameter</td>
-      <td>topologyId</td>
-      <td>topologyId</td>
-      <td>true</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
 
 <h4 id="responses">Responses</h4>
 
@@ -70,7 +45,7 @@ GET /rest/topologies/{topologyId}/locations
     <tr>
       <td>200</td>
       <td>OK</td>
-      <td>RestResponse«List«ILocationMatch»»</td>
+      <td>RestResponse«List«RepositoryPluginComponent»»</td>
     </tr>
     <tr>
       <td>401</td>
@@ -103,7 +78,7 @@ GET /rest/topologies/{topologyId}/locations
 </ul>
 
 
-        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.3.0/rest/controller_location-matching.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.3.0/rest/controller_repository-plugin-controller.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
 	  </div>
     </div>
   </div>
@@ -119,7 +94,7 @@ if(hash && hash!== null && hash.match(/html$/)) {
 <script type="text/javascript" src="/js/post-layout.js"></script>
 <script>
 $(document).ready(function () {
-  makeSideBar('DOCUMENTATION-1.3.0', 'documentation/1.3.0/rest/controller_location-matching.md');
+  makeSideBar('DOCUMENTATION-1.3.0', 'documentation/1.3.0/rest/controller_repository-plugin-controller.md');
 });
 </script>
 

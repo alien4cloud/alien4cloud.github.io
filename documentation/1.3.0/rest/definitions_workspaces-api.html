@@ -7,7 +7,7 @@
 
 ga('create', 'UA-73216650-1', 'auto');
 ga('set', {
-  page: '/documentation/1.3.0/rest/definitions_admin-metaproperties-api.html',
+  page: '/documentation/1.3.0/rest/definitions_workspaces-api.html',
   title: 'Definitions'
 });
 ga('send', 'pageview');
@@ -24,12 +24,161 @@ ga('send', 'pageview');
     
         <div style="height: 50px;">
           <h1 class="pull-left" style="margin-top: 0px;">Definitions</h1>
-          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.3.0/rest/definitions_admin-metaproperties-api.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.3.0/rest/definitions_workspaces-api.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
         </div>
         
 <hr style="margin-top:5px; margin-bottom:5px;" />
 <div class="row"><ul class="nav nav-pills" id="summarypanel"></ul></div>
 <hr style="margin-top:5px; margin-bottom:5px;" />
+
+<h1 id="csar">Csar</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>definitionHash</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>delegateId</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>delegateType</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>dependencies</td>
+      <td> </td>
+      <td>false</td>
+      <td>CSARDependency array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>description</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>hash</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>id</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>importDate</td>
+      <td> </td>
+      <td>false</td>
+      <td>string (date-time)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>importSource</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>license</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>name</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>nestedVersion</td>
+      <td> </td>
+      <td>false</td>
+      <td>Version</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>tags</td>
+      <td> </td>
+      <td>false</td>
+      <td>Tag array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>templateAuthor</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>toscaDefaultNamespace</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>toscaDefinitionsVersion</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>version</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>workspace</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>yamlFilePath</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
 
 <h1 id="searchrequest">SearchRequest</h1>
 
@@ -82,7 +231,51 @@ ga('send', 'pageview');
   </tbody>
 </table>
 
-<h1 id="restresponsetagconfigurationsaveresponse">RestResponse«TagConfigurationSaveResponse»</h1>
+<h1 id="usage">Usage</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>resourceId</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>resourceName</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>resourceType</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>workspace</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="restresponsestring">RestResponse«string»</h1>
 
 <table class="table table-bordered">
   <thead>
@@ -99,7 +292,7 @@ ga('send', 'pageview');
       <td>data</td>
       <td> </td>
       <td>false</td>
-      <td>TagConfigurationSaveResponse</td>
+      <td>string</td>
       <td> </td>
     </tr>
     <tr>
@@ -112,109 +305,7 @@ ga('send', 'pageview');
   </tbody>
 </table>
 
-<h1 id="propertyvalue">PropertyValue</h1>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Required</th>
-      <th>Schema</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>definition</td>
-      <td> </td>
-      <td>false</td>
-      <td>boolean</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>value</td>
-      <td> </td>
-      <td>false</td>
-      <td>object</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<h1 id="propertydefinition">PropertyDefinition</h1>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Required</th>
-      <th>Schema</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>constraints</td>
-      <td> </td>
-      <td>false</td>
-      <td>PropertyConstraint array</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>default</td>
-      <td> </td>
-      <td>false</td>
-      <td>PropertyValue</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>definition</td>
-      <td> </td>
-      <td>false</td>
-      <td>boolean</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>description</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>password</td>
-      <td> </td>
-      <td>false</td>
-      <td>boolean</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>required</td>
-      <td> </td>
-      <td>false</td>
-      <td>boolean</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>suggestionId</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>type</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<h1 id="restresponsemetapropconfiguration">RestResponse«MetaPropConfiguration»</h1>
+<h1 id="restresponsepromotionrequest">RestResponse«PromotionRequest»</h1>
 
 <table class="table table-bordered">
   <thead>
@@ -231,7 +322,7 @@ ga('send', 'pageview');
       <td>data</td>
       <td> </td>
       <td>false</td>
-      <td>MetaPropConfiguration</td>
+      <td>PromotionRequest</td>
       <td> </td>
     </tr>
     <tr>
@@ -244,9 +335,11 @@ ga('send', 'pageview');
   </tbody>
 </table>
 
-<h1 id="mapstringarraystring">Map«string,Array«string»»</h1>
+<h1 id="mapstringlistusage">Map«string,List«Usage»»</h1>
 
-<h1 id="metapropconfiguration">MetaPropConfiguration</h1>
+<h1 id="mapstringcsar">Map«string,Csar»</h1>
+
+<h1 id="csardependency">CSARDependency</h1>
 
 <table class="table table-bordered">
   <thead>
@@ -260,42 +353,7 @@ ga('send', 'pageview');
   </thead>
   <tbody>
     <tr>
-      <td>constraints</td>
-      <td> </td>
-      <td>false</td>
-      <td>PropertyConstraint array</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>default</td>
-      <td> </td>
-      <td>false</td>
-      <td>PropertyValue</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>definition</td>
-      <td> </td>
-      <td>false</td>
-      <td>boolean</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>description</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>entrySchema</td>
-      <td> </td>
-      <td>false</td>
-      <td>PropertyDefinition</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>id</td>
+      <td>hash</td>
       <td> </td>
       <td>false</td>
       <td>string</td>
@@ -309,35 +367,7 @@ ga('send', 'pageview');
       <td> </td>
     </tr>
     <tr>
-      <td>password</td>
-      <td> </td>
-      <td>false</td>
-      <td>boolean</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>required</td>
-      <td> </td>
-      <td>false</td>
-      <td>boolean</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>suggestionId</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>target</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>type</td>
+      <td>version</td>
       <td> </td>
       <td>false</td>
       <td>string</td>
@@ -346,9 +376,9 @@ ga('send', 'pageview');
   </tbody>
 </table>
 
-<h1 id="propertyconstraint">PropertyConstraint</h1>
+<h1 id="mapstringarraystring">Map«string,Array«string»»</h1>
 
-<h1 id="restresponsevoid">RestResponse«Void»</h1>
+<h1 id="restresponselistworkspace">RestResponse«List«Workspace»»</h1>
 
 <table class="table table-bordered">
   <thead>
@@ -361,6 +391,13 @@ ga('send', 'pageview');
     </tr>
   </thead>
   <tbody>
+    <tr>
+      <td>data</td>
+      <td> </td>
+      <td>false</td>
+      <td>Workspace array</td>
+      <td> </td>
+    </tr>
     <tr>
       <td>error</td>
       <td> </td>
@@ -371,7 +408,7 @@ ga('send', 'pageview');
   </tbody>
 </table>
 
-<h1 id="tagconfigurationsaveresponse">TagConfigurationSaveResponse</h1>
+<h1 id="version">Version</h1>
 
 <table class="table table-bordered">
   <thead>
@@ -385,17 +422,75 @@ ga('send', 'pageview');
   </thead>
   <tbody>
     <tr>
-      <td>id</td>
+      <td>buildNumber</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int32)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>incrementalVersion</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int32)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>majorVersion</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int32)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>minorVersion</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int32)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>qualifier</td>
       <td> </td>
       <td>false</td>
       <td>string</td>
       <td> </td>
     </tr>
+  </tbody>
+</table>
+
+<h1 id="csarpromotionimpact">CSARPromotionImpact</h1>
+
+<table class="table table-bordered">
+  <thead>
     <tr>
-      <td>validationErrors</td>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>currentUsages</td>
       <td> </td>
       <td>false</td>
-      <td>TagConfigurationValidationError array</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>hasWriteAccessOnTarget</td>
+      <td> </td>
+      <td>false</td>
+      <td>boolean</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>impactedCsars</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
       <td> </td>
     </tr>
   </tbody>
@@ -423,6 +518,136 @@ ga('send', 'pageview');
     </tr>
     <tr>
       <td>message</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="promotionrequest">PromotionRequest</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>csarName</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>csarVersion</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>id</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>processDate</td>
+      <td> </td>
+      <td>false</td>
+      <td>string (date-time)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>processUser</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>requestDate</td>
+      <td> </td>
+      <td>false</td>
+      <td>string (date-time)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>requestUser</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>status</td>
+      <td> </td>
+      <td>false</td>
+      <td>enum (INIT, ACCEPTED, REFUSED)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>targetWorkspace</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="createtopologyrequest">CreateTopologyRequest</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>description</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>fromTopologyId</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>name</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>version</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>workspace</td>
       <td> </td>
       <td>false</td>
       <td>string</td>
@@ -463,7 +688,7 @@ ga('send', 'pageview');
 
 <h1 id="mapstringarrayfacetedsearchfacet">Map«string,Array«FacetedSearchFacet»»</h1>
 
-<h1 id="tagconfigurationvalidationerror">TagConfigurationValidationError</h1>
+<h1 id="restresponsecsarpromotionimpact">RestResponse«CSARPromotionImpact»</h1>
 
 <table class="table table-bordered">
   <thead>
@@ -477,14 +702,44 @@ ga('send', 'pageview');
   </thead>
   <tbody>
     <tr>
+      <td>data</td>
+      <td> </td>
+      <td>false</td>
+      <td>CSARPromotionImpact</td>
+      <td> </td>
+    </tr>
+    <tr>
       <td>error</td>
+      <td> </td>
+      <td>false</td>
+      <td>RestError</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="tag">Tag</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>name</td>
       <td> </td>
       <td>false</td>
       <td>string</td>
       <td> </td>
     </tr>
     <tr>
-      <td>path</td>
+      <td>value</td>
       <td> </td>
       <td>false</td>
       <td>string</td>
@@ -558,8 +813,52 @@ ga('send', 'pageview');
   </tbody>
 </table>
 
+<h1 id="workspace">Workspace</h1>
 
-        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.3.0/rest/definitions_admin-metaproperties-api.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>id</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>name</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>roles</td>
+      <td> </td>
+      <td>false</td>
+      <td>enum (ADMIN, APPLICATIONS_MANAGER, ARCHITECT, COMPONENTS_MANAGER, COMPONENTS_BROWSER) array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>scope</td>
+      <td> </td>
+      <td>false</td>
+      <td>enum (user, group, app, ALIEN_GLOBAL_WORKSPACE)</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.3.0/rest/definitions_workspaces-api.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
 	  </div>
     </div>
   </div>
@@ -575,7 +874,7 @@ if(hash && hash!== null && hash.match(/html$/)) {
 <script type="text/javascript" src="/js/post-layout.js"></script>
 <script>
 $(document).ready(function () {
-  makeSideBar('DOCUMENTATION-1.3.0', 'documentation/1.3.0/rest/definitions_admin-metaproperties-api.md');
+  makeSideBar('DOCUMENTATION-1.3.0', 'documentation/1.3.0/rest/definitions_workspaces-api.md');
 });
 </script>
 

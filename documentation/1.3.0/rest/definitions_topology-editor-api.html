@@ -77,7 +77,7 @@ ga('send', 'pageview');
 
 <h1 id="mapstringabstractstep">Map«string,AbstractStep»</h1>
 
-<h1 id="restresponseabstracttopologyversion">RestResponse«AbstractTopologyVersion»</h1>
+<h1 id="relationshiptype">RelationshipType</h1>
 
 <table class="table table-bordered">
   <thead>
@@ -91,17 +91,129 @@ ga('send', 'pageview');
   </thead>
   <tbody>
     <tr>
-      <td>data</td>
+      <td>abstract</td>
       <td> </td>
       <td>false</td>
-      <td>AbstractTopologyVersion</td>
+      <td>boolean</td>
       <td> </td>
     </tr>
     <tr>
-      <td>error</td>
+      <td>archiveName</td>
       <td> </td>
       <td>false</td>
-      <td>RestError</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>archiveVersion</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>artifacts</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>attributes</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>creationDate</td>
+      <td> </td>
+      <td>false</td>
+      <td>string (date-time)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>derivedFrom</td>
+      <td> </td>
+      <td>false</td>
+      <td>string array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>description</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>elementId</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>id</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>interfaces</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>lastUpdateDate</td>
+      <td> </td>
+      <td>false</td>
+      <td>string (date-time)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>nestedVersion</td>
+      <td> </td>
+      <td>false</td>
+      <td>Version</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>properties</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>tags</td>
+      <td> </td>
+      <td>false</td>
+      <td>Tag array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>validSources</td>
+      <td> </td>
+      <td>false</td>
+      <td>string array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>validTargets</td>
+      <td> </td>
+      <td>false</td>
+      <td>string array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>workspace</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
       <td> </td>
     </tr>
   </tbody>
@@ -153,6 +265,13 @@ ga('send', 'pageview');
       <td> </td>
       <td>false</td>
       <td>NodeFilter</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>nodeType</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
       <td> </td>
     </tr>
     <tr>
@@ -216,46 +335,7 @@ ga('send', 'pageview');
   </tbody>
 </table>
 
-<h1 id="mapstringindexedcapabilitytype">Map«string,IndexedCapabilityType»</h1>
-
-<h1 id="mapstringindexedrelationshiptype">Map«string,IndexedRelationshipType»</h1>
-
-<h1 id="addrelationshiptemplaterequest">AddRelationshipTemplateRequest</h1>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Required</th>
-      <th>Schema</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>archiveName</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>archiveVersion</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>relationshipTemplate</td>
-      <td> </td>
-      <td>false</td>
-      <td>RelationshipTemplate</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
+<h1 id="mapstringdatatype">Map«string,DataType»</h1>
 
 <h1 id="filterdefinition">FilterDefinition</h1>
 
@@ -275,36 +355,6 @@ ga('send', 'pageview');
       <td> </td>
       <td>false</td>
       <td>object</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<h1 id="restresponseliststring">RestResponse«List«string»»</h1>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Required</th>
-      <th>Schema</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>data</td>
-      <td> </td>
-      <td>false</td>
-      <td>string array</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>error</td>
-      <td> </td>
-      <td>false</td>
-      <td>RestError</td>
       <td> </td>
     </tr>
   </tbody>
@@ -342,6 +392,13 @@ ga('send', 'pageview');
       <td> </td>
       <td>false</td>
       <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>name</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
       <td> </td>
     </tr>
     <tr>
@@ -389,34 +446,11 @@ ga('send', 'pageview');
   </tbody>
 </table>
 
-<h1 id="restresponsevoid">RestResponse«Void»</h1>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Required</th>
-      <th>Schema</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>error</td>
-      <td> </td>
-      <td>false</td>
-      <td>RestError</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
 <h1 id="mapstringworkflow">Map«string,Workflow»</h1>
 
 <h1 id="abstractworkflowerror">AbstractWorkflowError</h1>
 
-<h1 id="updateindexedtypepropertyrequest">UpdateIndexedTypePropertyRequest</h1>
+<h1 id="version">Version</h1>
 
 <table class="table table-bordered">
   <thead>
@@ -430,30 +464,44 @@ ga('send', 'pageview');
   </thead>
   <tbody>
     <tr>
-      <td>propertyName</td>
+      <td>buildNumber</td>
       <td> </td>
-      <td>true</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>propertyValue</td>
-      <td> </td>
-      <td>true</td>
-      <td>string</td>
+      <td>false</td>
+      <td>integer (int32)</td>
       <td> </td>
     </tr>
     <tr>
-      <td>type</td>
+      <td>incrementalVersion</td>
       <td> </td>
-      <td>true</td>
+      <td>false</td>
+      <td>integer (int32)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>majorVersion</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int32)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>minorVersion</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int32)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>qualifier</td>
+      <td> </td>
+      <td>false</td>
       <td>string</td>
       <td> </td>
     </tr>
   </tbody>
 </table>
 
-<h1 id="indexednodetype">IndexedNodeType</h1>
+<h1 id="treenode">TreeNode</h1>
 
 <table class="table table-bordered">
   <thead>
@@ -467,150 +515,70 @@ ga('send', 'pageview');
   </thead>
   <tbody>
     <tr>
-      <td>abstract</td>
+      <td>artifactId</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>children</td>
+      <td> </td>
+      <td>false</td>
+      <td>TreeNode array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>fullPath</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>leaf</td>
       <td> </td>
       <td>false</td>
       <td>boolean</td>
       <td> </td>
     </tr>
     <tr>
-      <td>alienScore</td>
-      <td> </td>
-      <td>false</td>
-      <td>integer (int64)</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>archiveName</td>
+      <td>name</td>
       <td> </td>
       <td>false</td>
       <td>string</td>
       <td> </td>
     </tr>
+  </tbody>
+</table>
+
+<h1 id="mapstringobject">Map«string,object»</h1>
+
+<h1 id="propertyvaluetopology">PropertyValue«Topology»</h1>
+
+<table class="table table-bordered">
+  <thead>
     <tr>
-      <td>archiveVersion</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
     </tr>
+  </thead>
+  <tbody>
     <tr>
-      <td>artifacts</td>
-      <td> </td>
-      <td>false</td>
-      <td>object</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>attributes</td>
-      <td> </td>
-      <td>false</td>
-      <td>object</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>capabilities</td>
-      <td> </td>
-      <td>false</td>
-      <td>CapabilityDefinition array</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>creationDate</td>
-      <td> </td>
-      <td>false</td>
-      <td>string (date-time)</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>defaultCapabilities</td>
-      <td> </td>
-      <td>false</td>
-      <td>string array</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>derivedFrom</td>
-      <td> </td>
-      <td>false</td>
-      <td>string array</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>description</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>elementId</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>highestVersion</td>
+      <td>definition</td>
       <td> </td>
       <td>false</td>
       <td>boolean</td>
       <td> </td>
     </tr>
     <tr>
-      <td>id</td>
+      <td>value</td>
       <td> </td>
       <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>interfaces</td>
-      <td> </td>
-      <td>false</td>
-      <td>object</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>lastUpdateDate</td>
-      <td> </td>
-      <td>false</td>
-      <td>string (date-time)</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>olderVersions</td>
-      <td> </td>
-      <td>false</td>
-      <td>string array</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>properties</td>
-      <td> </td>
-      <td>false</td>
-      <td>object</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>requirements</td>
-      <td> </td>
-      <td>false</td>
-      <td>RequirementDefinition array</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>substitutionTopologyId</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>tags</td>
-      <td> </td>
-      <td>false</td>
-      <td>Tag array</td>
+      <td>Topology</td>
       <td> </td>
     </tr>
   </tbody>
@@ -664,10 +632,15 @@ ga('send', 'pageview');
       <td>integer (int32)</td>
       <td> </td>
     </tr>
+    <tr>
+      <td>validSources</td>
+      <td> </td>
+      <td>false</td>
+      <td>string array</td>
+      <td> </td>
+    </tr>
   </tbody>
 </table>
-
-<h1 id="mapstringindexednodetype">Map«string,IndexedNodeType»</h1>
 
 <h1 id="deploymentartifact">DeploymentArtifact</h1>
 
@@ -719,6 +692,41 @@ ga('send', 'pageview');
     </tr>
     <tr>
       <td>artifactType</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>deployPath</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>description</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>repositoryCredential</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>repositoryName</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>repositoryURL</td>
       <td> </td>
       <td>false</td>
       <td>string</td>
@@ -879,6 +887,36 @@ ga('send', 'pageview');
 
 <h1 id="mapstringcapability">Map«string,Capability»</h1>
 
+<h1 id="propertyvalue">PropertyValue</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>definition</td>
+      <td> </td>
+      <td>false</td>
+      <td>boolean</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>value</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
 <h1 id="workflow">Workflow</h1>
 
 <table class="table table-bordered">
@@ -941,29 +979,6 @@ ga('send', 'pageview');
 
 <h1 id="mapstringrelationshiptemplate">Map«string,RelationshipTemplate»</h1>
 
-<h1 id="abstractactivity">AbstractActivity</h1>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Required</th>
-      <th>Schema</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>nodeId</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
 <h1 id="topology">Topology</h1>
 
 <table class="table table-bordered">
@@ -978,17 +993,24 @@ ga('send', 'pageview');
   </thead>
   <tbody>
     <tr>
-      <td>delegateId</td>
+      <td>archiveName</td>
       <td> </td>
       <td>false</td>
       <td>string</td>
       <td> </td>
     </tr>
     <tr>
-      <td>delegateType</td>
+      <td>archiveVersion</td>
       <td> </td>
       <td>false</td>
       <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>creationDate</td>
+      <td> </td>
+      <td>false</td>
+      <td>string (date-time)</td>
       <td> </td>
     </tr>
     <tr>
@@ -996,6 +1018,13 @@ ga('send', 'pageview');
       <td> </td>
       <td>false</td>
       <td>CSARDependency array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>description</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
       <td> </td>
     </tr>
     <tr>
@@ -1041,6 +1070,13 @@ ga('send', 'pageview');
       <td> </td>
     </tr>
     <tr>
+      <td>nestedVersion</td>
+      <td> </td>
+      <td>false</td>
+      <td>Version</td>
+      <td> </td>
+    </tr>
+    <tr>
       <td>nodeTemplates</td>
       <td> </td>
       <td>false</td>
@@ -1080,6 +1116,13 @@ ga('send', 'pageview');
       <td> </td>
       <td>false</td>
       <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>workspace</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
       <td> </td>
     </tr>
   </tbody>
@@ -1124,7 +1167,35 @@ ga('send', 'pageview');
       <td> </td>
     </tr>
     <tr>
+      <td>artifactRepository</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
       <td>artifactType</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>repositoryCredential</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>repositoryName</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>repositoryURL</td>
       <td> </td>
       <td>false</td>
       <td>string</td>
@@ -1258,6 +1329,13 @@ ga('send', 'pageview');
       <td> </td>
     </tr>
     <tr>
+      <td>portability</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
       <td>properties</td>
       <td> </td>
       <td>false</td>
@@ -1302,6 +1380,13 @@ ga('send', 'pageview');
   </thead>
   <tbody>
     <tr>
+      <td>archiveContentTree</td>
+      <td> </td>
+      <td>false</td>
+      <td>TreeNode</td>
+      <td> </td>
+    </tr>
+    <tr>
       <td>capabilityTypes</td>
       <td> </td>
       <td>false</td>
@@ -1309,10 +1394,38 @@ ga('send', 'pageview');
       <td> </td>
     </tr>
     <tr>
+      <td>dataTypes</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>delegateType</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>lastOperationIndex</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int32)</td>
+      <td> </td>
+    </tr>
+    <tr>
       <td>nodeTypes</td>
       <td> </td>
       <td>false</td>
       <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>operations</td>
+      <td> </td>
+      <td>false</td>
+      <td>AbstractEditorOperation array</td>
       <td> </td>
     </tr>
     <tr>
@@ -1339,7 +1452,7 @@ ga('send', 'pageview');
   </tbody>
 </table>
 
-<h1 id="indexedcapabilitytype">IndexedCapabilityType</h1>
+<h1 id="nodetype">NodeType</h1>
 
 <table class="table table-bordered">
   <thead>
@@ -1360,140 +1473,10 @@ ga('send', 'pageview');
       <td> </td>
     </tr>
     <tr>
-      <td>archiveName</td>
+      <td>alienScore</td>
       <td> </td>
       <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>archiveVersion</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>creationDate</td>
-      <td> </td>
-      <td>false</td>
-      <td>string (date-time)</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>derivedFrom</td>
-      <td> </td>
-      <td>false</td>
-      <td>string array</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>description</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>elementId</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>highestVersion</td>
-      <td> </td>
-      <td>false</td>
-      <td>boolean</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>id</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>lastUpdateDate</td>
-      <td> </td>
-      <td>false</td>
-      <td>string (date-time)</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>olderVersions</td>
-      <td> </td>
-      <td>false</td>
-      <td>string array</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>properties</td>
-      <td> </td>
-      <td>false</td>
-      <td>object</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>tags</td>
-      <td> </td>
-      <td>false</td>
-      <td>Tag array</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<h1 id="restresponsesetstring">RestResponse«Set«string»»</h1>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Required</th>
-      <th>Schema</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>data</td>
-      <td> </td>
-      <td>false</td>
-      <td>string array</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>error</td>
-      <td> </td>
-      <td>false</td>
-      <td>RestError</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<h1 id="indexedrelationshiptype">IndexedRelationshipType</h1>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Required</th>
-      <th>Schema</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>abstract</td>
-      <td> </td>
-      <td>false</td>
-      <td>boolean</td>
+      <td>integer (int64)</td>
       <td> </td>
     </tr>
     <tr>
@@ -1525,10 +1508,24 @@ ga('send', 'pageview');
       <td> </td>
     </tr>
     <tr>
+      <td>capabilities</td>
+      <td> </td>
+      <td>false</td>
+      <td>CapabilityDefinition array</td>
+      <td> </td>
+    </tr>
+    <tr>
       <td>creationDate</td>
       <td> </td>
       <td>false</td>
       <td>string (date-time)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>defaultCapabilities</td>
+      <td> </td>
+      <td>false</td>
+      <td>string array</td>
       <td> </td>
     </tr>
     <tr>
@@ -1553,13 +1550,6 @@ ga('send', 'pageview');
       <td> </td>
     </tr>
     <tr>
-      <td>highestVersion</td>
-      <td> </td>
-      <td>false</td>
-      <td>boolean</td>
-      <td> </td>
-    </tr>
-    <tr>
       <td>id</td>
       <td> </td>
       <td>false</td>
@@ -1581,10 +1571,17 @@ ga('send', 'pageview');
       <td> </td>
     </tr>
     <tr>
-      <td>olderVersions</td>
+      <td>nestedVersion</td>
       <td> </td>
       <td>false</td>
-      <td>string array</td>
+      <td>Version</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>portability</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
       <td> </td>
     </tr>
     <tr>
@@ -1595,6 +1592,20 @@ ga('send', 'pageview');
       <td> </td>
     </tr>
     <tr>
+      <td>requirements</td>
+      <td> </td>
+      <td>false</td>
+      <td>RequirementDefinition array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>substitutionTopologyId</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
       <td>tags</td>
       <td> </td>
       <td>false</td>
@@ -1602,47 +1613,10 @@ ga('send', 'pageview');
       <td> </td>
     </tr>
     <tr>
-      <td>validSources</td>
+      <td>workspace</td>
       <td> </td>
       <td>false</td>
-      <td>string array</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>validTargets</td>
-      <td> </td>
-      <td>false</td>
-      <td>string array</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<h1 id="restresponseconstraintinformation">RestResponse«ConstraintInformation»</h1>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Required</th>
-      <th>Schema</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>data</td>
-      <td> </td>
-      <td>false</td>
-      <td>ConstraintInformation</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>error</td>
-      <td> </td>
-      <td>false</td>
-      <td>RestError</td>
+      <td>string</td>
       <td> </td>
     </tr>
   </tbody>
@@ -1650,65 +1624,7 @@ ga('send', 'pageview');
 
 <h1 id="mapstringnodegroup">Map«string,NodeGroup»</h1>
 
-<h1 id="restresponseworkflow">RestResponse«Workflow»</h1>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Required</th>
-      <th>Schema</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>data</td>
-      <td> </td>
-      <td>false</td>
-      <td>Workflow</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>error</td>
-      <td> </td>
-      <td>false</td>
-      <td>RestError</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<h1 id="restresponsestring">RestResponse«string»</h1>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Required</th>
-      <th>Schema</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>data</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>error</td>
-      <td> </td>
-      <td>false</td>
-      <td>RestError</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
+<h1 id="mapstringnodetype">Map«string,NodeType»</h1>
 
 <h1 id="abstracttask">AbstractTask</h1>
 
@@ -1727,44 +1643,7 @@ ga('send', 'pageview');
       <td>code</td>
       <td> </td>
       <td>false</td>
-      <td>enum (IMPLEMENT, REPLACE, SATISFY_LOWER_BOUND, PROPERTIES, HA_INVALID, SCALABLE_CAPABILITY_INVALID, NODE_FILTER_INVALID, WORKFLOW_INVALID, LOCATION_POLICY, LOCATION_UNAUTHORIZED, LOCATION_DISABLED, ORCHESTRATOR_PROPERTY, INPUT_PROPERTY, NODE_NOT_SUBSTITUTED)</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<h1 id="topologyworkflowaddactivityrequest">TopologyWorkflowAddActivityRequest</h1>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Required</th>
-      <th>Schema</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>activity</td>
-      <td> </td>
-      <td>false</td>
-      <td>AbstractActivity</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>before</td>
-      <td> </td>
-      <td>false</td>
-      <td>boolean</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>relatedStepId</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
+      <td>enum (IMPLEMENT, IMPLEMENT_RELATIONSHIP, REPLACE, SATISFY_LOWER_BOUND, PROPERTIES, HA_INVALID, SCALABLE_CAPABILITY_INVALID, NODE_FILTER_INVALID, WORKFLOW_INVALID, INPUT_ARTIFACT_INVALID, ARTIFACT_INVALID, LOCATION_POLICY, LOCATION_UNAUTHORIZED, LOCATION_DISABLED, ORCHESTRATOR_PROPERTY, INPUT_PROPERTY, NODE_NOT_SUBSTITUTED)</td>
       <td> </td>
     </tr>
   </tbody>
@@ -1786,6 +1665,13 @@ ga('send', 'pageview');
   </thead>
   <tbody>
     <tr>
+      <td>dependencies</td>
+      <td> </td>
+      <td>false</td>
+      <td>DeploymentArtifact array</td>
+      <td> </td>
+    </tr>
+    <tr>
       <td>description</td>
       <td> </td>
       <td>false</td>
@@ -1801,6 +1687,13 @@ ga('send', 'pageview');
     </tr>
     <tr>
       <td>inputParameters</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>portability</td>
       <td> </td>
       <td>false</td>
       <td>object</td>
@@ -1840,7 +1733,7 @@ ga('send', 'pageview');
       <td>substitutionType</td>
       <td> </td>
       <td>false</td>
-      <td>IndexedNodeType</td>
+      <td>NodeType</td>
       <td> </td>
     </tr>
   </tbody>
@@ -1868,6 +1761,36 @@ ga('send', 'pageview');
       <td> </td>
       <td>false</td>
       <td>boolean</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="restresponsetopologydto">RestResponse«TopologyDTO»</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>data</td>
+      <td> </td>
+      <td>false</td>
+      <td>TopologyDTO</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>error</td>
+      <td> </td>
+      <td>false</td>
+      <td>RestError</td>
       <td> </td>
     </tr>
   </tbody>
@@ -1905,36 +1828,6 @@ ga('send', 'pageview');
   </tbody>
 </table>
 
-<h1 id="restresponsetopologydto">RestResponse«TopologyDTO»</h1>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Required</th>
-      <th>Schema</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>data</td>
-      <td> </td>
-      <td>false</td>
-      <td>TopologyDTO</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>error</td>
-      <td> </td>
-      <td>false</td>
-      <td>RestError</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
 <h1 id="abstractpolicy">AbstractPolicy</h1>
 
 <table class="table table-bordered">
@@ -1957,6 +1850,120 @@ ga('send', 'pageview');
     </tr>
     <tr>
       <td>type</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="datatype">DataType</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>abstract</td>
+      <td> </td>
+      <td>false</td>
+      <td>boolean</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>archiveName</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>archiveVersion</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>creationDate</td>
+      <td> </td>
+      <td>false</td>
+      <td>string (date-time)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>deriveFromSimpleType</td>
+      <td> </td>
+      <td>false</td>
+      <td>boolean</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>derivedFrom</td>
+      <td> </td>
+      <td>false</td>
+      <td>string array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>description</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>elementId</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>id</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>lastUpdateDate</td>
+      <td> </td>
+      <td>false</td>
+      <td>string (date-time)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>nestedVersion</td>
+      <td> </td>
+      <td>false</td>
+      <td>Version</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>properties</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>tags</td>
+      <td> </td>
+      <td>false</td>
+      <td>Tag array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>workspace</td>
       <td> </td>
       <td>false</td>
       <td>string</td>
@@ -1997,88 +2004,128 @@ ga('send', 'pageview');
 
 <h1 id="mapstringivalue">Map«string,IValue»</h1>
 
+<h1 id="capabilitytype">CapabilityType</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>abstract</td>
+      <td> </td>
+      <td>false</td>
+      <td>boolean</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>archiveName</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>archiveVersion</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>attributes</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>creationDate</td>
+      <td> </td>
+      <td>false</td>
+      <td>string (date-time)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>derivedFrom</td>
+      <td> </td>
+      <td>false</td>
+      <td>string array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>description</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>elementId</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>id</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>lastUpdateDate</td>
+      <td> </td>
+      <td>false</td>
+      <td>string (date-time)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>nestedVersion</td>
+      <td> </td>
+      <td>false</td>
+      <td>Version</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>properties</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>tags</td>
+      <td> </td>
+      <td>false</td>
+      <td>Tag array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>validSources</td>
+      <td> </td>
+      <td>false</td>
+      <td>string array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>workspace</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
 <h1 id="mapstringrequirement">Map«string,Requirement»</h1>
-
-<h1 id="updatepropertyrequest">UpdatePropertyRequest</h1>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Required</th>
-      <th>Schema</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>propertyName</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>propertyValue</td>
-      <td> </td>
-      <td>false</td>
-      <td>object</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<h1 id="constraintinformation">ConstraintInformation</h1>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Required</th>
-      <th>Schema</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>name</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>path</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>reference</td>
-      <td> </td>
-      <td>false</td>
-      <td>object</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>type</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>value</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
 
 <h1 id="substitutiontarget">SubstitutionTarget</h1>
 
@@ -2110,6 +2157,45 @@ ga('send', 'pageview');
   </tbody>
 </table>
 
+<h1 id="abstracteditoroperation">AbstractEditorOperation</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>author</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>id</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>previousOperationId</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="mapstringabstractpropertyvalue">Map«string,AbstractPropertyValue»</h1>
+
 <h1 id="propertydefinition">PropertyDefinition</h1>
 
 <table class="table table-bordered">
@@ -2134,7 +2220,7 @@ ga('send', 'pageview');
       <td>default</td>
       <td> </td>
       <td>false</td>
-      <td>string</td>
+      <td>PropertyValue«Topology»</td>
       <td> </td>
     </tr>
     <tr>
@@ -2173,6 +2259,13 @@ ga('send', 'pageview');
       <td> </td>
     </tr>
     <tr>
+      <td>suggestionId</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
       <td>type</td>
       <td> </td>
       <td>false</td>
@@ -2182,7 +2275,7 @@ ga('send', 'pageview');
   </tbody>
 </table>
 
-<h1 id="mapstringabstractpropertyvalue">Map«string,AbstractPropertyValue»</h1>
+<h1 id="mapstringrelationshiptype">Map«string,RelationshipType»</h1>
 
 <h1 id="csardependency">CSARDependency</h1>
 
@@ -2197,6 +2290,13 @@ ga('send', 'pageview');
     </tr>
   </thead>
   <tbody>
+    <tr>
+      <td>hash</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
     <tr>
       <td>name</td>
       <td> </td>
@@ -2244,150 +2344,13 @@ ga('send', 'pageview');
   </tbody>
 </table>
 
-<h1 id="nodetemplaterequest">NodeTemplateRequest</h1>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Required</th>
-      <th>Schema</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>indexedNodeTypeId</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>name</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
 <h1 id="mapstringnodetemplate">Map«string,NodeTemplate»</h1>
 
-<h1 id="mapstringstring">Map«string,string»</h1>
+<h1 id="mapstringcapabilitytype">Map«string,CapabilityType»</h1>
 
 <h1 id="mapstringdeploymentartifact">Map«string,DeploymentArtifact»</h1>
 
-<h1 id="restresponsearrayindexednodetype">RestResponse«Array«IndexedNodeType»»</h1>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Required</th>
-      <th>Schema</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>data</td>
-      <td> </td>
-      <td>false</td>
-      <td>IndexedNodeType array</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>error</td>
-      <td> </td>
-      <td>false</td>
-      <td>RestError</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<h1 id="abstracttopologyversion">AbstractTopologyVersion</h1>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Required</th>
-      <th>Schema</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>delegateId</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>delegateType</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>description</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>id</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>latest</td>
-      <td> </td>
-      <td>false</td>
-      <td>boolean</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>released</td>
-      <td> </td>
-      <td>false</td>
-      <td>boolean</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>snapshot</td>
-      <td> </td>
-      <td>false</td>
-      <td>boolean</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>topologyId</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>version</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
+<h1 id="mapstringstring">Map«string,string»</h1>
 
 <h1 id="mapstringliststring">Map«string,List«string»»</h1>
 
@@ -2471,6 +2434,43 @@ ga('send', 'pageview');
       <td>object</td>
       <td> </td>
     </tr>
+    <tr>
+      <td>type</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="nodefilter">NodeFilter</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>capabilities</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>properties</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
   </tbody>
 </table>
 
@@ -2489,6 +2489,13 @@ ga('send', 'pageview');
     </tr>
   </thead>
   <tbody>
+    <tr>
+      <td>creationDate</td>
+      <td> </td>
+      <td>false</td>
+      <td>string (date-time)</td>
+      <td> </td>
+    </tr>
     <tr>
       <td>dependencies</td>
       <td> </td>
@@ -2554,36 +2561,6 @@ ga('send', 'pageview');
     </tr>
     <tr>
       <td>userRoles</td>
-      <td> </td>
-      <td>false</td>
-      <td>object</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<h1 id="nodefilter">NodeFilter</h1>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Required</th>
-      <th>Schema</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>capabilities</td>
-      <td> </td>
-      <td>false</td>
-      <td>object</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>properties</td>
       <td> </td>
       <td>false</td>
       <td>object</td>
