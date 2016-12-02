@@ -2,15 +2,15 @@
 layout: post
 title: Manages locations for a given orchestrator.
 root: ../../
-categories: DOCUMENTATION-1.3.0
+categories: DOCUMENTATION-1.1.0
 parent: [rest_api, rest_api_admin-orchestrator-api]
-node_name: rest_api_controller_orchestrators-locations
+node_name: rest_api_controller_location-controller
 weight: 10
 ---
 
 ### Get all locations for a given orchestrator.
 ```
-GET /rest/orchestrators/{orchestratorId}/locations
+GET /rest/v1/orchestrators/{orchestratorId}/locations
 ```
 
 #### Parameters
@@ -42,7 +42,7 @@ GET /rest/orchestrators/{orchestratorId}/locations
 
 ### Create a new location.
 ```
-POST /rest/orchestrators/{orchestratorId}/locations
+POST /rest/v1/orchestrators/{orchestratorId}/locations
 ```
 
 #### Parameters
@@ -75,7 +75,7 @@ POST /rest/orchestrators/{orchestratorId}/locations
 
 ### Get a location from it's id.
 ```
-GET /rest/orchestrators/{orchestratorId}/locations/{id}
+GET /rest/v1/orchestrators/{orchestratorId}/locations/{id}
 ```
 
 #### Parameters
@@ -108,7 +108,7 @@ GET /rest/orchestrators/{orchestratorId}/locations/{id}
 
 ### Update the name of an existing location.
 ```
-PUT /rest/orchestrators/{orchestratorId}/locations/{id}
+PUT /rest/v1/orchestrators/{orchestratorId}/locations/{id}
 ```
 
 #### Parameters
@@ -143,7 +143,7 @@ PUT /rest/orchestrators/{orchestratorId}/locations/{id}
 
 ### Delete an existing location.
 ```
-DELETE /rest/orchestrators/{orchestratorId}/locations/{id}
+DELETE /rest/v1/orchestrators/{orchestratorId}/locations/{id}
 ```
 
 #### Parameters

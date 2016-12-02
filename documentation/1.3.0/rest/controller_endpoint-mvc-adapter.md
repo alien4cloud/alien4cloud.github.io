@@ -2,10 +2,10 @@
 layout: post
 title: Endpoint Mvc Adapter
 root: ../../
-categories: DOCUMENTATION-1.3.0
+categories: DOCUMENTATION-1.1.0
 parent: [rest_api, rest_api_admin-api]
 node_name: rest_api_controller_endpoint-mvc-adapter
-weight: 36
+weight: 41
 ---
 
 ### invoke
@@ -30,7 +30,31 @@ GET /rest/admin/autoconfig
 
 #### Produces
 
-* */*
+* application/json
+
+### invoke
+```
+GET /rest/admin/autoconfig.json
+```
+
+#### Responses
+
+{: .table .table-bordered}
+|HTTP Code|Description|Schema|
+|----|----|----|
+|200|OK|object|
+|401|Unauthorized|No Content|
+|403|Forbidden|No Content|
+|404|Not Found|No Content|
+
+
+#### Consumes
+
+* application/json
+
+#### Produces
+
+* application/json
 
 ### invoke
 ```
@@ -54,7 +78,31 @@ GET /rest/admin/beans
 
 #### Produces
 
-* */*
+* application/json
+
+### invoke
+```
+GET /rest/admin/beans.json
+```
+
+#### Responses
+
+{: .table .table-bordered}
+|HTTP Code|Description|Schema|
+|----|----|----|
+|200|OK|object|
+|401|Unauthorized|No Content|
+|403|Forbidden|No Content|
+|404|Not Found|No Content|
+
+
+#### Consumes
+
+* application/json
+
+#### Produces
+
+* application/json
 
 ### invoke
 ```
@@ -78,7 +126,31 @@ GET /rest/admin/configprops
 
 #### Produces
 
-* */*
+* application/json
+
+### invoke
+```
+GET /rest/admin/configprops.json
+```
+
+#### Responses
+
+{: .table .table-bordered}
+|HTTP Code|Description|Schema|
+|----|----|----|
+|200|OK|object|
+|401|Unauthorized|No Content|
+|403|Forbidden|No Content|
+|404|Not Found|No Content|
+
+
+#### Consumes
+
+* application/json
+
+#### Produces
+
+* application/json
 
 ### invoke
 ```
@@ -102,7 +174,31 @@ GET /rest/admin/dump
 
 #### Produces
 
-* */*
+* application/json
+
+### invoke
+```
+GET /rest/admin/dump.json
+```
+
+#### Responses
+
+{: .table .table-bordered}
+|HTTP Code|Description|Schema|
+|----|----|----|
+|200|OK|object|
+|401|Unauthorized|No Content|
+|403|Forbidden|No Content|
+|404|Not Found|No Content|
+
+
+#### Consumes
+
+* application/json
+
+#### Produces
+
+* application/json
 
 ### invoke
 ```
@@ -126,7 +222,31 @@ GET /rest/admin/info
 
 #### Produces
 
-* */*
+* application/json
+
+### invoke
+```
+GET /rest/admin/info.json
+```
+
+#### Responses
+
+{: .table .table-bordered}
+|HTTP Code|Description|Schema|
+|----|----|----|
+|200|OK|object|
+|401|Unauthorized|No Content|
+|403|Forbidden|No Content|
+|404|Not Found|No Content|
+
+
+#### Consumes
+
+* application/json
+
+#### Produces
+
+* application/json
 
 ### invoke
 ```
@@ -150,7 +270,31 @@ GET /rest/admin/mappings
 
 #### Produces
 
-* */*
+* application/json
+
+### invoke
+```
+GET /rest/admin/mappings.json
+```
+
+#### Responses
+
+{: .table .table-bordered}
+|HTTP Code|Description|Schema|
+|----|----|----|
+|200|OK|object|
+|401|Unauthorized|No Content|
+|403|Forbidden|No Content|
+|404|Not Found|No Content|
+
+
+#### Consumes
+
+* application/json
+
+#### Produces
+
+* application/json
 
 ### invoke
 ```
@@ -174,5 +318,29 @@ GET /rest/admin/trace
 
 #### Produces
 
-* */*
+* application/json
+
+### invoke
+```
+GET /rest/admin/trace.json
+```
+
+#### Responses
+
+{: .table .table-bordered}
+|HTTP Code|Description|Schema|
+|----|----|----|
+|200|OK|object|
+|401|Unauthorized|No Content|
+|403|Forbidden|No Content|
+|404|Not Found|No Content|
+
+
+#### Consumes
+
+* application/json
+
+#### Produces
+
+* application/json
 

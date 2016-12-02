@@ -1,16 +1,16 @@
 ---
 layout: post
-title: Application Tags Controller
+title: Operations on application's tags
 root: ../../
-categories: DOCUMENTATION-1.3.0
+categories: DOCUMENTATION-1.1.0
 parent: [rest_api, rest_api_applications-api]
 node_name: rest_api_controller_application-tags-controller
-weight: 16
+weight: 21
 ---
 
 ### Update/Create a tag for the application.
 ```
-POST /rest/applications/{applicationId}/tags
+POST /rest/v1/applications/{applicationId}/tags
 ```
 
 #### Description
@@ -48,7 +48,7 @@ The logged-in user must have the application manager role for this application. 
 
 ### Delete a tag for the application.
 ```
-DELETE /rest/applications/{applicationId}/tags/{tagId}
+DELETE /rest/v1/applications/{applicationId}/tags/{tagId}
 ```
 
 #### Description

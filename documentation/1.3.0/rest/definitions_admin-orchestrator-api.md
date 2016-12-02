@@ -2,7 +2,7 @@
 layout: post
 title: Definitions
 root: ../../
-categories: DOCUMENTATION-1.3.0
+categories: DOCUMENTATION-1.1.0
 parent: [rest_api, rest_api_admin-orchestrator-api]
 node_name: rest_api_definitions_admin-orchestrator-api
 weight: 9000
@@ -41,6 +41,7 @@ weight: 9000
 |id||false|string||
 |lowerBound||false|integer (int32)||
 |nodeFilter||false|NodeFilter||
+|nodeType||false|string||
 |relationshipType||false|string||
 |type||false|string||
 |upperBound||false|integer (int32)||
@@ -59,8 +60,6 @@ A request object to pass when updating an orchestrator. Contains updatable field
 |name||false|string||
 
 
-# Map«string,IndexedCapabilityType»
-
 # FilterDefinition
 
 
@@ -68,15 +67,6 @@ A request object to pass when updating an orchestrator. Contains updatable field
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
 |properties||false|object||
-
-
-# RestResponse«Void»
-
-
-{: .table .table-bordered}
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|error||false|RestError||
 
 
 # RelationshipTemplate
@@ -88,12 +78,35 @@ A request object to pass when updating an orchestrator. Contains updatable field
 |artifacts||false|object||
 |attributes||false|object||
 |interfaces||false|object||
+|name||false|string||
 |properties||false|object||
 |requirementName||false|string||
 |requirementType||false|string||
 |target||false|string||
 |targetedCapabilityName||false|string||
 |type||false|string||
+
+
+# RestResponse«Void»
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|error||false|RestError||
+
+
+# Version
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|buildNumber||false|integer (int32)||
+|incrementalVersion||false|integer (int32)||
+|majorVersion||false|integer (int32)||
+|minorVersion||false|integer (int32)||
+|qualifier||false|string||
 
 
 # RestResponse«LocationResourceTemplate»
@@ -126,48 +139,6 @@ A request object to pass when updating an orchestrator. Contains updatable field
 |types||false|string array||
 
 
-# Request for creation of a new orchestrators.
-
-
-{: .table .table-bordered}
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|name|Name of the orchestrators (must be unique as this allow users to identify it).|true|string||
-|pluginBean|Id of the element of the plugin to use to manage communication with the orchestrators (plugins may have multiple components).|true|string||
-|pluginId|Id of the plugin to use to manage communication with the orchestrators.|true|string||
-
-
-# Map«string,IndexedNodeType»
-
-# IndexedNodeType
-
-
-{: .table .table-bordered}
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|abstract||false|boolean||
-|alienScore||false|integer (int64)||
-|archiveName||false|string||
-|archiveVersion||false|string||
-|artifacts||false|object||
-|attributes||false|object||
-|capabilities||false|CapabilityDefinition array||
-|creationDate||false|string (date-time)||
-|defaultCapabilities||false|string array||
-|derivedFrom||false|string array||
-|description||false|string||
-|elementId||false|string||
-|highestVersion||false|boolean||
-|id||false|string||
-|interfaces||false|object||
-|lastUpdateDate||false|string (date-time)||
-|olderVersions||false|string array||
-|properties||false|object||
-|requirements||false|RequirementDefinition array||
-|substitutionTopologyId||false|string||
-|tags||false|Tag array||
-
-
 # CapabilityDefinition
 
 
@@ -179,6 +150,18 @@ A request object to pass when updating an orchestrator. Contains updatable field
 |properties||false|object||
 |type||false|string||
 |upperBound||false|integer (int32)||
+|validSources||false|string array||
+
+
+# Request for creation of a new orchestrators.
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|name|Name of the orchestrators (must be unique as this allow users to identify it).|true|string||
+|pluginBean|Id of the element of the plugin to use to manage communication with the orchestrators (plugins may have multiple components).|true|string||
+|pluginId|Id of the plugin to use to manage communication with the orchestrators.|true|string||
 
 
 # DeploymentArtifact
@@ -193,6 +176,11 @@ A request object to pass when updating an orchestrator. Contains updatable field
 |artifactRef||false|string||
 |artifactRepository||false|string||
 |artifactType||false|string||
+|deployPath||false|string||
+|description||false|string||
+|repositoryCredential||false|object||
+|repositoryName||false|string||
+|repositoryURL||false|string||
 
 
 # LocationDTO
@@ -237,6 +225,21 @@ A request object to pass when updating an orchestrator. Contains updatable field
 |type||false|string||
 
 
+# Contains the types and templates of elements configured for a given location.
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|allNodeTypes|Map that contains all node types.|false|object||
+|capabilityTypes|Map that contains the capability types used by the configuration types or node types.|false|object||
+|configurationTemplates|List of configuration templates already configured for the location. Usually abstract  types.|false|LocationResourceTemplate array||
+|configurationTypes|Map of node types id, node type used to configure a given location.|false|object||
+|nodeTemplates|List of node templates already configured for the location.|false|LocationResourceTemplate array||
+|nodeTypes|Map of node types id, node type used to configure the templates of on-demand resources in a location.|false|object||
+|onDemandTypes|Map that contains the on demdand types.|false|object||
+
+
 # Orchestrator.
 
 
@@ -256,23 +259,6 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 |state||false|enum (DISABLED, CONNECTING, CONNECTED, DISCONNECTED)||
 
 
-# Contains the types and templates of elements configured for a given location.
-
-
-{: .table .table-bordered}
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|allNodeTypes|Map that contains all node types.|false|object||
-|capabilityTypes|Map that contains the capability types used by the configuration types or node types.|false|object||
-|configurationTemplates|List of configuration templates already configured for the location. Usually abstract  types.|false|LocationResourceTemplate array||
-|configurationTypes|Map of node types id, node type used to configure a given location.|false|object||
-|nodeTemplates|List of node templates already configured for the location.|false|LocationResourceTemplate array||
-|nodeTypes|Map of node types id, node type used to configure the templates of on-demand resources in a location.|false|object||
-|onDemandTypes|Map that contains the on demdand types.|false|object||
-
-
-# Map«string,Capability»
-
 # RestResponse«boolean»
 
 
@@ -283,6 +269,8 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 |error||false|RestError||
 
 
+# Map«string,Capability»
+
 # Request to update a location resource template property.
 
 
@@ -291,6 +279,16 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 |----|----|----|----|----|
 |propertyName|Name of the property to update.|false|string||
 |propertyValue|Value of the property to update, the type must be equal to the type of the property that will be updated.|false|object||
+
+
+# PropertyValue
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|definition||false|boolean||
+|value||false|object||
 
 
 # Map«string,Interface»
@@ -320,7 +318,11 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 |archiveName||false|string||
 |archiveVersion||false|string||
 |artifactRef||false|string||
+|artifactRepository||false|string||
 |artifactType||false|string||
+|repositoryCredential||false|object||
+|repositoryName||false|string||
+|repositoryURL||false|string||
 
 
 # Requirement
@@ -345,31 +347,11 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 |groups||false|string array||
 |interfaces||false|object||
 |name||false|string||
+|portability||false|object||
 |properties||false|object||
 |relationships||false|object||
 |requirements||false|object||
 |type||false|string||
-
-
-# IndexedCapabilityType
-
-
-{: .table .table-bordered}
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|abstract||false|boolean||
-|archiveName||false|string||
-|archiveVersion||false|string||
-|creationDate||false|string (date-time)||
-|derivedFrom||false|string array||
-|description||false|string||
-|elementId||false|string||
-|highestVersion||false|boolean||
-|id||false|string||
-|lastUpdateDate||false|string (date-time)||
-|olderVersions||false|string array||
-|properties||false|object||
-|tags||false|Tag array||
 
 
 # RestResponse«ConstraintInformation»
@@ -382,6 +364,36 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 |error||false|RestError||
 
 
+# NodeType
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|abstract||false|boolean||
+|alienScore||false|integer (int64)||
+|archiveName||false|string||
+|archiveVersion||false|string||
+|artifacts||false|object||
+|attributes||false|object||
+|capabilities||false|CapabilityDefinition array||
+|creationDate||false|string (date-time)||
+|defaultCapabilities||false|string array||
+|derivedFrom||false|string array||
+|description||false|string||
+|elementId||false|string||
+|id||false|string||
+|interfaces||false|object||
+|lastUpdateDate||false|string (date-time)||
+|nestedVersion||false|Version||
+|portability||false|object||
+|properties||false|object||
+|requirements||false|RequirementDefinition array||
+|substitutionTopologyId||false|string||
+|tags||false|Tag array||
+|workspace||false|string||
+
+
 # Request for creation of a new location.
 
 
@@ -392,16 +404,6 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 |name|Name of the location (must be unique for this orchestrator as this allow users to identify it).|true|string||
 
 
-# Request for creation of a new location's resource.
-
-
-{: .table .table-bordered}
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|resourceName|Name of the location's resource.|true|string||
-|resourceType|Type of the location's resource.|true|string||
-
-
 # RestResponse«string»
 
 
@@ -410,6 +412,18 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 |----|----|----|----|----|
 |data||false|string||
 |error||false|RestError||
+
+
+# Map«string,NodeType»
+
+# Request for creation of a new location's resource.
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|resourceName|Name of the location's resource.|true|string||
+|resourceType|Type of the location's resource.|true|string||
 
 
 # LocationResourceTemplate
@@ -423,6 +437,7 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 |id||false|string||
 |locationId||false|string||
 |name||false|string||
+|portabilityDefinitions||false|object||
 |service||false|boolean||
 |template||false|NodeTemplate||
 |types||false|string array||
@@ -446,9 +461,11 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 {: .table .table-bordered}
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
+|dependencies||false|DeploymentArtifact array||
 |description||false|string||
 |implementationArtifact||false|ImplementationArtifact||
 |inputParameters||false|object||
+|portability||false|object||
 
 
 # PropertyConstraint
@@ -486,6 +503,29 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 
 # Map«string,IValue»
 
+# CapabilityType
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|abstract||false|boolean||
+|archiveName||false|string||
+|archiveVersion||false|string||
+|attributes||false|object||
+|creationDate||false|string (date-time)||
+|derivedFrom||false|string array||
+|description||false|string||
+|elementId||false|string||
+|id||false|string||
+|lastUpdateDate||false|string (date-time)||
+|nestedVersion||false|Version||
+|properties||false|object||
+|tags||false|Tag array||
+|validSources||false|string array||
+|workspace||false|string||
+
+
 # Usage
 
 
@@ -495,6 +535,7 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 |resourceId||false|string||
 |resourceName||false|string||
 |resourceType||false|string||
+|workspace||false|string||
 
 
 # GetMultipleDataResult«Orchestrator.»
@@ -556,6 +597,24 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 |error||false|RestError||
 
 
+# PropertyDefinition
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|constraints||false|PropertyConstraint array||
+|default||false|PropertyValue||
+|definition||false|boolean||
+|description||false|string||
+|password||false|boolean||
+|required||false|boolean||
+|suggestionId||false|string||
+|type||false|string||
+
+
+# Map«string,AbstractPropertyValue»
+
 # OrchestratorConfiguration
 
 
@@ -566,36 +625,22 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 |id||false|string||
 
 
-# Map«string,AbstractPropertyValue»
-
-# PropertyDefinition
-
-
-{: .table .table-bordered}
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|constraints||false|PropertyConstraint array||
-|default||false|string||
-|definition||false|boolean||
-|description||false|string||
-|password||false|boolean||
-|required||false|boolean||
-|type||false|string||
-
-
 # CSARDependency
 
 
 {: .table .table-bordered}
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
+|hash||false|string||
 |name||false|string||
 |version||false|string||
 
 
-# Map«string,DeploymentArtifact»
+# Map«string,CapabilityType»
 
 # Map«string,string»
+
+# Map«string,DeploymentArtifact»
 
 # Request to update or check the value of a property.
 
@@ -636,6 +681,7 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 |----|----|----|----|----|
 |description||false|string||
 |operations||false|object||
+|type||false|string||
 
 
 # Location
@@ -647,6 +693,7 @@ A location represents a cloud, a region of a cloud, a set of machines and resour
 {: .table .table-bordered}
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
+|creationDate||false|string (date-time)||
 |dependencies||false|CSARDependency array||
 |environmentType||false|string||
 |groupRoles||false|object||

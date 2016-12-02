@@ -2,15 +2,15 @@
 layout: post
 title: Manages application's environments
 root: ../../
-categories: DOCUMENTATION-1.3.0
+categories: DOCUMENTATION-1.1.0
 parent: [rest_api, rest_api_applications-api]
 node_name: rest_api_controller_application-environment-controller
-weight: 23
+weight: 28
 ---
 
 ### Create a new application environment
 ```
-POST /rest/applications/{applicationId}/environments
+POST /rest/v1/applications/{applicationId}/environments
 ```
 
 #### Description
@@ -47,12 +47,12 @@ If successfull returns a rest response with the id of the created application en
 
 ### Search for application environments
 ```
-POST /rest/applications/{applicationId}/environments/search
+POST /rest/v1/applications/{applicationId}/environments/search
 ```
 
 #### Description
 
-Returns a search result with that contains application environments DTO matching the request. A application environment is returned only if the connected user has at least one application role in [ APPLICATION_USER | DEPLOYMENT_MANAGER ]
+Returns a search result with that contains application environments DTO matching the request. A application environment is returned only if the connected user has at least one application environment role in [ APPLICATION_USER | DEPLOYMENT_MANAGER ]
 
 #### Parameters
 
@@ -85,12 +85,12 @@ Returns a search result with that contains application environments DTO matching
 
 ### Get an application environment from its id
 ```
-GET /rest/applications/{applicationId}/environments/{applicationEnvironmentId}
+GET /rest/v1/applications/{applicationId}/environments/{applicationEnvironmentId}
 ```
 
 #### Description
 
-Returns the application environment. Application role required [ APPLICATION_USER | DEPLOYMENT_MANAGER ]
+Returns the application environment. Roles required: Application environment [ APPLICATION_USER | DEPLOYMENT_MANAGER ], or application [APPLICATION_MANAGER]
 
 #### Parameters
 
@@ -122,7 +122,7 @@ Returns the application environment. Application role required [ APPLICATION_USE
 
 ### Updates by merging the given request into the given application environment
 ```
-PUT /rest/applications/{applicationId}/environments/{applicationEnvironmentId}
+PUT /rest/v1/applications/{applicationId}/environments/{applicationEnvironmentId}
 ```
 
 #### Description
@@ -161,7 +161,7 @@ The logged-in user must have the application manager role for this application. 
 
 ### Delete an application environment from its id
 ```
-DELETE /rest/applications/{applicationId}/environments/{applicationEnvironmentId}
+DELETE /rest/v1/applications/{applicationId}/environments/{applicationEnvironmentId}
 ```
 
 #### Description
@@ -198,7 +198,7 @@ The logged-in user must have the application manager role for this application. 
 
 ### Get an application environment from its id
 ```
-GET /rest/applications/{applicationId}/environments/{applicationEnvironmentId}/status
+GET /rest/v1/applications/{applicationId}/environments/{applicationEnvironmentId}/status
 ```
 
 #### Description
@@ -235,7 +235,7 @@ Returns the application environment. Application role required [ APPLICATION_USE
 
 ### Get the id of the topology linked to the environment
 ```
-GET /rest/applications/{applicationId}/environments/{applicationEnvironmentId}/topology
+GET /rest/v1/applications/{applicationId}/environments/{applicationEnvironmentId}/topology
 ```
 
 #### Description

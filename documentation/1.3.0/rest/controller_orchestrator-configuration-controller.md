@@ -2,15 +2,15 @@
 layout: post
 title: Get and update orchestrator configuration.
 root: ../../
-categories: DOCUMENTATION-1.3.0
+categories: DOCUMENTATION-1.1.0
 parent: [rest_api, rest_api_admin-orchestrator-api]
-node_name: rest_api_controller_orchestrator-configuration
-weight: 9
+node_name: rest_api_controller_orchestrator-configuration-controller
+weight: 11
 ---
 
 ### Get an orchestrator configuration.
 ```
-GET /rest/orchestrators/{id}/configuration
+GET /rest/v1/orchestrators/{id}/configuration
 ```
 
 #### Parameters
@@ -42,7 +42,7 @@ GET /rest/orchestrators/{id}/configuration
 
 ### Update the configuration for an orchestrator.
 ```
-PUT /rest/orchestrators/{id}/configuration
+PUT /rest/v1/orchestrators/{id}/configuration
 ```
 
 #### Parameters

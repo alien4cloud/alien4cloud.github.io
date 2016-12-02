@@ -1,11 +1,11 @@
 ---
 layout: post
-title: components-api
+title: applications-deployment-api
 root: ../../
-categories: DOCUMENTATION-1.3.0
+categories: DOCUMENTATION-1.1.0
 parent: [rest_api]
-node_name: rest_api_components-api
-weight: 6
+node_name: rest_api_applications-deployment-api
+weight: 9
 ---
 
 # ALIEN 4 Cloud API
@@ -14,5 +14,5 @@ weight: 6
 This section contains documentation of Alien 4 Cloud REST API.
 
 ### Version information
-Version: 1.1.0
+Version: 1
 

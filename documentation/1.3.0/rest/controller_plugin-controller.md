@@ -2,15 +2,15 @@
 layout: post
 title: Manages plugins.
 root: ../../
-categories: DOCUMENTATION-1.3.0
+categories: DOCUMENTATION-1.1.0
 parent: [rest_api, rest_api_admin-plugin-api]
-node_name: rest_api_controller_plugins
+node_name: rest_api_controller_plugin-controller
 weight: 3
 ---
 
 ### Search for plugins registered in ALIEN.
 ```
-GET /rest/plugins
+GET /rest/v1/plugins
 ```
 
 #### Parameters
@@ -44,7 +44,7 @@ GET /rest/plugins
 
 ### Upload a plugin archive.
 ```
-POST /rest/plugins
+POST /rest/v1/plugins
 ```
 
 #### Description
@@ -81,7 +81,7 @@ Content of the zip file must be compliant with the expected alien 4 cloud plugin
 
 ### Remove a plugin.
 ```
-DELETE /rest/plugins/{pluginId}
+DELETE /rest/v1/plugins/{pluginId}
 ```
 
 #### Description
@@ -117,7 +117,7 @@ Remove a plugin (and unloads it if enabled). Note that if the plugin is used (de
 
 ### Get a plugin configuration object.
 ```
-GET /rest/plugins/{pluginId}/config
+GET /rest/v1/plugins/{pluginId}/config
 ```
 
 #### Description
@@ -153,7 +153,7 @@ Retrieve a plugin configuration object.  Role required [ ADMIN ]
 
 ### Save a configuration object for a plugin.
 ```
-POST /rest/plugins/{pluginId}/config
+POST /rest/v1/plugins/{pluginId}/config
 ```
 
 #### Description
@@ -191,7 +191,7 @@ Save a configuration object for a plugin. Returns the newly saved configuration.
 
 ### Disable a plugin.
 ```
-GET /rest/plugins/{pluginId}/disable
+GET /rest/v1/plugins/{pluginId}/disable
 ```
 
 #### Description
@@ -227,7 +227,7 @@ Disable a plugin (and unloads it if enabled). Note that if the plugin is used (d
 
 ### Enable a plugin.
 ```
-GET /rest/plugins/{pluginId}/enable
+GET /rest/v1/plugins/{pluginId}/enable
 ```
 
 #### Description

@@ -2,15 +2,15 @@
 layout: post
 title: Manages orchestrators.
 root: ../../
-categories: DOCUMENTATION-1.3.0
+categories: DOCUMENTATION-1.1.0
 parent: [rest_api, rest_api_admin-orchestrator-api]
-node_name: rest_api_controller_orchestrators
+node_name: rest_api_controller_orchestrator-controller
 weight: 8
 ---
 
 ### Search for orchestrators.
 ```
-GET /rest/orchestrators
+GET /rest/v1/orchestrators
 ```
 
 #### Parameters
@@ -45,7 +45,7 @@ GET /rest/orchestrators
 
 ### Create a new orchestrators.
 ```
-POST /rest/orchestrators
+POST /rest/v1/orchestrators
 ```
 
 #### Parameters
@@ -77,7 +77,7 @@ POST /rest/orchestrators
 
 ### Get an orchestrators from it's id.
 ```
-GET /rest/orchestrators/{id}
+GET /rest/v1/orchestrators/{id}
 ```
 
 #### Parameters
@@ -109,7 +109,7 @@ GET /rest/orchestrators/{id}
 
 ### Update the name of an existing orchestrators.
 ```
-PUT /rest/orchestrators/{id}
+PUT /rest/v1/orchestrators/{id}
 ```
 
 #### Parameters
@@ -143,7 +143,7 @@ PUT /rest/orchestrators/{id}
 
 ### Delete an existing orchestrators.
 ```
-DELETE /rest/orchestrators/{id}
+DELETE /rest/v1/orchestrators/{id}
 ```
 
 #### Parameters
@@ -175,7 +175,7 @@ DELETE /rest/orchestrators/{id}
 
 ### Get information on the artifacts that an orchestrator can support.
 ```
-GET /rest/orchestrators/{id}/artifacts-support
+GET /rest/v1/orchestrators/{id}/artifacts-support
 ```
 
 #### Parameters
@@ -207,7 +207,7 @@ GET /rest/orchestrators/{id}/artifacts-support
 
 ### Disable an orchestrator. Destroys the instance of the orchestrator connector.
 ```
-DELETE /rest/orchestrators/{id}/instance
+DELETE /rest/v1/orchestrators/{id}/instance
 ```
 
 #### Parameters
@@ -241,7 +241,7 @@ DELETE /rest/orchestrators/{id}/instance
 
 ### Enable an orchestrator. Creates the instance of orchestrator if not already created.
 ```
-POST /rest/orchestrators/{id}/instance
+POST /rest/v1/orchestrators/{id}/instance
 ```
 
 #### Parameters
@@ -274,7 +274,7 @@ POST /rest/orchestrators/{id}/instance
 
 ### Get information on the locations that an orchestrator can support.
 ```
-GET /rest/orchestrators/{id}/locationsupport
+GET /rest/v1/orchestrators/{id}/locationsupport
 ```
 
 #### Parameters

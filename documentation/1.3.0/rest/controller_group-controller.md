@@ -2,7 +2,7 @@
 layout: post
 title: Group Controller
 root: ../../
-categories: DOCUMENTATION-1.3.0
+categories: DOCUMENTATION-1.1.0
 parent: [rest_api, rest_api_admin-user-api]
 node_name: rest_api_controller_group-controller
 weight: 2
@@ -10,7 +10,7 @@ weight: 2
 
 ### Create a new group in ALIEN.
 ```
-POST /rest/groups
+POST /rest/v1/groups
 ```
 
 #### Parameters
@@ -43,7 +43,7 @@ POST /rest/groups
 
 ### Get multiple groups from their ids.
 ```
-POST /rest/groups/getGroups
+POST /rest/v1/groups/getGroups
 ```
 
 #### Description
@@ -80,7 +80,7 @@ Returns a rest response that contains the list of requested groups.
 
 ### Search for user's registered in alien.
 ```
-POST /rest/groups/search
+POST /rest/v1/groups/search
 ```
 
 #### Parameters
@@ -113,7 +113,7 @@ POST /rest/groups/search
 
 ### Get a group based on it's id.
 ```
-GET /rest/groups/{groupId}
+GET /rest/v1/groups/{groupId}
 ```
 
 #### Description
@@ -149,7 +149,7 @@ Returns a rest response that contains the group's details.
 
 ### Update a group by merging the groupUpdateRequest into the existing group
 ```
-PUT /rest/groups/{groupId}
+PUT /rest/v1/groups/{groupId}
 ```
 
 #### Parameters
@@ -183,7 +183,7 @@ PUT /rest/groups/{groupId}
 
 ### Delete an existing group from the repository.
 ```
-DELETE /rest/groups/{groupId}
+DELETE /rest/v1/groups/{groupId}
 ```
 
 #### Parameters
@@ -215,7 +215,7 @@ DELETE /rest/groups/{groupId}
 
 ### Add a role to a group.
 ```
-PUT /rest/groups/{groupId}/roles/{role}
+PUT /rest/v1/groups/{groupId}/roles/{role}
 ```
 
 #### Parameters
@@ -249,7 +249,7 @@ PUT /rest/groups/{groupId}/roles/{role}
 
 ### Remove a role from a group.
 ```
-DELETE /rest/groups/{groupId}/roles/{role}
+DELETE /rest/v1/groups/{groupId}/roles/{role}
 ```
 
 #### Parameters
@@ -282,7 +282,7 @@ DELETE /rest/groups/{groupId}/roles/{role}
 
 ### Add a user to a group.
 ```
-PUT /rest/groups/{groupId}/users/{username}
+PUT /rest/v1/groups/{groupId}/users/{username}
 ```
 
 #### Parameters
@@ -316,7 +316,7 @@ PUT /rest/groups/{groupId}/users/{username}
 
 ### Remove a user from a group.
 ```
-DELETE /rest/groups/{groupId}/users/{username}
+DELETE /rest/v1/groups/{groupId}/users/{username}
 ```
 
 #### Parameters

@@ -1,16 +1,16 @@
 ---
 layout: post
-title: Operations on Deployments
+title: Topology Catalog Controller
 root: ../../
 categories: DOCUMENTATION-1.1.0
-parent: [rest_api, rest_api_applications-deployment-api]
-node_name: rest_api_controller_deployment-controller
-weight: 31
+parent: [rest_api, rest_api_catalog-api]
+node_name: rest_api_controller_topology-catalog-controller
+weight: 14
 ---
 
-### Get deployments for an orchestrator.
+### Search for topologies in the catalog.
 ```
-GET /rest/v1/deployments
+POST /rest/v1/catalog/topologies/search
 ```
 
 #### Parameters
@@ -18,9 +18,7 @@ GET /rest/v1/deployments
 {: .table .table-bordered}
 |Type|Name|Description|Required|Schema|Default|
 |----|----|----|----|----|----|
-|QueryParameter|orchestratorId|Id of the orchestrator for which to get deployments. If not provided, get deployments for all orchestrators|false|string||
-|QueryParameter|sourceId|Id of the application for which to get deployments. if not provided, get deployments for all applications|false|string||
-|QueryParameter|includeSourceSummary|include or not the source (application or csar) summary in the results|false|boolean||
+|BodyParameter|searchRequest|searchRequest|true|FilteredSearchRequest||
 
 
 #### Responses
@@ -28,7 +26,8 @@ GET /rest/v1/deployments
 {: .table .table-bordered}
 |HTTP Code|Description|Schema|
 |----|----|----|
-|200|OK|RestResponse«List«DeploymentDTO»»|
+|200|OK|RestResponse«FacetedSearchResult«Topology»»|
+|201|Created|No Content|
 |401|Unauthorized|No Content|
 |403|Forbidden|No Content|
 |404|Not Found|No Content|
@@ -42,9 +41,9 @@ GET /rest/v1/deployments
 
 * application/json
 
-### getEvents
+### Create a topology and register it in the catalog
 ```
-GET /rest/v1/deployments/{applicationEnvironmentId}/events
+POST /rest/v1/catalog/topologies/template
 ```
 
 #### Parameters
@@ -52,9 +51,7 @@ GET /rest/v1/deployments/{applicationEnvironmentId}/events
 {: .table .table-bordered}
 |Type|Name|Description|Required|Schema|Default|
 |----|----|----|----|----|----|
-|PathParameter|applicationEnvironmentId|Id of the environment for which to get events.|true|string||
-|QueryParameter|from|Query from the given index.|false|integer (int32)||
-|QueryParameter|size|Maximum number of results to retrieve.|false|integer (int32)||
+|BodyParameter|createTopologyRequest|createTopologyRequest|true|CreateTopologyRequest||
 
 
 #### Responses
@@ -62,7 +59,8 @@ GET /rest/v1/deployments/{applicationEnvironmentId}/events
 {: .table .table-bordered}
 |HTTP Code|Description|Schema|
 |----|----|----|
-|200|OK|RestResponse«GetMultipleDataResult»|
+|200|OK|RestResponse«string»|
+|201|Created|No Content|
 |401|Unauthorized|No Content|
 |403|Forbidden|No Content|
 |404|Not Found|No Content|
@@ -76,9 +74,9 @@ GET /rest/v1/deployments/{applicationEnvironmentId}/events
 
 * application/json
 
-### Get deployment status from its id.
+### Get all the versions for a given archive (name)
 ```
-GET /rest/v1/deployments/{deploymentId}/status
+GET /rest/v1/catalog/topologies/{archiveName}/versions
 ```
 
 #### Parameters
@@ -86,7 +84,7 @@ GET /rest/v1/deployments/{deploymentId}/status
 {: .table .table-bordered}
 |Type|Name|Description|Required|Schema|Default|
 |----|----|----|----|----|----|
-|PathParameter|deploymentId|Deployment id.|true|string||
+|PathParameter|archiveName|archiveName|true|string||
 
 
 #### Responses
@@ -94,7 +92,7 @@ GET /rest/v1/deployments/{deploymentId}/status
 {: .table .table-bordered}
 |HTTP Code|Description|Schema|
 |----|----|----|
-|200|OK|DeferredResult«RestResponse«string»»|
+|200|OK|RestResponse«Array«CatalogVersionResult»»|
 |401|Unauthorized|No Content|
 |403|Forbidden|No Content|
 |404|Not Found|No Content|
@@ -106,11 +104,11 @@ GET /rest/v1/deployments/{deploymentId}/status
 
 #### Produces
 
-* application/json
+* */*
 
-### Undeploy deployment from its id.
+### Get a specific topology from it's id.
 ```
-GET /rest/v1/deployments/{deploymentId}/undeploy
+GET /rest/v1/catalog/topologies/{id}
 ```
 
 #### Parameters
@@ -118,7 +116,7 @@ GET /rest/v1/deployments/{deploymentId}/undeploy
 {: .table .table-bordered}
 |Type|Name|Description|Required|Schema|Default|
 |----|----|----|----|----|----|
-|PathParameter|deploymentId|Deployment id.|true|string||
+|PathParameter|id|id|true|string||
 
 
 #### Responses
@@ -126,7 +124,7 @@ GET /rest/v1/deployments/{deploymentId}/undeploy
 {: .table .table-bordered}
 |HTTP Code|Description|Schema|
 |----|----|----|
-|200|OK|RestResponse«Void»|
+|200|OK|RestResponse«Topology»|
 |401|Unauthorized|No Content|
 |403|Forbidden|No Content|
 |404|Not Found|No Content|
@@ -138,5 +136,5 @@ GET /rest/v1/deployments/{deploymentId}/undeploy
 
 #### Produces
 
-* application/json
+* */*
 

@@ -2,15 +2,15 @@
 layout: post
 title: Manages locations for a given orchestrator.
 root: ../../
-categories: DOCUMENTATION-1.3.0
+categories: DOCUMENTATION-1.1.0
 parent: [rest_api, rest_api_admin-orchestrator-api]
-node_name: rest_api_controller_orchestrator-location-resources
+node_name: rest_api_controller_location-resources-controller
 weight: 6
 ---
 
 ### Add resource template to a location.
 ```
-POST /rest/orchestrators/{orchestratorId}/locations/{locationId}/resources
+POST /rest/v1/orchestrators/{orchestratorId}/locations/{locationId}/resources
 ```
 
 #### Parameters
@@ -45,7 +45,7 @@ POST /rest/orchestrators/{orchestratorId}/locations/{locationId}/resources
 
 ### Auto configure the resources, if the location configurator plugin provides a way for.
 ```
-GET /rest/orchestrators/{orchestratorId}/locations/{locationId}/resources/auto-configure
+GET /rest/v1/orchestrators/{orchestratorId}/locations/{locationId}/resources/auto-configure
 ```
 
 #### Parameters
@@ -78,7 +78,7 @@ GET /rest/orchestrators/{orchestratorId}/locations/{locationId}/resources/auto-c
 
 ### Update location's resource.
 ```
-PUT /rest/orchestrators/{orchestratorId}/locations/{locationId}/resources/{id}
+PUT /rest/v1/orchestrators/{orchestratorId}/locations/{locationId}/resources/{id}
 ```
 
 #### Parameters
@@ -114,7 +114,7 @@ PUT /rest/orchestrators/{orchestratorId}/locations/{locationId}/resources/{id}
 
 ### Delete location's resource.
 ```
-DELETE /rest/orchestrators/{orchestratorId}/locations/{locationId}/resources/{id}
+DELETE /rest/v1/orchestrators/{orchestratorId}/locations/{locationId}/resources/{id}
 ```
 
 #### Parameters
@@ -148,7 +148,7 @@ DELETE /rest/orchestrators/{orchestratorId}/locations/{locationId}/resources/{id
 
 ### Update location's resource's capability template capability property.
 ```
-POST /rest/orchestrators/{orchestratorId}/locations/{locationId}/resources/{id}/template/capabilities/{capabilityName}/properties
+POST /rest/v1/orchestrators/{orchestratorId}/locations/{locationId}/resources/{id}/template/capabilities/{capabilityName}/properties
 ```
 
 #### Parameters
@@ -185,7 +185,7 @@ POST /rest/orchestrators/{orchestratorId}/locations/{locationId}/resources/{id}/
 
 ### Update location's resource's template property.
 ```
-POST /rest/orchestrators/{orchestratorId}/locations/{locationId}/resources/{id}/template/properties
+POST /rest/v1/orchestrators/{orchestratorId}/locations/{locationId}/resources/{id}/template/properties
 ```
 
 #### Parameters

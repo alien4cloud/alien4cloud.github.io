@@ -2,15 +2,15 @@
 layout: post
 title: Quick Search Controller
 root: ../../
-categories: DOCUMENTATION-1.3.0
+categories: DOCUMENTATION-1.1.0
 parent: [rest_api, rest_api_other-apis]
 node_name: rest_api_controller_quick-search-controller
-weight: 34
+weight: 39
 ---
 
 ### Search for applications or tosca elements in ALIEN's repository.
 ```
-POST /rest/quicksearch
+POST /rest/v1/quicksearch
 ```
 
 #### Parameters

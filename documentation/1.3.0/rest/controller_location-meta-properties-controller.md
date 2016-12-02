@@ -2,15 +2,15 @@
 layout: post
 title: Update values for meta-properties associated with locations.
 root: ../../
-categories: DOCUMENTATION-1.3.0
+categories: DOCUMENTATION-1.1.0
 parent: [rest_api, rest_api_admin-orchestrator-api]
-node_name: rest_api_controller_location-meta-properties
-weight: 5
+node_name: rest_api_controller_location-meta-properties-controller
+weight: 4
 ---
 
 ### upsertMetaProperty
 ```
-POST /rest/orchestrators/{orchestratorId}/locations/{locationId}/properties
+POST /rest/v1/orchestrators/{orchestratorId}/locations/{locationId}/properties
 ```
 
 #### Parameters

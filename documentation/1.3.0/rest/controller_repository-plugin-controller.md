@@ -1,28 +1,24 @@
 ---
 layout: post
-title: Auth Controller
+title: Allow to list all repository plugins (artifact resolver).
 root: ../../
 categories: DOCUMENTATION-1.1.0
 parent: [rest_api, rest_api_other-apis]
-node_name: rest_api_controller_auth-controller
-weight: 37
+node_name: rest_api_controller_repository-plugin-controller
+weight: 35
 ---
 
-### Get the current authentication status and user's roles.
+### Search for repository resolver plugins.
 ```
-GET /rest/v1/auth/status
+GET /rest/v1/repository-plugins
 ```
-
-#### Description
-
-Return the current user's status and it's roles.
 
 #### Responses
 
 {: .table .table-bordered}
 |HTTP Code|Description|Schema|
 |----|----|----|
-|200|OK|RestResponse«UserStatus»|
+|200|OK|RestResponse«List«RepositoryPluginComponent»»|
 |401|Unauthorized|No Content|
 |403|Forbidden|No Content|
 |404|Not Found|No Content|

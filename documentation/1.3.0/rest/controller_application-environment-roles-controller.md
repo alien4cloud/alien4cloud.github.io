@@ -2,15 +2,15 @@
 layout: post
 title: Manages application's environments
 root: ../../
-categories: DOCUMENTATION-1.3.0
+categories: DOCUMENTATION-1.1.0
 parent: [rest_api, rest_api_applications-api]
 node_name: rest_api_controller_application-environment-roles-controller
-weight: 22
+weight: 27
 ---
 
 ### Add a role to a group on a specific application environment
 ```
-PUT /rest/applications/{applicationId}/environments/{applicationEnvironmentId}/roles/groups/{groupId}/{role}
+PUT /rest/v1/applications/{applicationId}/environments/{applicationEnvironmentId}/roles/groups/{groupId}/{role}
 ```
 
 #### Description
@@ -49,7 +49,7 @@ Any user with application role APPLICATION_MANAGER can assign any role to a grou
 
 ### Remove a role of a group on a specific application environment
 ```
-DELETE /rest/applications/{applicationId}/environments/{applicationEnvironmentId}/roles/groups/{groupId}/{role}
+DELETE /rest/v1/applications/{applicationId}/environments/{applicationEnvironmentId}/roles/groups/{groupId}/{role}
 ```
 
 #### Description
@@ -87,7 +87,7 @@ Any user with application role APPLICATION_MANAGER can un-assign any role to a g
 
 ### Add a role to a user on a specific application environment
 ```
-PUT /rest/applications/{applicationId}/environments/{applicationEnvironmentId}/roles/users/{username}/{role}
+PUT /rest/v1/applications/{applicationId}/environments/{applicationEnvironmentId}/roles/users/{username}/{role}
 ```
 
 #### Description
@@ -126,7 +126,7 @@ Any user with application role APPLICATION_MANAGER can assign any role to anothe
 
 ### Remove a role to a user on a specific application environment
 ```
-DELETE /rest/applications/{applicationId}/environments/{applicationEnvironmentId}/roles/users/{username}/{role}
+DELETE /rest/v1/applications/{applicationId}/environments/{applicationEnvironmentId}/roles/users/{username}/{role}
 ```
 
 #### Description

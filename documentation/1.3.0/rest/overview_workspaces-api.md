@@ -1,11 +1,11 @@
 ---
 layout: post
-title: other-apis
+title: workspaces-api
 root: ../../
 categories: DOCUMENTATION-1.1.0
 parent: [rest_api]
-node_name: rest_api_other-apis
-weight: 11
+node_name: rest_api_workspaces-api
+weight: 7
 ---
 
 # ALIEN 4 Cloud API

@@ -1,16 +1,16 @@
 ---
 layout: post
-title: Allow to query for enabled plugin components.
+title: Topology Portability Controller
 root: ../../
-categories: DOCUMENTATION-1.3.0
+categories: DOCUMENTATION-1.1.0
 parent: [rest_api, rest_api_other-apis]
-node_name: rest_api_controller_plugin-components
-weight: 31
+node_name: rest_api_controller_topology-portability-controller
+weight: 40
 ---
 
-### Search for plugin components.
+### Evaluate the portability of a topology.
 ```
-GET /rest/plugincomponents
+GET /rest/v1/portability/topology/{topologyId}
 ```
 
 #### Parameters
@@ -18,7 +18,7 @@ GET /rest/plugincomponents
 {: .table .table-bordered}
 |Type|Name|Description|Required|Schema|Default|
 |----|----|----|----|----|----|
-|QueryParameter|type|Type of plugin component to query for.|true|string||
+|PathParameter|topologyId|Id of the orchestrator for which to update resource template property.|true|string||
 
 
 #### Responses
@@ -26,7 +26,7 @@ GET /rest/plugincomponents
 {: .table .table-bordered}
 |HTTP Code|Description|Schema|
 |----|----|----|
-|200|OK|RestResponse«List«Result for a request for specific plugin components.»»|
+|200|OK|RestResponse«TopologyPortabilityInsight»|
 |401|Unauthorized|No Content|
 |403|Forbidden|No Content|
 |404|Not Found|No Content|

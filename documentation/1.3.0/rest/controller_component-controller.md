@@ -1,16 +1,83 @@
 ---
 layout: post
-title: Component Controller
+title: Operations on Components
 root: ../../
-categories: DOCUMENTATION-1.3.0
-parent: [rest_api, rest_api_components-api]
+categories: DOCUMENTATION-1.1.0
+parent: [rest_api, rest_api_catalog-api]
 node_name: rest_api_controller_component-controller
-weight: 14
+weight: 17
 ---
+
+### Get details for a component (tosca type) from it's id (including archive hash).
+```
+GET /rest/v1/components/element/{elementId}/version/{version}
+```
+
+#### Parameters
+
+{: .table .table-bordered}
+|Type|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|----|
+|PathParameter|elementId|elementId|true|string||
+|PathParameter|version|version|true|string||
+|QueryParameter|toscaType|toscaType|false|enum (NODE_TYPE, CAPABILITY_TYPE, RELATIONSHIP_TYPE, ARTIFACT_TYPE)||
+
+
+#### Responses
+
+{: .table .table-bordered}
+|HTTP Code|Description|Schema|
+|----|----|----|
+|200|OK|RestResponse«AbstractToscaType»|
+|401|Unauthorized|No Content|
+|403|Forbidden|No Content|
+|404|Not Found|No Content|
+
+
+#### Consumes
+
+* application/json
+
+#### Produces
+
+* */*
+
+### Get details for a component (tosca type).
+```
+GET /rest/v1/components/element/{elementId}/versions
+```
+
+#### Parameters
+
+{: .table .table-bordered}
+|Type|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|----|
+|PathParameter|elementId|elementId|true|string||
+|QueryParameter|toscaType|toscaType|false|enum (NODE_TYPE, CAPABILITY_TYPE, RELATIONSHIP_TYPE, ARTIFACT_TYPE)||
+
+
+#### Responses
+
+{: .table .table-bordered}
+|HTTP Code|Description|Schema|
+|----|----|----|
+|200|OK|RestResponse«Array«CatalogVersionResult»»|
+|401|Unauthorized|No Content|
+|403|Forbidden|No Content|
+|404|Not Found|No Content|
+
+
+#### Consumes
+
+* application/json
+
+#### Produces
+
+* */*
 
 ### Verify that a component (tosca element) exists in alien's repository.
 ```
-POST /rest/components/exist
+POST /rest/v1/components/exist
 ```
 
 #### Parameters
@@ -43,7 +110,7 @@ POST /rest/components/exist
 
 ### Get details for a component (tosca type).
 ```
-POST /rest/components/getInArchives
+POST /rest/v1/components/getInArchives
 ```
 
 #### Parameters
@@ -59,7 +126,7 @@ POST /rest/components/getInArchives
 {: .table .table-bordered}
 |HTTP Code|Description|Schema|
 |----|----|----|
-|200|OK|RestResponse«IndexedToscaElement»|
+|200|OK|RestResponse«AbstractToscaType»|
 |201|Created|No Content|
 |401|Unauthorized|No Content|
 |403|Forbidden|No Content|
@@ -76,7 +143,7 @@ POST /rest/components/getInArchives
 
 ### Set the given node type as default for the given capability.
 ```
-POST /rest/components/recommendation
+POST /rest/v1/components/recommendation
 ```
 
 #### Parameters
@@ -92,7 +159,7 @@ POST /rest/components/recommendation
 {: .table .table-bordered}
 |HTTP Code|Description|Schema|
 |----|----|----|
-|200|OK|RestResponse«IndexedNodeType»|
+|200|OK|RestResponse«NodeType»|
 |201|Created|No Content|
 |401|Unauthorized|No Content|
 |403|Forbidden|No Content|
@@ -109,7 +176,7 @@ POST /rest/components/recommendation
 
 ### Get details for an indexed node type..
 ```
-GET /rest/components/recommendation/{capability}
+GET /rest/v1/components/recommendation/{capability}
 ```
 
 #### Parameters
@@ -125,7 +192,7 @@ GET /rest/components/recommendation/{capability}
 {: .table .table-bordered}
 |HTTP Code|Description|Schema|
 |----|----|----|
-|200|OK|RestResponse«IndexedNodeType»|
+|200|OK|RestResponse«NodeType»|
 |401|Unauthorized|No Content|
 |403|Forbidden|No Content|
 |404|Not Found|No Content|
@@ -141,7 +208,7 @@ GET /rest/components/recommendation/{capability}
 
 ### Search for components (tosca types) in alien.
 ```
-POST /rest/components/search
+POST /rest/v1/components/search
 ```
 
 #### Parameters
@@ -150,7 +217,6 @@ POST /rest/components/search
 |Type|Name|Description|Required|Schema|Default|
 |----|----|----|----|----|----|
 |BodyParameter|searchRequest|searchRequest|true|SearchRequest||
-|QueryParameter|queryAllVersions|queryAllVersions|false|boolean||
 
 
 #### Responses
@@ -158,7 +224,7 @@ POST /rest/components/search
 {: .table .table-bordered}
 |HTTP Code|Description|Schema|
 |----|----|----|
-|200|OK|RestResponse«FacetedSearchResult»|
+|200|OK|RestResponse«FacetedSearchResult«AbstractToscaType»»|
 |201|Created|No Content|
 |401|Unauthorized|No Content|
 |403|Forbidden|No Content|
@@ -175,7 +241,7 @@ POST /rest/components/search
 
 ### Remove a recommendation for a node type.
 ```
-POST /rest/components/unflag
+POST /rest/v1/components/unflag
 ```
 
 #### Description
@@ -195,7 +261,7 @@ If a node type is set as default for a given capability, you can remove this set
 {: .table .table-bordered}
 |HTTP Code|Description|Schema|
 |----|----|----|
-|200|OK|RestResponse«IndexedNodeType»|
+|200|OK|RestResponse«NodeType»|
 |201|Created|No Content|
 |401|Unauthorized|No Content|
 |403|Forbidden|No Content|
@@ -212,7 +278,7 @@ If a node type is set as default for a given capability, you can remove this set
 
 ### Update or insert a tag for a component (tosca element).
 ```
-POST /rest/components/{componentId}/tags
+POST /rest/v1/components/{componentId}/tags
 ```
 
 #### Parameters
@@ -246,7 +312,7 @@ POST /rest/components/{componentId}/tags
 
 ### Delete a tag for a component (tosca element).
 ```
-DELETE /rest/components/{componentId}/tags/{tagId}
+DELETE /rest/v1/components/{componentId}/tags/{tagId}
 ```
 
 #### Parameters
@@ -277,9 +343,9 @@ DELETE /rest/components/{componentId}/tags/{tagId}
 
 * application/json
 
-### Get details for a component (tosca type).
+### Get details for a component (tosca type) from it's id (including archive hash).
 ```
-GET /rest/components/{id}
+GET /rest/v1/components/{id}
 ```
 
 #### Parameters
@@ -288,6 +354,7 @@ GET /rest/components/{id}
 |Type|Name|Description|Required|Schema|Default|
 |----|----|----|----|----|----|
 |PathParameter|id|id|true|string||
+|QueryParameter|toscaType|toscaType|false|enum (NODE_TYPE, CAPABILITY_TYPE, RELATIONSHIP_TYPE, ARTIFACT_TYPE)||
 
 
 #### Responses
@@ -295,7 +362,7 @@ GET /rest/components/{id}
 {: .table .table-bordered}
 |HTTP Code|Description|Schema|
 |----|----|----|
-|200|OK|RestResponse«IndexedToscaElement»|
+|200|OK|RestResponse«AbstractToscaType»|
 |401|Unauthorized|No Content|
 |403|Forbidden|No Content|
 |404|Not Found|No Content|

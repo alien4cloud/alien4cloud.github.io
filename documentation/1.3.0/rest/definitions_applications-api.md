@@ -2,7 +2,7 @@
 layout: post
 title: Definitions
 root: ../../
-categories: DOCUMENTATION-1.3.0
+categories: DOCUMENTATION-1.1.0
 parent: [rest_api, rest_api_applications-api]
 node_name: rest_api_definitions_applications-api
 weight: 9000
@@ -44,6 +44,7 @@ weight: 9000
 |----|----|----|----|----|
 |availableSubstitutions||false|Contains the types and templates of resources that can be substituted for a deployment.||
 |capabilityTypes||false|object||
+|dataTypes||false|object||
 |locationPolicies||false|object||
 |locationResourceTemplates||false|object||
 |nodeTypes||false|object||
@@ -66,7 +67,7 @@ weight: 9000
 
 # Map«string,Array«string»»
 
-# Map«string,IndexedRelationshipType»
+# Map«string,DataType»
 
 # FilterDefinition
 
@@ -88,7 +89,7 @@ weight: 9000
 
 # Map«string,Workflow»
 
-# Map«string,IndexedNodeType»
+# Map«string,object»
 
 # Map«string,Map«string,InstanceInformation»»
 
@@ -100,6 +101,16 @@ weight: 9000
 |----|----|----|----|----|
 |properties||false|object||
 |type||false|string||
+
+
+# PropertyValue
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|definition||false|boolean||
+|value||false|object||
 
 
 # Workflow
@@ -141,7 +152,11 @@ weight: 9000
 |archiveName||false|string||
 |archiveVersion||false|string||
 |artifactRef||false|string||
+|artifactRepository||false|string||
 |artifactType||false|string||
+|repositoryCredential||false|object||
+|repositoryName||false|string||
+|repositoryURL||false|string||
 
 
 # Requirement
@@ -162,27 +177,6 @@ weight: 9000
 |----|----|----|----|----|
 |data||false|object||
 |error||false|RestError||
-
-
-# IndexedCapabilityType
-
-
-{: .table .table-bordered}
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|abstract||false|boolean||
-|archiveName||false|string||
-|archiveVersion||false|string||
-|creationDate||false|string (date-time)||
-|derivedFrom||false|string array||
-|description||false|string||
-|elementId||false|string||
-|highestVersion||false|boolean||
-|id||false|string||
-|lastUpdateDate||false|string (date-time)||
-|olderVersions||false|string array||
-|properties||false|object||
-|tags||false|Tag array||
 
 
 # RestResponse«ConstraintInformation»
@@ -243,13 +237,15 @@ weight: 9000
 |error||false|RestError||
 
 
+# Map«string,NodeType»
+
 # AbstractTask
 
 
 {: .table .table-bordered}
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
-|code||false|enum (IMPLEMENT, REPLACE, SATISFY_LOWER_BOUND, PROPERTIES, HA_INVALID, SCALABLE_CAPABILITY_INVALID, NODE_FILTER_INVALID, WORKFLOW_INVALID, LOCATION_POLICY, LOCATION_UNAUTHORIZED, LOCATION_DISABLED, ORCHESTRATOR_PROPERTY, INPUT_PROPERTY, NODE_NOT_SUBSTITUTED)||
+|code||false|enum (IMPLEMENT, IMPLEMENT_RELATIONSHIP, REPLACE, SATISFY_LOWER_BOUND, PROPERTIES, HA_INVALID, SCALABLE_CAPABILITY_INVALID, NODE_FILTER_INVALID, WORKFLOW_INVALID, INPUT_ARTIFACT_INVALID, ARTIFACT_INVALID, LOCATION_POLICY, LOCATION_UNAUTHORIZED, LOCATION_DISABLED, ORCHESTRATOR_PROPERTY, INPUT_PROPERTY, NODE_NOT_SUBSTITUTED)||
 
 
 # EnvironmentStatusDTO
@@ -259,7 +255,7 @@ weight: 9000
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
 |environmentName||false|string||
-|environmentStatus||false|enum (DEPLOYED, UNDEPLOYED, DEPLOYMENT_IN_PROGRESS, UNDEPLOYMENT_IN_PROGRESS, WARNING, FAILURE, UNKNOWN)||
+|environmentStatus||false|enum (DEPLOYED, UNDEPLOYED, INIT_DEPLOYMENT, DEPLOYMENT_IN_PROGRESS, UNDEPLOYMENT_IN_PROGRESS, WARNING, FAILURE, UNKNOWN)||
 
 
 # Map«string,InstanceInformation»
@@ -274,7 +270,7 @@ weight: 9000
 |----|----|----|----|----|
 |capabilities||false|object||
 |requirements||false|object||
-|substitutionType||false|IndexedNodeType||
+|substitutionType||false|NodeType||
 
 
 # LocationResourceTypes
@@ -303,6 +299,28 @@ weight: 9000
 
 
 # Map«string,EnvironmentStatusDTO»
+
+# DataType
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|abstract||false|boolean||
+|archiveName||false|string||
+|archiveVersion||false|string||
+|creationDate||false|string (date-time)||
+|deriveFromSimpleType||false|boolean||
+|derivedFrom||false|string array||
+|description||false|string||
+|elementId||false|string||
+|id||false|string||
+|lastUpdateDate||false|string (date-time)||
+|nestedVersion||false|Version||
+|properties||false|object||
+|tags||false|Tag array||
+|workspace||false|string||
+
 
 # RestResponse«Map«string,Map«string,InstanceInformation»»»
 
@@ -358,12 +376,13 @@ weight: 9000
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
 |constraints||false|PropertyConstraint array||
-|default||false|string||
+|default||false|PropertyValue«DeploymentTopology»||
 |definition||false|boolean||
 |description||false|string||
 |entrySchema||false|PropertyDefinition||
 |password||false|boolean||
 |required||false|boolean||
+|suggestionId||false|string||
 |type||false|string||
 
 
@@ -373,6 +392,7 @@ weight: 9000
 {: .table .table-bordered}
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
+|archiveName||false|string||
 |description||false|string||
 |name||false|string||
 |topologyTemplateVersionId||false|string||
@@ -415,6 +435,7 @@ weight: 9000
 |----|----|----|----|----|
 |description||false|string||
 |operations||false|object||
+|type||false|string||
 
 
 # NodeFilter
@@ -425,6 +446,16 @@ weight: 9000
 |----|----|----|----|----|
 |capabilities||false|object||
 |properties||false|object||
+
+
+# SortConfiguration
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|ascending||false|boolean||
+|sortBy||false|string||
 
 
 # ApplicationVersion
@@ -439,8 +470,33 @@ weight: 9000
 |latest||false|boolean||
 |released||false|boolean||
 |snapshot||false|boolean||
-|topologyId||false|string||
 |version||false|string||
+
+
+# RelationshipType
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|abstract||false|boolean||
+|archiveName||false|string||
+|archiveVersion||false|string||
+|artifacts||false|object||
+|attributes||false|object||
+|creationDate||false|string (date-time)||
+|derivedFrom||false|string array||
+|description||false|string||
+|elementId||false|string||
+|id||false|string||
+|interfaces||false|object||
+|lastUpdateDate||false|string (date-time)||
+|nestedVersion||false|Version||
+|properties||false|object||
+|tags||false|Tag array||
+|validSources||false|string array||
+|validTargets||false|string array||
+|workspace||false|string||
 
 
 # Deployment
@@ -474,6 +530,7 @@ weight: 9000
 |id||false|string||
 |lowerBound||false|integer (int32)||
 |nodeFilter||false|NodeFilter||
+|nodeType||false|string||
 |relationshipType||false|string||
 |type||false|string||
 |upperBound||false|integer (int32)||
@@ -490,8 +547,6 @@ weight: 9000
 |precedingSteps||false|string array||
 
 
-# Map«string,IndexedCapabilityType»
-
 # RelationshipTemplate
 
 
@@ -501,6 +556,7 @@ weight: 9000
 |artifacts||false|object||
 |attributes||false|object||
 |interfaces||false|object||
+|name||false|string||
 |properties||false|object||
 |requirementName||false|string||
 |requirementType||false|string||
@@ -510,6 +566,29 @@ weight: 9000
 
 
 # AbstractWorkflowError
+
+# Version
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|buildNumber||false|integer (int32)||
+|incrementalVersion||false|integer (int32)||
+|majorVersion||false|integer (int32)||
+|minorVersion||false|integer (int32)||
+|qualifier||false|string||
+
+
+# PropertyValue«DeploymentTopology»
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|definition||false|boolean||
+|value||false|DeploymentTopology||
+
 
 # RestResponse«Map«string,Map«string,EnvironmentStatusDTO»»»
 
@@ -545,35 +624,6 @@ weight: 9000
 |name||false|string||
 
 
-# IndexedNodeType
-
-
-{: .table .table-bordered}
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|abstract||false|boolean||
-|alienScore||false|integer (int64)||
-|archiveName||false|string||
-|archiveVersion||false|string||
-|artifacts||false|object||
-|attributes||false|object||
-|capabilities||false|CapabilityDefinition array||
-|creationDate||false|string (date-time)||
-|defaultCapabilities||false|string array||
-|derivedFrom||false|string array||
-|description||false|string||
-|elementId||false|string||
-|highestVersion||false|boolean||
-|id||false|string||
-|interfaces||false|object||
-|lastUpdateDate||false|string (date-time)||
-|olderVersions||false|string array||
-|properties||false|object||
-|requirements||false|RequirementDefinition array||
-|substitutionTopologyId||false|string||
-|tags||false|Tag array||
-
-
 # CapabilityDefinition
 
 
@@ -585,6 +635,7 @@ weight: 9000
 |properties||false|object||
 |type||false|string||
 |upperBound||false|integer (int32)||
+|validSources||false|string array||
 
 
 # DeploymentArtifact
@@ -599,6 +650,11 @@ weight: 9000
 |artifactRef||false|string||
 |artifactRepository||false|string||
 |artifactType||false|string||
+|deployPath||false|string||
+|description||false|string||
+|repositoryCredential||false|object||
+|repositoryName||false|string||
+|repositoryURL||false|string||
 
 
 # Map«string,FilterDefinition»
@@ -633,9 +689,12 @@ weight: 9000
 {: .table .table-bordered}
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
-|delegateId||false|string||
-|delegateType||false|string||
+|archiveName||false|string||
+|archiveVersion||false|string||
+|creationDate||false|string (date-time)||
 |dependencies||false|CSARDependency array||
+|deployed||false|boolean||
+|description||false|string||
 |empty||false|boolean||
 |environmentId||false|string||
 |groups||false|object||
@@ -648,6 +707,7 @@ weight: 9000
 |lastUpdateDate||false|string (date-time)||
 |locationDependencies||false|CSARDependency array||
 |locationGroups||false|object||
+|nestedVersion||false|Version||
 |nodeTemplates||false|object||
 |orchestratorId||false|string||
 |originalNodes||false|object||
@@ -657,8 +717,10 @@ weight: 9000
 |providerDeploymentProperties||false|object||
 |substitutedNodes||false|object||
 |substitutionMapping||false|SubstitutionMapping||
+|uploadedInputArtifacts||false|object||
 |versionId||false|string||
 |workflows||false|object||
+|workspace||false|string||
 
 
 # RestResponse«boolean»
@@ -712,6 +774,7 @@ weight: 9000
 |groups||false|string array||
 |interfaces||false|object||
 |name||false|string||
+|portability||false|object||
 |properties||false|object||
 |relationships||false|object||
 |requirements||false|object||
@@ -728,30 +791,36 @@ weight: 9000
 |name||false|string||
 
 
-# IndexedRelationshipType
+# Map«string,PropertyValue»
+
+# NodeType
 
 
 {: .table .table-bordered}
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
 |abstract||false|boolean||
+|alienScore||false|integer (int64)||
 |archiveName||false|string||
 |archiveVersion||false|string||
 |artifacts||false|object||
 |attributes||false|object||
+|capabilities||false|CapabilityDefinition array||
 |creationDate||false|string (date-time)||
+|defaultCapabilities||false|string array||
 |derivedFrom||false|string array||
 |description||false|string||
 |elementId||false|string||
-|highestVersion||false|boolean||
 |id||false|string||
 |interfaces||false|object||
 |lastUpdateDate||false|string (date-time)||
-|olderVersions||false|string array||
+|nestedVersion||false|Version||
+|portability||false|object||
 |properties||false|object||
+|requirements||false|RequirementDefinition array||
+|substitutionTopologyId||false|string||
 |tags||false|Tag array||
-|validSources||false|string array||
-|validTargets||false|string array||
+|workspace||false|string||
 
 
 # ApplicationVersionRequest
@@ -791,6 +860,7 @@ weight: 9000
 |id||false|string||
 |locationId||false|string||
 |name||false|string||
+|portabilityDefinitions||false|object||
 |service||false|boolean||
 |template||false|NodeTemplate||
 |types||false|string array||
@@ -822,9 +892,11 @@ weight: 9000
 {: .table .table-bordered}
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
+|dependencies||false|DeploymentArtifact array||
 |description||false|string||
 |implementationArtifact||false|ImplementationArtifact||
 |inputParameters||false|object||
+|portability||false|object||
 
 
 # RestResponse«ApplicationVersion»
@@ -863,7 +935,7 @@ weight: 9000
 |groupRoles||false|object||
 |id||false|string||
 |name||false|string||
-|status||false|enum (DEPLOYED, UNDEPLOYED, DEPLOYMENT_IN_PROGRESS, UNDEPLOYMENT_IN_PROGRESS, WARNING, FAILURE, UNKNOWN)||
+|status||false|enum (DEPLOYED, UNDEPLOYED, INIT_DEPLOYMENT, DEPLOYMENT_IN_PROGRESS, UNDEPLOYMENT_IN_PROGRESS, WARNING, FAILURE, UNKNOWN)||
 |userRoles||false|object||
 
 
@@ -916,6 +988,29 @@ weight: 9000
 |error||false|RestError||
 
 
+# CapabilityType
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|abstract||false|boolean||
+|archiveName||false|string||
+|archiveVersion||false|string||
+|attributes||false|object||
+|creationDate||false|string (date-time)||
+|derivedFrom||false|string array||
+|description||false|string||
+|elementId||false|string||
+|id||false|string||
+|lastUpdateDate||false|string (date-time)||
+|nestedVersion||false|Version||
+|properties||false|object||
+|tags||false|Tag array||
+|validSources||false|string array||
+|workspace||false|string||
+
+
 # DeferredResult«RestResponse«Void»»
 
 
@@ -926,10 +1021,25 @@ weight: 9000
 |setOrExpired||false|boolean||
 
 
+# SearchLogRequest
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|filters||false|object||
+|from||false|integer (int32)||
+|fromDate||false|string (date-time)||
+|query||false|string||
+|size||false|integer (int32)||
+|sortConfiguration||false|SortConfiguration||
+|toDate||false|string (date-time)||
+
+
 # SetLocationPoliciesRequest
 
 
-Request to set locations policies fro a deployment.
+Request to set locations policies for a deployment.
 
 
 {: .table .table-bordered}
@@ -957,17 +1067,22 @@ Request to set locations policies fro a deployment.
 
 # Map«string,AbstractPropertyValue»
 
+# Map«string,RelationshipType»
+
 # CSARDependency
 
 
 {: .table .table-bordered}
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
+|hash||false|string||
 |name||false|string||
 |version||false|string||
 
 
 # Map«string,NodeTemplate»
+
+# Map«string,CapabilityType»
 
 # Map«string,string»
 

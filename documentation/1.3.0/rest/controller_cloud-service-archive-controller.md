@@ -1,16 +1,16 @@
 ---
 layout: post
-title: Cloud Service Archive Controller
+title: Operations on CSARs
 root: ../../
-categories: DOCUMENTATION-1.3.0
-parent: [rest_api, rest_api_components-api]
+categories: DOCUMENTATION-1.1.0
+parent: [rest_api, rest_api_catalog-api]
 node_name: rest_api_controller_cloud-service-archive-controller
-weight: 13
+weight: 16
 ---
 
 ### Upload a csar zip file.
 ```
-POST /rest/csars
+POST /rest/v1/csars
 ```
 
 #### Parameters
@@ -18,7 +18,8 @@ POST /rest/csars
 {: .table .table-bordered}
 |Type|Name|Description|Required|Schema|Default|
 |----|----|----|----|----|----|
-|FormDataParameter|file|csar|true|file||
+|QueryParameter|workspace|workspace|false|string||
+|FormDataParameter|file|file|true|file||
 
 
 #### Responses
@@ -43,7 +44,7 @@ POST /rest/csars
 
 ### Search for cloud service archives.
 ```
-POST /rest/csars/search
+POST /rest/v1/csars/search
 ```
 
 #### Parameters
@@ -76,7 +77,7 @@ POST /rest/csars/search
 
 ### Get a CSAR given its id.
 ```
-GET /rest/csars/{csarId}
+GET /rest/v1/csars/{csarId}
 ```
 
 #### Description
@@ -112,7 +113,7 @@ Returns a CSAR.
 
 ### Delete a CSAR given its id.
 ```
-DELETE /rest/csars/{csarId}
+DELETE /rest/v1/csars/{csarId}
 ```
 
 #### Parameters
@@ -142,45 +143,9 @@ DELETE /rest/csars/{csarId}
 
 * application/json
 
-### Get active deployment for the given csar snapshot's test topology on the given cloud.
-```
-GET /rest/csars/{csarId}/active-deployment
-```
-
-#### Description
-
-Application role required [ APPLICATION_MANAGER | APPLICATION_DEVOPS ]
-
-#### Parameters
-
-{: .table .table-bordered}
-|Type|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|----|
-|PathParameter|csarId|csarId|true|string||
-
-
-#### Responses
-
-{: .table .table-bordered}
-|HTTP Code|Description|Schema|
-|----|----|----|
-|200|OK|RestResponse«Deployment»|
-|401|Unauthorized|No Content|
-|403|Forbidden|No Content|
-|404|Not Found|No Content|
-
-
-#### Consumes
-
-* application/json
-
-#### Produces
-
-* application/json
-
 ### Add dependency to the csar with given id.
 ```
-POST /rest/csars/{csarId}/dependencies
+POST /rest/v1/csars/{csarId}/dependencies
 ```
 
 #### Parameters

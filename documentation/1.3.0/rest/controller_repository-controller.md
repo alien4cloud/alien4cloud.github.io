@@ -1,16 +1,16 @@
 ---
 layout: post
-title: Operations on Deployments
+title: Allow to create/list/delete a repository.
 root: ../../
 categories: DOCUMENTATION-1.1.0
-parent: [rest_api, rest_api_applications-deployment-api]
-node_name: rest_api_controller_deployment-controller
-weight: 31
+parent: [rest_api, rest_api_other-apis]
+node_name: rest_api_controller_repository-controller
+weight: 34
 ---
 
-### Get deployments for an orchestrator.
+### Create a new repository.
 ```
-GET /rest/v1/deployments
+POST /rest/v1/repositories
 ```
 
 #### Parameters
@@ -18,9 +18,7 @@ GET /rest/v1/deployments
 {: .table .table-bordered}
 |Type|Name|Description|Required|Schema|Default|
 |----|----|----|----|----|----|
-|QueryParameter|orchestratorId|Id of the orchestrator for which to get deployments. If not provided, get deployments for all orchestrators|false|string||
-|QueryParameter|sourceId|Id of the application for which to get deployments. if not provided, get deployments for all applications|false|string||
-|QueryParameter|includeSourceSummary|include or not the source (application or csar) summary in the results|false|boolean||
+|BodyParameter|createRequest|Create repository|true|CreateRepositoryRequest||
 
 
 #### Responses
@@ -28,7 +26,7 @@ GET /rest/v1/deployments
 {: .table .table-bordered}
 |HTTP Code|Description|Schema|
 |----|----|----|
-|200|OK|RestResponse«List«DeploymentDTO»»|
+|201|Created|RestResponse«string»|
 |401|Unauthorized|No Content|
 |403|Forbidden|No Content|
 |404|Not Found|No Content|
@@ -42,9 +40,9 @@ GET /rest/v1/deployments
 
 * application/json
 
-### getEvents
+### Search for repositories
 ```
-GET /rest/v1/deployments/{applicationEnvironmentId}/events
+POST /rest/v1/repositories/search
 ```
 
 #### Parameters
@@ -52,9 +50,7 @@ GET /rest/v1/deployments/{applicationEnvironmentId}/events
 {: .table .table-bordered}
 |Type|Name|Description|Required|Schema|Default|
 |----|----|----|----|----|----|
-|PathParameter|applicationEnvironmentId|Id of the environment for which to get events.|true|string||
-|QueryParameter|from|Query from the given index.|false|integer (int32)||
-|QueryParameter|size|Maximum number of results to retrieve.|false|integer (int32)||
+|BodyParameter|searchRequest|searchRequest|true|FilteredSearchRequest||
 
 
 #### Responses
@@ -62,7 +58,8 @@ GET /rest/v1/deployments/{applicationEnvironmentId}/events
 {: .table .table-bordered}
 |HTTP Code|Description|Schema|
 |----|----|----|
-|200|OK|RestResponse«GetMultipleDataResult»|
+|200|OK|RestResponse«FacetedSearchResult»|
+|201|Created|No Content|
 |401|Unauthorized|No Content|
 |403|Forbidden|No Content|
 |404|Not Found|No Content|
@@ -76,9 +73,9 @@ GET /rest/v1/deployments/{applicationEnvironmentId}/events
 
 * application/json
 
-### Get deployment status from its id.
+### Update the repository.
 ```
-GET /rest/v1/deployments/{deploymentId}/status
+PUT /rest/v1/repositories/{id}
 ```
 
 #### Parameters
@@ -86,7 +83,8 @@ GET /rest/v1/deployments/{deploymentId}/status
 {: .table .table-bordered}
 |Type|Name|Description|Required|Schema|Default|
 |----|----|----|----|----|----|
-|PathParameter|deploymentId|Deployment id.|true|string||
+|PathParameter|id|Id of the repository to update|true|string||
+|BodyParameter|updateRequest|Request for repository update|true|UpdateRepositoryRequest||
 
 
 #### Responses
@@ -94,7 +92,8 @@ GET /rest/v1/deployments/{deploymentId}/status
 {: .table .table-bordered}
 |HTTP Code|Description|Schema|
 |----|----|----|
-|200|OK|DeferredResult«RestResponse«string»»|
+|200|OK|RestResponse«Void»|
+|201|Created|No Content|
 |401|Unauthorized|No Content|
 |403|Forbidden|No Content|
 |404|Not Found|No Content|
@@ -108,9 +107,9 @@ GET /rest/v1/deployments/{deploymentId}/status
 
 * application/json
 
-### Undeploy deployment from its id.
+### Delete a repository.
 ```
-GET /rest/v1/deployments/{deploymentId}/undeploy
+DELETE /rest/v1/repositories/{id}
 ```
 
 #### Parameters
@@ -118,7 +117,7 @@ GET /rest/v1/deployments/{deploymentId}/undeploy
 {: .table .table-bordered}
 |Type|Name|Description|Required|Schema|Default|
 |----|----|----|----|----|----|
-|PathParameter|deploymentId|Deployment id.|true|string||
+|PathParameter|id|Id of the repository to update|true|string||
 
 
 #### Responses
@@ -128,8 +127,8 @@ GET /rest/v1/deployments/{deploymentId}/undeploy
 |----|----|----|
 |200|OK|RestResponse«Void»|
 |401|Unauthorized|No Content|
+|204|No Content|No Content|
 |403|Forbidden|No Content|
-|404|Not Found|No Content|
 
 
 #### Consumes

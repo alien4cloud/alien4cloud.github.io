@@ -2,10 +2,10 @@
 layout: post
 title: topology-editor-api
 root: ../../
-categories: DOCUMENTATION-1.3.0
+categories: DOCUMENTATION-1.1.0
 parent: [rest_api]
 node_name: rest_api_topology-editor-api
-weight: 8
+weight: 10
 ---
 
 # ALIEN 4 Cloud API
@@ -14,5 +14,5 @@ weight: 8
 This section contains documentation of Alien 4 Cloud REST API.
 
 ### Version information
-Version: 1.1.0
+Version: 1
 

@@ -2,7 +2,7 @@
 layout: post
 title: Definitions
 root: ../../
-categories: DOCUMENTATION-1.3.0
+categories: DOCUMENTATION-1.1.0
 parent: [rest_api, rest_api_admin-audit-api]
 node_name: rest_api_definitions_admin-audit-api
 weight: 9000
@@ -63,7 +63,7 @@ weight: 9000
 |category||false|string||
 |enabled||false|boolean||
 |method||false|string||
-|path||false|string||
+|signature||false|string||
 
 
 # RestResponse«FacetedSearchResult»

@@ -1,28 +1,24 @@
 ---
 layout: post
-title: Audit Controller
+title: Operations on workspaces
 root: ../../
 categories: DOCUMENTATION-1.1.0
-parent: [rest_api, rest_api_admin-audit-api]
-node_name: rest_api_controller_audit-controller
-weight: 12
+parent: [rest_api, rest_api_workspaces-api]
+node_name: rest_api_controller_workspace-controller
+weight: 18
 ---
 
-### Get audit configuration
+### Get workspaces that the current user has the right to upload to
 ```
-GET /rest/v1/audit/configuration
+GET /rest/v1/workspaces
 ```
-
-#### Description
-
-Get the audit configuration object. Audit configuration is only accessible to user with role [ ADMIN ]
 
 #### Responses
 
 {: .table .table-bordered}
 |HTTP Code|Description|Schema|
 |----|----|----|
-|200|OK|RestResponse«AuditConfigurationDTO»|
+|200|OK|RestResponse«List«Workspace»»|
 |401|Unauthorized|No Content|
 |403|Forbidden|No Content|
 |404|Not Found|No Content|
@@ -36,21 +32,17 @@ Get the audit configuration object. Audit configuration is only accessible to us
 
 * application/json
 
-### Enable/Disable audit on a list of methods
+### Search for csars with workspaces information
 ```
-POST /rest/v1/audit/configuration/audited-methods
+POST /rest/v1/workspaces/csars/search
 ```
-
-#### Description
-
-Audit configuration update is only accessible to user with role [ ADMIN ]
 
 #### Parameters
 
 {: .table .table-bordered}
 |Type|Name|Description|Required|Schema|Default|
 |----|----|----|----|----|----|
-|BodyParameter|methods|methods|true|AuditedMethod array||
+|BodyParameter|searchRequest|searchRequest|true|SearchRequest||
 
 
 #### Responses
@@ -58,7 +50,7 @@ Audit configuration update is only accessible to user with role [ ADMIN ]
 {: .table .table-bordered}
 |HTTP Code|Description|Schema|
 |----|----|----|
-|200|OK|RestResponse«Void»|
+|200|OK|RestResponse«FacetedSearchResult»|
 |201|Created|No Content|
 |401|Unauthorized|No Content|
 |403|Forbidden|No Content|
@@ -73,21 +65,19 @@ Audit configuration update is only accessible to user with role [ ADMIN ]
 
 * application/json
 
-### Enable/Disable audit
+### Calculate the impact of the promotion
 ```
-POST /rest/v1/audit/configuration/enabled
+GET /rest/v1/workspaces/promotion-impact
 ```
-
-#### Description
-
-Audit configuration update is only accessible to user with role [ ADMIN ]
 
 #### Parameters
 
 {: .table .table-bordered}
 |Type|Name|Description|Required|Schema|Default|
 |----|----|----|----|----|----|
-|QueryParameter|enabled|enabled|true|boolean||
+|QueryParameter|csarName|csarName|true|string||
+|QueryParameter|csarVersion|csarVersion|true|string||
+|QueryParameter|targetWorkspace|targetWorkspace|true|string||
 
 
 #### Responses
@@ -95,7 +85,39 @@ Audit configuration update is only accessible to user with role [ ADMIN ]
 {: .table .table-bordered}
 |HTTP Code|Description|Schema|
 |----|----|----|
-|200|OK|RestResponse«Void»|
+|200|OK|RestResponse«CSARPromotionImpact»|
+|401|Unauthorized|No Content|
+|403|Forbidden|No Content|
+|404|Not Found|No Content|
+
+
+#### Consumes
+
+* application/json
+
+#### Produces
+
+* application/json
+
+### Perform or accept the promotion
+```
+POST /rest/v1/workspaces/promotions
+```
+
+#### Parameters
+
+{: .table .table-bordered}
+|Type|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|----|
+|BodyParameter|promotionRequest|promotionRequest|true|PromotionRequest||
+
+
+#### Responses
+
+{: .table .table-bordered}
+|HTTP Code|Description|Schema|
+|----|----|----|
+|200|OK|RestResponse«PromotionRequest»|
 |201|Created|No Content|
 |401|Unauthorized|No Content|
 |403|Forbidden|No Content|
@@ -110,50 +132,17 @@ Audit configuration update is only accessible to user with role [ ADMIN ]
 
 * application/json
 
-### Reset the audit configuration
+### Search for promotion
 ```
-POST /rest/v1/audit/configuration/reset
+POST /rest/v1/workspaces/promotions/search
 ```
-
-#### Description
-
-Reset the audit configuration to its default state. Audit search is only accessible to user with role [ ADMIN ]
-
-#### Responses
-
-{: .table .table-bordered}
-|HTTP Code|Description|Schema|
-|----|----|----|
-|200|OK|RestResponse«AuditConfigurationDTO»|
-|201|Created|No Content|
-|401|Unauthorized|No Content|
-|403|Forbidden|No Content|
-|404|Not Found|No Content|
-
-
-#### Consumes
-
-* application/json
-
-#### Produces
-
-* application/json
-
-### Search for audit trace
-```
-POST /rest/v1/audit/search
-```
-
-#### Description
-
-Returns a search result with that contains auti traces matching the request. Audit search is only accessible to user with role [ ADMIN ]
 
 #### Parameters
 
 {: .table .table-bordered}
 |Type|Name|Description|Required|Schema|Default|
 |----|----|----|----|----|----|
-|BodyParameter|searchRequest|searchRequest|true|FilteredSearchRequest||
+|BodyParameter|searchRequest|searchRequest|true|SearchRequest||
 
 
 #### Responses
