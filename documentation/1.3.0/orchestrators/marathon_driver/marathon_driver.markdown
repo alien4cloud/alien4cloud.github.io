@@ -26,17 +26,23 @@ We made a [demonstration video](https://www.youtube.com/watch?v=kXrNanNMkhU) sho
 
 ### Service discovery
 
+**TL;DR**: Service discovery is pretty much automatic using the Marathon plugin with MesosDNS & MarathonLB running on your cluster.
+
 Service discovery between containers launched by the plugin through Marathon is achieved using MesosDNS and [MarathonLB](https://github.com/mesosphere/marathon-lb), respectively a DNS service and a HAProxy load balancer that provides port-based service discovery. Both are running in the cluster as Marathon tasks.
 
 Containers launched with Marathon are all resolvable through DNS resolution using the *app_name.marathon.mesos* pattern (but you will still need to know the containers' allocated port, which should be randomly assigned by Marathon), or using MarathonLB as a reverse proxy, using a well-know service port. When assigned a service port, containers running in Marathon can be accessed by reaching MarathonLB on the said service port. Because MarathonLB itself is running on Marathon, it's IP address is also resolvable through MesosDNS. This means that containers with service ports can be accessed using the pattern *<marathonlb_id>.marathon.mesos:<service_port>* where <marathonlb_id> is MarathonLB's app ID in Marathon.
 
 This whole mechanism being relatively complex, the plugin will automatically assign a service port to containers that are targeted by a _ConnectsTo_ relationship from at least another container in the topology. Respectively, the plugin will also replace any reference to the target's endpoint port and ip_address attributes with the service port and MarathonLB DNS name, respectively.
 
-TL;DR : Service discovery is pretty much automatic using the Marathon plugin with MesosDNS & MarathonLB.
-
 ### External Storage support
 
-We added experimental support of the external storage feature from Marathon. We currently use RexRay as a Docker Volume Driver. Please note that while RexRay is able to dynamically provision volumes on your provider, those will NOT be cleaned up upon undeployment. Also, as RexRay is moving forward to a new client-server architecture this feature is most likely to evolve in the future.
+**TL;DR**: We added experimental support of the external storage feature from Marathon. We currently use [REX-Ray](https://rexray.readthedocs.io/en/stable/) as a Docker Volume Driver. The REX-Ray service needs IAAS credentials to operate.
+
+{% warning %}
+Please note that while REX-Ray is able to dynamically provision volumes on your provider, those will NOT be cleaned up upon undeployment. REX-Ray currently only supports AWS, although it is moving forward quite rapidly, and new features or providers are likely to be added in the near future. As of today, REX-Ray does not support high availability.
+{% endwarning %}
+
+REX-Ray is built on a client-server architecture, with clients operating as Docker Volume Drivers that use the [libStorage](http://libstorage.readthedocs.io/en/stable/) service. The libStorage service (which we also call RexRayServer for simplicity) runs alongside the Master(s) node(s) and is able to provision and mount storage resources on the fly. It needs to be configured and given proper credentials to manage storage providers. Storage providers configuration is best described in [libStorage's documentation](http://libstorage.readthedocs.io/en/stable/user-guide/storage-providers/).
 
 ### HTTP Health checks
 

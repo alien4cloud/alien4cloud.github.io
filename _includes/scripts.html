@@ -17,6 +17,7 @@
 var lunrIndexLoaded = false;
 function loadLunrIndex() {
   if(lunrIndexLoaded) {
+    document.getElementById('search-results').style.visibility = 'visible';
     return;
   }
   console.log("loading index...");
@@ -28,5 +29,9 @@ function loadLunrIndex() {
   });
   console.log("loaded");
   lunrIndexLoaded = true;
+}
+
+function hideSearchResults() {
+  document.getElementById('search-results').style.visibility = 'hidden';
 }
 </script>
