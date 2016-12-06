@@ -16,13 +16,13 @@ This guide explains how to get started with Alien4Cloud and deploy your first ap
 
 # Prerequisites
 
-* Cloudify Manager 3.3.1:
-This getting started will leverage the cloudify 3 plugin and as such a running cloudify manager is required before moving forward. In order to install it please follow Cloudify documentation [to install the cloudify CLI](http://docs.getcloudify.org/3.3.1/installation/from-packages/) and [install a manager](http://getcloudify.org/downloads/install-cloudify-manager.html)
+* Cloudify Manager 3.4.0:
+This getting started will leverage the cloudify 3 plugin and as such a running cloudify manager is required before moving forward. In order to install it please follow Cloudify documentation [to install the cloudify CLI](http://docs.getcloudify.org/3.4.0/installation/from-packages/) and [install a manager](http://getcloudify.org/downloads/install-cloudify-manager.html)
 
 * A machine with Linux or MacOS Operating System: Alien4Cloud can run on windows OS too but we recommend Unix based OS. Moreover the default package only includes sh script.
 
 * JAVA:
-Ensure that you have at least JAVA version 7 or higher installed on your working station. If not, just install
+Ensure that you have at least JAVA version 8 or higher installed on your working station. If not, just install
 java following instructions [here](https://www.java.com/fr/download/manual.jsp){:target="_blank"}.
 
 * Access to a supported Cloud: This getting started guide is made for Amazon EC2 but can be adapted easily to run on other supported platforms.
