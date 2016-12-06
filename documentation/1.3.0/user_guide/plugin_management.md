@@ -17,9 +17,11 @@ Plugins allows to provide some additional functionalities to Alien 4 Cloud. User
 * __Node matching plugins__ allows to override the basic TOSCA node matching logic within Alien 4 Cloud.
 * __Generic extension plugins__ can provide additional UI screens and REST Services allowing any kind of extension to alien 4 cloud and even to override some of the alien UI components (it is not possible to override native rest services).
 
-# Managing plugins in Alien 4 Cloud
+{% info %}
+If you want to create new plugins for Alien 4 Cloud please refer to the [developer guide](#/developer_guide/index.html).
+{% endinfo %}
 
-## Installing plugin in Alien 4 Cloud
+# Installing plugin in Alien 4 Cloud
 
 {%inittab%}
 {% tabcontent Drag and Drop enabled %}
@@ -30,33 +32,48 @@ Plugins allows to provide some additional functionalities to Alien 4 Cloud. User
 {%endtabcontent%}
 {% tabcontent Drag and Drop disabled %}
 
-Click on *[Upload plugin]* > *Select* your archive (The file is automaticly uploaded)
+Click on *[Upload plugin]* > *Select* your archive (The file is automatically uploaded)
 
 [![Upload an archive file without D&D](../../images/user_guide/upload-plugin-wihout-drag-and-drop.png)](../../images/user_guide/upload-plugin-wihout-drag-and-drop.png)
 {%endtabcontent%}
 {%endinittab%}
 
-{%warning%}
+{% warning %}
 After installing, removing, disabling or enabling a plugin that provides UI components user must refresh it's browser page in order to reload plugin's javascript code that may have changed.
 This is especially true when removing or disabling a plugin as the rest services used by the plugin's UI won't be available anymore eventually causing unexpected 500 errors.
-{%endwarning%}
+{% endwarning %}
 
-## Plugin configuration
+# Plugin configuration
 
 Some plugins may requires specific configuration that is global to the plugin. In case a plugin can be configured you will see the following icon : ![configure plugin](../../images/user_guide/configure-plugin.png){: .inline}
 
-### Advanced plugins configurations
+## Advanced plugins configurations
 
 The configuration detailed in the previous section is global for the plugin. Some plugins may requires some specific configurations that you can find at other places in the application. Your should refer to the plugin specific documentation to know more about it.
 
 For example, PaaS providers plugins actually are able to manage multiple instances of orchestrators, the specific configuration for each instance is managed at the cloud level.
 
-## Plugin creation
+# Plugin update
 
-If you want to create new plugins for Alien 4 Cloud please refer to the [developer guide](#/developer_guide/index.html).
+Due to historical management of orchestrator plugins alien4cloud allowed, before 1.3.1, multiple versions of the same plugin to be concurrently loaded and enabled.
 
-# Orchestrators
+Starting from version 1.3.1 this behavior is not allowed anymore and a single version of a given plugin can exists at a given point of time. This avoid a lot of potential conflicts especially on the UI side.
+In previous version of alien4cloud a migration tool was provided to ensure plugin version update, starting from 1.3.1 plugins will be automatically updated when the alien4cloud server restarts based on plugins existing in the initialization folder.
 
-Alien 4 Cloud is not managing actual runtime state of deployments by itself. In order to do so it delegates runtime to orchestrators, as well refered in Alien 4 Cloud as _PaaS Providers_. A PaaS Provider in A4C is a plugin that will be associated with _Clouds_. It is possible of course to have multiple clouds using the same PaaS Provider as well a multiple clouds with different PaaS Providers.
+Update process:
+ - Stop your alien4cloud server
+ - Remove old plugin(s) archive(s) from the /init/plugins folder and add new one(s)
+ - Restart alien4cloud
 
-We currently support Cloudify 3 orchestrators as PaaS Providers.
+Alien 4 cloud on startup will automatically update the plugins versions inside alien4cloud and load the new plugin version.
+
+{% warning %}
+<h5>Model update</h5>
+This auto-update does not perform any model update. If your plugin model has changed you should either provide a migration tool to update data or have a built-in migration process upon plugin initialization.
+{% endwarning %}
+
+{% warning %}
+<h5>Hot update</h5>
+We don't support hot-plugin updates currently. This is a choice we made as unloading a plugin may cause interruption of some active processing from the plugin (including ongoing deployment/un-deployment).
+This behavior will however be improved in next versions and plugins will be responsible of their shutdown management before a plugin is disabled.
+{% endwarning %}
