@@ -51,7 +51,7 @@ In addition to Mesos tasks states, Marathon features automatic HTTP health check
 The plugin adds a default health check to all the containers in the topology.
 
 ### Known limitations and caveats
-- It is not yet possible to scale a Docker container in Alien.
+- It is not possible to scale Docker containers. This is due to Marathon only allowing singletons when using external volumes in conjunction with containers.
 - We did not exactly follow the TOSCA model for Docker containers as it is still incubating.
 - It not possible to stop the deployment of an application. Wait for it to be deployed then hit un-deploy.
 - The connexion to Marathon is NOT secured.
