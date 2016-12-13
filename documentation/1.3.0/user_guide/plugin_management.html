@@ -40,9 +40,11 @@ ga('send', 'pageview');
   <li><strong>Generic extension plugins</strong> can provide additional UI screens and REST Services allowing any kind of extension to alien 4 cloud and even to override some of the alien UI components (it is not possible to override native rest services).</li>
 </ul>
 
-<h1 id="managing-plugins-in-alien-4-cloud">Managing plugins in Alien 4 Cloud</h1>
+<div class="note info">
+<p>If you want to create new plugins for Alien 4 Cloud please refer to the <a href="#/developer_guide/index.html">developer guide</a>.</p>
+</div>
 
-<h2 id="installing-plugin-in-alien-4-cloud">Installing plugin in Alien 4 Cloud</h2>
+<h1 id="installing-plugin-in-alien-4-cloud">Installing plugin in Alien 4 Cloud</h1>
 
 <div class="tabsection"><ul class="nav nav-tabs"></ul><div class="tab-content">
 <div class="tab-pane" id="drag_and_drop_enabled" title="Drag and Drop enabled">
@@ -51,7 +53,7 @@ ga('send', 'pageview');
 <p><a href="../../images/user_guide/upload-plugin-archive.png"><img src="../../images/user_guide/upload-plugin-archive.png" alt="Upload an archive file with D&amp;D" /></a></p>
 </div>
 <div class="tab-pane" id="drag_and_drop_disabled" title="Drag and Drop disabled">
-<p>Click on <em>[Upload plugin]</em> &gt; <em>Select</em> your archive (The file is automaticly uploaded)</p>
+<p>Click on <em>[Upload plugin]</em> &gt; <em>Select</em> your archive (The file is automatically uploaded)</p>
 
 <p><a href="../../images/user_guide/upload-plugin-wihout-drag-and-drop.png"><img src="../../images/user_guide/upload-plugin-wihout-drag-and-drop.png" alt="Upload an archive file without D&amp;D" /></a></p>
 </div>
@@ -62,25 +64,40 @@ ga('send', 'pageview');
 This is especially true when removing or disabling a plugin as the rest services used by the plugin’s UI won’t be available anymore eventually causing unexpected 500 errors.</p>
 </div>
 
-<h2 id="plugin-configuration">Plugin configuration</h2>
+<h1 id="plugin-configuration">Plugin configuration</h1>
 
 <p>Some plugins may requires specific configuration that is global to the plugin. In case a plugin can be configured you will see the following icon : <img src="../../images/user_guide/configure-plugin.png" alt="configure plugin" class="inline" /></p>
 
-<h3 id="advanced-plugins-configurations">Advanced plugins configurations</h3>
+<h2 id="advanced-plugins-configurations">Advanced plugins configurations</h2>
 
 <p>The configuration detailed in the previous section is global for the plugin. Some plugins may requires some specific configurations that you can find at other places in the application. Your should refer to the plugin specific documentation to know more about it.</p>
 
 <p>For example, PaaS providers plugins actually are able to manage multiple instances of orchestrators, the specific configuration for each instance is managed at the cloud level.</p>
 
-<h2 id="plugin-creation">Plugin creation</h2>
+<h1 id="plugin-update">Plugin update</h1>
 
-<p>If you want to create new plugins for Alien 4 Cloud please refer to the <a href="#/developer_guide/index.html">developer guide</a>.</p>
+<p>Due to historical management of orchestrator plugins alien4cloud allowed, before 1.3.1, multiple versions of the same plugin to be concurrently loaded and enabled.</p>
 
-<h1 id="orchestrators">Orchestrators</h1>
+<p>Starting from version 1.3.1 this behavior is not allowed anymore and a single version of a given plugin can exists at a given point of time. This avoid a lot of potential conflicts especially on the UI side.
+In previous version of alien4cloud a migration tool was provided to ensure plugin version update, starting from 1.3.1 plugins will be automatically updated when the alien4cloud server restarts based on plugins existing in the initialization folder.</p>
 
-<p>Alien 4 Cloud is not managing actual runtime state of deployments by itself. In order to do so it delegates runtime to orchestrators, as well refered in Alien 4 Cloud as <em>PaaS Providers</em>. A PaaS Provider in A4C is a plugin that will be associated with <em>Clouds</em>. It is possible of course to have multiple clouds using the same PaaS Provider as well a multiple clouds with different PaaS Providers.</p>
+<p>Update process:
+ - Stop your alien4cloud server
+ - Remove old plugin(s) archive(s) from the /init/plugins folder and add new one(s)
+ - Restart alien4cloud</p>
 
-<p>We currently support Cloudify 3 orchestrators as PaaS Providers.</p>
+<p>Alien 4 cloud on startup will automatically update the plugins versions inside alien4cloud and load the new plugin version.</p>
+
+<div class="note warning">
+<h5>Model update</h5>
+<p>This auto-update does not perform any model update. If your plugin model has changed you should either provide a migration tool to update data or have a built-in migration process upon plugin initialization.</p>
+</div>
+
+<div class="note warning">
+<h5>Hot update</h5>
+<p>We don’t support hot-plugin updates currently. This is a choice we made as unloading a plugin may cause interruption of some active processing from the plugin (including ongoing deployment/un-deployment).
+This behavior will however be improved in next versions and plugins will be responsible of their shutdown management before a plugin is disabled.</p>
+</div>
 
         <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.3.0/user_guide/plugin_management.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
 	  </div>
