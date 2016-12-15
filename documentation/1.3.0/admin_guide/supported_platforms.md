@@ -26,7 +26,7 @@ Other browsers like _Safari_ or the lasted _IE_ version may work but **are not a
 
 ### Java virtual machine
 
-Alien 4 Cloud is written in java for the backend and requires a **JVM 7** or higher (Oracle or OpenJDK).
+Alien 4 Cloud is written in java for the backend and requires a **JVM 8** or higher (Oracle or OpenJDK).
 
 ### Orchestrators and deployment artefacts
 

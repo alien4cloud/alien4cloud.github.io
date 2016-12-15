@@ -63,7 +63,7 @@ weight: 9000
 |category||false|string||
 |enabled||false|boolean||
 |method||false|string||
-|path||false|string||
+|signature||false|string||
 
 
 # RestResponse«FacetedSearchResult»

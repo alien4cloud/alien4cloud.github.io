@@ -1,5 +1,6 @@
 ---
 layout: post
+exclude_from_search: true
 title:  Component design
 root: ../../
 categories: DOCUMENTATION-1.1.0

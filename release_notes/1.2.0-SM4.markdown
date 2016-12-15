@@ -1,5 +1,6 @@
 ---
 layout: post
+exclude_from_search: true
 title:  ALIEN for Cloud 1.2.0-SM4
 root: ../
 categories: RELEASE_NOTES

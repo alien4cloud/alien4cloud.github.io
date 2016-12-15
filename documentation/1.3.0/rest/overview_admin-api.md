@@ -5,7 +5,7 @@ root: ../../
 categories: DOCUMENTATION-1.3.0
 parent: [rest_api]
 node_name: rest_api_admin-api
-weight: 10
+weight: 12
 ---
 
 # ALIEN 4 Cloud API
@@ -14,5 +14,5 @@ weight: 10
 This section contains documentation of Alien 4 Cloud REST API.
 
 ### Version information
-Version: 1.1.0
+Version: 1
 

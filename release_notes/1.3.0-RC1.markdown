@@ -1,0 +1,61 @@
+---
+layout: post
+title:  ALIEN for Cloud 1.3.0-RC1
+root: ../
+categories: RELEASE_NOTES
+parent: [release_note]
+node_name: 1.3.0-RC1
+weight: 9957
+exclude_from_search: true
+---
+
+
+
+
+<i class="fa fa-plus text-success"></i> New feature <i class="fa fa-level-up text-primary"></i> Improvement  <i class="fa fa-bug text-danger"></i> Bug <i class="fa fa-exclamation-triangle text-warning"></i> Breaking change
+
+
+### Alien 4 Cloud Premium
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-1764 | Workspace management: It is now possible to filter components from the catlog by workspace /  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-1765 | Workspace management: choose the worksapce when uploading an archive in th catalog /  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-1766 | Workspace management: Archive promotion / copy / move betwen workspaces /  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-1767 | Workspace management: A user can request a promotion of his archive to another workspace /  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-1768 | Workspace management: A user can see the list af all requests made to promote an archive to his workspace /  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-1769 | Workspace management: A user cas accept / cancel promotions requests made for his workspace /  |
+        |  <i class="fa fa-bug text-danger"></i> | ALIEN-1775 | Fixed portability insight loading issues /  |
+  
+
+
+### Cloudify 3 PaaS Provider
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+        |  <i class="fa fa-bug text-danger"></i> | ALIEN-1636 | fixed issues with relationships scripts wrappers. /  |
+  
+
+
+### Alien 4 Cloud
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-1773 | application workflow improvement  /  |
+      |  <i class="fa fa-bug text-danger"></i> | ALIEN-1720 | Improved application naming policy so that the deployment doesn't fail. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1776 | Topology with abstract relationship must not be deployable /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1777 | Fixed bug preventing to have differents input artifacts per environment when deploying an application /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1778 | Stuffs in translations /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1780 | fixed issue in topology yaml export on relationships /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1781 | Fixed issue preventing the topolgy recovery when a transitive dependency is updated /  |
+  
+

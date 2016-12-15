@@ -22,6 +22,7 @@ An artifact definition defines a named, typed file that can be associated with N
 | type | string | no | The optional data type for the artifact definition. |
 | description | string | no | The optional description for the artifact definition. |
 | mime_type | string | no | The optional Mime type for finding the correct artifact definition when it is not clear from the file extension.|
+| repository | string | no | The optional name of the repository definition which contains the location of the external repository that contains the artifact.|
 | deploy_path | string | no | The file path the associated file would be deployed into within the target node’s container. |
 
 

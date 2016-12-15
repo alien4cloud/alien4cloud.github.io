@@ -1,5 +1,6 @@
 ---
 layout: post
+exclude_from_search: true
 title: Allow to query for enabled plugin components.
 root: ../../
 categories: DOCUMENTATION-1.2.0

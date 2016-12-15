@@ -1,5 +1,6 @@
 ---
 layout: post
+exclude_from_search: true
 title: Concepts
 root: ../../
 categories: DOCUMENTATION-1.2.0

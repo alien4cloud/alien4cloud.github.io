@@ -5,12 +5,12 @@ root: ../../
 categories: DOCUMENTATION-1.3.0
 parent: [rest_api, rest_api_applications-api]
 node_name: rest_api_controller_application-version-controller
-weight: 19
+weight: 24
 ---
 
 ### Get the first snapshot application version for an application.
 ```
-GET /rest/applications/{applicationId}/versions
+GET /rest/v1/applications/{applicationId}/versions
 ```
 
 #### Description
@@ -46,12 +46,12 @@ Return the first snapshot application version for an application. Application ro
 
 ### Create a new application version.
 ```
-POST /rest/applications/{applicationId}/versions
+POST /rest/v1/applications/{applicationId}/versions
 ```
 
 #### Description
 
-If successfull returns a rest response with the id of the created application version in data. If not successful a rest response with an error content is returned. Role required [ APPLICATIONS_MANAGER ]. By default the application version creator will have application roles [APPLICATION_MANAGER]
+If successfull returns a rest response with the id of the created application version in data. If not successful a rest response with an error content is returned. Application role required [ APPLICATIONS_MANAGER ]. By default the application version creator will have application roles [APPLICATION_MANAGER]
 
 #### Parameters
 
@@ -83,7 +83,7 @@ If successfull returns a rest response with the id of the created application ve
 
 ### Search application versions
 ```
-POST /rest/applications/{applicationId}/versions/search
+POST /rest/v1/applications/{applicationId}/versions/search
 ```
 
 #### Description
@@ -121,7 +121,7 @@ Returns a search result with that contains application versions matching the req
 
 ### Get an application version based from its id.
 ```
-GET /rest/applications/{applicationId}/versions/{applicationVersionId}
+GET /rest/v1/applications/{applicationId}/versions/{applicationVersionId}
 ```
 
 #### Description
@@ -158,12 +158,12 @@ Returns the application version details. Application role required [ APPLICATION
 
 ### Updates by merging the given request into the given application version
 ```
-PUT /rest/applications/{applicationId}/versions/{applicationVersionId}
+PUT /rest/v1/applications/{applicationId}/versions/{applicationVersionId}
 ```
 
 #### Description
 
-Updates by merging the given request into the given application version. The logged-in user must have the application manager role for this application. Application role required [ APPLICATION_MANAGER ]
+Updates by merging the given request into the given application version. Application role required [ APPLICATION_MANAGER ]
 
 #### Parameters
 
@@ -196,7 +196,7 @@ Updates by merging the given request into the given application version. The log
 
 ### Delete an application version from its id
 ```
-DELETE /rest/applications/{applicationId}/versions/{applicationVersionId}
+DELETE /rest/v1/applications/{applicationId}/versions/{applicationVersionId}
 ```
 
 #### Description

@@ -17,13 +17,21 @@ A repository definition defines a named external repository which contains deplo
 |:----------------|:---------------|:---------|:------------|
 | description     | string         | no       | The optional description for the repository. |
 | url             | string         | yes      | The URL or network address used to access the repository. |
-| type            | string         | yes      | Repository type is a required string to find how to fetch elements from a repository. |
-| credential      | string:string  | no       | The optional credential used to authorize access to the repository. |
+| type            | string         | no       | Repository type is an optional string to find how to fetch elements from a repository. |
+| credential      | [credential](#/documentation/1.3.0/devops_guide/tosca_grammar/data_type.html)     | no       | The optional credential used to authorize access to the repository. |
 
+{% info %}
+<h5>Repositories available in Alien 4 cloud</h5>
+Alien 4 cloud premium support the following external repository : http, git maven.
+{% endinfo %}
 
 ## Grammar
 
 {% highlight yaml %}
+# Simple definition is as follows:
+<repository_name>: <repository_address>
+
+# The full definition is as follows:
 <repository_name>:
   description: <repository_description>
   url: <repository_address>

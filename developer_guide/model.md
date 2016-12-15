@@ -1,5 +1,6 @@
 ---
 layout: post
+exclude_from_search: true
 title: Data model
 root: ../
 categories: DEVELOPER_GUIDE

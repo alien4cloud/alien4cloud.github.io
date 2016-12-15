@@ -1,16 +1,16 @@
 ---
 layout: post
-title: Orchestrator Roles Controller
+title: Operations on orchestrator roles
 root: ../../
 categories: DOCUMENTATION-1.3.0
 parent: [rest_api, rest_api_admin-orchestrator-api]
 node_name: rest_api_controller_orchestrator-roles-controller
-weight: 7
+weight: 5
 ---
 
 ### Add a role to a group on all locations of a specific orchestrator
 ```
-PUT /rest/orchestrators/{orchestratorId}/roles/groups/{groupId}/{role}
+PUT /rest/v1/orchestrators/{orchestratorId}/roles/groups/{groupId}/{role}
 ```
 
 #### Description
@@ -49,7 +49,7 @@ Only user with ADMIN role can assign any role to a group of users.
 
 ### Remove a role of a group on all locations of a specific orchestrator
 ```
-DELETE /rest/orchestrators/{orchestratorId}/roles/groups/{groupId}/{role}
+DELETE /rest/v1/orchestrators/{orchestratorId}/roles/groups/{groupId}/{role}
 ```
 
 #### Description
@@ -87,7 +87,7 @@ Only user with ADMIN role can unassign any role to a group.
 
 ### Add a role to a user on all locations of a specific orchestrator
 ```
-PUT /rest/orchestrators/{orchestratorId}/roles/users/{username}/{role}
+PUT /rest/v1/orchestrators/{orchestratorId}/roles/users/{username}/{role}
 ```
 
 #### Description
@@ -126,7 +126,7 @@ Only user with ADMIN role can assign any role to another user.
 
 ### Remove a role to a user on all locations of a specific orchestrator
 ```
-DELETE /rest/orchestrators/{orchestratorId}/roles/users/{username}/{role}
+DELETE /rest/v1/orchestrators/{orchestratorId}/roles/users/{username}/{role}
 ```
 
 #### Description

@@ -5,12 +5,12 @@ root: ../../
 categories: DOCUMENTATION-1.3.0
 parent: [rest_api, rest_api_applications-api]
 node_name: rest_api_controller_application-controller
-weight: 21
+weight: 26
 ---
 
 ### Create a new application in the system.
 ```
-POST /rest/applications
+POST /rest/v1/applications
 ```
 
 #### Description
@@ -46,7 +46,7 @@ If successfull returns a rest response with the id of the created application in
 
 ### Search for applications
 ```
-POST /rest/applications/search
+POST /rest/v1/applications/search
 ```
 
 #### Description
@@ -83,7 +83,7 @@ Returns a search result with that contains applications matching the request. A 
 
 ### Get an application based from its id.
 ```
-GET /rest/applications/{applicationId}
+GET /rest/v1/applications/{applicationId}
 ```
 
 #### Description
@@ -119,7 +119,7 @@ Returns the application details. Application role required [ APPLICATION_MANAGER
 
 ### Updates by merging the given request into the given application .
 ```
-PUT /rest/applications/{applicationId}
+PUT /rest/v1/applications/{applicationId}
 ```
 
 #### Description
@@ -132,7 +132,7 @@ The logged-in user must have the application manager role for this application. 
 |Type|Name|Description|Required|Schema|Default|
 |----|----|----|----|----|----|
 |PathParameter|applicationId|applicationId|true|string||
-|BodyParameter|applicationUpdateRequest|applicationUpdateRequest|true|UpdateApplicationRequest||
+|BodyParameter|request|request|true|UpdateApplicationRequest||
 
 
 #### Responses
@@ -157,7 +157,7 @@ The logged-in user must have the application manager role for this application. 
 
 ### Delete an application from its id.
 ```
-DELETE /rest/applications/{applicationId}
+DELETE /rest/v1/applications/{applicationId}
 ```
 
 #### Description
@@ -193,7 +193,7 @@ The logged-in user must have the application manager role for this application. 
 
 ### Updates the image for the application.
 ```
-POST /rest/applications/{applicationId}/image
+POST /rest/v1/applications/{applicationId}/image
 ```
 
 #### Description
@@ -206,7 +206,7 @@ The logged-in user must have the application manager role for this application. 
 |Type|Name|Description|Required|Schema|Default|
 |----|----|----|----|----|----|
 |PathParameter|applicationId|applicationId|true|string||
-|FormDataParameter|file|image|true|file||
+|FormDataParameter|file|file|true|file||
 
 
 #### Responses

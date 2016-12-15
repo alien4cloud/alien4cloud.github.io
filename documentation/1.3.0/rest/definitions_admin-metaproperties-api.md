@@ -33,6 +33,16 @@ weight: 9000
 |error||false|RestError||
 
 
+# PropertyValue
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|definition||false|boolean||
+|value||false|object||
+
+
 # PropertyDefinition
 
 
@@ -40,11 +50,12 @@ weight: 9000
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
 |constraints||false|PropertyConstraint array||
-|default||false|string||
+|default||false|PropertyValue||
 |definition||false|boolean||
 |description||false|string||
 |password||false|boolean||
 |required||false|boolean||
+|suggestionId||false|string||
 |type||false|string||
 
 
@@ -67,7 +78,7 @@ weight: 9000
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
 |constraints||false|PropertyConstraint array||
-|default||false|string||
+|default||false|PropertyValue||
 |definition||false|boolean||
 |description||false|string||
 |entrySchema||false|PropertyDefinition||
@@ -75,6 +86,7 @@ weight: 9000
 |name||false|string||
 |password||false|boolean||
 |required||false|boolean||
+|suggestionId||false|string||
 |target||false|string||
 |type||false|string||
 

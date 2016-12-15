@@ -5,12 +5,12 @@ root: ../../
 categories: DOCUMENTATION-1.3.0
 parent: [rest_api, rest_api_applications-api]
 node_name: rest_api_controller_application-meta-property-controller
-weight: 24
+weight: 29
 ---
 
 ### upsertProperty
 ```
-POST /rest/applications/{applicationId}/properties
+POST /rest/v1/applications/{applicationId}/properties
 ```
 
 #### Parameters

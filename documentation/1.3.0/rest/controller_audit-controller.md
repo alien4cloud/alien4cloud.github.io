@@ -5,12 +5,12 @@ root: ../../
 categories: DOCUMENTATION-1.3.0
 parent: [rest_api, rest_api_admin-audit-api]
 node_name: rest_api_controller_audit-controller
-weight: 11
+weight: 12
 ---
 
 ### Get audit configuration
 ```
-GET /rest/audit/configuration
+GET /rest/v1/audit/configuration
 ```
 
 #### Description
@@ -38,7 +38,7 @@ Get the audit configuration object. Audit configuration is only accessible to us
 
 ### Enable/Disable audit on a list of methods
 ```
-POST /rest/audit/configuration/audited-methods
+POST /rest/v1/audit/configuration/audited-methods
 ```
 
 #### Description
@@ -75,7 +75,7 @@ Audit configuration update is only accessible to user with role [ ADMIN ]
 
 ### Enable/Disable audit
 ```
-POST /rest/audit/configuration/enabled
+POST /rest/v1/audit/configuration/enabled
 ```
 
 #### Description
@@ -112,7 +112,7 @@ Audit configuration update is only accessible to user with role [ ADMIN ]
 
 ### Reset the audit configuration
 ```
-POST /rest/audit/configuration/reset
+POST /rest/v1/audit/configuration/reset
 ```
 
 #### Description
@@ -141,7 +141,7 @@ Reset the audit configuration to its default state. Audit search is only accessi
 
 ### Search for audit trace
 ```
-POST /rest/audit/search
+POST /rest/v1/audit/search
 ```
 
 #### Description

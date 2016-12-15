@@ -24,14 +24,30 @@ weight: 9000
 
 # Map«string,AbstractStep»
 
-# RestResponse«AbstractTopologyVersion»
+# RelationshipType
 
 
 {: .table .table-bordered}
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
-|data||false|AbstractTopologyVersion||
-|error||false|RestError||
+|abstract||false|boolean||
+|archiveName||false|string||
+|archiveVersion||false|string||
+|artifacts||false|object||
+|attributes||false|object||
+|creationDate||false|string (date-time)||
+|derivedFrom||false|string array||
+|description||false|string||
+|elementId||false|string||
+|id||false|string||
+|interfaces||false|object||
+|lastUpdateDate||false|string (date-time)||
+|nestedVersion||false|Version||
+|properties||false|object||
+|tags||false|Tag array||
+|validSources||false|string array||
+|validTargets||false|string array||
+|workspace||false|string||
 
 
 # RequirementDefinition
@@ -45,6 +61,7 @@ weight: 9000
 |id||false|string||
 |lowerBound||false|integer (int32)||
 |nodeFilter||false|NodeFilter||
+|nodeType||false|string||
 |relationshipType||false|string||
 |type||false|string||
 |upperBound||false|integer (int32)||
@@ -61,20 +78,7 @@ weight: 9000
 |precedingSteps||false|string array||
 
 
-# Map«string,IndexedCapabilityType»
-
-# Map«string,IndexedRelationshipType»
-
-# AddRelationshipTemplateRequest
-
-
-{: .table .table-bordered}
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|archiveName||false|string||
-|archiveVersion||false|string||
-|relationshipTemplate||false|RelationshipTemplate||
-
+# Map«string,DataType»
 
 # FilterDefinition
 
@@ -83,16 +87,6 @@ weight: 9000
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
 |properties||false|object||
-
-
-# RestResponse«List«string»»
-
-
-{: .table .table-bordered}
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|data||false|string array||
-|error||false|RestError||
 
 
 # RelationshipTemplate
@@ -104,6 +98,7 @@ weight: 9000
 |artifacts||false|object||
 |attributes||false|object||
 |interfaces||false|object||
+|name||false|string||
 |properties||false|object||
 |requirementName||false|string||
 |requirementType||false|string||
@@ -112,57 +107,46 @@ weight: 9000
 |type||false|string||
 
 
-# RestResponse«Void»
-
-
-{: .table .table-bordered}
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|error||false|RestError||
-
-
 # Map«string,Workflow»
 
 # AbstractWorkflowError
 
-# UpdateIndexedTypePropertyRequest
+# Version
 
 
 {: .table .table-bordered}
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
-|propertyName||true|string||
-|propertyValue||true|string||
-|type||true|string||
+|buildNumber||false|integer (int32)||
+|incrementalVersion||false|integer (int32)||
+|majorVersion||false|integer (int32)||
+|minorVersion||false|integer (int32)||
+|qualifier||false|string||
 
 
-# IndexedNodeType
+# TreeNode
 
 
 {: .table .table-bordered}
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
-|abstract||false|boolean||
-|alienScore||false|integer (int64)||
-|archiveName||false|string||
-|archiveVersion||false|string||
-|artifacts||false|object||
-|attributes||false|object||
-|capabilities||false|CapabilityDefinition array||
-|creationDate||false|string (date-time)||
-|defaultCapabilities||false|string array||
-|derivedFrom||false|string array||
-|description||false|string||
-|elementId||false|string||
-|highestVersion||false|boolean||
-|id||false|string||
-|interfaces||false|object||
-|lastUpdateDate||false|string (date-time)||
-|olderVersions||false|string array||
-|properties||false|object||
-|requirements||false|RequirementDefinition array||
-|substitutionTopologyId||false|string||
-|tags||false|Tag array||
+|artifactId||false|string||
+|children||false|TreeNode array||
+|fullPath||false|string||
+|leaf||false|boolean||
+|name||false|string||
+
+
+# Map«string,object»
+
+# PropertyValue«Topology»
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|definition||false|boolean||
+|value||false|Topology||
 
 
 # CapabilityDefinition
@@ -176,9 +160,8 @@ weight: 9000
 |properties||false|object||
 |type||false|string||
 |upperBound||false|integer (int32)||
+|validSources||false|string array||
 
-
-# Map«string,IndexedNodeType»
 
 # DeploymentArtifact
 
@@ -192,6 +175,11 @@ weight: 9000
 |artifactRef||false|string||
 |artifactRepository||false|string||
 |artifactType||false|string||
+|deployPath||false|string||
+|description||false|string||
+|repositoryCredential||false|object||
+|repositoryName||false|string||
+|repositoryURL||false|string||
 
 
 # Map«string,FilterDefinition»
@@ -239,6 +227,16 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 
 # Map«string,Capability»
 
+# PropertyValue
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|definition||false|boolean||
+|value||false|object||
+
+
 # Workflow
 
 
@@ -257,36 +255,31 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 
 # Map«string,RelationshipTemplate»
 
-# AbstractActivity
-
-
-{: .table .table-bordered}
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|nodeId||false|string||
-
-
 # Topology
 
 
 {: .table .table-bordered}
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
-|delegateId||false|string||
-|delegateType||false|string||
+|archiveName||false|string||
+|archiveVersion||false|string||
+|creationDate||false|string (date-time)||
 |dependencies||false|CSARDependency array||
+|description||false|string||
 |empty||false|boolean||
 |groups||false|object||
 |id||false|string||
 |inputArtifacts||false|object||
 |inputs||false|object||
 |lastUpdateDate||false|string (date-time)||
+|nestedVersion||false|Version||
 |nodeTemplates||false|object||
 |outputAttributes||false|object||
 |outputCapabilityProperties||false|object||
 |outputProperties||false|object||
 |substitutionMapping||false|SubstitutionMapping||
 |workflows||false|object||
+|workspace||false|string||
 
 
 # Map«string,PropertyDefinition»
@@ -302,7 +295,11 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 |archiveName||false|string||
 |archiveVersion||false|string||
 |artifactRef||false|string||
+|artifactRepository||false|string||
 |artifactType||false|string||
+|repositoryCredential||false|object||
+|repositoryName||false|string||
+|repositoryURL||false|string||
 
 
 # TopologyValidationResult
@@ -340,6 +337,7 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 |groups||false|string array||
 |interfaces||false|object||
 |name||false|string||
+|portability||false|object||
 |properties||false|object||
 |relationships||false|object||
 |requirements||false|object||
@@ -352,101 +350,51 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 {: .table .table-bordered}
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
+|archiveContentTree||false|TreeNode||
 |capabilityTypes||false|object||
+|dataTypes||false|object||
+|delegateType||false|string||
+|lastOperationIndex||false|integer (int32)||
 |nodeTypes||false|object||
+|operations||false|AbstractEditorOperation array||
 |outputCapabilityProperties||false|object||
 |relationshipTypes||false|object||
 |topology||false|Topology||
 
 
-# IndexedCapabilityType
+# NodeType
 
 
 {: .table .table-bordered}
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
 |abstract||false|boolean||
-|archiveName||false|string||
-|archiveVersion||false|string||
-|creationDate||false|string (date-time)||
-|derivedFrom||false|string array||
-|description||false|string||
-|elementId||false|string||
-|highestVersion||false|boolean||
-|id||false|string||
-|lastUpdateDate||false|string (date-time)||
-|olderVersions||false|string array||
-|properties||false|object||
-|tags||false|Tag array||
-
-
-# RestResponse«Set«string»»
-
-
-{: .table .table-bordered}
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|data||false|string array||
-|error||false|RestError||
-
-
-# IndexedRelationshipType
-
-
-{: .table .table-bordered}
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|abstract||false|boolean||
+|alienScore||false|integer (int64)||
 |archiveName||false|string||
 |archiveVersion||false|string||
 |artifacts||false|object||
 |attributes||false|object||
+|capabilities||false|CapabilityDefinition array||
 |creationDate||false|string (date-time)||
+|defaultCapabilities||false|string array||
 |derivedFrom||false|string array||
 |description||false|string||
 |elementId||false|string||
-|highestVersion||false|boolean||
 |id||false|string||
 |interfaces||false|object||
 |lastUpdateDate||false|string (date-time)||
-|olderVersions||false|string array||
+|nestedVersion||false|Version||
+|portability||false|object||
 |properties||false|object||
+|requirements||false|RequirementDefinition array||
+|substitutionTopologyId||false|string||
 |tags||false|Tag array||
-|validSources||false|string array||
-|validTargets||false|string array||
-
-
-# RestResponse«ConstraintInformation»
-
-
-{: .table .table-bordered}
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|data||false|ConstraintInformation||
-|error||false|RestError||
+|workspace||false|string||
 
 
 # Map«string,NodeGroup»
 
-# RestResponse«Workflow»
-
-
-{: .table .table-bordered}
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|data||false|Workflow||
-|error||false|RestError||
-
-
-# RestResponse«string»
-
-
-{: .table .table-bordered}
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|data||false|string||
-|error||false|RestError||
-
+# Map«string,NodeType»
 
 # AbstractTask
 
@@ -454,18 +402,7 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 {: .table .table-bordered}
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
-|code||false|enum (IMPLEMENT, REPLACE, SATISFY_LOWER_BOUND, PROPERTIES, HA_INVALID, SCALABLE_CAPABILITY_INVALID, NODE_FILTER_INVALID, WORKFLOW_INVALID, LOCATION_POLICY, LOCATION_UNAUTHORIZED, LOCATION_DISABLED, ORCHESTRATOR_PROPERTY, INPUT_PROPERTY, NODE_NOT_SUBSTITUTED)||
-
-
-# TopologyWorkflowAddActivityRequest
-
-
-{: .table .table-bordered}
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|activity||false|AbstractActivity||
-|before||false|boolean||
-|relatedStepId||false|string||
+|code||false|enum (IMPLEMENT, IMPLEMENT_RELATIONSHIP, REPLACE, SATISFY_LOWER_BOUND, PROPERTIES, HA_INVALID, SCALABLE_CAPABILITY_INVALID, NODE_FILTER_INVALID, WORKFLOW_INVALID, INPUT_ARTIFACT_INVALID, ARTIFACT_INVALID, LOCATION_POLICY, LOCATION_UNAUTHORIZED, LOCATION_DISABLED, ORCHESTRATOR_PROPERTY, INPUT_PROPERTY, NODE_NOT_SUBSTITUTED)||
 
 
 # Map«string,Operation»
@@ -476,9 +413,11 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 {: .table .table-bordered}
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
+|dependencies||false|DeploymentArtifact array||
 |description||false|string||
 |implementationArtifact||false|ImplementationArtifact||
 |inputParameters||false|object||
+|portability||false|object||
 
 
 # SubstitutionMapping
@@ -489,7 +428,7 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 |----|----|----|----|----|
 |capabilities||false|object||
 |requirements||false|object||
-|substitutionType||false|IndexedNodeType||
+|substitutionType||false|NodeType||
 
 
 # Map«string,SubstitutionTarget»
@@ -505,6 +444,16 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 |definition||false|boolean||
 
 
+# RestResponse«TopologyDTO»
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|data||false|TopologyDTO||
+|error||false|RestError||
+
+
 # Map«string,Set«string»»
 
 # RestError
@@ -517,16 +466,6 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 |message||false|string||
 
 
-# RestResponse«TopologyDTO»
-
-
-{: .table .table-bordered}
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|data||false|TopologyDTO||
-|error||false|RestError||
-
-
 # AbstractPolicy
 
 
@@ -535,6 +474,28 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 |----|----|----|----|----|
 |name||false|string||
 |type||false|string||
+
+
+# DataType
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|abstract||false|boolean||
+|archiveName||false|string||
+|archiveVersion||false|string||
+|creationDate||false|string (date-time)||
+|deriveFromSimpleType||false|boolean||
+|derivedFrom||false|string array||
+|description||false|string||
+|elementId||false|string||
+|id||false|string||
+|lastUpdateDate||false|string (date-time)||
+|nestedVersion||false|Version||
+|properties||false|object||
+|tags||false|Tag array||
+|workspace||false|string||
 
 
 # RestResponse«List«ILocationMatch»»
@@ -549,30 +510,30 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 
 # Map«string,IValue»
 
+# CapabilityType
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|abstract||false|boolean||
+|archiveName||false|string||
+|archiveVersion||false|string||
+|attributes||false|object||
+|creationDate||false|string (date-time)||
+|derivedFrom||false|string array||
+|description||false|string||
+|elementId||false|string||
+|id||false|string||
+|lastUpdateDate||false|string (date-time)||
+|nestedVersion||false|Version||
+|properties||false|object||
+|tags||false|Tag array||
+|validSources||false|string array||
+|workspace||false|string||
+
+
 # Map«string,Requirement»
-
-# UpdatePropertyRequest
-
-
-{: .table .table-bordered}
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|propertyName||false|string||
-|propertyValue||false|object||
-
-
-# ConstraintInformation
-
-
-{: .table .table-bordered}
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|name||false|string||
-|path||false|string||
-|reference||false|object||
-|type||false|string||
-|value||false|string||
-
 
 # SubstitutionTarget
 
@@ -584,6 +545,19 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 |targetId||false|string||
 
 
+# AbstractEditorOperation
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|author||false|string||
+|id||false|string||
+|previousOperationId||false|string||
+
+
+# Map«string,AbstractPropertyValue»
+
 # PropertyDefinition
 
 
@@ -591,16 +565,17 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
 |constraints||false|PropertyConstraint array||
-|default||false|string||
+|default||false|PropertyValue«Topology»||
 |definition||false|boolean||
 |description||false|string||
 |entrySchema||false|PropertyDefinition||
 |password||false|boolean||
 |required||false|boolean||
+|suggestionId||false|string||
 |type||false|string||
 
 
-# Map«string,AbstractPropertyValue»
+# Map«string,RelationshipType»
 
 # CSARDependency
 
@@ -608,6 +583,7 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 {: .table .table-bordered}
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
+|hash||false|string||
 |name||false|string||
 |version||false|string||
 
@@ -622,48 +598,13 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 |error||false|RestError||
 
 
-# NodeTemplateRequest
-
-
-{: .table .table-bordered}
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|indexedNodeTypeId||false|string||
-|name||false|string||
-
-
 # Map«string,NodeTemplate»
 
-# Map«string,string»
+# Map«string,CapabilityType»
 
 # Map«string,DeploymentArtifact»
 
-# RestResponse«Array«IndexedNodeType»»
-
-
-{: .table .table-bordered}
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|data||false|IndexedNodeType array||
-|error||false|RestError||
-
-
-# AbstractTopologyVersion
-
-
-{: .table .table-bordered}
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|delegateId||false|string||
-|delegateType||false|string||
-|description||false|string||
-|id||false|string||
-|latest||false|boolean||
-|released||false|boolean||
-|snapshot||false|boolean||
-|topologyId||false|string||
-|version||false|string||
-
+# Map«string,string»
 
 # Map«string,List«string»»
 
@@ -694,6 +635,17 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 |----|----|----|----|----|
 |description||false|string||
 |operations||false|object||
+|type||false|string||
+
+
+# NodeFilter
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|capabilities||false|object||
+|properties||false|object||
 
 
 # Location
@@ -705,6 +657,7 @@ A location represents a cloud, a region of a cloud, a set of machines and resour
 {: .table .table-bordered}
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
+|creationDate||false|string (date-time)||
 |dependencies||false|CSARDependency array||
 |environmentType||false|string||
 |groupRoles||false|object||
@@ -715,15 +668,5 @@ A location represents a cloud, a region of a cloud, a set of machines and resour
 |name||false|string||
 |orchestratorId||false|string||
 |userRoles||false|object||
-
-
-# NodeFilter
-
-
-{: .table .table-bordered}
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|capabilities||false|object||
-|properties||false|object||
 
 

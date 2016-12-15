@@ -1,5 +1,6 @@
 ---
 layout: post
+exclude_from_search: true
 title:  Backup, restore and migrate data
 categories: DOCUMENTATION-1.2.0
 root: ../../

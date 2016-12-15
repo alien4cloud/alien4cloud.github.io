@@ -1,5 +1,6 @@
 ---
 layout: post
+exclude_from_search: true
 title: New in 1.2.0
 root: ../
 categories: DOCUMENTATION-1.2.0

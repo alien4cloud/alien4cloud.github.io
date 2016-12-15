@@ -5,12 +5,12 @@ root: ../../
 categories: DOCUMENTATION-1.3.0
 parent: [rest_api, rest_api_applications-api]
 node_name: rest_api_controller_application-roles-controller
-weight: 18
+weight: 23
 ---
 
 ### Add a role to a group on a specific application
 ```
-PUT /rest/applications/{applicationId}/roles/groups/{groupId}/{role}
+PUT /rest/v1/applications/{applicationId}/roles/groups/{groupId}/{role}
 ```
 
 #### Description
@@ -49,7 +49,7 @@ Any user with application role APPLICATION_MANAGER can assign any role to a grou
 
 ### Remove a role of a group on a specific application
 ```
-DELETE /rest/applications/{applicationId}/roles/groups/{groupId}/{role}
+DELETE /rest/v1/applications/{applicationId}/roles/groups/{groupId}/{role}
 ```
 
 #### Description
@@ -87,7 +87,7 @@ Any user with application role APPLICATION_MANAGER can un-assign any role to a g
 
 ### Add a role to a user on a specific application
 ```
-PUT /rest/applications/{applicationId}/roles/users/{username}/{role}
+PUT /rest/v1/applications/{applicationId}/roles/users/{username}/{role}
 ```
 
 #### Description
@@ -126,7 +126,7 @@ Any user with application role APPLICATION_MANAGER can assign any role to anothe
 
 ### Remove a role to a user on a specific application
 ```
-DELETE /rest/applications/{applicationId}/roles/users/{username}/{role}
+DELETE /rest/v1/applications/{applicationId}/roles/users/{username}/{role}
 ```
 
 #### Description

@@ -1,0 +1,59 @@
+---
+layout: post
+title:  ALIEN for Cloud 1.3.0-SM4
+root: ../
+categories: RELEASE_NOTES
+parent: [release_note]
+node_name: 1.3.0-SM4
+weight: 9958
+exclude_from_search: true
+---
+
+
+
+
+<i class="fa fa-plus text-success"></i> New feature <i class="fa fa-level-up text-primary"></i> Improvement  <i class="fa fa-bug text-danger"></i> Bug <i class="fa fa-exclamation-triangle text-warning"></i> Breaking change
+
+
+### Alien 4 Cloud Premium
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-1696 | H.A. is now packaged in alien4cloud and documentation is available. / [Documentation](#/documentation/1.3.0/admin_guide/ha.html) |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-1749 | Alien4Cloud now supports maven repository to be defined in alien4cloud and support fetching artifacts from maven repositories. /  |
+        |  <i class="fa fa-bug text-danger"></i> | ALIEN-1732 | Fixed issues with premium packaging to allow H.A. support. /  |
+
+
+
+### Cloudify 3 PaaS Provider
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-1758 | Default imports for the cloudify 3 plugin are now fixed to cloudify 3.4 imports rather than 3.3 /  |
+
+
+
+### Alien 4 Cloud
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-1643 | A REST API method allow to override a full topology archive content. Not types are allowed yet in topology archives. /  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-1736 | Input artifacts can now reference a CSAR file or a remote file from a repository. /  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-1759 | Topology validation now ensure that artifacts are defined on topology node (either with an artefact or a get_input_artifact). /  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-1760 | Improved inputs validation to include input artifact (now required before deployment). /  |
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-1610 | Range types are defined in simple text field rather than cursor. /  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-1737 | When defined artifact references are now validated when uploading a CSAR. /  |
+      |  <i class="fa fa-bug text-danger"></i> | ALIEN-1490 | When a SNAPSHOT archive changes the editor will now propose a reconciliation for a topology. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1750 | Fixed issues when renaming inputs to an empty value. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1751 | Description field of an artifact is now managed by the parser and stored in the indexed model of the archive. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1757 | Fixed an issue in rendering of in_range properties introduced in 1.3.x versions. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1763 | Fixed a bug introduced in 1.3.0-SM3 with the new editor that caused feedback issues on complex properties edition. /  |

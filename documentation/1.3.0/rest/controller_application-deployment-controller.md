@@ -1,19 +1,16 @@
 ---
 layout: post
-title: Manage operations on deployed application.
+title: Manage opertions on deployed application.
 root: ../../
 categories: DOCUMENTATION-1.3.0
-parent:
-  - rest_api
-  - rest_api_applications-api
+parent: [rest_api, rest_api_applications-api]
 node_name: rest_api_controller_application-deployment-controller
-weight: 17
-published: true
+weight: 22
 ---
 
 ### Deploys the application on the configured Cloud.
 ```
-POST /rest/applications/deployment
+POST /rest/v1/applications/deployment
 ```
 
 #### Description
@@ -50,7 +47,7 @@ Application role required [ APPLICATION_MANAGER | APPLICATION_DEVOPS ] and Appli
 
 ### Get the deployment status for the environements that the current user is allowed to see for a given application.
 ```
-POST /rest/applications/statuses
+POST /rest/v1/applications/statuses
 ```
 
 #### Description
@@ -87,7 +84,7 @@ Returns the current status of an application list from the PaaS it is deployed o
 
 ### Get active deployment for the given application on the given cloud.
 ```
-GET /rest/applications/{applicationId}/environments/{applicationEnvironmentId}/active-deployment
+GET /rest/v1/applications/{applicationId}/environments/{applicationEnvironmentId}/active-deployment
 ```
 
 #### Description
@@ -124,7 +121,7 @@ Application role required [ APPLICATION_MANAGER | APPLICATION_DEVOPS ] and Appli
 
 ### Un-Deploys the application on the configured PaaS.
 ```
-DELETE /rest/applications/{applicationId}/environments/{applicationEnvironmentId}/deployment
+DELETE /rest/v1/applications/{applicationId}/environments/{applicationEnvironmentId}/deployment
 ```
 
 #### Description
@@ -161,7 +158,7 @@ The logged-in user must have the [ APPLICATION_MANAGER ] role for this applicati
 
 ### Get detailed informations for every instances of every node of the application on the PaaS.
 ```
-GET /rest/applications/{applicationId}/environments/{applicationEnvironmentId}/deployment/informations
+GET /rest/v1/applications/{applicationId}/environments/{applicationEnvironmentId}/deployment/informations
 ```
 
 #### Description
@@ -198,7 +195,7 @@ Application role required [ APPLICATION_MANAGER | APPLICATION_DEVOPS ] and Appli
 
 ### switchMaintenanceModeOff
 ```
-DELETE /rest/applications/{applicationId}/environments/{applicationEnvironmentId}/deployment/maintenance
+DELETE /rest/v1/applications/{applicationId}/environments/{applicationEnvironmentId}/deployment/maintenance
 ```
 
 #### Parameters
@@ -231,7 +228,7 @@ DELETE /rest/applications/{applicationId}/environments/{applicationEnvironmentId
 
 ### switchMaintenanceModeOn
 ```
-POST /rest/applications/{applicationId}/environments/{applicationEnvironmentId}/deployment/maintenance
+POST /rest/v1/applications/{applicationId}/environments/{applicationEnvironmentId}/deployment/maintenance
 ```
 
 #### Parameters
@@ -265,7 +262,7 @@ POST /rest/applications/{applicationId}/environments/{applicationEnvironmentId}/
 
 ### switchInstanceMaintenanceModeOff
 ```
-DELETE /rest/applications/{applicationId}/environments/{applicationEnvironmentId}/deployment/{nodeTemplateId}/{instanceId}/maintenance
+DELETE /rest/v1/applications/{applicationId}/environments/{applicationEnvironmentId}/deployment/{nodeTemplateId}/{instanceId}/maintenance
 ```
 
 #### Parameters
@@ -300,7 +297,7 @@ DELETE /rest/applications/{applicationId}/environments/{applicationEnvironmentId
 
 ### switchInstanceMaintenanceModeOn
 ```
-POST /rest/applications/{applicationId}/environments/{applicationEnvironmentId}/deployment/{nodeTemplateId}/{instanceId}/maintenance
+POST /rest/v1/applications/{applicationId}/environments/{applicationEnvironmentId}/deployment/{nodeTemplateId}/{instanceId}/maintenance
 ```
 
 #### Parameters
@@ -336,7 +333,7 @@ POST /rest/applications/{applicationId}/environments/{applicationEnvironmentId}/
 
 ### Scale the application on a particular node.
 ```
-POST /rest/applications/{applicationId}/environments/{applicationEnvironmentId}/scale/{nodeTemplateId}
+POST /rest/v1/applications/{applicationId}/environments/{applicationEnvironmentId}/scale/{nodeTemplateId}
 ```
 
 #### Description
@@ -376,7 +373,7 @@ Returns the detailed informations of the application on the PaaS it is deployed.
 
 ### Launch a given workflow.
 ```
-POST /rest/applications/{applicationId}/environments/{applicationEnvironmentId}/workflows/{workflowName}
+POST /rest/v1/applications/{applicationId}/environments/{applicationEnvironmentId}/workflows/{workflowName}
 ```
 
 #### Parameters
@@ -408,3 +405,4 @@ POST /rest/applications/{applicationId}/environments/{applicationEnvironmentId}/
 #### Produces
 
 * application/json
+

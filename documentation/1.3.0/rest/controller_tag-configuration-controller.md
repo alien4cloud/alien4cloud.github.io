@@ -5,12 +5,12 @@ root: ../../
 categories: DOCUMENTATION-1.3.0
 parent: [rest_api, rest_api_admin-metaproperties-api]
 node_name: rest_api_controller_tag-configuration-controller
-weight: 12
+weight: 13
 ---
 
 ### Save tag configuration.
 ```
-POST /rest/metaproperties
+POST /rest/v1/metaproperties
 ```
 
 #### Parameters
@@ -43,7 +43,7 @@ POST /rest/metaproperties
 
 ### Search for tag configurations registered in ALIEN.
 ```
-POST /rest/metaproperties/search
+POST /rest/v1/metaproperties/search
 ```
 
 #### Parameters
@@ -76,7 +76,7 @@ POST /rest/metaproperties/search
 
 ### Get tag configuration.
 ```
-GET /rest/metaproperties/{tagConfigurationId}
+GET /rest/v1/metaproperties/{tagConfigurationId}
 ```
 
 #### Parameters
@@ -108,7 +108,7 @@ GET /rest/metaproperties/{tagConfigurationId}
 
 ### Remove tag configuration.
 ```
-DELETE /rest/metaproperties/{tagConfigurationId}
+DELETE /rest/v1/metaproperties/{tagConfigurationId}
 ```
 
 #### Parameters

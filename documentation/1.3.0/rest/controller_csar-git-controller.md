@@ -1,16 +1,16 @@
 ---
 layout: post
-title: Csar Git Controller
+title: Operations on CSAR Git
 root: ../../
 categories: DOCUMENTATION-1.3.0
-parent: [rest_api, rest_api_components-api]
+parent: [rest_api, rest_api_catalog-api]
 node_name: rest_api_controller_csar-git-controller
 weight: 15
 ---
 
 ### Search for TOSCA CSAR git repositories.
 ```
-GET /rest/csarsgit
+GET /rest/v1/csarsgit
 ```
 
 #### Parameters
@@ -44,7 +44,7 @@ GET /rest/csarsgit
 
 ### Create a new CSARGit from a Git location in ALIEN.
 ```
-POST /rest/csarsgit
+POST /rest/v1/csarsgit
 ```
 
 #### Parameters
@@ -77,7 +77,7 @@ POST /rest/csarsgit
 
 ### Retrieve information on a registered TOSCA CSAR git repository.
 ```
-GET /rest/csarsgit/{id}
+GET /rest/v1/csarsgit/{id}
 ```
 
 #### Parameters
@@ -109,7 +109,7 @@ GET /rest/csarsgit/{id}
 
 ### Update a CSARGit by id.
 ```
-PUT /rest/csarsgit/{id}
+PUT /rest/v1/csarsgit/{id}
 ```
 
 #### Parameters
@@ -143,7 +143,7 @@ PUT /rest/csarsgit/{id}
 
 ### Delete a registered TOSCA CSAR git repository.
 ```
-DELETE /rest/csarsgit/{id}
+DELETE /rest/v1/csarsgit/{id}
 ```
 
 #### Parameters
@@ -175,7 +175,7 @@ DELETE /rest/csarsgit/{id}
 
 ### Specify a CSAR from Git and proceed to its import in Alien.
 ```
-POST /rest/csarsgit/{id}
+POST /rest/v1/csarsgit/{id}
 ```
 
 #### Parameters

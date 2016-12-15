@@ -46,8 +46,11 @@ Exposed as the location type `alien.cloudify.aws.nodes.DeletableVolume`, this is
 Exposed as the location type `alien.cloudify.aws.nodes.Volume`, this is a volume that will not be deleted at the end of the application life-cycle. It can therefore, between two deployment of the same application on the same environment and location, be re-used and attached to a compute, rending accessible the data previously stored on it.
 
 ## Scaling
-{% warning %}
-For now, Scaling is supported on for a single compute, ie a Compute which is not linked to a network, or doesn't have any volumes attached to.  
-This should be fixed with the cloudify 3.4 version.
-{% endwarning %}
+Scaling is now fully supported. Means we can scale a single `Compute`, or a `Compute + Storage + IP-Address` association.
 
+{% warning %}
+**Known limitation when scaling a reusable volume**  
+When scaling a compute with a reusable volume, A4C will keep trace of the volume ID and zone (more details [here](/#/documentation/1.3.0/orchestrators/cloudify3_driver/index.html)).  
+Unfortunately the zone information are not correctly handled when the volumes are in the same availability zone thus make sure to check the volumes id and zones properties before redeploying your application.  
+**_This limitation will be fixed very shortly._**
+{% endwarning%}

@@ -3,14 +3,51 @@ layout: post
 title: Runtime Controller
 root: ../../
 categories: DOCUMENTATION-1.3.0
-parent: [rest_api, rest_api_other-apis]
+parent: [rest_api, rest_api_applications-deployment-api]
 node_name: rest_api_controller_runtime-controller
-weight: 32
+weight: 30
 ---
+
+### Get non-natives node template of a topology.
+```
+GET /rest/v1/runtime/{applicationId}/environment/{applicationEnvironmentId}/nonNatives
+```
+
+#### Description
+
+Returns An map of non-natives {@link NodeTemplate}. Application role required [ APPLICATION_MANAGER | DEPLOYMENT_MANAGER ]
+
+#### Parameters
+
+{: .table .table-bordered}
+|Type|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|----|
+|PathParameter|applicationId|applicationId|true|string||
+|PathParameter|applicationEnvironmentId|applicationEnvironmentId|true|string||
+
+
+#### Responses
+
+{: .table .table-bordered}
+|HTTP Code|Description|Schema|
+|----|----|----|
+|200|OK|RestResponse«Map«string,NodeTemplate»»|
+|401|Unauthorized|No Content|
+|403|Forbidden|No Content|
+|404|Not Found|No Content|
+
+
+#### Consumes
+
+* application/json
+
+#### Produces
+
+* application/json
 
 ### Get runtime (deployed) topology of an application on a specific cloud.
 ```
-GET /rest/runtime/{applicationId}/environment/{applicationEnvironmentId}/topology
+GET /rest/v1/runtime/{applicationId}/environment/{applicationEnvironmentId}/topology
 ```
 
 #### Parameters
@@ -43,7 +80,7 @@ GET /rest/runtime/{applicationId}/environment/{applicationEnvironmentId}/topolog
 
 ### Trigger a custom command on a specific node template of a topology .
 ```
-POST /rest/runtime/{applicationId}/operations
+POST /rest/v1/runtime/{applicationId}/operations
 ```
 
 #### Description

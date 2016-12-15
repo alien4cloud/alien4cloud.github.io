@@ -1,5 +1,6 @@
 ---
 layout: post
+exclude_from_search: true
 title: ALIEN 4 Cloud - 1.1.0 - Documentation
 root: ../
 node_name: index

@@ -5,7 +5,7 @@ root: ../../
 categories: DOCUMENTATION-1.3.0
 parent: [rest_api, rest_api_admin-api]
 node_name: rest_api_controller_metrics-mvc-endpoint
-weight: 38
+weight: 42
 ---
 
 ### invoke
@@ -30,7 +30,31 @@ GET /rest/admin/metrics
 
 #### Produces
 
-* */*
+* application/json
+
+### invoke
+```
+GET /rest/admin/metrics.json
+```
+
+#### Responses
+
+{: .table .table-bordered}
+|HTTP Code|Description|Schema|
+|----|----|----|
+|200|OK|object|
+|401|Unauthorized|No Content|
+|403|Forbidden|No Content|
+|404|Not Found|No Content|
+
+
+#### Consumes
+
+* application/json
+
+#### Produces
+
+* application/json
 
 ### value
 ```
@@ -62,5 +86,5 @@ GET /rest/admin/metrics/{name}
 
 #### Produces
 
-* */*
+* application/json
 

@@ -1,5 +1,6 @@
 ---
 layout: post
+exclude_from_search: true
 title: REST plugins
 root: ../
 categories: DEVELOPER_GUIDE

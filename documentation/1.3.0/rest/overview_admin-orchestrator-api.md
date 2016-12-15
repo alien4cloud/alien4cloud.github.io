@@ -14,5 +14,5 @@ weight: 3
 This section contains documentation of Alien 4 Cloud REST API.
 
 ### Version information
-Version: 1.1.0
+Version: 1
 

@@ -1,5 +1,6 @@
 ---
 layout: post
+exclude_from_search: true
 title:  Workflows
 root: ../
 categories: COMPONENTS_GUIDE

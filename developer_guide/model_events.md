@@ -1,5 +1,6 @@
 ---
 layout: post
+exclude_from_search: true
 title:  Runtime events
 root: ../
 categories: DEVELOPER_GUIDE

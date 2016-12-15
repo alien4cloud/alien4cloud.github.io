@@ -1,5 +1,6 @@
 ---
 layout: post
+exclude_from_search: true
 title:  Definitions document
 root: ../../../
 categories: DOCUMENTATION-1.2.0

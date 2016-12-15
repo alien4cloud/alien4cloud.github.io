@@ -1,16 +1,16 @@
 ---
 layout: post
-title: Deployment Controller
+title: Operations on Deployments
 root: ../../
 categories: DOCUMENTATION-1.3.0
-parent: [rest_api, rest_api_other-apis]
+parent: [rest_api, rest_api_applications-deployment-api]
 node_name: rest_api_controller_deployment-controller
-weight: 33
+weight: 31
 ---
 
 ### Get deployments for an orchestrator.
 ```
-GET /rest/deployments
+GET /rest/v1/deployments
 ```
 
 #### Parameters
@@ -44,7 +44,7 @@ GET /rest/deployments
 
 ### getEvents
 ```
-GET /rest/deployments/{applicationEnvironmentId}/events
+GET /rest/v1/deployments/{applicationEnvironmentId}/events
 ```
 
 #### Parameters
@@ -78,7 +78,7 @@ GET /rest/deployments/{applicationEnvironmentId}/events
 
 ### Get deployment status from its id.
 ```
-GET /rest/deployments/{deploymentId}/status
+GET /rest/v1/deployments/{deploymentId}/status
 ```
 
 #### Parameters
@@ -110,7 +110,7 @@ GET /rest/deployments/{deploymentId}/status
 
 ### Undeploy deployment from its id.
 ```
-GET /rest/deployments/{deploymentId}/undeploy
+GET /rest/v1/deployments/{deploymentId}/undeploy
 ```
 
 #### Parameters

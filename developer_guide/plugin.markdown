@@ -1,5 +1,6 @@
 ---
 layout: post
+exclude_from_search: true
 title:  Plugins
 root: ../
 categories: DEVELOPER_GUIDE

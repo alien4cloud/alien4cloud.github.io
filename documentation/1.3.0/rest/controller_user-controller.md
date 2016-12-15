@@ -10,7 +10,7 @@ weight: 1
 
 ### Create a new user in ALIEN.
 ```
-POST /rest/users
+POST /rest/v1/users
 ```
 
 #### Parameters
@@ -43,7 +43,7 @@ POST /rest/users
 
 ### Get multiple users from their usernames.
 ```
-POST /rest/users/getUsers
+POST /rest/v1/users/getUsers
 ```
 
 #### Description
@@ -80,7 +80,7 @@ Returns a rest response that contains the list of requested users.
 
 ### Search for user's registered in alien.
 ```
-POST /rest/users/search
+POST /rest/v1/users/search
 ```
 
 #### Parameters
@@ -113,7 +113,7 @@ POST /rest/users/search
 
 ### Get a user based on it's username.
 ```
-GET /rest/users/{username}
+GET /rest/v1/users/{username}
 ```
 
 #### Description
@@ -149,7 +149,7 @@ Returns a rest response that contains the user's details.
 
 ### Update an user by merging the userUpdateRequest into the existing user
 ```
-PUT /rest/users/{username}
+PUT /rest/v1/users/{username}
 ```
 
 #### Parameters
@@ -183,7 +183,7 @@ PUT /rest/users/{username}
 
 ### Delete an existing user from the internal user's repository.
 ```
-DELETE /rest/users/{username}
+DELETE /rest/v1/users/{username}
 ```
 
 #### Parameters
@@ -215,7 +215,7 @@ DELETE /rest/users/{username}
 
 ### Add a role to a user.
 ```
-PUT /rest/users/{username}/roles/{role}
+PUT /rest/v1/users/{username}/roles/{role}
 ```
 
 #### Parameters
@@ -249,7 +249,7 @@ PUT /rest/users/{username}/roles/{role}
 
 ### Remove a role from a user.
 ```
-DELETE /rest/users/{username}/roles/{role}
+DELETE /rest/v1/users/{username}/roles/{role}
 ```
 
 #### Parameters
