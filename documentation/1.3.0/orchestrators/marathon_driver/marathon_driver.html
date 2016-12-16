@@ -70,7 +70,7 @@ ga('send', 'pageview');
 
 <h3 id="known-limitations-and-caveats">Known limitations and caveats</h3>
 <ul>
-  <li>It is not yet possible to scale a Docker container in Alien.</li>
+  <li>It is not possible to scale Docker containers. This is due to Marathon only allowing singletons when using external volumes in conjunction with containers.</li>
   <li>We did not exactly follow the TOSCA model for Docker containers as it is still incubating.</li>
   <li>It not possible to stop the deployment of an application. Wait for it to be deployed then hit un-deploy.</li>
   <li>The connexion to Marathon is NOT secured.</li>
