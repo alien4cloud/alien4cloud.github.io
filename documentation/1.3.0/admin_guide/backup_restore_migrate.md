@@ -166,8 +166,6 @@ transform:
   application_tag: testTag
 
 alien4cloud:
-# version to which to migrate to
-  version: 1.3.0
 # alien4cloud runtime directory. See "directories.alien" option in your alien4cloud config
   dir: /opt/alien4cloud/data
 # directory in which alien4cloud stores Cloud Service Archives. See "directories.csar_repository" option in your alien4cloud config
@@ -177,14 +175,34 @@ alien4cloud:
 ## Orchestrators migration
 
 Orchestrators in alien4cloud are bound to Orchestrators' plugins. If you are using a custom orchestrator plugin, as stated above, it will discarded after the migration.  
-However you can follow theses steps for the orchestrator's migration to be comleted:
+However you can edit the ***mappings.yml*** and provides some new values to set for the orchestrator's migration to be completed. Note that if a value of a property is not mapped here, it will be kept as is.  
+Make sure to not forget (when needed) the quotes '""' as this is a yaml file, and some character are specifics, such as the colon ':'.  
+Here is a sample:
 
- *  Edit the ***plugin-mapping.yml***: add mapping for your orcheschestrators' plugins, so that the tools wold know what is the new Id and version of the plugin. Make sure to not forget the quotes '""' as this is ymal fil and the colon ":" char is a delimiter:
+***mappings.yml***
 
 {% highlight yaml %}
-# plugins mapping. "oldPluginId:oldVersion":"newPluginId:newVersion"
-# In this example, we say that the plugin with id alien-cloudify-3-orchestrator-premium and version 1.2.1 is now with Id alien-cloudify-3-orchestrator-premium and version 1.3.0
-"alien-cloudify-3-orchestrator-premium:1.2.1": "alien-cloudify-3-orchestrator-premium:1.3.0"
+##
+# mapping of your orchestrators' plugins.
+# "OldPluginId:oldVersion" : "NewPluginId:newVersion"
+##
+plugins_id:
+  "alien-cloudify-3-orchestrator-premium:1.2.1": "alien-cloudify-3-orchestrator-premium:1.3.0"
+
+##
+# mapping of your orchestrator's config url.
+# "OldUrl":"newUrl"
+##
+orchestrator_url:
+  "http://oldmanagerIP": "http://newManagerIP"
+
+##
+# Write here a mapping of your orchestrator config location's imports.
+# "OldImportValue":"newImportValue"
+##
+location_import:
+  "http://www.getcloudify.org/spec/cloudify/3.3.1/types.yaml": "http://www.getcloudify.org/spec/cloudify/3.4/types.yaml"
+
 {% endhighlight %}
 
  * Place your zipped plugin into the ***init/plugins*** directory of your Alien4cloud 1.3.0, so that it will be loaded on start.
@@ -207,11 +225,6 @@ cd /opt/alien4cloud/alien4cloud-premium/
 ./alien4cloud.sh
 {% endhighlight %}
 
-* Once Alien is up, you should update your cloudify 3 orchestrator's configuration, to be able to deploy applications on Cloudify 3.4: For every location:  
-
-  * **dsl**: ***cloudify_dsl_1_3***
-  * **imports**: on the imports of types.yaml, change the version ***3.3.1*** to ***3.4***  
-<br/>
 * Verify that all plugins (excepts custom ones) have been re-uploaded properly else re-upload them.  
 
 * Refresh your browser by emptying its cache so that new plugins' UI can be loaded.
