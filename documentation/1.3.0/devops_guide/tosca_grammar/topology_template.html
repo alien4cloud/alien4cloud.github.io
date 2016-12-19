@@ -14,13 +14,13 @@ ga('send', 'pageview');
 
 </script>
 
-<div class="container">
+<div class="container-fluid">
   <div class="row">
     
-      <div class="col-md-3">
+      <div class="col-sm-4 col-md-3">
         <div id="sidebar_menu" class="tree" role="complementary"></div>
       </div>
-      <div id="content" class="col-md-9">
+      <div id="content" class="col-sm-8 col-md-9">
     
         <div style="height: 50px;">
           <h1 class="pull-left" style="margin-top: 0px;">Topology template</h1>
@@ -32,11 +32,12 @@ ga('send', 'pageview');
 
 <p>A Topology Template contains the following element keynames:</p>
 
-<table class="table table-bordered">
+<table class="table table-striped">
   <thead>
     <tr>
       <th style="text-align: left">Keyname</th>
       <th style="text-align: left">Required</th>
+      <th style="text-align: left">Type</th>
       <th style="text-align: left">Description</th>
     </tr>
   </thead>
@@ -44,42 +45,50 @@ ga('send', 'pageview');
     <tr>
       <td style="text-align: left">description</td>
       <td style="text-align: left">no</td>
+      <td style="text-align: left">string</td>
       <td style="text-align: left">Declares a description for this Service Template and its contents.</td>
     </tr>
     <tr>
       <td style="text-align: left">inputs</td>
       <td style="text-align: left">no</td>
       <td style="text-align: left">Defines a set of global input parameters passed to the template when its instantiated. This provides a means for template authors to provide points of variability to users of the template in order to customize each instance within certain constraints.</td>
+      <td style="text-align: left"> </td>
     </tr>
     <tr>
       <td style="text-align: left">input_artifacts</td>
       <td style="text-align: left">no</td>
       <td style="text-align: left">Define artifacts as inputs.</td>
+      <td style="text-align: left"> </td>
     </tr>
     <tr>
       <td style="text-align: left">substitution_mappings</td>
       <td style="text-align: left">no</td>
       <td style="text-align: left">Describe how this topology can be used as a type in another one.</td>
+      <td style="text-align: left"> </td>
     </tr>
     <tr>
       <td style="text-align: left">node_templates</td>
       <td style="text-align: left">yes</td>
       <td style="text-align: left">Defines a list of <a href="#/documentation/1.3.0/devops_guide/tosca_grammar/node_template.html">Node template</a>s that model the components of an application or service’s topology within the Service Template.</td>
+      <td style="text-align: left"> </td>
     </tr>
     <tr>
       <td style="text-align: left">relationship_templates</td>
       <td style="text-align: left">no</td>
       <td style="text-align: left">Defines a list of Relationship Templates that are used to model the relationships (e.g., dependencies, links, etc.) between components (i.e., Node Templates) of an application or service’s topology within the Service Template.</td>
+      <td style="text-align: left"> </td>
     </tr>
     <tr>
       <td style="text-align: left">outputs</td>
       <td style="text-align: left">no</td>
       <td style="text-align: left">This optional section allows for defining a set of output parameters provided to users of the template. For example, this can be used for exposing the URL for logging into a web application that has been set up during the instantiation of a template.</td>
+      <td style="text-align: left"> </td>
     </tr>
     <tr>
       <td style="text-align: left">groups</td>
       <td style="text-align: left">no</td>
       <td style="text-align: left">This is an optional section that contains grouping definition for node templates.</td>
+      <td style="text-align: left"> </td>
     </tr>
   </tbody>
 </table>
@@ -358,6 +367,7 @@ To be usable in another topology, you must define what a topology template will 
     </div>
   </div>
 </div><!-- /container -->
+
 <script>
 var hash = location.hash.replace( /^#/, '' );
 if(hash && hash!== null && hash.match(/html$/)) {

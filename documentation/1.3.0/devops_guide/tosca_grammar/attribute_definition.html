@@ -14,13 +14,13 @@ ga('send', 'pageview');
 
 </script>
 
-<div class="container">
+<div class="container-fluid">
   <div class="row">
     
-      <div class="col-md-3">
+      <div class="col-sm-4 col-md-3">
         <div id="sidebar_menu" class="tree" role="complementary"></div>
       </div>
-      <div id="content" class="col-md-9">
+      <div id="content" class="col-sm-8 col-md-9">
     
         <div style="height: 50px;">
           <h1 class="pull-left" style="margin-top: 0px;">Attribute definition</h1>
@@ -30,36 +30,59 @@ ga('send', 'pageview');
 
 <h2 id="keynames">Keynames</h2>
 
-<table class="table table-bordered">
+<table class="table table-striped">
   <thead>
     <tr>
       <th style="text-align: left">Keyname</th>
-      <th style="text-align: left">Type</th>
       <th style="text-align: left">Required</th>
+      <th style="text-align: left">Type</th>
       <th style="text-align: left">Description</th>
+      <th style="text-align: left">tosca_definitions_version</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left">type</td>
-      <td style="text-align: left">string</td>
+      <td style="text-align: left">type <strong>(1)</strong></td>
       <td style="text-align: left">yes</td>
+      <td style="text-align: left">string</td>
       <td style="text-align: left">The required data type for the attribute.</td>
+      <td style="text-align: left">alien_dsl_1_3_0<br /> alien_dsl_1_2_0<br /> tosca_simple_yaml_1_0</td>
     </tr>
     <tr>
       <td style="text-align: left">description</td>
-      <td style="text-align: left">string</td>
       <td style="text-align: left">no</td>
+      <td style="text-align: left">string</td>
       <td style="text-align: left">The optional description for the attribute.</td>
+      <td style="text-align: left">alien_dsl_1_3_0<br /> alien_dsl_1_2_0<br /> tosca_simple_yaml_1_0</td>
     </tr>
     <tr>
       <td style="text-align: left">default</td>
-      <td style="text-align: left">N/A</td>
       <td style="text-align: left">no</td>
+      <td style="text-align: left">N.A.</td>
       <td style="text-align: left">An optional key that may provide a value to be used as a default if not provided by another means. This value SHALL be type compatible with the type declared by the attribute definition’s type keyname.</td>
+      <td style="text-align: left">alien_dsl_1_3_0<br /> alien_dsl_1_2_0<br /> tosca_simple_yaml_1_0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">status <strong>(2)</strong></td>
+      <td style="text-align: left">no (default supported)</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">The optional status of the attribute relative to the specification or implementation.  See supported status values defined under the <a href="#/documentation/1.3.0/devops_guide/tosca_grammar/property_definition.html">property definition</a> section.</td>
+      <td style="text-align: left">N.A.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">entry_schema <strong>(1)</strong></td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">The optional key that is used to declare the name of the Datatype definition for entries of set types such as the TOSCA list or map.</td>
+      <td style="text-align: left">N.A.</td>
     </tr>
   </tbody>
 </table>
+
+<ul>
+  <li><strong>(1)</strong> Alien 4 cloud currently support primitive types only on an attribute. Entry schema is therefore not supported as it is used only to specify the type of entries for the complex list and map types.</li>
+  <li><strong>(2)</strong> Status has been added in the latest versions of the specification and is not yet supported in alien4cloud. Table below details the supported values as defined in the TOSCA specification.</li>
+</ul>
 
 <h2 id="grammar">Grammar</h2>
 
@@ -91,6 +114,7 @@ ga('send', 'pageview');
     </div>
   </div>
 </div><!-- /container -->
+
 <script>
 var hash = location.hash.replace( /^#/, '' );
 if(hash && hash!== null && hash.match(/html$/)) {

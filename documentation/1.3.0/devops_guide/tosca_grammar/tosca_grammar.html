@@ -1,0 +1,91 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/1.3.0/devops_guide/tosca_grammar/tosca_grammar.html',
+  title: 'TOSCA grammar'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">TOSCA grammar</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.3.0/devops_guide/tosca_grammar/tosca_grammar.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <p>This section describes the TOSCA grammar as supported in latest alien4cloud version.</p>
+
+<p>Alien4cloud supports multiple versions of the <strong>tosca_definitions_version</strong>:</p>
+
+<ul>
+  <li>alien_dsl_1_3_0: DSL used in alien4cloud 1.3.0</li>
+  <li>alien_dsl_1_2_0: DSL used in alien4cloud 1.2.0 <em>deprecated</em></li>
+  <li>
+    <p>alien_dsl_1_1_0: DSL used in alien4cloud 1.1.0 <em>deprecated</em>. While alien4cloud is still able to parse this definition version it is not officially supported and not recommended.</p>
+  </li>
+  <li>tosca_simple_yaml_1_0: Official Tosca definition. The support is getting improved but some elements of the specification may not be supported yet and therefore we don’t recommend using it with alien4cloud.</li>
+  <li>http://docs.oasis-open.org/tosca/ns/simple/yaml/1.0: Same as <em>tosca_simple_yaml_1_0</em></li>
+</ul>
+
+<p>The recommended version is <strong>alien_dsl_1_3_0</strong> and provides all the functionalities that alien4cloud currently supports.</p>
+
+<p>Child pages details the specification as currently supported in alien4cloud.</p>
+
+<h1 id="migration-from-120-version">Migration from 1.2.0 version</h1>
+
+<p>This section highlight the chances between alien_dsl_1_2_0 and alien_dsl_1_3_0 and is intendeed for users to easily migrate to the latest version.</p>
+
+<ul>
+  <li>
+    <p>relationship_type
+=&gt; artifact definition has changed
+TODO all sample and new sample.</p>
+  </li>
+  <li>
+    <p>node_type
+=&gt; artifact definition has changed
+TODO all sample and new sample.</p>
+  </li>
+  <li>
+    <p>requirement definition
+=&gt; previous version allowed support of a node_type, this is not authorized anymore and only a capability type is valid. You can however use the Root capability from any node and use the node property to specify the type.</p>
+  </li>
+</ul>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.3.0/devops_guide/tosca_grammar/tosca_grammar.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-1.3.0', 'documentation/1.3.0/devops_guide/tosca_grammar/tosca_grammar.md');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

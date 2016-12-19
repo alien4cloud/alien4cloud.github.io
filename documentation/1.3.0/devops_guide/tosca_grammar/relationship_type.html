@@ -14,13 +14,13 @@ ga('send', 'pageview');
 
 </script>
 
-<div class="container">
+<div class="container-fluid">
   <div class="row">
     
-      <div class="col-md-3">
+      <div class="col-sm-4 col-md-3">
         <div id="sidebar_menu" class="tree" role="complementary"></div>
       </div>
-      <div id="content" class="col-md-9">
+      <div id="content" class="col-sm-8 col-md-9">
     
         <div style="height: 50px;">
           <h1 class="pull-left" style="margin-top: 0px;">Relationship type</h1>
@@ -30,67 +30,87 @@ ga('send', 'pageview');
 
 <h2 id="keynames">Keynames</h2>
 
-<table class="table table-bordered">
+<table class="table table-striped">
   <thead>
     <tr>
       <th style="text-align: left">Keyname</th>
-      <th style="text-align: left">Type</th>
       <th style="text-align: left">Required</th>
+      <th style="text-align: left">Type</th>
       <th style="text-align: left">Description</th>
+      <th style="text-align: left">tosca_definitions_version</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left">abstract*</td>
-      <td style="text-align: left">boolean</td>
+      <td style="text-align: left">derived_from</td>
       <td style="text-align: left">no</td>
-      <td style="text-align: left">Optional flag to specify if a component is abstract and has no valid implementation. Defaults to false. </td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">An optional parent Relationship Type name the Relationship Type derives from.</td>
+      <td style="text-align: left">alien_dsl_1_3_0<br /> alien_dsl_1_2_0<br /> tosca_simple_yaml_1_0</td>
     </tr>
     <tr>
-      <td style="text-align: left">derived_from</td>
-      <td style="text-align: left">string</td>
-      <td style="text-align: left">no*</td>
-      <td style="text-align: left">An optional parent Relationship Type name the Relationship Type derives from.</td>
+      <td style="text-align: left">version <strong>(1)</strong></td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">version</td>
+      <td style="text-align: left">An optional version for the Entity Type definition.</td>
+      <td style="text-align: left">N.A.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">metadata <strong>(2)</strong></td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">map of string</td>
+      <td style="text-align: left">Defines a section used to declare additional metadata information.</td>
+      <td style="text-align: left">alien_dsl_1_3_0<br /> tosca_simple_yaml_1_0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">tags <strong>(2)</strong></td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">map of string</td>
+      <td style="text-align: left">Defines a section used to declare additional metadata information.</td>
+      <td style="text-align: left">alien_dsl_1_3_0<br /> alien_dsl_1_2_0</td>
     </tr>
     <tr>
       <td style="text-align: left">description</td>
+      <td style="text-align: left">no</td>
       <td style="text-align: left">string</td>
-      <td style="text-align: left">no</td>
       <td style="text-align: left">An optional description for the Relationship Type.</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">properties</td>
-      <td style="text-align: left"><a href="#/documentation/1.3.0/devops_guide/tosca_grammar/property_definition.html">property definitions</a></td>
-      <td style="text-align: left">no</td>
-      <td style="text-align: left">An optional list of property definitions for the Relationship Type.</td>
+      <td style="text-align: left">alien_dsl_1_3_0<br /> alien_dsl_1_2_0<br /> tosca_simple_yaml_1_0</td>
     </tr>
     <tr>
       <td style="text-align: left">attributes</td>
-      <td style="text-align: left"><a href="#/documentation/1.3.0/devops_guide/tosca_grammar/attribute_definition.html">attribute definitions</a></td>
       <td style="text-align: left">no</td>
+      <td style="text-align: left">map of <a href="#/documentation/1.3.0/devops_guide/tosca_grammar/attribute_definition.html">attribute definitions</a></td>
       <td style="text-align: left">An optional list of attribute definitions for the Relationship Type.</td>
+      <td style="text-align: left">alien_dsl_1_3_0<br /> alien_dsl_1_2_0<br /> tosca_simple_yaml_1_0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">properties</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">map of <a href="#/documentation/1.3.0/devops_guide/tosca_grammar/property_definition.html">property definitions</a></td>
+      <td style="text-align: left">An optional list of property definitions for the Relationship Type.</td>
+      <td style="text-align: left">alien_dsl_1_3_0<br /> alien_dsl_1_2_0<br /> tosca_simple_yaml_1_0</td>
     </tr>
     <tr>
       <td style="text-align: left">interfaces</td>
-      <td style="text-align: left"><a href="#/documentation/1.3.0/devops_guide/tosca_grammar/interface_definition.html">interface definitions</a></td>
       <td style="text-align: left">no</td>
+      <td style="text-align: left"><a href="#/documentation/1.3.0/devops_guide/tosca_grammar/interface_definition.html">interface definitions</a></td>
       <td style="text-align: left">An optional list of named interfaces for the Relationship Type.</td>
+      <td style="text-align: left">alien_dsl_1_3_0<br /> alien_dsl_1_2_0<br /> tosca_simple_yaml_1_0</td>
     </tr>
     <tr>
       <td style="text-align: left">valid_target_types</td>
-      <td style="text-align: left">string[]</td>
       <td style="text-align: left">yes</td>
+      <td style="text-align: left">string[]</td>
       <td style="text-align: left">A required list of one or more valid target entities or entity types (i.e., a Node Types or Capability Types).</td>
+      <td style="text-align: left">alien_dsl_1_3_0<br /> alien_dsl_1_2_0<br /> tosca_simple_yaml_1_0</td>
     </tr>
   </tbody>
 </table>
 
-<div class="note info">
 <ul>
-  <li>Abstract flag is specific to Alien 4 Cloud and is not part of TOSCA Simple Profile in YAML.</li>
-  <li>derived_from is not required however relationship types SHOULD all extends from a normative type (ConnectsTo or HostedOn for example).</li>
+  <li><strong>(1)</strong> version at type level is defined in TOSCA but they are optional and there is no example on how it should be managed. We believe in alien4cloud that versions should be managed at the service template/archive level and dispatched to every elements defined in the service template/archive.</li>
+  <li><strong>(2)</strong> metadata appeared in TOSCA while alien4cloud already had tags supported, support for metadata keyword has been added in 1.3.1 version. note that if you specify both metadata and tags one may silently override the other (this should be avoided).</li>
 </ul>
-</div>
 
 <h2 id="grammar">Grammar</h2>
 
@@ -125,6 +145,7 @@ ga('send', 'pageview');
     </div>
   </div>
 </div><!-- /container -->
+
 <script>
 var hash = location.hash.replace( /^#/, '' );
 if(hash && hash!== null && hash.match(/html$/)) {

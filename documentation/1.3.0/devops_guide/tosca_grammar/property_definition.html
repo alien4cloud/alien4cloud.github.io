@@ -14,13 +14,13 @@ ga('send', 'pageview');
 
 </script>
 
-<div class="container">
+<div class="container-fluid">
   <div class="row">
     
-      <div class="col-md-3">
+      <div class="col-sm-4 col-md-3">
         <div id="sidebar_menu" class="tree" role="complementary"></div>
       </div>
-      <div id="content" class="col-md-9">
+      <div id="content" class="col-sm-8 col-md-9">
     
         <div style="height: 50px;">
           <h1 class="pull-left" style="margin-top: 0px;">Property definition</h1>
@@ -30,54 +30,81 @@ ga('send', 'pageview');
 
 <h2 id="keynames">Keynames</h2>
 
-<table class="table table-bordered">
+<table class="table table-striped">
   <thead>
     <tr>
       <th style="text-align: left">Keyname</th>
-      <th style="text-align: left">Type</th>
       <th style="text-align: left">Required</th>
+      <th style="text-align: left">Type</th>
       <th style="text-align: left">Description</th>
+      <th style="text-align: left">tosca_definitions_version</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td style="text-align: left">type</td>
-      <td style="text-align: left">string</td>
       <td style="text-align: left">yes</td>
+      <td style="text-align: left">string</td>
       <td style="text-align: left">The required data type for the property.</td>
+      <td style="text-align: left">alien_dsl_1_3_0<br /> alien_dsl_1_2_0<br /> tosca_simple_yaml_1_0</td>
     </tr>
     <tr>
       <td style="text-align: left">description</td>
-      <td style="text-align: left">string</td>
       <td style="text-align: left">no</td>
+      <td style="text-align: left">string</td>
       <td style="text-align: left">The optional description for the property.</td>
+      <td style="text-align: left">alien_dsl_1_3_0<br /> alien_dsl_1_2_0<br /> tosca_simple_yaml_1_0</td>
     </tr>
     <tr>
       <td style="text-align: left">required</td>
-      <td style="text-align: left">boolean</td>
       <td style="text-align: left">no (default true)</td>
+      <td style="text-align: left">boolean</td>
       <td style="text-align: left">Optional key to define if the property is requied (true) or not (false). If this key is not declared for the property definition, then the property SHALL be considered required by default.</td>
+      <td style="text-align: left">alien_dsl_1_3_0<br /> alien_dsl_1_2_0<br /> tosca_simple_yaml_1_0</td>
     </tr>
     <tr>
       <td style="text-align: left">default</td>
-      <td style="text-align: left">N/A</td>
       <td style="text-align: left">no</td>
+      <td style="text-align: left">N/A</td>
       <td style="text-align: left">An optional key that may provide a value to be used as a default if not provided by another means. This value SHALL be type compatible with the type declared by the property definition’s type keyname.</td>
+      <td style="text-align: left">alien_dsl_1_3_0<br /> alien_dsl_1_2_0<br /> tosca_simple_yaml_1_0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">status <strong>(1)</strong></td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">string (default: supported)</td>
+      <td style="text-align: left">The optional status of the property relative to the specification or implementation. See table below for valid values.</td>
+      <td style="text-align: left">N.A.</td>
     </tr>
     <tr>
       <td style="text-align: left">constraints</td>
-      <td style="text-align: left"><a href="#/documentation/1.3.0/devops_guide/tosca_grammar/constraints.html">list of constraints</a></td>
       <td style="text-align: left">no</td>
+      <td style="text-align: left"><a href="#/documentation/1.3.0/devops_guide/tosca_grammar/constraints.html">list of constraints</a></td>
       <td style="text-align: left">The optional list of sequenced constraints for the property.</td>
+      <td style="text-align: left">alien_dsl_1_3_0<br /> alien_dsl_1_2_0<br /> tosca_simple_yaml_1_0</td>
     </tr>
     <tr>
-      <td style="text-align: left">entry_schema</td>
-      <td style="text-align: left">schema</td>
+      <td style="text-align: left">entry_schema <strong>(2)</strong></td>
       <td style="text-align: left">no</td>
+      <td style="text-align: left"><a href="#/documentation/1.3.0/devops_guide/tosca_grammar/entry_schema.html">entry schema</a></td>
       <td style="text-align: left">An optional key used to declare the schema definition for entries of “container” types such as list or map.</td>
+      <td style="text-align: left">alien_dsl_1_3_0<br /> alien_dsl_1_2_0<br /> tosca_simple_yaml_1_0</td>
     </tr>
   </tbody>
 </table>
+
+<ul>
+  <li><strong>(1)</strong> Status has been added in the latest versions of the specification and is not yet supported in alien4cloud. Table below details the supported values as defined in the TOSCA specification.</li>
+  <li><strong>(2)</strong> Entry schema definition in TOSCA specification is inconsistent as it is stated you can use a string but the grammar example actually defines a complex object as defined <a href="#/documentation/1.3.0/devops_guide/tosca_grammar/entry_schema.html">here</a>. Alien4cloud supports the complex definition as stated in the grammar section of the specification.</li>
+</ul>
+
+<p class="table table-striped">Status valid values:</p>
+<p>| Value         | Description |
+|:————–|:————|
+| supported  | Indicates the property is supported.  This is the default value for all property definitions. |
+| unsupported | Indicates the property is not supported. |
+| experimental | Indicates the property is experimental and has no official standing. |
+| deprecated | Indicates the property has been deprecated by a new specification version. |</p>
 
 <h2 id="grammar">Grammar</h2>
 
@@ -145,6 +172,7 @@ ga('send', 'pageview');
     </div>
   </div>
 </div><!-- /container -->
+
 <script>
 var hash = location.hash.replace( /^#/, '' );
 if(hash && hash!== null && hash.match(/html$/)) {

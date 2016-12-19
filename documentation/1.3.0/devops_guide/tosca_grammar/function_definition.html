@@ -14,13 +14,13 @@ ga('send', 'pageview');
 
 </script>
 
-<div class="container">
+<div class="container-fluid">
   <div class="row">
     
-      <div class="col-md-3">
+      <div class="col-sm-4 col-md-3">
         <div id="sidebar_menu" class="tree" role="complementary"></div>
       </div>
-      <div id="content" class="col-md-9">
+      <div id="content" class="col-sm-8 col-md-9">
     
         <div style="height: 50px;">
           <h1 class="pull-left" style="margin-top: 0px;">Function definition</h1>
@@ -33,7 +33,7 @@ ga('send', 'pageview');
 <h2 id="reserved-function-keywords">Reserved function keywords</h2>
 <p>The following keywords may be used in some  TOSCA function in place of a TOSCA Node or Relationship Template name. They will be interpreted when evaluation the function at runtime.</p>
 
-<table class="table table-bordered">
+<table class="table table-striped">
   <thead>
     <tr>
       <th style="text-align: left">Keyword</th>
@@ -79,6 +79,7 @@ ga('send', 'pageview');
     </div>
   </div>
 </div><!-- /container -->
+
 <script>
 var hash = location.hash.replace( /^#/, '' );
 if(hash && hash!== null && hash.match(/html$/)) {
