@@ -3,7 +3,7 @@ layout: post
 title:  Policy
 root: ../../../
 categories: DOCUMENTATION-1.3.0
-parent: [devops, tosca_concepts, tosca_ref_definitions, tosca_ref_topology_template]
+parent: [devops, tosca_grammar, tosca_ref_topology_template]
 node_name: tosca_ref_policy
 weight: 300
 ---
@@ -20,7 +20,7 @@ This policy is not described by TOSCA (policies are actually a WIP). We have def
 
 The following is the list of recognized keynames recognized for a TOSCA Policy definition and parsed by Alien4Cloud:
 
-{: .table .table-bordered}
+{: .table .table-striped }
 | Keyname | Required | Description |
 |:---------|:------------|:---------|
 | name | yes | The required name of the policy. |

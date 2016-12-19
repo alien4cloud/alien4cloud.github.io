@@ -3,9 +3,9 @@ layout: post
 title:  Topology template
 root: ../../../
 categories: DOCUMENTATION-1.3.0
-parent: [devops, tosca_concepts, tosca_ref_definitions]
+parent: [devops, tosca_grammar]
 node_name: tosca_ref_topology_template
-weight: 300
+weight: 70
 ---
 
 This section defines the topology template of a cloud application. The main ingredients of the Topology Template are node templates representing components of the application.
@@ -14,10 +14,10 @@ This section defines the topology template of a cloud application. The main ingr
 
 A Topology Template contains the following element keynames:
 
-{: .table .table-bordered}
-| Keyname | Required | Description |
-|:---------|:------------|:---------|
-| description | no | Declares a description for this Service Template and its contents. |
+{: .table .table-striped }
+| Keyname | Required | Type | Description |
+|:---------|:------------|:---|:---------|
+| description | no | string | Declares a description for this Service Template and its contents. |
 | inputs | no | Defines a set of global input parameters passed to the template when its instantiated. This provides a means for template authors to provide points of variability to users of the template in order to customize each instance within certain constraints. |
 | input_artifacts | no | Define artifacts as inputs. |
 | substitution_mappings | no | Describe how this topology can be used as a type in another one. |

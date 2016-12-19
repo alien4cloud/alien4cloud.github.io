@@ -3,7 +3,7 @@ layout: post
 title:  Normative Lifecycle
 root: ../../
 categories: DOCUMENTATION-1.3.0
-parent: [devops, tosca_concepts]
+parent: [devops]
 node_name: tosca_ref_normative_lifecycle
 weight: 400
 ---

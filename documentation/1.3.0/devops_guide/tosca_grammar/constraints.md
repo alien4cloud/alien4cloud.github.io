@@ -3,9 +3,9 @@ layout: post
 title:  Constraint clause
 root: ../../
 categories: DOCUMENTATION-1.3.0
-parent: [devops, tosca_concepts, tosca_ref_definitions]
+parent: [devops, tosca_grammar]
 node_name: tosca_ref_types_constraints
-weight: 1400
+weight: 90
 ---
 
 A constraint clause defines an operation along with one or more compatible values that can be used to define a constraint on a property’s or parameter’s allowed values.
@@ -14,7 +14,7 @@ A constraint clause defines an operation along with one or more compatible value
 
 The following is the list of recognized operators (keynames) when defining constraint clauses:
 
-{: .table .table-bordered}
+{: .table .table-striped }
 | Operator         | Type        | Value type | Description |
 |:-----------------|:------------|:-----------|:------------|
 | equal            | scalar      | all        | Constrains a property or parameter to a value equal to (‘=’) the value declared. |

@@ -3,7 +3,7 @@ layout: post
 title:  Function definition
 root: ../../../
 categories: DOCUMENTATION-1.3.0
-parent: [devops, tosca_concepts, tosca_ref_definitions]
+parent: [devops, tosca_grammar]
 node_name: tosca_ref_types_function_definition
 weight: 1100
 ---
@@ -14,7 +14,7 @@ A function definition defines a named function to evaluate at runtime, and that 
 ## Reserved function keywords
 The following keywords may be used in some  TOSCA function in place of a TOSCA Node or Relationship Template name. They will be interpreted when evaluation the function at runtime.
 
-{: .table .table-bordered}
+{: .table .table-striped }
 | Keyword         | Valid context                | Description |
 |:----------------|:--------------------|:------------|
 | SELF            | Node Template or Relationship Template                   | Node or Relationship Template instance that contains the function at the time the function is evaluated. |
