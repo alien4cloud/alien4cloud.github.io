@@ -48,22 +48,150 @@ ga('send', 'pageview');
 
 <p>This section highlight the chances between alien_dsl_1_2_0 and alien_dsl_1_3_0 and is intendeed for users to easily migrate to the latest version.</p>
 
-<ul>
-  <li>
-    <p>relationship_type
-=&gt; artifact definition has changed
-TODO all sample and new sample.</p>
-  </li>
-  <li>
-    <p>node_type
-=&gt; artifact definition has changed
-TODO all sample and new sample.</p>
-  </li>
-  <li>
-    <p>requirement definition
-=&gt; previous version allowed support of a node_type, this is not authorized anymore and only a capability type is valid. You can however use the Root capability from any node and use the node property to specify the type.</p>
-  </li>
-</ul>
+<h2 id="type-validations">Type Validations</h2>
+
+<p>Previous version of alien4cloud parser were not checking the types used in requirement_definition and capability definition. This has been fixed in 1.3.0, this should not change your types but will impact the order in which you can upload your archives in alien4cloud.</p>
+
+<h2 id="requirement-definition">Requirement definition</h2>
+
+<p>Many things have changed in requirement definition dsl. The following grammar definitions highlight the differences between alien_dsl_1_2_0 and alien_dsl_1_3_0:</p>
+
+<p><strong>alien_dsl_1_2_0</strong>:</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="p-Indicator">-</span> <span class="l-Scalar-Plain">&lt;requirement_name&gt;</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;type_of_capability or type_of_node&gt;</span> <span class="c1"># required</span>
+  <span class="l-Scalar-Plain">node_filter</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;node_filter&gt;</span>
+  <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;description&gt;</span>
+  <span class="l-Scalar-Plain">occurrences</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span><span class="nv">min</span><span class="p-Indicator">,</span> <span class="nv">max</span><span class="p-Indicator">]</span>
+  <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;type_of_relationship&gt;</span>
+  <span class="l-Scalar-Plain">relationship</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;type_of_relationship&gt;</span> <span class="c1"># both type and relationship keynames could be used but only one at a time.</span>
+  <span class="l-Scalar-Plain">capability</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;name_of_target_capability&gt;</span> <span class="c1"># name in the target node / should have node defined.</span></code></pre></div>
+
+<p><strong>alien_dsl_1_3_0</strong>:</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="p-Indicator">-</span> <span class="l-Scalar-Plain">&lt;requirement_name&gt;</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">capability</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;type_of_capability&gt;</span> <span class="c1"># required</span>
+    <span class="l-Scalar-Plain">node</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;type_of_node&gt;</span>
+    <span class="l-Scalar-Plain">node_filter</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;node_filter&gt;</span>
+    <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;description&gt;</span>
+    <span class="l-Scalar-Plain">occurrences</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span><span class="nv">min</span><span class="p-Indicator">,</span> <span class="nv">max</span><span class="p-Indicator">]</span>
+    <span class="l-Scalar-Plain">relationship</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;type_of_relationship&gt;</span>
+    <span class="l-Scalar-Plain">capability_name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;name_of_target_capability&gt;</span> <span class="c1"># name in the target node / should have node defined.</span></code></pre></div>
+
+<p>Example below details</p>
+
+<p><strong>alien_dsl_1_2_0</strong>:</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">node_types</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">alien4cloud.examples.MyNode</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">derived_from</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.nodes.SoftwareComponent</span>
+    <span class="l-Scalar-Plain">requirements</span><span class="p-Indicator">:</span>
+      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">host</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.nodes.Compute</span>
+        <span class="l-Scalar-Plain">relationship_type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.relationships.HostedOn</span>
+        <span class="l-Scalar-Plain">capability</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">host</span>
+        <span class="l-Scalar-Plain">occurrences</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span><span class="nv">1</span><span class="p-Indicator">,</span> <span class="nv">1</span><span class="p-Indicator">]</span></code></pre></div>
+
+<p><strong>alien_dsl_1_3_0</strong>:</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">node_types</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">alien4cloud.examples.MyNode</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">derived_from</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.nodes.SoftwareComponent</span>
+    <span class="l-Scalar-Plain">requirements</span><span class="p-Indicator">:</span>
+      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">host</span><span class="p-Indicator">:</span>
+          <span class="l-Scalar-Plain">capability</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.capabilities.Root</span>
+          <span class="l-Scalar-Plain">node</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.nodes.Compute</span>
+          <span class="l-Scalar-Plain">relationship</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.relationships.HostedOn</span>
+          <span class="l-Scalar-Plain">capability_name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">host</span>
+          <span class="l-Scalar-Plain">occurrences</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span><span class="nv">1</span><span class="p-Indicator">,</span> <span class="nv">1</span><span class="p-Indicator">]</span></code></pre></div>
+
+<h2 id="deployment-artifacts">Deployment artifacts</h2>
+
+<p>Artifact definition has changed and yaml node does not contains anymore both the name of artifact and the keynames as it has been defined in previous template versions. The previous notation was indeed more confusing and less inline with yaml definition.</p>
+
+<div class="note info">
+<p>1.3.0 also support repositories for artifacts. This section is just focused on templates migration and does not introduce new functionalities.</p>
+</div>
+
+<p><strong>alien_dsl_1_2_0</strong>:</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">node_types</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">alien4cloud.examples.MyNode</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">derived_from</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.nodes.SoftwareComponent</span>
+    <span class="l-Scalar-Plain">artifacts</span><span class="p-Indicator">:</span>
+      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">simple_config</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">config/config.yml</span>
+      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">config</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">config/config.yml</span>
+        <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.artifacts.File</span>
+
+<span class="l-Scalar-Plain">relationship_types</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">alien4cloud.examples.MyRelationship</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">artifacts</span><span class="p-Indicator">:</span>
+    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">simple_config</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">config/config.yml</span>
+    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">config</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">config/config.yml</span>
+      <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.artifacts.File</span>
+
+<span class="l-Scalar-Plain">topology_template</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">input_artifacts</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">config</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.artifacts.File</span>
+
+  <span class="l-Scalar-Plain">node_templates</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">my_node</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">alien4cloud.examples.MyNode</span>
+      <span class="l-Scalar-Plain">artifacts</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">config</span><span class="p-Indicator">:</span>
+          <span class="l-Scalar-Plain">implementation</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">config/config.yml</span>
+          <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.artifacts.File</span></code></pre></div>
+
+<p><strong>alien_dsl_1_3_0</strong>:</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">node_types</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">alien4cloud.examples.MyNode</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">derived_from</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.nodes.SoftwareComponent</span>
+    <span class="l-Scalar-Plain">artifacts</span><span class="p-Indicator">:</span>
+      <span class="c1"># Simple definition remains the same</span>
+      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">simple_config</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">config/config.yml</span>
+      <span class="c1"># Complex definition is now more in line with yaml and introduce the file keyname and sub-level</span>
+      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">config</span><span class="p-Indicator">:</span>
+          <span class="l-Scalar-Plain">file</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">config/config.yml</span>
+          <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.artifacts.File</span>
+
+<span class="l-Scalar-Plain">relationship_types</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">alien4cloud.examples.MyRelationship</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">artifacts</span><span class="p-Indicator">:</span>
+    <span class="c1"># Simple definition remains the same</span>
+    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">simple_config</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">config/config.yml</span>
+    <span class="c1"># Complex definition is now more in line with yaml and introduce the file keyname and sub-level</span>
+    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">config</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">file</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">config/config.yml</span>
+        <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.artifacts.File</span>
+
+<span class="l-Scalar-Plain">topology_template</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">input_artifacts</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">config</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.artifacts.File</span>
+
+  <span class="l-Scalar-Plain">node_templates</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">my_node</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">alien4cloud.examples.MyNode</span>
+      <span class="l-Scalar-Plain">artifacts</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">config</span><span class="p-Indicator">:</span>
+          <span class="c1"># implementation keyname is now replaced with file to be in line with the deployment artifact rather than operation notation.</span>
+          <span class="l-Scalar-Plain">file</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">config/config.yml</span>
+          <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.artifacts.File</span></code></pre></div>
+
+<div class="note">
+<p>alien_dsl_1_3_0 also supports simple definition of artifacts on templates and topology inputs while this was not authorized in previous versions:</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">topology_template</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">input_artifacts</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">config</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">config/config.yml</span>
+
+  <span class="l-Scalar-Plain">node_templates</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">my_node</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">alien4cloud.examples.MyNode</span>
+      <span class="l-Scalar-Plain">artifacts</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">config</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">config/config.yml</span></code></pre></div>
+
+</div>
 
         <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.3.0/devops_guide/tosca_grammar/tosca_grammar.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
 	  </div>
