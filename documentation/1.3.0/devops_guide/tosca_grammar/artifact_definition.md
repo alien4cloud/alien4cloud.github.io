@@ -48,12 +48,10 @@ mime_type: <artifact_mime_type_name>
 The following example shows how to define a node type with operation:
 
 {% highlight yaml %}
-
 node_types:
   fastconnect.nodes.OperationSample:
     artifacts:
-      - scripts_directory: scrips
+      - scripts_directory: scripts
         type: tosca.artifacts.File
         description: Directory that contains all scripts.
-
 {% endhighlight %}
