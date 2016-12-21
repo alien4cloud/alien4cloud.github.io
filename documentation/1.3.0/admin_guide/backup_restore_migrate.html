@@ -31,7 +31,12 @@ ga('send', 'pageview');
 <div class="row"><ul class="nav nav-pills" id="summarypanel"></ul></div>
 <hr style="margin-top:5px; margin-bottom:5px;" />
 
-<p>Find here informations about how to perform backup / restore your alien4cloud, and also, migrate from <code>alien4cloud 1.2.1</code> to <code>alien4cloud 1.3.0</code>.</p>
+<p>Find here informations about how to perform backup / restore your alien4cloud, and also, migrate from <code>alien4cloud 1.2.1</code> to <code>alien4cloud 1.3.x</code>.</p>
+
+<h2 id="downloads">Downloads</h2>
+
+<p><a href="http://fastconnect.org/maven/service/local/artifact/maven/redirect?r=fastconnect&amp;g=alien4cloud&amp;a=alien4cloud-backup-restore-tools&amp;v=LATEST&amp;p=zip&amp;c=distrib" title="backup-restore-tool" class="btn btn-success download-button"><i class="fa fa-download"></i> Backup / Restore tool</a>
+<a href="http://fastconnect.org/maven/service/local/artifact/maven/redirect?r=fastconnect&amp;g=alien4cloud&amp;a=alien4cloud-migration&amp;v=LATEST&amp;p=zip&amp;c=distrib" title="migration-tool" class="btn btn-success download-button"><i class="fa fa-download"></i> Migation tool</a></p>
 
 <p>Alien4Cloud uses several places to store it’s data.</p>
 
@@ -45,8 +50,10 @@ ga('send', 'pageview');
 
 <h1 id="backup--restore">Backup &amp; Restore</h1>
 
-<p>In order to backup / restore Alien4Cloud you must download the <a href="http://fastconnect.org/maven/service/local/artifact/maven/redirect?r=fastconnect-snapshot&amp;g=alien4cloud&amp;a=alien4cloud-backup-restore-tools&amp;v=LATEST&amp;p=zip&amp;c=distrib"> backup/restore tool </a> and copy it on the machine where Alien is running (or anywhere else having access to Alien’s data folders).
+<p>In order to backup / restore Alien4Cloud you must download the <a href="http://fastconnect.org/maven/service/local/artifact/maven/redirect?r=fastconnect&amp;g=alien4cloud&amp;a=alien4cloud-backup-restore-tools&amp;v=LATEST&amp;p=zip&amp;c=distrib" title="backup-restore-tool"> backup/restore tool </a> and copy it on the machine where Alien is running (or anywhere else having access to Alien’s data folders).
 After unzipping the archive, the tool can be configured by editing the file <strong><em>path_to_unzipped_tool/config/config.yml</em></strong></p>
+
+<p><strong><em>config.yml</em></strong></p>
 
 <div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">elasticsearch</span><span class="p-Indicator">:</span>
 <span class="c1"># Name of your elasticsearch cluster</span>
@@ -146,7 +153,7 @@ Concerning either Alien4Cloud or elasticsearch data, no copy or transfert is mad
 However, if running in an embedded configuration, you can’t stop Alien4Cloud without stopping ElasticSearch. Then, just make sure the plateform is not used during the process.</p>
 </div>
 
-<p>In order to migrate Alien4Cloud you must download the <a href="http://fastconnect.org/maven/service/local/artifact/maven/redirect?r=fastconnect-snapshot&amp;g=alien4cloud&amp;a=alien4cloud-migration&amp;v=LATEST&amp;p=zip&amp;c=distrib"> migration tool </a> and copy it on the machine where Alien is running (or anywhere which has access to Alien’s data folders).<br />
+<p>In order to migrate Alien4Cloud you must download the <a href="http://fastconnect.org/maven/service/local/artifact/maven/redirect?r=fastconnect&amp;g=alien4cloud&amp;a=alien4cloud-migration&amp;v=LATEST&amp;p=zip&amp;c=distrib" title="migration-tool"> migration tool </a> and copy it on the machine where Alien is running (or anywhere which has access to Alien’s data folders).<br />
 After unzipping the archive, the tool can be configured by editing the files in <strong><em>path_to_unzipped_tool/config</em></strong></p>
 
 <p><strong><em>config.yml</em></strong></p>
@@ -243,6 +250,7 @@ Here is a sample:</p>
 </ul>
 
 <p>Normally with this procedure, you should have your Alien functional with new version 1.3.0.</p>
+
 
         <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.3.0/admin_guide/backup_restore_migrate.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
 	  </div>
