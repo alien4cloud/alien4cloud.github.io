@@ -3,7 +3,7 @@ layout: post
 title:  Writing custom types
 root: ../../
 categories: DOCUMENTATION-1.3.0
-parent: [devops, tosca_concepts]
+parent: [devops]
 node_name: tosca_ref_types
 weight: 200
 ---

@@ -1,318 +1,114 @@
-<!DOCTYPE html>
-<html lang="en">
+---
+layout: main
+title: ALIEN 4 Cloud
+root: ../
+---
 
-<head>
-  <meta charset="utf-8">
-  <title>ALIEN 4 Cloud</title>
-  <meta property="st:info" content="section:''"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../css/bootstrap.min.css">
-  <link rel="stylesheet" href="../css/font-awesome.min.css">
-  <link rel="stylesheet" href="../css/docs.css">
-  <link rel="stylesheet" href="../css/main.css">
-  <link rel="stylesheet" href="../css/toc-nav.css">
-  <link rel="stylesheet" href="../css/syntax.css">
-  <link rel="stylesheet" href="../css/note.css">
-  <link rel="stylesheet" href="../css/timeline.css">
-</head>
+<div class="container">
+  <h1 style="margin-top: 0px;">
+    Roadmap
+  </h1>
+  <p>
+    The following represents current view of Alien4Cloud development team of its product development cycle and future directions. It is intended for information purposes only, and should not be interpreted as a commitment, though we do our best to reach the dates and features set mentioned below.
+  </p>
+  <p>
+    Premium features, support and certifications are available under a subscription, delivered by <a href="http://fastconnect.fr" target="_blank">FastConnect</a>, a <a href="http://www.bull.com" target="_blank">Bull, Atos technologies</a> subsidiary. Contact us for more details.
+  </p>
+  <p>
+    We deliver major releases every 4 month.
+    Please note that we also deliver intermediate sprint releases in <a href="https://github.com/alien4cloud/alien4cloud" target="_blank">Alien4Cloud GitHub repo</a>, every 3 weeks, in order to get feedback on features while still in development.
+  </p>
 
-<body>
-  <script type="text/javascript" charset="utf-8" src="../js/search.min.js"></script>
-  <script type="text/javascript" charset="utf-8" src="../js/bootstrap.min.js"></script>
-  <script type="text/javascript" charset="utf-8" src="../js/jquery.ba-hashchange.min.js"></script>
-  <script type="text/javascript" charset="utf-8" src="../js/navigation.js"></script>
-  <script type="text/javascript" charset="utf-8" src="../js/sidebar.js"></script>
-  <script type="text/javascript" charset="utf-8" src="../js/jquery.gist.js"></script>
-
-  <script id="search-results-template" type="text/mustache">
-  {{#entries}}
-  <div><a href="#{{url}}">{{title}}</a></div>
-  {{/entries}}
-  </script>
-
-  <script type="text/javascript">
-  var lunrIndexLoaded = false;
-  function loadLunrIndex() {
-    if(lunrIndexLoaded) {
-      return;
-    }
-    console.log("loading index...");
-    $('#search-query').lunrSearch({
-      indexUrl: '/search.json',
-      results:  '#search-results',
-      entries:  '.entries',
-      template: '#search-results-template'
-    });
-    console.log("loaded");
-    lunrIndexLoaded = true;
-  }
-  </script>
-
-  <div id="wrapper">
-    <div id="header">
-      <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="/index.html">
-            <img src="/images/cloudalien.png" style="height:21px;" class="pull-left"> ALIEN 4 Cloud
-          </a>
-        </div>
-        <div class="collapse navbar-collapse navbar-ex1-collapse">
-          <ul class="nav navbar-nav">
-            <li>
-              <a href="/community/index.html">Community</a>
-            </li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Documentation <i class="fa fa-caret-down"></i></a>
-              <ul class="dropdown-menu" role="menu">
-                <li>
-                  <a href="#/documentation/1.3.0/index.html">1.3.0 - Development version</a>
-                </li>
-                <li>
-                  <a href="#/documentation/1.2.0/index.html">1.2.0</a>
-                </li>
-                <li>
-                  <a href="#/documentation/1.1.0/index.html">1.1.0 - Deprecated</a>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <a href="#/developer_guide/index.html">Contribute</a>
-            </li>
-            <li>
-              <a href="/premium/premium.html">Features</a>
-            </li>
-            <li>
-              <a href="/roadmap/index.html">Roadmap</a>
-            </li>
-            <li>
-              <a href="#/release_notes/index.html">Release notes</a>
-            </li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Documents <i class="fa fa-caret-down"></i></a>
-              <ul class="dropdown-menu" role="menu">
-                <li>
-                  <a href="https://drive.google.com/file/d/0B-bJgbmOz4ipWUFOUnhxa1REdGM/view?usp=sharing" target="_blank" >1.2.0 release anouncement</a>
-                </li>
-                <li>
-                  <a href="https://drive.google.com/file/d/0B-bJgbmOz4ipNlNfYkdsOUlocm8/view?usp=sharing" target="_blank" >Overview</a>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <a id="git-icon" href="https://github.com/alien4cloud/alien4cloud.github.io" target="_blank" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Documentation's GitHub!" data-original-title="Documentation's GitHub!">
-                <i class="fa fa-code-fork fa-lg fa-rotate-90"></i>
-              </a>
-            </li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li class="dropdown">
-              <button type="button" class="btn navbar-btn btn-success download-button dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-download"></i> Downloads</button>
-              <ul class="dropdown-menu" role="menu">
-                <li class="dropdown-header">Alien 4 Cloud</li>
-                <li>
-                  <a href="http://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource&g=alien4cloud&a=alien4cloud-dist&v=1.2.1&p=tar.gz&c=dist" ><i class="fa fa-download"></i> Alien 4 Cloud 1.2.1</a>
-                </li>
-                <li>
-                  <a href="http://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource&g=alien4cloud&a=alien4cloud-dist&v=1.3.0-SM3&p=tar.gz&c=dist" ><i class="fa fa-download"></i> Alien 4 Cloud stable</a>
-                </li>
-                <li>
-                  <a href="http://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource-snapshot&g=alien4cloud&a=alien4cloud-dist&v=1.3.0-SM4-SNAPSHOT&p=tar.gz&c=dist" ><i class="fa fa-download"></i> Alien 4 Cloud latest build</a>
-                </li>
-                <li class="dropdown-header">Alien 4 Cloud Premium</li>
-                <li>
-                  <a href="https://fastconnect.org/maven/service/local/repositories/fastconnect/content/alien4cloud/alien4cloud-premium-dist/1.2.1/alien4cloud-premium-dist-1.2.1-dist.tar.gz" ><i class="fa fa-download"></i> Alien 4 Cloud Premium 1.2.1</a>
-                </li>
-                <li>
-                  <a href="https://fastconnect.org/maven/service/local/repositories/fastconnect/content/alien4cloud/alien4cloud-premium-dist/1.3.0-SM3/alien4cloud-premium-dist-1.3.0-SM3-dist.tar.gz"><i class="fa fa-download"></i> Alien 4 Cloud Premium stable</a>
-                </li>
-                <li>
-                  <a href="https://fastconnect.org/maven/service/local/repositories/fastconnect/content/alien4cloud/alien4cloud-premium-dist/1.3.0-SM4-SNAPSHOT/alien4cloud-premium-dist-1.3.0-SM4-SNAPSHOT-dist.tar.gz" ><i class="fa fa-download"></i> Alien 4 Cloud Premium latest build</a>
-                </li>
-              </ul>
-            </li>
-          </ul>
-          <div id="search">
-            <form class="navbar-form navbar-right" action="#" method="get" role="search">
-              <div class="form-group">
-                <input class="form-control" type="text" id="search-query" name="q" placeholder="Search" autocomplete="off" onfocus="loadLunrIndex()">
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-      <section id="search-results" class="search-results-section" style="display: none;">
-        <div class="entries">
-        </div>
-      </section>
-
-      <script>
-      $('[target=_blank]').append(" <i class=\"icon-external-link\" style=\"font-size:10px\"></i>");
-      $('#git-icon').tooltip();
-      </script>
-    </div>
-
-    <div id="content-parent" class="content">
-      <div class="container">
-        <h1 style="margin-top: 0px;">
-          Roadmap
-        </h1>
-        <p>
-          The following represents current view of Alien4Cloud development team of its product development cycle and future directions. It is intended for information purposes only, and should not be interpreted as a commitment, though we do our best to reach the dates and features set mentioned below.
-        </p>
-        <p>
-          Premium features, support and certifications are available under a subscription, delivered by <a href="http://fastconnect.fr" target="_blank">FastConnect</a>, a <a href="http://www.bull.com" target="_blank">Bull, Atos technologies</a> subsidiary. Contact us for more details.
-        </p>
-        <p>
-          We deliver major releases every 4 month.
-          Please note that we also deliver intermediate sprint releases in <a href="https://github.com/alien4cloud/alien4cloud" target="_blank">Alien4Cloud GitHub repo</a>, every 3 weeks, in order to get feedback on features while still in development.
-        </p>
-
-        <ul class="cbp_tmtimeline">
+  <ul class="cbp_tmtimeline">
+    <li>
+      <time class="cbp_tmtime" datetime="2016-11"><span>November 2016</span> <span>v 1.3.0</span></time>
+      <div class="cbp_tmicon"><i class="fa fa-rocket"></i></div>
+      <div class="cbp_tmlabel">
+        <h4>Core</h4>
+        <ul>
+          <li>Simplified API</li>
           <li>
-            <time class="cbp_tmtime" datetime="2016-11"><span>November 2016</span> <span>v 1.3.0</span></time>
-            <div class="cbp_tmicon"><i class="fa fa-rocket"></i></div>
-            <div class="cbp_tmlabel">
-              <h4>Core</h4>
-              <ul>
-                <li>Simplified API</li>
-                <li>
-                  New version of the designer
-                  <ul>
-                    <li>Advanced Git integration - Push modifications </li>
-                    <li>Topology archive files upload/delete/edition (including topology yaml)</li>
-                    <li>View modifications history on components and topologies</li>
-                    <li>Save, Undo, Redo changes in the design view</li>
-                    <li>Keyboard shortcuts</li>
-                  </ul>
-                </li>
-                <li>Workspace - Premium
-                  <ul>
-                    <li>Upload, modify components and topologies in a logical space</li>
-                    <li>Share component from your workspace with users, groups and public</li>
-                  </ul>
-                </li>
-                <li>Security
-                  <ul>
-                    <li>Secure All http connections within Cloudify 3.4 – Premium</li>
-                  </ul>
-                </li>
-              </ul>
-              <h4>Orchestrators certifications</h4>
-              <ul>
-                <li>Cloudify v3.4</li>
-              </ul>
-              <h4>Infrastructure support</h4>
-              <ul>
-                <li>Azure (ARM) support (linux and windows compute, volumes, public IPs and network, security groups, H.A. policy) - Premium</li>
-                <li>Mesos / Marathon</li>
-                <li>Docker</li>
-                <ul>
-                  <li>Deploy container based topology relying on Mesos plugin or Cloudify Kubernetes plugin</li>
-                </ul>
-              </ul>
-              <h4>TOSCA</h4>
-              <ul>
-                <li>Support for alien 4 cloud 1.1 and 1.2 DSL</li>
-                <li>Support Tosca List and Map types at input level</li>
-                <li>Manage Artefact repositories - Premium</li>
-              </ul>
-              <h4>Additional Premium features</h4>
-              <ul>
-                <li>v1.2 to v1.3 Migration tools</li>
-              </ul>
-            </div>
+            New version of the designer
+            <ul>
+              <li>Advanced Git integration - Push modifications </li>
+              <li>Topology archive files upload/delete/edition (including topology yaml)</li>
+              <li>View modifications history on components and topologies</li>
+              <li>Save, Undo, Redo changes in the design view</li>
+              <li>Keyboard shortcuts</li>
+            </ul>
           </li>
-          <li>
-            <time class="cbp_tmtime" datetime="2016-10"><span>To be defined</span> <span>Future</span></time>
-            <div class="cbp_tmicon"><i class="fa fa-rocket"></i></div>
-            <div class="cbp_tmlabel">
-              <h4>Core</h4>
-              <ul>
-                <li>TOSCA evolutions support</li>
-                <li>Simple profile in YAML v1.0</li>
-                <li>On-demand hybrid deployment through Cloudify integration & user defined matching</li>
-                <li>Advanced post-deployment updates, upgrades & sync</li>
-                <li>Enhanced extensibility & pluggability</li>
-                <li>Multi locations 24x7 app-centric placement & runtime policies</li>
-                <li>Workspaces & more Git integration</li>
-                <li>Blueprints Developer experience improvements</li>
-              </ul>
-              <h4>More orchestrators, infrastructures & artefacts coverage</h4>
-              <ul>
-                <li>Apache Brooklyn</li>
-                <li>Ambari</li>
-                <li>Google Cloud</li>
-                <li>Docker swarm</li>
-              </ul>
-              <h4>Additional Premium features</h4>
-              <ul>
-                <li>TOSCA Types ui designer</li>
-                <li>Application Lifecycle Management features & Promotion workflow</li>
-                <li>Improved application password management</li>
-                <li>Analytics and governance dashboards</li>
-                <li>Simplified Self Service</li>
-                <li>Social</li>
-                <li>Chargeback & billing platforms integration</li>
-                <li>Cloud brokering</li>
-              </ul>
-            </div>
+          <li>Workspace - Premium
+            <ul>
+              <li>Upload, modify components and topologies in a logical space</li>
+              <li>Share component from your workspace with users, groups and public</li>
+            </ul>
+          </li>
+          <li>Security
+            <ul>
+              <li>Secure All http connections within Cloudify 3.4 – Premium</li>
+            </ul>
           </li>
         </ul>
-        If you want to propose other features and/or if you are willing to contribute, please <a href="/community/index.html">contact us</a>.
+        <h4>Orchestrators certifications</h4>
+        <ul>
+          <li>Cloudify v3.4</li>
+        </ul>
+        <h4>Infrastructure support</h4>
+        <ul>
+          <li>Azure (ARM) support (linux and windows compute, volumes, public IPs and network, security groups, H.A. policy) - Premium</li>
+          <li>Mesos / Marathon</li>
+          <li>Docker</li>
+          <ul>
+            <li>Deploy container based topology relying on Mesos plugin or Cloudify Kubernetes plugin</li>
+          </ul>
+        </ul>
+        <h4>TOSCA</h4>
+        <ul>
+          <li>Support for alien 4 cloud 1.1 and 1.2 DSL</li>
+          <li>Support Tosca List and Map types at input level</li>
+          <li>Manage Artefact repositories - Premium</li>
+        </ul>
+        <h4>Additional Premium features</h4>
+        <ul>
+          <li>v1.2 to v1.3 Migration tools</li>
+        </ul>
       </div>
-    </div>
-    <div class="push"></div>
-  </div>
-  <div class="footer">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-          <div class="col-m-footer-group col-sm-3">
-            <h5>About us</h5>
-            <ul>
-              <li><a data-category="Footer" href="http://fastconnect.fr">FastConnect</a></li>
-              <li><a data-category="Footer" href="http://bull.com">Bull</a></li>
-              <li><a data-category="Footer" href="http://atos.net">Atos</a></li>
-              <li><a data-category="Footer" href="mailto:sales@fastconnect.fr">Contact us</a></li>
-            </ul>
-          </div>
-          <div class="col-m-footer-group col-sm-3">
-            <h5>Patners</h5>
-            <ul>
-              <li><a data-category="Footer" href="https://www.oasis-open.org">OASIS</a></li>
-              <li><a data-category="Footer" href="http://brooklyn.io">Brooklyn</a></li>
-              <li><a data-category="Footer" href="http://getcloudify.org">Cloudify</a></li>
-            </ul>
-          </div>
-          <div class="col-m-footer-group col-sm-3">
-            <h5>Resources</h5>
-            <ul>
-              <li><a data-category="Footer" href="https://github.com/alien4cloud/alien4cloud.github.io">GitHub</a></li>
-              <li><a data-category="Footer" href="#/documentation/index.html">Documentation</a></li>
-            </ul>
-          </div>
-          <div class="col-m-footer-group col-sm-3">
-            <h5>Social networks</h5>
-            <ul>
-              <li><a data-category="Footer" href="https://twitter.com/alien4cloud">Twitter</a></li>
-              <li><a data-category="Footer" href="https://www.facebook.com/pages/FastConnect/149074261790668?fref=ts">Facebook</a></li>
-              <li><a data-category="Footer" href="https://www.youtube.com/channel/UCfckmknFOcHrQ5pvdDyJGGg">Youtube</a></li>
-            </ul>
-          </div>
-        </div>
+    </li>
+    <li>
+      <time class="cbp_tmtime" datetime="2016-10"><span>To be defined</span> <span>Future</span></time>
+      <div class="cbp_tmicon"><i class="fa fa-rocket"></i></div>
+      <div class="cbp_tmlabel">
+        <h4>Core</h4>
+        <ul>
+          <li>TOSCA evolutions support</li>
+          <li>Simple profile in YAML v1.0</li>
+          <li>On-demand hybrid deployment through Cloudify integration & user defined matching</li>
+          <li>Advanced post-deployment updates, upgrades & sync</li>
+          <li>Enhanced extensibility & pluggability</li>
+          <li>Multi locations 24x7 app-centric placement & runtime policies</li>
+          <li>Workspaces & more Git integration</li>
+          <li>Blueprints Developer experience improvements</li>
+        </ul>
+        <h4>More orchestrators, infrastructures & artefacts coverage</h4>
+        <ul>
+          <li>Apache Brooklyn</li>
+          <li>Ambari</li>
+          <li>Google Cloud</li>
+          <li>Docker swarm</li>
+        </ul>
+        <h4>Additional Premium features</h4>
+        <ul>
+          <li>TOSCA Types ui designer</li>
+          <li>Application Lifecycle Management features & Promotion workflow</li>
+          <li>Improved application password management</li>
+          <li>Analytics and governance dashboards</li>
+          <li>Simplified Self Service</li>
+          <li>Social</li>
+          <li>Chargeback & billing platforms integration</li>
+          <li>Cloud brokering</li>
+        </ul>
       </div>
-      <div class="row">
-        <div class="col-md-12">
-          <p class="credit"><a href="http://jekyllrb.com/">Powered by Jekyll</a>.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</body>
-</html>
+    </li>
+  </ul>
+  If you want to propose other features and/or if you are willing to contribute, please <a href="/community/index.html">contact us</a>.
+</div>

@@ -3,7 +3,7 @@ layout: post
 title:  Node template
 root: ../../../
 categories: DOCUMENTATION-1.3.0
-parent: [devops, tosca_concepts, tosca_ref_definitions, tosca_ref_topology_template]
+parent: [devops, tosca_grammar, tosca_ref_topology_template]
 node_name: tosca_ref_node_template
 weight: 300
 ---
@@ -18,7 +18,7 @@ If a node template name contains some special character (is: not an alphanumeric
 
 The following is the list of recognized keynames recognized for a TOSCA Node Template definition and parsed by Alien4Cloud:
 
-{: .table .table-bordered}
+{: .table .table-striped }
 | Keyname | Required | Description |
 |:---------|:------------|:---------|
 | type | yes | The required name of the Node Type the Node Template is based upon. |
@@ -95,7 +95,7 @@ The following grammar would be used if either a relationship or capability is ne
 
 In such notation the keywords are:
 
-{: .table .table-bordered}
+{: .table .table-striped }
 | Keyname | Required | Description |
 |:---------|:------------|:---------|
 | node | yes | The relationship target node template name. |
