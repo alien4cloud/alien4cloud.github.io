@@ -14,13 +14,13 @@ ga('send', 'pageview');
 
 </script>
 
-<div class="container">
+<div class="container-fluid">
   <div class="row">
     
-      <div class="col-md-3">
+      <div class="col-sm-4 col-md-3">
         <div id="sidebar_menu" class="tree" role="complementary"></div>
       </div>
-      <div id="content" class="col-md-9">
+      <div id="content" class="col-sm-8 col-md-9">
     
         <div style="height: 50px;">
           <h1 class="pull-left" style="margin-top: 0px;">Interface definition</h1>
@@ -30,41 +30,45 @@ ga('send', 'pageview');
 
 <h2 id="keynames">Keynames</h2>
 
-<table class="table table-bordered">
+<table class="table table-striped">
   <thead>
     <tr>
       <th style="text-align: left">Keyname</th>
-      <th style="text-align: left">Type</th>
       <th style="text-align: left">Required</th>
+      <th style="text-align: left">Type</th>
       <th style="text-align: left">Description</th>
+      <th style="text-align: left">tosca_definitions_version</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left">inputs</td>
-      <td style="text-align: left">string</td>
+      <td style="text-align: left">description <strong>(2)</strong></td>
       <td style="text-align: left">no</td>
-      <td style="text-align: left">The optional list of input parameter definitions.</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">An optional description for the interface.</td>
+      <td style="text-align: left">alien_dsl_1_3_0<br /> alien_dsl_1_2_0<br /> tosca_simple_yaml_1_0</td>
     </tr>
     <tr>
-      <td style="text-align: left">description</td>
-      <td style="text-align: left">string</td>
+      <td style="text-align: left">inputs <strong>(2)</strong></td>
       <td style="text-align: left">no</td>
-      <td style="text-align: left">Alien 4 Cloud specific key to specify the description of the interface.</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">The optional list of input parameter definitions.</td>
+      <td style="text-align: left">N.A.</td>
     </tr>
   </tbody>
 </table>
 
-<div class="note warning">
-<p>Current implementation of Alien 4 Cloud doesn’t take in account inputs global to an interface but only inputs specified on opertions.</p>
-</div>
+<ul>
+  <li><strong>(1)</strong> TOSCA 1.0.0 does not specifies interface for interface definition but this sounds more like a miss. Therefore our tosca_simple_yaml_1_0 support includes support for description keyword.</li>
+  <li><strong>(2)</strong> Current implementation of Alien 4 Cloud doesn’t take in account inputs global to an interface but only inputs specified on operations.</li>
+</ul>
 
 <h2 id="grammar">Grammar</h2>
 
 <div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">&lt;interface_definition_name&gt;</span><span class="p-Indicator">:</span>
   <span class="l-Scalar-Plain">inputs</span><span class="p-Indicator">:</span>
     <span class="l-Scalar-Plain">&lt;parameter_definitions&gt;</span>
-  <span class="l-Scalar-Plain">&lt;operation_definition_1&gt;</span>
+  <span class="l-Scalar-Plain">&lt;[operation_definition](#/documentation/1.3.0/devops_guide/tosca_grammar/operation_definition.html)_1&gt;</span>
   <span class="l-Scalar-Plain">...</span>
   <span class="l-Scalar-Plain">&lt;operation_definition_n&gt;</span></code></pre></div>
 
@@ -90,6 +94,7 @@ ga('send', 'pageview');
     </div>
   </div>
 </div><!-- /container -->
+
 <script>
 var hash = location.hash.replace( /^#/, '' );
 if(hash && hash!== null && hash.match(/html$/)) {
