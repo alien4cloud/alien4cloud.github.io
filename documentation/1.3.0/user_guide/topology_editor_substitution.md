@@ -8,6 +8,8 @@ node_name: topology_editor_substitution
 weight: 190
 ---
 
+{% summary %}{% endsummary %}
+
 Topology substitution is a very powerful TOSCA concept that allows you to consider a full or partial topology as a single reusable type. For example you can model a very complex Hadoop cluster as a single reusable node thanks to substitution, so that other people can use a fine grained and tuned Hadoop installation without even knowing of all the complexity of the underlining system.
 
 # Topology substitution / composition
