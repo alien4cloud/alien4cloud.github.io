@@ -1,0 +1,59 @@
+---
+layout: post
+title:  ALIEN for Cloud 1.3.1
+root: ../
+categories: RELEASE_NOTES
+parent: [release_note]
+node_name: 1.3.1
+weight: 9952
+exclude_from_search: true
+---
+
+
+
+
+<i class="fa fa-plus text-success"></i> New feature <i class="fa fa-level-up text-primary"></i> Improvement  <i class="fa fa-bug text-danger"></i> Bug <i class="fa fa-exclamation-triangle text-warning"></i> Breaking change
+
+
+### Alien 4 Cloud Premium
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-1583 | Allow definition of a logout redirect url in SAML configuration. /  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-1854 | It is now possible to add non-abstract nodes that are not hosted on a compute to manage cloud ressources including custom compute node. /  |
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-1877 | SAML integration now allow attributes mapping to fill-in users firstname/lastname and email. /  |
+      |  <i class="fa fa-bug text-danger"></i> | ALIEN-1908 | Fixed an issue preventing the templateAuthor facet to work when selected in the premium edition CSAR list view /  |
+  
+
+
+### Documentation
+
+
+> No changes.
+
+
+### Alien 4 Cloud
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-1907 | Beta support for Kubernetes deployments in cloudify orchestrator to support hybrid deployments. /  |
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-1903 | Improved alien 4 cloud plugin migration out of the box allowing only a single version of a plugin and providing auto-update on upload or startup. /  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-1906 | Improved transitive dependencies handling in alien4cloud. /  |
+      |  <i class="fa fa-bug text-danger"></i> | ALIEN-1894 | Fixed an issue causing the user to remain in orchestrator and location authorisation list after being removed. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1904 | Fixed an issue in topology recovery causing the get_input values in properties to be removed. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1913 | Fixed an issue preventing the topology recovery to work in case of unsaved operations in the edition context. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1915 | Fixed a bug when uploading multiple files to the topology in the editor file browser. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1923 | Fixed a query issue that could cause duplicated elements in catalog browsing. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1926 | Fixed a UI issue in the editor preventing to fill the file name and then select the repository when defining an artifact. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1938 | Fixed an issue preventing to set null for empty values in orchestrator configuration. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1945 | Fixed a bug preventing the admin to access an application where no users have any roles. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1946 | Fixed an issue causing a user workspaces to remain when the user is deleted. /  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1948 | Issue in vault integration management. /  |
+  
+
