@@ -73,3 +73,48 @@ To create resources that cannot be auto-configured (such as volume or network or
 [config_orchestrator_compute]: ../../images/cloudify3_driver/config_orchestrator_compute.png  "Compute"
 
 [config_orchestrator_volume]: ../../images/cloudify3_driver/config_orchestrator_volume.png  "Volume"
+
+# Offline environment
+
+In order to deploy applications in an offline environment, you will need to add some libraries in your PyPI repository and make it available to the manager depending on the IaaS you are targetting.
+
+## Dependencies for Amazon
+
+{: .table .table-striped }
+| Name | Version |
+|:---------|:------------|
+| boto | 2.38.0 |
+| pycrypto | 2.6.1 |
+
+## Dependencies for Azure
+
+{: .table .table-striped }
+| Name | Version |
+|:---------|:------------|
+| azure-storage | 0.33.0 |
+| pyyaml | 3.10 |
+| requests | 2.7.0 |
+
+## Dependencies for Openstack
+
+{: .table .table-striped }
+| Name | Version |
+|:---------|:------------|
+| python-cinderclient | 1.2.2 |
+| python-keystoneclient | 1.6.0 |
+| python-neutronclient | 2.6.0 |
+| python-novaclient | 2.26.0 |
+| IPy | 0.81 |
+
+## Dependencies for vSphere
+
+{: .table .table-striped }
+| Name | Version |
+|:---------|:------------|
+| netaddr | 0.7.18 |
+| pyvmomi | 5.5.0.2014.1.1 |
+| pyyaml | 3.10 |
+
+## Dependencies for BYON (host-pool-plugin)
+
+No extra dependencies needed
