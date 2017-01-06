@@ -1,0 +1,58 @@
+---
+layout: post
+title:  ALIEN for Cloud 1.4.0-SM1
+root: ../
+categories: RELEASE_NOTES
+parent: [release_note]
+node_name: 1.4.0-SM1
+weight: 9951
+exclude_from_search: true
+---
+
+
+
+
+<i class="fa fa-plus text-success"></i> New feature <i class="fa fa-level-up text-primary"></i> Improvement  <i class="fa fa-bug text-danger"></i> Bug <i class="fa fa-exclamation-triangle text-warning"></i> Breaking change
+
+
+### Cloudify 3 PaaS Provider Premium
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+        |  <i class="fa fa-bug text-danger"></i> | ALIEN-1919 | Fixed issue preventing to deploy a compute in an offline environment or with proxy configuration  |
+  
+
+
+### Documentation
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-1943 | Kubernetes Documentation / [Documentation](#/documentation/1.3.0/orchestrators/cloudify3_driver/kubernetes.html)  |
+    
+
+
+### Alien 4 Cloud
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-1939 | Added possibility to change the type of a relationship template linking two components  |
+      |  <i class="fa fa-bug text-danger"></i> | ALIEN-1866 | Outputs diplay is now based on the runtime topology instead of the edited topology.  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1918 | Prevent usage of special characters in workflows' name  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1922 | Retrievement of a member of a complex property is now null safe  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1927 | Artifact repositories are now well handled when extending types  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1928 | Fixed issue with imported topology archive's deletion after creating a substitution  type  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1947 | Added a warning when tosca parser fails to read a value in a map  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1952 | Fixed UI glitch: Relationship's description overflowing on the relationship adding screen  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1953 | Fixed dependencies cleanup of a topology on change  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-1955 | Fixed broken git imports: archives were not imported in proper order to avoid missing dependencies  |
+  
+
