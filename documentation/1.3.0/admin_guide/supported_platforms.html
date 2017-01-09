@@ -61,6 +61,8 @@ ga('send', 'pageview');
 
 <h3 id="orchestrators-and-deployment-artefacts">Orchestrators and deployment artefacts</h3>
 
+<p>Cloudify 3.4 is alien 1.3.0 primary supported orchestrator. For pure docker users we also support Marathon as an orchestrator but due to marathon design it is not possible to support execution of classical TOSCA workflows on top of it.</p>
+
 <table class="table table-bordered">
   <thead>
     <tr>
@@ -71,13 +73,17 @@ ga('send', 'pageview');
   <tbody>
     <tr>
       <td style="text-align: left"><em>Cloudify 3</em></td>
-      <td style="text-align: left"><strong>.bat</strong> (<em>alien.artifacts.BatchScript</em>), <strong>.sh</strong> (<em>tosca.artifacts.ShellScript</em>)</td>
+      <td style="text-align: left"><strong>.bat</strong> (<em>alien.artifacts.BatchScript</em>), <strong>.sh</strong> (<em>tosca.artifacts.ShellScript</em>), Ansible playbooks, Docker images (via (Kubernetes)[#/documentation/1.3.0/orchestrators/cloudify3_driver/kubernetes.html] support since 1.3.1)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><em>Marathon</em></td>
+      <td style="text-align: left">Docker images</td>
     </tr>
   </tbody>
 </table>
 
 <div class="note info">
-<p>Some Alien users deployed also <strong>Puppet artifact</strong> through grooving script.</p>
+<p>Some Alien users deployed also <strong>Puppet artifact</strong> through scripts.</p>
 </div>
 
         <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.3.0/admin_guide/supported_platforms.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
