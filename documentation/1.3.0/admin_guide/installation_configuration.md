@@ -14,6 +14,12 @@ weight: 10
 This section describe installation and configuration of Alien 4 Cloud for a production mode. If you whish to use Alien 4 Cloud for a demo or development mode please refer to the [getting started](#/documentation/1.3.0/getting_started/getting_started.html) guide.
 {% endinfo %}
 
+{%warning%}
+<h5>Supported platforms</h5>
+To get more informations about the supported platforms, please refer to [this section](#/documentation/1.3.0/admin_guide/supported_platforms.html).
+<h5>Ports requirements</h5>
+To get more informations about the ports requirements, please refer to [this section](#/documentation/1.3.0/admin_guide/ports_requirements.html).
+{%endwarning%}
 
 # Alien 4 Cloud configuration
 
