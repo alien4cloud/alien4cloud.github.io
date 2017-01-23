@@ -2,7 +2,7 @@
 layout: post
 title:  User(s) and Roles management
 root: ../../
-categories: DOCUMENTATION-1.3.0
+categories: DOCUMENTATION-1.4.0
 parent: [user_guide, admin]
 node_name: user_management
 weight: 10
@@ -12,14 +12,14 @@ weight: 10
 
 {%info%}
 <h5>LDAP integration</h5>
-If you wish to integrate with an LDAP directory please go [here](#/documentation/1.3.0/admin_guide/ldap.html).
+If you wish to integrate with an LDAP directory please go [here](#/documentation/1.4.0/admin_guide/ldap.html).
 
 Note that you can use LDAP for users and eventually role management. You can also manage roles in Alien even for LDAP user if you wish. In addition you can have users managed in LDAP and create some additional user that will be managed within Alien.
 {%endinfo%}
 
 {%info%}
 <h5>SAML integration</h5>
-If you use the premium version and wish To use SAML please check the documentation [here](#/documentation/1.3.0/admin_guide/saml.html).
+If you use the premium version and wish To use SAML please check the documentation [here](#/documentation/1.4.0/admin_guide/saml.html).
 {%endinfo%}
 
 {%info%}
@@ -78,7 +78,7 @@ To create a new group within Alien just click on ![Create group](../../images/us
 # Roles in Alien 4 Cloud
 
 {%info%}
-To understand the roles concept, please refer to [this section](#/documentation/1.3.0/concepts/roles.html).
+To understand the roles concept, please refer to [this section](#/documentation/1.4.0/concepts/roles.html).
 {%endinfo%}
 
 These roles describes global roles you can grant to a user. From his/her roles Alien 4 Cloud will display and allow some operations.

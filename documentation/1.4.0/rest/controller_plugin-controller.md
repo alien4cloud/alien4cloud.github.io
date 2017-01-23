@@ -2,7 +2,7 @@
 layout: post
 title: Manages plugins.
 root: ../../
-categories: DOCUMENTATION-1.3.0
+categories: DOCUMENTATION-1.4.0
 parent: [rest_api, rest_api_admin-plugin-api]
 node_name: rest_api_controller_plugin-controller
 weight: 3

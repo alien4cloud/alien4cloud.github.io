@@ -2,7 +2,7 @@
 layout: post
 title: Operations on Deployments
 root: ../../
-categories: DOCUMENTATION-1.3.0
+categories: DOCUMENTATION-1.4.0
 parent: [rest_api, rest_api_applications-deployment-api]
 node_name: rest_api_controller_deployment-controller
 weight: 31

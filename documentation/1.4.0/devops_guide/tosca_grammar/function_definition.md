@@ -2,7 +2,7 @@
 layout: post
 title:  Function definition
 root: ../../../
-categories: DOCUMENTATION-1.3.0
+categories: DOCUMENTATION-1.4.0
 parent: [devops, tosca_grammar]
 node_name: tosca_ref_types_function_definition
 weight: 1100
@@ -24,7 +24,7 @@ The following keywords may be used in some  TOSCA function in place of a TOSCA N
 
 Supported functions in Alien4Cloud are: 
 
--  [get_property](#/documentation/1.3.0/devops_guide/tosca_grammar/get_property_definition.html)
--  [get_attribute](#/documentation/1.3.0/devops_guide/tosca_grammar/get_attribute_definition.html)
--  [get_operation_output](#/documentation/1.3.0/devops_guide/tosca_grammar/get_operation_output_definition.html)
--  [concat](#/documentation/1.3.0/devops_guide/tosca_grammar/concat_definition.html)
+-  [get_property](#/documentation/1.4.0/devops_guide/tosca_grammar/get_property_definition.html)
+-  [get_attribute](#/documentation/1.4.0/devops_guide/tosca_grammar/get_attribute_definition.html)
+-  [get_operation_output](#/documentation/1.4.0/devops_guide/tosca_grammar/get_operation_output_definition.html)
+-  [concat](#/documentation/1.4.0/devops_guide/tosca_grammar/concat_definition.html)

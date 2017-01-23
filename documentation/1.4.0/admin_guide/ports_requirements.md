@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  Ports requirements
-categories: DOCUMENTATION-1.3.0
+categories: DOCUMENTATION-1.4.0
 root: ../../
 parent: [admin, intallation_configuration]
 node_name: ports_requirements
@@ -14,7 +14,7 @@ Note : Cloudify ports are only written here as an indication. If you have any do
 {: .table .table-bordered}
 | Component - Port description                                       | Default port number/range   | Component Version      |
 |--------------------------------------------------------------------|--------------------:|-----------------------:|
-| Alien4Cloud - standalone GUI port                                  |         8088        | 1.0.0, 1.1.0, 1.3.0    |
-| Alien Post-Deployment application                                  |   8089              |     1.3.0              |
+| Alien4Cloud - standalone GUI port                                  |         8088        | 1.0.0, 1.1.0, 1.4.0    |
+| Alien Post-Deployment application                                  |   8089              |     1.4.0              |
 | Cloudify - Management server ports                                 | 8099,8100,22,443,80 |     3.2, 3.3           |
 | Cloudify - Management server ports for Agent/manager communication |   5672,8101,53229   |     3.2, 3.3           |

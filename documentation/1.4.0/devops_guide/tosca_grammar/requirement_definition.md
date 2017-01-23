@@ -2,7 +2,7 @@
 layout: post
 title:  Requirement definition
 root: ../../../
-categories: DOCUMENTATION-1.3.0
+categories: DOCUMENTATION-1.4.0
 parent: [devops, tosca_grammar]
 node_name: tosca_ref_requirement_definition
 weight: 120
@@ -16,8 +16,8 @@ Requirement definition syntax in TOSCA has been quite volatile in the working dr
 {% endwarning %}
 
 {% warning %}
-<h5>tosca_simple_yaml_1_0 and alien4cloud 1.3.0</h5>
-A bug in alien4cloud 1.3.0 prevent the tosca_simple_yaml_1_0 to use the standard definition of requirement definition. Insead alien 4 cloud will parse the alien_dsl_1_2_0 and working draft version of a requirement definition. The bug is fixed in alien4cloud 1.3.1.
+<h5>tosca_simple_yaml_1_0 and alien4cloud 1.4.0</h5>
+A bug in alien4cloud 1.4.0 prevent the tosca_simple_yaml_1_0 to use the standard definition of requirement definition. Insead alien 4 cloud will parse the alien_dsl_1_2_0 and working draft version of a requirement definition. The bug is fixed in alien4cloud 1.3.1.
 {% endwarning %}
 
 ## Keynames
@@ -28,7 +28,7 @@ A bug in alien4cloud 1.3.0 prevent the tosca_simple_yaml_1_0 to use the standard
 | capability | yes | string | The required reserved keyname used that can be used to provide the name of a valid Capability Type  that can fulfill the requirement. | alien_dsl_1_3_0<br> tosca_simple_yaml_1_0 |
 | description __(1)__ | no | string | The optional description of the Requirement definition. | alien_dsl_1_3_0<br> tosca_simple_yaml_1_0 |
 | node | no | string | The optional reserved keyname used to provide the name of a valid Node Type that contains the capability definition that can be used to fulfill the requirement. | alien_dsl_1_3_0<br> tosca_simple_yaml_1_0 |
-| node_filter __(2)__ | no | [Node filter](#/documentation/1.3.0/devops_guide/tosca_grammar/tosca_ref_node_filter.html) | The optional filter definition that defines a type-compatible target node that can fulfill the requirement. | alien_dsl_1_3_0 |
+| node_filter __(2)__ | no | [Node filter](#/documentation/1.4.0/devops_guide/tosca_grammar/tosca_ref_node_filter.html) | The optional filter definition that defines a type-compatible target node that can fulfill the requirement. | alien_dsl_1_3_0 |
 | relationship | no | string | The optional reserved keyname used to provide the name of a valid Relationship Type to construct when fulfilling the requirement. | alien_dsl_1_3_0<br> tosca_simple_yaml_1_0 |
 | occurrences | no (defaults to [1,1]) | range of integer | Lower boundary by which a requirement MUST be matched. Valid values are any positive number, 0 meaning that the requirement is optional. Defaults to 1. and Upper boundary by which a requirement MUST be matched for Node Templates. Valid values are any positive number or _unbounded_ string that means that there is no upper limit. Defaults to 1. | alien_dsl_1_3_0<br> tosca_simple_yaml_1_0 |
 

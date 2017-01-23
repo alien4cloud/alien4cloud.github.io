@@ -2,7 +2,7 @@
 layout: post
 title:  Definitions document
 root: ../../../
-categories: DOCUMENTATION-1.3.0
+categories: DOCUMENTATION-1.4.0
 parent: [devops, tosca_grammar]
 node_name: tosca_ref_definitions
 weight: 1
@@ -28,22 +28,22 @@ A TOSCA Definitions file contains the following element keynames:
 | template_author | no | string | Declares the author(s) of the template. | alien_dsl_1_3_0<br> alien_dsl_1_2_0 |
 | description | no | string | Declares a description for this Service Template and its contents. | alien_dsl_1_3_0<br> alien_dsl_1_2_0<br> tosca_simple_yaml_1_0 |
 | dsl_definitions | no | map of yaml macros | Declares optional DSL-specific definitions and conventions. For example, in YAML, this allows defining reusable YAML macros (i.e., YAML alias anchors) for use throughout the TOSCA Service Template. | alien_dsl_1_3_0<br> alien_dsl_1_2_0<br> tosca_simple_yaml_1_0 |
-| repositories | no | map of [repository definitions](#/documentation/1.3.0/devops_guide/tosca_grammar/repository_definition.html) | Declares the list of external repositories which contain artifacts that are referenced in the service template along with their addresses and necessary credential information used to connect to them in order to retrieve the artifacts. | alien_dsl_1_3_0<br> tosca_simple_yaml_1_0 |
+| repositories | no | map of [repository definitions](#/documentation/1.4.0/devops_guide/tosca_grammar/repository_definition.html) | Declares the list of external repositories which contain artifacts that are referenced in the service template along with their addresses and necessary credential information used to connect to them in order to retrieve the artifacts. | alien_dsl_1_3_0<br> tosca_simple_yaml_1_0 |
 | imports | no | list of import strings__(3)__ |Declares import statements external TOSCA Definitions documents (files). | alien_dsl_1_3_0<br> alien_dsl_1_2_0<br> tosca_simple_yaml_1_0 |
-| artifact_types | no | map of [artifact types](#/documentation/1.3.0/devops_guide/tosca_grammar/artifact_type.html) | This section contains an optional list of artifact type definitions for use in service templates. | alien_dsl_1_3_0<br> alien_dsl_1_2_0<br> tosca_simple_yaml_1_0 |
-| data_types | no | map of [data types](#/documentation/1.3.0/devops_guide/tosca_grammar/data_type.html) | Declares a list of optional TOSCA Data Type definitions. | alien_dsl_1_3_0<br> alien_dsl_1_2_0<br> tosca_simple_yaml_1_0 |
-| capability_types | no | map of [capability types](#/documentation/1.3.0/devops_guide/tosca_grammar/capability_type.html) | This section contains an optional list of capability type definitions for use in service templates. | alien_dsl_1_3_0<br> alien_dsl_1_2_0<br> tosca_simple_yaml_1_0 |
+| artifact_types | no | map of [artifact types](#/documentation/1.4.0/devops_guide/tosca_grammar/artifact_type.html) | This section contains an optional list of artifact type definitions for use in service templates. | alien_dsl_1_3_0<br> alien_dsl_1_2_0<br> tosca_simple_yaml_1_0 |
+| data_types | no | map of [data types](#/documentation/1.4.0/devops_guide/tosca_grammar/data_type.html) | Declares a list of optional TOSCA Data Type definitions. | alien_dsl_1_3_0<br> alien_dsl_1_2_0<br> tosca_simple_yaml_1_0 |
+| capability_types | no | map of [capability types](#/documentation/1.4.0/devops_guide/tosca_grammar/capability_type.html) | This section contains an optional list of capability type definitions for use in service templates. | alien_dsl_1_3_0<br> alien_dsl_1_2_0<br> tosca_simple_yaml_1_0 |
 | interface_types| no | list of interface type | Interface types is not supported in alien4cloud. Interfaces are defined directly on the node and relationship types as it was in previous draft of TOSCA specification | N.A. |
-| relationship_types | no | list of [relationship types](#/documentation/1.3.0/devops_guide/tosca_grammar/relationship_type.html) | This section contains a set of relationship type definitions for use in service templates. | alien_dsl_1_3_0<br> alien_dsl_1_2_0<br> tosca_simple_yaml_1_0 |
-| node_types | no | list of [node types](#/documentation/1.3.0/devops_guide/tosca_grammar/relationship_type.html) | This section contains a set of node type definitions for use in service templates. | alien_dsl_1_3_0<br> alien_dsl_1_2_0<br> tosca_simple_yaml_1_0 |
+| relationship_types | no | list of [relationship types](#/documentation/1.4.0/devops_guide/tosca_grammar/relationship_type.html) | This section contains a set of relationship type definitions for use in service templates. | alien_dsl_1_3_0<br> alien_dsl_1_2_0<br> tosca_simple_yaml_1_0 |
+| node_types | no | list of [node types](#/documentation/1.4.0/devops_guide/tosca_grammar/relationship_type.html) | This section contains a set of node type definitions for use in service templates. | alien_dsl_1_3_0<br> alien_dsl_1_2_0<br> tosca_simple_yaml_1_0 |
 | group_types | no | list of group types | Group types are not yet supported in alien4cloud. They actually are not well documented in TOSCA and while we do support grouping inside alien4cloud there is no types associated with them | N.A. |
 | policy_types | no | list of policy types | Policy types are not yet supported in alien4cloud. All elements of policies are not fully defined in TOSCA and while we do support some policies in alien4cloud they are not exposed as TOSCA types and it is not possible yet to add them in a dynamic way. | N.A. |
-| topology_template | no | [Topology template definition](#/documentation/1.3.0/devops_guide/tosca_grammar/topology_template.html) | Defines the topology template of an application or service, consisting of node templates that represent the application’s or service’s components, as well as relationship templates representing relations between the components. | alien_dsl_1_3_0<br> alien_dsl_1_2_0<br> tosca_simple_yaml_1_0 |
+| topology_template | no | [Topology template definition](#/documentation/1.4.0/devops_guide/tosca_grammar/topology_template.html) | Defines the topology template of an application or service, consisting of node templates that represent the application’s or service’s components, as well as relationship templates representing relations between the components. | alien_dsl_1_3_0<br> alien_dsl_1_2_0<br> tosca_simple_yaml_1_0 |
 
 {% note %}
 * __(1)__ When the tosca_definitions_version is set to tosca_simple_yaml_1_0 an automatic direct import of the TOSCA normative types version 1.0.0 is added to the service template. Alien 4 Cloud is not currently packaged with version 1.0.0 of the normative types as there are still some minor differences with alien's supported types. If you wish to use the tosca_simple_yaml_1_0 make sure that you upload the types first.
 * __(2)__ In Alien 4 Cloud the template name and versions are required as we supports versioning of the templates and indexing of elements in a catalog. In TOSCA specification they are optional.
-To specify versions using tosca_simple_yaml_1_0 definition version you must define the template_name and template_version in the metadata section. Using metadata is compliant with tosca specification and will be the future way to define this in alien4cloud. 1.3.0 version has a bug preventing the support of this definition in alien_dsl_1_3_0 which is fixed in 1.3.1.
+To specify versions using tosca_simple_yaml_1_0 definition version you must define the template_name and template_version in the metadata section. Using metadata is compliant with tosca specification and will be the future way to define this in alien4cloud. 1.4.0 version has a bug preventing the support of this definition in alien_dsl_1_3_0 which is fixed in 1.3.1.
 In alien_dsl_1_3_0<br> alien_dsl_1_2_0<br> alien_dsl_1_1_0 it is possible to define the template_name and template_version directly at the root of the definition document.
 * __(3)__ Alien 4 cloud currently supports an import syntax based on template names and versions. We believe it is a better way to reference dependencies but this is not yet acknowledge by TOSCA. On the other hand we don't yet support relative or url based imports.
 {% endnote %}
@@ -365,4 +365,4 @@ The node types listed as part of the node_types block can be mapped to the list 
 ### topology_template
 
 see:
-- [Topology template](#/documentation/1.3.0/devops_guide/tosca_grammar/topology_template.html)
+- [Topology template](#/documentation/1.4.0/devops_guide/tosca_grammar/topology_template.html)

@@ -2,7 +2,7 @@
 layout: post
 title: Topology recovery
 root: ../../..
-categories: DOCUMENTATION-1.3.0
+categories: DOCUMENTATION-1.4.0
 parent: [user_guide, topology_editor]
 node_name: topology_editor_recovery
 weight: 900
@@ -19,7 +19,7 @@ The purpose of this feature is to try to recover the topology and have a consist
 
 After the update of the used snapshot, if you try to edit the topology, you'll be displayed the list of dependencies that have been updated. You'll not be able to edit the topology if you do not perform one of the reconciliation action.
 
-[![topology recovery modal](../../images/1.3.0/user_guide/topology_recovery_modal.png)](../../images/1.3.0/user_guide/topology_recovery_modal.png){:target="_blank"}<br>
+[![topology recovery modal](../../images/1.4.0/user_guide/topology_recovery_modal.png)](../../images/1.4.0/user_guide/topology_recovery_modal.png){:target="_blank"}<br>
 
 The choices are: recover or reset the topology.
 

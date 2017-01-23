@@ -2,7 +2,7 @@
 layout: post
 title:  Node template
 root: ../../../
-categories: DOCUMENTATION-1.3.0
+categories: DOCUMENTATION-1.4.0
 parent: [devops, tosca_grammar, tosca_ref_topology_template]
 node_name: tosca_ref_node_template
 weight: 300
@@ -25,7 +25,7 @@ The following is the list of recognized keynames recognized for a TOSCA Node Tem
 | requirements | no | An optional sequenced list of requirement definitions for the Node Template. |
 | properties | no |  An optional list of property values for the node template. |
 | capabilities | no |  An optional map of capabilities for the node template. |
-| interfaces | no | An optional list of named [interface definitions](#/documentation/1.3.0/devops_guide/tosca_grammar/interface_definition.html) that override those coming from type. |
+| interfaces | no | An optional list of named [interface definitions](#/documentation/1.4.0/devops_guide/tosca_grammar/interface_definition.html) that override those coming from type. |
 
 ## Grammar
 
@@ -102,7 +102,7 @@ In such notation the keywords are:
 | capability | yes | The type of the target node type capability that should be used to build the relationship. |
 | relationship | no |  Optionally, the name of the relationship type that should be used to build the relationship (if not defined in the requirement definition or must be specified). |
 | properties | no |  An optional list of property values for the relationship (non TOSCA). |
-| interfaces | no |  An optional list of named [interface definitions](#/documentation/1.3.0/devops_guide/tosca_grammar/interface_definition.html) that override those coming from relationship type. |
+| interfaces | no |  An optional list of named [interface definitions](#/documentation/1.4.0/devops_guide/tosca_grammar/interface_definition.html) that override those coming from relationship type. |
 
 In the following example, the relationship type is found in the requirement 'database' of the type alien.nodes.Wordpress. The capability is found by the specified type 'alien.capabilities.MysqlDatabase' :
 

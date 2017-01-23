@@ -2,7 +2,7 @@
 layout: post
 title:  Application(s) management
 root: ../../
-categories: DOCUMENTATION-1.3.0
+categories: DOCUMENTATION-1.4.0
 parent: [user_guide]
 node_name: application_management
 weight: 490
@@ -11,7 +11,7 @@ weight: 490
 {% summary %}{% endsummary %}
 
 {%info%}
-To understand the application concept, please refer to [this section](#/documentation/1.3.0/concepts/applications.html).
+To understand the application concept, please refer to [this section](#/documentation/1.4.0/concepts/applications.html).
 {%endinfo%}
 
 # Create new application

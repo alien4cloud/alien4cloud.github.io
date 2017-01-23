@@ -2,7 +2,7 @@
 layout: post
 title:  Operation definition
 root: ../../../
-categories: DOCUMENTATION-1.3.0
+categories: DOCUMENTATION-1.4.0
 parent: [devops, tosca_grammar]
 node_name: tosca_ref_types_operation_definition
 weight: 150
@@ -16,11 +16,11 @@ An operation definition defines a named function or procedure that can be bound 
 | Keyname         | Required | Type                | Description | tosca_definitions_version |
 |:----------------|:---------|:--------------------|:------------|:--------------------------|
 | description | no | string | The optional description string for the associated named operation. | alien_dsl_1_3_0<br> alien_dsl_1_2_0<br> tosca_simple_yaml_1_0 |
-| implementation |	no | string or [implementation artifact definition](#/documentation/1.3.0/devops_guide/tosca_grammar/artifact_definition.html)__(1)__ __(2)__| The optional implementation artifact name (example: a script file name within a TOSCA CSAR file). | alien_dsl_1_3_0<br> alien_dsl_1_2_0<br> tosca_simple_yaml_1_0 |
-| inputs | no | list of [property definitions](#/documentation/1.3.0/devops_guide/tosca_grammar/property_definition.html) or list of [property assignment](#/documentation/1.3.0/devops_guide/tosca_grammar/parameter_definition.html) | The optional list of input parameter definitions. | alien_dsl_1_3_0<br> alien_dsl_1_2_0<br> tosca_simple_yaml_1_0 |
+| implementation |	no | string or [implementation artifact definition](#/documentation/1.4.0/devops_guide/tosca_grammar/artifact_definition.html)__(1)__ __(2)__| The optional implementation artifact name (example: a script file name within a TOSCA CSAR file). | alien_dsl_1_3_0<br> alien_dsl_1_2_0<br> tosca_simple_yaml_1_0 |
+| inputs | no | list of [property definitions](#/documentation/1.4.0/devops_guide/tosca_grammar/property_definition.html) or list of [property assignment](#/documentation/1.4.0/devops_guide/tosca_grammar/parameter_definition.html) | The optional list of input parameter definitions. | alien_dsl_1_3_0<br> alien_dsl_1_2_0<br> tosca_simple_yaml_1_0 |
 
 * __(1)__ TOSCA does not support the implementation artifact definition syntax in 1.0.0 and 1.1.0 versions. This is however not really correct as using artifact extension may not be enough to auto-detect the type of artifact and therefore the way to execute it.
-* __(2)__ TOSCA allow the implementation keyword to have two children being a primary and dependencies artifacts. We don't support this notation in alien4cloud and also don't support yet the ability to specify primary and dependencies artifact. Read how you can [get artifacts in alien4cloud](#/documentation/1.3.0/devops_guide/tosca_grammar/artifact_definition.html).
+* __(2)__ TOSCA allow the implementation keyword to have two children being a primary and dependencies artifacts. We don't support this notation in alien4cloud and also don't support yet the ability to specify primary and dependencies artifact. Read how you can [get artifacts in alien4cloud](#/documentation/1.4.0/devops_guide/tosca_grammar/artifact_definition.html).
 
 {% warning %}
 The artifact must be related to an artifact type. The way artifacts are related to artifact types is based on the implementation artifact name extension.

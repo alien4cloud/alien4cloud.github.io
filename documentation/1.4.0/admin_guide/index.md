@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  Administration Guide
-categories: DOCUMENTATION-1.3.0
+categories: DOCUMENTATION-1.4.0
 root: ../../
 parent: []
 node_name: admin

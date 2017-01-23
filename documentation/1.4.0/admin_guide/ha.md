@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  Alien High Availability
-categories: DOCUMENTATION-1.3.0
+categories: DOCUMENTATION-1.4.0
 root: ../../
 parent: [admin]
 node_name: ha

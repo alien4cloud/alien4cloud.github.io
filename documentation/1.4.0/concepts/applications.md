@@ -10,7 +10,9 @@ weight: 400
 
 Alien 4 Cloud aims at managing application lifecycle and their related deployments. Applications in Alien 4 Cloud are visible only by users that have some roles within the application.
 
-In Alien 4 Cloud every application can have one or more versions and one or more environments.
+The application in Alien 4 Cloud is the entity that people are going to deploy. Every application can have one or more versions and one or more environments.
+
+[![Application concepts](../images/1.4.0/concepts/application_relations.png)](../images/application_relations.png)
 
 # Versions
 

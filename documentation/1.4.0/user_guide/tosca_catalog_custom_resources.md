@@ -2,7 +2,7 @@
 layout: post
 title: Custom On-demand Resources Nodes
 root: ../../
-categories: DOCUMENTATION-1.3.0
+categories: DOCUMENTATION-1.4.0
 parent: [user_guide, tosca_catalog]
 node_name: tosca_catalog_custom_resources
 weight: 400

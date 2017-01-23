@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Elastic Search
-categories: "DOCUMENTATION-1.3.0"
+categories: "DOCUMENTATION-1.4.0"
 root: ../../
 parent:
   - admin
@@ -18,7 +18,7 @@ This section refers to a premium feature.
 
 ### Prerequisite
 
-Generate certificates for your elasticsearch cluster (see [Certificate Generation](#/documentation/1.3.0/admin_guide/certificates.html)), and download premium distribution of Alien4Cloud
+Generate certificates for your elasticsearch cluster (see [Certificate Generation](#/documentation/1.4.0/admin_guide/certificates.html)), and download premium distribution of Alien4Cloud
 
 ### Configuration of elasticsearch nodes
 

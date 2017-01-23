@@ -2,7 +2,7 @@
 layout: post
 title: Dashboards
 root: ../../
-categories: "DOCUMENTATION-1.3.0"
+categories: "DOCUMENTATION-1.4.0"
 parent:
   [user_guide]
 node_name: dashboard_plugin
@@ -41,16 +41,16 @@ On home view we can find (from left to right) :
 - A timeline graph about number of nodes deployed
 - A sunburst graph about number of compute nodes by app, by Iaas
 
-![Home view](../../images/1.3.0/user_guide/dashboard/screen_home.png)
+![Home view](../../images/1.4.0/user_guide/dashboard/screen_home.png)
 
 ##Application view
 A new tab is available in "Application" view and give access to a timeline graph about number of resources deployed on a period. It displayed on line by type of nodes : alien.nodes.Compute, alien.nodes.Network and alien.nodes.BlockStorage.
 
-![Application view](../../images/1.3.0/user_guide/dashboard/screen_appli.png)
+![Application view](../../images/1.4.0/user_guide/dashboard/screen_appli.png)
 
 ##Orchestrator view
 
 A new tab is available in "orchestrator" view and give access to :
 - A timeline graph about number of resources deployed on a period. It displayed on line by type of nodes : alien.nodes.Compute, alien.nodes.Network and alien.nodes.BlockStorage.
 - A bar chart graph a resources currently running by type : alien.nodes.Compute, alien.nodes.Network and alien.nodes.BlockStorage.
-![Orchestrator view](../../images/1.3.0/user_guide/dashboard/screen_orc.png)
+![Orchestrator view](../../images/1.4.0/user_guide/dashboard/screen_orc.png)

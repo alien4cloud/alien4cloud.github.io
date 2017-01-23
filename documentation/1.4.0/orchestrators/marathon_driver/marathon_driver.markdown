@@ -2,7 +2,7 @@
 layout: post
 title:  Mesos + Marathon
 root: ../../../
-categories: DOCUMENTATION-1.3.0
+categories: DOCUMENTATION-1.4.0
 parent: [orchestrators]
 node_name: marathon_driver
 weight: 1000
@@ -10,7 +10,7 @@ weight: 1000
 
 [Mesos](http://mesos.apache.org) is like a kernel for the datacenter. It provides fine-grained abstraction of the datacenter resources, isolation and native support for Docker containers. [Marathon](https://mesosphere.github.io/marathon/) is an open-source meta-framework for Mesos dedicated to container orchestration. It is developed and maintained by Mesosphere. Marathon is a production-ready container orchestration platform for Mesos with fist-class Docker support. It features automated health-checks and failure recovery, allowing seamless execution of services or long-running jobs. Being a meta-framework, Marathon is also proficient in running other Mesos frameworks, such as Chronos.
 
-Combined, Mesos and Marathon can turn any datacenter into a highly available, scalable and fault-tolerant PaaS for cloud applications. We developed a Marathon orchestrator plugin for Alien 4 Cloud, as part of our 1.3.0 roadmap to achieve Docker support.
+Combined, Mesos and Marathon can turn any datacenter into a highly available, scalable and fault-tolerant PaaS for cloud applications. We developed a Marathon orchestrator plugin for Alien 4 Cloud, as part of our 1.4.0 roadmap to achieve Docker support.
 
 {% warning %}
 This project is at an alpha stage and still undergoing development. We might add, change, or delete any functionality described in this document. Any [feedback](https://github.com/alien4cloud/alien4cloud-marathon-plugin/issues) would be highly appreciated !

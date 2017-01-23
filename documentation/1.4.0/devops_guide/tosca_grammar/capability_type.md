@@ -2,7 +2,7 @@
 layout: post
 title:  Capability type
 root: ../../../
-categories: DOCUMENTATION-1.3.0
+categories: DOCUMENTATION-1.4.0
 parent: [devops, tosca_grammar]
 node_name: tosca_ref_types_capability_type
 weight: 40
@@ -20,8 +20,8 @@ A Capability Type is a reusable entity that describes a kind of capability that 
 | metadata __(2)__ | no | map of string | Defines a section used to declare additional metadata information. | alien_dsl_1_3_0<br> tosca_simple_yaml_1_0 |
 | tags __(2)__ | no | map of string | Defines a section used to declare additional metadata information. | alien_dsl_1_3_0<br> alien_dsl_1_2_0 |
 | description | no | string | An optional description for the Capability Type. | alien_dsl_1_3_0<br> alien_dsl_1_2_0<br> tosca_simple_yaml_1_0 |
-| properties | no | map of [property definitions](#/documentation/1.3.0/devops_guide/tosca_grammar/property_definition.html) | An optional list of property definitions for the Capability Type. | alien_dsl_1_3_0<br> alien_dsl_1_2_0<br> tosca_simple_yaml_1_0 |
-| attributes | no | map of [attribute definitions](#/documentation/1.3.0/devops_guide/tosca_grammar/attribute_definition.html) | An optional list of attribute definitions for the Capability Type.<br>Not supported on alien4cloud. | N.A. |
+| properties | no | map of [property definitions](#/documentation/1.4.0/devops_guide/tosca_grammar/property_definition.html) | An optional list of property definitions for the Capability Type. | alien_dsl_1_3_0<br> alien_dsl_1_2_0<br> tosca_simple_yaml_1_0 |
+| attributes | no | map of [attribute definitions](#/documentation/1.4.0/devops_guide/tosca_grammar/attribute_definition.html) | An optional list of attribute definitions for the Capability Type.<br>Not supported on alien4cloud. | N.A. |
 | valid_source_types | no | string[] | An optional list of one or more valid target entities or entity types (i.e., a Node Types or Capability Types). | alien_dsl_1_3_0<br> alien_dsl_1_2_0<br> tosca_simple_yaml_1_0 |
 
 * __(1)__ version at type level is defined in TOSCA but they are optional and there is no example on how it should be managed. We believe in alien4cloud that versions should be managed at the service template/archive level and dispatched to every elements defined in the service template/archive.
@@ -39,7 +39,7 @@ A Capability Type is a reusable entity that describes a kind of capability that 
 
 See:
 
-- [property_definitions](#/documentation/1.3.0/devops_guide/tosca_grammar/property_definition.html)
+- [property_definitions](#/documentation/1.4.0/devops_guide/tosca_grammar/property_definition.html)
 
 ## Example
 

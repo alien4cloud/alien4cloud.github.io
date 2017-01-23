@@ -2,7 +2,7 @@
 layout: post
 title: Portability Insights Controller
 root: ../../
-categories: DOCUMENTATION-1.3.0
+categories: DOCUMENTATION-1.4.0
 parent: [rest_api, rest_api_other-apis]
 node_name: rest_api_controller_portability-insights-controller
 weight: 38

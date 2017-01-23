@@ -2,7 +2,7 @@
 layout: post
 title:  Prerequisites
 root: ../../../
-categories: DOCUMENTATION-1.3.0
+categories: DOCUMENTATION-1.4.0
 parent: [orchestrators, cloudify_3]
 node_name: cloudify_3_prerequisites
 weight: 1000

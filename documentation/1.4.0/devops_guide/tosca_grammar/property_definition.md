@@ -2,7 +2,7 @@
 layout: post
 title: Property definition
 root: ../../../
-categories: "DOCUMENTATION-1.3.0"
+categories: "DOCUMENTATION-1.4.0"
 parent: [devops, tosca_grammar]
 node_name: tosca_ref_types_property_definition
 weight: 80
@@ -20,11 +20,11 @@ A property definition defines a named, typed value that can be associated with a
 | required        | no (default true) | boolean             | Optional key to define if the property is requied (true) or not (false). If this key is not declared for the property definition, then the property SHALL be considered required by default. | alien_dsl_1_3_0<br> alien_dsl_1_2_0<br> tosca_simple_yaml_1_0 |
 | default         | no | N/A                 | An optional key that may provide a value to be used as a default if not provided by another means. This value SHALL be type compatible with the type declared by the property definition’s type keyname. | alien_dsl_1_3_0<br> alien_dsl_1_2_0<br> tosca_simple_yaml_1_0 |
 | status __(1)__ | no | string (default: supported) | The optional status of the property relative to the specification or implementation. See table below for valid values. | N.A. |
-| constraints     | no | [list of constraints](#/documentation/1.3.0/devops_guide/tosca_grammar/constraints.html) | The optional list of sequenced constraints for the property. | alien_dsl_1_3_0<br> alien_dsl_1_2_0<br> tosca_simple_yaml_1_0 |
-| entry_schema __(2)__ | no | [entry schema](#/documentation/1.3.0/devops_guide/tosca_grammar/entry_schema.html) | An optional key used to declare the schema definition for entries of "container" types such as list or map. | alien_dsl_1_3_0<br> alien_dsl_1_2_0<br> tosca_simple_yaml_1_0 |
+| constraints     | no | [list of constraints](#/documentation/1.4.0/devops_guide/tosca_grammar/constraints.html) | The optional list of sequenced constraints for the property. | alien_dsl_1_3_0<br> alien_dsl_1_2_0<br> tosca_simple_yaml_1_0 |
+| entry_schema __(2)__ | no | [entry schema](#/documentation/1.4.0/devops_guide/tosca_grammar/entry_schema.html) | An optional key used to declare the schema definition for entries of "container" types such as list or map. | alien_dsl_1_3_0<br> alien_dsl_1_2_0<br> tosca_simple_yaml_1_0 |
 
 * __(1)__ Status has been added in the latest versions of the specification and is not yet supported in alien4cloud. Table below details the supported values as defined in the TOSCA specification.
-* __(2)__ Entry schema definition in TOSCA specification is inconsistent as it is stated you can use a string but the grammar example actually defines a complex object as defined [here](#/documentation/1.3.0/devops_guide/tosca_grammar/entry_schema.html). Alien4cloud supports the complex definition as stated in the grammar section of the specification.
+* __(2)__ Entry schema definition in TOSCA specification is inconsistent as it is stated you can use a string but the grammar example actually defines a complex object as defined [here](#/documentation/1.4.0/devops_guide/tosca_grammar/entry_schema.html). Alien4cloud supports the complex definition as stated in the grammar section of the specification.
 
 Status valid values:
 {: .table .table-striped }
@@ -67,7 +67,7 @@ Status valid values:
 
 See:
 
-- [constraints](#/documentation/1.3.0/devops_guide/tosca_grammar/constraints.html)
+- [constraints](#/documentation/1.4.0/devops_guide/tosca_grammar/constraints.html)
 
 ## Example
 

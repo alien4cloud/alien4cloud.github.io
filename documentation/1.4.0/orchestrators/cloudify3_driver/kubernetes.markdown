@@ -2,7 +2,7 @@
 layout: post
 title:  Kubernetes (Alpha Version)
 root: ../../../
-categories: DOCUMENTATION-1.3.0
+categories: DOCUMENTATION-1.4.0
 parent: [orchestrators, cloudify_3]
 node_name: cloudify_3_kubernetes
 weight: 5000
@@ -19,14 +19,14 @@ This page helps you configure and deploy a hybrid nodecellar application on Kubn
 
 ## Configurations ##
 
-When [configuring your orchestrator](#/documentation/1.3.0/orchestrators/cloudify3_driver/install_config.html), before enabling it, configure the Kubernetes URL and port.
+When [configuring your orchestrator](#/documentation/1.4.0/orchestrators/cloudify3_driver/install_config.html), before enabling it, configure the Kubernetes URL and port.
 
 [![Kubernetes orchestrator configuration][k8s_orchestrator_config]][k8s_orchestrator_config]
 
 ## Upload TOSCA Components ##
 
 In order to build our hybrid nodecellar topology, you will need to import some TOSCA components.
-Follow the [import from Git location](#/documentation/1.3.0/user_guide/catalog_type_upload.html) instructions to import the [docker-tosca-types](https://github.com/alien4cloud/docker-tosca-types) into Alien4Cloud.
+Follow the [import from Git location](#/documentation/1.4.0/user_guide/catalog_type_upload.html) instructions to import the [docker-tosca-types](https://github.com/alien4cloud/docker-tosca-types) into Alien4Cloud.
 
 Once uploaded, your Alien4Cloud will contains additional types:
 
@@ -41,7 +41,7 @@ But you can modify the topology by removing the 2 volumes and deploy the 2 conta
 
 ## Deploy the Hybrid Topology ##
 
-Create a [new application](#/documentation/1.3.0/user_guide/application_management.html) using the `NodecellarDockerHybrid` topology template.
+Create a [new application](#/documentation/1.4.0/user_guide/application_management.html) using the `NodecellarDockerHybrid` topology template.
 
 [![Kubernetes create application][k8s_create_application]][k8s_create_application]
 

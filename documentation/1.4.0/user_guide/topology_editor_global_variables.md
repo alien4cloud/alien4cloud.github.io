@@ -2,7 +2,7 @@
 layout: post
 title: Contextual/Global variables
 root: ../../..
-categories: DOCUMENTATION-1.3.0
+categories: DOCUMENTATION-1.4.0
 parent: [user_guide, topology_editor]
 node_name: topology_editor_global_variables
 weight: 150

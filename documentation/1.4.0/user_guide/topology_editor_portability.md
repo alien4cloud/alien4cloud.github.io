@@ -2,7 +2,7 @@
 layout: post
 title: Portability insights
 root: ../../..
-categories: DOCUMENTATION-1.3.0
+categories: DOCUMENTATION-1.4.0
 parent: [user_guide, topology_editor]
 node_name: topology_editor_portability
 weight: 800
@@ -35,11 +35,11 @@ The indicators depends on the type of the component we want to describe.
 
 For example, you can add facets in the components view to show all components of a specific IAASS, like the following screen.
 
-![Portability facets](../../images/1.3.0/user_guide/topology_portability/components_portability_facets.png)
+![Portability facets](../../images/1.4.0/user_guide/topology_portability/components_portability_facets.png)
 
-And when you click on the ![Go to portability details](../../images/1.3.0/user_guide/topology_portability/portaiblity_icon.png){: .inline} icon of a component you can see more portability informations.
+And when you click on the ![Go to portability details](../../images/1.4.0/user_guide/topology_portability/portaiblity_icon.png){: .inline} icon of a component you can see more portability informations.
 
-![Component details about portability](../../images/1.3.0/user_guide/topology_portability/components_details.png)
+![Component details about portability](../../images/1.4.0/user_guide/topology_portability/components_details.png)
 
 ### Applicable only for a Compute
 The followings indicators can only be defined on a Compute node:
@@ -70,15 +70,15 @@ When working with plugins orchestrators, some indicators values are such as `IAA
 ## UI edition
 We also allow administrator to edit portability indicators on the user interface. This is only valid for orchestrator plugin's components, and it is done when creating and configuring on demand  location resources.
 
-![On demand ressources](../../images/1.3.0/user_guide/topology_portability/on-demand-ressources.png)
+![On demand ressources](../../images/1.4.0/user_guide/topology_portability/on-demand-ressources.png)
 
 # Topology portability
 
 The topology portability level is defined by combining the portability level of all its components.
 In the topology edition view, every component in the catalog has a portability information. So, the architect is be able to see progressively the impact of what he chose to add on the designed topology. To see this impact, go to portability view of the topology.
 
-![Portability impacts](../../images/1.3.0/user_guide/topology_portability/topology_portability_infos.png)
+![Portability impacts](../../images/1.4.0/user_guide/topology_portability/topology_portability_infos.png)
 
 The faster way to see the compatible locations with your current topology is the location support view.
 
-![Location support](../../images/1.3.0/user_guide/topology_portability/location_support.png)
+![Location support](../../images/1.4.0/user_guide/topology_portability/location_support.png)

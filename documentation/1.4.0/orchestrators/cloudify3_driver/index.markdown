@@ -2,7 +2,7 @@
 layout: post
 title:  Cloudify 3
 root: ../../../
-categories: DOCUMENTATION-1.3.0
+categories: DOCUMENTATION-1.4.0
 parent: [orchestrators]
 node_name: cloudify_3
 weight: 1000
@@ -16,7 +16,7 @@ This section gives a focus to Cloudify 3 orchestrator plugin for ALIEN, a plugin
 
 The alien 4 cloud plugin for cloudify 3 exposes several nodes so that TOSCA templates can be deployed on Cloudify 3 to various locations, such as ***Amazon***, ***Openstack***, etc... . This allows full portability of topologies (or blueprints) that you have designed.  
 
-See [Supported locations](#/documentation/1.3.0/orchestrators/cloudify3_driver/supported_locations.html) for more details.
+See [Supported locations](#/documentation/1.4.0/orchestrators/cloudify3_driver/supported_locations.html) for more details.
 
 <!-- The following tables shows the supported features of our plugin on the various clouds and how they are mapped to TOSCA.
 

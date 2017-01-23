@@ -2,7 +2,7 @@
 layout: post
 title:  Property filter
 root: ../../../
-categories: DOCUMENTATION-1.3.0
+categories: DOCUMENTATION-1.4.0
 parent: [devops, tosca_grammar, tosca_ref_node_filter]
 node_name: tosca_ref_property_filter
 weight: 20

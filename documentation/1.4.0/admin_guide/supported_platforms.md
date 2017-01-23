@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  Supported platforms
-categories: DOCUMENTATION-1.3.0
+categories: DOCUMENTATION-1.4.0
 root: ../../
 parent: [admin, intallation_configuration]
 node_name: supported_platforms
@@ -30,12 +30,12 @@ Alien 4 Cloud is written in java for the backend and requires a **JVM 8** or hig
 
 ### Orchestrators and deployment artefacts
 
-Cloudify 3.4 is alien 1.3.0 primary supported orchestrator. For pure docker users we also support Marathon as an orchestrator but due to marathon design it is not possible to support execution of classical TOSCA workflows on top of it.
+Cloudify 3.4 is alien 1.4.0 primary supported orchestrator. For pure docker users we also support Marathon as an orchestrator but due to marathon design it is not possible to support execution of classical TOSCA workflows on top of it.
 
 {: .table .table-bordered}
 | Orchestrators | Deployment artefacts |
 |:----------------|:----------------|
-| _Cloudify 3_ | **.bat** (_alien.artifacts.BatchScript_), **.sh** (_tosca.artifacts.ShellScript_), Ansible playbooks, Docker images (via (Kubernetes)[#/documentation/1.3.0/orchestrators/cloudify3_driver/kubernetes.html] support since 1.3.1) |
+| _Cloudify 3_ | **.bat** (_alien.artifacts.BatchScript_), **.sh** (_tosca.artifacts.ShellScript_), Ansible playbooks, Docker images (via (Kubernetes)[#/documentation/1.4.0/orchestrators/cloudify3_driver/kubernetes.html] support since 1.3.1) |
 | _Marathon_ | Docker images |
 
 

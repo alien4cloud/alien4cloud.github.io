@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Alien Post-Deployment
-categories: "DOCUMENTATION-1.3.0"
+categories: "DOCUMENTATION-1.4.0"
 root: ../../
 parent:
   - admin
@@ -16,7 +16,7 @@ published: true
 This section refers to a premium feature.
 {% endinfo %}
 When deploying the post deployment web application, it is recommended to enable SSL to secure the communication with Alien4Cloud.
-For that to be done, you have to create a keystore, and eventually a truststore in case of mutual authentication (see [Certificate Generation](#/documentation/1.3.0/admin_guide/certificates.html)) and configure the application with the proper SSL properties.
+For that to be done, you have to create a keystore, and eventually a truststore in case of mutual authentication (see [Certificate Generation](#/documentation/1.4.0/admin_guide/certificates.html)) and configure the application with the proper SSL properties.
 
 ## Configure the post-deployment web application
 The post-deployment web application is a Spring boot application, thus, there are some properties that needs to be set into the Java JVM running the application. Two cases:

@@ -2,7 +2,7 @@
 layout: post
 title:  Component Wordpress
 root: ../../
-categories: DOCUMENTATION-1.3.0
+categories: DOCUMENTATION-1.4.0
 parent: [devops, lamp_stack]
 node_name: lamp_stack_wordpress
 weight: 200

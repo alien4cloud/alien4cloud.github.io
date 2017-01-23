@@ -2,7 +2,7 @@
 layout: post
 title: Post-Deployment configuration
 root: ../../../
-categories: "DOCUMENTATION-1.3.0"
+categories: "DOCUMENTATION-1.4.0"
 parent:
   - orchestrators
   - cloudify_3
@@ -16,7 +16,7 @@ published: true
 This section refers to a premium feature.
 {% endinfo %}
 
-If you are working with the premium cloudify 3 plugin, then you have a feature that allows you to add and execute patches and custom operations on a deployed application. It needs to have a [patches server deploy somewhere](#/documentation/1.3.0/admin_guide/post_deployment_application.html), and to makes some configurations.
+If you are working with the premium cloudify 3 plugin, then you have a feature that allows you to add and execute patches and custom operations on a deployed application. It needs to have a [patches server deploy somewhere](#/documentation/1.4.0/admin_guide/post_deployment_application.html), and to makes some configurations.
 
 ## Post-Deployment server URL
 You must provide the endpoint URL of your deployed patches server: ***`postDeploymentRestURL`***.

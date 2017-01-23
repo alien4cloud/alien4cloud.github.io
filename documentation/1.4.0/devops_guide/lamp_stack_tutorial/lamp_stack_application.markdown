@@ -2,7 +2,7 @@
 layout: post
 title:  Stack Application Topology
 root: ../../
-categories: DOCUMENTATION-1.3.0
+categories: DOCUMENTATION-1.4.0
 parent: [devops, lamp_stack]
 node_name: lamp_stack_application
 weight: 800
@@ -10,7 +10,7 @@ weight: 800
 
 On this page we will create our topology representing the LAMP stack. Follow instructions step by step and at the end you will have your stack up and running.
 
-To be more concret we will use the [Wordpress](#/documentation/1.3.0/getting_started/lamp_stack_wordpress.html) component to install a real CMS.
+To be more concret we will use the [Wordpress](#/documentation/1.4.0/getting_started/lamp_stack_wordpress.html) component to install a real CMS.
 
 {%note%}
 The components of the Wordpress stack are in version 2.0.0. This version was released after some tests, with success, on Ubuntu 12.04 and 14.04.
@@ -18,9 +18,9 @@ The components of the Wordpress stack are in version 2.0.0. This version was rel
 
 # Prerequisites
 
-1. Get, checkout, download all components listed in the [main page](#/documentation/1.3.0/getting_started/lamp_stack.html) of this tutorial
-2.  [Import components](#/documentation/1.3.0/user_guide/components_management.html)  of the Wordpress topology in **A4C**
-3. Configure your cloud plugin [PaaS Provider](#/documentation/1.3.0/orchestrators/cloudify3_driver/index.html)
+1. Get, checkout, download all components listed in the [main page](#/documentation/1.4.0/getting_started/lamp_stack.html) of this tutorial
+2.  [Import components](#/documentation/1.4.0/user_guide/components_management.html)  of the Wordpress topology in **A4C**
+3. Configure your cloud plugin [PaaS Provider](#/documentation/1.4.0/orchestrators/cloudify3_driver/index.html)
 4. Then compose you topology following the next steps
 
 {% info %}

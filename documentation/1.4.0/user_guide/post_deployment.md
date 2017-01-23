@@ -2,7 +2,7 @@
 layout: post
 title: Post deployment operations
 root: ../../
-categories: DOCUMENTATION-1.3.0
+categories: DOCUMENTATION-1.4.0
 parent:
   - user_guide
   - application_management
@@ -47,7 +47,7 @@ Then, if you redeploy the application V1, the patches will be executed but if yo
 
 {%info%}
 <h5>Requirements</h5>
-To use this feature, your orchestrator should be configure with a functional URL for the [post-deployment application](#/documentation/1.3.0/admin_guide/post_deployment_application.html).
+To use this feature, your orchestrator should be configure with a functional URL for the [post-deployment application](#/documentation/1.4.0/admin_guide/post_deployment_application.html).
 {%endinfo%}
 
 Once you have your script or archive, you can upload it. In the modal, choose a name for your operation, eventually add a description,

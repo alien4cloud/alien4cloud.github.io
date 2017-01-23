@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  Alien Post-Deployment application
-categories: DOCUMENTATION-1.3.0
+categories: DOCUMENTATION-1.4.0
 root: ../../
 parent: [admin]
 node_name: post_deployment_app
@@ -15,7 +15,7 @@ weight: 800
 This section refers to a premium feature.
 {% endinfo %}
 
-The Alien post-deployment web application is a Spring boot application, that helps managing patches or operations added to a node within a deployment. You MUST deploy it if you plan on providing to the users the ability to perform [post deployment operations](#/documentation/1.3.0/user_guide/post_deployment.html) on an application.  
+The Alien post-deployment web application is a Spring boot application, that helps managing patches or operations added to a node within a deployment. You MUST deploy it if you plan on providing to the users the ability to perform [post deployment operations](#/documentation/1.4.0/user_guide/post_deployment.html) on an application.  
 
 {%info%}
 <h5>Where to deploy</h5>
@@ -84,7 +84,7 @@ Go to the url `http://<deployed_machine_ip>:<server_port>/rest/postdeployment/te
 # Advanced configuration
 
 ## Using ssl
-See [security section](#/documentation/1.3.0/admin_guide/security_patch.html).
+See [security section](#/documentation/1.4.0/admin_guide/security_patch.html).
 
 ##ElasticSearch
-See [Elastic Search configuration](#/documentation/1.3.0/admin_guide/advanced_configuration.html) section.
+See [Elastic Search configuration](#/documentation/1.4.0/admin_guide/advanced_configuration.html) section.

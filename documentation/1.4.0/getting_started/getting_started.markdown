@@ -2,7 +2,7 @@
 layout: post
 title: Getting started
 root: ../
-categories: DOCUMENTATION-1.3.0
+categories: DOCUMENTATION-1.4.0
 parent: []
 node_name: getting_started
 weight: 100
@@ -27,16 +27,16 @@ java following instructions [here](https://www.java.com/fr/download/manual.jsp){
 
 * Access to a supported Cloud: This getting started guide is made for Amazon EC2 but can be adapted easily to run on other supported platforms.
 
-* A supported web browser (check versions [here](/#/documentation/1.3.0/admin_guide/supported_platforms.html)).
+* A supported web browser (check versions [here](/#/documentation/1.4.0/admin_guide/supported_platforms.html)).
 
 # Install Alien4Cloud
 
-Download Alien4Cloud distribution package [alien4cloud-dist](http://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource&g=alien4cloud&a=alien4cloud-dist&v=1.3.0&p=tar.gz&c=dist) and extract the archive it in your desired location.
+Download Alien4Cloud distribution package [alien4cloud-dist](http://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource&g=alien4cloud&a=alien4cloud-dist&v=1.4.0&p=tar.gz&c=dist) and extract the archive it in your desired location.
 
 Once extracted you should have the following content:
 
 {% highlight bash %}
-├── alien4cloud-ui-1.3.0.war
+├── alien4cloud-ui-1.4.0.war
 ├── alien4cloud.sh
 ├── config
 │   └── alien4cloud-config.yml
@@ -47,7 +47,7 @@ Once extracted you should have the following content:
 │   │   └── alien-tosca-normative-types.zip
 │   │   └── alien-xtended-storage-types.zip
 │   │   plugins
-│   │   └── alien4cloud-cloudify3-provider-1.3.0.zip
+│   │   └── alien4cloud-cloudify3-provider-1.4.0.zip
 {% endhighlight %}
 
 # Start Alien4Cloud
@@ -68,7 +68,7 @@ Login into the application using the default user:
 * password: **admin**
 
 {%note%}
-The admin user is granted will all rights on the platform. This getting started will perform all operations using the admin user. Of course if you want to setup an Alien4Cloud for production usage and multi-users and rôle management you should probably refer to [advanced configurations and installation](#/documentation/1.3.0/admin_guide/advanced_configuration.html) of Alien4Cloud as well as user guide for [user management](#/documentation/1.3.0/user_guide/user_management.html).
+The admin user is granted will all rights on the platform. This getting started will perform all operations using the admin user. Of course if you want to setup an Alien4Cloud for production usage and multi-users and rôle management you should probably refer to [advanced configurations and installation](#/documentation/1.4.0/admin_guide/advanced_configuration.html) of Alien4Cloud as well as user guide for [user management](#/documentation/1.4.0/user_guide/user_management.html).
 {%endnote%}
 
 # Configure your orchestrator and location
@@ -125,7 +125,7 @@ Some warnings will be throw if you specify an other branch or tag. We release so
 {% endwarning %}
 
 {% info %}
-Find detailed informations about the Wordpress topology in the [devops guide](#/documentation/1.3.0/devops_guide/lamp_stack_tutorial/lamp_stack_application.html).
+Find detailed informations about the Wordpress topology in the [devops guide](#/documentation/1.4.0/devops_guide/lamp_stack_tutorial/lamp_stack_application.html).
 {% endinfo %}
 
 # Create a Wordpress application
@@ -148,11 +148,11 @@ To deploy this new application, go on ![application deployment](../../images/get
 [![Configure your deployment](../../images/getting_started/deployment-page.png)](../../images/getting_started/deployment-page.png)
 
 {%info%}
-To understand all configuration available for the deployment page, please refer to the [application management section](#/documentation/1.3.0/user_guide/application_management.html).
+To understand all configuration available for the deployment page, please refer to the [application management section](#/documentation/1.4.0/user_guide/application_management.html).
 {%endinfo%}
 
 {% warning %}
-In this part, you will be able to check location resources matching and possible errors. This should not happen if your orchestrator and location are well configured. If you need help regarding their configuration, please refer to [this section](#/documentation/1.3.0/user_guide/orchestrator_location_management.html).
+In this part, you will be able to check location resources matching and possible errors. This should not happen if your orchestrator and location are well configured. If you need help regarding their configuration, please refer to [this section](#/documentation/1.4.0/user_guide/orchestrator_location_management.html).
 {% endwarning %}
 
 # Check that your application is up and running

@@ -2,7 +2,7 @@
 layout: post
 title: Edition history
 root: ../../..
-categories: DOCUMENTATION-1.3.0
+categories: DOCUMENTATION-1.4.0
 parent: [user_guide, topology_editor]
 node_name: topology_editor_history
 weight: 300
@@ -28,4 +28,4 @@ Every archive under edition in alien4cloud is managed using the git version cont
   * email of the user who save the topology archive
   * message with all operations applied during save and their author (which may be or not the same as the commit author)
 
-[![Editor history git](../../images/1.3.0/user_guide/editor-history-git.png)](../../images/1.3.0/user_guide/editor-history-git.png)
+[![Editor history git](../../images/1.4.0/user_guide/editor-history-git.png)](../../images/1.4.0/user_guide/editor-history-git.png)

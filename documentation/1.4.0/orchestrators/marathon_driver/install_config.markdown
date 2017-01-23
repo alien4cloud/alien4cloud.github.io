@@ -2,7 +2,7 @@
 layout: post
 title:  Installing and configuring
 root: ../../../
-categories: DOCUMENTATION-1.3.0
+categories: DOCUMENTATION-1.4.0
 parent: [orchestrators, marathon_driver]
 node_name: marathon_install
 weight: 2000

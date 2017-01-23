@@ -2,7 +2,7 @@
 layout: post
 title: Components/types upload
 root: ../../
-categories: DOCUMENTATION-1.3.0
+categories: DOCUMENTATION-1.4.0
 parent: [user_guide, tosca_catalog]
 node_name: tosca_catalog_type_upload
 weight: 100
@@ -12,7 +12,7 @@ You cannot upload the same archive (same id and version) mutliple times. If you 
 
 {%info%}
 <h5>Create your own component</h5>
-If you want create your own component please go [here](#/documentation/1.3.0/devops_guide/design_tutorial/tutorials.html).
+If you want create your own component please go [here](#/documentation/1.4.0/devops_guide/design_tutorial/tutorials.html).
 {%endinfo%}
 
 {%warning%}
@@ -58,7 +58,7 @@ If the folder is based on an older TOSCA recommandation, please ensure you have 
 
 Click on ![Git location](../../images/components_guide/git_location.png){: .inline}
 
-[![Create an archive from a git location](../../images/1.3.0/user_guide/component_git_locations.png)](../../images/1.3.0/user_guide/component_git_locations.png)
+[![Create an archive from a git location](../../images/1.4.0/user_guide/component_git_locations.png)](../../images/1.4.0/user_guide/component_git_locations.png)
 
 Fill the modal by typing expected values and save.
 
@@ -73,17 +73,17 @@ Click on *Save the repository locally* if you want the repository to be stored o
 
 Now you should be able to see the Csar git location created in the tab below
 
-[![Trigger an archive from a location](../../images/1.3.0/user_guide/component_git_location_list.png)](../../images/1.3.0/user_guide/component_git_location_list.png)
+[![Trigger an archive from a location](../../images/1.4.0/user_guide/component_git_location_list.png)](../../images/1.4.0/user_guide/component_git_location_list.png)
 
-Click on ![Git location](../../images/1.3.0/user_guide/git_import_btn.png){: .inline} to trigger the import process.  
+Click on ![Git location](../../images/1.4.0/user_guide/git_import_btn.png){: .inline} to trigger the import process.  
 
 Now you should be able to see the imported Csar in the *Csars added* tab and the related import result in the tab below.
 
-[![Result of an import](../../images/1.3.0/user_guide/git_import_result.png)](../../images/1.3.0/user_guide/git_import_result.png)
+[![Result of an import](../../images/1.4.0/user_guide/git_import_result.png)](../../images/1.4.0/user_guide/git_import_result.png)
 {%endtabcontent%}
 {%endinittab%}
 
-You can now [browse and search for components](#/documentation/1.3.0/user_guide/catalog_type_search.html).
+You can now [browse and search for components](#/documentation/1.4.0/user_guide/catalog_type_search.html).
 
 ## Upload issues
 

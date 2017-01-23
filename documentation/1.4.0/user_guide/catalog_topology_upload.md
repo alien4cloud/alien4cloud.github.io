@@ -2,14 +2,14 @@
 layout: post
 title: Topology upload
 root: ../../
-categories: DOCUMENTATION-1.3.0
+categories: DOCUMENTATION-1.4.0
 parent: [user_guide, tosca_catalog]
 node_name: tosca_catalog_topology_upload
 weight: 200
 ---
 
 {%info%}
-To understand the topology concept, please refer to [this section](#/documentation/1.3.0/concepts/topologies.html).
+To understand the topology concept, please refer to [this section](#/documentation/1.4.0/concepts/topologies.html).
 {%endinfo%}
 
 # Topology template
@@ -26,7 +26,7 @@ a new template with the topology composer or upload a zip file with your templat
 
 Click on ![Create template button](../../images/user_guide/user_guide_topology_template_new.png){: .inline} and fill in the form.
 
-![Topology template composer](../../images/1.3.0/user_guide/catalog_new_topo_template.png)
+![Topology template composer](../../images/1.4.0/user_guide/catalog_new_topo_template.png)
 
 {% note %}
 This template name will identify your template and must be unique.

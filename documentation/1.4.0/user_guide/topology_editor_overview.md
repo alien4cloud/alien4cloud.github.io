@@ -2,7 +2,7 @@
 layout: post
 title: Overview
 root: ../../..
-categories: DOCUMENTATION-1.3.0
+categories: DOCUMENTATION-1.4.0
 parent: [user_guide, topology_editor]
 node_name: topology_editor_overview
 weight: 1
@@ -12,7 +12,7 @@ weight: 1
 The topology editor in alien 4 cloud 1.3 has been rewritten and usage has changed from the ground. While editor in previous versions was auto-saving changes the users now have to trigger save operation manually.
 {%endinfo%}
 
-[![topology editor](../../images/1.3.0/user_guide/topology_editor.png)](../../images/1.3.0/user_guide/topology_editor.png)
+[![topology editor](../../images/1.4.0/user_guide/topology_editor.png)](../../images/1.4.0/user_guide/topology_editor.png)
 
 # Editor operations, save, undo, redo
 

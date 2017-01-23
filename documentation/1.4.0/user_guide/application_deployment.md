@@ -2,7 +2,7 @@
 layout: post
 title:  Application deployment
 root: ../../
-categories: DOCUMENTATION-1.3.0
+categories: DOCUMENTATION-1.4.0
 parent: [user_guide, application_management]
 node_name: application_deployment
 weight: 100
@@ -42,4 +42,4 @@ Here you need to select the value for your `inputs`. If they are some missing co
 [![Deployment inputs](../../images/user_guide/application/deployment/user_guide_deployment_setup_inputs.png)](../../images/user_guide/application/deployment/user_guide_deployment_setup_inputs.png)
 
 Once all those steps are valid, the *deploy* step is unlocked, and if your topology is valid and ready for deployment, you can hit the deploy button to proceed.  
-You can now see what is happening on the [runtime view](#/documentation/1.3.0/user_guide/application_runtime.html).
+You can now see what is happening on the [runtime view](#/documentation/1.4.0/user_guide/application_runtime.html).

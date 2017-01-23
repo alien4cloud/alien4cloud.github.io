@@ -2,7 +2,7 @@
 layout: post
 title:  Getting started with a TOSCA component
 root: ../../
-categories: DOCUMENTATION-1.3.0
+categories: DOCUMENTATION-1.4.0
 parent: [devops]
 node_name: getting_started_with_tosca_component
 weight: 400
@@ -35,7 +35,7 @@ Here we choose to use YAML because this is the format recognized by Alien4Cloud.
 {% endinfo %}
 
 {% note %}
-More details about CSAR [here](#/documentation/1.3.0/concepts/tosca.html)
+More details about CSAR [here](#/documentation/1.4.0/concepts/tosca.html)
 {% endnote %}
 
 # The TOSCA file structure
@@ -63,7 +63,7 @@ relationship_types:
 {% endhighlight %}
 
 {% note %}
-More details on the TOSCA file definition [here](#/documentation/1.3.0/devops_guide/tosca_grammar/definitions_file.html)
+More details on the TOSCA file definition [here](#/documentation/1.4.0/devops_guide/tosca_grammar/definitions_file.html)
 {% endnote %}
 
 ## The basic part
@@ -120,7 +120,7 @@ Here a description of a `node_type` structure used by the `jdk-type.yml` file:
 {% endhighlight %}
 
 {% note %}
-More details about node type definition [here](#/documentation/1.3.0/devops_guide/tosca_grammar/node_type.html)
+More details about node type definition [here](#/documentation/1.4.0/devops_guide/tosca_grammar/node_type.html)
 {% endnote %}
 
 ### The alien.nodes.JDK node_type in details
@@ -241,7 +241,7 @@ capability_types:
 {% endhighlight %}
 
 {% note %}
-More details about the capability definition [here](#/documentation/1.3.0/devops_guide/tosca_grammar/capability_definition.html)
+More details about the capability definition [here](#/documentation/1.4.0/devops_guide/tosca_grammar/capability_definition.html)
 {% endnote %}
 
 ## Defining relationship_types
@@ -275,13 +275,13 @@ alien.relationships.JavaSoftwareHostedOnJDK:
   The target of the relationship must be of a node with an `alien.capabilities.JDK` type in its capabilities list.
 
 {% note %}
-More details about the relationship type [here](#/documentation/1.3.0/devops_guide/tosca_grammar/relationship_type.html)
+More details about the relationship type [here](#/documentation/1.4.0/devops_guide/tosca_grammar/relationship_type.html)
 {% endnote %}
 
 # Next steps
 
 * Going deeper writing TOSCA components
-    * [LAMP Stack Tutorial](#/documentation/1.3.0/devops_guide/lamp_stack_tutorial/lamp_stack.html)
-    * [Create your own components](#/documentation/1.3.0/devops_guide/design_tutorial/tutorials.html)
-* [Going deeper with TOSCA](#/documentation/1.3.0/devops_guide/tosca_grammar/tosca_grammar.html)
-* [Upload your CSAR into Alien4Cloud](#/documentation/1.3.0/user_guide/catalog_type_upload.html)
+    * [LAMP Stack Tutorial](#/documentation/1.4.0/devops_guide/lamp_stack_tutorial/lamp_stack.html)
+    * [Create your own components](#/documentation/1.4.0/devops_guide/design_tutorial/tutorials.html)
+* [Going deeper with TOSCA](#/documentation/1.4.0/devops_guide/tosca_grammar/tosca_grammar.html)
+* [Upload your CSAR into Alien4Cloud](#/documentation/1.4.0/user_guide/catalog_type_upload.html)

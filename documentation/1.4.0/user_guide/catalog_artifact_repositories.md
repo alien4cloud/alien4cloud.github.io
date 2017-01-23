@@ -2,7 +2,7 @@
 layout: post
 title: Artifact repositories
 root: ../../
-categories: DOCUMENTATION-1.3.0
+categories: DOCUMENTATION-1.4.0
 parent: [user_guide, tosca_catalog]
 node_name: tosca_catalog_artifact_repositories
 weight: 400
@@ -22,10 +22,10 @@ Credentials are stocked in Alien 4 cloud database. Only the user of a repository
 
 {% warning %}
 <h5>Tosca support</h5>
-To use repositories in your CSARs use [tosca definitions version](#/documentation/1.3.0/devops_guide/dev_ops_guide.html) **alien_dsl_1_3_0** or greater.
+To use repositories in your CSARs use [tosca definitions version](#/documentation/1.4.0/devops_guide/dev_ops_guide.html) **alien_dsl_1_3_0** or greater.
 {% endwarning %}
 
-[![components repository view](../../images/1.3.0/user_guide/components-repository-view.png)](../../images/1.3.0/user_guide/components-repository-view.png)
+[![components repository view](../../images/1.4.0/user_guide/components-repository-view.png)](../../images/1.4.0/user_guide/components-repository-view.png)
 
 ## Http
 
@@ -44,7 +44,7 @@ node_types:
   alien.nodes.Example:
     artifacts:
     - http_artifact:
-        file: alien4cloud/alien4cloud-cloudify3-provider/1.3.0-SM2/alien4cloud-cloudify3-provider-1.3.0-SM2.zip
+        file: alien4cloud/alien4cloud-cloudify3-provider/1.4.0-SM2/alien4cloud-cloudify3-provider-1.4.0-SM2.zip
         repository: fastconnect
         type: tosca.artifacts.File
 {% endhighlight %}

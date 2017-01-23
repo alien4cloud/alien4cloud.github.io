@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  Advanced configuration
-categories: DOCUMENTATION-1.3.0
+categories: DOCUMENTATION-1.4.0
 root: ../../
 parent: [admin]
 node_name: advanced_configuration
@@ -12,7 +12,7 @@ weight: 100
 
 # Using SSL
 
-see [security section](#/documentation/1.3.0/admin_guide/security.html).
+see [security section](#/documentation/1.4.0/admin_guide/security.html).
 
 # Elastic Search configuration
 
@@ -171,7 +171,7 @@ users:
 
 # LDAP configuration
 
-See specific [sub-section](#/documentation/1.3.0/admin_guide/ldap.html).
+See specific [sub-section](#/documentation/1.4.0/admin_guide/ldap.html).
 
 # Component search boost
 

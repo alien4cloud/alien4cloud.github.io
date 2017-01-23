@@ -2,7 +2,7 @@
 layout: post
 title:  Interface definition
 root: ../../../
-categories: DOCUMENTATION-1.3.0
+categories: DOCUMENTATION-1.4.0
 parent: [devops, tosca_grammar]
 node_name: tosca_ref_types_interface_definition
 weight: 140
@@ -27,7 +27,7 @@ An interface definition defines a named interface that can be associated with a 
 <interface_definition_name>:
   inputs:
     <parameter_definitions>
-  <[operation_definition](#/documentation/1.3.0/devops_guide/tosca_grammar/operation_definition.html)_1>
+  <[operation_definition](#/documentation/1.4.0/devops_guide/tosca_grammar/operation_definition.html)_1>
   ...
   <operation_definition_n>
 {% endhighlight %}

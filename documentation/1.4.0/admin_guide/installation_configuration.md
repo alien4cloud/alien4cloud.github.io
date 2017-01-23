@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  Installation and configuration
-categories: DOCUMENTATION-1.3.0
+categories: DOCUMENTATION-1.4.0
 root: ../../
 parent: [admin]
 node_name: intallation_configuration
@@ -11,14 +11,14 @@ weight: 10
 {% summary %}{% endsummary %}
 
 {% info %}
-This section describe installation and configuration of Alien 4 Cloud for a production mode. If you whish to use Alien 4 Cloud for a demo or development mode please refer to the [getting started](#/documentation/1.3.0/getting_started/getting_started.html) guide.
+This section describe installation and configuration of Alien 4 Cloud for a production mode. If you whish to use Alien 4 Cloud for a demo or development mode please refer to the [getting started](#/documentation/1.4.0/getting_started/getting_started.html) guide.
 {% endinfo %}
 
 {%warning%}
 <h5>Supported platforms</h5>
-To get more informations about the supported platforms, please refer to [this section](#/documentation/1.3.0/admin_guide/supported_platforms.html).
+To get more informations about the supported platforms, please refer to [this section](#/documentation/1.4.0/admin_guide/supported_platforms.html).
 <h5>Ports requirements</h5>
-To get more informations about the ports requirements, please refer to [this section](#/documentation/1.3.0/admin_guide/ports_requirements.html).
+To get more informations about the ports requirements, please refer to [this section](#/documentation/1.4.0/admin_guide/ports_requirements.html).
 {%endwarning%}
 
 # Alien 4 Cloud configuration
@@ -59,7 +59,7 @@ java $JAVA_OPTIONS -jar alien4cloud-ui-1.1.0-{version}-standalone.war
 
 {%info²%}
 <h5> JVM tunning</h5>
-See [JVM tunning section](#/documentation/1.3.0/admin_guide/advanced_configuration.html) for advanced Alien4Cloud JVM options.
+See [JVM tunning section](#/documentation/1.4.0/admin_guide/advanced_configuration.html) for advanced Alien4Cloud JVM options.
 {%endinfo%}
 
 # Logging configuration

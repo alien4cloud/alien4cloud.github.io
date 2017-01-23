@@ -2,7 +2,7 @@
 layout: post
 title:  Component design
 root: ../../
-categories: DOCUMENTATION-1.3.0
+categories: DOCUMENTATION-1.4.0
 parent: [devops, tutorials]
 node_name: tutorial_component_design
 weight: 100
@@ -25,7 +25,7 @@ A same node may have different implementations, for example a Tomcat Node may ha
 Definition of abstract types is also a good way also to provide separation of concern and to let an Architect define a middleware and let the implementation to the experts.
 {% endinfo %}
 
-Second step when defining a node is to find from which parent type it should extends, it can be an existing type already uploaded in ALIEN or one of TOSCA [normative type](#/documentation/1.3.0/devops_guide/normative_types/tosca_concepts_types_normative_nodes.html). There is multiple reasons to extends from the normative types (or another type that itself extends from a normative type):
+Second step when defining a node is to find from which parent type it should extends, it can be an existing type already uploaded in ALIEN or one of TOSCA [normative type](#/documentation/1.4.0/devops_guide/normative_types/tosca_concepts_types_normative_nodes.html). There is multiple reasons to extends from the normative types (or another type that itself extends from a normative type):
 
 * Workflow automatic generation is based on the fact that the node uses the default lifecycle interfaces that are defined on the normative types.
 * Using normative types is also a good way to leverage ALIEN 4 Cloud facet search (for example I will be able to filter on all _ApplicationServer_ nodes).
@@ -53,7 +53,7 @@ Extension is not mandatory as this will just allow to simplify the definition of
 
 The first property we want to define is the version of tomcat that this tomcat definition supports. Indeed all the tomcat versions doesn't have the same capabilities, for example tomcat 7.x supports web-sockets while this is not supported in tomcat 5.x for example.
 
-Version property as stated earlier is already defined in SoftwareComponent, it is possible however to override it to add an additional constraint. In this example we want to describe a tomcat node for all versions 7 so we will redefine the version property (with the same version type) and add [constraints](#/documentation/1.3.0/devops_guide/tosca_grammar/constraints.html).
+Version property as stated earlier is already defined in SoftwareComponent, it is possible however to override it to add an additional constraint. In this example we want to describe a tomcat node for all versions 7 so we will redefine the version property (with the same version type) and add [constraints](#/documentation/1.4.0/devops_guide/tosca_grammar/constraints.html).
 
 Second property that we want to add in this tutorial is the java options to use to startup the Tomcat server. This will allow users to specify the java memory requirements and garbage collection settings.
 

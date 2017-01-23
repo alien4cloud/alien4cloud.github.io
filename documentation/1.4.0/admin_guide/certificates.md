@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  Certificate generation
-categories: DOCUMENTATION-1.3.0
+categories: DOCUMENTATION-1.4.0
 root: ../../
 parent: [admin, security]
 node_name: certificate

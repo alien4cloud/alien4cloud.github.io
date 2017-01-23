@@ -2,7 +2,7 @@
 layout: post
 title: applications-deployment-api
 root: ../../
-categories: DOCUMENTATION-1.3.0
+categories: DOCUMENTATION-1.4.0
 parent: [rest_api]
 node_name: rest_api_applications-deployment-api
 weight: 9

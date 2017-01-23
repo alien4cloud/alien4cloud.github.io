@@ -2,7 +2,7 @@
 layout: post
 title: Suggestions
 root: ../../
-categories: DOCUMENTATION-1.3.0
+categories: DOCUMENTATION-1.4.0
 parent:
   - user_guide
 node_name: suggestions

@@ -2,7 +2,7 @@
 layout: post
 title:  Prerequisites
 root: ../../../
-categories: DOCUMENTATION-1.3.0
+categories: DOCUMENTATION-1.4.0
 parent: [orchestrators, marathon_driver]
 node_name: marathon_prequisites
 weight: 1000
@@ -32,7 +32,7 @@ To deploy a Marathon cluster with Alien, assuming you already have a Cloudify or
 
 ### Import TOSCA definitions for Mesos / Marathon
 
-Import the following CSARs into Alien using the [GIT importer](#/documentation/1.3.0/user_guide/catalog_type_upload.html):
+Import the following CSARs into Alien using the [GIT importer](#/documentation/1.4.0/user_guide/catalog_type_upload.html):
 
 - The `docker-engine` archive, from the [samples repository](https://github.com/alien4cloud/samples) *(recommended version: master)*
 - The `mesos-types` archive, from the [mesos-tosca-types repository](https://github.com/alien4cloud/mesos-tosca-blueprints) *(recommended version: 1.2.0)*
@@ -41,7 +41,7 @@ Those are not necessary to setup the cluster but are required by the plugin, so 
 
 ### Create an Alien application for your cluster
 
-[Create your own](#/documentation/1.3.0/user_guide/topology_editor_overview.html) custom Mesos TOSCA composition or use one of the templates present in the [mesos-tosca-types repository](https://github.com/alien4cloud/mesos-tosca-blueprints). Note that if your IaaS doesn't automatically assigns public IPs you'll have to add a public network to your topology.
+[Create your own](#/documentation/1.4.0/user_guide/topology_editor_overview.html) custom Mesos TOSCA composition or use one of the templates present in the [mesos-tosca-types repository](https://github.com/alien4cloud/mesos-tosca-blueprints). Note that if your IaaS doesn't automatically assigns public IPs you'll have to add a public network to your topology.
 
 We recommend using our latest template, [MarathonRexray](https://github.com/alien4cloud/mesos-tosca-blueprints/blob/1.2.0/topology-marathon-rexray/marathon-rexray-template.yml), which features service-discovery and external storage.
 

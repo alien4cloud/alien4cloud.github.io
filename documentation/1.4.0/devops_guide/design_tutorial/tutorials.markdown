@@ -2,7 +2,7 @@
 layout: post
 title:  Create your own components
 root: ../../
-categories: DOCUMENTATION-1.3.0
+categories: DOCUMENTATION-1.4.0
 parent: [devops]
 node_name: tutorials
 weight: 500

@@ -2,7 +2,7 @@
 layout: post
 title:  Data type
 root: ../../../
-categories: DOCUMENTATION-1.3.0
+categories: DOCUMENTATION-1.4.0
 parent: [devops, tosca_grammar]
 node_name: tosca_grammar_types_data_type
 weight: 30
@@ -18,8 +18,8 @@ weight: 30
 | metadata __(2)__ | no | map of string | Defines a section used to declare additional metadata information. | alien_dsl_1_3_0<br> tosca_simple_yaml_1_0 |
 | tags __(2)__ | no | map of string | Defines a section used to declare additional metadata information. | alien_dsl_1_3_0<br> alien_dsl_1_2_0 |
 | description | no | string | An optional description for the Data Type. | alien_dsl_1_3_0<br> alien_dsl_1_2_0<br> tosca_simple_yaml_1_0 |
-| constraints __(3)__ | no | list of [constraint clauses](#/documentation/1.3.0/devops_guide/tosca_grammar/constraints.html) | The optional list of sequenced constraint clauses for the Data Type. | alien_dsl_1_3_0<br> alien_dsl_1_2_0<br> tosca_simple_yaml_1_0 |
-| properties __(3)__ | no | map of [property definitions](#/documentation/1.3.0/devops_guide/tosca_grammar/property_definition.html) | The optional list of property definitions that comprise the schema for a complex Data Type in TOSCA. | alien_dsl_1_3_0<br> alien_dsl_1_2_0<br> tosca_simple_yaml_1_0 |
+| constraints __(3)__ | no | list of [constraint clauses](#/documentation/1.4.0/devops_guide/tosca_grammar/constraints.html) | The optional list of sequenced constraint clauses for the Data Type. | alien_dsl_1_3_0<br> alien_dsl_1_2_0<br> tosca_simple_yaml_1_0 |
+| properties __(3)__ | no | map of [property definitions](#/documentation/1.4.0/devops_guide/tosca_grammar/property_definition.html) | The optional list of property definitions that comprise the schema for a complex Data Type in TOSCA. | alien_dsl_1_3_0<br> alien_dsl_1_2_0<br> tosca_simple_yaml_1_0 |
 
 * __(1)__ version at type level is defined in TOSCA but they are optional and there is no example on how it should be managed. We believe in alien4cloud that versions should be managed at the service template/archive level and dispatched to every elements defined in the service template/archive.
 * __(2)__ metadata appeared in TOSCA while alien4cloud already had tags supported, support for metadata keyword has been added in 1.3.1 version. note that if you specify both metadata and tags one may silently override the other (this should be avoided).

@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  LDAP integration
-categories: DOCUMENTATION-1.3.0
+categories: DOCUMENTATION-1.4.0
 root: ../../
 parent: [admin, advanced_configuration]
 node_name: ldap

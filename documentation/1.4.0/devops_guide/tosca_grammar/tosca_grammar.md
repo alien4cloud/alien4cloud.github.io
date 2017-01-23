@@ -2,7 +2,7 @@
 layout: post
 title:  TOSCA grammar
 root: ../../../
-categories: DOCUMENTATION-1.3.0
+categories: DOCUMENTATION-1.4.0
 parent: [devops]
 node_name: tosca_grammar
 weight: 1
@@ -12,7 +12,7 @@ This section describes the TOSCA grammar as supported in latest alien4cloud vers
 
 Alien4cloud supports multiple versions of the __tosca_definitions_version__:
 
-* alien_dsl_1_3_0: DSL used in alien4cloud 1.3.0
+* alien_dsl_1_3_0: DSL used in alien4cloud 1.4.0
 * alien_dsl_1_2_0: DSL used in alien4cloud 1.2.0 _deprecated_
 * alien_dsl_1_1_0: DSL used in alien4cloud 1.1.0 _deprecated_. While alien4cloud is still able to parse this definition version it is not officially supported and not recommended.
 
@@ -29,7 +29,7 @@ This section highlight the chances between alien_dsl_1_2_0 and alien_dsl_1_3_0 a
 
 ## Type Validations
 
-Previous version of alien4cloud parser were not checking the types used in requirement_definition and capability definition. This has been fixed in 1.3.0, this should not change your types but will impact the order in which you can upload your archives in alien4cloud.
+Previous version of alien4cloud parser were not checking the types used in requirement_definition and capability definition. This has been fixed in 1.4.0, this should not change your types but will impact the order in which you can upload your archives in alien4cloud.
 
 ## Requirement definition
 
@@ -95,7 +95,7 @@ node_types:
 Artifact definition has changed and yaml node does not contains anymore both the name of artifact and the keynames as it has been defined in previous template versions. The previous notation was indeed more confusing and less inline with yaml definition.
 
 {% info %}
-1.3.0 also support repositories for artifacts. This section is just focused on templates migration and does not introduce new functionalities.
+1.4.0 also support repositories for artifacts. This section is just focused on templates migration and does not introduce new functionalities.
 {% endinfo %}
 
 **alien_dsl_1_2_0**:

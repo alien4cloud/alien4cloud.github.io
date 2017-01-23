@@ -2,7 +2,7 @@
 layout: post
 title:  TOSCA usage guide
 root: ../../
-categories: DOCUMENTATION-1.3.0
+categories: DOCUMENTATION-1.4.0
 parent: []
 node_name: devops
 weight: 350
@@ -21,17 +21,17 @@ Alien 4 Cloud is compliant with OASIS's TOSCA standard to model it's different c
 In order to define components in TOSCA you can use the XML or YAML profile (TOSCA Simple Profile). We recommend using the simple profile and thus this documentation describe only the way to configure elements using the simple profile.
 
 {% warning %}
-<h5>Tosca support in ALien 4 Cloud 1.3.0</h5>
+<h5>Tosca support in ALien 4 Cloud 1.4.0</h5>
 Alien 4 Cloud only supports TOSCA Simple Profile in YAML, XML version is discontinuated and not supported by OASIS TOSCA TC and people still using it should migrate.
 
-Alien 4 Cloud 1.3.0 is very close to TOSCA 1.0.0 but still has a few differences.
+Alien 4 Cloud 1.4.0 is very close to TOSCA 1.0.0 but still has a few differences.
 
 Note that Simple Profile 1.0 specification will soon be released as a TOSCA standard however the standard test-suites have not been written yet.
 {% endwarning %}
 
 # Known differences
 
-This section details the differences between TOSCA Simple Profile and Alien 4 Cloud 1.3.0 dsl:
+This section details the differences between TOSCA Simple Profile and Alien 4 Cloud 1.4.0 dsl:
 
 * __imports__: alien4cloud imports are based on archive name and version rather than url or relative paths. We think that this is a better way to reference artifacts and to increase portability. Most of great tools support this kind of referencing (maven, bower, node etc.). Note that we plan to support TOSCA notation in the future but keep extended support of version notation (hopefully change the standard to include it).
 * __get_artifact__: We don't support get_artifact function in alien4cloud currently but rather provide an environment variable with the name of the artifact that provide the local path of the file.

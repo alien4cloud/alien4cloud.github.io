@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'Backup, restore and migrate data'
-categories: DOCUMENTATION-1.3.0
+categories: DOCUMENTATION-1.4.0
 root: ../../
 parent:
   - admin
@@ -107,7 +107,7 @@ For more commands and options, you can have the help doc displayed:
 
 {% warning %}
 <h5>Alien4Cloud and ElasticSearch states</h5>
-We recommend to stop Alien4Cloud before performing the restore. **ElasticSearch MUST be up and running**. Alien4Cloud should be restarted once the restoration process is completed.  This is quite trivial to do when running in a classical production setup where elasticsearch process is independant from Alien4Cloud ( See [advanced configuration](#/documentation/1.3.0/admin_guide/advanced_configuration.html) for more details ).  
+We recommend to stop Alien4Cloud before performing the restore. **ElasticSearch MUST be up and running**. Alien4Cloud should be restarted once the restoration process is completed.  This is quite trivial to do when running in a classical production setup where elasticsearch process is independant from Alien4Cloud ( See [advanced configuration](#/documentation/1.4.0/admin_guide/advanced_configuration.html) for more details ).  
 However, if running in an embedded configuration, you can't stop Alien4Cloud without stopping ElasticSearch. Then, just make sure the plateform is not used during the process.
 <br/>
 Anyway, if you 100% sure that restore operation has no impact on clouds or plugins configuration you can perform a 'hot restore' and don't need to stop Alien4Cloud.
@@ -123,7 +123,7 @@ Once data is restored, you can restart Alien4Cloud server if needed.
 
 # Migrate
 {% warning %}
-Before migrating data, please make sure to backup your data before. This guide can only used for migration from __`1.2.1`__ to __`1.3.0`__.
+Before migrating data, please make sure to backup your data before. This guide can only used for migration from __`1.2.1`__ to __`1.4.0`__.
 {% endwarning %}
 
 {% warning %}
@@ -139,7 +139,7 @@ In addition, **they have to be bind to the same elasticsearch cluster**, or, if 
 
 {% warning %}
 <h5>Alien4Cloud and ElasticSearch states</h5>
-We recommend to stop Alien4Cloud before performing the migration. **ElasticSearch MUST be up and running**. Alien4Cloud should be restarted once the process is completed.  This is quite trivial to do when running in a classical production setup where elasticsearch process is independant from Alien4Cloud ( See [advanced configuration](#/documentation/1.3.0/admin_guide/advanced_configuration.html) for more details ).  
+We recommend to stop Alien4Cloud before performing the migration. **ElasticSearch MUST be up and running**. Alien4Cloud should be restarted once the process is completed.  This is quite trivial to do when running in a classical production setup where elasticsearch process is independant from Alien4Cloud ( See [advanced configuration](#/documentation/1.4.0/admin_guide/advanced_configuration.html) for more details ).  
 However, if running in an embedded configuration, you can't stop Alien4Cloud without stopping ElasticSearch. Then, just make sure the plateform is not used during the process.  
 {% endwarning %}
 
@@ -168,7 +168,7 @@ exporter.dir: /tmp/alien4cloud/migration/1.3/exported
 importer.dir: /tmp/alien4cloud/migration/1.3/toImport
 
 transform:
-# Application's Id has changed from 1.2.1 to 1.3.0
+# Application's Id has changed from 1.2.1 to 1.4.0
 #Provide here a tag name that, if present on an application, will be use as base for its Id.
 #If not, an Id will be auto-generate from the application's name
   application_tag: testTag
@@ -195,7 +195,7 @@ Here is a sample:
 # "OldPluginId:oldVersion" : "NewPluginId:newVersion"
 ##
 plugins_id:
-  "alien-cloudify-3-orchestrator-premium:1.2.1": "alien-cloudify-3-orchestrator-premium:1.3.0"
+  "alien-cloudify-3-orchestrator-premium:1.2.1": "alien-cloudify-3-orchestrator-premium:1.4.0"
 
 ##
 # mapping of your orchestrator's config url.
@@ -213,7 +213,7 @@ location_import:
 
 {% endhighlight %}
 
- * Place your zipped plugin into the ***init/plugins*** directory of your Alien4cloud 1.3.0, so that it will be loaded on start.
+ * Place your zipped plugin into the ***init/plugins*** directory of your Alien4cloud 1.4.0, so that it will be loaded on start.
 
 ## perform migration
 
@@ -237,7 +237,7 @@ cd /opt/alien4cloud/alien4cloud-premium/
 
 * Refresh your browser by emptying its cache so that new plugins' UI can be loaded.
 
-Normally with this procedure, you should have your Alien functional with new version 1.3.0.
+Normally with this procedure, you should have your Alien functional with new version 1.4.0.
 
 
 

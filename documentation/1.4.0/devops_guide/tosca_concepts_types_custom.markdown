@@ -2,7 +2,7 @@
 layout: post
 title:  Writing custom types
 root: ../../
-categories: DOCUMENTATION-1.3.0
+categories: DOCUMENTATION-1.4.0
 parent: [devops]
 node_name: tosca_ref_types
 weight: 200
@@ -21,5 +21,5 @@ This can also be leveraged in order to meta-model your applications for the clou
 The sub-sections details how you can write your own Capability Types, Node Types and Relationship Types to extends the one that Alien 4 Cloud already provides to you.
 
 {% info %}
-Definition of Node Types and other elements in TOSCA should be done in a definition file and packaged in a [Cloud Service Archive](#/documentation/1.3.0/concepts/tosca.html)
+Definition of Node Types and other elements in TOSCA should be done in a definition file and packaged in a [Cloud Service Archive](#/documentation/1.4.0/concepts/tosca.html)
 {% endinfo %}
