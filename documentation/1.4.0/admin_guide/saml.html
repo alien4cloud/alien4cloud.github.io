@@ -1,0 +1,106 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/1.4.0/admin_guide/saml.html',
+  title: 'SAML integration'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">SAML integration</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.4.0/admin_guide/saml.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <div class="note info">
+<h5>Premium feature</h5>
+<p>This section refers to a premium feature.</p>
+</div>
+
+<p>Alien 4 Cloud support SAML authentication, this section describe the configuration for SAML enablement.</p>
+
+<h1 id="configuration">Configuration</h1>
+
+<p>SAML configuration can be done by updating the configuration of alien4cloud yaml configuration file (config/alien4cloud-config.yml).</p>
+
+<p>Enabled flag must of course be configured to true. You should then configure the various options available from the configuration file:</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">saml</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">enabled</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">false</span>
+  <span class="l-Scalar-Plain">maxAuthenticationAge</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">7200</span>
+  <span class="l-Scalar-Plain">maxAssertionTime</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">3000</span>
+  <span class="c1"># logoutUrl: http://alien4cloud.org</span>
+<span class="c1">#  proxy:</span>
+<span class="c1">#    host: 193.56.47.20</span>
+<span class="c1">#    port: 8080</span>
+  <span class="l-Scalar-Plain">ssl</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">keystore</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">samlKeystore.jks</span>
+    <span class="l-Scalar-Plain">defaultKey</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">apollo</span>
+    <span class="l-Scalar-Plain">keystorepassword</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">nalle123</span>
+  <span class="l-Scalar-Plain">metadata</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">idp</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">url</span><span class="p-Indicator">:</span> <span class="s">&quot;https://idp.ssocircle.com/idp-meta.xml&quot;</span>
+      <span class="c1"># file: &quot;/path/to/file.xml&quot;</span>
+    <span class="l-Scalar-Plain">sp</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">entityId</span><span class="p-Indicator">:</span> <span class="s">&quot;org:alien4cloud:sp&quot;</span>
+      <span class="c1"># entityBaseURL: defaults to localhost:8088</span>
+      <span class="c1"># requestSigned:</span>
+      <span class="c1"># wantAssertionSigned:</span>
+<span class="c1">#  mapping:</span>
+<span class="c1">#    email: EmailAddress</span>
+<span class="c1">#    firstname: FirstName</span>
+<span class="c1">#    lastname: LastName</span></code></pre></div>
+
+<div class="note">
+<p>maxAuthenticationAge and maxAssertionTime allows to configure SAML message validation in alien4cloud so it accepts SAML responses that allows long duration user sessions (meaning authentication on the IDP could be quite old).</p>
+</div>
+
+<p>Once alien4cloud is started you can retrieve alien’s Service Provider metadata from http(s)://alien4cloud.host:alien4cloud.port/saml/metadata.</p>
+
+<div class="note warning">
+<h5>1.3.1 new parameters</h5>
+<p>logoutUrl and attribute mappings are new options in alien4cloud 1.3.1.</p>
+</div>
+
+<p>LogoutUrl allows to specify an url on which the user will be redirected after performing a logout from alien4cloud when SAML is enabled.</p>
+
+<p>Attribute mapping allow alien4cloud to configure the user from values of attributes send in the SAML assertion by the IDP. The mapping should contains the name of the attribute from which to fetch the email, firstname or lastname. You can use all or only some of the attributes.</p>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.4.0/admin_guide/saml.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-1.4.0', 'documentation/1.4.0/admin_guide/saml.md');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

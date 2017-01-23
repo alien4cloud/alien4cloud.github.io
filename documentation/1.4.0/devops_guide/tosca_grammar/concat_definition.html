@@ -1,0 +1,96 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/1.4.0/devops_guide/tosca_grammar/concat_definition.html',
+  title: 'concat'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">concat</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.4.0/devops_guide/tosca_grammar/concat_definition.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <p>The <strong>concat</strong> function  is used to concatenate two or more string values within a TOSCA service template.<br />
+Use this function for attributes
+## Keynames</p>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th style="text-align: left">Keyname</th>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Required</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">string_value_expressions_*</td>
+      <td style="text-align: left">list of string or string value expressions</td>
+      <td style="text-align: left">yes</td>
+      <td style="text-align: left">A list of one or more strings (or expressions that result in a string value) which can be concatenated together into a single string.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="grammar">Grammar</h2>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">concat</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span> <span class="nv">&lt;string_value_expressions_*&gt;</span> <span class="p-Indicator">]</span></code></pre></div>
+
+<h2 id="example">Example</h2>
+
+<p>The following example shows how to define an attribute using concat function:</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">node_types</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">fastconnect.nodes.FunctionSample</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">properties</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">myName</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">string</span>
+      <span class="l-Scalar-Plain">port</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">string</span>
+    <span class="l-Scalar-Plain">attributes</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">url</span><span class="p-Indicator">:</span> <span class="p-Indicator">{</span> <span class="nv">concat</span><span class="p-Indicator">:</span>  <span class="p-Indicator">[</span><span class="s">&quot;http://&quot;</span><span class="p-Indicator">,</span> <span class="nv">get_attribute</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span><span class="nv">SELF</span><span class="p-Indicator">,</span> <span class="nv">public_ip_address</span><span class="p-Indicator">],</span> <span class="s">&quot;:&quot;</span><span class="p-Indicator">,</span> <span class="nv">get_property</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span><span class="nv">SELF</span><span class="p-Indicator">,</span> <span class="nv">port</span><span class="p-Indicator">]]</span> <span class="p-Indicator">}</span>
+    <span class="l-Scalar-Plain">interfaces</span><span class="p-Indicator">:</span>
+      <span class="p-Indicator">[</span><span class="nv">...</span><span class="p-Indicator">]</span></code></pre></div>
+
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.4.0/devops_guide/tosca_grammar/concat_definition.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-1.4.0', 'documentation/1.4.0/devops_guide/tosca_grammar/concat_definition.md');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

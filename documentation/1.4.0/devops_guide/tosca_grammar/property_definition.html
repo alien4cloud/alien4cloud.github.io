@@ -1,0 +1,193 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/1.4.0/devops_guide/tosca_grammar/property_definition.html',
+  title: 'Property definition'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Property definition</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.4.0/devops_guide/tosca_grammar/property_definition.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <p>A property definition defines a named, typed value that can be associated with an entity defined in this specification.  It is used to associate a transparent property or characteristic of that entity which can either be set (configured) on or retrieved from it.</p>
+
+<h2 id="keynames">Keynames</h2>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th style="text-align: left">Keyname</th>
+      <th style="text-align: left">Required</th>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Description</th>
+      <th style="text-align: left">tosca_definitions_version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">type</td>
+      <td style="text-align: left">yes</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">The required data type for the property.</td>
+      <td style="text-align: left">alien_dsl_1_3_0<br /> alien_dsl_1_2_0<br /> tosca_simple_yaml_1_0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">description</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">The optional description for the property.</td>
+      <td style="text-align: left">alien_dsl_1_3_0<br /> alien_dsl_1_2_0<br /> tosca_simple_yaml_1_0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">required</td>
+      <td style="text-align: left">no (default true)</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left">Optional key to define if the property is requied (true) or not (false). If this key is not declared for the property definition, then the property SHALL be considered required by default.</td>
+      <td style="text-align: left">alien_dsl_1_3_0<br /> alien_dsl_1_2_0<br /> tosca_simple_yaml_1_0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">default</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">N/A</td>
+      <td style="text-align: left">An optional key that may provide a value to be used as a default if not provided by another means. This value SHALL be type compatible with the type declared by the property definition’s type keyname.</td>
+      <td style="text-align: left">alien_dsl_1_3_0<br /> alien_dsl_1_2_0<br /> tosca_simple_yaml_1_0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">status <strong>(1)</strong></td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">string (default: supported)</td>
+      <td style="text-align: left">The optional status of the property relative to the specification or implementation. See table below for valid values.</td>
+      <td style="text-align: left">N.A.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">constraints</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left"><a href="#/documentation/1.4.0/devops_guide/tosca_grammar/constraints.html">list of constraints</a></td>
+      <td style="text-align: left">The optional list of sequenced constraints for the property.</td>
+      <td style="text-align: left">alien_dsl_1_3_0<br /> alien_dsl_1_2_0<br /> tosca_simple_yaml_1_0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">entry_schema <strong>(2)</strong></td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left"><a href="#/documentation/1.4.0/devops_guide/tosca_grammar/entry_schema.html">entry schema</a></td>
+      <td style="text-align: left">An optional key used to declare the schema definition for entries of “container” types such as list or map.</td>
+      <td style="text-align: left">alien_dsl_1_3_0<br /> alien_dsl_1_2_0<br /> tosca_simple_yaml_1_0</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li><strong>(1)</strong> Status has been added in the latest versions of the specification and is not yet supported in alien4cloud. Table below details the supported values as defined in the TOSCA specification.</li>
+  <li><strong>(2)</strong> Entry schema definition in TOSCA specification is inconsistent as it is stated you can use a string but the grammar example actually defines a complex object as defined <a href="#/documentation/1.4.0/devops_guide/tosca_grammar/entry_schema.html">here</a>. Alien4cloud supports the complex definition as stated in the grammar section of the specification.</li>
+</ul>
+
+<p class="table table-striped">Status valid values:</p>
+<p>| Value         | Description |
+|:————–|:————|
+| supported  | Indicates the property is supported.  This is the default value for all property definitions. |
+| unsupported | Indicates the property is not supported. |
+| experimental | Indicates the property is experimental and has no official standing. |
+| deprecated | Indicates the property has been deprecated by a new specification version. |</p>
+
+<h2 id="grammar">Grammar</h2>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">&lt;property_name&gt;</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;property_type&gt;</span>
+  <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;property_description&gt;</span>
+  <span class="l-Scalar-Plain">required</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;property_required&gt;</span>
+  <span class="l-Scalar-Plain">default</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;property_default_value&gt;</span>
+  <span class="l-Scalar-Plain">constraints</span><span class="p-Indicator">:</span>
+    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">&lt;property_constraint_1&gt;</span>
+    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">...</span>
+    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">&lt;property_constraint_n&gt;</span></code></pre></div>
+
+<h3 id="example-of-a-container-type-list-or-map">Example of a “container” type (list or map)</h3>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">&lt;property_name&gt;</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;property_type&gt;</span>
+  <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;property_description&gt;</span>
+  <span class="l-Scalar-Plain">required</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;property_required&gt;</span>
+  <span class="l-Scalar-Plain">default</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;property_default_value&gt;</span>
+  <span class="l-Scalar-Plain">entry_schema</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;schema_description&gt;</span>
+    <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;entries_type&gt;</span>
+    <span class="l-Scalar-Plain">constraints</span><span class="p-Indicator">:</span>
+      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">&lt;entries_constraint_1&gt;</span>
+      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">...</span>
+      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">&lt;entries_constraint_n&gt;</span></code></pre></div>
+
+<p>See:</p>
+
+<ul>
+  <li><a href="#/documentation/1.4.0/devops_guide/tosca_grammar/constraints.html">constraints</a></li>
+</ul>
+
+<h2 id="example">Example</h2>
+
+<p>The following example shows how to define a node type with properties:</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">node_types</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">fastconnect.nodes.PropertiesSample</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">properties</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">property_1</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">string</span>
+      <span class="l-Scalar-Plain">property_2</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">string</span>
+        <span class="l-Scalar-Plain">required</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">false</span>
+        <span class="l-Scalar-Plain">default</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">This is the default value of the property</span>
+        <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">this is the second property of the node</span>
+        <span class="l-Scalar-Plain">constraints</span><span class="p-Indicator">:</span>
+          <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">min_length</span> <span class="p-Indicator">:</span> <span class="l-Scalar-Plain">4</span>
+          <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">max_length</span> <span class="p-Indicator">:</span> <span class="l-Scalar-Plain">8</span>
+      <span class="l-Scalar-Plain">property_3</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">integer</span>
+        <span class="l-Scalar-Plain">default</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">45</span>
+      <span class="l-Scalar-Plain">property_4</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">list</span>
+        <span class="l-Scalar-Plain">entry_schema</span><span class="p-Indicator">:</span>
+          <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">integer</span>
+          <span class="l-Scalar-Plain">constraints</span><span class="p-Indicator">:</span>
+            <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">valid_values</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span> <span class="nv">2</span><span class="p-Indicator">,</span> <span class="nv">4</span><span class="p-Indicator">,</span> <span class="nv">5</span><span class="p-Indicator">,</span> <span class="nv">8</span><span class="p-Indicator">]</span></code></pre></div>
+
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.4.0/devops_guide/tosca_grammar/property_definition.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-1.4.0', 'documentation/1.4.0/devops_guide/tosca_grammar/property_definition.md');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

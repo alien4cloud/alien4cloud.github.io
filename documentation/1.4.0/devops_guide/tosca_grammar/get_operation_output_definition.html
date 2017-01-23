@@ -1,0 +1,115 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/1.4.0/devops_guide/tosca_grammar/get_operation_output_definition.html',
+  title: 'get_operation_output'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">get_operation_output</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.4.0/devops_guide/tosca_grammar/get_operation_output_definition.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <p>The <strong>get_operation_output</strong> function is used to retrieve the values of variables exposed / exported from an interface operations.<br />
+Use this function for inputs parameters and/or attributes.</p>
+
+<h2 id="keynames">Keynames</h2>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th style="text-align: left">Keyname</th>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Required</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">modelable_entity_name</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">yes</td>
+      <td style="text-align: left">The  required  name of a modelable entity (e.g., Node Template  or Relationship  Template name) as declared in the service template that implements the named interface and operation. Can be one of the reserved keywords: SELF, SOURCE, TARGET, HOST</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">interface_name</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">yes</td>
+      <td style="text-align: left">The required name of the interface which defines the operation.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">operation_name</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">yes</td>
+      <td style="text-align: left">The required name of the operation whose output value we would like to retrieve.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">output_variable_name</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">yes</td>
+      <td style="text-align: left">The required name of the output variable that is exposed / exported by the operation.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="grammar">Grammar</h2>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">get_operation_output</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span> <span class="nv">&lt;modelable_entity_name | SELF | SOURCE | TARGET | HOST&gt;</span><span class="p-Indicator">,</span> <span class="nv">&lt;interface_name&gt;</span><span class="p-Indicator">,</span> <span class="nv">&lt;operation_name&gt;</span><span class="p-Indicator">,</span> <span class="nv">&lt;output_variable_name&gt;</span> <span class="p-Indicator">]</span></code></pre></div>
+
+<h2 id="example">Example</h2>
+
+<p>The following example shows how to define an attribute and an input parameter using get_operation_output function:</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">node_types</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">fastconnect.nodes.FunctionSample</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">attributes</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">port</span><span class="p-Indicator">:</span> <span class="p-Indicator">{</span> <span class="nv">get_operation_output</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span><span class="nv">SELF</span><span class="p-Indicator">,</span> <span class="nv">Standard</span><span class="p-Indicator">,</span> <span class="nv">configure</span><span class="p-Indicator">,</span> <span class="nv">bound_port</span><span class="p-Indicator">]}</span>
+    <span class="l-Scalar-Plain">interfaces</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">Standard</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">configure</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">config.sh</span>  <span class="c1">#the  config.sh script should expose an environment variable (output) named &quot;bound_port&quot;</span>
+        <span class="l-Scalar-Plain">start</span><span class="p-Indicator">:</span>
+          <span class="l-Scalar-Plain">inputs</span><span class="p-Indicator">:</span>
+            <span class="l-Scalar-Plain">PORT</span><span class="p-Indicator">:</span> <span class="p-Indicator">{</span> <span class="nv">get_operation_output</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span><span class="nv">SELF</span><span class="p-Indicator">,</span> <span class="nv">Standard</span><span class="p-Indicator">,</span> <span class="nv">configure</span><span class="p-Indicator">,</span> <span class="nv">bound_port</span><span class="p-Indicator">]}</span>
+          <span class="l-Scalar-Plain">implementation</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">start.sh</span></code></pre></div>
+
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.4.0/devops_guide/tosca_grammar/get_operation_output_definition.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-1.4.0', 'documentation/1.4.0/devops_guide/tosca_grammar/get_operation_output_definition.md');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

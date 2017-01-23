@@ -1,0 +1,103 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/1.4.0/user_guide/dashboard_plugin.html',
+  title: 'Dashboards'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Dashboards</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.4.0/user_guide/dashboard_plugin.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        
+<hr style="margin-top:5px; margin-bottom:5px;" />
+<div class="row"><ul class="nav nav-pills" id="summarypanel"></ul></div>
+<hr style="margin-top:5px; margin-bottom:5px;" />
+
+<div class="note info">
+<h5>Premium feature</h5>
+<p>Dashboard plugin is a premium feature.</p>
+</div>
+
+<p>Dashboard plugin objective is to provide more visibility among users like application manager and admin. The purpose is to provide an easy way to visualize occuring resources and manage it.
+This plugin add several screens in alien4Cloud and display information about how many nodes are deployed for an application, or for an orchestrator, etc..
+It also collects important information for billing purpose like maximum nodes that has been deployed at a moment.</p>
+
+<h1 id="how-to-use-it-">How to use it ?</h1>
+
+<h2 id="load-it">Load it</h2>
+<p>Like every alien&#8217;s plugin, dashboard plugin can be drag &amp; drop in &#8220;Admin &gt; plugins&#8221; section.</p>
+
+<h2 id="configure-it">Configure it</h2>
+<p>Dashboard plugin has default configuration but you can define &#8220;instanceReports&#8221; frequency refreshment. Instance reports task collect information about nodes that are deployed or undeployed to create a global view.</p>
+
+<p>This property is a cron expression like for example &#8220;0 0/5 * * * *&#8221; (every 5 minutes). You can define frequency as you wish.</p>
+
+<h1 id="views">Views</h1>
+
+<h2 id="home-view">Home view</h2>
+
+<p>On home view we can find (from left to right) :</p>
+
+<ul>
+  <li>Maximum number of nodes ever reached and when it has been reached</li>
+  <li>A sunburst graph about nodes hierarchy</li>
+  <li>A timeline graph about number of nodes deployed</li>
+  <li>A sunburst graph about number of compute nodes by app, by Iaas</li>
+</ul>
+
+<p><img src="../../images/1.4.0/user_guide/dashboard/screen_home.png" alt="Home view" /></p>
+
+<h2 id="application-view">Application view</h2>
+<p>A new tab is available in &#8220;Application&#8221; view and give access to a timeline graph about number of resources deployed on a period. It displayed on line by type of nodes : alien.nodes.Compute, alien.nodes.Network and alien.nodes.BlockStorage.</p>
+
+<p><img src="../../images/1.4.0/user_guide/dashboard/screen_appli.png" alt="Application view" /></p>
+
+<h2 id="orchestrator-view">Orchestrator view</h2>
+
+<p>A new tab is available in &#8220;orchestrator&#8221; view and give access to :
+- A timeline graph about number of resources deployed on a period. It displayed on line by type of nodes : alien.nodes.Compute, alien.nodes.Network and alien.nodes.BlockStorage.
+- A bar chart graph a resources currently running by type : alien.nodes.Compute, alien.nodes.Network and alien.nodes.BlockStorage.
+<img src="../../images/1.4.0/user_guide/dashboard/screen_orc.png" alt="Orchestrator view" /></p>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.4.0/user_guide/dashboard_plugin.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-1.4.0', 'documentation/1.4.0/user_guide/dashboard_plugin.md');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

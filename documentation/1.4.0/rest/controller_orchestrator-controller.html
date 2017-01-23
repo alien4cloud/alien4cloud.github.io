@@ -1,0 +1,795 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/1.4.0/rest/controller_orchestrator-controller.html',
+  title: 'Manages orchestrators.'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Manages orchestrators.</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.4.0/rest/controller_orchestrator-controller.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <h3 id="search-for-orchestrators">Search for orchestrators.</h3>
+<p><code>
+GET /rest/v1/orchestrators
+</code></p>
+
+<h4 id="parameters">Parameters</h4>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>QueryParameter</td>
+      <td>query</td>
+      <td>Query text.</td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>QueryParameter</td>
+      <td>connectedOnly</td>
+      <td>If true only connected orchestrators will be retrieved.</td>
+      <td>false</td>
+      <td>boolean</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>QueryParameter</td>
+      <td>from</td>
+      <td>Query from the given index.</td>
+      <td>false</td>
+      <td>integer (int32)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>QueryParameter</td>
+      <td>size</td>
+      <td>Maximum number of results to retrieve.</td>
+      <td>false</td>
+      <td>integer (int32)</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="responses">Responses</h4>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>HTTP Code</th>
+      <th>Description</th>
+      <th>Schema</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>200</td>
+      <td>OK</td>
+      <td>RestResponse«GetMultipleDataResult«Orchestrator.»»</td>
+    </tr>
+    <tr>
+      <td>401</td>
+      <td>Unauthorized</td>
+      <td>No Content</td>
+    </tr>
+    <tr>
+      <td>403</td>
+      <td>Forbidden</td>
+      <td>No Content</td>
+    </tr>
+    <tr>
+      <td>404</td>
+      <td>Not Found</td>
+      <td>No Content</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="consumes">Consumes</h4>
+
+<ul>
+  <li>application/json</li>
+</ul>
+
+<h4 id="produces">Produces</h4>
+
+<ul>
+  <li>application/json</li>
+</ul>
+
+<h3 id="create-a-new-orchestrators">Create a new orchestrators.</h3>
+<p><code>
+POST /rest/v1/orchestrators
+</code></p>
+
+<h4 id="parameters-1">Parameters</h4>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>BodyParameter</td>
+      <td>orchestratorRequest</td>
+      <td>Request for orchestrators creation</td>
+      <td>true</td>
+      <td>Request for creation of a new orchestrators.</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="responses-1">Responses</h4>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>HTTP Code</th>
+      <th>Description</th>
+      <th>Schema</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>201</td>
+      <td>Created</td>
+      <td>RestResponse«string»</td>
+    </tr>
+    <tr>
+      <td>401</td>
+      <td>Unauthorized</td>
+      <td>No Content</td>
+    </tr>
+    <tr>
+      <td>403</td>
+      <td>Forbidden</td>
+      <td>No Content</td>
+    </tr>
+    <tr>
+      <td>404</td>
+      <td>Not Found</td>
+      <td>No Content</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="consumes-1">Consumes</h4>
+
+<ul>
+  <li>application/json</li>
+</ul>
+
+<h4 id="produces-1">Produces</h4>
+
+<ul>
+  <li>application/json</li>
+</ul>
+
+<h3 id="get-an-orchestrators-from-its-id">Get an orchestrators from it’s id.</h3>
+<p><code>
+GET /rest/v1/orchestrators/{id}
+</code></p>
+
+<h4 id="parameters-2">Parameters</h4>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>PathParameter</td>
+      <td>id</td>
+      <td>Id of the orchestrator to get</td>
+      <td>true</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="responses-2">Responses</h4>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>HTTP Code</th>
+      <th>Description</th>
+      <th>Schema</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>200</td>
+      <td>OK</td>
+      <td>RestResponse«Orchestrator.»</td>
+    </tr>
+    <tr>
+      <td>401</td>
+      <td>Unauthorized</td>
+      <td>No Content</td>
+    </tr>
+    <tr>
+      <td>403</td>
+      <td>Forbidden</td>
+      <td>No Content</td>
+    </tr>
+    <tr>
+      <td>404</td>
+      <td>Not Found</td>
+      <td>No Content</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="consumes-2">Consumes</h4>
+
+<ul>
+  <li>application/json</li>
+</ul>
+
+<h4 id="produces-2">Produces</h4>
+
+<ul>
+  <li>application/json</li>
+</ul>
+
+<h3 id="update-the-name-of-an-existing-orchestrators">Update the name of an existing orchestrators.</h3>
+<p><code>
+PUT /rest/v1/orchestrators/{id}
+</code></p>
+
+<h4 id="parameters-3">Parameters</h4>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>PathParameter</td>
+      <td>id</td>
+      <td>Id of the orchestrators to update.</td>
+      <td>true</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>BodyParameter</td>
+      <td>request</td>
+      <td>Orchestrator update request, representing the fields to updates and their new values.</td>
+      <td>true</td>
+      <td>Orchestrator update request.</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="responses-3">Responses</h4>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>HTTP Code</th>
+      <th>Description</th>
+      <th>Schema</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>200</td>
+      <td>OK</td>
+      <td>RestResponse«Void»</td>
+    </tr>
+    <tr>
+      <td>201</td>
+      <td>Created</td>
+      <td>No Content</td>
+    </tr>
+    <tr>
+      <td>401</td>
+      <td>Unauthorized</td>
+      <td>No Content</td>
+    </tr>
+    <tr>
+      <td>403</td>
+      <td>Forbidden</td>
+      <td>No Content</td>
+    </tr>
+    <tr>
+      <td>404</td>
+      <td>Not Found</td>
+      <td>No Content</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="consumes-3">Consumes</h4>
+
+<ul>
+  <li>application/json</li>
+</ul>
+
+<h4 id="produces-3">Produces</h4>
+
+<ul>
+  <li>application/json</li>
+</ul>
+
+<h3 id="delete-an-existing-orchestrators">Delete an existing orchestrators.</h3>
+<p><code>
+DELETE /rest/v1/orchestrators/{id}
+</code></p>
+
+<h4 id="parameters-4">Parameters</h4>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>PathParameter</td>
+      <td>id</td>
+      <td>Id of the orchestrators to delete.</td>
+      <td>true</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="responses-4">Responses</h4>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>HTTP Code</th>
+      <th>Description</th>
+      <th>Schema</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>200</td>
+      <td>OK</td>
+      <td>RestResponse«Void»</td>
+    </tr>
+    <tr>
+      <td>401</td>
+      <td>Unauthorized</td>
+      <td>No Content</td>
+    </tr>
+    <tr>
+      <td>204</td>
+      <td>No Content</td>
+      <td>No Content</td>
+    </tr>
+    <tr>
+      <td>403</td>
+      <td>Forbidden</td>
+      <td>No Content</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="consumes-4">Consumes</h4>
+
+<ul>
+  <li>application/json</li>
+</ul>
+
+<h4 id="produces-4">Produces</h4>
+
+<ul>
+  <li>application/json</li>
+</ul>
+
+<h3 id="get-information-on-the-artifacts-that-an-orchestrator-can-support">Get information on the artifacts that an orchestrator can support.</h3>
+<p><code>
+GET /rest/v1/orchestrators/{id}/artifacts-support
+</code></p>
+
+<h4 id="parameters-5">Parameters</h4>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>PathParameter</td>
+      <td>id</td>
+      <td>Id of the orchestrator for which to get artifact support informations</td>
+      <td>true</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="responses-5">Responses</h4>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>HTTP Code</th>
+      <th>Description</th>
+      <th>Schema</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>200</td>
+      <td>OK</td>
+      <td>RestResponse«Array«string»»</td>
+    </tr>
+    <tr>
+      <td>401</td>
+      <td>Unauthorized</td>
+      <td>No Content</td>
+    </tr>
+    <tr>
+      <td>403</td>
+      <td>Forbidden</td>
+      <td>No Content</td>
+    </tr>
+    <tr>
+      <td>404</td>
+      <td>Not Found</td>
+      <td>No Content</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="consumes-5">Consumes</h4>
+
+<ul>
+  <li>application/json</li>
+</ul>
+
+<h4 id="produces-5">Produces</h4>
+
+<ul>
+  <li>application/json</li>
+</ul>
+
+<h3 id="disable-an-orchestrator-destroys-the-instance-of-the-orchestrator-connector">Disable an orchestrator. Destroys the instance of the orchestrator connector.</h3>
+<p><code>
+DELETE /rest/v1/orchestrators/{id}/instance
+</code></p>
+
+<h4 id="parameters-6">Parameters</h4>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>PathParameter</td>
+      <td>id</td>
+      <td>Id of the orchestrator to enable</td>
+      <td>true</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>QueryParameter</td>
+      <td>force</td>
+      <td>This parameter is useful only when trying to disable the orchestrator, if deployments are performed using this orchestrator disable operation will fail unnless the force flag is true</td>
+      <td>false</td>
+      <td>boolean</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>QueryParameter</td>
+      <td>clearDeployments</td>
+      <td>In case an orchestrator with deployment is forced to be disabled, the user may decide to mark all deployments managed by this orchestrator as ended.</td>
+      <td>false</td>
+      <td>boolean</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="responses-6">Responses</h4>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>HTTP Code</th>
+      <th>Description</th>
+      <th>Schema</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>200</td>
+      <td>OK</td>
+      <td>RestResponse«List«Usage»»</td>
+    </tr>
+    <tr>
+      <td>401</td>
+      <td>Unauthorized</td>
+      <td>No Content</td>
+    </tr>
+    <tr>
+      <td>204</td>
+      <td>No Content</td>
+      <td>No Content</td>
+    </tr>
+    <tr>
+      <td>403</td>
+      <td>Forbidden</td>
+      <td>No Content</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="consumes-6">Consumes</h4>
+
+<ul>
+  <li>application/json</li>
+</ul>
+
+<h4 id="produces-6">Produces</h4>
+
+<ul>
+  <li>application/json</li>
+</ul>
+
+<h3 id="enable-an-orchestrator-creates-the-instance-of-orchestrator-if-not-already-created">Enable an orchestrator. Creates the instance of orchestrator if not already created.</h3>
+<p><code>
+POST /rest/v1/orchestrators/{id}/instance
+</code></p>
+
+<h4 id="parameters-7">Parameters</h4>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>PathParameter</td>
+      <td>id</td>
+      <td>Id of the orchestrator to enable</td>
+      <td>true</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="responses-7">Responses</h4>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>HTTP Code</th>
+      <th>Description</th>
+      <th>Schema</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>200</td>
+      <td>OK</td>
+      <td>RestResponse«Void»</td>
+    </tr>
+    <tr>
+      <td>201</td>
+      <td>Created</td>
+      <td>No Content</td>
+    </tr>
+    <tr>
+      <td>401</td>
+      <td>Unauthorized</td>
+      <td>No Content</td>
+    </tr>
+    <tr>
+      <td>403</td>
+      <td>Forbidden</td>
+      <td>No Content</td>
+    </tr>
+    <tr>
+      <td>404</td>
+      <td>Not Found</td>
+      <td>No Content</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="consumes-7">Consumes</h4>
+
+<ul>
+  <li>application/json</li>
+</ul>
+
+<h4 id="produces-7">Produces</h4>
+
+<ul>
+  <li>application/json</li>
+</ul>
+
+<h3 id="get-information-on-the-locations-that-an-orchestrator-can-support">Get information on the locations that an orchestrator can support.</h3>
+<p><code>
+GET /rest/v1/orchestrators/{id}/locationsupport
+</code></p>
+
+<h4 id="parameters-8">Parameters</h4>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>PathParameter</td>
+      <td>id</td>
+      <td>Id of the orchestrator for which to get location support informations</td>
+      <td>true</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="responses-8">Responses</h4>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>HTTP Code</th>
+      <th>Description</th>
+      <th>Schema</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>200</td>
+      <td>OK</td>
+      <td>RestResponse«LocationSupport»</td>
+    </tr>
+    <tr>
+      <td>401</td>
+      <td>Unauthorized</td>
+      <td>No Content</td>
+    </tr>
+    <tr>
+      <td>403</td>
+      <td>Forbidden</td>
+      <td>No Content</td>
+    </tr>
+    <tr>
+      <td>404</td>
+      <td>Not Found</td>
+      <td>No Content</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="consumes-8">Consumes</h4>
+
+<ul>
+  <li>application/json</li>
+</ul>
+
+<h4 id="produces-8">Produces</h4>
+
+<ul>
+  <li>application/json</li>
+</ul>
+
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.4.0/rest/controller_orchestrator-controller.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-1.4.0', 'documentation/1.4.0/rest/controller_orchestrator-controller.md');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

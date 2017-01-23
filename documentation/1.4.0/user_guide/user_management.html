@@ -1,0 +1,165 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/1.4.0/user_guide/user_management.html',
+  title: 'User(s) and Roles management'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">User(s) and Roles management</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.4.0/user_guide/user_management.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        
+<hr style="margin-top:5px; margin-bottom:5px;" />
+<div class="row"><ul class="nav nav-pills" id="summarypanel"></ul></div>
+<hr style="margin-top:5px; margin-bottom:5px;" />
+
+<div class="note info">
+<h5>LDAP integration</h5>
+<p>If you wish to integrate with an LDAP directory please go <a href="#/documentation/1.4.0/admin_guide/ldap.html">here</a>.</p>
+
+<p>Note that you can use LDAP for users and eventually role management. You can also manage roles in Alien even for LDAP user if you wish. In addition you can have users managed in LDAP and create some additional user that will be managed within Alien.</p>
+</div>
+
+<div class="note info">
+<h5>SAML integration</h5>
+<p>If you use the premium version and wish To use SAML please check the documentation <a href="#/documentation/1.4.0/admin_guide/saml.html">here</a>.</p>
+</div>
+
+<div class="note info">
+<h5>Roles</h5>
+<p>In order to edit users in Alien 4 Cloud you must have the ADMIN role. Default username and password when starting alien 4 cloud are <em>admin</em> / <em>admin</em></p>
+</div>
+
+<h1 id="users">User(s)</h1>
+
+<p>In order to manage users go the to page by clicking on the <img src="../../images/user_guide/admin/admin_button.png" alt="Go to admin" class="inline" /> button in the navigation bar. Then click on the user tab of the administration side navigation bar <img src="../../images/user_guide/admin/users/users_menu_side.png" alt="Go to user management" class="inline" /> or on the user main icon.</p>
+
+<p>The user page allows you to manage both users and groups. On the user tab you can search users and see the list of users matching your request.</p>
+
+<p><img src="../../images/user_guide/admin/users/user_list.png" alt="User list" /></p>
+
+<h2 id="create-user">Create user</h2>
+
+<p>In order to create a new user within Alien just click on the <em>New User</em> button <img src="../../images/user_guide/admin/users/user_new.png" alt="Create user" class="inline" />. The create user modal appears and allows you fill-in initial data for your user.</p>
+
+<p><img src="../../images/user_guide/admin/users/user_new_modal.png" alt="Create user" /></p>
+
+<p>Admin is responsible for setting up the username (that will be used for login) and the password of the user.</p>
+
+<div class="note warning">
+<h5>Limitations</h5>
+<p>We are working on adding the ability for a user to edit it’s details but this is currently not an available feature. Changing user details can now be done only by an ADMIN user through the REST API.
+Of course when using LDAP integration the password are managed by LDAP and there is no requirement for any management in Alien.</p>
+</div>
+
+<h2 id="search-user">Search user</h2>
+
+<p><img src="../../images/user_guide/admin/users/user_search.png" alt="Search user" /></p>
+
+<h2 id="remove-user">Remove user</h2>
+
+<p><img src="../../images/user_guide/admin/users/user_remove.png" alt="Remove user" /></p>
+
+<h2 id="grant-roles-to-a-user">Grant role(s) to a user</h2>
+
+<p><img src="../../images/user_guide/admin/users/user_edit_roles.png" alt="Grant role(s) to a user" /></p>
+
+<h1 id="groups">Group(s)</h1>
+
+<p><img src="../../images/user_guide/admin/users/group_list.png" alt="Group list" /></p>
+
+<h2 id="create-a-group">Create a group</h2>
+
+<p>To create a new group within Alien just click on <img src="../../images/user_guide/admin/users/group_new.png" alt="Create group" class="inline" /></p>
+
+<p><img src="../../images/user_guide/admin/users/group_new_modal.png" alt="Create group" /></p>
+
+<h2 id="addremove-a-user-tofrom-a-group">Add/Remove a user to/from a group</h2>
+
+<p><img src="../../images/user_guide/admin/users/user_edit_groups.png" alt="Add/Remove " /></p>
+
+<h1 id="roles-in-alien-4-cloud">Roles in Alien 4 Cloud</h1>
+
+<div class="note info">
+<p>To understand the roles concept, please refer to <a href="#/documentation/1.4.0/concepts/roles.html">this section</a>.</p>
+</div>
+
+<p>These roles describes global roles you can grant to a user. From his/her roles Alien 4 Cloud will display and allow some operations.</p>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Role</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">ADMIN</td>
+      <td style="text-align: left">Manages users, plugins, configure clouds + all other roles.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">APPLICATIONS_MANAGER</td>
+      <td style="text-align: left">Create new application(s).</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ARCHITECT</td>
+      <td style="text-align: left">Create and edit topology template(s).</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">COMPONENTS_BROWSER</td>
+      <td style="text-align: left">[Deprecated] Not used anymore for validation. Can list components and see details for any of them</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">COMPONENTS_MANAGER</td>
+      <td style="text-align: left">Manage TOSCA cloud service archives to add/remove components from the catalog.</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="note info">
+<p>A user with no roles can log-in and view the resources for which he has been granted. For example a user with no global roles can still access and manage applications on which he has <em>resources</em> roles (see application and environments roles).</p>
+</div>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.4.0/user_guide/user_management.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-1.4.0', 'documentation/1.4.0/user_guide/user_management.md');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

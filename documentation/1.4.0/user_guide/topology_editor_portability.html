@@ -1,0 +1,136 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/1.4.0/user_guide/topology_editor_portability.html',
+  title: 'Portability insights'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Portability insights</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.4.0/user_guide/topology_editor_portability.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        
+<hr style="margin-top:5px; margin-bottom:5px;" />
+<div class="row"><ul class="nav nav-pills" id="summarypanel"></ul></div>
+<hr style="margin-top:5px; margin-bottom:5px;" />
+
+<div class="note info">
+<h5>Premium feature</h5>
+<p>Portability insight is a Premium feature.</p>
+</div>
+
+<p>Alien4Cloud holds a catalog of components, which are added by uploading archives (CSARS). Also, orchestrators plugins can provide the catalog with specific components they need to run, thus, rendering them accessible when browsing or editing a topology.  Using them in an abstract topology is a bad practice as they will lower the portability of the topology (only deployable on the location (or with the orchestrator) which provided them).
+The purposes of the <code>portability</code> concept in this application are:</p>
+
+<ul>
+  <li>Allowing the component&#8217;s designer to specify the portability level of his components</li>
+  <li>Informing users about the specificity of those components, and giving them the portability level of the topology they are creating.</li>
+</ul>
+
+<h1 id="components-portability">Components portability</h1>
+
+<p>There are few information describing the portability of a component. We should call them <strong>Portability indicators</strong> or simply <strong>indicators</strong> from now on.</p>
+
+<h2 id="portability-indicators">Portability indicators</h2>
+<p>The indicators depends on the type of the component we want to describe.</p>
+
+<h3 id="applicable-for-all-components">Applicable for all components</h3>
+
+<ul>
+  <li><strong><code>IAASS</code></strong>: List of IaaSs this component is linked to, meaning you can not deploy it on any other one.</li>
+  <li><strong><code>ORCHESTRATORS</code></strong>: List of orchestrators the component is linked to, meaning you can only deploy it using this orchestrator.</li>
+</ul>
+
+<p>For example, you can add facets in the components view to show all components of a specific IAASS, like the following screen.</p>
+
+<p><img src="../../images/1.4.0/user_guide/topology_portability/components_portability_facets.png" alt="Portability facets" /></p>
+
+<p>And when you click on the <img src="../../images/1.4.0/user_guide/topology_portability/portaiblity_icon.png" alt="Go to portability details" class="inline" /> icon of a component you can see more portability informations.</p>
+
+<p><img src="../../images/1.4.0/user_guide/topology_portability/components_details.png" alt="Component details about portability" /></p>
+
+<h3 id="applicable-only-for-a-compute">Applicable only for a Compute</h3>
+<p>The followings indicators can only be defined on a Compute node:</p>
+
+<ul>
+  <li><strong><code>SUPPORTED_ARTIFACTS</code></strong>: List of artifacts types that the compute supports, such as <code>sh, bat, etc...</code>. Therefore, you might nor be able to host on it, a component which implementation scripts&#8217; artifact type is not one of these indicator&#8217;s values.</li>
+  <li><strong><code>INSTALLED_PACKAGES</code></strong>: List of the packages that are pre-installed on the compute. This might serve when hosting a component which has a requirement on a specific package like <code>apt, yum, etc...</code>. Note that this particular indicator do not make any sense if provided for the basic Tosca Compute, as it is an abstract type. It would makes more sense on an implementation of that node (a template), for example, on a On demand resource of type Compute bound to a specific image.</li>
+</ul>
+
+<h3 id="applicable-for-others-components-except-the-compute">Applicable for others components (except the Compute):</h3>
+<ul>
+  <li><strong><code>REQUIRED_PACKAGES</code></strong>: List of packages that the component needs to be deployed and run correctly. This will be match with the <code>INSTALLED_PACKAGES</code> indicator or the Compute component on whit the component will be linked.</li>
+</ul>
+
+<h2 id="yaml-providing">YAML providing</h2>
+<p>Alien4Cloud allows the component  and/or the orchestrator plugin designer to provides values for these indicators in the definition of the component type in the yaml file, using the above keys.  For example:</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">alien.example.Node</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">derived_from</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.nodes.SoftwareComponent</span>
+  <span class="l-Scalar-Plain">properties</span><span class="p-Indicator">:</span>
+    <span class="p-Indicator">[</span><span class="nv">...</span><span class="p-Indicator">]</span>
+  <span class="l-Scalar-Plain">capabilities</span><span class="p-Indicator">:</span>
+    <span class="p-Indicator">[</span><span class="nv">...</span><span class="p-Indicator">]</span>
+  <span class="l-Scalar-Plain">portability</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">ORCHESTRATORS</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span><span class="nv">Mock</span><span class="p-Indicator">]</span>
+    <span class="l-Scalar-Plain">IAASS</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span> <span class="nv">OpenStack</span> <span class="p-Indicator">]</span></code></pre></div>
+
+<p>When working with plugins orchestrators, some indicators values are such as <code>IAASS</code> and <code>ORCHESTRATORS</code> are automatically registered, and merged (if defined in the yaml) with the existing one.</p>
+
+<h2 id="ui-edition">UI edition</h2>
+<p>We also allow administrator to edit portability indicators on the user interface. This is only valid for orchestrator plugin&#8217;s components, and it is done when creating and configuring on demand  location resources.</p>
+
+<p><img src="../../images/1.4.0/user_guide/topology_portability/on-demand-ressources.png" alt="On demand ressources" /></p>
+
+<h1 id="topology-portability">Topology portability</h1>
+
+<p>The topology portability level is defined by combining the portability level of all its components.
+In the topology edition view, every component in the catalog has a portability information. So, the architect is be able to see progressively the impact of what he chose to add on the designed topology. To see this impact, go to portability view of the topology.</p>
+
+<p><img src="../../images/1.4.0/user_guide/topology_portability/topology_portability_infos.png" alt="Portability impacts" /></p>
+
+<p>The faster way to see the compatible locations with your current topology is the location support view.</p>
+
+<p><img src="../../images/1.4.0/user_guide/topology_portability/location_support.png" alt="Location support" /></p>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.4.0/user_guide/topology_editor_portability.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-1.4.0', 'documentation/1.4.0/user_guide/topology_editor_portability.md');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

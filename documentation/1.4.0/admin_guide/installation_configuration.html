@@ -1,0 +1,119 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/1.4.0/admin_guide/installation_configuration.html',
+  title: 'Installation and configuration'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Installation and configuration</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.4.0/admin_guide/installation_configuration.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        
+<hr style="margin-top:5px; margin-bottom:5px;" />
+<div class="row"><ul class="nav nav-pills" id="summarypanel"></ul></div>
+<hr style="margin-top:5px; margin-bottom:5px;" />
+
+<div class="note info">
+<p>This section describe installation and configuration of Alien 4 Cloud for a production mode. If you whish to use Alien 4 Cloud for a demo or development mode please refer to the <a href="#/documentation/1.4.0/getting_started/getting_started.html">getting started</a> guide.</p>
+</div>
+
+<div class="note warning">
+<h5>Supported platforms</h5>
+<p>To get more informations about the supported platforms, please refer to <a href="#/documentation/1.4.0/admin_guide/supported_platforms.html">this section</a>.</p>
+<h5>Ports requirements</h5>
+<p>To get more informations about the ports requirements, please refer to <a href="#/documentation/1.4.0/admin_guide/ports_requirements.html">this section</a>.</p>
+</div>
+
+<h1 id="alien-4-cloud-configuration">Alien 4 Cloud configuration</h1>
+
+<p>Alien 4 Cloud contains a basic configuration that is good enough for test environment. However in order to move into production or in order to integrate with other systems (as LDAP for example), you need to define an advanced configuration.</p>
+
+<p>In order to provide configuration to Alien 4 Cloud, you must place an Alien configuration file in a config folder along-side to the Alien 4 Cloud war.</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">├── alien4cloud-ui-<span class="o">{</span>version<span class="o">}</span>-standalone.war
+├── config/alien4cloud-config.yml
+├── config/elasticsearch.yml</code></pre></div>
+
+<p>You can find default configurations for both files in the GitHub repository:</p>
+
+<ul>
+  <li><a href="https://github.com/alien4cloud/alien4cloud/blob/master/alien4cloud-rest-api/src/main/resources/alien4cloud-config.yml">alien4cloud-config.yml</a></li>
+  <li><a href="https://github.com/alien4cloud/alien4cloud/blob/master/alien4cloud-ui/src/main/resources/elasticsearch.yml">elasticsearch.yml</a></li>
+</ul>
+
+<p>You can also add a simple start script:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">├── start.sh
+├── alien4cloud-ui-<span class="o">{</span>version<span class="o">}</span>-standalone.war
+├── config/alien4cloud-config.yml
+├── config/elasticsearch.yml</code></pre></div>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">cd</span> <span class="sb">`</span>dirname <span class="nv">$0</span><span class="sb">`</span>
+
+<span class="nv">JAVA_OPTIONS</span><span class="o">=</span><span class="s2">&quot;-server -showversion -XX:+AggressiveOpts -Xmx2g -Xms2g -XX:MaxPermSize=512m -XX:+HeapDumpOnOutOfMemoryError&quot;</span>
+
+java <span class="nv">$JAVA_OPTIONS</span> -jar alien4cloud-ui-1.1.0-<span class="o">{</span>version<span class="o">}</span>-standalone.war</code></pre></div>
+
+<div class="note info">
+<h5> JVM tunning</h5>
+<p>See <a href="#/documentation/1.4.0/admin_guide/advanced_configuration.html">JVM tunning section</a> for advanced Alien4Cloud JVM options.</p>
+</div>
+
+<h1 id="logging-configuration">Logging configuration</h1>
+
+<p>If you need to customize log4j (in order to activate some loggers, change the log file location …) add a log4j.properties in the config folder and specify the classpath for java :</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">java <span class="nv">$JAVA_OPTIONS</span> -cp config/:alien4cloud-ui-1.1.0-<span class="o">{</span>version<span class="o">}</span>-standalone.war org.springframework.boot.loader.WarLauncher</code></pre></div>
+
+<p>You can find a log4j sample configuration file at <a href="https://github.com/alien4cloud/alien4cloud/blob/master/alien4cloud-ui/src/main/resources/log4j.properties">log4j.properties</a></p>
+
+<p>For example, to use Alien with the level debug, you need to replace the <em>info</em> keyword by <em>debug</em> in the second line.</p>
+
+<h1 id="audit-configuration">Audit configuration</h1>
+
+<p>You can personalize the operations audit in it’s configuration page. You can select for each controller the rest method to monitor.</p>
+
+<p><a href="../../images/admin_guide/admin-audit-configuration-page.png"><img src="../../images/admin_guide/admin-audit-configuration-page.png" alt="Audit configuration" /></a></p>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.4.0/admin_guide/installation_configuration.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-1.4.0', 'documentation/1.4.0/admin_guide/installation_configuration.md');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

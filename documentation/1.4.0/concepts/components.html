@@ -1,0 +1,70 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/1.4.0/concepts/components.html',
+  title: 'Components'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Components</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.4.0/concepts/components.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <p>Components are building blocks that directly refers to TOSCA’s Node Types. Alien4Cloud maintain a catalog of Components that is shared across the platform users. Alien’s component catalog is indexed allowing users to browse, search and use filtering to find the components they need. Thanks to the components available in the platform, architect and application developers will be able to define application topologies (or blueprints).</p>
+
+<p>There is multiple types of components in Alien 4 Cloud that directly refers to the TOSCA specification, below is explained the different types of components that you can find and extend.</p>
+
+<h1 id="node-types">Node Types</h1>
+
+<p>Node Types are used to define some cloud resources elements (Compute - machine, Block-Storage - persistent disk, Network etc.) as well as software components (Database, WebServer etc.).</p>
+
+<div class="note">
+<p>TOSCA Simple profile in YAML provides some pre-defined Node Types, more informations on the various pre-defined node types can be found <a href="#/documentation/1.4.0/devops_guide/normative_types/tosca_concepts_types_normative.html">here</a>.</p>
+</div>
+
+<p>A node type as every component may expose some capabilities (things that the node provides and that other nodes will be able to consume) and requirements (things that nodes actually requires in order to work correctly). For example a Compute node type (that represents a Machine) has the capability to host some softwares and a Software Component (or any inherited node) requires a Compute on which to be hosted on (installed and run).</p>
+
+<h1 id="relationship-types">Relationship Types</h1>
+
+<p>Relationship types are used to connect nodes. A relationship in TOSCA and Alien is directional, it connects the requirement of a source node to the capability of a target node. In order to be used in the right context only, a relationship can specify what type of capability (thus requirement) it can connects.</p>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.4.0/concepts/components.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-1.4.0', 'documentation/1.4.0/concepts/components.md');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

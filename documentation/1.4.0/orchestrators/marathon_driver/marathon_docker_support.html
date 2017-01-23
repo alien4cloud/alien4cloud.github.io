@@ -1,0 +1,131 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/1.4.0/orchestrators/marathon_driver/marathon_docker_support.html',
+  title: 'Docker support'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Docker support</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.4.0/orchestrators/marathon_driver/marathon_docker_support.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <p>We are not following the exact types from TOSCA as we are not fully inline with their current implementation. We plan anyway to provide compatibility with TOSCA types later.</p>
+
+<p>Current TOSCA types for containers implies specific <em>Capabilities</em> and <em>Requirements</em>. We believe this to be a wrong approach and that the difference between a Docker-based component and a non-Docker component should be handled by the orchestrator. For instance, deploying a MongoDb via a Docker image in a container or through Scripts in a compute should in our opinion lead to a <em>MongoCapability</em> that derives from <em>tosca.capabilities.Endpoint</em> in both implementations.</p>
+
+<p>In the future, this approach will lead to the ability to deploy topologies with both containers and non-container nodes (based on orchestrators support).</p>
+
+<h2 id="docker-types-description">Docker-types description</h2>
+<p>The node_type <em>tosca.nodes.Container.Application.DockerContainer</em> is derived_from the existing type <em>tosca.nodes.Container.Application</em>.</p>
+
+<h3 id="defining-operations">Defining operations</h3>
+<ul>
+  <li>The implementation value of the <em>Create</em> operation takes the Docker image, as explained below. Other operations are not supported ATM.</li>
+  <li>Technical configuration can be given to the container using the Create operation inputs.
+Inputs will be converted into environment variables, docker run arguments, or docker options depending on the input’s prefix. Respectively :
+    <ul>
+      <li><strong>ENV_{INPUT_NAME}</strong> will result in an environment variable inside the container named <em>INPUT_NAME</em></li>
+      <li><strong>ARG_{INPUT_NAME}</strong> will result in the input value being passed as an ENTRYPOINT argument (those are unamed)</li>
+      <li><strong>OPT_{INPUT_NAME}</strong> will result in an arbitrary command-line option named <em>INPUT_NAME</em> for the docker run command.</li>
+    </ul>
+
+    <p>Inputs should be used for technical configuration (such as a port definition) or configuration that should be auto-resolved by the orchestrator. For user specific configuration, use the new <em>docker_options, docker_env_vars or docker_run_args</em> instead. See <a href="nodecellar-sample-types/nodecellar-types.yml">Nodecellar sample</a> for an example.</p>
+  </li>
+  <li>To provide the container with a custom command to run, use the <em>docker_run_cmd</em> property.</li>
+</ul>
+
+<h3 id="docker-images">Docker images</h3>
+<p>Docker images are defined using a new artifact type combined with a repository definition.
+To specify which image a container use, you must defined the image as the implementation artifact of the container’s <strong>Create</strong> operation, like this:</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">create</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">implementation</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">file</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">mongo:latest</span>
+    <span class="l-Scalar-Plain">repository</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">docker</span>
+    <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.artifacts.Deployment.Image.Container.Docker</span></code></pre></div>
+
+<h3 id="adding-external-storage-as-docker-volumes">Adding External Storage as Docker Volumes</h3>
+
+<p>You can add External Volumes to your containers by using the <code>alien.nodes.DockerExtVolume</code> type. You must however define a volume name (that must be unique in your provider) and a container mount point.</p>
+
+<h3 id="getting-a-property-from-a-requirement-target">Getting a property from a requirement target</h3>
+
+<p>To implement a dependency from a container to another component in a flexible way, we want to allow users to use either environment variables, docker run arguments or a custom command, as they see fit. To achieve this, we need a way to request a property of a requirement TARGET from within the SOURCE properties definition. see <a href="/examples/nodecellar_types_sample.yml">Nodecellar sample</a> for an example.
+This means that within a node definition, given a requirement name, we want to access a property defined in the <em>TARGET</em> of such requirement.<br />
+For example : <code>{ get_property: [REQ_TARGET, mongo_db, port] }</code> should return the <em>port</em> property of the TARGET of the <em>mongo_db</em> requirement, which is a capability. If the property cannot be found, we will look for it in the TARGET node itself.</p>
+
+<h3 id="tuning-the-container">Tuning the container</h3>
+
+<p>We added a set of properties to allow user configuration of the containers within the Alien editor.</p>
+
+<h4 id="docker-cli-arguments">Docker CLI arguments</h4>
+<p>It is possible to define arguments for the Docker CLI using the <em>docker_cli_args</em> property as a map of key/pairs. It is also possible
+(and recommended) to create a custom datatype if specific CLI args are expected for the application (<a href="nodecellar-sample-types/nodecellar-types.yml">see the Nodecellar example</a>).</p>
+
+<h4 id="docker-run-command">Docker run command</h4>
+<p>To define a command to be executed inside the container, use the <strong>docker_run_cmd</strong> property. This will override a CMD statement in the container’s Dockerfile. The value will be wrapped into <code>/bin/sh -c '${cmd}'</code>.</p>
+
+<h4 id="docker-run-args">Docker run args</h4>
+<p>If your container’s Dockerfile uses an ENTRYPOINT, you can specify arguments using the <strong>docker_run_args</strong> property. Those will be appended to the <em>docker run</em> command.</p>
+
+<h4 id="docker-env-variables">Docker env variables</h4>
+<p>To set environment variables inside the container, use the <strong>docker_env_vars</strong> property map.</p>
+
+<h3 id="defining-capabilities">Defining capabilities</h3>
+
+<h4 id="modularity">Modularity</h4>
+<p>We aim for topologies where Docker containers and non-docker apps can live together. As such, capabilities for Docker containers should inherit usual capabilities. For instance, in the <a href="nodecellar-sample-types/nodecellar-types.yml">Nodecellar sample</a>, we defined :</p>
+
+<ul>
+  <li>The <strong>alien.capabilities.endpoint.Mongo</strong> capability, which inherits <em>tosca.capabilities.Endpoint</em> and is the generic ability to expose a Mongo database,</li>
+  <li>The <strong>alien.capabilities.endpoint.docker.Mongo</strong> capability, which derives from the latter. This capability is exposed by the <em>mongo_db</em> capability of the <em>MongoDocker</em> Node-type.
+Using inheritance, this means that any other Node-type requiring <em>alien.capabilities.endpoint.Mongo</em> can use the MongoDocker through a classic <strong>ConnectsTo</strong> relationship.</li>
+</ul>
+
+<h4 id="bridging-between-container-and-host-ports">Bridging between container and host ports</h4>
+<p>To allow bridge networking between the container and it’s host, we added the <em>docker_port_mapping</em> property to the <em>alien.capabilities.endpoint.docker.Mongo</em> relationship. This will be interpreted by the Orchestrator as the Host port, while the <em>port</em> property (which we inherited from the Endpoint capability) represents the port inside the container. If the value is 0, the Orchestrator will randomly allocate a port. If no value is specified, then Host networking will be used.</p>
+
+<h3 id="hosting-requirements">Hosting requirements</h3>
+<p>As per the usual <em>host</em> requirement, we decided to use a <em>lower_bound</em> value of 0. This allows definition of topologies with containers only, which we will be able to deploy onto already provisioned clusters, like Mesos or Kubernetes.</p>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.4.0/orchestrators/marathon_driver/marathon_docker_support.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-1.4.0', 'documentation/1.4.0/orchestrators/marathon_driver/marathon_docker_support.markdown');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

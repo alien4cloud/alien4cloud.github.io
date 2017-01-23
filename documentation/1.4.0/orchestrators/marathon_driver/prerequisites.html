@@ -1,0 +1,172 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/1.4.0/orchestrators/marathon_driver/prerequisites.html',
+  title: 'Prerequisites'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Prerequisites</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.4.0/orchestrators/marathon_driver/prerequisites.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <p>You can start orchestrating containers with the Marathon plugin in just a few simple steps.</p>
+
+<p>To operate the plugin, you will need a Mesos cluster running Marathon. You can use an already existing cluster or let Alien4Cloud do all the heavy-lifting and setup one for you.</p>
+
+<p>Note that the plugin has been tested only on clusters running on EC2 or Openstack but should work with other IaaS as well as on a bare metal infrastructure.</p>
+
+<h2 id="setting-up-a-marathon--mesos-cluster-using-alien">Setting up a Marathon + Mesos cluster using Alien</h2>
+
+<p>We modeled Mesos, Marathon, the Docker engine and other useful components into TOSCA node types. You can create your own custom Mesos TOSCA composition or use one of the provided templates in the <a href="https://github.com/alien4cloud/mesos-tosca-blueprints">mesos-tosca-types repository</a>.</p>
+
+<p>To deploy the cluster, we currently leverage the Cloudify orchestrator. Supported distributions are :</p>
+
+<ul>
+  <li>Ubuntu 14.04</li>
+  <li>Debian 7 (wheezy)</li>
+  <li>RedHat 6.2, 7.1</li>
+  <li>CentOS 6.2, 7.1</li>
+</ul>
+<div class="note warning">
+<p>Marathon requires Java8+. For Ubuntu 14.04, we use unofficial third-party repositories from webupd8team to install Oracle’s JDK - use it at your own risk.</p>
+</div>
+
+<p>To deploy a Marathon cluster with Alien, assuming you already have a Cloudify orchestrator configured, follow this steps.</p>
+
+<h3 id="import-tosca-definitions-for-mesos--marathon">Import TOSCA definitions for Mesos / Marathon</h3>
+
+<p>Import the following CSARs into Alien using the <a href="#/documentation/1.4.0/user_guide/catalog_type_upload.html">GIT importer</a>:</p>
+
+<ul>
+  <li>The <code>docker-engine</code> archive, from the <a href="https://github.com/alien4cloud/samples">samples repository</a> <em>(recommended version: master)</em></li>
+  <li>The <code>mesos-types</code> archive, from the <a href="https://github.com/alien4cloud/mesos-tosca-blueprints">mesos-tosca-types repository</a> <em>(recommended version: 1.2.0)</em></li>
+  <li>The <code>docker-types</code>archive, from the <a href="https://github.com/alien4cloud/docker-tosca-types">docker-tosca-types repository</a> <em>(recommended version: 1.1.0</em>).
+Those are not necessary to setup the cluster but are required by the plugin, so you might as well install them now too.</li>
+</ul>
+
+<h3 id="create-an-alien-application-for-your-cluster">Create an Alien application for your cluster</h3>
+
+<p><a href="#/documentation/1.4.0/user_guide/topology_editor_overview.html">Create your own</a> custom Mesos TOSCA composition or use one of the templates present in the <a href="https://github.com/alien4cloud/mesos-tosca-blueprints">mesos-tosca-types repository</a>. Note that if your IaaS doesn’t automatically assigns public IPs you’ll have to add a public network to your topology.</p>
+
+<p>We recommend using our latest template, <a href="https://github.com/alien4cloud/mesos-tosca-blueprints/blob/1.2.0/topology-marathon-rexray/marathon-rexray-template.yml">MarathonRexray</a>, which features service-discovery and external storage.</p>
+
+<h3 id="configure-the-cluster-using-the-marathonrexray-template">Configure the cluster using the MarathonRexray template</h3>
+
+<p>The cluster designed with our template is ready to use. It provides service-discovery with MesosDNS &amp; MarathonLB as well as external storage with REX-Ray.</p>
+
+<h4 id="scaling-and-high-availability">Scaling and high availability</h4>
+
+<p>You can configure the compute nodes’ <code>scalable</code> capabilities to fit your needs.</p>
+
+<ul>
+  <li>Increasing the <code>default_instances</code> property of the <em>MasterCompute</em> node will <strong>automatically</strong> enable high availability.</li>
+  <li>Increasing the <code>default_instances</code> property of the <em>SlaveCompute</em> nodes will add more slaves to your cluster. If the <em>SlaveCompute</em> also host a <em>MesosDNS</em> component, it will enable high availability for the cluster’s DNS too.</li>
+</ul>
+
+<div class="note">
+<p>Once the cluster is deployed, you can still adjust the number of slaves dynamically by using the <strong>scale</strong> button in the Runtime view.</p>
+</div>
+
+<h4 id="configuring-rex-ray">Configuring REX-Ray</h4>
+
+<p>REX-Ray’s configuration is required as a Topology Input: Alien will request it from you upon deployment.</p>
+
+<div class="note warning">
+<p>Both libStorage and REX-Ray use a YAML file for configuration. See their <a href="https://rexray.readthedocs.io/en/stable/user-guide/config/#advanced-configuration">documentation</a> for more info.
+To simplify things, we scripted REX-Ray clients’ configuration and provided a template for libStorage’s configuration - the <em>RexrayServer</em> node in our template. Remember that in order to operate, libStorage needs your IAAS credentials.</p>
+
+<p>libStorage only supports a few storage providers at the moment. You can review available providers <a href="http://libstorage.readthedocs.io/en/stable/user-guide/storage-providers/">here</a>.</p>
+</div>
+
+<p>In the <strong>Deployments</strong> View, go to the <strong>Inputs</strong> tab to configure the REX-Ray cluster:</p>
+
+<ul>
+  <li>fill the <code>storage-provider</code> input property with the storage provider of your choosing. For example, if your going with Amazon’s Elastic Block Storage service, use <code>ebs</code>.</li>
+  <li>upload libStorage’s configuration file using the <code>rexray_server_config</code> input artifact. For EBS, you can use the sample below - just update it with your AWS credentials at the end. For other providers, follow libStorage’s <a href="http://libstorage.readthedocs.io/en/stable/user-guide/storage-providers/">documentation</a>.</li>
+</ul>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">rexray</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">modules</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">default-docker</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">disabled</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
+  <span class="l-Scalar-Plain">logLevel</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">warn</span>
+<span class="l-Scalar-Plain">libstorage</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">host</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tcp://127.0.0.1:7979</span>
+  <span class="l-Scalar-Plain">embedded</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
+  <span class="l-Scalar-Plain">client</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">controller</span>
+  <span class="l-Scalar-Plain">integeration</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">volume</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">operations</span><span class="p-Indicator">:</span>
+        <span class="c1"># See Marathon &amp; Rexray documentation</span>
+        <span class="l-Scalar-Plain">mount</span><span class="p-Indicator">:</span>
+          <span class="l-Scalar-Plain">preempt</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
+        <span class="l-Scalar-Plain">unmount</span><span class="p-Indicator">:</span>
+          <span class="l-Scalar-Plain">ignoreusedcount</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
+  <span class="l-Scalar-Plain">server</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">endpoints</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">public</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">address</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tcp://:7979</span>
+    <span class="l-Scalar-Plain">services</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">ebs</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">driver</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">ebs</span> <span class="c1"># Refers to storage providers defined bellow</span>
+      <span class="c1"># Use this to activate TLS encryption. Equivalent configuration must be set on clients too.</span>
+      <span class="c1"># tls:</span>
+      <span class="c1">#   certFile: /etc/libstorage/libstorage-server.crt</span>
+      <span class="c1">#   keyFile: /etc/libstorage/libstorage-server.key</span>
+      <span class="c1">#   trustedCertsFile: /etc/libstorage/trusted-certs.crt</span>
+      <span class="c1">#   clientCertRequired: true</span>
+
+<span class="c1"># Define storage providers like this - Example for AWS EBS</span>
+<span class="l-Scalar-Plain">ebs</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">accessKey</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;your-access-key&gt;</span>
+  <span class="l-Scalar-Plain">secretKey</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;your-secret-key&gt;</span>
+  <span class="l-Scalar-Plain">region</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;your-region&gt;</span></code></pre></div>
+
+<ul>
+  <li>Hit deploy, sit back and relax.</li>
+</ul>
+
+<p>You can also follow our demonstration <a href="https://youtu.be/IoOzf7wwCnM">video</a>.</p>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.4.0/orchestrators/marathon_driver/prerequisites.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-1.4.0', 'documentation/1.4.0/orchestrators/marathon_driver/prerequisites.markdown');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

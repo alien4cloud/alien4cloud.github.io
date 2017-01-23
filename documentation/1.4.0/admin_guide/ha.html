@@ -1,0 +1,242 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/1.4.0/admin_guide/ha.html',
+  title: 'Alien High Availability'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Alien High Availability</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.4.0/admin_guide/ha.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        
+<hr style="margin-top:5px; margin-bottom:5px;" />
+<div class="row"><ul class="nav nav-pills" id="summarypanel"></ul></div>
+<hr style="margin-top:5px; margin-bottom:5px;" />
+
+<div class="note info">
+<h5>Premium feature</h5>
+<p>This section refers to a premium feature.</p>
+</div>
+
+<p>When deploying A4C in a production environment, you may want to be sure it will be available 24/7, even in case of crashes. We provide a plugin that manages high availability for A4C using a primary/backup mode.</p>
+
+<div class="note warning">
+<p>Note that this page focus only on A4C HA: we don’t consider HA for orchestrators components (managers …) in this page.</p>
+</div>
+
+<h1 id="architecture">Architecture</h1>
+
+<p>Our HA solution is based on a primary/backup mecanism: you’ll need to deploy several instances of A4C to ensure one will be available at a given time.</p>
+
+<p>The <em>alien4cloud-premium-ha</em> plugin leverages on <a href="https://www.consul.io">Consul</a> features: 
+- Key/Value Storage: a distrubuted key/value is used to determine which A4C instance is the leader. 
+- Failure Detection: Consul is in charge of checking the liveness of A4C instances.</p>
+
+<p>As a consequence, to use this plugin you will need a Consul server (but you’ll probably use a consul cluster !).</p>
+
+<p>Since A4C use ElasticSearch as a backend server, you’ll need to setup a remote server (instead of launching an embedded one), and you’ll probably prefer to setup an ElasticSearch cluster with replicated nodes.</p>
+
+<p>Since A4C use local file system to store stuffs (plugins, csars, images), you’ll need a distibuted (and eventually replicated, or at least backed up) file system.</p>
+
+<p>Finally, you’ll probably want to setup a reverse proxy behind your A4C instances to have a single entry point for the application.</p>
+
+<p>So the whole architecture could look like this:</p>
+
+<p><a href="../../images/admin_guide/ha-architecture.png"><img src="../../images/admin_guide/ha-architecture.png" alt="HA Architecture" /></a></p>
+
+<h2 id="how-a4c-works-in-ha-mode">How A4C works in HA mode</h2>
+
+<p>In a very first stage, A4C will start in backup mode, which is a limited mode, with only a ligthweight bootstrap context started:
+- Not all REST endpoints will be avalaible. Basically, only the health check endpoint will be available.
+- All plugins are disabled (for instance, orchestrator are not enabled, so no background threads will run).
+At this early stage, A4C is not usable.</p>
+
+<p>A4C will then open a session onto consul and try to acquire a lock onto a consul key. If the lock is already acquired (by another instance), it will still in this boostrap mode and will wait for changes on this key. A health check is associated with the sesssion, so consul will check for the liveness of this A4C instance.</p>
+
+<p>When the lock is acquired, this means the current instance is elected as the leader. The whole application context is started, all REST endpoint are available and all the stuffs are waked up. This A4C instance is then fully usable.</p>
+
+<p>If the JVM or the machine crash (or event if an A4C instance can’t reach ElasticSeach), the health check will fail, consul will disable the session, and the lock (if it is associated with this session) will be released. The primary will fall back in backup mode. Another instance will be elected.</p>
+
+<h2 id="sample-topology">Sample topology</h2>
+
+<p>As part of our plugin, you’ll find TOSCA types and topology that can help you to setup such kind of architecure. You can use it as an example but keep in mind it is not intended to be production ready.</p>
+
+<div class="note warning">
+<p>This topology is a sample topology that can help you to setup your own infrastructure but should’nt be considered  ready to use for production.</p>
+</div>
+
+<p><a href="../../images/admin_guide/ha-topology.png"><img src="../../images/admin_guide/ha-topology.png" alt="HA Topology" /></a></p>
+
+<p>Few notes concerning this topology:</p>
+
+<ul>
+  <li>The <em>AlienCompute</em> which hosts A4C is scalable and you should have at least 2 instances. Can be scaled at runtime.</li>
+  <li>The <em>BackendCompute</em> which hosts ElasticSearch is scalable and you should have at least 2 instances. Can’t be scaled at runtime.</li>
+  <li>The <em>ConsulCompute</em> is scalable and a good number is 3 for the minimum instances count (for quorum requirements). Can be scaled at runtime.</li>
+  <li>We use a local Consul agent on each A4C host. This agent is integrated in the Consul cluster (and so knows all the members), so A4C just need to talk to this agent (and don’t have to manage fail over in case of crash of a member of the cluster servers).</li>
+  <li>We use a <a href="https://www.samba.org">Samba</a> server to manage a distributed file system. This is just an example, you can use whatever you want (NFS, sshfs …) since you can mount it as if it was a local file system.</li>
+  <li>We use <a href="https://www.nginx.com">NGINX</a> as a reverse proxy behind this primary/backup architecture.</li>
+  <li>We use <a href="https://www.hashicorp.com/blog/introducing-consul-template.html">Consul Template</a> to drive the NGINX reverse proxy. When something changes concerning the distributed lock in consul, the config of NGINX is changed and NGINX is restarted.</li>
+  <li>Only NGINX needs to be exposed with a public IP.</li>
+</ul>
+
+<p>Security considerations:</p>
+
+<ul>
+  <li>The gossip protocol (communication inside consul cluster) can be encrypted using a SHA key (provided in the topology).</li>
+  <li>Communication between consul clients (A4C and ConsulTemplate) and Consul agents can be securized using SSL.</li>
+  <li>NGINX can expose a HTTPS endpoint but redirect to a HTTP alien without SSL (if you trust your private network).</li>
+</ul>
+
+<p>Known limitations:</p>
+
+<ul>
+  <li>The samba server is not securized.</li>
+  <li>The ElasticSearch cluster can not be securized <em>in this topology</em>. But of course, you can use your own securized ES cluster.</li>
+  <li>We use a single CA certificate (provided in the topology) to generate all the keys used for SSL communications (HTTPS for NGINX, HTTPS for A4C, TLS for Consul).</li>
+</ul>
+
+<h1 id="configuration">Configuration</h1>
+
+<p>We will detail here the different configuration items you can change in A4C config related to the usage of the HA plugin.</p>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Property Name</th>
+      <th style="text-align: left">Default value</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ha.ha_enabled</td>
+      <td style="text-align: left">false</td>
+      <td>If true, enable HA and use the following properties. If false, the following properties are ignored.</td>
+    </tr>
+    <tr>
+      <td>ha.consulAgentIp</td>
+      <td style="text-align: left">localhost</td>
+      <td>The ip address of the consul agent (server or client) to connect to.</td>
+    </tr>
+    <tr>
+      <td>ha.consulAgentPort</td>
+      <td style="text-align: left">8500</td>
+      <td>The port of the consul agent.</td>
+    </tr>
+    <tr>
+      <td>ha.instanceIp</td>
+      <td style="text-align: left"> </td>
+      <td>The IP address of the alien instance (used for health check, so this address should be visible from the consul agent, can be localhost if the agent is on the same machine).</td>
+    </tr>
+    <tr>
+      <td>ha.healthCheckPeriodInSecond</td>
+      <td style="text-align: left">5</td>
+      <td>The delai in seconds between each health check query done by the consul agent.</td>
+    </tr>
+    <tr>
+      <td>ha.consulSessionTTLInSecond</td>
+      <td style="text-align: left">60</td>
+      <td>The duration in seconds of the consul session. This session will be renewed before this delai expire.</td>
+    </tr>
+    <tr>
+      <td>ha.consulLockDelayInSecond</td>
+      <td style="text-align: left">0</td>
+      <td>The delai between the session invalidation and the lock release. 0 is a good value since we want a new leader to be elected if the primary crash.</td>
+    </tr>
+    <tr>
+      <td>ha.lockAcquisitionDelayInSecond</td>
+      <td style="text-align: left">20</td>
+      <td>In second, the delai before trying to acquire a lock when after a failure (when consul is not reachable for example.</td>
+    </tr>
+    <tr>
+      <td>ha.consul_tls_enabled</td>
+      <td style="text-align: left">false</td>
+      <td>When true, use https to talk to consul (and then, need for a keystore and a truststore to be configured).</td>
+    </tr>
+    <tr>
+      <td>ha.keyStorePath</td>
+      <td style="text-align: left"> </td>
+      <td>The key store for SSL connection to consul.</td>
+    </tr>
+    <tr>
+      <td>ha.trustStorePath</td>
+      <td style="text-align: left"> </td>
+      <td>The truststore for SSL connection to consul.</td>
+    </tr>
+    <tr>
+      <td>ha.keyStoresPwd</td>
+      <td style="text-align: left"> </td>
+      <td>The password for keystore and truststore.</td>
+    </tr>
+    <tr>
+      <td>ha.serverProtocol</td>
+      <td style="text-align: left">http</td>
+      <td>The protocol where the alien instance can be contacted (use to build the health check url). Just set to ‘https’ if alien ssl is on.</td>
+    </tr>
+    <tr>
+      <td>ha.health_disk_space_threshold</td>
+      <td style="text-align: left">10 * 1024 * 1024 (10 Mo)</td>
+      <td>The health check endpoint will check the remaining disk space on the host of the A4C instance. Under this threshold, the health check will fail.</td>
+    </tr>
+    <tr>
+      <td>ha.consulQueryTimeoutInMin</td>
+      <td style="text-align: left">3</td>
+      <td>The HA plugin use this timeout when querying consul with blocking read.</td>
+    </tr>
+    <tr>
+      <td>ha.consulConnectTimeoutInMillis</td>
+      <td style="text-align: left">1000 * 30 (30 seconds)</td>
+      <td>TCP connection timeout when querying consul.</td>
+    </tr>
+    <tr>
+      <td>ha.consulReadTimeoutInMillis</td>
+      <td style="text-align: left">1000 * 60 * 5 (5 minutes)</td>
+      <td>TCP read timeout when querying consul.</td>
+    </tr>
+  </tbody>
+</table>
+
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.4.0/admin_guide/ha.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-1.4.0', 'documentation/1.4.0/admin_guide/ha.md');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>
