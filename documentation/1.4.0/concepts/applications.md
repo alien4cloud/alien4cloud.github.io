@@ -2,7 +2,7 @@
 layout: post
 title: Applications
 root: ../../
-categories: DOCUMENTATION-1.3.0
+categories: DOCUMENTATION-1.4.0
 parent: [concepts]
 node_name: concepts-applications
 weight: 400
@@ -14,9 +14,17 @@ The application in Alien 4 Cloud is the entity that people are going to deploy. 
 
 [![Application concepts](../images/1.4.0/concepts/application_relations.png)](../images/application_relations.png)
 
-# Versions
+# Version
+
+A version of an application answer the question what do we want to deploy. Every application version defines the actual service that a given version of an application is going to deliver.
 
 A version represents a given state for the application topology. As we explained already a topology contains versioned informations for all components required to deploy the application meaning that a defined version of an application can be moved from a cloud to another with guaranty on the deployment content and insurance that the same components will be deployed.
+
+That said you may sometimes need the ability to define one or multiple topologies for a given versions in order to suit some of your environment constraints:
+ - For example you may want to use in development a topology version that would use hsql as a database implementation while node while in production you will use a topology with an Oracle database (that requires licenses and so on).
+Of course every topology version for a given application version should provide the same service, differences between these topologies being mostly technical.
+
+And for sure in an ideal world you would have a single topology version that you will deploy on every environment changing only some deployment configurations like scaling parameters for example.
 
 {%info%}
 <h5>Snapshot and release</h5>
@@ -27,12 +35,22 @@ When you are ready to release a version just rename it and remove the _SNAPSHOT_
 
 # Environments
 
-An environment represents a deployment target for an application (of course an environment is linked to a cloud on which to deploy the environment).
+An environment represents a deployment target for an application. Every environment may be owned and deployed by different team. That way you can offer the ability for your development, uat, and production team to efficiently work together.
+
+Application environment is also a key feature to design your application lifecycle across the different environments and, eventually, clouds. For example you can design one or more development environments for your developers (on EC2 for example), and the pre-production and production environments on your own OpenStack(s). You can then move a version from an environment to another by switching the version on the environments and re-deploying it.
 
 Like for application version, a default application environment named “Environment” is created when you create your application. This new environment is configured to target the default created version but without any associated cloud. You can specify the cloud in the environment management page or in the deployment page. You can also add a type to your environment and write a description.
 
-Application environment is a good way to design your application lifecycle accross the different environments and, eventually, clouds. For example you can design one or more development environments for your developers (on EC2 for example), and the pre-production and production environments on your own OpenStack(s). You can then move a version from an environment to another by switching the version on the environments and re-deploying it.
+Every environment have a topology version associated that defines the next version that will be deployed to this environment, the same topology version may be associated to one or multiple environments or to none of them.
 
-# Application lifecycle management
+# Application lifecycle management, specific configurations and deployment.
 
 In summary, the combination of version and environment concepts offers the ability of manage the lifecycle of your application.
+
+The combination of an environment and a version have a specific deployment configuration. This configuration consist of multiple elements:
+ - __Location matching configuration__: This is the selection of the deployment target for this environment/version (Like Amazon EC2, my internal cloud, my set of VMs etc.)
+ - __Node matching configuration__: When a topology contains abstract nodes they can be replaced before deployment by a concrete implementation, this is really the key element for topology portability across clouds. For example if I selected Amazon as my deployment location in the first step I will be able to select all matching Amazon Images and Flavor association to replace my Compute node. On an existing machine cluster I will match the Compute node against some available machines in the pool. On container based deployment target I will target a container image to deploy my Compute node etc.
+ Node matching can replace some abstract nodes against 'on demande resources' or againts 'services' which are already running elements that are available for me to consume.
+ - __Inputs configuration__: A topology may define some input properties and input artifacts that you can configure for this environment/version deployment association.
+
+ Finally once all theses elements are configured you can perform a deployment.
