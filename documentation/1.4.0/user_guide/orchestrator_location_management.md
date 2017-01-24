@@ -97,7 +97,7 @@ For example, the  cloudify3 provider defines connexion parameters so that Alien 
 [![Configure the provider](../../images/1.1.0/user_guide/admin/orchestrators/orchestrator-driver-configuration.png)](../../images/1.1.0/user_guide/admin/orchestrators/orchestrator-driver-configuration.png)
 
 {%info%}
-More informations for [cloudify 3](#/documentation/1.4.0/orchestrators/cloudify3_driver/index.html) can be found on her specific documentation.
+More informations for [cloudify 3](#/documentation/1.4.0/orchestrators/cloudify3_driver/index.html) can be found on it specific documentation.
 {%endinfo%}
 
 {%info%}
@@ -145,12 +145,24 @@ For example, the Cloudify 3 provider exposes configuration resources such as Ima
 On demand resources are the exact resources used for matching nodes within the topology before deploying, such as Computes, networks and volumes.
 They may a combination of one or more configuration resources. (Example, the on demand resource *Compute* could be a combination of *Image* and *Flavor* configuration resources.). The following is an example based on the Cloudify 3 provider:
 
-[![Location on demand resources](../../images/1.1.0/user_guide/admin/orchestrators/location-on-demand-resources.png)](../../images/1.1.0/user_guide/admin/orchestrators/location-on-demand-resources.png)
+[![Location on demand resources](../../images/1.4.0/user_guide/admin/orchestrators/location-on-demand-resource.png)](../../images/1.4.0/user_guide/admin/orchestrators/location-on-demand-resource.png)
+
+To add more resource templates, you can simply drag and drop resources types from the panel on the right.
 
 {%info%}
 <h5> Auto configuration</h5>
 If the location exposes a way to automatically generate on-demand resources, you can hit the "auto-config" button to auto-generate them.
 {%endinfo%}
+
+### Adding custom on-demand resources from the TOSCA catalog
+
+You can also create Custom on demand resource templates using any type from the catalog - provided that it is not abstract. This allows you to match abstract nodes in a topology to concrete custom resources, defined within your orchestrator location, exactly the same way you are used to with on-demand resources provided by the orchestrator. To do so, simply drag and drop resource types from the catalog panel.
+
+{%warning%}
+At this point, we assume that you know what you are doing when creating custom resources. If not, please make sure you go through our [documentation on this feature](#/documentation/1.4.0/user_guide/tosca_catalog_custom_resources.html). Alien has no way to verify if custom resource templates created in the location are compatible with your orchestrator.
+{%endwarning%}
+
+[![Location custom on demand resources](../../images/1.4.0/user_guide/admin/orchestrators/location-custom-on-demand-resource.png)](../../images/1.4.0/user_guide/admin/orchestrators/location-custom-on-demand-resource.png)
 
 ### Meta properties
 
