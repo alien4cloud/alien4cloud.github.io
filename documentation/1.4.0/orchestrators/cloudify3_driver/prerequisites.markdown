@@ -10,21 +10,21 @@ weight: 1000
 
 Here are some prerequisite steps that need to be done in order to use the cloudify 3 driver.
 
-## Install Cloudify 3.3.1 ##
+## Install Cloudify 3.4.0 ##
 
-How to install cloudify 3.3.1 is described [here.](http://docs.getcloudify.org/3.3.1/intro/what-is-cloudify/)
+How to install cloudify 3.4.0 is described [here.](http://docs.getcloudify.org/3.4.0/intro/what-is-cloudify/)
 
 ## Bootstrap your manager ##
 
-How to bootstrap cloudify 3.3.1 is described [here.](http://docs.getcloudify.org/3.3.1/manager/bootstrapping/)
+How to bootstrap cloudify 3.4.0 is described [here.](http://docs.getcloudify.org/3.4.0/manager/bootstrapping/)
 
 {%warning%}
-Note that Cloudify 3.3.1 only support bootstraping on CentOS 7.x or RHEL 7.x.
+Note that Cloudify 3.4.0 only support bootstraping on CentOS 7.x or RHEL 7.x.
 {%endwarning%}
 
 ## Secure your manager ##
 
-How to secure your manager is described [here.](http://docs.getcloudify.org/3.3.1/manager/security/)
+How to secure your manager is described [here.](http://docs.getcloudify.org/3.4.0/manager/security/)
 
 {%warning%}
 Following configuration is only suitable for testing purpose, in production you should customize with your own own configuration.

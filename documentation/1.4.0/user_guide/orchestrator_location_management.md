@@ -21,7 +21,7 @@ In order to configure a set of Orchestrator/locations, you must have installed a
 
 {%info%}
 <h5>Supported orchestrators</h5>
-We are currently supporting the opensource orchestrator cloudify 3.3.1.
+We are currently supporting the opensource orchestrator cloudify 3.4.0.
 {%endinfo%}
 
 # Orchestrators management
