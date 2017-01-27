@@ -5,7 +5,7 @@ root: ../../
 categories: DOCUMENTATION-1.4.0
 parent: [rest_api, rest_api_applications-api]
 node_name: rest_api_controller_application-environment-controller
-weight: 28
+weight: 27
 ---
 
 ### Create a new application environment
@@ -106,7 +106,7 @@ Returns the application environment. Roles required: Application environment [ A
 {: .table .table-bordered}
 |HTTP Code|Description|Schema|
 |----|----|----|
-|200|OK|RestResponse«ApplicationEnvironment»|
+|200|OK|RestResponse«ApplicationEnvironmentDTO»|
 |401|Unauthorized|No Content|
 |403|Forbidden|No Content|
 |404|Not Found|No Content|
@@ -233,7 +233,7 @@ Returns the application environment. Application role required [ APPLICATION_USE
 
 * application/json
 
-### Get the id of the topology linked to the environment
+### Deprecated: Get the id of the topology linked to the environment
 ```
 GET /rest/v1/applications/{applicationId}/environments/{applicationEnvironmentId}/topology
 ```

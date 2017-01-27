@@ -5,7 +5,7 @@ root: ../../
 categories: DOCUMENTATION-1.4.0
 parent: [rest_api, rest_api_catalog-api]
 node_name: rest_api_controller_cloud-service-archive-controller
-weight: 16
+weight: 15
 ---
 
 ### Upload a csar zip file.

@@ -167,6 +167,17 @@ weight: 9000
 
 # Map«string,object»
 
+# DependencyConflictDTO
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|dependency||false|string||
+|resolvedVersion||false|string||
+|source||false|string||
+
+
 # DeferredResult«RestResponse«string»»
 
 
@@ -392,6 +403,7 @@ weight: 9000
 |capabilityTypes||false|object||
 |dataTypes||false|object||
 |delegateType||false|string||
+|dependencyConflicts||false|DependencyConflictDTO array||
 |lastOperationIndex||false|integer (int32)||
 |nodeTypes||false|object||
 |operations||false|AbstractEditorOperation array||
@@ -724,17 +736,19 @@ A location represents a cloud, a region of a cloud, a set of machines and resour
 {: .table .table-bordered}
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
+|applicationPermissions||false|object||
 |creationDate||false|string (date-time)||
 |dependencies||false|CSARDependency array||
+|environmentPermissions||false|object||
 |environmentType||false|string||
-|groupRoles||false|object||
+|groupPermissions||false|object||
 |id||false|string||
 |infrastructureType||false|string||
 |lastUpdateDate||false|string (date-time)||
 |metaProperties||false|object||
 |name||false|string||
 |orchestratorId||false|string||
-|userRoles||false|object||
+|userPermissions||false|object||
 
 
 # NodeFilter

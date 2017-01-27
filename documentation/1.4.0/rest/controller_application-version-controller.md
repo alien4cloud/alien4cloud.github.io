@@ -5,7 +5,7 @@ root: ../../
 categories: DOCUMENTATION-1.4.0
 parent: [rest_api, rest_api_applications-api]
 node_name: rest_api_controller_application-version-controller
-weight: 24
+weight: 23
 ---
 
 ### Get the first snapshot application version for an application.
@@ -59,7 +59,7 @@ If successfull returns a rest response with the id of the created application ve
 |Type|Name|Description|Required|Schema|Default|
 |----|----|----|----|----|----|
 |PathParameter|applicationId|applicationId|true|string||
-|BodyParameter|request|request|true|ApplicationVersionRequest||
+|BodyParameter|request|request|true|CreateApplicationVersionRequest||
 
 
 #### Responses
@@ -170,8 +170,9 @@ Updates by merging the given request into the given application version. Applica
 {: .table .table-bordered}
 |Type|Name|Description|Required|Schema|Default|
 |----|----|----|----|----|----|
+|PathParameter|applicationId|applicationId|true|string||
 |PathParameter|applicationVersionId|applicationVersionId|true|string||
-|BodyParameter|request|request|true|ApplicationVersionRequest||
+|BodyParameter|request|request|true|UpdateApplicationVersionRequest||
 
 
 #### Responses

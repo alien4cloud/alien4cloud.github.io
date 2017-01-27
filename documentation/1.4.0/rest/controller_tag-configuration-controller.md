@@ -5,7 +5,7 @@ root: ../../
 categories: DOCUMENTATION-1.4.0
 parent: [rest_api, rest_api_admin-metaproperties-api]
 node_name: rest_api_controller_tag-configuration-controller
-weight: 13
+weight: 12
 ---
 
 ### Save tag configuration.

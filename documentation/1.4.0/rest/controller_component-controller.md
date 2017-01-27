@@ -5,7 +5,7 @@ root: ../../
 categories: DOCUMENTATION-1.4.0
 parent: [rest_api, rest_api_catalog-api]
 node_name: rest_api_controller_component-controller
-weight: 17
+weight: 16
 ---
 
 ### Get details for a component (tosca type) from it's id (including archive hash).

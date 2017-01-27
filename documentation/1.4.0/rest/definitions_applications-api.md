@@ -26,6 +26,26 @@ weight: 9000
 
 # Map«string,AbstractStep»
 
+# UpdateApplicationVersionRequest
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|description||false|string||
+|version||false|string||
+
+
+# RestResponse«Map«string,Array«ApplicationEnvironmentDTO»»»
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|data||false|object||
+|error||false|RestError||
+
+
 # RestResponse«DeploymentTopologyDTO»
 
 
@@ -91,6 +111,31 @@ weight: 9000
 
 # Map«string,object»
 
+# PropertyValue«Topology»
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|definition||false|boolean||
+|value||false|Topology||
+
+
+# CreateApplicationTopologyVersionRequest
+
+
+Request to set locations policies for a deployment.
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|applicationTopologyVersion|Id of the application topology version to use to initialize this application topology versions.|false|string||
+|description|Description for this specific variant of the topology for the application version.|false|string||
+|qualifier|Qualifier string that allow having a distinct topology version for every Application Topology Version in an Application Version.|false|string||
+|topologyTemplateId|Id of the topology template to use to initialize the application topology version that will be created with the new application version.|false|string||
+
+
 # Map«string,Map«string,InstanceInformation»»
 
 # Capability
@@ -130,6 +175,18 @@ weight: 9000
 # Map«string,Interface»
 
 # Map«string,RelationshipTemplate»
+
+# CreateApplicationVersionRequest
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|description||false|string||
+|fromVersionId|Id of the application version to use to initialize all application topology versions.|false|string||
+|topologyTemplateId|Id of the topology template to use to initialize the application topology version that will be created with the new application version.|false|string||
+|version||true|string||
+
 
 # Map«string,PropertyDefinition»
 
@@ -177,6 +234,25 @@ weight: 9000
 |----|----|----|----|----|
 |data||false|object||
 |error||false|RestError||
+
+
+# TopologyDTO
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|archiveContentTree||false|TreeNode||
+|capabilityTypes||false|object||
+|dataTypes||false|object||
+|delegateType||false|string||
+|dependencyConflicts||false|DependencyConflictDTO array||
+|lastOperationIndex||false|integer (int32)||
+|nodeTypes||false|object||
+|operations||false|AbstractEditorOperation array||
+|outputCapabilityProperties||false|object||
+|relationshipTypes||false|object||
+|topology||false|Topology||
 
 
 # RestResponse«ConstraintInformation»
@@ -284,6 +360,7 @@ weight: 9000
 |configurationTypes|Map of node types id, node type used to configure a given location.|false|object||
 |nodeTypes|Map of node types id, node type used to configure the templates of on-demand resources in a location.|false|object||
 |onDemandTypes|Map that contains the on demdand types.|false|object||
+|providedTypes|List of recommended node types ID, e.g. defined at the orchestrator level|false|string array||
 
 
 # Map«string,LocationResourceTemplate»
@@ -296,6 +373,16 @@ weight: 9000
 |----|----|----|----|----|
 |code||false|integer (int32)||
 |message||false|string||
+
+
+# RestResponse«TopologyDTO»
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|data||false|TopologyDTO||
+|error||false|RestError||
 
 
 # Map«string,EnvironmentStatusDTO»
@@ -398,6 +485,16 @@ weight: 9000
 |topologyTemplateVersionId||false|string||
 
 
+# RestResponse«ApplicationEnvironmentDTO»
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|data||false|ApplicationEnvironmentDTO||
+|error||false|RestError||
+
+
 # Request to update or check the value of a property.
 
 
@@ -467,9 +564,9 @@ weight: 9000
 |applicationId||false|string||
 |description||false|string||
 |id||false|string||
-|latest||false|boolean||
+|nestedVersion||false|Version||
 |released||false|boolean||
-|snapshot||false|boolean||
+|topologyVersions||false|object||
 |version||false|string||
 
 
@@ -547,6 +644,17 @@ weight: 9000
 |precedingSteps||false|string array||
 
 
+# ApplicationTopologyVersion
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|archiveId||false|string||
+|description||false|string||
+|qualifier||false|string||
+
+
 # RelationshipTemplate
 
 
@@ -600,6 +708,30 @@ weight: 9000
 |error||false|RestError||
 
 
+# TreeNode
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|artifactId||false|string||
+|children||false|TreeNode array||
+|fullPath||false|string||
+|leaf||false|boolean||
+|name||false|string||
+
+
+# DependencyConflictDTO
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|dependency||false|string||
+|resolvedVersion||false|string||
+|source||false|string||
+
+
 # DeployApplicationRequest
 
 
@@ -611,18 +743,6 @@ weight: 9000
 
 
 # Map«string,Array«FacetedSearchFacet»»
-
-# UpdateApplicationEnvironmentRequest
-
-
-{: .table .table-bordered}
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|currentVersionId||false|string||
-|description||false|string||
-|environmentType||false|enum (OTHER, DEVELOPMENT, INTEGRATION_TESTS, USER_ACCEPTANCE_TESTS, PRE_PRODUCTION, PRODUCTION)||
-|name||false|string||
-
 
 # CapabilityDefinition
 
@@ -636,6 +756,18 @@ weight: 9000
 |type||false|string||
 |upperBound||false|integer (int32)||
 |validSources||false|string array||
+
+
+# UpdateApplicationEnvironmentRequest
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|currentVersionId||false|string||
+|description||false|string||
+|environmentType||false|enum (OTHER, DEVELOPMENT, INTEGRATION_TESTS, USER_ACCEPTANCE_TESTS, PRE_PRODUCTION, PRODUCTION)||
+|name||false|string||
 
 
 # DeploymentArtifact
@@ -682,6 +814,8 @@ weight: 9000
 |data||false|GetMultipleDataResult«ApplicationEnvironmentDTO»||
 |error||false|RestError||
 
+
+# Map«string,ApplicationTopologyVersion»
 
 # DeploymentTopology
 
@@ -745,6 +879,33 @@ weight: 9000
 |instanceStatus||false|enum (SUCCESS, PROCESSING, FAILURE, MAINTENANCE)||
 |runtimeProperties||false|object||
 |state||false|string||
+
+
+# Topology
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|archiveName||false|string||
+|archiveVersion||false|string||
+|creationDate||false|string (date-time)||
+|dependencies||false|CSARDependency array||
+|description||false|string||
+|empty||false|boolean||
+|groups||false|object||
+|id||false|string||
+|inputArtifacts||false|object||
+|inputs||false|object||
+|lastUpdateDate||false|string (date-time)||
+|nestedVersion||false|Version||
+|nodeTemplates||false|object||
+|outputAttributes||false|object||
+|outputCapabilityProperties||false|object||
+|outputProperties||false|object||
+|substitutionMapping||false|SubstitutionMapping||
+|workflows||false|object||
+|workspace||false|string||
 
 
 # Map«string,List«PropertyConstraint»»
@@ -821,17 +982,6 @@ weight: 9000
 |substitutionTopologyId||false|string||
 |tags||false|Tag array||
 |workspace||false|string||
-
-
-# ApplicationVersionRequest
-
-
-{: .table .table-bordered}
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|description||false|string||
-|topologyId||false|string||
-|version||true|string||
 
 
 # Map«string,NodeGroup»
@@ -930,6 +1080,7 @@ weight: 9000
 |----|----|----|----|----|
 |applicationId||false|string||
 |currentVersionName||false|string||
+|deployedVersion||false|string||
 |description||false|string||
 |environmentType||false|enum (OTHER, DEVELOPMENT, INTEGRATION_TESTS, USER_ACCEPTANCE_TESTS, PRE_PRODUCTION, PRODUCTION)||
 |groupRoles||false|object||
@@ -978,16 +1129,6 @@ weight: 9000
 |versionId||false|string||
 
 
-# RestResponse«GetMultipleDataResult«ApplicationVersion»»
-
-
-{: .table .table-bordered}
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|data||false|GetMultipleDataResult«ApplicationVersion»||
-|error||false|RestError||
-
-
 # CapabilityType
 
 
@@ -1009,6 +1150,16 @@ weight: 9000
 |tags||false|Tag array||
 |validSources||false|string array||
 |workspace||false|string||
+
+
+# RestResponse«GetMultipleDataResult«ApplicationVersion»»
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|data||false|GetMultipleDataResult«ApplicationVersion»||
+|error||false|RestError||
 
 
 # DeferredResult«RestResponse«Void»»
@@ -1036,6 +1187,17 @@ weight: 9000
 |toDate||false|string (date-time)||
 
 
+# AbstractEditorOperation
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|author||false|string||
+|id||false|string||
+|previousOperationId||false|string||
+
+
 # SetLocationPoliciesRequest
 
 
@@ -1049,25 +1211,11 @@ Request to set locations policies for a deployment.
 |orchestratorId|Id of the Orchestratrator managing the locations on which we want to deploy.|true|string||
 
 
-# ApplicationEnvironment
-
-
-{: .table .table-bordered}
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|applicationId||false|string||
-|currentVersionId||false|string||
-|description||false|string||
-|environmentType||false|enum (OTHER, DEVELOPMENT, INTEGRATION_TESTS, USER_ACCEPTANCE_TESTS, PRE_PRODUCTION, PRODUCTION)||
-|groupRoles||false|object||
-|id||false|string||
-|name||false|string||
-|userRoles||false|object||
-
-
 # Map«string,AbstractPropertyValue»
 
 # Map«string,RelationshipType»
+
+# Map«string,Array«ApplicationEnvironmentDTO»»
 
 # CSARDependency
 
@@ -1112,15 +1260,5 @@ Request to set locations policies for a deployment.
 |to||false|integer (int32)||
 |totalResults||false|integer (int64)||
 |types||false|string array||
-
-
-# RestResponse«ApplicationEnvironment»
-
-
-{: .table .table-bordered}
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|data||false|ApplicationEnvironment||
-|error||false|RestError||
 
 

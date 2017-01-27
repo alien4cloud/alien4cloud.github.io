@@ -5,7 +5,7 @@ root: ../../
 categories: DOCUMENTATION-1.4.0
 parent: [rest_api, rest_api_admin-orchestrator-api]
 node_name: rest_api_controller_location-resources-controller
-weight: 6
+weight: 5
 ---
 
 ### Add resource template to a location.
@@ -28,7 +28,7 @@ POST /rest/v1/orchestrators/{orchestratorId}/locations/{locationId}/resources
 {: .table .table-bordered}
 |HTTP Code|Description|Schema|
 |----|----|----|
-|200|OK|RestResponse«LocationResourceTemplate»|
+|200|OK|RestResponse«Contains a custom resource template with its location's updated dependencies.»|
 |201|Created|No Content|
 |401|Unauthorized|No Content|
 |403|Forbidden|No Content|

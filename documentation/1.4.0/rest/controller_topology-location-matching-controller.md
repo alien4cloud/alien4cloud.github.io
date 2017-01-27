@@ -19,6 +19,7 @@ GET /rest/v1/topologies/{topologyId}/locations
 |Type|Name|Description|Required|Schema|Default|
 |----|----|----|----|----|----|
 |PathParameter|topologyId|topologyId|true|string||
+|QueryParameter|environmentId|environmentId|false|string||
 
 
 #### Responses

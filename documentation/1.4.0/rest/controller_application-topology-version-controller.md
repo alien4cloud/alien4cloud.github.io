@@ -1,21 +1,21 @@
 ---
 layout: post
-title: Operations on application's tags
+title: Manages application topology versions for a given application version
 root: ../../
 categories: DOCUMENTATION-1.4.0
 parent: [rest_api, rest_api_applications-api]
-node_name: rest_api_controller_application-tags-controller
-weight: 20
+node_name: rest_api_controller_application-topology-version-controller
+weight: 19
 ---
 
-### Update/Create a tag for the application.
+### Create a new application topology version
 ```
-POST /rest/v1/applications/{applicationId}/tags
+POST /rest/v1/applications/{applicationId}/versions/{applicationVersionId}/topologyVersions
 ```
 
 #### Description
 
-The logged-in user must have the application manager role for this application. Application role required [ APPLICATION_MANAGER ]
+The logged-in user must have the application manager role for this application. Application role required [ APPLICATION_MANAGER ]
 
 #### Parameters
 
@@ -23,7 +23,8 @@ The logged-in user must have the application manager role for this application. 
 |Type|Name|Description|Required|Schema|Default|
 |----|----|----|----|----|----|
 |PathParameter|applicationId|applicationId|true|string||
-|BodyParameter|updateApplicationTagRequest|updateApplicationTagRequest|true|UpdateTagRequest||
+|PathParameter|applicationVersionId|applicationVersionId|true|string||
+|BodyParameter|request|request|true|CreateApplicationTopologyVersionRequest||
 
 
 #### Responses
@@ -46,14 +47,14 @@ The logged-in user must have the application manager role for this application. 
 
 * application/json
 
-### Delete a tag for the application.
+### Delete an application topology version from its id
 ```
-DELETE /rest/v1/applications/{applicationId}/tags/{tagId}
+DELETE /rest/v1/applications/{applicationId}/versions/{applicationVersionId}/topologyVersions/{topologyVersion}
 ```
 
 #### Description
 
-The logged-in user must have the application manager role for this application. Application role required [ APPLICATION_MANAGER ]
+The logged-in user must have the application manager role for this application. Application role required [ APPLICATION_MANAGER ]
 
 #### Parameters
 
@@ -61,7 +62,8 @@ The logged-in user must have the application manager role for this application. 
 |Type|Name|Description|Required|Schema|Default|
 |----|----|----|----|----|----|
 |PathParameter|applicationId|applicationId|true|string||
-|PathParameter|tagId|tagId|true|string||
+|PathParameter|applicationVersionId|applicationVersionId|true|string||
+|PathParameter|topologyVersion|topologyVersion|true|string||
 
 
 #### Responses

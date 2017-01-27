@@ -1,21 +1,21 @@
 ---
 layout: post
-title: Manages application's deploymeng logs
+title: Manages application's deployment logs
 root: ../../
 categories: DOCUMENTATION-1.4.0
 parent: [rest_api, rest_api_applications-api]
 node_name: rest_api_controller_application-log-controller
-weight: 20
+weight: 28
 ---
 
-### Search for applications
+### Search for logs of a given deployment
 ```
 POST /rest/v1/applications/{applicationId}/environments/{applicationEnvironmentId}/logs/search
 ```
 
 #### Description
 
-Returns a search result with that contains applications matching the request. A application is returned only if the connected user has at least one application role in [ APPLICATION_MANAGER | APPLICATION_USER | APPLICATION_DEVOPS | DEPLOYMENT_MANAGER ]
+Returns a search result with that contains logs matching the request. 
 
 #### Parameters
 
@@ -47,14 +47,14 @@ Returns a search result with that contains applications matching the request. A 
 
 * application/json
 
-### Search for applications
+### Search for logs of all deployments for a given application
 ```
 POST /rest/v1/applications/{applicationId}/logs/search
 ```
 
 #### Description
 
-Returns a search result with that contains applications matching the request. A application is returned only if the connected user has at least one application role in [ APPLICATION_MANAGER | APPLICATION_USER | APPLICATION_DEVOPS | DEPLOYMENT_MANAGER ]
+Returns a search result with that contains logs matching the request.
 
 #### Parameters
 

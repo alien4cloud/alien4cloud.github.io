@@ -5,7 +5,7 @@ root: ../../
 categories: DOCUMENTATION-1.4.0
 parent: [rest_api, rest_api_catalog-api]
 node_name: rest_api_controller_csar-git-controller
-weight: 15
+weight: 14
 ---
 
 ### Search for TOSCA CSAR git repositories.

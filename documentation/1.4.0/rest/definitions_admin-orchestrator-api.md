@@ -20,6 +20,30 @@ weight: 9000
 |error||false|RestError||
 
 
+# UserDTO
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|email||false|string||
+|firstName||false|string||
+|lastName||false|string||
+|username||false|string||
+
+
+# GroupDTO
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|description||false|string||
+|email||false|string||
+|id||false|string||
+|name||false|string||
+
+
 # RestResponse«List«Usage»»
 
 
@@ -109,16 +133,6 @@ A request object to pass when updating an orchestrator. Contains updatable field
 |qualifier||false|string||
 
 
-# RestResponse«LocationResourceTemplate»
-
-
-{: .table .table-bordered}
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|data||false|LocationResourceTemplate||
-|error||false|RestError||
-
-
 # Request to update a location resource.
 
 
@@ -205,6 +219,16 @@ A request object to pass when updating an orchestrator. Contains updatable field
 |name||false|string||
 
 
+# Contains a custom resource template with its location's updated dependencies.
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|newDependencies|The location's dependencies, which might have been updated when creating the resource template.|false|CSARDependency array||
+|resourceTemplate|A custom configured resource template.|false|LocationResourceTemplate||
+
+
 # RestResponse«GetMultipleDataResult«Orchestrator.»»
 
 
@@ -212,6 +236,16 @@ A request object to pass when updating an orchestrator. Contains updatable field
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
 |data||false|GetMultipleDataResult«Orchestrator.»||
+|error||false|RestError||
+
+
+# RestResponse«Contains a custom resource template with its location's updated dependencies.»
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|data||false|Contains a custom resource template with its location's updated dependencies.||
 |error||false|RestError||
 
 
@@ -238,6 +272,7 @@ A request object to pass when updating an orchestrator. Contains updatable field
 |nodeTemplates|List of node templates already configured for the location.|false|LocationResourceTemplate array||
 |nodeTypes|Map of node types id, node type used to configure the templates of on-demand resources in a location.|false|object||
 |onDemandTypes|Map that contains the on demdand types.|false|object||
+|providedTypes|List of recommended node types ID, e.g. defined at the orchestrator level|false|string array||
 
 
 # Orchestrator.
@@ -249,8 +284,6 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 {: .table .table-bordered}
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
-|authorizedGroups||false|string array||
-|authorizedUsers||false|string array||
 |deploymentNamePattern||false|string||
 |id||false|string||
 |name||false|string||
@@ -404,6 +437,24 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 |name|Name of the location (must be unique for this orchestrator as this allow users to identify it).|true|string||
 
 
+# Application
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|creationDate||false|string (date-time)||
+|description||false|string||
+|groupRoles||false|object||
+|id||false|string||
+|imageId||false|string||
+|lastUpdateDate||false|string (date-time)||
+|metaProperties||false|object||
+|name||false|string||
+|tags||false|Tag array||
+|userRoles||false|object||
+
+
 # RestResponse«string»
 
 
@@ -422,6 +473,8 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 {: .table .table-bordered}
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
+|archiveName|Archive name of the resource type.|false|string||
+|archiveVersion|Archive version of the resource type.|false|string||
 |resourceName|Name of the location's resource.|true|string||
 |resourceType|Type of the location's resource.|true|string||
 
@@ -441,6 +494,16 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 |service||false|boolean||
 |template||false|NodeTemplate||
 |types||false|string array||
+
+
+# RestResponse«List«GroupDTO»»
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|data||false|GroupDTO array||
+|error||false|RestError||
 
 
 # RestResponse«LocationDTO»
@@ -468,6 +531,16 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 |portability||false|object||
 
 
+# RestResponse«List«UserDTO»»
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|data||false|UserDTO array||
+|error||false|RestError||
+
+
 # PropertyConstraint
 
 # IValue
@@ -491,6 +564,18 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 
 # Map«string,Set«string»»
 
+# ApplicationEnvironmentAuthorizationUpdateRequest
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|applicationsToAdd||false|string array||
+|applicationsToDelete||false|string array||
+|environmentsToAdd||false|string array||
+|environmentsToDelete||false|string array||
+
+
 # RestResponse«List«LocationDTO»»
 
 
@@ -498,6 +583,16 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
 |data||false|LocationDTO array||
+|error||false|RestError||
+
+
+# RestResponse«List«ApplicationEnvironmentAuthorizationDTO»»
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|data||false|ApplicationEnvironmentAuthorizationDTO array||
 |error||false|RestError||
 
 
@@ -615,6 +710,23 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 
 # Map«string,AbstractPropertyValue»
 
+# ApplicationEnvironment
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|applicationId||false|string||
+|description||false|string||
+|environmentType||false|enum (OTHER, DEVELOPMENT, INTEGRATION_TESTS, USER_ACCEPTANCE_TESTS, PRE_PRODUCTION, PRODUCTION)||
+|groupRoles||false|object||
+|id||false|string||
+|name||false|string||
+|topologyVersion||false|string||
+|userRoles||false|object||
+|version||false|string||
+
+
 # OrchestratorConfiguration
 
 
@@ -641,6 +753,16 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 # Map«string,string»
 
 # Map«string,DeploymentArtifact»
+
+# ApplicationEnvironmentAuthorizationDTO
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|application||false|Application||
+|environments||false|ApplicationEnvironment array||
+
 
 # Request to update or check the value of a property.
 
@@ -693,17 +815,19 @@ A location represents a cloud, a region of a cloud, a set of machines and resour
 {: .table .table-bordered}
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
+|applicationPermissions||false|object||
 |creationDate||false|string (date-time)||
 |dependencies||false|CSARDependency array||
+|environmentPermissions||false|object||
 |environmentType||false|string||
-|groupRoles||false|object||
+|groupPermissions||false|object||
 |id||false|string||
 |infrastructureType||false|string||
 |lastUpdateDate||false|string (date-time)||
 |metaProperties||false|object||
 |name||false|string||
 |orchestratorId||false|string||
-|userRoles||false|object||
+|userPermissions||false|object||
 
 
 # NodeFilter

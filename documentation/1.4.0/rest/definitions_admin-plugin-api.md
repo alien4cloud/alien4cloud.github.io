@@ -121,6 +121,7 @@ weight: 9000
 |configurable||false|boolean||
 |descriptor||false|PluginDescriptor||
 |enabled||false|boolean||
+|esId||false|string||
 |id||false|string||
 |pluginPathId||false|string||
 
