@@ -554,6 +554,43 @@ ga('send', 'pageview');
 
 <h1 id="mapstringobject">Map«string,object»</h1>
 
+<h1 id="dependencyconflictdto">DependencyConflictDTO</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>dependency</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>resolvedVersion</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>source</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
 <h1 id="propertyvaluetopology">PropertyValue«Topology»</h1>
 
 <table class="table table-bordered">
@@ -826,20 +863,6 @@ ga('send', 'pageview');
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>authorizedGroups</td>
-      <td> </td>
-      <td>false</td>
-      <td>string array</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>authorizedUsers</td>
-      <td> </td>
-      <td>false</td>
-      <td>string array</td>
-      <td> </td>
-    </tr>
     <tr>
       <td>deploymentNamePattern</td>
       <td> </td>
@@ -1405,6 +1428,13 @@ ga('send', 'pageview');
       <td> </td>
       <td>false</td>
       <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>dependencyConflicts</td>
+      <td> </td>
+      <td>false</td>
+      <td>DependencyConflictDTO array</td>
       <td> </td>
     </tr>
     <tr>
@@ -2490,6 +2520,13 @@ ga('send', 'pageview');
   </thead>
   <tbody>
     <tr>
+      <td>applicationPermissions</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
       <td>creationDate</td>
       <td> </td>
       <td>false</td>
@@ -2504,6 +2541,13 @@ ga('send', 'pageview');
       <td> </td>
     </tr>
     <tr>
+      <td>environmentPermissions</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
       <td>environmentType</td>
       <td> </td>
       <td>false</td>
@@ -2511,7 +2555,7 @@ ga('send', 'pageview');
       <td> </td>
     </tr>
     <tr>
-      <td>groupRoles</td>
+      <td>groupPermissions</td>
       <td> </td>
       <td>false</td>
       <td>object</td>
@@ -2560,7 +2604,7 @@ ga('send', 'pageview');
       <td> </td>
     </tr>
     <tr>
-      <td>userRoles</td>
+      <td>userPermissions</td>
       <td> </td>
       <td>false</td>
       <td>object</td>

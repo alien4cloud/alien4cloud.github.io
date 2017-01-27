@@ -61,6 +61,94 @@ ga('send', 'pageview');
   </tbody>
 </table>
 
+<h1 id="userdto">UserDTO</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>email</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>firstName</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>lastName</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>username</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="groupdto">GroupDTO</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>description</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>email</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>id</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>name</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
 <h1 id="restresponselistusage">RestResponse«List«Usage»»</h1>
 
 <table class="table table-bordered">
@@ -385,36 +473,6 @@ ga('send', 'pageview');
   </tbody>
 </table>
 
-<h1 id="restresponselocationresourcetemplate">RestResponse«LocationResourceTemplate»</h1>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Required</th>
-      <th>Schema</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>data</td>
-      <td> </td>
-      <td>false</td>
-      <td>LocationResourceTemplate</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>error</td>
-      <td> </td>
-      <td>false</td>
-      <td>RestError</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
 <h1 id="request-to-update-a-location-resource">Request to update a location resource.</h1>
 
 <table class="table table-bordered">
@@ -725,6 +783,36 @@ ga('send', 'pageview');
   </tbody>
 </table>
 
+<h1 id="contains-a-custom-resource-template-with-its-locations-updated-dependencies">Contains a custom resource template with its location’s updated dependencies.</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>newDependencies</td>
+      <td>The location’s dependencies, which might have been updated when creating the resource template.</td>
+      <td>false</td>
+      <td>CSARDependency array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>resourceTemplate</td>
+      <td>A custom configured resource template.</td>
+      <td>false</td>
+      <td>LocationResourceTemplate</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
 <h1 id="restresponsegetmultipledataresultorchestrator">RestResponse«GetMultipleDataResult«Orchestrator.»»</h1>
 
 <table class="table table-bordered">
@@ -743,6 +831,36 @@ ga('send', 'pageview');
       <td> </td>
       <td>false</td>
       <td>GetMultipleDataResult«Orchestrator.»</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>error</td>
+      <td> </td>
+      <td>false</td>
+      <td>RestError</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="restresponsecontains-a-custom-resource-template-with-its-locations-updated-dependencies">RestResponse«Contains a custom resource template with its location’s updated dependencies.»</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>data</td>
+      <td> </td>
+      <td>false</td>
+      <td>Contains a custom resource template with its location’s updated dependencies.</td>
       <td> </td>
     </tr>
     <tr>
@@ -847,6 +965,13 @@ ga('send', 'pageview');
       <td>object</td>
       <td> </td>
     </tr>
+    <tr>
+      <td>providedTypes</td>
+      <td>List of recommended node types ID, e.g. defined at the orchestrator level</td>
+      <td>false</td>
+      <td>string array</td>
+      <td> </td>
+    </tr>
   </tbody>
 </table>
 
@@ -865,20 +990,6 @@ ga('send', 'pageview');
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>authorizedGroups</td>
-      <td> </td>
-      <td>false</td>
-      <td>string array</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>authorizedUsers</td>
-      <td> </td>
-      <td>false</td>
-      <td>string array</td>
-      <td> </td>
-    </tr>
     <tr>
       <td>deploymentNamePattern</td>
       <td> </td>
@@ -1479,6 +1590,92 @@ ga('send', 'pageview');
   </tbody>
 </table>
 
+<h1 id="application">Application</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>creationDate</td>
+      <td> </td>
+      <td>false</td>
+      <td>string (date-time)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>description</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>groupRoles</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>id</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>imageId</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>lastUpdateDate</td>
+      <td> </td>
+      <td>false</td>
+      <td>string (date-time)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>metaProperties</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>name</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>tags</td>
+      <td> </td>
+      <td>false</td>
+      <td>Tag array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>userRoles</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
 <h1 id="restresponsestring">RestResponse«string»</h1>
 
 <table class="table table-bordered">
@@ -1524,6 +1721,20 @@ ga('send', 'pageview');
     </tr>
   </thead>
   <tbody>
+    <tr>
+      <td>archiveName</td>
+      <td>Archive name of the resource type.</td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>archiveVersion</td>
+      <td>Archive version of the resource type.</td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
     <tr>
       <td>resourceName</td>
       <td>Name of the location’s resource.</td>
@@ -1620,6 +1831,36 @@ ga('send', 'pageview');
   </tbody>
 </table>
 
+<h1 id="restresponselistgroupdto">RestResponse«List«GroupDTO»»</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>data</td>
+      <td> </td>
+      <td>false</td>
+      <td>GroupDTO array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>error</td>
+      <td> </td>
+      <td>false</td>
+      <td>RestError</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
 <h1 id="restresponselocationdto">RestResponse«LocationDTO»</h1>
 
 <table class="table table-bordered">
@@ -1703,6 +1944,36 @@ ga('send', 'pageview');
   </tbody>
 </table>
 
+<h1 id="restresponselistuserdto">RestResponse«List«UserDTO»»</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>data</td>
+      <td> </td>
+      <td>false</td>
+      <td>UserDTO array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>error</td>
+      <td> </td>
+      <td>false</td>
+      <td>RestError</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
 <h1 id="propertyconstraint">PropertyConstraint</h1>
 
 <h1 id="ivalue">IValue</h1>
@@ -1760,6 +2031,50 @@ ga('send', 'pageview');
 
 <h1 id="mapstringsetstring">Map«string,Set«string»»</h1>
 
+<h1 id="applicationenvironmentauthorizationupdaterequest">ApplicationEnvironmentAuthorizationUpdateRequest</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>applicationsToAdd</td>
+      <td> </td>
+      <td>false</td>
+      <td>string array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>applicationsToDelete</td>
+      <td> </td>
+      <td>false</td>
+      <td>string array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>environmentsToAdd</td>
+      <td> </td>
+      <td>false</td>
+      <td>string array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>environmentsToDelete</td>
+      <td> </td>
+      <td>false</td>
+      <td>string array</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
 <h1 id="restresponselistlocationdto">RestResponse«List«LocationDTO»»</h1>
 
 <table class="table table-bordered">
@@ -1778,6 +2093,36 @@ ga('send', 'pageview');
       <td> </td>
       <td>false</td>
       <td>LocationDTO array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>error</td>
+      <td> </td>
+      <td>false</td>
+      <td>RestError</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="restresponselistapplicationenvironmentauthorizationdto">RestResponse«List«ApplicationEnvironmentAuthorizationDTO»»</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>data</td>
+      <td> </td>
+      <td>false</td>
+      <td>ApplicationEnvironmentAuthorizationDTO array</td>
       <td> </td>
     </tr>
     <tr>
@@ -2232,6 +2577,85 @@ ga('send', 'pageview');
 
 <h1 id="mapstringabstractpropertyvalue">Map«string,AbstractPropertyValue»</h1>
 
+<h1 id="applicationenvironment">ApplicationEnvironment</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>applicationId</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>description</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>environmentType</td>
+      <td> </td>
+      <td>false</td>
+      <td>enum (OTHER, DEVELOPMENT, INTEGRATION_TESTS, USER_ACCEPTANCE_TESTS, PRE_PRODUCTION, PRODUCTION)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>groupRoles</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>id</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>name</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>topologyVersion</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>userRoles</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>version</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
 <h1 id="orchestratorconfiguration">OrchestratorConfiguration</h1>
 
 <table class="table table-bordered">
@@ -2304,6 +2728,36 @@ ga('send', 'pageview');
 <h1 id="mapstringstring">Map«string,string»</h1>
 
 <h1 id="mapstringdeploymentartifact">Map«string,DeploymentArtifact»</h1>
+
+<h1 id="applicationenvironmentauthorizationdto">ApplicationEnvironmentAuthorizationDTO</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>application</td>
+      <td> </td>
+      <td>false</td>
+      <td>Application</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>environments</td>
+      <td> </td>
+      <td>false</td>
+      <td>ApplicationEnvironment array</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
 
 <h1 id="request-to-update-or-check-the-value-of-a-property">Request to update or check the value of a property.</h1>
 
@@ -2443,6 +2897,13 @@ ga('send', 'pageview');
   </thead>
   <tbody>
     <tr>
+      <td>applicationPermissions</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
       <td>creationDate</td>
       <td> </td>
       <td>false</td>
@@ -2457,6 +2918,13 @@ ga('send', 'pageview');
       <td> </td>
     </tr>
     <tr>
+      <td>environmentPermissions</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
       <td>environmentType</td>
       <td> </td>
       <td>false</td>
@@ -2464,7 +2932,7 @@ ga('send', 'pageview');
       <td> </td>
     </tr>
     <tr>
-      <td>groupRoles</td>
+      <td>groupPermissions</td>
       <td> </td>
       <td>false</td>
       <td>object</td>
@@ -2513,7 +2981,7 @@ ga('send', 'pageview');
       <td> </td>
     </tr>
     <tr>
-      <td>userRoles</td>
+      <td>userPermissions</td>
       <td> </td>
       <td>false</td>
       <td>object</td>

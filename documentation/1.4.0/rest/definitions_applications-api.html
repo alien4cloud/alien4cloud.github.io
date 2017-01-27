@@ -91,6 +91,66 @@ ga('send', 'pageview');
 
 <h1 id="mapstringabstractstep">Map«string,AbstractStep»</h1>
 
+<h1 id="updateapplicationversionrequest">UpdateApplicationVersionRequest</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>description</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>version</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="restresponsemapstringarrayapplicationenvironmentdto">RestResponse«Map«string,Array«ApplicationEnvironmentDTO»»»</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>data</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>error</td>
+      <td> </td>
+      <td>false</td>
+      <td>RestError</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
 <h1 id="restresponsedeploymenttopologydto">RestResponse«DeploymentTopologyDTO»</h1>
 
 <table class="table table-bordered">
@@ -298,6 +358,82 @@ ga('send', 'pageview');
 
 <h1 id="mapstringobject">Map«string,object»</h1>
 
+<h1 id="propertyvaluetopology">PropertyValue«Topology»</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>definition</td>
+      <td> </td>
+      <td>false</td>
+      <td>boolean</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>value</td>
+      <td> </td>
+      <td>false</td>
+      <td>Topology</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="createapplicationtopologyversionrequest">CreateApplicationTopologyVersionRequest</h1>
+
+<p>Request to set locations policies for a deployment.</p>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>applicationTopologyVersion</td>
+      <td>Id of the application topology version to use to initialize this application topology versions.</td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>description</td>
+      <td>Description for this specific variant of the topology for the application version.</td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>qualifier</td>
+      <td>Qualifier string that allow having a distinct topology version for every Application Topology Version in an Application Version.</td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>topologyTemplateId</td>
+      <td>Id of the topology template to use to initialize the application topology version that will be created with the new application version.</td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
 <h1 id="mapstringmapstringinstanceinformation">Map«string,Map«string,InstanceInformation»»</h1>
 
 <h1 id="capability">Capability</h1>
@@ -421,6 +557,50 @@ ga('send', 'pageview');
 <h1 id="mapstringinterface">Map«string,Interface»</h1>
 
 <h1 id="mapstringrelationshiptemplate">Map«string,RelationshipTemplate»</h1>
+
+<h1 id="createapplicationversionrequest">CreateApplicationVersionRequest</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>description</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>fromVersionId</td>
+      <td>Id of the application version to use to initialize all application topology versions.</td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>topologyTemplateId</td>
+      <td>Id of the topology template to use to initialize the application topology version that will be created with the new application version.</td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>version</td>
+      <td> </td>
+      <td>true</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
 
 <h1 id="mapstringpropertydefinition">Map«string,PropertyDefinition»</h1>
 
@@ -581,6 +761,99 @@ ga('send', 'pageview');
       <td> </td>
       <td>false</td>
       <td>RestError</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="topologydto">TopologyDTO</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>archiveContentTree</td>
+      <td> </td>
+      <td>false</td>
+      <td>TreeNode</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>capabilityTypes</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>dataTypes</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>delegateType</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>dependencyConflicts</td>
+      <td> </td>
+      <td>false</td>
+      <td>DependencyConflictDTO array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>lastOperationIndex</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int32)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>nodeTypes</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>operations</td>
+      <td> </td>
+      <td>false</td>
+      <td>AbstractEditorOperation array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>outputCapabilityProperties</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>relationshipTypes</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>topology</td>
+      <td> </td>
+      <td>false</td>
+      <td>Topology</td>
       <td> </td>
     </tr>
   </tbody>
@@ -936,6 +1209,13 @@ ga('send', 'pageview');
       <td>object</td>
       <td> </td>
     </tr>
+    <tr>
+      <td>providedTypes</td>
+      <td>List of recommended node types ID, e.g. defined at the orchestrator level</td>
+      <td>false</td>
+      <td>string array</td>
+      <td> </td>
+    </tr>
   </tbody>
 </table>
 
@@ -966,6 +1246,36 @@ ga('send', 'pageview');
       <td> </td>
       <td>false</td>
       <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="restresponsetopologydto">RestResponse«TopologyDTO»</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>data</td>
+      <td> </td>
+      <td>false</td>
+      <td>TopologyDTO</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>error</td>
+      <td> </td>
+      <td>false</td>
+      <td>RestError</td>
       <td> </td>
     </tr>
   </tbody>
@@ -1355,6 +1665,36 @@ ga('send', 'pageview');
   </tbody>
 </table>
 
+<h1 id="restresponseapplicationenvironmentdto">RestResponse«ApplicationEnvironmentDTO»</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>data</td>
+      <td> </td>
+      <td>false</td>
+      <td>ApplicationEnvironmentDTO</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>error</td>
+      <td> </td>
+      <td>false</td>
+      <td>RestError</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
 <h1 id="request-to-update-or-check-the-value-of-a-property">Request to update or check the value of a property.</h1>
 
 <table class="table table-bordered">
@@ -1570,10 +1910,10 @@ ga('send', 'pageview');
       <td> </td>
     </tr>
     <tr>
-      <td>latest</td>
+      <td>nestedVersion</td>
       <td> </td>
       <td>false</td>
-      <td>boolean</td>
+      <td>Version</td>
       <td> </td>
     </tr>
     <tr>
@@ -1584,10 +1924,10 @@ ga('send', 'pageview');
       <td> </td>
     </tr>
     <tr>
-      <td>snapshot</td>
+      <td>topologyVersions</td>
       <td> </td>
       <td>false</td>
-      <td>boolean</td>
+      <td>object</td>
       <td> </td>
     </tr>
     <tr>
@@ -1958,6 +2298,43 @@ ga('send', 'pageview');
   </tbody>
 </table>
 
+<h1 id="applicationtopologyversion">ApplicationTopologyVersion</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>archiveId</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>description</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>qualifier</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
 <h1 id="relationshiptemplate">RelationshipTemplate</h1>
 
 <table class="table table-bordered">
@@ -2157,6 +2534,94 @@ ga('send', 'pageview');
   </tbody>
 </table>
 
+<h1 id="treenode">TreeNode</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>artifactId</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>children</td>
+      <td> </td>
+      <td>false</td>
+      <td>TreeNode array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>fullPath</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>leaf</td>
+      <td> </td>
+      <td>false</td>
+      <td>boolean</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>name</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="dependencyconflictdto">DependencyConflictDTO</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>dependency</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>resolvedVersion</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>source</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
 <h1 id="deployapplicationrequest">DeployApplicationRequest</h1>
 
 <table class="table table-bordered">
@@ -2188,50 +2653,6 @@ ga('send', 'pageview');
 </table>
 
 <h1 id="mapstringarrayfacetedsearchfacet">Map«string,Array«FacetedSearchFacet»»</h1>
-
-<h1 id="updateapplicationenvironmentrequest">UpdateApplicationEnvironmentRequest</h1>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Required</th>
-      <th>Schema</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>currentVersionId</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>description</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>environmentType</td>
-      <td> </td>
-      <td>false</td>
-      <td>enum (OTHER, DEVELOPMENT, INTEGRATION_TESTS, USER_ACCEPTANCE_TESTS, PRE_PRODUCTION, PRODUCTION)</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>name</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
 
 <h1 id="capabilitydefinition">CapabilityDefinition</h1>
 
@@ -2286,6 +2707,50 @@ ga('send', 'pageview');
       <td> </td>
       <td>false</td>
       <td>string array</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="updateapplicationenvironmentrequest">UpdateApplicationEnvironmentRequest</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>currentVersionId</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>description</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>environmentType</td>
+      <td> </td>
+      <td>false</td>
+      <td>enum (OTHER, DEVELOPMENT, INTEGRATION_TESTS, USER_ACCEPTANCE_TESTS, PRE_PRODUCTION, PRODUCTION)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>name</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
       <td> </td>
     </tr>
   </tbody>
@@ -2461,6 +2926,8 @@ ga('send', 'pageview');
     </tr>
   </tbody>
 </table>
+
+<h1 id="mapstringapplicationtopologyversion">Map«string,ApplicationTopologyVersion»</h1>
 
 <h1 id="deploymenttopology">DeploymentTopology</h1>
 
@@ -2770,6 +3237,155 @@ ga('send', 'pageview');
     </tr>
     <tr>
       <td>state</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="topology">Topology</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>archiveName</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>archiveVersion</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>creationDate</td>
+      <td> </td>
+      <td>false</td>
+      <td>string (date-time)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>dependencies</td>
+      <td> </td>
+      <td>false</td>
+      <td>CSARDependency array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>description</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>empty</td>
+      <td> </td>
+      <td>false</td>
+      <td>boolean</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>groups</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>id</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>inputArtifacts</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>inputs</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>lastUpdateDate</td>
+      <td> </td>
+      <td>false</td>
+      <td>string (date-time)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>nestedVersion</td>
+      <td> </td>
+      <td>false</td>
+      <td>Version</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>nodeTemplates</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>outputAttributes</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>outputCapabilityProperties</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>outputProperties</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>substitutionMapping</td>
+      <td> </td>
+      <td>false</td>
+      <td>SubstitutionMapping</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>workflows</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>workspace</td>
       <td> </td>
       <td>false</td>
       <td>string</td>
@@ -3114,43 +3730,6 @@ ga('send', 'pageview');
   </tbody>
 </table>
 
-<h1 id="applicationversionrequest">ApplicationVersionRequest</h1>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Required</th>
-      <th>Schema</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>description</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>topologyId</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>version</td>
-      <td> </td>
-      <td>true</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
 <h1 id="mapstringnodegroup">Map«string,NodeGroup»</h1>
 
 <h1 id="searchrequest">SearchRequest</h1>
@@ -3479,6 +4058,13 @@ ga('send', 'pageview');
       <td> </td>
     </tr>
     <tr>
+      <td>deployedVersion</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
       <td>description</td>
       <td> </td>
       <td>false</td>
@@ -3671,36 +4257,6 @@ ga('send', 'pageview');
   </tbody>
 </table>
 
-<h1 id="restresponsegetmultipledataresultapplicationversion">RestResponse«GetMultipleDataResult«ApplicationVersion»»</h1>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Required</th>
-      <th>Schema</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>data</td>
-      <td> </td>
-      <td>false</td>
-      <td>GetMultipleDataResult«ApplicationVersion»</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>error</td>
-      <td> </td>
-      <td>false</td>
-      <td>RestError</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
 <h1 id="capabilitytype">CapabilityType</h1>
 
 <table class="table table-bordered">
@@ -3822,6 +4378,36 @@ ga('send', 'pageview');
   </tbody>
 </table>
 
+<h1 id="restresponsegetmultipledataresultapplicationversion">RestResponse«GetMultipleDataResult«ApplicationVersion»»</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>data</td>
+      <td> </td>
+      <td>false</td>
+      <td>GetMultipleDataResult«ApplicationVersion»</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>error</td>
+      <td> </td>
+      <td>false</td>
+      <td>RestError</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
 <h1 id="deferredresultrestresponsevoid">DeferredResult«RestResponse«Void»»</h1>
 
 <table class="table table-bordered">
@@ -3917,6 +4503,43 @@ ga('send', 'pageview');
   </tbody>
 </table>
 
+<h1 id="abstracteditoroperation">AbstractEditorOperation</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>author</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>id</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>previousOperationId</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
 <h1 id="setlocationpoliciesrequest">SetLocationPoliciesRequest</h1>
 
 <p>Request to set locations policies for a deployment.</p>
@@ -3949,81 +4572,11 @@ ga('send', 'pageview');
   </tbody>
 </table>
 
-<h1 id="applicationenvironment">ApplicationEnvironment</h1>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Required</th>
-      <th>Schema</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>applicationId</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>currentVersionId</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>description</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>environmentType</td>
-      <td> </td>
-      <td>false</td>
-      <td>enum (OTHER, DEVELOPMENT, INTEGRATION_TESTS, USER_ACCEPTANCE_TESTS, PRE_PRODUCTION, PRODUCTION)</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>groupRoles</td>
-      <td> </td>
-      <td>false</td>
-      <td>object</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>id</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>name</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>userRoles</td>
-      <td> </td>
-      <td>false</td>
-      <td>object</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
 <h1 id="mapstringabstractpropertyvalue">Map«string,AbstractPropertyValue»</h1>
 
 <h1 id="mapstringrelationshiptype">Map«string,RelationshipType»</h1>
+
+<h1 id="mapstringarrayapplicationenvironmentdto">Map«string,Array«ApplicationEnvironmentDTO»»</h1>
 
 <h1 id="csardependency">CSARDependency</h1>
 
@@ -4155,36 +4708,6 @@ ga('send', 'pageview');
       <td> </td>
       <td>false</td>
       <td>string array</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<h1 id="restresponseapplicationenvironment">RestResponse«ApplicationEnvironment»</h1>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Required</th>
-      <th>Schema</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>data</td>
-      <td> </td>
-      <td>false</td>
-      <td>ApplicationEnvironment</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>error</td>
-      <td> </td>
-      <td>false</td>
-      <td>RestError</td>
       <td> </td>
     </tr>
   </tbody>

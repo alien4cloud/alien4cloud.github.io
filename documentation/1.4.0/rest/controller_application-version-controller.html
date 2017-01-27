@@ -151,7 +151,7 @@ POST /rest/v1/applications/{applicationId}/versions
       <td>request</td>
       <td>request</td>
       <td>true</td>
-      <td>ApplicationVersionRequest</td>
+      <td>CreateApplicationVersionRequest</td>
       <td> </td>
     </tr>
   </tbody>
@@ -425,6 +425,14 @@ PUT /rest/v1/applications/{applicationId}/versions/{applicationVersionId}
   <tbody>
     <tr>
       <td>PathParameter</td>
+      <td>applicationId</td>
+      <td>applicationId</td>
+      <td>true</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>PathParameter</td>
       <td>applicationVersionId</td>
       <td>applicationVersionId</td>
       <td>true</td>
@@ -436,7 +444,7 @@ PUT /rest/v1/applications/{applicationId}/versions/{applicationVersionId}
       <td>request</td>
       <td>request</td>
       <td>true</td>
-      <td>ApplicationVersionRequest</td>
+      <td>UpdateApplicationVersionRequest</td>
       <td> </td>
     </tr>
   </tbody>
