@@ -43,7 +43,7 @@ ga('send', 'pageview');
 
 <div class="note info">
 <h5>Supported orchestrators</h5>
-<p>We are currently supporting the opensource orchestrator cloudify 3.3.1.</p>
+<p>We are currently supporting the opensource orchestrator cloudify 3.4.0.</p>
 </div>
 
 <h1 id="orchestrators-management">Orchestrators management</h1>
@@ -128,7 +128,7 @@ For example, the  cloudify3 provider defines connexion parameters so that Alien 
 <p><a href="../../images/1.1.0/user_guide/admin/orchestrators/orchestrator-driver-configuration.png"><img src="../../images/1.1.0/user_guide/admin/orchestrators/orchestrator-driver-configuration.png" alt="Configure the provider" /></a></p>
 
 <div class="note info">
-<p>More informations for <a href="#/documentation/1.4.0/orchestrators/cloudify3_driver/index.html">cloudify 3</a> can be found on her specific documentation.</p>
+<p>More informations for <a href="#/documentation/1.4.0/orchestrators/cloudify3_driver/index.html">cloudify 3</a> can be found on it specific documentation.</p>
 </div>
 
 <div class="note info">
@@ -178,12 +178,24 @@ For example, the Cloudify 3 provider exposes configuration resources such as Ima
 <p>On demand resources are the exact resources used for matching nodes within the topology before deploying, such as Computes, networks and volumes.
 They may a combination of one or more configuration resources. (Example, the on demand resource <em>Compute</em> could be a combination of <em>Image</em> and <em>Flavor</em> configuration resources.). The following is an example based on the Cloudify 3 provider:</p>
 
-<p><a href="../../images/1.1.0/user_guide/admin/orchestrators/location-on-demand-resources.png"><img src="../../images/1.1.0/user_guide/admin/orchestrators/location-on-demand-resources.png" alt="Location on demand resources" /></a></p>
+<p><a href="../../images/1.4.0/user_guide/admin/orchestrators/location-on-demand-resource.png"><img src="../../images/1.4.0/user_guide/admin/orchestrators/location-on-demand-resource.png" alt="Location on demand resources" /></a></p>
+
+<p>To add more resource templates, you can simply drag and drop resources types from the panel on the right.</p>
 
 <div class="note info">
 <h5> Auto configuration</h5>
 <p>If the location exposes a way to automatically generate on-demand resources, you can hit the “auto-config” button to auto-generate them.</p>
 </div>
+
+<h3 id="adding-custom-on-demand-resources-from-the-tosca-catalog">Adding custom on-demand resources from the TOSCA catalog</h3>
+
+<p>You can also create Custom on demand resource templates using any type from the catalog - provided that it is not abstract. This allows you to match abstract nodes in a topology to concrete custom resources, defined within your orchestrator location, exactly the same way you are used to with on-demand resources provided by the orchestrator. To do so, simply drag and drop resource types from the catalog panel.</p>
+
+<div class="note warning">
+<p>At this point, we assume that you know what you are doing when creating custom resources. If not, please make sure you go through our <a href="#/documentation/1.4.0/user_guide/tosca_catalog_custom_resources.html">documentation on this feature</a>. Alien has no way to verify if custom resource templates created in the location are compatible with your orchestrator.</p>
+</div>
+
+<p><a href="../../images/1.4.0/user_guide/admin/orchestrators/location-custom-on-demand-resource.png"><img src="../../images/1.4.0/user_guide/admin/orchestrators/location-custom-on-demand-resource.png" alt="Location custom on demand resources" /></a></p>
 
 <h3 id="meta-properties">Meta properties</h3>
 
