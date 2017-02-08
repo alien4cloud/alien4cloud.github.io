@@ -21,56 +21,60 @@ root: ../
 
   <ul class="cbp_tmtimeline">
     <li>
-      <time class="cbp_tmtime" datetime="2016-11"><span>November 2016</span> <span>v 1.3.0</span></time>
+      <time class="cbp_tmtime" datetime="2016-11"><span>May 2017</span> <span>v 1.4.0</span></time>
       <div class="cbp_tmicon"><i class="fa fa-rocket"></i></div>
       <div class="cbp_tmlabel">
         <h4>Core</h4>
         <ul>
-          <li>Simplified API</li>
-          <li>
-            New version of the designer
+          <li>Manage topologies versions: ability to have several topologies for a specific Application version.
+            Allows to adapt for a same application version to different deployment architectures (HA, LB, security, …) per environment</li>
+          <li>Fine grained access rights on locations and resources within a location</li>
+          <li>Services management
             <ul>
-              <li>Advanced Git integration - Push modifications </li>
-              <li>Topology archive files upload/delete/edition (including topology yaml)</li>
-              <li>View modifications history on components and topologies</li>
-              <li>Save, Undo, Redo changes in the design view</li>
-              <li>Keyboard shortcuts</li>
+              <li>Declare already provisioned resource as a service accessible by Alien4Cloud application resources</li>
+              <li>Expose a deployed application as a service</li>
             </ul>
           </li>
-          <li>Workspace - Premium
-            <ul>
-              <li>Upload, modify components and topologies in a logical space</li>
-              <li>Share component from your workspace with users, groups and public</li>
+          <li>Advanced post-deployment updates, upgrades & sync</li>
+          <li>Security improvements on runtime within Cloudify 4.0 – Premium</li>
+          <li>End to end HA support improvement when leveraging Cloudify runtime orchestrator</li>
+          <li>Dev/Ops/User experience improvements
+            <ul>        
+              <li>ease Types and Topologies development and tests</li>
+              <li>leverage Docker to improve instanciation time when developing/testing</li>
+              <li>improve logs screens usability</li>
+              <li>Jenkins plug-in, bringing Continuous Delivery to Jenkins users </li>
             </ul>
           </li>
-          <li>Security
-            <ul>
-              <li>Secure All http connections within Cloudify 3.4 – Premium</li>
-            </ul>
-          </li>
-        </ul>
         <h4>Orchestrators certifications</h4>
         <ul>
-          <li>Cloudify v3.4</li>
+          <li>Cloudify v4.0</li>
         </ul>
         <h4>Infrastructure support</h4>
         <ul>
-          <li>Azure (ARM) support (linux and windows compute, volumes, public IPs and network, security groups, H.A. policy) - Premium</li>
-          <li>Mesos / Marathon</li>
-          <li>Docker</li>
-          <ul>
-            <li>Deploy container based topology relying on Mesos plugin or Cloudify Kubernetes plugin</li>
-          </ul>
-        </ul>
-        <h4>TOSCA</h4>
+          <li>Ansible plug-in improvements for more native support </li>
+          <li>Docker
+            <ul>
+              <li>On-demand hybrid deployment through Cloudify integration & user defined matching</li>
+            </ul>
+          </li>
+          <li>Certification for following infrastructures/IaaS
+            <ul>
+              <li>Amazon Web Services</li>
+              <li>Microsoft Azure</li>
+              <li>VMWare VSphere</li>
+              <li>Openstack</li>
+              <li>Host-pool (physical machines) </li>
+            </ul>
+          </li>
+        <h4>TOSCA conformance</h4>
         <ul>
-          <li>Support for alien 4 cloud 1.1 and 1.2 DSL</li>
-          <li>Support Tosca List and Map types at input level</li>
-          <li>Manage Artefact repositories - Premium</li>
+          <li>Small enhancements to improve TOSCA 1.0 YML conformance</li>
+          <li>Support for alien 4 cloud 1.2 and 1.3 DSL</li>
         </ul>
         <h4>Additional Premium features</h4>
         <ul>
-          <li>v1.2 to v1.3 Migration tools</li>
+          <li>v1.3 to v1.4 Migration tools</li>
         </ul>
       </div>
     </li>
@@ -82,11 +86,8 @@ root: ../
         <ul>
           <li>TOSCA evolutions support</li>
           <li>Simple profile in YAML v1.0</li>
-          <li>On-demand hybrid deployment through Cloudify integration & user defined matching</li>
-          <li>Advanced post-deployment updates, upgrades & sync</li>
           <li>Enhanced extensibility & pluggability</li>
           <li>Multi locations 24x7 app-centric placement & runtime policies</li>
-          <li>Workspaces & more Git integration</li>
           <li>Blueprints Developer experience improvements</li>
         </ul>
         <h4>More orchestrators, infrastructures & artefacts coverage</h4>
