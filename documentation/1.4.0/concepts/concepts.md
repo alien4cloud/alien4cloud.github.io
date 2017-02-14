@@ -6,9 +6,10 @@ categories: DOCUMENTATION-1.4.0
 parent: []
 node_name: concepts
 weight: 100
+published: true
 ---
 
-Let us introduce you to concepts in Alien 4 Cloud. Alien 4 Cloud is an application that allows people in the enterprise to collaborate in order to provide self-service deployment of complex applications taking in account the different experts through a rôle based portal.
+Let us introduce you to concepts in Alien 4 Cloud. Alien 4 Cloud is an application that allows people in the enterprise to collaborate in order to provide self-service deployment of complex applications taking in account the different experts through a role based portal.
 
 Alien 4 Cloud want to provide self-service no only for users but also for development teams that want to build and deploy complex applications and leverage cloud resources to deploy their environments in minutes.
 
