@@ -68,7 +68,7 @@ Login into the application using the default user:
 * password: **admin**
 
 {%note%}
-The admin user is granted will all rights on the platform. This getting started will perform all operations using the admin user. Of course if you want to setup an Alien4Cloud for production usage and multi-users and rôle management you should probably refer to [advanced configurations and installation](#/documentation/1.4.0/admin_guide/advanced_configuration.html) of Alien4Cloud as well as user guide for [user management](#/documentation/1.4.0/user_guide/user_management.html).
+The admin user is granted will all rights on the platform. This getting started will perform all operations using the admin user. Of course if you want to setup an Alien4Cloud for production usage and multi-users and role management you should probably refer to [advanced configurations and installation](#/documentation/1.4.0/admin_guide/advanced_configuration.html) of Alien4Cloud as well as user guide for [user management](#/documentation/1.4.0/user_guide/user_management.html).
 {%endnote%}
 
 # Configure your orchestrator and location
@@ -77,10 +77,10 @@ The admin user is granted will all rights on the platform. This getting started 
 
 Now that we are logged in Alien4Cloud we must define a location (where we will actually deploy applications). In Alien4Cloud every location is managed by an orchestrator. To create an orchestrator, go to ![Go to admin](../../images/getting_started/administration-btn.png){: .inline} and in the ![Go to orchestrator](../../images/getting_started/orchestrator-menu-btn.png){: .inline} sub-menu. Create an orchestrator named `Cloudify3` with the **plugin** `Cloudify 3 Orchestrator : 1.1.0`.
 
-At this moment your orchestrator is create but not enable. Click on your orchestrator to see the informations page, and then click on the configuration menu icon ![Go to orchestrator configuration](../../images/getting_started/orchestrator-config-btn.png){: .inline}. In the **Driver configuration** part, add the URL of your manager and return to the previous page to enable your orchestrator.
+At this moment your orchestrator is created but not enabled. Click on your orchestrator to see the informations page, and then click on the configuration menu icon ![Go to orchestrator configuration](../../images/getting_started/orchestrator-config-btn.png){: .inline}. In the **Driver configuration** part, add the URL of your manager and return to the previous page to enable your orchestrator.
 
 {% warning %}
-An error can occur at this moment if Alien4Cloud cannot access to your manager. Make sure that your manager is properly bootstrap.
+An error can occur at this moment if Alien4Cloud cannot access to your manager. Make sure that your manager is properly bootstraped.
 {% endwarning %}
 
 ### Create and configure a location
