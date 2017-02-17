@@ -8,7 +8,7 @@
 ga('create', 'UA-73216650-1', 'auto');
 ga('set', {
   page: '/documentation/1.4.0/user_guide/location_autorization.html',
-  title: 'Location autorization'
+  title: 'Location / resources autorization'
 });
 ga('send', 'pageview');
 
@@ -23,7 +23,7 @@ ga('send', 'pageview');
       <div id="content" class="col-sm-8 col-md-9">
     
         <div style="height: 50px;">
-          <h1 class="pull-left" style="margin-top: 0px;">Location autorization</h1>
+          <h1 class="pull-left" style="margin-top: 0px;">Location / resources autorization</h1>
           <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.4.0/user_guide/location_autorization.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
         </div>
         
@@ -31,22 +31,23 @@ ga('send', 'pageview');
 <div class="row"><ul class="nav nav-pills" id="summarypanel"></ul></div>
 <hr style="margin-top:5px; margin-bottom:5px;" />
 
-<p>All news location are private, you need to authorize some entities to used it.
-This entities are the following :</p>
+<h1 id="location">Location</h1>
+<p>Every new location is private, you need to authorize some entities to used it.
+This entities can be one of the following :</p>
 
 <ul>
-  <li>user</li>
-  <li>group</li>
-  <li>application environment</li>
-  <li>application</li>
+  <li><strong>user</strong></li>
+  <li><strong>group</strong></li>
+  <li><strong>application environment</strong></li>
+  <li><strong>application</strong></li>
 </ul>
 
 <p>The choice of these entities allows a security policy for location adapted to all situations.</p>
 
-<h1 id="authorize-user-or-group">Authorize user or group</h1>
+<h2 id="authorize-user-or-group">Authorize user or group</h2>
 
-<p>Each location have a security panel. In this view you can manage authorization for all entities.
-The view is split into tree tabs. The first tab display the authorized users, the second tab is for the group.</p>
+<p>Each location have a security panel. In this view you can manage authorizations for all entities.
+The view is splitted into tabs, each tab reffering to one entity type.</p>
 
 <p><img src="../../images/1.4.0/user_guide/security/security_user.png" alt="security_user" /></p>
 
@@ -54,17 +55,30 @@ The view is split into tree tabs. The first tab display the authorized users, th
 
 <p><img src="../../images/1.4.0/user_guide/security/security_modal_group.png" alt="security_modal_group" /></p>
 
-<h1 id="authorize-application-environment-or-application">Authorize application environment or application</h1>
+<h2 id="authorize-application-environment-or-application">Authorize application environment or application</h2>
 
 <p>The third tab is for application and application environment. An application can have many environment,
-so if you authorize an application for a location, this authorization is valid for all of this environments.</p>
+so if you authorized an application for a location, this authorization is valid for all of this environments.</p>
 
 <p><img src="../../images/1.4.0/user_guide/security/security_app.png" alt="security_app" /></p>
 
-<p>You can however add the authorization on one or many environments of an application. In this case, the authorize environments
+<p>You can however specifically choose to authorize only a set of environments of one application. In this case, the authorized environments
 are displayed by a badge.</p>
 
 <p><img src="../../images/1.4.0/user_guide/security/security_modal_application.png" alt="security_modal_application" /></p>
+
+<h1 id="location-resources">Location resources</h1>
+
+<p>As for the location, all location resources are private. The mechanism to change the authorizations on a location resource is the same as for location.
+Note : to grant the accesse to a resource on a location resoure, the subject must already have the authorization on the location.</p>
+
+<p><img src="../../images/1.4.0/user_guide/security/multi_select.png" alt="multi_select" /></p>
+
+<p>Despite, a short way exist to grant / revoke authorization on many location resources. Indeed, locations resources can be selected by a checkbox.
+Furthermore, you can force the authorization on a location resource for a subject without authorization on location, this will automatically grant the
+subject for the location.</p>
+
+<p><img src="../../images/1.4.0/user_guide/security/modal_with_force_button.png" alt="modal_with_force_button" /></p>
 
         <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.4.0/user_guide/location_autorization.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
 	  </div>
