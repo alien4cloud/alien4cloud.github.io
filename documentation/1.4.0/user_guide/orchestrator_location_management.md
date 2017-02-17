@@ -184,8 +184,6 @@ must see constraint violation error if any in this location meta-properties form
 {%endinfo%}
 
 
-### Security and roles
+### Security
 
-On the security section, you can decide who (as user or group) have the right to deploy an application on the location.
-
-[![Location roles](../../images/1.1.0/user_guide/admin/orchestrators/location-security-roles.png)](../../images/1.1.0/user_guide/admin/orchestrators/location-security-roles.png)
+To manage the authorizations on location, refear to [this page](#/documentation/1.4.0/user_guide/location_autorization.html).
