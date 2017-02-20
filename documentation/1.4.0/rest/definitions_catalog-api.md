@@ -81,16 +81,6 @@ weight: 9000
 |properties||false|object||
 
 
-# CatalogVersionResult
-
-
-{: .table .table-bordered}
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|id||false|string||
-|version||false|string||
-
-
 # FilteredSearchRequest
 
 
@@ -101,6 +91,16 @@ weight: 9000
 |from||false|integer (int32)||
 |query||false|string||
 |size||false|integer (int32)||
+
+
+# CatalogVersionResult
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|id||false|string||
+|version||false|string||
 
 
 # RestResponse«Void»
@@ -485,19 +485,6 @@ weight: 9000
 
 # Map«string,NodeGroup»
 
-# SearchRequest
-
-
-{: .table .table-bordered}
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|filters||false|object||
-|from||false|integer (int32)||
-|query||false|string||
-|size||false|integer (int32)||
-|type||false|enum (NODE_TYPE, CAPABILITY_TYPE, RELATIONSHIP_TYPE, ARTIFACT_TYPE)||
-
-
 # ParsingResult«Csar»
 
 
@@ -633,6 +620,19 @@ weight: 9000
 
 
 # Map«string,Set«string»»
+
+# ComponentSearchRequest
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|filters||false|object||
+|from||false|integer (int32)||
+|query||false|string||
+|size||false|integer (int32)||
+|type||false|enum (NODE_TYPE, CAPABILITY_TYPE, RELATIONSHIP_TYPE, ARTIFACT_TYPE)||
+
 
 # AbstractPolicy
 

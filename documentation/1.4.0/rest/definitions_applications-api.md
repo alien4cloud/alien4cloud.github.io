@@ -89,6 +89,27 @@ weight: 9000
 
 # Map«string,DataType»
 
+# PaaSDeploymentLog
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|content||false|string||
+|deploymentId||false|string||
+|deploymentPaaSId||false|string||
+|executionId||false|string||
+|id||false|string||
+|instanceId||false|string||
+|interfaceName||false|string||
+|level||false|enum (debug, info, warn, error)||
+|nodeId||false|string||
+|operationName||false|string||
+|timestamp||false|string (date-time)||
+|type||false|string||
+|workflowId||false|string||
+
+
 # FilterDefinition
 
 
@@ -96,6 +117,18 @@ weight: 9000
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
 |properties||false|object||
+
+
+# FilteredSearchRequest
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|filters||false|object||
+|from||false|integer (int32)||
+|query||false|string||
+|size||false|integer (int32)||
 
 
 # RestResponse«Void»
@@ -108,6 +141,16 @@ weight: 9000
 
 
 # Map«string,Workflow»
+
+# RestResponse«FacetedSearchResult«PaaSDeploymentLog»»
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|data||false|FacetedSearchResult«PaaSDeploymentLog»||
+|error||false|RestError||
+
 
 # Map«string,object»
 
@@ -146,6 +189,21 @@ Request to set locations policies for a deployment.
 |----|----|----|----|----|
 |properties||false|object||
 |type||false|string||
+
+
+# FacetedSearchResult«PaaSDeploymentLog»
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|data||false|PaaSDeploymentLog array||
+|facets||false|object||
+|from||false|integer (int32)||
+|queryDuration||false|integer (int64)||
+|to||false|integer (int32)||
+|totalResults||false|integer (int64)||
+|types||false|string array||
 
 
 # PropertyValue
@@ -608,6 +666,7 @@ Request to set locations policies for a deployment.
 |locationIds||false|string array||
 |orchestratorDeploymentId||false|string||
 |orchestratorId||false|string||
+|serviceResourceIds||false|string array||
 |sourceId||false|string||
 |sourceName||false|string||
 |sourceType||false|enum (APPLICATION, CSAR)||
@@ -986,27 +1045,17 @@ Request to set locations policies for a deployment.
 
 # Map«string,NodeGroup»
 
-# SearchRequest
-
-
-{: .table .table-bordered}
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|filters||false|object||
-|from||false|integer (int32)||
-|query||false|string||
-|size||false|integer (int32)||
-|type||false|enum (NODE_TYPE, CAPABILITY_TYPE, RELATIONSHIP_TYPE, ARTIFACT_TYPE)||
-
-
 # LocationResourceTemplate
 
 
 {: .table .table-bordered}
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
+|applicationPermissions||false|object||
 |enabled||false|boolean||
+|environmentPermissions||false|object||
 |generated||false|boolean||
+|groupPermissions||false|object||
 |id||false|string||
 |locationId||false|string||
 |name||false|string||
@@ -1014,6 +1063,7 @@ Request to set locations policies for a deployment.
 |service||false|boolean||
 |template||false|NodeTemplate||
 |types||false|string array||
+|userPermissions||false|object||
 
 
 # RestResponse«Deployment»

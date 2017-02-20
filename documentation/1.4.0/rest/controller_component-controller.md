@@ -5,7 +5,7 @@ root: ../../
 categories: DOCUMENTATION-1.4.0
 parent: [rest_api, rest_api_catalog-api]
 node_name: rest_api_controller_component-controller
-weight: 16
+weight: 18
 ---
 
 ### Get details for a component (tosca type) from it's id (including archive hash).
@@ -216,7 +216,7 @@ POST /rest/v1/components/search
 {: .table .table-bordered}
 |Type|Name|Description|Required|Schema|Default|
 |----|----|----|----|----|----|
-|BodyParameter|searchRequest|searchRequest|true|SearchRequest||
+|BodyParameter|searchRequest|searchRequest|true|ComponentSearchRequest||
 
 
 #### Responses

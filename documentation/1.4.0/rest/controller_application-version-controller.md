@@ -5,7 +5,7 @@ root: ../../
 categories: DOCUMENTATION-1.4.0
 parent: [rest_api, rest_api_applications-api]
 node_name: rest_api_controller_application-version-controller
-weight: 23
+weight: 25
 ---
 
 ### Get the first snapshot application version for an application.
@@ -96,7 +96,7 @@ Returns a search result with that contains application versions matching the req
 |Type|Name|Description|Required|Schema|Default|
 |----|----|----|----|----|----|
 |PathParameter|applicationId|applicationId|true|string||
-|BodyParameter|searchRequest|searchRequest|true|SearchRequest||
+|BodyParameter|searchRequest|searchRequest|true|FilteredSearchRequest||
 
 
 #### Responses

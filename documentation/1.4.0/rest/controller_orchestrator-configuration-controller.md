@@ -5,7 +5,7 @@ root: ../../
 categories: DOCUMENTATION-1.4.0
 parent: [rest_api, rest_api_admin-orchestrator-api]
 node_name: rest_api_controller_orchestrator-configuration-controller
-weight: 10
+weight: 12
 ---
 
 ### Get an orchestrator configuration.

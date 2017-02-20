@@ -1,24 +1,29 @@
 ---
 layout: post
-title: Health Mvc Endpoint
+title: Allow to create/read/update/delete and search services.
 root: ../../
 categories: DOCUMENTATION-1.4.0
-parent: [rest_api, rest_api_admin-api]
-node_name: rest_api_controller_health-mvc-endpoint
-weight: 48
+parent: [rest_api, rest_api_other-apis]
+node_name: rest_api_controller_service-resource-controller
+weight: 41
 ---
 
-### invoke
+### List and iterate service resources.
 ```
-GET /rest/admin/health
+GET /rest/v1/services
 ```
+
+#### Description
+
+This API is a simple api to list (with iteration) the service resources. If you need to search with criterias please look at the advanced search API.
 
 #### Parameters
 
 {: .table .table-bordered}
 |Type|Name|Description|Required|Schema|Default|
 |----|----|----|----|----|----|
-|BodyParameter|principal|principal|false|Principal||
+|QueryParameter|from|Optional pagination start index.|false|integer (int32)|0|
+|QueryParameter|count|Optional pagination element count (limited to 1000).|false|integer (int32)|100|
 
 
 #### Responses
@@ -26,7 +31,7 @@ GET /rest/admin/health
 {: .table .table-bordered}
 |HTTP Code|Description|Schema|
 |----|----|----|
-|200|OK|object|
+|200|OK|RestResponse«GetMultipleDataResult«Service.»»|
 |401|Unauthorized|No Content|
 |403|Forbidden|No Content|
 |404|Not Found|No Content|
@@ -38,11 +43,11 @@ GET /rest/admin/health
 
 #### Produces
 
-* application/json
+* */*
 
-### invoke
+### Create a new service.
 ```
-PUT /rest/admin/health
+POST /rest/v1/services
 ```
 
 #### Parameters
@@ -50,7 +55,7 @@ PUT /rest/admin/health
 {: .table .table-bordered}
 |Type|Name|Description|Required|Schema|Default|
 |----|----|----|----|----|----|
-|BodyParameter|principal|principal|false|Principal||
+|BodyParameter|createRequest|Create service|true|Request for creation of a new service.||
 
 
 #### Responses
@@ -58,7 +63,39 @@ PUT /rest/admin/health
 {: .table .table-bordered}
 |HTTP Code|Description|Schema|
 |----|----|----|
-|200|OK|object|
+|201|Created|RestResponse«string»|
+|401|Unauthorized|No Content|
+|403|Forbidden|No Content|
+|404|Not Found|No Content|
+
+
+#### Consumes
+
+* application/json
+
+#### Produces
+
+* */*
+
+### Search services.
+```
+POST /rest/v1/services/adv/search
+```
+
+#### Parameters
+
+{: .table .table-bordered}
+|Type|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|----|
+|BodyParameter|searchRequest|searchRequest|true|SortedSearchRequest||
+
+
+#### Responses
+
+{: .table .table-bordered}
+|HTTP Code|Description|Schema|
+|----|----|----|
+|200|OK|RestResponse«GetMultipleDataResult«Service.»»|
 |201|Created|No Content|
 |401|Unauthorized|No Content|
 |403|Forbidden|No Content|
@@ -71,11 +108,11 @@ PUT /rest/admin/health
 
 #### Produces
 
-* application/json
+* */*
 
-### invoke
+### Get a service from it's id.
 ```
-DELETE /rest/admin/health
+GET /rest/v1/services/{id}
 ```
 
 #### Parameters
@@ -83,7 +120,7 @@ DELETE /rest/admin/health
 {: .table .table-bordered}
 |Type|Name|Description|Required|Schema|Default|
 |----|----|----|----|----|----|
-|BodyParameter|principal|principal|false|Principal||
+|PathParameter|id|Id of the service to get|true|string||
 
 
 #### Responses
@@ -91,10 +128,10 @@ DELETE /rest/admin/health
 {: .table .table-bordered}
 |HTTP Code|Description|Schema|
 |----|----|----|
-|200|OK|object|
+|200|OK|RestResponse«Service.»|
 |401|Unauthorized|No Content|
-|204|No Content|No Content|
 |403|Forbidden|No Content|
+|404|Not Found|No Content|
 
 
 #### Consumes
@@ -103,19 +140,24 @@ DELETE /rest/admin/health
 
 #### Produces
 
-* application/json
+* */*
 
-### invoke
+### Update a service.
 ```
-POST /rest/admin/health
+PUT /rest/v1/services/{id}
 ```
+
+#### Description
+
+Alien managed services (through application deployment) cannot be updated via API.
 
 #### Parameters
 
 {: .table .table-bordered}
 |Type|Name|Description|Required|Schema|Default|
 |----|----|----|----|----|----|
-|BodyParameter|principal|principal|false|Principal||
+|PathParameter|id|Id of the service to update.|true|string||
+|BodyParameter|request|ServiceResource update request, representing the fields to updates and their new values.|true|UpdateServiceResourceRequest||
 
 
 #### Responses
@@ -123,7 +165,7 @@ POST /rest/admin/health
 {: .table .table-bordered}
 |HTTP Code|Description|Schema|
 |----|----|----|
-|200|OK|object|
+|200|OK|RestResponse«ConstraintInformation»|
 |201|Created|No Content|
 |401|Unauthorized|No Content|
 |403|Forbidden|No Content|
@@ -136,11 +178,11 @@ POST /rest/admin/health
 
 #### Produces
 
-* application/json
+* */*
 
-### invoke
+### Delete a service. Note: alien managed services (through application deployment) cannot be deleted via API.
 ```
-PATCH /rest/admin/health
+DELETE /rest/v1/services/{id}
 ```
 
 #### Parameters
@@ -148,7 +190,7 @@ PATCH /rest/admin/health
 {: .table .table-bordered}
 |Type|Name|Description|Required|Schema|Default|
 |----|----|----|----|----|----|
-|BodyParameter|principal|principal|false|Principal||
+|PathParameter|id|Id of the service to delete.|true|string||
 
 
 #### Responses
@@ -156,7 +198,7 @@ PATCH /rest/admin/health
 {: .table .table-bordered}
 |HTTP Code|Description|Schema|
 |----|----|----|
-|200|OK|object|
+|200|OK|RestResponse«Void»|
 |401|Unauthorized|No Content|
 |204|No Content|No Content|
 |403|Forbidden|No Content|
@@ -168,19 +210,24 @@ PATCH /rest/admin/health
 
 #### Produces
 
-* application/json
+* */*
 
-### invoke
+### Patch a service.
 ```
-GET /rest/admin/health.json
+PATCH /rest/v1/services/{id}
 ```
+
+#### Description
+
+When the service is managed by alien (through application deployment) the only authorized patch are on location and authorizations.
 
 #### Parameters
 
 {: .table .table-bordered}
 |Type|Name|Description|Required|Schema|Default|
 |----|----|----|----|----|----|
-|BodyParameter|principal|principal|false|Principal||
+|PathParameter|id|Id of the service to update.|true|string||
+|BodyParameter|request|ServiceResource update request, representing the fields to updates and their new values.|true|PatchServiceResourceRequest||
 
 
 #### Responses
@@ -188,72 +235,7 @@ GET /rest/admin/health.json
 {: .table .table-bordered}
 |HTTP Code|Description|Schema|
 |----|----|----|
-|200|OK|object|
-|401|Unauthorized|No Content|
-|403|Forbidden|No Content|
-|404|Not Found|No Content|
-
-
-#### Consumes
-
-* application/json
-
-#### Produces
-
-* application/json
-
-### invoke
-```
-PUT /rest/admin/health.json
-```
-
-#### Parameters
-
-{: .table .table-bordered}
-|Type|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|----|
-|BodyParameter|principal|principal|false|Principal||
-
-
-#### Responses
-
-{: .table .table-bordered}
-|HTTP Code|Description|Schema|
-|----|----|----|
-|200|OK|object|
-|201|Created|No Content|
-|401|Unauthorized|No Content|
-|403|Forbidden|No Content|
-|404|Not Found|No Content|
-
-
-#### Consumes
-
-* application/json
-
-#### Produces
-
-* application/json
-
-### invoke
-```
-DELETE /rest/admin/health.json
-```
-
-#### Parameters
-
-{: .table .table-bordered}
-|Type|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|----|
-|BodyParameter|principal|principal|false|Principal||
-
-
-#### Responses
-
-{: .table .table-bordered}
-|HTTP Code|Description|Schema|
-|----|----|----|
-|200|OK|object|
+|200|OK|RestResponse«ConstraintInformation»|
 |401|Unauthorized|No Content|
 |204|No Content|No Content|
 |403|Forbidden|No Content|
@@ -265,70 +247,5 @@ DELETE /rest/admin/health.json
 
 #### Produces
 
-* application/json
-
-### invoke
-```
-POST /rest/admin/health.json
-```
-
-#### Parameters
-
-{: .table .table-bordered}
-|Type|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|----|
-|BodyParameter|principal|principal|false|Principal||
-
-
-#### Responses
-
-{: .table .table-bordered}
-|HTTP Code|Description|Schema|
-|----|----|----|
-|200|OK|object|
-|201|Created|No Content|
-|401|Unauthorized|No Content|
-|403|Forbidden|No Content|
-|404|Not Found|No Content|
-
-
-#### Consumes
-
-* application/json
-
-#### Produces
-
-* application/json
-
-### invoke
-```
-PATCH /rest/admin/health.json
-```
-
-#### Parameters
-
-{: .table .table-bordered}
-|Type|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|----|
-|BodyParameter|principal|principal|false|Principal||
-
-
-#### Responses
-
-{: .table .table-bordered}
-|HTTP Code|Description|Schema|
-|----|----|----|
-|200|OK|object|
-|401|Unauthorized|No Content|
-|204|No Content|No Content|
-|403|Forbidden|No Content|
-
-
-#### Consumes
-
-* application/json
-
-#### Produces
-
-* application/json
+* */*
 

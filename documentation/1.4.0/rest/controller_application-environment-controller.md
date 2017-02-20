@@ -5,7 +5,7 @@ root: ../../
 categories: DOCUMENTATION-1.4.0
 parent: [rest_api, rest_api_applications-api]
 node_name: rest_api_controller_application-environment-controller
-weight: 27
+weight: 29
 ---
 
 ### Create a new application environment
@@ -60,7 +60,7 @@ Returns a search result with that contains application environments DTO matching
 |Type|Name|Description|Required|Schema|Default|
 |----|----|----|----|----|----|
 |PathParameter|applicationId|applicationId|true|string||
-|BodyParameter|searchRequest|searchRequest|true|SearchRequest||
+|BodyParameter|searchRequest|searchRequest|true|FilteredSearchRequest||
 
 
 #### Responses

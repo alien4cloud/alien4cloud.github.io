@@ -37,19 +37,6 @@ weight: 9000
 |yamlFilePath||false|string||
 
 
-# SearchRequest
-
-
-{: .table .table-bordered}
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|filters||false|object||
-|from||false|integer (int32)||
-|query||false|string||
-|size||false|integer (int32)||
-|type||false|enum (NODE_TYPE, CAPABILITY_TYPE, RELATIONSHIP_TYPE, ARTIFACT_TYPE)||
-
-
 # Usage
 
 
@@ -107,6 +94,18 @@ weight: 9000
 |----|----|----|----|----|
 |data||false|Workspace array||
 |error||false|RestError||
+
+
+# FilteredSearchRequest
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|filters||false|object||
+|from||false|integer (int32)||
+|query||false|string||
+|size||false|integer (int32)||
 
 
 # Version

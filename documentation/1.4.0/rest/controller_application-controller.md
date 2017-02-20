@@ -5,7 +5,7 @@ root: ../../
 categories: DOCUMENTATION-1.4.0
 parent: [rest_api, rest_api_applications-api]
 node_name: rest_api_controller_application-controller
-weight: 25
+weight: 27
 ---
 
 ### Create a new application in the system.
@@ -58,7 +58,7 @@ Returns a search result with that contains applications matching the request. A 
 {: .table .table-bordered}
 |Type|Name|Description|Required|Schema|Default|
 |----|----|----|----|----|----|
-|BodyParameter|searchRequest|searchRequest|true|SearchRequest||
+|BodyParameter|searchRequest|searchRequest|true|FilteredSearchRequest||
 
 
 #### Responses

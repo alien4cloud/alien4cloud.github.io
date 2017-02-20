@@ -5,7 +5,7 @@ root: ../../
 categories: DOCUMENTATION-1.4.0
 parent: [rest_api, rest_api_applications-api]
 node_name: rest_api_controller_application-tags-controller
-weight: 20
+weight: 22
 ---
 
 ### Update/Create a tag for the application.

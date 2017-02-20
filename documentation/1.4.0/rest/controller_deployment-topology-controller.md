@@ -5,7 +5,7 @@ root: ../../
 categories: DOCUMENTATION-1.4.0
 parent: [rest_api, rest_api_applications-api]
 node_name: rest_api_controller_deployment-topology-controller
-weight: 24
+weight: 26
 ---
 
 ### Get the deployment topology of an application given an environment.

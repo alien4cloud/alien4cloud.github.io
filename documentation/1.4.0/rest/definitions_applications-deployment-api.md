@@ -50,6 +50,7 @@ weight: 9000
 |locationIds||false|string array||
 |orchestratorDeploymentId||false|string||
 |orchestratorId||false|string||
+|serviceResourceIds||false|string array||
 |sourceId||false|string||
 |sourceName||false|string||
 |sourceType||false|enum (APPLICATION, CSAR)||

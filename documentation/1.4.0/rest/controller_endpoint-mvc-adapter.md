@@ -5,7 +5,7 @@ root: ../../
 categories: DOCUMENTATION-1.4.0
 parent: [rest_api, rest_api_admin-api]
 node_name: rest_api_controller_endpoint-mvc-adapter
-weight: 41
+weight: 44
 ---
 
 ### invoke

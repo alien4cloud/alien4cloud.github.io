@@ -20,16 +20,6 @@ weight: 9000
 |error||false|RestError||
 
 
-# RestResponse«string»
-
-
-{: .table .table-bordered}
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|data||false|string||
-|error||false|RestError||
-
-
 # RepositoryPluginComponent
 
 
@@ -38,6 +28,22 @@ weight: 9000
 |----|----|----|----|----|
 |pluginComponent||false|Result for a request for specific plugin components.||
 |repositoryType||false|string||
+
+
+# UpdateServiceResourceRequest
+
+
+Request to update a service resource.
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|description|The description of the service.|false|string||
+|locationIds|The list of locations.|false|string array||
+|name|The name of the service.|true|string||
+|nodeInstance|The node instance definition for the service.|true|Represents a simple node instance with it's properties and attributes.||
+|version|The version of the service.|true|string||
 
 
 # Creation request for a suggestion.
@@ -90,6 +96,338 @@ weight: 9000
 |error||false|RestError||
 
 
+# RelationshipTemplate
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|artifacts||false|object||
+|attributes||false|object||
+|interfaces||false|object||
+|name||false|string||
+|properties||false|object||
+|requirementName||false|string||
+|requirementType||false|string||
+|target||false|string||
+|targetedCapabilityName||false|string||
+|type||false|string||
+
+
+# Version
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|buildNumber||false|integer (int32)||
+|incrementalVersion||false|integer (int32)||
+|majorVersion||false|integer (int32)||
+|minorVersion||false|integer (int32)||
+|qualifier||false|string||
+
+
+# PortableLocationDTO
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|environmentNames||false|string array||
+|infrastructureType||false|string||
+|locationId||false|string||
+|locationName||false|string||
+|orchestratorId||false|string||
+|orchestratorName||false|string||
+|portabilityLevel||false|enum (ERROR, WARNING, INFO)||
+
+
+# Map«string,Array«FacetedSearchFacet»»
+
+# PatchServiceResourceRequest
+
+
+Request to update a service resource.
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|description|The new description of the service or undefined if update request should not update the service description.|false|string||
+|locationIds|The new list of location ids or undefined if update request should not update the service location ids.|false|string array||
+|name|The new name of the service or undefined if the update request should not update the service name.|false|string||
+|nodeInstance|The new node instance definition for the service or undefined if update request should not update the node instance definition.|false|Represents a simple node instance with it's properties and attributes.||
+|version|The new version of the service or undefined if the update request should not update the service version.|false|string||
+
+
+# Collection«string»
+
+# CreateRepositoryRequest
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|configuration||false|object||
+|name||false|string||
+|pluginId||false|string||
+
+
+# DeploymentArtifact
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|archiveName||false|string||
+|archiveVersion||false|string||
+|artifactName||false|string||
+|artifactRef||false|string||
+|artifactRepository||false|string||
+|artifactType||false|string||
+|deployPath||false|string||
+|description||false|string||
+|repositoryCredential||false|object||
+|repositoryName||false|string||
+|repositoryURL||false|string||
+
+
+# Capability
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|properties||false|object||
+|type||false|string||
+
+
+# Map«string,Capability»
+
+# Map«string,Interface»
+
+# Map«string,RelationshipTemplate»
+
+# RestResponse«Service.»
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|data||false|Service.||
+|error||false|RestError||
+
+
+# RestResponse«Array«string»»
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|data||false|string array||
+|error||false|RestError||
+
+
+# ImplementationArtifact
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|archiveName||false|string||
+|archiveVersion||false|string||
+|artifactRef||false|string||
+|artifactRepository||false|string||
+|artifactType||false|string||
+|repositoryCredential||false|object||
+|repositoryName||false|string||
+|repositoryURL||false|string||
+
+
+# Requirement
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|properties||false|object||
+|type||false|string||
+
+
+# RestResponse«object»
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|data||false|object||
+|error||false|RestError||
+
+
+# NodeTemplate
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|artifacts||false|object||
+|attributes||false|object||
+|capabilities||false|object||
+|groups||false|string array||
+|interfaces||false|object||
+|name||false|string||
+|portability||false|object||
+|properties||false|object||
+|relationships||false|object||
+|requirements||false|object||
+|type||false|string||
+
+
+# Represents a simple node instance with it's properties and attributes.
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|attributeValues|Map of values for the runtime attributes of a tosca instance.|false|object||
+|capabilities|Map of capability that contains the values of the properties as defined in the instance type.|false|object||
+|properties|Map of property values that must match the properties defined in the instance type.|false|object||
+|type|The tosca node type of the instance.|true|string||
+|typeVersion|The version of the tosca node type of the instance.|true|string||
+
+
+# Service.
+
+
+A service is something running somewhere, exposing capabilities and requirements, matchable in a topology in place of an abstract component.
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|applicationPermissions||false|object||
+|creationDate||false|string (date-time)||
+|deploymentId||false|string||
+|description||false|string||
+|environmentPermissions||false|object||
+|groupPermissions||false|object||
+|id||false|string||
+|lastUpdateDate||false|string (date-time)||
+|locationIds||false|string array||
+|name||false|string||
+|nestedVersion||false|Version||
+|nodeInstance||false|NodeInstance||
+|userPermissions||false|object||
+|version||false|string||
+
+
+# RestResponse«ConstraintInformation»
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|data||false|ConstraintInformation||
+|error||false|RestError||
+
+
+# GetMultipleDataResult
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|data||false|object array||
+|from||false|integer (int32)||
+|queryDuration||false|integer (int64)||
+|to||false|integer (int32)||
+|totalResults||false|integer (int64)||
+|types||false|string array||
+
+
+# NodeInstance
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|attributeValues||false|object||
+|nodeTemplate||false|NodeTemplate||
+|typeVersion||false|string||
+
+
+# SortedSearchRequest
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|desc||false|boolean||
+|filters||false|object||
+|from||false|integer (int32)||
+|query||false|string||
+|size||false|integer (int32)||
+|sortField||false|string||
+
+
+# RestResponse«string»
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|data||false|string||
+|error||false|RestError||
+
+
+# RestResponse«GetMultipleDataResult«Service.»»
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|data||false|GetMultipleDataResult«Service.»||
+|error||false|RestError||
+
+
+# GetMultipleDataResult«Service.»
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|data||false|Service. array||
+|from||false|integer (int32)||
+|queryDuration||false|integer (int64)||
+|to||false|integer (int32)||
+|totalResults||false|integer (int64)||
+|types||false|string array||
+
+
+# Map«string,Operation»
+
+# Operation
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|dependencies||false|DeploymentArtifact array||
+|description||false|string||
+|implementationArtifact||false|ImplementationArtifact||
+|inputParameters||false|object||
+|portability||false|object||
+
+
+# IValue
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|definition||false|boolean||
+
+
 # TopologyPortabilityInsight
 
 
@@ -111,24 +449,19 @@ weight: 9000
 |message||false|string||
 
 
-# PortableLocationDTO
+# Map«string,Set«string»»
+
+# Request for creation of a new service.
 
 
 {: .table .table-bordered}
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
-|environmentNames||false|string array||
-|infrastructureType||false|string||
-|locationId||false|string||
-|locationName||false|string||
-|orchestratorId||false|string||
-|orchestratorName||false|string||
-|portabilityLevel||false|enum (ERROR, WARNING, INFO)||
+|name|Name of the new service (must be unique for a given version).|true|string||
+|nodeType|The node type to use to build the service node template.|true|string||
+|nodeTypeVersion|Archive version of the node type.|true|string||
+|version|Version of the new service.|true|string||
 
-
-# Map«string,Array«FacetedSearchFacet»»
-
-# Collection«string»
 
 # PortabilityLimitation
 
@@ -139,17 +472,6 @@ weight: 9000
 |code||false|enum (NOT_NORMATIVE, ORCHESTRATOR_DEPENDENT, IAAS_DEPENDENT, LOCATION_RESOURCE_MATCH, ARTIFACT_NOT_SUPPORTED_ON_HOST, RUNTIME_PACKAGE_NOT_SATISFIED, ARTIFACT_AND_RUNTIME_NOT_SATISFIED, ORCHESTRATOR_CONFLICT, IAAS_CONFLICT, ARTIFACT_SUPPORT, RUNTIME_PACKAGE)||
 |info||false|string array||
 |level||false|enum (ERROR, WARNING, INFO)||
-
-
-# CreateRepositoryRequest
-
-
-{: .table .table-bordered}
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|configuration||false|object||
-|name||false|string||
-|pluginId||false|string||
 
 
 # Map«string,List«PortabilityLimitation»»
@@ -191,6 +513,8 @@ weight: 9000
 |version|Version of the plugin that contains the component.|false|string||
 
 
+# Map«string,IValue»
+
 # Describe a component of a plugin (can be an IOrchestrator etc.).
 
 
@@ -203,15 +527,22 @@ weight: 9000
 |type|Type of the plugin.|false|string||
 
 
-# RestResponse«Array«string»»
+# Map«string,Requirement»
+
+# ConstraintInformation
 
 
 {: .table .table-bordered}
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
-|data||false|string array||
-|error||false|RestError||
+|name||false|string||
+|path||false|string||
+|reference||false|object||
+|type||false|string||
+|value||false|string||
 
+
+# Map«string,AbstractPropertyValue»
 
 # RestResponse«List«RepositoryPluginComponent»»
 
@@ -244,15 +575,9 @@ weight: 9000
 |name||false|string||
 
 
-# RestResponse«object»
+# Map«string,DeploymentArtifact»
 
-
-{: .table .table-bordered}
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|data||false|object||
-|error||false|RestError||
-
+# Map«string,string»
 
 # RestResponse«FacetedSearchResult»
 
@@ -274,17 +599,23 @@ weight: 9000
 |error||false|RestError||
 
 
-# GetMultipleDataResult
+# AbstractPropertyValue
 
 
 {: .table .table-bordered}
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
-|data||false|object array||
-|from||false|integer (int32)||
-|queryDuration||false|integer (int64)||
-|to||false|integer (int32)||
-|totalResults||false|integer (int64)||
-|types||false|string array||
+|definition||false|boolean||
+
+
+# Interface
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|description||false|string||
+|operations||false|object||
+|type||false|string||
 
 

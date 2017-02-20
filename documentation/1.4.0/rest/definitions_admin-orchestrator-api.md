@@ -71,6 +71,20 @@ weight: 9000
 |upperBound||false|integer (int32)||
 
 
+# GetMultipleDataResult«UserDTO»
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|data||false|UserDTO array||
+|from||false|integer (int32)||
+|queryDuration||false|integer (int64)||
+|to||false|integer (int32)||
+|totalResults||false|integer (int64)||
+|types||false|string array||
+
+
 # Orchestrator update request.
 
 
@@ -332,6 +346,16 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 
 # Map«string,List«PropertyConstraint»»
 
+# RestResponse«GetMultipleDataResult«GroupDTO»»
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|data||false|GetMultipleDataResult«GroupDTO»||
+|error||false|RestError||
+
+
 # RestResponse«Array«string»»
 
 
@@ -427,6 +451,16 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 |workspace||false|string||
 
 
+# RestResponse«GetMultipleDataResult«ApplicationEnvironmentAuthorizationDTO»»
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|data||false|GetMultipleDataResult«ApplicationEnvironmentAuthorizationDTO»||
+|error||false|RestError||
+
+
 # Request for creation of a new location.
 
 
@@ -485,8 +519,11 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 {: .table .table-bordered}
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
+|applicationPermissions||false|object||
 |enabled||false|boolean||
+|environmentPermissions||false|object||
 |generated||false|boolean||
+|groupPermissions||false|object||
 |id||false|string||
 |locationId||false|string||
 |name||false|string||
@@ -494,6 +531,7 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 |service||false|boolean||
 |template||false|NodeTemplate||
 |types||false|string array||
+|userPermissions||false|object||
 
 
 # RestResponse«List«GroupDTO»»
@@ -541,6 +579,27 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 |error||false|RestError||
 
 
+# SubjectsAuthorizationRequest
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|create||false|string array||
+|delete||false|string array||
+|resources||false|string array||
+
+
+# RestResponse«GetMultipleDataResult«UserDTO»»
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|data||false|GetMultipleDataResult«UserDTO»||
+|error||false|RestError||
+
+
 # PropertyConstraint
 
 # IValue
@@ -574,6 +633,7 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 |applicationsToDelete||false|string array||
 |environmentsToAdd||false|string array||
 |environmentsToDelete||false|string array||
+|resources||false|string array||
 
 
 # RestResponse«List«LocationDTO»»
@@ -737,6 +797,20 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 |id||false|string||
 
 
+# GetMultipleDataResult«GroupDTO»
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|data||false|GroupDTO array||
+|from||false|integer (int32)||
+|queryDuration||false|integer (int64)||
+|to||false|integer (int32)||
+|totalResults||false|integer (int64)||
+|types||false|string array||
+
+
 # CSARDependency
 
 
@@ -775,6 +849,20 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 
 
 # Map«string,List«string»»
+
+# GetMultipleDataResult«ApplicationEnvironmentAuthorizationDTO»
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|data||false|ApplicationEnvironmentAuthorizationDTO array||
+|from||false|integer (int32)||
+|queryDuration||false|integer (int64)||
+|to||false|integer (int32)||
+|totalResults||false|integer (int64)||
+|types||false|string array||
+
 
 # Tag
 

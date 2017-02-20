@@ -5,7 +5,7 @@ root: ../../
 categories: DOCUMENTATION-1.4.0
 parent: [rest_api, rest_api_workspaces-api]
 node_name: rest_api_controller_workspace-controller
-weight: 17
+weight: 19
 ---
 
 ### Get workspaces that the current user has the right to upload to
@@ -42,7 +42,7 @@ POST /rest/v1/workspaces/csars/search
 {: .table .table-bordered}
 |Type|Name|Description|Required|Schema|Default|
 |----|----|----|----|----|----|
-|BodyParameter|searchRequest|searchRequest|true|SearchRequest||
+|BodyParameter|searchRequest|searchRequest|true|FilteredSearchRequest||
 
 
 #### Responses
@@ -142,7 +142,7 @@ POST /rest/v1/workspaces/promotions/search
 {: .table .table-bordered}
 |Type|Name|Description|Required|Schema|Default|
 |----|----|----|----|----|----|
-|BodyParameter|searchRequest|searchRequest|true|SearchRequest||
+|BodyParameter|searchRequest|searchRequest|true|FilteredSearchRequest||
 
 
 #### Responses

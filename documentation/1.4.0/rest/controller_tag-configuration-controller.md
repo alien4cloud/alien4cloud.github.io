@@ -5,7 +5,7 @@ root: ../../
 categories: DOCUMENTATION-1.4.0
 parent: [rest_api, rest_api_admin-metaproperties-api]
 node_name: rest_api_controller_tag-configuration-controller
-weight: 12
+weight: 14
 ---
 
 ### Save tag configuration.
@@ -51,7 +51,7 @@ POST /rest/v1/metaproperties/search
 {: .table .table-bordered}
 |Type|Name|Description|Required|Schema|Default|
 |----|----|----|----|----|----|
-|BodyParameter|request|request|true|SearchRequest||
+|BodyParameter|request|request|true|FilteredSearchRequest||
 
 
 #### Responses

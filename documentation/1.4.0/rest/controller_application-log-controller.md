@@ -5,7 +5,7 @@ root: ../../
 categories: DOCUMENTATION-1.4.0
 parent: [rest_api, rest_api_applications-api]
 node_name: rest_api_controller_application-log-controller
-weight: 28
+weight: 30
 ---
 
 ### Search for logs of a given deployment
@@ -32,7 +32,7 @@ Returns a search result with that contains logs matching the request.
 {: .table .table-bordered}
 |HTTP Code|Description|Schema|
 |----|----|----|
-|200|OK|RestResponse«FacetedSearchResult»|
+|200|OK|RestResponse«FacetedSearchResult«PaaSDeploymentLog»»|
 |201|Created|No Content|
 |401|Unauthorized|No Content|
 |403|Forbidden|No Content|
@@ -70,7 +70,7 @@ Returns a search result with that contains logs matching the request.
 {: .table .table-bordered}
 |HTTP Code|Description|Schema|
 |----|----|----|
-|200|OK|RestResponse«FacetedSearchResult»|
+|200|OK|RestResponse«FacetedSearchResult«PaaSDeploymentLog»»|
 |201|Created|No Content|
 |401|Unauthorized|No Content|
 |403|Forbidden|No Content|

@@ -10,19 +10,6 @@ weight: 9000
 
 {% summary %}{% endsummary %}
 
-# SearchRequest
-
-
-{: .table .table-bordered}
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|filters||false|object||
-|from||false|integer (int32)||
-|query||false|string||
-|size||false|integer (int32)||
-|type||false|enum (NODE_TYPE, CAPABILITY_TYPE, RELATIONSHIP_TYPE, ARTIFACT_TYPE)||
-
-
 # RestResponse«TagConfigurationSaveResponse»
 
 
@@ -92,6 +79,18 @@ weight: 9000
 
 
 # PropertyConstraint
+
+# FilteredSearchRequest
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|filters||false|object||
+|from||false|integer (int32)||
+|query||false|string||
+|size||false|integer (int32)||
+
 
 # RestResponse«Void»
 
