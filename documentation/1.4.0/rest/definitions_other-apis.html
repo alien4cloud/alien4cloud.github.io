@@ -61,36 +61,6 @@ ga('send', 'pageview');
   </tbody>
 </table>
 
-<h1 id="restresponsestring">RestResponse«string»</h1>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Required</th>
-      <th>Schema</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>data</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>error</td>
-      <td> </td>
-      <td>false</td>
-      <td>RestError</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
 <h1 id="repositoryplugincomponent">RepositoryPluginComponent</h1>
 
 <table class="table table-bordered">
@@ -115,6 +85,59 @@ ga('send', 'pageview');
       <td>repositoryType</td>
       <td> </td>
       <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="updateserviceresourcerequest">UpdateServiceResourceRequest</h1>
+
+<p>Request to update a service resource.</p>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>description</td>
+      <td>The description of the service.</td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>locationIds</td>
+      <td>The list of locations.</td>
+      <td>false</td>
+      <td>string array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>name</td>
+      <td>The name of the service.</td>
+      <td>true</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>nodeInstance</td>
+      <td>The node instance definition for the service.</td>
+      <td>true</td>
+      <td>Represents a simple node instance with it’s properties and attributes.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>version</td>
+      <td>The version of the service.</td>
+      <td>true</td>
       <td>string</td>
       <td> </td>
     </tr>
@@ -299,7 +322,7 @@ ga('send', 'pageview');
   </tbody>
 </table>
 
-<h1 id="topologyportabilityinsight">TopologyPortabilityInsight</h1>
+<h1 id="relationshiptemplate">RelationshipTemplate</h1>
 
 <table class="table table-bordered">
   <thead>
@@ -313,30 +336,79 @@ ga('send', 'pageview');
   </thead>
   <tbody>
     <tr>
-      <td>limitations</td>
-      <td> </td>
-      <td>false</td>
-      <td>PortabilityLimitation array</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>locationLimitations</td>
+      <td>artifacts</td>
       <td> </td>
       <td>false</td>
       <td>object</td>
       <td> </td>
     </tr>
     <tr>
-      <td>locations</td>
+      <td>attributes</td>
       <td> </td>
       <td>false</td>
-      <td>PortableLocationDTO array</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>interfaces</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>name</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>properties</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>requirementName</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>requirementType</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>target</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>targetedCapabilityName</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>type</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
       <td> </td>
     </tr>
   </tbody>
 </table>
 
-<h1 id="resterror">RestError</h1>
+<h1 id="version">Version</h1>
 
 <table class="table table-bordered">
   <thead>
@@ -350,14 +422,35 @@ ga('send', 'pageview');
   </thead>
   <tbody>
     <tr>
-      <td>code</td>
+      <td>buildNumber</td>
       <td> </td>
       <td>false</td>
       <td>integer (int32)</td>
       <td> </td>
     </tr>
     <tr>
-      <td>message</td>
+      <td>incrementalVersion</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int32)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>majorVersion</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int32)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>minorVersion</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int32)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>qualifier</td>
       <td> </td>
       <td>false</td>
       <td>string</td>
@@ -433,9 +526,9 @@ ga('send', 'pageview');
 
 <h1 id="mapstringarrayfacetedsearchfacet">Map«string,Array«FacetedSearchFacet»»</h1>
 
-<h1 id="collectionstring">Collection«string»</h1>
+<h1 id="patchserviceresourcerequest">PatchServiceResourceRequest</h1>
 
-<h1 id="portabilitylimitation">PortabilityLimitation</h1>
+<p>Request to update a service resource.</p>
 
 <table class="table table-bordered">
   <thead>
@@ -449,28 +542,44 @@ ga('send', 'pageview');
   </thead>
   <tbody>
     <tr>
-      <td>code</td>
-      <td> </td>
+      <td>description</td>
+      <td>The new description of the service or undefined if update request should not update the service description.</td>
       <td>false</td>
-      <td>enum (NOT_NORMATIVE, ORCHESTRATOR_DEPENDENT, IAAS_DEPENDENT, LOCATION_RESOURCE_MATCH, ARTIFACT_NOT_SUPPORTED_ON_HOST, RUNTIME_PACKAGE_NOT_SATISFIED, ARTIFACT_AND_RUNTIME_NOT_SATISFIED, ORCHESTRATOR_CONFLICT, IAAS_CONFLICT, ARTIFACT_SUPPORT, RUNTIME_PACKAGE)</td>
+      <td>string</td>
       <td> </td>
     </tr>
     <tr>
-      <td>info</td>
-      <td> </td>
+      <td>locationIds</td>
+      <td>The new list of location ids or undefined if update request should not update the service location ids.</td>
       <td>false</td>
       <td>string array</td>
       <td> </td>
     </tr>
     <tr>
-      <td>level</td>
-      <td> </td>
+      <td>name</td>
+      <td>The new name of the service or undefined if the update request should not update the service name.</td>
       <td>false</td>
-      <td>enum (ERROR, WARNING, INFO)</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>nodeInstance</td>
+      <td>The new node instance definition for the service or undefined if update request should not update the node instance definition.</td>
+      <td>false</td>
+      <td>Represents a simple node instance with it’s properties and attributes.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>version</td>
+      <td>The new version of the service or undefined if the update request should not update the service version.</td>
+      <td>false</td>
+      <td>string</td>
       <td> </td>
     </tr>
   </tbody>
 </table>
+
+<h1 id="collectionstring">Collection«string»</h1>
 
 <h1 id="createrepositoryrequest">CreateRepositoryRequest</h1>
 
@@ -504,6 +613,1114 @@ ga('send', 'pageview');
       <td> </td>
       <td>false</td>
       <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="deploymentartifact">DeploymentArtifact</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>archiveName</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>archiveVersion</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>artifactName</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>artifactRef</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>artifactRepository</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>artifactType</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>deployPath</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>description</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>repositoryCredential</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>repositoryName</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>repositoryURL</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="capability">Capability</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>properties</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>type</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="mapstringcapability">Map«string,Capability»</h1>
+
+<h1 id="mapstringinterface">Map«string,Interface»</h1>
+
+<h1 id="mapstringrelationshiptemplate">Map«string,RelationshipTemplate»</h1>
+
+<h1 id="restresponseservice">RestResponse«Service.»</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>data</td>
+      <td> </td>
+      <td>false</td>
+      <td>Service.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>error</td>
+      <td> </td>
+      <td>false</td>
+      <td>RestError</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="restresponsearraystring">RestResponse«Array«string»»</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>data</td>
+      <td> </td>
+      <td>false</td>
+      <td>string array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>error</td>
+      <td> </td>
+      <td>false</td>
+      <td>RestError</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="implementationartifact">ImplementationArtifact</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>archiveName</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>archiveVersion</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>artifactRef</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>artifactRepository</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>artifactType</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>repositoryCredential</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>repositoryName</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>repositoryURL</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="requirement">Requirement</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>properties</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>type</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="restresponseobject">RestResponse«object»</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>data</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>error</td>
+      <td> </td>
+      <td>false</td>
+      <td>RestError</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="nodetemplate">NodeTemplate</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>artifacts</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>attributes</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>capabilities</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>groups</td>
+      <td> </td>
+      <td>false</td>
+      <td>string array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>interfaces</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>name</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>portability</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>properties</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>relationships</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>requirements</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>type</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="represents-a-simple-node-instance-with-its-properties-and-attributes">Represents a simple node instance with it’s properties and attributes.</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>attributeValues</td>
+      <td>Map of values for the runtime attributes of a tosca instance.</td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>capabilities</td>
+      <td>Map of capability that contains the values of the properties as defined in the instance type.</td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>properties</td>
+      <td>Map of property values that must match the properties defined in the instance type.</td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>type</td>
+      <td>The tosca node type of the instance.</td>
+      <td>true</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>typeVersion</td>
+      <td>The version of the tosca node type of the instance.</td>
+      <td>true</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="service">Service.</h1>
+
+<p>A service is something running somewhere, exposing capabilities and requirements, matchable in a topology in place of an abstract component.</p>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>applicationPermissions</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>creationDate</td>
+      <td> </td>
+      <td>false</td>
+      <td>string (date-time)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>deploymentId</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>description</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>environmentPermissions</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>groupPermissions</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>id</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>lastUpdateDate</td>
+      <td> </td>
+      <td>false</td>
+      <td>string (date-time)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>locationIds</td>
+      <td> </td>
+      <td>false</td>
+      <td>string array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>name</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>nestedVersion</td>
+      <td> </td>
+      <td>false</td>
+      <td>Version</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>nodeInstance</td>
+      <td> </td>
+      <td>false</td>
+      <td>NodeInstance</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>userPermissions</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>version</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="restresponseconstraintinformation">RestResponse«ConstraintInformation»</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>data</td>
+      <td> </td>
+      <td>false</td>
+      <td>ConstraintInformation</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>error</td>
+      <td> </td>
+      <td>false</td>
+      <td>RestError</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="getmultipledataresult">GetMultipleDataResult</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>data</td>
+      <td> </td>
+      <td>false</td>
+      <td>object array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>from</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int32)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>queryDuration</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int64)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>to</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int32)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>totalResults</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int64)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>types</td>
+      <td> </td>
+      <td>false</td>
+      <td>string array</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="nodeinstance">NodeInstance</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>attributeValues</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>nodeTemplate</td>
+      <td> </td>
+      <td>false</td>
+      <td>NodeTemplate</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>typeVersion</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="sortedsearchrequest">SortedSearchRequest</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>desc</td>
+      <td> </td>
+      <td>false</td>
+      <td>boolean</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>filters</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>from</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int32)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>query</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>size</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int32)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>sortField</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="restresponsestring">RestResponse«string»</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>data</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>error</td>
+      <td> </td>
+      <td>false</td>
+      <td>RestError</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="restresponsegetmultipledataresultservice">RestResponse«GetMultipleDataResult«Service.»»</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>data</td>
+      <td> </td>
+      <td>false</td>
+      <td>GetMultipleDataResult«Service.»</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>error</td>
+      <td> </td>
+      <td>false</td>
+      <td>RestError</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="getmultipledataresultservice">GetMultipleDataResult«Service.»</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>data</td>
+      <td> </td>
+      <td>false</td>
+      <td>Service. array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>from</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int32)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>queryDuration</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int64)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>to</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int32)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>totalResults</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int64)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>types</td>
+      <td> </td>
+      <td>false</td>
+      <td>string array</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="mapstringoperation">Map«string,Operation»</h1>
+
+<h1 id="operation">Operation</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>dependencies</td>
+      <td> </td>
+      <td>false</td>
+      <td>DeploymentArtifact array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>description</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>implementationArtifact</td>
+      <td> </td>
+      <td>false</td>
+      <td>ImplementationArtifact</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>inputParameters</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>portability</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="ivalue">IValue</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>definition</td>
+      <td> </td>
+      <td>false</td>
+      <td>boolean</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="topologyportabilityinsight">TopologyPortabilityInsight</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>limitations</td>
+      <td> </td>
+      <td>false</td>
+      <td>PortabilityLimitation array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>locationLimitations</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>locations</td>
+      <td> </td>
+      <td>false</td>
+      <td>PortableLocationDTO array</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="resterror">RestError</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>code</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int32)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>message</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="mapstringsetstring">Map«string,Set«string»»</h1>
+
+<h1 id="request-for-creation-of-a-new-service">Request for creation of a new service.</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>name</td>
+      <td>Name of the new service (must be unique for a given version).</td>
+      <td>true</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>nodeType</td>
+      <td>The node type to use to build the service node template.</td>
+      <td>true</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>nodeTypeVersion</td>
+      <td>Archive version of the node type.</td>
+      <td>true</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>version</td>
+      <td>Version of the new service.</td>
+      <td>true</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="portabilitylimitation">PortabilityLimitation</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>code</td>
+      <td> </td>
+      <td>false</td>
+      <td>enum (NOT_NORMATIVE, ORCHESTRATOR_DEPENDENT, IAAS_DEPENDENT, LOCATION_RESOURCE_MATCH, ARTIFACT_NOT_SUPPORTED_ON_HOST, RUNTIME_PACKAGE_NOT_SATISFIED, ARTIFACT_AND_RUNTIME_NOT_SATISFIED, ORCHESTRATOR_CONFLICT, IAAS_CONFLICT, ARTIFACT_SUPPORT, RUNTIME_PACKAGE)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>info</td>
+      <td> </td>
+      <td>false</td>
+      <td>string array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>level</td>
+      <td> </td>
+      <td>false</td>
+      <td>enum (ERROR, WARNING, INFO)</td>
       <td> </td>
     </tr>
   </tbody>
@@ -650,6 +1867,8 @@ ga('send', 'pageview');
   </tbody>
 </table>
 
+<h1 id="mapstringivalue">Map«string,IValue»</h1>
+
 <h1 id="describe-a-component-of-a-plugin-can-be-an-iorchestrator-etc">Describe a component of a plugin (can be an IOrchestrator etc.).</h1>
 
 <table class="table table-bordered">
@@ -694,7 +1913,9 @@ ga('send', 'pageview');
   </tbody>
 </table>
 
-<h1 id="restresponsearraystring">RestResponse«Array«string»»</h1>
+<h1 id="mapstringrequirement">Map«string,Requirement»</h1>
+
+<h1 id="constraintinformation">ConstraintInformation</h1>
 
 <table class="table table-bordered">
   <thead>
@@ -708,21 +1929,44 @@ ga('send', 'pageview');
   </thead>
   <tbody>
     <tr>
-      <td>data</td>
+      <td>name</td>
       <td> </td>
       <td>false</td>
-      <td>string array</td>
+      <td>string</td>
       <td> </td>
     </tr>
     <tr>
-      <td>error</td>
+      <td>path</td>
       <td> </td>
       <td>false</td>
-      <td>RestError</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>reference</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>type</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>value</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
       <td> </td>
     </tr>
   </tbody>
 </table>
+
+<h1 id="mapstringabstractpropertyvalue">Map«string,AbstractPropertyValue»</h1>
 
 <h1 id="restresponselistrepositoryplugincomponent">RestResponse«List«RepositoryPluginComponent»»</h1>
 
@@ -821,35 +2065,9 @@ ga('send', 'pageview');
   </tbody>
 </table>
 
-<h1 id="restresponseobject">RestResponse«object»</h1>
+<h1 id="mapstringdeploymentartifact">Map«string,DeploymentArtifact»</h1>
 
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Required</th>
-      <th>Schema</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>data</td>
-      <td> </td>
-      <td>false</td>
-      <td>object</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>error</td>
-      <td> </td>
-      <td>false</td>
-      <td>RestError</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
+<h1 id="mapstringstring">Map«string,string»</h1>
 
 <h1 id="restresponsefacetedsearchresult">RestResponse«FacetedSearchResult»</h1>
 
@@ -911,7 +2129,7 @@ ga('send', 'pageview');
   </tbody>
 </table>
 
-<h1 id="getmultipledataresult">GetMultipleDataResult</h1>
+<h1 id="abstractpropertyvalue">AbstractPropertyValue</h1>
 
 <table class="table table-bordered">
   <thead>
@@ -925,45 +2143,47 @@ ga('send', 'pageview');
   </thead>
   <tbody>
     <tr>
-      <td>data</td>
+      <td>definition</td>
       <td> </td>
       <td>false</td>
-      <td>object array</td>
+      <td>boolean</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="interface">Interface</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>description</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
       <td> </td>
     </tr>
     <tr>
-      <td>from</td>
+      <td>operations</td>
       <td> </td>
       <td>false</td>
-      <td>integer (int32)</td>
+      <td>object</td>
       <td> </td>
     </tr>
     <tr>
-      <td>queryDuration</td>
+      <td>type</td>
       <td> </td>
       <td>false</td>
-      <td>integer (int64)</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>to</td>
-      <td> </td>
-      <td>false</td>
-      <td>integer (int32)</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>totalResults</td>
-      <td> </td>
-      <td>false</td>
-      <td>integer (int64)</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>types</td>
-      <td> </td>
-      <td>false</td>
-      <td>string array</td>
+      <td>string</td>
       <td> </td>
     </tr>
   </tbody>

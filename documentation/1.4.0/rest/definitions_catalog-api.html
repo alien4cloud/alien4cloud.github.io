@@ -264,36 +264,6 @@ ga('send', 'pageview');
   </tbody>
 </table>
 
-<h1 id="catalogversionresult">CatalogVersionResult</h1>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Required</th>
-      <th>Schema</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>id</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>version</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
 <h1 id="filteredsearchrequest">FilteredSearchRequest</h1>
 
 <table class="table table-bordered">
@@ -333,6 +303,36 @@ ga('send', 'pageview');
       <td> </td>
       <td>false</td>
       <td>integer (int32)</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="catalogversionresult">CatalogVersionResult</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>id</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>version</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
       <td> </td>
     </tr>
   </tbody>
@@ -1828,57 +1828,6 @@ ga('send', 'pageview');
 
 <h1 id="mapstringnodegroup">Map«string,NodeGroup»</h1>
 
-<h1 id="searchrequest">SearchRequest</h1>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Required</th>
-      <th>Schema</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>filters</td>
-      <td> </td>
-      <td>false</td>
-      <td>object</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>from</td>
-      <td> </td>
-      <td>false</td>
-      <td>integer (int32)</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>query</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>size</td>
-      <td> </td>
-      <td>false</td>
-      <td>integer (int32)</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>type</td>
-      <td> </td>
-      <td>false</td>
-      <td>enum (NODE_TYPE, CAPABILITY_TYPE, RELATIONSHIP_TYPE, ARTIFACT_TYPE)</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
 <h1 id="parsingresultcsar">ParsingResult«Csar»</h1>
 
 <table class="table table-bordered">
@@ -2302,6 +2251,57 @@ ga('send', 'pageview');
 </table>
 
 <h1 id="mapstringsetstring">Map«string,Set«string»»</h1>
+
+<h1 id="componentsearchrequest">ComponentSearchRequest</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>filters</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>from</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int32)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>query</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>size</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int32)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>type</td>
+      <td> </td>
+      <td>false</td>
+      <td>enum (NODE_TYPE, CAPABILITY_TYPE, RELATIONSHIP_TYPE, ARTIFACT_TYPE)</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
 
 <h1 id="abstractpolicy">AbstractPolicy</h1>
 

@@ -308,6 +308,113 @@ ga('send', 'pageview');
 
 <h1 id="mapstringdatatype">Map«string,DataType»</h1>
 
+<h1 id="paasdeploymentlog">PaaSDeploymentLog</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>content</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>deploymentId</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>deploymentPaaSId</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>executionId</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>id</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>instanceId</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>interfaceName</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>level</td>
+      <td> </td>
+      <td>false</td>
+      <td>enum (debug, info, warn, error)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>nodeId</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>operationName</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>timestamp</td>
+      <td> </td>
+      <td>false</td>
+      <td>string (date-time)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>type</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>workflowId</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
 <h1 id="filterdefinition">FilterDefinition</h1>
 
 <table class="table table-bordered">
@@ -326,6 +433,50 @@ ga('send', 'pageview');
       <td> </td>
       <td>false</td>
       <td>object</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="filteredsearchrequest">FilteredSearchRequest</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>filters</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>from</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int32)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>query</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>size</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int32)</td>
       <td> </td>
     </tr>
   </tbody>
@@ -355,6 +506,36 @@ ga('send', 'pageview');
 </table>
 
 <h1 id="mapstringworkflow">Map«string,Workflow»</h1>
+
+<h1 id="restresponsefacetedsearchresultpaasdeploymentlog">RestResponse«FacetedSearchResult«PaaSDeploymentLog»»</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>data</td>
+      <td> </td>
+      <td>false</td>
+      <td>FacetedSearchResult«PaaSDeploymentLog»</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>error</td>
+      <td> </td>
+      <td>false</td>
+      <td>RestError</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
 
 <h1 id="mapstringobject">Map«string,object»</h1>
 
@@ -461,6 +642,71 @@ ga('send', 'pageview');
       <td> </td>
       <td>false</td>
       <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="facetedsearchresultpaasdeploymentlog">FacetedSearchResult«PaaSDeploymentLog»</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>data</td>
+      <td> </td>
+      <td>false</td>
+      <td>PaaSDeploymentLog array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>facets</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>from</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int32)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>queryDuration</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int64)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>to</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int32)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>totalResults</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int64)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>types</td>
+      <td> </td>
+      <td>false</td>
+      <td>string array</td>
       <td> </td>
     </tr>
   </tbody>
@@ -2138,6 +2384,13 @@ ga('send', 'pageview');
       <td> </td>
     </tr>
     <tr>
+      <td>serviceResourceIds</td>
+      <td> </td>
+      <td>false</td>
+      <td>string array</td>
+      <td> </td>
+    </tr>
+    <tr>
       <td>sourceId</td>
       <td> </td>
       <td>false</td>
@@ -3732,57 +3985,6 @@ ga('send', 'pageview');
 
 <h1 id="mapstringnodegroup">Map«string,NodeGroup»</h1>
 
-<h1 id="searchrequest">SearchRequest</h1>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Required</th>
-      <th>Schema</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>filters</td>
-      <td> </td>
-      <td>false</td>
-      <td>object</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>from</td>
-      <td> </td>
-      <td>false</td>
-      <td>integer (int32)</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>query</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>size</td>
-      <td> </td>
-      <td>false</td>
-      <td>integer (int32)</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>type</td>
-      <td> </td>
-      <td>false</td>
-      <td>enum (NODE_TYPE, CAPABILITY_TYPE, RELATIONSHIP_TYPE, ARTIFACT_TYPE)</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
 <h1 id="locationresourcetemplate">LocationResourceTemplate</h1>
 
 <table class="table table-bordered">
@@ -3797,6 +3999,13 @@ ga('send', 'pageview');
   </thead>
   <tbody>
     <tr>
+      <td>applicationPermissions</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
       <td>enabled</td>
       <td> </td>
       <td>false</td>
@@ -3804,10 +4013,24 @@ ga('send', 'pageview');
       <td> </td>
     </tr>
     <tr>
+      <td>environmentPermissions</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
       <td>generated</td>
       <td> </td>
       <td>false</td>
       <td>boolean</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>groupPermissions</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
       <td> </td>
     </tr>
     <tr>
@@ -3857,6 +4080,13 @@ ga('send', 'pageview');
       <td> </td>
       <td>false</td>
       <td>string array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>userPermissions</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
       <td> </td>
     </tr>
   </tbody>

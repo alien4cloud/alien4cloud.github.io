@@ -258,6 +258,64 @@ ga('send', 'pageview');
   </tbody>
 </table>
 
+<h1 id="getmultipledataresultuserdto">GetMultipleDataResult«UserDTO»</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>data</td>
+      <td> </td>
+      <td>false</td>
+      <td>UserDTO array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>from</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int32)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>queryDuration</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int64)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>to</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int32)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>totalResults</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int64)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>types</td>
+      <td> </td>
+      <td>false</td>
+      <td>string array</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
 <h1 id="orchestrator-update-request">Orchestrator update request.</h1>
 
 <p>A request object to pass when updating an orchestrator. Contains updatable fields. a topology deployment. An orchestrator may manage one or multiple locations.</p>
@@ -1135,6 +1193,36 @@ ga('send', 'pageview');
 
 <h1 id="mapstringlistpropertyconstraint">Map«string,List«PropertyConstraint»»</h1>
 
+<h1 id="restresponsegetmultipledataresultgroupdto">RestResponse«GetMultipleDataResult«GroupDTO»»</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>data</td>
+      <td> </td>
+      <td>false</td>
+      <td>GetMultipleDataResult«GroupDTO»</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>error</td>
+      <td> </td>
+      <td>false</td>
+      <td>RestError</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
 <h1 id="restresponsearraystring">RestResponse«Array«string»»</h1>
 
 <table class="table table-bordered">
@@ -1560,6 +1648,36 @@ ga('send', 'pageview');
   </tbody>
 </table>
 
+<h1 id="restresponsegetmultipledataresultapplicationenvironmentauthorizationdto">RestResponse«GetMultipleDataResult«ApplicationEnvironmentAuthorizationDTO»»</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>data</td>
+      <td> </td>
+      <td>false</td>
+      <td>GetMultipleDataResult«ApplicationEnvironmentAuthorizationDTO»</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>error</td>
+      <td> </td>
+      <td>false</td>
+      <td>RestError</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
 <h1 id="request-for-creation-of-a-new-location">Request for creation of a new location.</h1>
 
 <table class="table table-bordered">
@@ -1766,6 +1884,13 @@ ga('send', 'pageview');
   </thead>
   <tbody>
     <tr>
+      <td>applicationPermissions</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
       <td>enabled</td>
       <td> </td>
       <td>false</td>
@@ -1773,10 +1898,24 @@ ga('send', 'pageview');
       <td> </td>
     </tr>
     <tr>
+      <td>environmentPermissions</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
       <td>generated</td>
       <td> </td>
       <td>false</td>
       <td>boolean</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>groupPermissions</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
       <td> </td>
     </tr>
     <tr>
@@ -1826,6 +1965,13 @@ ga('send', 'pageview');
       <td> </td>
       <td>false</td>
       <td>string array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>userPermissions</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
       <td> </td>
     </tr>
   </tbody>
@@ -1974,6 +2120,73 @@ ga('send', 'pageview');
   </tbody>
 </table>
 
+<h1 id="subjectsauthorizationrequest">SubjectsAuthorizationRequest</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>create</td>
+      <td> </td>
+      <td>false</td>
+      <td>string array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>delete</td>
+      <td> </td>
+      <td>false</td>
+      <td>string array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>resources</td>
+      <td> </td>
+      <td>false</td>
+      <td>string array</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="restresponsegetmultipledataresultuserdto">RestResponse«GetMultipleDataResult«UserDTO»»</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>data</td>
+      <td> </td>
+      <td>false</td>
+      <td>GetMultipleDataResult«UserDTO»</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>error</td>
+      <td> </td>
+      <td>false</td>
+      <td>RestError</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
 <h1 id="propertyconstraint">PropertyConstraint</h1>
 
 <h1 id="ivalue">IValue</h1>
@@ -2067,6 +2280,13 @@ ga('send', 'pageview');
     </tr>
     <tr>
       <td>environmentsToDelete</td>
+      <td> </td>
+      <td>false</td>
+      <td>string array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>resources</td>
       <td> </td>
       <td>false</td>
       <td>string array</td>
@@ -2686,6 +2906,64 @@ ga('send', 'pageview');
   </tbody>
 </table>
 
+<h1 id="getmultipledataresultgroupdto">GetMultipleDataResult«GroupDTO»</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>data</td>
+      <td> </td>
+      <td>false</td>
+      <td>GroupDTO array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>from</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int32)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>queryDuration</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int64)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>to</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int32)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>totalResults</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int64)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>types</td>
+      <td> </td>
+      <td>false</td>
+      <td>string array</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
 <h1 id="csardependency">CSARDependency</h1>
 
 <table class="table table-bordered">
@@ -2790,6 +3068,64 @@ ga('send', 'pageview');
 </table>
 
 <h1 id="mapstringliststring">Map«string,List«string»»</h1>
+
+<h1 id="getmultipledataresultapplicationenvironmentauthorizationdto">GetMultipleDataResult«ApplicationEnvironmentAuthorizationDTO»</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>data</td>
+      <td> </td>
+      <td>false</td>
+      <td>ApplicationEnvironmentAuthorizationDTO array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>from</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int32)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>queryDuration</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int64)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>to</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int32)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>totalResults</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int64)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>types</td>
+      <td> </td>
+      <td>false</td>
+      <td>string array</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
 
 <h1 id="tag">Tag</h1>
 
