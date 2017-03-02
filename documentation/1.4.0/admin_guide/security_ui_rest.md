@@ -26,10 +26,6 @@ by
 {% highlight yaml %}
 server:
   port: 8443
-  session:
-    cookie:
-      http-only: true
-      secure: true
   ssl:
     key-store: keystore.jks
     key-store-password: ******
