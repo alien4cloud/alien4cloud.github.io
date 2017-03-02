@@ -55,6 +55,10 @@ ga('send', 'pageview');
 
 <div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>gem install compass</code></pre></div>
 
+<p>On macOS Sierra the previous command may failed, try this one instead:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">sudo gem install -n /usr/local/bin compass</code></pre></div>
+
 <ul>
   <li>and grunt-contrib-compass</li>
 </ul>
@@ -70,6 +74,22 @@ ga('send', 'pageview');
 <p>You can of course use the IDE that you like the most but some pre-requisite are required in order to work on alien 4 cloud.</p>
 
 <p>We use <a href="https://projectlombok.org">Lombok</a> in order to avoid writing getter and setters in our code when not required and for some other nice features it provides. You must install plugin or setup your IDE to support lombok (Our team use both IDEA and Eclipse so feel free to ask questions on slack if you have any trouble).</p>
+
+<h2 id="launching-alien4cloud-in-dev-mode">Launching Alien4Cloud in dev mode</h2>
+
+<p>Launch the REST API using maven</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">cd </span>alien4cloud-rest-api
+
+mvn spring-boot:run</code></pre></div>
+
+<p>Launch the UI</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">cd </span>alien4cloud-ui
+
+grunt serve</code></pre></div>
+
+<p>Note: if you’d like to launch the components directly from IntelliJ you need to enable the profile ‘idea’.</p>
 
 <h2 id="code-guidelines">Code guidelines</h2>
 

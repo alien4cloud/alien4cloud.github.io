@@ -39,8 +39,11 @@ openssl req -new -x509 -days <span class="m">365</span> -key ca-key.pem -sha256 
 <h3 id="generate-a-keypair-for-the-server-and-sign-it-with-the-ca">Generate a keypair for the server, and sign it with the CA</h3>
 
 <div class="highlight"><pre><code class="language-bash" data-lang="bash">openssl genrsa -out server-key.pem 4096
-openssl req -subj <span class="s2">&quot;/CN=&lt;YOUR_DOMAIN_NAME&gt;&quot;</span> -sha256 -new -key server-key.pem -out server.csr
-<span class="nb">echo </span><span class="nv">subjectAltName</span> <span class="o">=</span> DNS:<span class="se">\*</span>.YOUR_DOMAIN_NAME &gt; extfile.cnf  <span class="c">##this will allow to generate a certificate for all computes of you domain, you can also specify IP:YOUR_IP to fix one or multiple IPs</span>
+openssl req -subj <span class="s2">&quot;/CN=YOUR_DOMAIN_NAME&quot;</span> -sha256 -new -key server-key.pem -out server.csr
+
+<span class="c">## this will allow to generate a certificate for all computes of you domain, you can also specify IP:YOUR_IP to fix one or multiple IPs</span>
+<span class="nb">echo </span><span class="nv">subjectAltName</span> <span class="o">=</span> DNS:<span class="se">\*</span>.YOUR_DOMAIN_NAME &gt; extfile.cnf
+
 openssl x509 -req -days <span class="m">365</span> -sha256 -in server.csr -CA ca.pem -CAkey ca-key.pem -CAcreateserial -out server-cert.pem -extfile extfile.cnf</code></pre></div>
 
 <h3 id="generate-a-keypair-for-a-client-exemple-alien4cloud-instance-and-sign-it-with-the-ca">Generate a keypair for a client (exemple: alien4cloud instance), and sign it with the CA</h3>
