@@ -16,7 +16,7 @@ As deployment logs may depends of the amount of logs produced by the component y
 
 # How to estimate log consumption
 
-In order to perform an estimation of the log consumption you should deploy a representative topology on a test environment, dump the logs index out of elasticsearch and then insert the logs again in elasticsearch with a different deployment id for every concurrent deployment logs that you may keep.
+In order to perform an estimation of the log consumption you should deploy a representative topology on a test environment, dump the logs index out of elasticsearch and then insert the logs again in a test elasticsearch with a different deployment id for every concurrent deployment logs that you may keep.
 
 Basically this means number of deployment expected per day * time to leave of the deployment. Configured through below property
 
@@ -24,3 +24,5 @@ Basically this means number of deployment expected per day * time to leave of th
 paas_monitor:
   events_lifetime: "1d"
 {% endhighlight %}
+
+After writing the logs data you can check elasticsearch memory consumption and ensure that there is still enough memory for requests and aggregation processing.
