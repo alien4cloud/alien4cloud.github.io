@@ -7,11 +7,32 @@ parent: [user_guide, admin]
 node_name: services_management
 weight: 300
 ---
+
 {%summary%}{%endsummary%}
 
-*in progress...*
+*Section in progress...*
 
-A service is something running somewhere that you can reference in Alien and match to an abstract node in your topology.
+Services in alien4cloud design any already running resource (databases, application providing an API etc.) that can be used by the applications through matching of abstract nodes (just like on demand resources).
+
+The fundamental difference between service and on-demand resource is the ownership of the resource lifecycle, while on-demand resources lifecycle is managed by the consuming application services are elements external to the application but yet consumed by the application in order to work.
+
+For example you may have an on-demand database which will be created when you deploy the application and (eventually) deleted when the application will be un-deployed.
+
+When using a service you expect someone else to start the service (either externally to alien4cloud or through an alien deployment) and just consume it. In any case you will not be the owner of the service lifecycle.
+
+# Referencing external services in alien4cloud
+
+The first way to define a service in alien4cloud is to
+
+# Turning deployments into services
+
+Turning deployments into services is usually done by the deployment manager of the application environment. Information on how to turn a deployment into a service can be found here.
+
+LIMITATIONS:
+ - Services substitution does not yet supports the exposure of multiple instances. Output properties cannot reference properties of scaled instances.
+ - Input properties are used both for topology input and deployment inputs. Users should handle connection to services using capabilities only properties/attributes and eventually node attributes but not node properties.
+
+# Example
 
 In our samples, import the type [mongo](https://github.com/alien4cloud/samples/tree/master/mongo). It comes with a topology template *mongod-type* that defines a simple topology containing a MongoDB hosted on a Compute.
 
