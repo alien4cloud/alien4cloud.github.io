@@ -68,7 +68,7 @@ Of course every topology version for a given application version should provide 
 <p>The combination of an environment and a version have a specific deployment configuration. This configuration consist of multiple elements:
  - <strong>Location matching configuration</strong>: This is the selection of the deployment target for this environment/version (Like Amazon EC2, my internal cloud, my set of VMs etc.)
  - <strong>Node matching configuration</strong>: When a topology contains abstract nodes they can be replaced before deployment by a concrete implementation, this is really the key element for topology portability across clouds. For example if I selected Amazon as my deployment location in the first step I will be able to select all matching Amazon Images and Flavor association to replace my Compute node. On an existing machine cluster I will match the Compute node against some available machines in the pool. On container based deployment target I will target a container image to deploy my Compute node etc.
- Node matching can replace some abstract nodes against ‘on demande resources’ or againts ‘services’ which are already running elements that are available for me to consume.
+ Node matching can replace some abstract nodes with either ‘on demande resources’ or ‘services’ which are already running elements that are available for me to consume.
  - <strong>Inputs configuration</strong>: A topology may define some input properties and input artifacts that you can configure for this environment/version deployment association.</p>
 
 <p>Finally once all theses elements are configured you can perform a deployment.</p>

@@ -31,9 +31,29 @@ ga('send', 'pageview');
 <div class="row"><ul class="nav nav-pills" id="summarypanel"></ul></div>
 <hr style="margin-top:5px; margin-bottom:5px;" />
 
-<p><em>in progress&#8230;</em></p>
+<p><em>Section in progress&#8230;</em></p>
 
-<p>A service is something running somewhere that you can reference in Alien and match to an abstract node in your topology.</p>
+<p>Services in alien4cloud design any already running resource (databases, application providing an API etc.) that can be used by the applications through matching of abstract nodes (just like on demand resources).</p>
+
+<p>The fundamental difference between service and on-demand resource is the ownership of the resource lifecycle, while on-demand resources lifecycle is managed by the consuming application services are elements external to the application but yet consumed by the application in order to work.</p>
+
+<p>For example you may have an on-demand database which will be created when you deploy the application and (eventually) deleted when the application will be un-deployed.</p>
+
+<p>When using a service you expect someone else to start the service (either externally to alien4cloud or through an alien deployment) and just consume it. In any case you will not be the owner of the service lifecycle.</p>
+
+<h1 id="referencing-external-services-in-alien4cloud">Referencing external services in alien4cloud</h1>
+
+<p>The first way to define a service in alien4cloud is to</p>
+
+<h1 id="turning-deployments-into-services">Turning deployments into services</h1>
+
+<p>Turning deployments into services is usually done by the deployment manager of the application environment. Information on how to turn a deployment into a service can be found here.</p>
+
+<p>LIMITATIONS:
+ - Services substitution does not yet supports the exposure of multiple instances. Output properties cannot reference properties of scaled instances.
+ - Input properties are used both for topology input and deployment inputs. Users should handle connection to services using capabilities only properties/attributes and eventually node attributes but not node properties.</p>
+
+<h1 id="example">Example</h1>
 
 <p>In our samples, import the type <a href="https://github.com/alien4cloud/samples/tree/master/mongo">mongo</a>. It comes with a topology template <em>mongod-type</em> that defines a simple topology containing a MongoDB hosted on a Compute.</p>
 

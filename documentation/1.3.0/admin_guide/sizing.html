@@ -1,0 +1,68 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/1.3.0/admin_guide/sizing.html',
+  title: 'Sizing consideration'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Sizing consideration</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.3.0/admin_guide/sizing.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <p>Before moving to production it is important that you configure a correct amount of memory, especially for Alien’s Elasticsearch instance.</p>
+
+<p>In general the indices that are going to consume the most memory are the one related to deployments and especially, by far, the deployment logs.</p>
+
+<p>As deployment logs may depends of the amount of logs produced by the component you deploy it is important to perform an estimation of their size that fits your use-case.</p>
+
+<h1 id="how-to-estimate-log-consumption">How to estimate log consumption</h1>
+
+<p>In order to perform an estimation of the log consumption you should deploy a representative topology on a test environment, dump the logs index out of elasticsearch and then insert the logs again in elasticsearch with a different deployment id for every concurrent deployment logs that you may keep.</p>
+
+<p>Basically this means number of deployment expected per day * time to leave of the deployment. Configured through below property</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">paas_monitor</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">events_lifetime</span><span class="p-Indicator">:</span> <span class="s">&quot;1d&quot;</span></code></pre></div>
+
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.3.0/admin_guide/sizing.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-1.3.0', 'documentation/1.3.0/admin_guide/sizing.md');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>
