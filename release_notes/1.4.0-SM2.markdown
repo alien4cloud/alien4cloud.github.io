@@ -5,7 +5,7 @@ root: ../
 categories: RELEASE_NOTES
 parent: [release_note]
 node_name: 1.4.0-SM2
-weight: 9949
+weight: 9944
 exclude_from_search: true
 ---
 
@@ -23,7 +23,7 @@ exclude_from_search: true
   | Type        | Id         | Description |
   |:------------|:-----------|:------------|
       |  <i class="fa fa-level-up text-primary"></i> | ALIEN-2031 | Better log view with improved readability  |
-    
+
 
 
 ### Migration tool
@@ -34,7 +34,7 @@ exclude_from_search: true
   | Type        | Id         | Description |
   |:------------|:-----------|:------------|
         |  <i class="fa fa-bug text-danger"></i> | ALIEN-2019 | Fixed: In migration tool, suggestionEntry are not migrated  |
-  
+
 
 
 ### Cloudify 3 PaaS Provider
@@ -46,7 +46,7 @@ exclude_from_search: true
   |:------------|:-----------|:------------|
     |  <i class="fa fa-plus text-success"></i> | ALIEN-1966 | Integration with cloudify 4.0 security mecanism  |
     |  <i class="fa fa-plus text-success"></i> | ALIEN-1967 | Integration with Cloudify 4.0 API  |
-      
+
 
 
 ### Alien 4 Cloud
@@ -64,5 +64,3 @@ exclude_from_search: true
     |  <i class="fa fa-level-up text-primary"></i> | ALIEN-1961 | Display the version numbers in the runtime view next to the environnment  |
       |  <i class="fa fa-bug text-danger"></i> | ALIEN-1974 | Fixed: Can not Update fields like floating ip from complex properties  |
     |  <i class="fa fa-bug text-danger"></i> | ALIEN-2026 | Fixed: DeploymentTopologies are not removed when an environment or version is deleted  |
-  
-

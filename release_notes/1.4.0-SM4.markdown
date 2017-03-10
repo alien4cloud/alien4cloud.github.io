@@ -1,0 +1,40 @@
+---
+layout: post
+title:  ALIEN for Cloud 1.4.0-SM4
+root: ../
+categories: RELEASE_NOTES
+parent: [release_note]
+node_name: 1.4.0-SM4
+weight: 9942
+exclude_from_search: true
+---
+
+
+
+
+<i class="fa fa-plus text-success"></i> New feature <i class="fa fa-level-up text-primary"></i> Improvement  <i class="fa fa-bug text-danger"></i> Bug <i class="fa fa-exclamation-triangle text-warning"></i> Breaking change
+
+
+### Alien 4 Cloud
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-2052 | Ability to expose a service from a deployment  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-2141 | Supports authorisations management on services   |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-2187 | Admin oriented APIs to batch process deployment status events  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-2188 | Admin oriented API to get deployments by bulk of ids  |
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-2162 | Add authorization on location resource should always add authorization on location  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-2171 | Escape special caracters in yaml description fields  |
+      |  <i class="fa fa-bug text-danger"></i> | ALIEN-1954 | Fixed: Missing types unchecked when loading a type cause dependencies' versions to change  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2125 | Fixed: Possible to bypass admin configuration through get_input usage  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2139 | Fixed: issue causing wrong status in alien when performing concurrent deployments  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2164 | Fixed: UI is not refresh when we delete a service  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2165 | Fixed issue causing scaling of host-pool and VMware computes to be multiplied by 2  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2166 | Fixed Issues in dashboard plugin may cause loss of stats and improvements of dashboard plugin memory overhead  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2170 | Fixed: in UI, a user with APPLICATION_DEVOPS role should not be able to see application environments  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2186 | Fixed: packaged artifacts referenced in components' TOSCA do not work anymore  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2189 | Fixed: custom workflows cannot be triggered from runtime view  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2195 | Fixed: some pop-up box are break since the migration to Angular 1.6  |
