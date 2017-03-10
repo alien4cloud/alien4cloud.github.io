@@ -7,8 +7,8 @@
 
 ga('create', 'UA-73216650-1', 'auto');
 ga('set', {
-  page: '/documentation/1.4.0/rest/controller_orchestrator-roles-controller.html',
-  title: 'Operations on orchestrator roles'
+  page: '/documentation/1.4.0/rest/controller_managed-service-resource-controller.html',
+  title: 'Allow to create/read/update/delete and search services linked to an application environment.'
 });
 ga('send', 'pageview');
 
@@ -23,17 +23,13 @@ ga('send', 'pageview');
       <div id="content" class="col-sm-8 col-md-9">
     
         <div style="height: 50px;">
-          <h1 class="pull-left" style="margin-top: 0px;">Operations on orchestrator roles</h1>
-          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.4.0/rest/controller_orchestrator-roles-controller.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+          <h1 class="pull-left" style="margin-top: 0px;">Allow to create/read/update/delete and search services linked to an application environment.</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.4.0/rest/controller_managed-service-resource-controller.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
         </div>
-        <h3 id="add-a-role-to-a-group-on-all-locations-of-a-specific-orchestrator">Add a role to a group on all locations of a specific orchestrator</h3>
+        <h3 id="get-a-service-associated-with-an-application-environment">Get a service associated with an application environment.</h3>
 <p><code>
-PUT /rest/v1/orchestrators/{orchestratorId}/roles/groups/{groupId}/{role}
+GET /rest/v1/applications/{applicationId}/environments/{environmentId}/services
 </code></p>
-
-<h4 id="description">Description</h4>
-
-<p>Only user with ADMIN role can assign any role to a group of users.</p>
 
 <h4 id="parameters">Parameters</h4>
 
@@ -51,24 +47,8 @@ PUT /rest/v1/orchestrators/{orchestratorId}/roles/groups/{groupId}/{role}
   <tbody>
     <tr>
       <td>PathParameter</td>
-      <td>orchestratorId</td>
-      <td>orchestratorId</td>
-      <td>true</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>PathParameter</td>
-      <td>groupId</td>
-      <td>groupId</td>
-      <td>true</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>PathParameter</td>
-      <td>role</td>
-      <td>role</td>
+      <td>environmentId</td>
+      <td>environmentId</td>
       <td>true</td>
       <td>string</td>
       <td> </td>
@@ -90,12 +70,7 @@ PUT /rest/v1/orchestrators/{orchestratorId}/roles/groups/{groupId}/{role}
     <tr>
       <td>200</td>
       <td>OK</td>
-      <td>RestResponse«Void»</td>
-    </tr>
-    <tr>
-      <td>201</td>
-      <td>Created</td>
-      <td>No Content</td>
+      <td>RestResponse«Service.»</td>
     </tr>
     <tr>
       <td>401</td>
@@ -124,17 +99,17 @@ PUT /rest/v1/orchestrators/{orchestratorId}/roles/groups/{groupId}/{role}
 <h4 id="produces">Produces</h4>
 
 <ul>
-  <li>application/json</li>
+  <li><em>/</em></li>
 </ul>
 
-<h3 id="remove-a-role-of-a-group-on-all-locations-of-a-specific-orchestrator">Remove a role of a group on all locations of a specific orchestrator</h3>
+<h3 id="delete-the-managed-service-resource-associated-with-an-application-environment">Delete the managed service resource associated with an application environment.</h3>
 <p><code>
-DELETE /rest/v1/orchestrators/{orchestratorId}/roles/groups/{groupId}/{role}
+DELETE /rest/v1/applications/{applicationId}/environments/{environmentId}/services
 </code></p>
 
-<h4 id="description-1">Description</h4>
+<h4 id="description">Description</h4>
 
-<p>Only user with ADMIN role can unassign any role to a group.</p>
+<p>The service can not be deleted if used by other resources.</p>
 
 <h4 id="parameters-1">Parameters</h4>
 
@@ -152,24 +127,8 @@ DELETE /rest/v1/orchestrators/{orchestratorId}/roles/groups/{groupId}/{role}
   <tbody>
     <tr>
       <td>PathParameter</td>
-      <td>orchestratorId</td>
-      <td>orchestratorId</td>
-      <td>true</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>PathParameter</td>
-      <td>groupId</td>
-      <td>groupId</td>
-      <td>true</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>PathParameter</td>
-      <td>role</td>
-      <td>role</td>
+      <td>environmentId</td>
+      <td>environmentId</td>
       <td>true</td>
       <td>string</td>
       <td> </td>
@@ -220,17 +179,13 @@ DELETE /rest/v1/orchestrators/{orchestratorId}/roles/groups/{groupId}/{role}
 <h4 id="produces-1">Produces</h4>
 
 <ul>
-  <li>application/json</li>
+  <li><em>/</em></li>
 </ul>
 
-<h3 id="add-a-role-to-a-user-on-all-locations-of-a-specific-orchestrator">Add a role to a user on all locations of a specific orchestrator</h3>
+<h3 id="create-a-service-from-an-application-environment">Create a service from an application environment.</h3>
 <p><code>
-PUT /rest/v1/orchestrators/{orchestratorId}/roles/users/{username}/{role}
+POST /rest/v1/applications/{applicationId}/environments/{environmentId}/services
 </code></p>
-
-<h4 id="description-2">Description</h4>
-
-<p>Only user with ADMIN role can assign any role to another user.</p>
 
 <h4 id="parameters-2">Parameters</h4>
 
@@ -248,26 +203,18 @@ PUT /rest/v1/orchestrators/{orchestratorId}/roles/users/{username}/{role}
   <tbody>
     <tr>
       <td>PathParameter</td>
-      <td>orchestratorId</td>
-      <td>orchestratorId</td>
+      <td>environmentId</td>
+      <td>environmentId</td>
       <td>true</td>
       <td>string</td>
       <td> </td>
     </tr>
     <tr>
-      <td>PathParameter</td>
-      <td>username</td>
-      <td>username</td>
+      <td>BodyParameter</td>
+      <td>createRequest</td>
+      <td>Create service</td>
       <td>true</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>PathParameter</td>
-      <td>role</td>
-      <td>role</td>
-      <td>true</td>
-      <td>string</td>
+      <td>Request for creation of a new service.</td>
       <td> </td>
     </tr>
   </tbody>
@@ -285,14 +232,9 @@ PUT /rest/v1/orchestrators/{orchestratorId}/roles/users/{username}/{role}
   </thead>
   <tbody>
     <tr>
-      <td>200</td>
-      <td>OK</td>
-      <td>RestResponse«Void»</td>
-    </tr>
-    <tr>
       <td>201</td>
       <td>Created</td>
-      <td>No Content</td>
+      <td>RestResponse«string»</td>
     </tr>
     <tr>
       <td>401</td>
@@ -321,17 +263,17 @@ PUT /rest/v1/orchestrators/{orchestratorId}/roles/users/{username}/{role}
 <h4 id="produces-2">Produces</h4>
 
 <ul>
-  <li>application/json</li>
+  <li><em>/</em></li>
 </ul>
 
-<h3 id="remove-a-role-to-a-user-on-all-locations-of-a-specific-orchestrator">Remove a role to a user on all locations of a specific orchestrator</h3>
+<h3 id="unbind-the-managed-service-resource-from-associated-application-environment">Unbind the managed service resource from associated application environment.</h3>
 <p><code>
-DELETE /rest/v1/orchestrators/{orchestratorId}/roles/users/{username}/{role}
+PATCH /rest/v1/applications/{applicationId}/environments/{environmentId}/services
 </code></p>
 
-<h4 id="description-3">Description</h4>
+<h4 id="description-1">Description</h4>
 
-<p>Only user with ADMIN role can unassign any role to another user.</p>
+<p>This operation will only stop the management of the service via the application environment. The Service will still be present in Alien4Cloud, and updatable via service api or admin ui.</p>
 
 <h4 id="parameters-3">Parameters</h4>
 
@@ -349,24 +291,8 @@ DELETE /rest/v1/orchestrators/{orchestratorId}/roles/users/{username}/{role}
   <tbody>
     <tr>
       <td>PathParameter</td>
-      <td>orchestratorId</td>
-      <td>orchestratorId</td>
-      <td>true</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>PathParameter</td>
-      <td>username</td>
-      <td>username</td>
-      <td>true</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>PathParameter</td>
-      <td>role</td>
-      <td>role</td>
+      <td>environmentId</td>
+      <td>environmentId</td>
       <td>true</td>
       <td>string</td>
       <td> </td>
@@ -417,11 +343,11 @@ DELETE /rest/v1/orchestrators/{orchestratorId}/roles/users/{username}/{role}
 <h4 id="produces-3">Produces</h4>
 
 <ul>
-  <li>application/json</li>
+  <li><em>/</em></li>
 </ul>
 
 
-        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.4.0/rest/controller_orchestrator-roles-controller.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.4.0/rest/controller_managed-service-resource-controller.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
 	  </div>
     </div>
   </div>
@@ -438,7 +364,7 @@ if(hash && hash!== null && hash.match(/html$/)) {
 <script type="text/javascript" src="/js/post-layout.js"></script>
 <script>
 $(document).ready(function () {
-  makeSideBar('DOCUMENTATION-1.4.0', 'documentation/1.4.0/rest/controller_orchestrator-roles-controller.md');
+  makeSideBar('DOCUMENTATION-1.4.0', 'documentation/1.4.0/rest/controller_managed-service-resource-controller.md');
 });
 </script>
 
