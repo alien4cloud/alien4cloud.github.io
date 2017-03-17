@@ -14,35 +14,75 @@ weight: 300
 
 Services in alien4cloud design any already running resource (databases, application providing an API etc.) that can be used by the applications through matching of abstract nodes (just like on demand resources).
 
-The fundamental difference between service and on-demand resource is the ownership of the resource lifecycle, while on-demand resources lifecycle is managed by the consuming application services are elements external to the application but yet consumed by the application in order to work.
+The fundamental difference between service and on-demand resource is the ownership of the resource lifecycle. While on-demand resources lifecycle is managed by the consuming application, services are elements external to the application but yet consumed by the application.
 
-For example you may have an on-demand database which will be created when you deploy the application and (eventually) deleted when the application will be un-deployed.
+For example you may have an on-demand database, which will be created when you deploy the application and (eventually) deleted when the application will be un-deployed.
 
 When using a service you expect someone else to start the service (either externally to alien4cloud or through an alien deployment) and just consume it. In any case you will not be the owner of the service lifecycle.
 
 # Referencing external services in alien4cloud
 
-The first way to define a service in alien4cloud is to
+The first method to define a service in alien4cloud is to declare manually a service. In order to do this, click on *[Administration]* > *Service*
+
+![service_list](../../images/1.4.0/user_guide/service/service_list.png)
+
+Let's say you have a Mongodb database that you want to expose to other applications, you can drag the component `mongod-type` and drop it on the demarcated zone on the left to create the service Mongo. It's not shown in the image but `mongod-type` derived from `AbstractMongod`
+
+ ![create_external_service](../../images/1.4.0/user_guide/service/create_external_service.png)
+
+After the creation, the service appears on the left hand side list and can be configured.
+
+![service_list_with_external_mongo](../../images/1.4.0/user_guide/service/service_list_with_external_mongo.png)
+
+ Click on the service to see its details. Here the status does not have much sense, a service in enabled state cannot be modified and deleted (it will make more sense with a service exposed by a deployment as Alien4Cloud knows the state of the service).
+
+![service_detail](../../images/1.4.0/user_guide/service/service_detail.png)
+
+The instance tab gives you access to properties and attributes of your service. The properties and attributes values, that you enter here, can be used later by consumer of the service to establish the connection with the service. In the example, the property `ip_address` of the external Mongo DB has been given.
+
+![service_instance](../../images/1.4.0/user_guide/service/service_instance.png)
+
+The location tab permits to authorize service access to locations. It means only application deployed on the authorized locations can have access to the service.
+
+![service_location](../../images/1.4.0/user_guide/service/service_location.png)
+
+The security tab permits to authorize service access to application / environment / user or group. Only authorized entity has access to the location.
+
+![service_security](../../images/1.4.0/user_guide/service/service_security.png)
+
+Once the service has been properly defined, authorization has been properly configured. You can begin to consume it with your application. As you can see, the example use the abstract type `AbstractMongod` which is the base type that was used to define the service.
+
+![service_consumption](../../images/1.4.0/user_guide/service/service_consumption.png)
+
+On matching screen, your AbstractMongod will be matched to the service that has been defined lately
+
+![service_matching](../../images/1.4.0/user_guide/service/service_matching.png)
 
 # Turning deployments into services
 
-Turning deployments into services is usually done by the deployment manager of the application environment. Information on how to turn a deployment into a service can be found here.
+Turning deployments into services is usually done by the deployment manager of the application environment.
+
+Service definition within Alien4Cloud uses substitution in order to expose properties, requirements or capabilities. The first thing that you need to do is to define your service topology with substitution
+
+![service_topology](../../images/1.4.0/user_guide/service/service_topology.png)
+
+Once the service topology is done, you might want to create an application and deploy it on your chosen location. Then you can choose to expose your deployment as a service in the *Service management* section
+
+![service_exposition](../../images/1.4.0/user_guide/service/service_exposition.png)
+
+As an admin, the service exposed will be displayed automatically in the service list *[Administration]* > *Service*
+
+![service_list_with_exposed_mongo](../../images/1.4.0/user_guide/service/service_list_with_exposed_mongo.png)
+
+Once the service is exposed, access to the service, the matching can be configured in the same manner as an external service
 
 LIMITATIONS:
+
  - Services substitution does not yet supports the exposure of multiple instances. Output properties cannot reference properties of scaled instances.
  - Input properties are used both for topology input and deployment inputs. Users should handle connection to services using capabilities only properties/attributes and eventually node attributes but not node properties.
 
 # Example
 
-In our samples, import the type [mongo](https://github.com/alien4cloud/samples/tree/master/mongo). It comes with a topology template *mongod-type* that defines a simple topology containing a MongoDB hosted on a Compute.
+The MongoDB service example in the two sections above can be found [here](https://github.com/alien4cloud/samples/tree/master/mongo). It comes with a topology template *mongod-type* that defines a simple topology containing a MongoDB hosted on a Compute. This template is exposed as a type named *mongod-type* using substitution exposition.
 
-This template is exposed as a type named *mongod-type* using substitution exposition.
-
-Create a new application _MongoAsAService_ using this topology template and deploy it. It will ouputs the _ip_address_ and _port_ of your MongoDB.
-
-In Administration / Services create a service named _MongoService_ using the *mongod-type*. Fill it's attributes _ip_address_ and _port_ using those given by your deployment.
-Start the service.
-
-You must add a location to be able to match the service in another deployment.
-
-We'll now create another topology that will leverage this service. In the template [topology-nodecellar-service](https://github.com/alien4cloud/samples/tree/master/topology-nodecellar-service) you'll find a topology template _Nodecellar-ClientService_ that use the abstract type *alien.nodes.AbstractMongod* for the mongoDb node. Create an application using this template. You'll be able to match this node to the recently started service.
+The node cellar application, which consumes the service, can be found [here](https://github.com/alien4cloud/samples/tree/master/topology-nodecellar-service). In the topology template _Nodecellar-ClientService_, the abstract node *alien.nodes.AbstractMongod* was matched to the MongoDB service.
