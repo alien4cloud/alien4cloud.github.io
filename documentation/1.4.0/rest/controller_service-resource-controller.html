@@ -440,7 +440,7 @@ PUT /rest/v1/services/{id}
   <li><em>/</em></li>
 </ul>
 
-<h3 id="delete-a-service">Delete a service.</h3>
+<h3 id="delete-a-service-note-alien-managed-services-through-application-deployment-cannot-be-deleted-via-api">Delete a service. Note: alien managed services (through application deployment) cannot be deleted via API.</h3>
 <p><code>
 DELETE /rest/v1/services/{id}
 </code></p>
@@ -550,7 +550,7 @@ PATCH /rest/v1/services/{id}
     <tr>
       <td>BodyParameter</td>
       <td>request</td>
-      <td>ServiceResource patch request, representing the fields to updates and their new values.</td>
+      <td>ServiceResource update request, representing the fields to updates and their new values.</td>
       <td>true</td>
       <td>PatchServiceResourceRequest</td>
       <td> </td>

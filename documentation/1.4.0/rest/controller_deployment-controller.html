@@ -26,7 +26,7 @@ ga('send', 'pageview');
           <h1 class="pull-left" style="margin-top: 0px;">Operations on Deployments</h1>
           <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.4.0/rest/controller_deployment-controller.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
         </div>
-        <h3 id="get-100-last-deployments-for-an-orchestrator">Get 100 last deployments for an orchestrator.</h3>
+        <h3 id="get-deployments-for-an-orchestrator">Get deployments for an orchestrator.</h3>
 <p><code>
 GET /rest/v1/deployments
 </code></p>
@@ -118,93 +118,12 @@ GET /rest/v1/deployments
   <li>application/json</li>
 </ul>
 
-<h3 id="get-a-list-of-deployments-from-their-ids">Get a list of deployments from their ids.</h3>
-<p><code>
-POST /rest/v1/deployments/bulk/ids
-</code></p>
-
-<h4 id="parameters-1">Parameters</h4>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Type</th>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Required</th>
-      <th>Schema</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>BodyParameter</td>
-      <td>deploymentIds</td>
-      <td>deploymentIds</td>
-      <td>true</td>
-      <td>string array</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<h4 id="responses-1">Responses</h4>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>HTTP Code</th>
-      <th>Description</th>
-      <th>Schema</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>200</td>
-      <td>OK</td>
-      <td>JsonRawRestResponse</td>
-    </tr>
-    <tr>
-      <td>201</td>
-      <td>Created</td>
-      <td>No Content</td>
-    </tr>
-    <tr>
-      <td>401</td>
-      <td>Unauthorized</td>
-      <td>No Content</td>
-    </tr>
-    <tr>
-      <td>403</td>
-      <td>Forbidden</td>
-      <td>No Content</td>
-    </tr>
-    <tr>
-      <td>404</td>
-      <td>Not Found</td>
-      <td>No Content</td>
-    </tr>
-  </tbody>
-</table>
-
-<h4 id="consumes-1">Consumes</h4>
-
-<ul>
-  <li>application/json</li>
-</ul>
-
-<h4 id="produces-1">Produces</h4>
-
-<ul>
-  <li>application/json</li>
-</ul>
-
 <h3 id="getevents">getEvents</h3>
 <p><code>
 GET /rest/v1/deployments/{applicationEnvironmentId}/events
 </code></p>
 
-<h4 id="parameters-2">Parameters</h4>
+<h4 id="parameters-1">Parameters</h4>
 
 <table class="table table-bordered">
   <thead>
@@ -245,7 +164,7 @@ GET /rest/v1/deployments/{applicationEnvironmentId}/events
   </tbody>
 </table>
 
-<h4 id="responses-2">Responses</h4>
+<h4 id="responses-1">Responses</h4>
 
 <table class="table table-bordered">
   <thead>
@@ -279,6 +198,82 @@ GET /rest/v1/deployments/{applicationEnvironmentId}/events
   </tbody>
 </table>
 
+<h4 id="consumes-1">Consumes</h4>
+
+<ul>
+  <li>application/json</li>
+</ul>
+
+<h4 id="produces-1">Produces</h4>
+
+<ul>
+  <li>application/json</li>
+</ul>
+
+<h3 id="get-deployment-status-from-its-id">Get deployment status from its id.</h3>
+<p><code>
+GET /rest/v1/deployments/{deploymentId}/status
+</code></p>
+
+<h4 id="parameters-2">Parameters</h4>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>PathParameter</td>
+      <td>deploymentId</td>
+      <td>Deployment id.</td>
+      <td>true</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="responses-2">Responses</h4>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>HTTP Code</th>
+      <th>Description</th>
+      <th>Schema</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>200</td>
+      <td>OK</td>
+      <td>DeferredResult«RestResponse«string»»</td>
+    </tr>
+    <tr>
+      <td>401</td>
+      <td>Unauthorized</td>
+      <td>No Content</td>
+    </tr>
+    <tr>
+      <td>403</td>
+      <td>Forbidden</td>
+      <td>No Content</td>
+    </tr>
+    <tr>
+      <td>404</td>
+      <td>Not Found</td>
+      <td>No Content</td>
+    </tr>
+  </tbody>
+</table>
+
 <h4 id="consumes-2">Consumes</h4>
 
 <ul>
@@ -291,9 +286,9 @@ GET /rest/v1/deployments/{applicationEnvironmentId}/events
   <li>application/json</li>
 </ul>
 
-<h3 id="get-deployment-status-from-its-id">Get deployment status from its id.</h3>
+<h3 id="undeploy-deployment-from-its-id">Undeploy deployment from its id.</h3>
 <p><code>
-GET /rest/v1/deployments/{deploymentId}/status
+GET /rest/v1/deployments/{deploymentId}/undeploy
 </code></p>
 
 <h4 id="parameters-3">Parameters</h4>
@@ -335,7 +330,7 @@ GET /rest/v1/deployments/{deploymentId}/status
     <tr>
       <td>200</td>
       <td>OK</td>
-      <td>RestResponse«string»</td>
+      <td>RestResponse«Void»</td>
     </tr>
     <tr>
       <td>401</td>
@@ -362,82 +357,6 @@ GET /rest/v1/deployments/{deploymentId}/status
 </ul>
 
 <h4 id="produces-3">Produces</h4>
-
-<ul>
-  <li>application/json</li>
-</ul>
-
-<h3 id="undeploy-deployment-from-its-id">Undeploy deployment from its id.</h3>
-<p><code>
-GET /rest/v1/deployments/{deploymentId}/undeploy
-</code></p>
-
-<h4 id="parameters-4">Parameters</h4>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Type</th>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Required</th>
-      <th>Schema</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>PathParameter</td>
-      <td>deploymentId</td>
-      <td>Deployment id.</td>
-      <td>true</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<h4 id="responses-4">Responses</h4>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>HTTP Code</th>
-      <th>Description</th>
-      <th>Schema</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>200</td>
-      <td>OK</td>
-      <td>RestResponse«Void»</td>
-    </tr>
-    <tr>
-      <td>401</td>
-      <td>Unauthorized</td>
-      <td>No Content</td>
-    </tr>
-    <tr>
-      <td>403</td>
-      <td>Forbidden</td>
-      <td>No Content</td>
-    </tr>
-    <tr>
-      <td>404</td>
-      <td>Not Found</td>
-      <td>No Content</td>
-    </tr>
-  </tbody>
-</table>
-
-<h4 id="consumes-4">Consumes</h4>
-
-<ul>
-  <li>application/json</li>
-</ul>
-
-<h4 id="produces-4">Produces</h4>
 
 <ul>
   <li>application/json</li>

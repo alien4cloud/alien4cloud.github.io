@@ -1135,136 +1135,6 @@ ga('send', 'pageview');
   </tbody>
 </table>
 
-<h1 id="service">Service.</h1>
-
-<p>A service is something running somewhere, exposing capabilities and requirements, matchable in a topology in place of an abstract component.</p>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Required</th>
-      <th>Schema</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>applicationPermissions</td>
-      <td> </td>
-      <td>false</td>
-      <td>object</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>creationDate</td>
-      <td> </td>
-      <td>false</td>
-      <td>string (date-time)</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>deploymentId</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>description</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>environmentId</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>environmentPermissions</td>
-      <td> </td>
-      <td>false</td>
-      <td>object</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>groupPermissions</td>
-      <td> </td>
-      <td>false</td>
-      <td>object</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>id</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>lastUpdateDate</td>
-      <td> </td>
-      <td>false</td>
-      <td>string (date-time)</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>locationIds</td>
-      <td> </td>
-      <td>false</td>
-      <td>string array</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>name</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>nestedVersion</td>
-      <td> </td>
-      <td>false</td>
-      <td>Version</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>nodeInstance</td>
-      <td> </td>
-      <td>false</td>
-      <td>NodeInstance</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>state</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>userPermissions</td>
-      <td> </td>
-      <td>false</td>
-      <td>object</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>version</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
 <h1 id="application">Application</h1>
 
 <table class="table table-bordered">
@@ -1346,43 +1216,6 @@ ga('send', 'pageview');
       <td> </td>
       <td>false</td>
       <td>object</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<h1 id="nodeinstance">NodeInstance</h1>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Required</th>
-      <th>Schema</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>attributeValues</td>
-      <td> </td>
-      <td>false</td>
-      <td>object</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>nodeTemplate</td>
-      <td> </td>
-      <td>false</td>
-      <td>NodeTemplate</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>typeVersion</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
       <td> </td>
     </tr>
   </tbody>
@@ -1694,36 +1527,6 @@ ga('send', 'pageview');
   </tbody>
 </table>
 
-<h1 id="request-for-creation-of-a-new-service">Request for creation of a new service.</h1>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Required</th>
-      <th>Schema</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>fromRuntime</td>
-      <td>Create the service from the deployed topology of this environment? Thorws an error if the environement is not deployed. Default to false</td>
-      <td>true</td>
-      <td>boolean</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>serviceName</td>
-      <td>Name of the new service (must be unique for a given version).</td>
-      <td>true</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
 <h1 id="mapstringenvironmentstatusdto">Map«string,EnvironmentStatusDTO»</h1>
 
 <h1 id="datatype">DataType</h1>
@@ -1835,36 +1638,6 @@ ga('send', 'pageview');
       <td> </td>
       <td>false</td>
       <td>string</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<h1 id="jsonrawrestresponse">JsonRawRestResponse</h1>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Required</th>
-      <th>Schema</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>data</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>error</td>
-      <td> </td>
-      <td>false</td>
-      <td>RestError</td>
       <td> </td>
     </tr>
   </tbody>
@@ -3869,36 +3642,6 @@ ga('send', 'pageview');
       <td> </td>
       <td>false</td>
       <td>string</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<h1 id="restresponseservice">RestResponse«Service.»</h1>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Required</th>
-      <th>Schema</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>data</td>
-      <td> </td>
-      <td>false</td>
-      <td>Service.</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>error</td>
-      <td> </td>
-      <td>false</td>
-      <td>RestError</td>
       <td> </td>
     </tr>
   </tbody>
