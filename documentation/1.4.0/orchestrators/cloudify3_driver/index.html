@@ -32,7 +32,7 @@ ga('send', 'pageview');
 
 <h2 id="alien-4-cloud-cloudify-3-support">Alien 4 Cloud Cloudify 3 Support</h2>
 
-<p>The alien 4 cloud plugin for cloudify 3 exposes several nodes so that TOSCA templates can be deployed on Cloudify 3 to various locations, such as <strong><em>Amazon</em></strong>, <strong><em>Openstack</em></strong>, etc… . This allows full portability of topologies (or blueprints) that you have designed.</p>
+<p>The alien 4 cloud plugin for cloudify 3 exposes several nodes so that TOSCA templates can be deployed on Cloudify 3 to various locations, such as <strong><em>Amazon</em></strong>, <strong><em>Openstack</em></strong>, etc… . This allows full portability of topologies (or blueprints) that you have designed.  </p>
 
 <p>See <a href="#/documentation/1.4.0/orchestrators/cloudify3_driver/supported_locations.html">Supported locations</a> for more details.</p>
 
@@ -112,9 +112,9 @@ However, refers to the table below to see IaaS limitations.</p>
 <h3 id="block-storage-recovery-limitation">Block storage recovery limitation</h3>
 
 <div class="note info">
-<p>Block storage recovery is the ability to reuse an already created block storage.</p>
+<p>Block storage recovery is the ability to reuse an already created block storage.  </p>
 
-<p>Imagine you have a topology containing a compute with a block storage attached on it. You deploy the topology, the VM is started, the block storage is provisionned and attached to the VM, and then some process write data to the disk. If you don’t use a <code>DeletableBlockStorage</code>, this means that you want the data written to the disk to be persistent : if the topology is undeployed then deployed again, you want the block storage to be reused.</p>
+<p>Imagine you have a topology containing a compute with a block storage attached on it. You deploy the topology, the VM is started, the block storage is provisionned and attached to the VM, and then some process write data to the disk. If you don’t use a <code>DeletableBlockStorage</code>, this means that you want the data written to the disk to be persistent : if the topology is undeployed then deployed again, you want the block storage to be reused.  </p>
 
 <p>To manage such feature, A4C will keep a trace of the volume ID and store it in the deployment topology. When the topology is deployed again, this volume id is used to find the volume in the the IaaS rather than provisoning another one.</p>
 </div>
