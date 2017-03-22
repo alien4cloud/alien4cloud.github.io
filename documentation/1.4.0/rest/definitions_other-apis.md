@@ -10,6 +10,16 @@ weight: 9000
 
 {% summary %}{% endsummary %}
 
+# SortConfiguration
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|ascending||false|boolean||
+|sortBy||false|string||
+
+
 # RestResponse«TopologyPortabilityInsight»
 
 
@@ -46,6 +56,30 @@ Request to update a service resource.
 |version|The version of the service.|true|string||
 
 
+# UserDTO
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|email||false|string||
+|firstName||false|string||
+|lastName||false|string||
+|username||false|string||
+
+
+# GroupDTO
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|description||false|string||
+|email||false|string||
+|id||false|string||
+|name||false|string||
+
+
 # Creation request for a suggestion.
 
 
@@ -71,6 +105,27 @@ Request to update a service resource.
 |isLogged||false|boolean||
 |roles||false|Collection«string»||
 |username||false|string||
+
+
+# PaaSDeploymentLog
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|content||false|string||
+|deploymentId||false|string||
+|deploymentPaaSId||false|string||
+|executionId||false|string||
+|id||false|string||
+|instanceId||false|string||
+|interfaceName||false|string||
+|level||false|enum (debug, info, warn, error)||
+|nodeId||false|string||
+|operationName||false|string||
+|timestamp||false|string (date-time)||
+|type||false|string||
+|workflowId||false|string||
 
 
 # Map«string,Array«string»»
@@ -125,6 +180,16 @@ Request to update a service resource.
 |majorVersion||false|integer (int32)||
 |minorVersion||false|integer (int32)||
 |qualifier||false|string||
+
+
+# RestResponse«FacetedSearchResult«PaaSDeploymentLog»»
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|data||false|FacetedSearchResult«PaaSDeploymentLog»||
+|error||false|RestError||
 
 
 # PortableLocationDTO
@@ -190,6 +255,21 @@ Request to update a service resource.
 |repositoryCredential||false|object||
 |repositoryName||false|string||
 |repositoryURL||false|string||
+
+
+# FacetedSearchResult«PaaSDeploymentLog»
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|data||false|PaaSDeploymentLog array||
+|facets||false|object||
+|from||false|integer (int32)||
+|queryDuration||false|integer (int64)||
+|to||false|integer (int32)||
+|totalResults||false|integer (int64)||
+|types||false|string array||
 
 
 # Capability
@@ -309,6 +389,7 @@ A service is something running somewhere, exposing capabilities and requirements
 |creationDate||false|string (date-time)||
 |deploymentId||false|string||
 |description||false|string||
+|environmentId||false|string||
 |environmentPermissions||false|object||
 |groupPermissions||false|object||
 |id||false|string||
@@ -317,6 +398,7 @@ A service is something running somewhere, exposing capabilities and requirements
 |name||false|string||
 |nestedVersion||false|Version||
 |nodeInstance||false|NodeInstance||
+|state||false|string||
 |userPermissions||false|object||
 |version||false|string||
 
@@ -356,6 +438,24 @@ A service is something running somewhere, exposing capabilities and requirements
 |typeVersion||false|string||
 
 
+# Application
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|creationDate||false|string (date-time)||
+|description||false|string||
+|groupRoles||false|object||
+|id||false|string||
+|imageId||false|string||
+|lastUpdateDate||false|string (date-time)||
+|metaProperties||false|object||
+|name||false|string||
+|tags||false|Tag array||
+|userRoles||false|object||
+
+
 # SortedSearchRequest
 
 
@@ -377,6 +477,16 @@ A service is something running somewhere, exposing capabilities and requirements
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
 |data||false|string||
+|error||false|RestError||
+
+
+# RestResponse«List«GroupDTO»»
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|data||false|GroupDTO array||
 |error||false|RestError||
 
 
@@ -417,6 +527,16 @@ A service is something running somewhere, exposing capabilities and requirements
 |implementationArtifact||false|ImplementationArtifact||
 |inputParameters||false|object||
 |portability||false|object||
+
+
+# RestResponse«List«UserDTO»»
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|data||false|UserDTO array||
+|error||false|RestError||
 
 
 # IValue
@@ -463,6 +583,19 @@ A service is something running somewhere, exposing capabilities and requirements
 |version|Version of the new service.|true|string||
 
 
+# ApplicationEnvironmentAuthorizationUpdateRequest
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|applicationsToAdd||false|string array||
+|applicationsToDelete||false|string array||
+|environmentsToAdd||false|string array||
+|environmentsToDelete||false|string array||
+|resources||false|string array||
+
+
 # PortabilityLimitation
 
 
@@ -472,6 +605,16 @@ A service is something running somewhere, exposing capabilities and requirements
 |code||false|enum (NOT_NORMATIVE, ORCHESTRATOR_DEPENDENT, IAAS_DEPENDENT, LOCATION_RESOURCE_MATCH, ARTIFACT_NOT_SUPPORTED_ON_HOST, RUNTIME_PACKAGE_NOT_SATISFIED, ARTIFACT_AND_RUNTIME_NOT_SATISFIED, ORCHESTRATOR_CONFLICT, IAAS_CONFLICT, ARTIFACT_SUPPORT, RUNTIME_PACKAGE)||
 |info||false|string array||
 |level||false|enum (ERROR, WARNING, INFO)||
+
+
+# RestResponse«List«ApplicationEnvironmentAuthorizationDTO»»
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|data||false|ApplicationEnvironmentAuthorizationDTO array||
+|error||false|RestError||
 
 
 # Map«string,List«PortabilityLimitation»»
@@ -529,6 +672,21 @@ A service is something running somewhere, exposing capabilities and requirements
 
 # Map«string,Requirement»
 
+# SearchLogRequest
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|filters||false|object||
+|from||false|integer (int32)||
+|fromDate||false|string (date-time)||
+|query||false|string||
+|size||false|integer (int32)||
+|sortConfiguration||false|SortConfiguration||
+|toDate||false|string (date-time)||
+
+
 # ConstraintInformation
 
 
@@ -543,6 +701,23 @@ A service is something running somewhere, exposing capabilities and requirements
 
 
 # Map«string,AbstractPropertyValue»
+
+# ApplicationEnvironment
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|applicationId||false|string||
+|description||false|string||
+|environmentType||false|enum (OTHER, DEVELOPMENT, INTEGRATION_TESTS, USER_ACCEPTANCE_TESTS, PRE_PRODUCTION, PRODUCTION)||
+|groupRoles||false|object||
+|id||false|string||
+|name||false|string||
+|topologyVersion||false|string||
+|userRoles||false|object||
+|version||false|string||
+
 
 # RestResponse«List«RepositoryPluginComponent»»
 
@@ -579,6 +754,16 @@ A service is something running somewhere, exposing capabilities and requirements
 
 # Map«string,string»
 
+# ApplicationEnvironmentAuthorizationDTO
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|application||false|Application||
+|environments||false|ApplicationEnvironment array||
+
+
 # RestResponse«FacetedSearchResult»
 
 
@@ -597,6 +782,16 @@ A service is something running somewhere, exposing capabilities and requirements
 |----|----|----|----|----|
 |data||false|GetMultipleDataResult||
 |error||false|RestError||
+
+
+# Tag
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|name||false|string||
+|value||false|string||
 
 
 # AbstractPropertyValue

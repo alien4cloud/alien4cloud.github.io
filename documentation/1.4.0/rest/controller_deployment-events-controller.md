@@ -1,88 +1,28 @@
 ---
 layout: post
-title: Generic Suggestion Controller
+title: This api allows to perfom admin oriented requests on deployment events.
 root: ../../
 categories: DOCUMENTATION-1.4.0
-parent: [rest_api, rest_api_other-apis]
-node_name: rest_api_controller_generic-suggestion-controller
-weight: 42
+parent: [rest_api, rest_api_applications-deployment-api]
+node_name: rest_api_controller_deployment-events-controller
+weight: 34
 ---
 
-### Create a suggestion entry
+### Get deployment status events from a given date.
 ```
-POST /rest/v1/suggestions/
-```
-
-#### Parameters
-
-{: .table .table-bordered}
-|Type|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|----|
-|BodyParameter|request|request|true|Creation request for a suggestion.||
-
-
-#### Responses
-
-{: .table .table-bordered}
-|HTTP Code|Description|Schema|
-|----|----|----|
-|200|OK|RestResponse«Void»|
-|201|Created|No Content|
-|401|Unauthorized|No Content|
-|403|Forbidden|No Content|
-|404|Not Found|No Content|
-
-
-#### Consumes
-
-* application/json
-
-#### Produces
-
-* application/json
-
-### Initialize the default configured suggestions
-```
-POST /rest/v1/suggestions/init
-```
-
-#### Responses
-
-{: .table .table-bordered}
-|HTTP Code|Description|Schema|
-|----|----|----|
-|200|OK|RestResponse«Void»|
-|201|Created|No Content|
-|401|Unauthorized|No Content|
-|403|Forbidden|No Content|
-|404|Not Found|No Content|
-
-
-#### Consumes
-
-* application/json
-
-#### Produces
-
-* application/json
-
-### Get matched suggestions
-```
-GET /rest/v1/suggestions/{suggestionId}/values
+POST /rest/v1/deployments/events/status
 ```
 
 #### Description
 
-Returns the matched suggestions.
+Batch processing oriented API to retrieve deployment status events. This API is not intended for frequent requests but can retrieve lot of data.
 
 #### Parameters
 
 {: .table .table-bordered}
 |Type|Name|Description|Required|Schema|Default|
 |----|----|----|----|----|----|
-|PathParameter|suggestionId|suggestionId|true|string||
-|QueryParameter|input|input|false|string||
-|QueryParameter|limit|limit|false|integer (int32)||
+|BodyParameter|timedRequest|timedRequest|true|TimedRequest||
 
 
 #### Responses
@@ -90,7 +30,8 @@ Returns the matched suggestions.
 {: .table .table-bordered}
 |HTTP Code|Description|Schema|
 |----|----|----|
-|200|OK|RestResponse«Array«string»»|
+|200|OK|GetMultipleJsonResult|
+|201|Created|No Content|
 |401|Unauthorized|No Content|
 |403|Forbidden|No Content|
 |404|Not Found|No Content|
@@ -104,18 +45,21 @@ Returns the matched suggestions.
 
 * application/json
 
-### Add new suggestion value
+### Get deployment status events from a given date.
 ```
-PUT /rest/v1/suggestions/{suggestionId}/values/{value}
+GET /rest/v1/deployments/events/status/scroll
 ```
+
+#### Description
+
+Batch processing oriented API to retrieve deployment status events. This API is not intended for frequent requests but can retrieve lot of data.
 
 #### Parameters
 
 {: .table .table-bordered}
 |Type|Name|Description|Required|Schema|Default|
 |----|----|----|----|----|----|
-|PathParameter|suggestionId|suggestionId|true|string||
-|PathParameter|value|value|true|string||
+|QueryParameter|scrollId|scrollId|true|string||
 
 
 #### Responses
@@ -123,7 +67,43 @@ PUT /rest/v1/suggestions/{suggestionId}/values/{value}
 {: .table .table-bordered}
 |HTTP Code|Description|Schema|
 |----|----|----|
-|200|OK|RestResponse«Void»|
+|200|OK|ScrollJsonResult|
+|401|Unauthorized|No Content|
+|403|Forbidden|No Content|
+|404|Not Found|No Content|
+
+
+#### Consumes
+
+* application/json
+
+#### Produces
+
+* application/json
+
+### Get deployment status events from a given date.
+```
+POST /rest/v1/deployments/events/status/scroll
+```
+
+#### Description
+
+Batch processing oriented API to retrieve deployment status events. This API is not intended for frequent requests but can retrieve lot of data.
+
+#### Parameters
+
+{: .table .table-bordered}
+|Type|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|----|
+|BodyParameter|timedRequest|timedRequest|true|ScrollTimedRequest||
+
+
+#### Responses
+
+{: .table .table-bordered}
+|HTTP Code|Description|Schema|
+|----|----|----|
+|200|OK|ScrollJsonResult|
 |201|Created|No Content|
 |401|Unauthorized|No Content|
 |403|Forbidden|No Content|

@@ -1,16 +1,16 @@
 ---
 layout: post
-title: Location resource security operations
+title: Allow to grant/revoke services authorizations
 root: ../../
 categories: DOCUMENTATION-1.4.0
-parent: [rest_api, rest_api_admin-orchestrator-api]
-node_name: rest_api_controller_location-resources-security-controller
-weight: 7
+parent: [rest_api, rest_api_other-apis]
+node_name: rest_api_controller_service-security-controller
+weight: 41
 ---
 
-### Revoke the application's authorisation to access the location resource
+### Revoke the application's authorisation to access the service resource
 ```
-DELETE /rest/v1/orchestrators/{orchestratorId}/locations/{locationId}/resources/{resourceId}/security/applications/{applicationId}
+DELETE /rest/v1/services/{serviceId}/security/applications/{applicationId}
 ```
 
 #### Description
@@ -22,10 +22,8 @@ Only user with ADMIN role can revoke access to the location.
 {: .table .table-bordered}
 |Type|Name|Description|Required|Schema|Default|
 |----|----|----|----|----|----|
-|PathParameter|orchestratorId|orchestratorId|true|string||
-|PathParameter|locationId|locationId|true|string||
+|PathParameter|serviceId|serviceId|true|string||
 |PathParameter|applicationId|applicationId|true|string||
-|PathParameter|resourceId|resourceId|true|string||
 
 
 #### Responses
@@ -47,9 +45,9 @@ Only user with ADMIN role can revoke access to the location.
 
 * application/json
 
-### List all applications/environments authorized to access the location resource
+### List all applications/environments authorized to access the service resource
 ```
-GET /rest/v1/orchestrators/{orchestratorId}/locations/{locationId}/resources/{resourceId}/security/environmentsPerApplication
+GET /rest/v1/services/{serviceId}/security/environmentsPerApplication
 ```
 
 #### Description
@@ -61,9 +59,7 @@ Only user with ADMIN role can list authorized applications/environments for the 
 {: .table .table-bordered}
 |Type|Name|Description|Required|Schema|Default|
 |----|----|----|----|----|----|
-|PathParameter|orchestratorId|orchestratorId|true|string||
-|PathParameter|locationId|locationId|true|string||
-|PathParameter|resourceId|resourceId|true|string||
+|PathParameter|serviceId|serviceId|true|string||
 
 
 #### Responses
@@ -85,9 +81,9 @@ Only user with ADMIN role can list authorized applications/environments for the 
 
 * application/json
 
-### Update applications/environments authorized to access the location resource
+### Update applications/environments authorized to access the service resource
 ```
-POST /rest/v1/orchestrators/{orchestratorId}/locations/{locationId}/resources/{resourceId}/security/environmentsPerApplication
+POST /rest/v1/services/{serviceId}/security/environmentsPerApplication
 ```
 
 #### Description
@@ -99,9 +95,7 @@ Only user with ADMIN role can update authorized applications/environments for th
 {: .table .table-bordered}
 |Type|Name|Description|Required|Schema|Default|
 |----|----|----|----|----|----|
-|PathParameter|orchestratorId|orchestratorId|true|string||
-|PathParameter|locationId|locationId|true|string||
-|PathParameter|resourceId|resourceId|true|string||
+|PathParameter|serviceId|serviceId|true|string||
 |BodyParameter|request|request|true|ApplicationEnvironmentAuthorizationUpdateRequest||
 
 
@@ -125,9 +119,9 @@ Only user with ADMIN role can update authorized applications/environments for th
 
 * application/json
 
-### List all groups authorized to access the location
+### List all groups authorized to access the service resource
 ```
-GET /rest/v1/orchestrators/{orchestratorId}/locations/{locationId}/resources/{resourceId}/security/groups
+GET /rest/v1/services/{serviceId}/security/groups
 ```
 
 #### Description
@@ -139,9 +133,7 @@ Only user with ADMIN role can list authorized groups to the location.
 {: .table .table-bordered}
 |Type|Name|Description|Required|Schema|Default|
 |----|----|----|----|----|----|
-|PathParameter|orchestratorId|orchestratorId|true|string||
-|PathParameter|locationId|locationId|true|string||
-|PathParameter|resourceId|resourceId|true|string||
+|PathParameter|serviceId|serviceId|true|string||
 
 
 #### Responses
@@ -163,9 +155,9 @@ Only user with ADMIN role can list authorized groups to the location.
 
 * application/json
 
-### Grant access to the location to the groups
+### Grant access to the service resource to the groups
 ```
-POST /rest/v1/orchestrators/{orchestratorId}/locations/{locationId}/resources/{resourceId}/security/groups
+POST /rest/v1/services/{serviceId}/security/groups
 ```
 
 #### Description
@@ -177,9 +169,7 @@ Only user with ADMIN role can grant access to a group.
 {: .table .table-bordered}
 |Type|Name|Description|Required|Schema|Default|
 |----|----|----|----|----|----|
-|PathParameter|orchestratorId|orchestratorId|true|string||
-|PathParameter|locationId|locationId|true|string||
-|PathParameter|resourceId|resourceId|true|string||
+|PathParameter|serviceId|serviceId|true|string||
 |BodyParameter|groupIds|groupIds|true|string array||
 
 
@@ -203,9 +193,9 @@ Only user with ADMIN role can grant access to a group.
 
 * application/json
 
-### Revoke the group's authorisation to access the location
+### Revoke the group's authorisation to access the service resource
 ```
-DELETE /rest/v1/orchestrators/{orchestratorId}/locations/{locationId}/resources/{resourceId}/security/groups/{groupId}
+DELETE /rest/v1/services/{serviceId}/security/groups/{groupId}
 ```
 
 #### Description
@@ -217,9 +207,7 @@ Only user with ADMIN role can revoke access to the location.
 {: .table .table-bordered}
 |Type|Name|Description|Required|Schema|Default|
 |----|----|----|----|----|----|
-|PathParameter|orchestratorId|orchestratorId|true|string||
-|PathParameter|locationId|locationId|true|string||
-|PathParameter|resourceId|resourceId|true|string||
+|PathParameter|serviceId|serviceId|true|string||
 |PathParameter|groupId|groupId|true|string||
 
 
@@ -242,9 +230,9 @@ Only user with ADMIN role can revoke access to the location.
 
 * application/json
 
-### List all users authorized to access the location resource
+### List all users authorized to access the service resource
 ```
-GET /rest/v1/orchestrators/{orchestratorId}/locations/{locationId}/resources/{resourceId}/security/users
+GET /rest/v1/services/{serviceId}/security/users
 ```
 
 #### Description
@@ -256,9 +244,7 @@ Only user with ADMIN role can list authorized users to the location.
 {: .table .table-bordered}
 |Type|Name|Description|Required|Schema|Default|
 |----|----|----|----|----|----|
-|PathParameter|orchestratorId|orchestratorId|true|string||
-|PathParameter|locationId|locationId|true|string||
-|PathParameter|resourceId|resourceId|true|string||
+|PathParameter|serviceId|serviceId|true|string||
 
 
 #### Responses
@@ -280,9 +266,9 @@ Only user with ADMIN role can list authorized users to the location.
 
 * application/json
 
-### Grant access to the location's resource to the users, send back the new authorised users list
+### Grant access to the service to the users, send back the new authorised users list
 ```
-POST /rest/v1/orchestrators/{orchestratorId}/locations/{locationId}/resources/{resourceId}/security/users
+POST /rest/v1/services/{serviceId}/security/users
 ```
 
 #### Description
@@ -294,9 +280,7 @@ Only user with ADMIN role can grant access to another users.
 {: .table .table-bordered}
 |Type|Name|Description|Required|Schema|Default|
 |----|----|----|----|----|----|
-|PathParameter|orchestratorId|orchestratorId|true|string||
-|PathParameter|locationId|locationId|true|string||
-|PathParameter|resourceId|resourceId|true|string||
+|PathParameter|serviceId|serviceId|true|string||
 |BodyParameter|userNames|userNames|true|string array||
 
 
@@ -320,9 +304,9 @@ Only user with ADMIN role can grant access to another users.
 
 * application/json
 
-### Revoke the user's authorisation to access a location resource, send back the new authorised users list
+### Revoke the user's authorisation to access the service resource, send back the new authorised users list
 ```
-DELETE /rest/v1/orchestrators/{orchestratorId}/locations/{locationId}/resources/{resourceId}/security/users/{username}
+DELETE /rest/v1/services/{serviceId}/security/users/{username}
 ```
 
 #### Description
@@ -334,9 +318,7 @@ Only user with ADMIN role can revoke access to the location.
 {: .table .table-bordered}
 |Type|Name|Description|Required|Schema|Default|
 |----|----|----|----|----|----|
-|PathParameter|orchestratorId|orchestratorId|true|string||
-|PathParameter|locationId|locationId|true|string||
-|PathParameter|resourceId|resourceId|true|string||
+|PathParameter|serviceId|serviceId|true|string||
 |PathParameter|username|username|true|string||
 
 

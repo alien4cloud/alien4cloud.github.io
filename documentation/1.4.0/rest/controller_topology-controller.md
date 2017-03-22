@@ -5,7 +5,7 @@ root: ../../
 categories: DOCUMENTATION-1.4.0
 parent: [rest_api, rest_api_topology-editor-api]
 node_name: rest_api_controller_topology-controller
-weight: 35
+weight: 38
 ---
 
 ### Retrieve a topology from it's id.

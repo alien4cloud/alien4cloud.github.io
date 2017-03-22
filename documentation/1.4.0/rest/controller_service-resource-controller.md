@@ -5,7 +5,7 @@ root: ../../
 categories: DOCUMENTATION-1.4.0
 parent: [rest_api, rest_api_other-apis]
 node_name: rest_api_controller_service-resource-controller
-weight: 41
+weight: 46
 ---
 
 ### List and iterate service resources.
@@ -180,7 +180,7 @@ Alien managed services (through application deployment) cannot be updated via AP
 
 * */*
 
-### Delete a service. Note: alien managed services (through application deployment) cannot be deleted via API.
+### Delete a service.
 ```
 DELETE /rest/v1/services/{id}
 ```
@@ -227,7 +227,7 @@ When the service is managed by alien (through application deployment) the only a
 |Type|Name|Description|Required|Schema|Default|
 |----|----|----|----|----|----|
 |PathParameter|id|Id of the service to update.|true|string||
-|BodyParameter|request|ServiceResource update request, representing the fields to updates and their new values.|true|PatchServiceResourceRequest||
+|BodyParameter|request|ServiceResource patch request, representing the fields to updates and their new values.|true|PatchServiceResourceRequest||
 
 
 #### Responses

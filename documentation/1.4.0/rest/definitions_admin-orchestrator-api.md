@@ -281,7 +281,7 @@ A request object to pass when updating an orchestrator. Contains updatable field
 |----|----|----|----|----|
 |allNodeTypes|Map that contains all node types.|false|object||
 |capabilityTypes|Map that contains the capability types used by the configuration types or node types.|false|object||
-|configurationTemplates|List of configuration templates already configured for the location. Usually abstract  types.|false|LocationResourceTemplate array||
+|configurationTemplates|List of configuration templates already configured for the location. Usually abstract types.|false|LocationResourceTemplate array||
 |configurationTypes|Map of node types id, node type used to configure a given location.|false|object||
 |nodeTemplates|List of node templates already configured for the location.|false|LocationResourceTemplate array||
 |nodeTypes|Map of node types id, node type used to configure the templates of on-demand resources in a location.|false|object||

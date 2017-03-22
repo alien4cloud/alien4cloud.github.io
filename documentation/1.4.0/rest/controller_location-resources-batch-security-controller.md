@@ -24,7 +24,6 @@ Only user with ADMIN role can update authorized applications/environments for th
 |----|----|----|----|----|----|
 |PathParameter|orchestratorId|orchestratorId|true|string||
 |PathParameter|locationId|locationId|true|string||
-|QueryParameter|force|force|false|boolean||
 |BodyParameter|request|request|true|ApplicationEnvironmentAuthorizationUpdateRequest||
 
 
@@ -64,7 +63,6 @@ Only user with ADMIN role can grant access to a group.
 |----|----|----|----|----|----|
 |PathParameter|orchestratorId|orchestratorId|true|string||
 |PathParameter|locationId|locationId|true|string||
-|QueryParameter|force|force|false|boolean||
 |BodyParameter|request|request|true|SubjectsAuthorizationRequest||
 
 
@@ -104,7 +102,6 @@ Only user with ADMIN role can grant access to another users.
 |----|----|----|----|----|----|
 |PathParameter|orchestratorId|orchestratorId|true|string||
 |PathParameter|locationId|locationId|true|string||
-|QueryParameter|force|force|false|boolean||
 |BodyParameter|request|request|true|SubjectsAuthorizationRequest||
 
 

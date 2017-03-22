@@ -5,7 +5,7 @@ root: ../../
 categories: DOCUMENTATION-1.4.0
 parent: [rest_api, rest_api_applications-api]
 node_name: rest_api_controller_application-version-controller
-weight: 25
+weight: 32
 ---
 
 ### Get the first snapshot application version for an application.

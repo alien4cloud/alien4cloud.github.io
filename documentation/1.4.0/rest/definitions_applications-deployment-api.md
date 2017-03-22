@@ -87,6 +87,19 @@ weight: 9000
 |precedingSteps||false|string array||
 
 
+# GetMultipleJsonResult
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|data||false|string||
+|from||false|integer (int32)||
+|queryDuration||false|integer (int64)||
+|to||false|integer (int32)||
+|totalResults||false|integer (int64)||
+
+
 # Map«string,DataType»
 
 # FilterDefinition
@@ -96,6 +109,18 @@ weight: 9000
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
 |properties||false|object||
+
+
+# ScrollJsonResult
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|data||false|string||
+|queryDuration||false|integer (int64)||
+|scrollId||false|string||
+|totalResults||false|integer (int64)||
 
 
 # RestResponse«Void»
@@ -179,16 +204,6 @@ weight: 9000
 |source||false|string||
 
 
-# DeferredResult«RestResponse«string»»
-
-
-{: .table .table-bordered}
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|result||false|object||
-|setOrExpired||false|boolean||
-
-
 # PropertyValue«Topology»
 
 
@@ -254,6 +269,29 @@ weight: 9000
 |members||false|string array||
 |name||false|string||
 |policies||false|AbstractPolicy array||
+
+
+# TimedRequest
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|from||false|integer (int32)||
+|intervalEnd||false|integer (int64)||
+|intervalStart||false|integer (int64)||
+|size||false|integer (int32)||
+
+
+# ScrollTimedRequest
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|intervalEnd||false|integer (int64)||
+|intervalStart||false|integer (int64)||
+|size||false|integer (int32)||
 
 
 # Capability
@@ -572,6 +610,16 @@ weight: 9000
 |properties||false|object||
 |tags||false|Tag array||
 |workspace||false|string||
+
+
+# JsonRawRestResponse
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|data||false|string||
+|error||false|RestError||
 
 
 # OperationExecRequest

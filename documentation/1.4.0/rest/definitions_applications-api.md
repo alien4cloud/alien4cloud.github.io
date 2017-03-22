@@ -323,6 +323,33 @@ Request to set locations policies for a deployment.
 |error||false|RestError||
 
 
+# Service.
+
+
+A service is something running somewhere, exposing capabilities and requirements, matchable in a topology in place of an abstract component.
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|applicationPermissions||false|object||
+|creationDate||false|string (date-time)||
+|deploymentId||false|string||
+|description||false|string||
+|environmentId||false|string||
+|environmentPermissions||false|object||
+|groupPermissions||false|object||
+|id||false|string||
+|lastUpdateDate||false|string (date-time)||
+|locationIds||false|string array||
+|name||false|string||
+|nestedVersion||false|Version||
+|nodeInstance||false|NodeInstance||
+|state||false|string||
+|userPermissions||false|object||
+|version||false|string||
+
+
 # Application
 
 
@@ -339,6 +366,17 @@ Request to set locations policies for a deployment.
 |name||false|string||
 |tags||false|Tag array||
 |userRoles||false|object||
+
+
+# NodeInstance
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|attributeValues||false|object||
+|nodeTemplate||false|NodeTemplate||
+|typeVersion||false|string||
 
 
 # RestResponse«Application»
@@ -443,6 +481,16 @@ Request to set locations policies for a deployment.
 |error||false|RestError||
 
 
+# Request for creation of a new service.
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|fromRuntime|Create the service from the deployed topology of this environment? Thorws an error if the environement is not deployed. Default to false|true|boolean||
+|serviceName|Name of the new service (must be unique for a given version).|true|string||
+
+
 # Map«string,EnvironmentStatusDTO»
 
 # DataType
@@ -465,6 +513,16 @@ Request to set locations policies for a deployment.
 |properties||false|object||
 |tags||false|Tag array||
 |workspace||false|string||
+
+
+# JsonRawRestResponse
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|data||false|string||
+|error||false|RestError||
 
 
 # RestResponse«Map«string,Map«string,InstanceInformation»»»
@@ -965,6 +1023,16 @@ Request to set locations policies for a deployment.
 |substitutionMapping||false|SubstitutionMapping||
 |workflows||false|object||
 |workspace||false|string||
+
+
+# RestResponse«Service.»
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|data||false|Service.||
+|error||false|RestError||
 
 
 # Map«string,List«PropertyConstraint»»

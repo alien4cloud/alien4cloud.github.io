@@ -5,7 +5,7 @@ root: ../../
 categories: DOCUMENTATION-1.4.0
 parent: [rest_api, rest_api_other-apis]
 node_name: rest_api_controller_topology-portability-controller
-weight: 43
+weight: 48
 ---
 
 ### Evaluate the portability of a topology.

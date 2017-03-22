@@ -1,16 +1,16 @@
 ---
 layout: post
-title: Operations on Application's meta-properties
+title: Bulk API for application environments.
 root: ../../
 categories: DOCUMENTATION-1.4.0
 parent: [rest_api, rest_api_applications-api]
-node_name: rest_api_controller_application-meta-property-controller
-weight: 29
+node_name: rest_api_controller_environment-bulk-controller
+weight: 28
 ---
 
-### upsertProperty
+### Get a list of environment from their ids.
 ```
-POST /rest/v1/applications/{applicationId}/properties
+POST /rest/v1/applications/environments/bulk/ids
 ```
 
 #### Parameters
@@ -18,8 +18,7 @@ POST /rest/v1/applications/{applicationId}/properties
 {: .table .table-bordered}
 |Type|Name|Description|Required|Schema|Default|
 |----|----|----|----|----|----|
-|PathParameter|applicationId|applicationId|true|string||
-|BodyParameter|propertyRequest|propertyRequest|true|Request to update or check the value of a property.||
+|BodyParameter|deploymentIds|deploymentIds|true|string array||
 
 
 #### Responses
@@ -27,7 +26,7 @@ POST /rest/v1/applications/{applicationId}/properties
 {: .table .table-bordered}
 |HTTP Code|Description|Schema|
 |----|----|----|
-|200|OK|RestResponse«ConstraintInformation»|
+|200|OK|JsonRawRestResponse|
 |201|Created|No Content|
 |401|Unauthorized|No Content|
 |403|Forbidden|No Content|
