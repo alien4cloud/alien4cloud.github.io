@@ -4,7 +4,7 @@ title:  Writing custom types
 root: ../../
 categories: DOCUMENTATION-1.4.0
 parent: [devops]
-node_name: tosca_ref_types
+node_name: tosca_custom_types
 weight: 200
 ---
 

@@ -3,7 +3,7 @@ layout: post
 title:  LAMP Stack Tutorial
 root: ../../
 categories: DOCUMENTATION-1.4.0
-parent: [devops]
+parent: [devops, tosca_custom_types]
 node_name: lamp_stack
 weight: 400
 ---

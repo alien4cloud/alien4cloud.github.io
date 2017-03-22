@@ -3,7 +3,7 @@ layout: post
 title:  Component BlockStorage
 root: ../../
 categories: DOCUMENTATION-1.4.0
-parent: [devops, lamp_stack]
+parent: [devops, tosca_custom_types, lamp_stack]
 node_name: lamp_stack_blockstorage
 weight: 200
 ---

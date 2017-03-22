@@ -3,9 +3,9 @@ layout: post
 title:  Getting started with a TOSCA component
 root: ../../
 categories: DOCUMENTATION-1.4.0
-parent: [devops]
+parent: [devops, tosca_custom_types]
 node_name: getting_started_with_tosca_component
-weight: 400
+weight: 200
 ---
 
 {% info %}
