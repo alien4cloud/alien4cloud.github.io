@@ -54,7 +54,7 @@ cd `dirname $0`
 
 JAVA_OPTIONS="-server -showversion -XX:+AggressiveOpts -Xmx2g -Xms2g -XX:MaxPermSize=512m -XX:+HeapDumpOnOutOfMemoryError"
 
-java $JAVA_OPTIONS -jar alien4cloud-ui-1.1.0-{version}-standalone.war
+java $JAVA_OPTIONS -jar alien4cloud-ui-1.4.0-{version}-standalone.war
 {% endhighlight %}
 
 {%info²%}
@@ -64,15 +64,28 @@ See [JVM tunning section](#/documentation/1.4.0/admin_guide/advanced_configurati
 
 # Logging configuration
 
-If you need to customize log4j (in order to activate some loggers, change the log file location ...) add a log4j.properties in the config folder and specify the classpath for java :
+If you need to customize log4j2 (in order to activate some loggers, change the log file location ...) add a log4j2.xml in the config folder and specify the classpath for java :
 
 {% highlight bash %}
-java $JAVA_OPTIONS -cp config/:alien4cloud-ui-1.1.0-{version}-standalone.war org.springframework.boot.loader.WarLauncher
+java $JAVA_OPTIONS -cp config/:alien4cloud-ui-1.4.0-{version}-standalone.war org.springframework.boot.loader.WarLauncher
 {% endhighlight %}
 
-You can find a log4j sample configuration file at [log4j.properties](https://github.com/alien4cloud/alien4cloud/blob/master/alien4cloud-ui/src/main/resources/log4j.properties)
+You can find a log4j2 sample configuration file at [log4j2.xml](https://github.com/alien4cloud/alien4cloud/blob/develop/alien4cloud-ui/src/main/resources/log4j2.xml)
 
 For example, to use Alien with the level debug, you need to replace the *info* keyword by *debug* in the second line.
+
+## Specific appender for the deployment logs
+
+{% info %}
+<h5>Premium feature</h5>
+This section refers to a premium feature.
+{% endinfo %}
+
+Alien4Cloud premium offer the possibilty to see / search deployment logs from orchestrators.
+You can enable a specific logger for this logs in the **alien4cloud-config.yml**.
+
+This logger has a rolling file appender, you can adapted it to your requirements.
+For example, the logs older than 30 days are automatically deleted, you can change this time retention in the log4j2 config.
 
 # Audit configuration
 

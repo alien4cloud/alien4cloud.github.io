@@ -41,7 +41,7 @@ Once extracted you should have the following content:
 ├── config
 │   └── alien4cloud-config.yml
 │   └── elasticsearch.yml
-│   └── log4j.properties
+│   └── log4j2.xml
 ├── init
 │   └── archives
 │   │   └── alien-tosca-normative-types.zip
