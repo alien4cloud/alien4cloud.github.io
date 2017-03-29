@@ -21,13 +21,6 @@ To select your file click on ![upload button](../../images/1.4.0/user_guide/uplo
 
 # Update the YAML of your topology
 
-{%warning%}
-<h5>YAML content update</h5>
-The content of the yaml file is currently not automatically updated. If you work with a milestone version of 1.4.0 you must save all pending operations in order to have a generated yaml file up to date with the changes you may have done in the editor.
-
-This will be fixed before the actual 1.3 release.
-{%endwarning%}
-
 In previous Alien version a view to see the YAML of your topology exist, useful to export the YAML but only readable.
 In this new verison you can directly edit your YAML to, for example, override an existing relationships or create a new capability type.
 Don't forget to save your change by clicking on the save button.
@@ -36,7 +29,9 @@ Don't forget to save your change by clicking on the save button.
 
 {%warning%}
 <h5>Limitations</h5>
-In order to edit the YAML of the topology all previous operations must have been saved.
+* The content of the yaml file is currently not automatically updated. If you work with a milestone version of 1.4.0 you must save all pending operations in order to have a generated yaml file up to date with the changes you may have done in the editor.
+
+* In order to edit the YAML of the topology all previous operations must have been saved.
 {%endwarning%}
 
 {%info%}
