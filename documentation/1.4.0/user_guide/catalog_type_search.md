@@ -36,10 +36,6 @@ Note that when more than one filter are selected, Alien4Cloud applies an AND pol
 
 ## Component overview
 
-After the search, you can have an overview of the component. Just move the mouse on one component and you will have the right pannel display its summary:(see figure above: **C**).
-
-[![Component facets filters](../../images/components_guide/components-overview.png)](../../images/components_guide/components-overview.png)
-
-If it is the one you are looking for, or if you want further informations about it, you can now select it and see its details.
+In order to see components details (description, inheritance, properties, capabilities, requirements, attributes etc.) you can just click on it and the following screen will be displayed:
 
 [![Component details](../../images/components_guide/component-details.png)](../../images/components_guide/component-details.png)
