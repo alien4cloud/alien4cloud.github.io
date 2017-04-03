@@ -81,11 +81,37 @@ For example, to use Alien with the level debug, you need to replace the *info* k
 This section refers to a premium feature.
 {% endinfo %}
 
-Alien4Cloud premium offer the possibilty to see / search deployment logs from orchestrators.
-You can enable a specific logger for this logs in the **alien4cloud-config.yml**.
+Alien4Cloud premium offer the possibilty to see / search deployment logs from premium orchestrators.
+Since Alien 1.4, a specific logger is used for this events.
 
-This logger has a rolling file appender, you can adapted it to your requirements.
-For example, the logs older than 30 days are automatically deleted, you can change this time retention in the log4j2 config.
+{% highlight bash %}
+<logger name="DEPLOYMENT_LOGS_LOGGER" level="info" additivity="false">
+    <AppenderRef ref="DEPLOYMENT_LOGS_APPENDER" />
+</logger>
+{% endhighlight %}
+
+
+You can enable this logger in **alien4cloud-config.yml** :
+
+{% highlight bash %}
+logs_deployment_appender:
+  enable: true
+{% endhighlight %}
+
+This logger has a rolling file appender, you can adapt it to your requirements.
+By default, logs older than 30 days are automatically deleted.
+
+For example, you can change this time retention in the log4j2 config to 10mn:
+Replace
+{% highlight sh %}
+<IfLastModified age="30d"/>
+{% endhighlight %}
+
+by
+{% highlight sh %}
+<IfLastModified age="10mn"/>
+{% endhighlight %}
+
 
 # Audit configuration
 
