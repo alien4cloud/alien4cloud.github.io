@@ -64,7 +64,7 @@ See [JVM tunning section](#/documentation/1.4.0/admin_guide/advanced_configurati
 
 # Logging configuration
 
-If you need to customize log4j2 (in order to activate some loggers, change the log file location ...) add a log4j2.xml in the config folder and specify the classpath for java :
+If you need to customize log4j2 (in order to activate some loggers, change the log file location ...) add a **log4j2.xml** in the config folder and specify the classpath for java :
 
 {% highlight bash %}
 java $JAVA_OPTIONS -cp config/:alien4cloud-ui-1.4.0-{version}-standalone.war org.springframework.boot.loader.WarLauncher
@@ -72,7 +72,17 @@ java $JAVA_OPTIONS -cp config/:alien4cloud-ui-1.4.0-{version}-standalone.war org
 
 You can find a log4j2 sample configuration file at [log4j2.xml](https://github.com/alien4cloud/alien4cloud/blob/develop/alien4cloud-ui/src/main/resources/log4j2.xml)
 
-For example, to use Alien with the level debug, you need to replace the *info* keyword by *debug* in the second line.
+For example, to use Alien with the level debug :
+
+Replace
+{% highlight sh %}
+<root level="info">
+{% endhighlight %}
+
+by
+{% highlight sh %}
+<root level="debug">
+{% endhighlight %}
 
 ## Specific appender for the deployment logs
 
@@ -101,7 +111,8 @@ logs_deployment_appender:
 This logger has a rolling file appender, you can adapt it to your requirements.
 By default, logs older than 30 days are automatically deleted.
 
-For example, you can change this time retention in the log4j2 config to 10mn:
+For example, you can change this time retention in the **log4j2.xml** config to 10mn:
+
 Replace
 {% highlight sh %}
 <IfLastModified age="30d"/>
