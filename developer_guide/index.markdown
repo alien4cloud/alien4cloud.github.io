@@ -37,6 +37,11 @@ $ sudo npm -g install grunt-cli
 $ gem install compass
 {% endhighlight %}
 
+On macOS Sierra the previous command may failed, try this one instead:
+{% highlight bash %}
+sudo gem install -n /usr/local/bin compass
+{% endhighlight %}
+
 * and grunt-contrib-compass
 
 {% highlight bash %}
@@ -54,6 +59,28 @@ $ mvn clean install -Dmaven.wagon.http.ssl.insecure=true -Dmaven.wagon.http.ssl.
 You can of course use the IDE that you like the most but some pre-requisite are required in order to work on alien 4 cloud.
 
 We use [Lombok](https://projectlombok.org) in order to avoid writing getter and setters in our code when not required and for some other nice features it provides. You must install plugin or setup your IDE to support lombok (Our team use both IDEA and Eclipse so feel free to ask questions on slack if you have any trouble).
+
+## Launching Alien4Cloud in dev mode
+
+Launch the REST API using maven
+
+{% highlight bash %}
+cd alien4cloud-rest-api
+
+mvn spring-boot:run
+{% endhighlight %}
+
+
+Launch the UI
+
+{% highlight bash %}
+cd alien4cloud-ui
+
+grunt serve
+{% endhighlight %}
+
+Note: if you'd like to launch the components directly from IntelliJ you need to enable the profile 'idea'.
+
 
 ## Code guidelines
 

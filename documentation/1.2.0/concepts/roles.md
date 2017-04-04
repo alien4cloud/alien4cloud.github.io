@@ -35,6 +35,6 @@ And some working on dedicated application(s) and project(s)
 Alien 4 Cloud intend to provide a platform that will help all these people to collaborate to build the enterprise IT in a flexible manner. So the question you all want to know is: How does we map this into Alien 4 Cloud ?
 
  * __ADMIN__ will be able to configure one or multiple deployments targets (__clouds__). And of course associate deployment roles to specific users.
- * __COMPONENTS_MANAGERS__ will be able to define packages on how to install, configure, start and connect __components__ (mapped as node types).
+ * __COMPONENTS_MANAGER__ will be able to define packages on how to install, configure, start and connect __components__ (mapped as node types).
  * __ARCHITECTS__ will be able to define global __topologies__ of applications by reusing building blocks (node types defined by components managers).
- * __APPLICATION_MANAGERS__ will be able to define __applications__ with it's own topologies that can be linked to a global topology from architects and that can reuse components defined by the components managers. At the application level, several users will be able to collaborate.
+ * __APPLICATIONS_MANAGER__ will be able to define __applications__ with it's own topologies that can be linked to a global topology from architects and that can reuse components defined by the components managers. At the application level, several users will be able to collaborate.

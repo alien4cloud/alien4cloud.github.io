@@ -283,5 +283,5 @@ More details about the relationship type [here](#/documentation/1.3.0/devops_gui
 * Going deeper writing TOSCA components
     * [LAMP Stack Tutorial](#/documentation/1.3.0/devops_guide/lamp_stack_tutorial/lamp_stack.html)
     * [Create your own components](#/documentation/1.3.0/devops_guide/design_tutorial/tutorials.html)
-* [Going deeper with TOSCA concepts](#/documentation/1.3.0/devops_guide/tosca_concepts.html)
-* [Upload your CSAR into Alien4Cloud](#/documentation/1.3.0/user_guide/components_management.html)
+* [Going deeper with TOSCA](#/documentation/1.3.0/devops_guide/tosca_grammar/tosca_grammar.html)
+* [Upload your CSAR into Alien4Cloud](#/documentation/1.3.0/user_guide/catalog_type_upload.html)

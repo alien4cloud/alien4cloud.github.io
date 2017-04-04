@@ -1,0 +1,66 @@
+---
+layout: post
+title:  ALIEN for Cloud 1.4.0-SM3
+root: ../
+categories: RELEASE_NOTES
+parent: [release_note]
+node_name: 1.4.0-SM3
+weight: 9943
+exclude_from_search: true
+---
+
+
+
+
+<i class="fa fa-plus text-success"></i> New feature <i class="fa fa-level-up text-primary"></i> Improvement  <i class="fa fa-bug text-danger"></i> Bug <i class="fa fa-exclamation-triangle text-warning"></i> Breaking change
+
+
+### Alien 4 Cloud Logs Plugin
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-2054 | Performances improvment on logs view rendering.  |
+
+
+
+### Cloudify 3 PaaS Provider
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+        |  <i class="fa fa-bug text-danger"></i> | ALIEN-2056 | Fixed deployment issue with a node that inherit from tosca.nodes.Root (NPE was thrown)  |
+
+
+
+### Marathon
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-2045 | Scaling containers on Marathon  |
+
+
+
+### Alien 4 Cloud
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-2039 | Ability to define a service available for matching / [Documentation](#/documentation/1.4.0/user_guide/services_management.html)  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-2040 | Supports authorisations management on location `on demand resources` / [Documentation](#/documentation/1.4.0/user_guide/location_autorization.html)  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-2053 | Exisitng and running services are now usable within a topology  |
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-2048 | Output properties and topology version are now displayed ouput on the deployment screen  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-2094 | Keep properties in ui in the same order as defined in TOSCA yaml  |
+      |  <i class="fa fa-bug text-danger"></i> | ALIEN-1685 | Fixed issue on workflow generation: Pre/Post configure operations are not processed in parallel anymore  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2015 | Fixed an issue causing the workflow view not to be displayed  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2055 |  fixed version selection on topology templates list view  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2086 | Fixed issue with environments display on deployment information view, when there was more than 50 of them.  |

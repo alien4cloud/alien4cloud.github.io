@@ -3,7 +3,7 @@ layout: post
 title:  get_property
 root: ../../../
 categories: DOCUMENTATION-1.3.0
-parent: [devops, tosca_concepts, tosca_ref_definitions, tosca_ref_types_function_definition]
+parent: [devops, tosca_grammar, tosca_ref_types_function_definition]
 node_name: tosca_ref_get_property_definition
 weight: 200
 ---
@@ -13,7 +13,7 @@ Use this function for inputs parameters.
 
 ## Keynames
 
-{: .table .table-bordered}
+{: .table .table-striped }
 | Keyname                   | Type                | Required | Description |
 |:----------------          |:--------------------|:---------|:------------|
 | modelable_entity_name     | string              | yes      | The  required  name of a modelable entity (e.g., Node Template  or Relationship  Template name) as declared in the service template that contains the named property definition  the function will return the value from.Can be one of the reserved keywords: SELF, SOURCE, TARGET, HOST |

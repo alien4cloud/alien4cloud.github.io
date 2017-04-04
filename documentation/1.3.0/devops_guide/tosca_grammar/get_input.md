@@ -3,7 +3,7 @@ layout: post
 title:  get_input
 root: ../../../
 categories: DOCUMENTATION-1.3.0
-parent: [devops, tosca_concepts, tosca_ref_definitions, tosca_ref_types_function_definition]
+parent: [devops, tosca_grammar, tosca_ref_types_function_definition]
 node_name: tosca_ref_get_input
 weight: 100
 ---

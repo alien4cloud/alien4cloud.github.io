@@ -84,16 +84,16 @@ We believe that there are already a number of viable options there (some of them
 We do it in an open way through [plug-in approach](../developer_guide/plugin.html){:target="_blank"} to allow you to leverage your best tools or skills.
 
 # Status
-1.2.1 has been released on 17/08/2016 (to see what is new in 1.2.x check out [new in 1.2.0](whatsnew))
+1.3.1 has been released on 25/12/2016 (to see what is new in 1.3.x check out [new in 1.3.0](whatsnew))
 
-1.3.0 version is being developed but still can be used for all new projects and POCs.
+1.4.0 version is being developed but still can be used for all new projects and POCs.
 
 {%info%}
 <h5>Which version to choose ?</h5>
 Basically the question depends on your timeframe, on the features you are looking from and on the support level you need.
 
-* __1.2.1__ is our most stable version and is the latest version that we support.
-* __1.3.0__ is still in development and things can change if you start using it. On the other hand all new features are developed in 1.3.0 so you may get more by choosing to start working with this version. We especially recommend that new POCs or project that will really start after we released the 1.3.0 (check our [roadmap](../../roadmap)).
+* __1.3.1__ is our most stable version and is the latest version that we support.
+* __1.4.0__ is still in development and things can change if you start using it. On the other hand all new features are developed in 1.4.0 so you may get more by choosing to start working with this version. We especially recommend that new POCs or project that will really start after we released the 1.4.0 (check our [roadmap](../../roadmap)).
 {%endinfo%}
 
 {%warning%}

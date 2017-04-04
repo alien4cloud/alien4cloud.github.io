@@ -75,9 +75,9 @@ The admin user is granted will all rights on the platform. This getting started 
 
 ### Create and configure an orchestrator
 
-Now that we are logged in Alien4Cloud we must define a location (where we will actually deploy applications). In Alien4Cloud every location is managed by an orchestrator. To create an orchestrator, go to ![Go to admin](../../images/getting_started/administration-btn.png){: .inline} and in the ![Go to orchestrator](../../images/getting_started/orchestrator-menu-btn.png){: .inline} sub-menu. Create an orchestrator named `Cloudify3` with the **plugin** `Cloudify 3 Orchestrator : 1.1.0`.
+Now that we are logged in Alien4Cloud we must define a location (where we will actually deploy applications). In Alien4Cloud every location is managed by an orchestrator. To create an orchestrator, go to ![Go to admin](../../images/getting_started/administration-btn.png){: .inline} and in the ![Go to orchestrator](../../images/getting_started/orchestrator-menu-btn.png){: .inline} sub-menu. Create an orchestrator named `Cloudify3` with the **plugin** `Cloudify 3 Orchestrator : 1.3.0`.
 
-At this moment your orchestrator is create but not enable. Click on your orchestrator to see the informations page, and then click on the configuration menu icon ![Go to orchestrator configuration](../../images/getting_started/orchestrator-config-btn.png){: .inline}. In the **Driver configuration** part, add the URL of your manager and return to the previous page to enable your orchestrator.
+At this moment your orchestrator is created but not enabled. Click on your orchestrator to see the informations page, and then click on the configuration menu icon ![Go to orchestrator configuration](../../images/getting_started/orchestrator-config-btn.png){: .inline}. In the **Driver configuration** part, add the URL of your manager and return to the previous page to enable your orchestrator.
 
 {% warning %}
 An error can occur at this moment if Alien4Cloud cannot access to your manager. Make sure that your manager is properly bootstrap.
@@ -90,9 +90,13 @@ Once your orchestrator is created and enabled, go to the locations page by click
 * alien.nodes.aws.PublicNetwork
 * alien.cloudify.aws.nodes.Compute
 
-The network resource doesn't need a specific configuration. Click on the compute and set the **image_id** to `ami-47a23a30` and the **instance_type** to `t2.medium`.
+The network resource doesn't need a specific configuration. Click on the compute and set the **image_id** to `ami-47a23a30` and the **instance_type** to `t2.medium`. 
 
 [![location on demand ressources](../../images/getting_started/on-demand-resources-aws.png)](../../images/getting_started/on-demand-resources-aws.png)
+
+You'll also need to specify the user that will be used to connect to the machine; for this, click on the `cloudify_agent` property and set the `user` nested property to `ubuntu`.
+
+[![edit cloudify_agent property](../../images/getting_started/edit-cloudify-agent.png)](../../images/getting_started/edit-cloudify-agent.png)
 
 {% info %}
 The **image_id** is the ID of a public Ubuntu image on the AWS eu-west zone. Any Ubuntu 14.04 or later should work with this topology. Alien4Cloud supports GNU/Linux and Windows images, the choice of the image depends on your components requirements.
@@ -116,7 +120,7 @@ Now add a new Git location: ![new-git-location](../../images/getting_started/new
 
 Fill the modal like the example below and ![new-git-location](../../images/getting_started/save-btn.png){: .inline}.
 
-[![Wordpress Topology](../../images/getting_started/git-location-details.png)](../../images/getting_started/git-location-details.png)
+[![Wordpress Topology](../../images/getting_started/git-location-details-master.png)](../../images/getting_started/git-location-details-master.png =582x502)
 
 Now, click on ![git import](../../images/getting_started/components-import-btn.png){: .inline} to pull all components from git and upload them into the Alien4Cloud catalog.
 
@@ -130,7 +134,10 @@ Find detailed informations about the Wordpress topology in the [devops guide](#/
 
 # Create a Wordpress application
 
-Now we have the Wordpress template ready to use, we can create an application based on it. To do this, go to ![application](../../images/getting_started/application-btn.png){: .inline} section. Click on ![new application btn](../../images/getting_started/new-application-btn.png){: .inline} button and select the `wordpress-template` in the **topology template** drop-down and the `1.1.0-SNAPHOT` version in **Topology template**.
+Now we have the Wordpress template ready to use, we can create an application based on it. To do this, go to ![application](../../images/getting_started/application-btn.png){: .inline} section. Click on ![new application btn](../../images/getting_started/new-application-btn.png){: .inline} button and select the `wordpress-template` in the table at the bottom of the popup.
+
+[![New Application Popup](../../images/getting_started/new-application-popup.png)](../../images/getting_started/new-application-popup.png)
+
 
 The application creation should redirect you on the application informations page.
 To see your application topology, go to ![application topology](../../images/getting_started/app-topo-btn.png){: .inline} page, you will see the following screen.

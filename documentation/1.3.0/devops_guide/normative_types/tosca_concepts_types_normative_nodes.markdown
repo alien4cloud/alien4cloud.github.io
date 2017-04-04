@@ -3,7 +3,7 @@ layout: post
 title:  Nodes
 root: ../../
 categories: DOCUMENTATION-1.3.0
-parent: [devops, tosca_concepts, tosca_ref_types_normative]
+parent: [devops, tosca_ref_types_normative]
 node_name: tosca_ref_types_normative_nodes
 weight: 200
 ---
