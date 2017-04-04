@@ -86,3 +86,64 @@ LIMITATIONS:
 The MongoDB service example in the two sections above can be found [here](https://github.com/alien4cloud/samples/tree/master/mongo). It comes with a topology template *mongod-type* that defines a simple topology containing a MongoDB hosted on a Compute. This template is exposed as a type named *mongod-type* using substitution exposition.
 
 The node cellar application, which consumes the service, can be found [here](https://github.com/alien4cloud/samples/tree/master/topology-nodecellar-service). In the topology template _Nodecellar-ClientService_, the abstract node *alien.nodes.AbstractMongod* was matched to the MongoDB service.
+
+
+# Advanced
+
+## Relationship and service
+
+**TLDR;** When a relationship is involving a service, think “half relationship”, one half relationship is managing the source side, and the other one the target side.
+
+Services are running resources managed by third parties, as such only the third party is authorized to manage the service settings. 
+In order to protect the integrity of: services, service consumers and service providers, we cannot let everybody alters a service and vice versa. 
+Only operations defined by the owner can be executed on it.
+
+For example: a service consumer is not allowed to execute operations on the service side.
+
+In Tosca, the source of the relatonship is responsible to define operations executed on both side (source and target), this is a problem when a service is involved.
+The solution chosen by A4C is to:
+
+- let the administrator configures the source with one relationship that holds all the operations impacting the source and another one for the target with operations that will impact the target.
+- not execute any operations impacting a side we don't manage
+
+When a service is involved, a relationship should be seen as a half relationship.
+One part of the relationship is defined by the consumer and the other part by the provider. At runtime the 2 relationships are merged into 1.
+
+
+
+## How to define relationships on the service side
+
+Depending if the service is a consumer or a provider you will need to add a *half* relationship on a service capability or a service requirement.
+
+In the case of the MongoDB service described above we need to add the relationship to the *"database_endpoint"* capability.
+
+Let's say we'd like to run a script everytime a new consumer is added.
+For that we need to create a relationship dedicated to the service side:
+
+``` yml
+tosca_definitions_version: alien_dsl_1_3_0
+description: A relationship definition for the service side
+template_name: mongo_db_relaitonship_service_side
+template_version: 0.1.0-SNAPSHOT
+template_author: admin
+
+imports:
+  - tosca-normative-types:1.0.0-ALIEN12
+
+relationship_types:
+    org.alien4cloud.relationships.NodejsConnectToMongoServiceSide:
+        derived_from: tosca.relationships.ConnectsTo
+        description: Relationship use to define operations run on the mongo side
+        interfaces:
+          Configure:
+              add_source:
+                  implementation: scripts/when_new_source.sh
+```
+
+And upload this yaml as we would do if it was a component.
+
+Then attach the NodejsConnectToMongoServiceSide to the service capability *"database_endpoint"*:
+
+![service_list](../../images/1.4.0/user_guide/service/service_mongodb_relationship.png)
+
+And that's it.
