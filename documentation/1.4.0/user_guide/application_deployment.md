@@ -43,3 +43,14 @@ Here you need to select the value for your `inputs`. If they are some missing co
 
 Once all those steps are valid, the *deploy* step is unlocked, and if your topology is valid and ready for deployment, you can hit the deploy button to proceed.  
 You can now see what is happening on the [runtime view](#/documentation/1.4.0/user_guide/application_runtime.html).
+
+# Update
+
+Once an application has been successfully deployed, you can upgrade it. Upgrading a deployment means adding/removing/changing nodes and/or relationships in a deployed topology.
+
+This can be done :
+- in an incremental development mode: your application has been deployed, you add / remove some nodes in your topology, then you can update the deployment in order to deploy your changes.
+- between versions: you have already deployed a V1 of your application in production. You have worked on a V2 and have successfully tested it. You want to push the delta in production environment, you can use the upgrade feature to deploy the V2 in your productino environment (instead of undeploying V1 then deploying V2).
+
+Since this feature strongly depends on underlying orchestrator, you should refer to the dedicated portion of the orchestrator you are using to know more about this feature.
+

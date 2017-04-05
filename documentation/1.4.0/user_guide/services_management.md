@@ -120,7 +120,7 @@ In the case of the MongoDB service described above we need to add the relationsh
 Let's say we'd like to run a script everytime a new consumer is added.
 For that we need to create a relationship dedicated to the service side:
 
-```yaml
+<pre>
 tosca_definitions_version: alien_dsl_1_3_0
 description: A relationship definition for the service side
 template_name: mongo_db_relaitonship_service_side
@@ -138,7 +138,7 @@ relationship_types:
           Configure:
               add_source:
                   implementation: scripts/when_new_source.sh
-```
+</pre>
 
 And upload this yaml as we would do if it was a component.
 
