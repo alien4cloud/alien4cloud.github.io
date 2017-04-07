@@ -94,8 +94,8 @@ The node cellar application, which consumes the service, can be found [here](htt
 
 **TLDR;** When a relationship is involving a service, think “half relationship”, one half relationship is managing the source side, and the other one the target side.
 
-Services are running resources managed by third parties, as such only the third party is authorized to manage the service settings. 
-In order to protect the integrity of: services, service consumers and service providers, we cannot let everybody alters a service and vice versa. 
+Services are running resources managed by third parties, as such only the third party is authorized to manage the service settings.
+In order to protect the integrity of: services, service consumers and service providers, we cannot let everybody alters a service and vice versa.
 Only operations defined by the owner can be executed on it.
 
 For example: a service consumer is not allowed to execute operations on the service side.
@@ -120,7 +120,7 @@ In the case of the MongoDB service described above we need to add the relationsh
 Let's say we'd like to run a script everytime a new consumer is added.
 For that we need to create a relationship dedicated to the service side:
 
-<pre>
+{%highlight yaml%}
 tosca_definitions_version: alien_dsl_1_3_0
 description: A relationship definition for the service side
 template_name: mongo_db_relaitonship_service_side
@@ -138,7 +138,7 @@ relationship_types:
           Configure:
               add_source:
                   implementation: scripts/when_new_source.sh
-</pre>
+{%endhighlight%}
 
 And upload this yaml as we would do if it was a component.
 

@@ -1,0 +1,99 @@
+---
+layout: post
+title:  ALIEN for Cloud 1.4.0-RC1
+root: ../
+categories: RELEASE_NOTES
+parent: [release_note]
+node_name: 1.4.0-RC1
+weight: 9941
+exclude_from_search: true
+---
+
+
+
+
+<i class="fa fa-plus text-success"></i> New feature <i class="fa fa-level-up text-primary"></i> Improvement  <i class="fa fa-bug text-danger"></i> Bug <i class="fa fa-exclamation-triangle text-warning"></i> Breaking change
+
+
+### Cloudify 4 PaaS Provider
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-2215 | Integration with Cloudfy 4.0.  Note: Known Issues with events that might not be retrieved.  |
+      
+
+
+### Cloudify 3 PaaS Provider Premium
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-2033 | Improved logs in scripts wrappers to remove "u" on serialized objects.  |
+    
+
+
+### Cloudify 3 PaaS Provider
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-2127 |  inject all properties of a node, capabilities, relationship and targeted capabity as inputs for the related interface operations / [Documentation](#/documentation/1.4.0/devops_guide/tosca_normative_lifecycle.html)  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-2128 | Expose node properties as attributes on runtime  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-2208 | Added ability to update a deployed topology from version X to version Y / [Documentation](#/documentation/1.4.0/orchestrators/cloudify3_driver/deployment_upgrade.html)  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-2209 | Relationship operations management in a Service context (service side) / [Documentation](#/documentation/1.4.0/user_guide/services_management.html)  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-2211 | Logs can now be saved in files, with a date rolling system. / [Documentation](#/documentation/1.4.0/admin_guide/installation_configuration.html)  |
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-2033 | Improved logs in scripts wrappers to remove "u" on serialized objects.  |
+      |  <i class="fa fa-bug text-danger"></i> | ALIEN-2057 | Fixed Issue when trying to deploy a node that inherit from root but does not define any operations.  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2210 | Fix install workflow in case of service.  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2265 | BYON location - throw an error when trying auto-config of resources, as it is not supported  |
+  
+
+
+### Alien 4 Cloud
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-2127 |  inject all properties of a node, capabilities, relationship and targeted capabity as inputs for the related interface operations / [Documentation](#/documentation/1.4.0/devops_guide/tosca_normative_lifecycle.html)  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-2128 | Expose node properties as attributes on runtime  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-2208 | Added ability to update a deployed topology from version X to version Y / [Documentation](#/documentation/1.4.0/orchestrators/cloudify3_driver/deployment_upgrade.html)  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-2209 | Relationship operations management in a Service context (service side) / [Documentation](#/documentation/1.4.0/user_guide/services_management.html)  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-2211 | Logs can now be saved in files, with a date rolling system. / [Documentation](#/documentation/1.4.0/admin_guide/installation_configuration.html)  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-2212 | Deployment configurations (location/matching/inputs) can now be duplicated when creating a topology version from another one.  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-2214 | New confirmation pop up with deployment details when triggering a deployment / undeployment  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-2261 | Allow authentication on http proxy  |
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-2207 | Service improvments: Ability to manage location authorizations on manged services, and ui inprovments  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-2262 | Allow to use get_properties on type properties (restricted on nodes and nodes capabilities) to leverage properties from host, or set single prop in multiple endpoints.  |
+      |  <i class="fa fa-bug text-danger"></i> | ALIEN-2049 | Fixed issue on component git multi-branch import  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2057 | Fixed Issue when trying to deploy a node that inherit from root but does not define any operations.  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2182 | Fixed: When renaming a node, also rename related outputs.  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2206 | Fixed bug preventing to delete an archive previously used in a location  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2216 | Fixed authorzations check when trying to edit complex properties  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2217 | Fixed bug allowing to delete a service used in a deployment  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2250 | An archive should not declare itself as a dependency in import section  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2254 |  Fix subpath management on git repositories.  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2257 | fixed ui glitch on confirm popup on orchestrator configuration unlock button.  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2258 |  Fixed edition of data types extending from primitive properties on the node capabilities within the editor  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2266 | Fixed:  check capability type hierarchy for relationship requirement target  |
+  
+
+
+### Alien 4 Cloud dashbord plugin
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+        |  <i class="fa fa-bug text-danger"></i> | ALIEN-2234 | translation  |
+  
+
