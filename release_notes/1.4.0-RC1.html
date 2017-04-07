@@ -1,0 +1,290 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/release_notes/1.4.0-RC1.html',
+  title: 'ALIEN for Cloud 1.4.0-RC1'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">ALIEN for Cloud 1.4.0-RC1</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/release_notes/1.4.0-RC1.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <p><i class="fa fa-plus text-success"></i> New feature <i class="fa fa-level-up text-primary"></i> Improvement  <i class="fa fa-bug text-danger"></i> Bug <i class="fa fa-exclamation-triangle text-warning"></i> Breaking change</p>
+
+<h3 id="cloudify-4-paas-provider">Cloudify 4 PaaS Provider</h3>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Id</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-plus text-success"></i></td>
+      <td style="text-align: left">ALIEN-2215</td>
+      <td style="text-align: left">Integration with Cloudfy 4.0.  Note: Known Issues with events that might not be retrieved.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="cloudify-3-paas-provider-premium">Cloudify 3 PaaS Provider Premium</h3>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Id</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
+      <td style="text-align: left">ALIEN-2033</td>
+      <td style="text-align: left">Improved logs in scripts wrappers to remove “u” on serialized objects.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="cloudify-3-paas-provider">Cloudify 3 PaaS Provider</h3>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Id</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-plus text-success"></i></td>
+      <td style="text-align: left">ALIEN-2127</td>
+      <td style="text-align: left">inject all properties of a node, capabilities, relationship and targeted capabity as inputs for the related interface operations / <a href="#/documentation/1.4.0/devops_guide/tosca_normative_lifecycle.html">Documentation</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-plus text-success"></i></td>
+      <td style="text-align: left">ALIEN-2128</td>
+      <td style="text-align: left">Expose node properties as attributes on runtime</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-plus text-success"></i></td>
+      <td style="text-align: left">ALIEN-2208</td>
+      <td style="text-align: left">Added ability to update a deployed topology from version X to version Y / <a href="#/documentation/1.4.0/orchestrators/cloudify3_driver/deployment_upgrade.html">Documentation</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-plus text-success"></i></td>
+      <td style="text-align: left">ALIEN-2209</td>
+      <td style="text-align: left">Relationship operations management in a Service context (service side) / <a href="#/documentation/1.4.0/user_guide/services_management.html">Documentation</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-plus text-success"></i></td>
+      <td style="text-align: left">ALIEN-2211</td>
+      <td style="text-align: left">Logs can now be saved in files, with a date rolling system. / <a href="#/documentation/1.4.0/admin_guide/installation_configuration.html">Documentation</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
+      <td style="text-align: left">ALIEN-2033</td>
+      <td style="text-align: left">Improved logs in scripts wrappers to remove “u” on serialized objects.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-2057</td>
+      <td style="text-align: left">Fixed Issue when trying to deploy a node that inherit from root but does not define any operations.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-2210</td>
+      <td style="text-align: left">Fix install workflow in case of service.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-2265</td>
+      <td style="text-align: left">BYON location - throw an error when trying auto-config of resources, as it is not supported</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="alien-4-cloud">Alien 4 Cloud</h3>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Id</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-plus text-success"></i></td>
+      <td style="text-align: left">ALIEN-2127</td>
+      <td style="text-align: left">inject all properties of a node, capabilities, relationship and targeted capabity as inputs for the related interface operations / <a href="#/documentation/1.4.0/devops_guide/tosca_normative_lifecycle.html">Documentation</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-plus text-success"></i></td>
+      <td style="text-align: left">ALIEN-2128</td>
+      <td style="text-align: left">Expose node properties as attributes on runtime</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-plus text-success"></i></td>
+      <td style="text-align: left">ALIEN-2208</td>
+      <td style="text-align: left">Added ability to update a deployed topology from version X to version Y / <a href="#/documentation/1.4.0/orchestrators/cloudify3_driver/deployment_upgrade.html">Documentation</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-plus text-success"></i></td>
+      <td style="text-align: left">ALIEN-2209</td>
+      <td style="text-align: left">Relationship operations management in a Service context (service side) / <a href="#/documentation/1.4.0/user_guide/services_management.html">Documentation</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-plus text-success"></i></td>
+      <td style="text-align: left">ALIEN-2211</td>
+      <td style="text-align: left">Logs can now be saved in files, with a date rolling system. / <a href="#/documentation/1.4.0/admin_guide/installation_configuration.html">Documentation</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-plus text-success"></i></td>
+      <td style="text-align: left">ALIEN-2212</td>
+      <td style="text-align: left">Deployment configurations (location/matching/inputs) can now be duplicated when creating a topology version from another one.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-plus text-success"></i></td>
+      <td style="text-align: left">ALIEN-2214</td>
+      <td style="text-align: left">New confirmation pop up with deployment details when triggering a deployment / undeployment</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-plus text-success"></i></td>
+      <td style="text-align: left">ALIEN-2261</td>
+      <td style="text-align: left">Allow authentication on http proxy</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
+      <td style="text-align: left">ALIEN-2207</td>
+      <td style="text-align: left">Service improvments: Ability to manage location authorizations on manged services, and ui inprovments</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
+      <td style="text-align: left">ALIEN-2262</td>
+      <td style="text-align: left">Allow to use get_properties on type properties (restricted on nodes and nodes capabilities) to leverage properties from host, or set single prop in multiple endpoints.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-2049</td>
+      <td style="text-align: left">Fixed issue on component git multi-branch import</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-2057</td>
+      <td style="text-align: left">Fixed Issue when trying to deploy a node that inherit from root but does not define any operations.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-2182</td>
+      <td style="text-align: left">Fixed: When renaming a node, also rename related outputs.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-2206</td>
+      <td style="text-align: left">Fixed bug preventing to delete an archive previously used in a location</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-2216</td>
+      <td style="text-align: left">Fixed authorzations check when trying to edit complex properties</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-2217</td>
+      <td style="text-align: left">Fixed bug allowing to delete a service used in a deployment</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-2250</td>
+      <td style="text-align: left">An archive should not declare itself as a dependency in import section</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-2254</td>
+      <td style="text-align: left">Fix subpath management on git repositories.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-2257</td>
+      <td style="text-align: left">fixed ui glitch on confirm popup on orchestrator configuration unlock button.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-2258</td>
+      <td style="text-align: left">Fixed edition of data types extending from primitive properties on the node capabilities within the editor</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-2266</td>
+      <td style="text-align: left">Fixed:  check capability type hierarchy for relationship requirement target</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="alien-4-cloud-dashbord-plugin">Alien 4 Cloud dashbord plugin</h3>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Id</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-2234</td>
+      <td style="text-align: left">translation</td>
+    </tr>
+  </tbody>
+</table>
+
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/release_notes/1.4.0-RC1.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('RELEASE_NOTES', 'release_notes/1.4.0-RC1.markdown');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

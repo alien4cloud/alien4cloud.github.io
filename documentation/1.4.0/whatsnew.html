@@ -31,11 +31,45 @@ ga('send', 'pageview');
 <div class="row"><ul class="nav nav-pills" id="summarypanel"></ul></div>
 <hr style="margin-top:5px; margin-bottom:5px;" />
 
+<p>Alien 4 cloud 1.4.0 is a very important version and we are really proud to deliver it as it brings major improvements in many various aspects of alien4cloud:
+ - Many bug fixes
+ - Much better platform stability and scale support
+ - Great new features that will really ease TOSCA edition, bring better reusability and more opening and better operations on existing deployments.</p>
+
+<p>We are also very exited also to start working on alien 4 cloud 1.5.0 that will be a major version with a particular focus on both networking support improvements and post deployment management.</p>
+
+<h1 id="topology-variants">Topology variants</h1>
+
+<p>It is now possible to defined in alien4cloud multiple variants of topologies for a single application version. This basically allows to define for example a development topology that contains all elements on a single compute node (to reduce costs), and a production topology that contains the database and web-application on different servers and eventually add scaling.</p>
+
 <h1 id="on-demand-custom-location-resource-templates">On-demand custom location resource templates</h1>
 
 <p>Custom on demand resources can now be defined as location resource templates, directly in the on-demand tab of the location view. (For more info, see <a href="#/documentation/1.4.0/user_guide/orchestrator_location_management.html">the documentation</a>)</p>
 
 <p>Having created such a template, this means that it is now possible to match abstract nodes to custom resources in a topology, allowing for more flexibility and reusability.</p>
+
+<h1 id="services">Services</h1>
+
+<p>Services is a brand new concept in alien4cloud that allow to separate the lifecycle and responsabilities of various elements of your application(s). From a consumer point of view services are really much like on demand resources, the difference here is that while on-demand resources lifecycle is controlled by the consumer, the service lifecycle is actually controlled and managed by the service owner.</p>
+
+<p>Find out more on:
+ - how admin can define a service to reuse existing external applications here
+ - how an application in alien4cloud can become a service to be reused by other applications
+ - how to consume a service</p>
+
+<h1 id="topology-update">Topology update</h1>
+
+<h1 id="tosca-support">TOSCA support</h1>
+
+<p>While support of the network elements are planned for 1.5.0 we already added the support of the PortDef data type support in the new version of the normative types we actually support.</p>
+
+<p>We also added the support of private_address that is the new TOSCA name for ip_address and public_address that replaces the deprecated public_ip_address. You can still use any in alien4cloud.</p>
+
+<p>The most important improvement on the TOSCA support is the management and injection of the Endpoints ip_address attribute. It is a major improvement as is finally allow to define self-sufficient capabilities and requirements to build efficient relationships.</p>
+
+<h1 id="documentation-and-sizing-recommendations">Documentation and sizing recommendations</h1>
+
+<p>Previous versions of alien4cloud where less robust than the current one and in addition to better response to wrong platform sizing we also provide a more comprehensive sizing guide that will hopefully help you to get the most of the alien4cloud platform.</p>
 
         <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.4.0/whatsnew.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
 	  </div>

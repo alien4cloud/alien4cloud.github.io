@@ -70,7 +70,7 @@ ga('send', 'pageview');
 
 <span class="nv">JAVA_OPTIONS</span><span class="o">=</span><span class="s2">&quot;-server -showversion -XX:+AggressiveOpts -Xmx2g -Xms2g -XX:MaxPermSize=512m -XX:+HeapDumpOnOutOfMemoryError&quot;</span>
 
-java <span class="nv">$JAVA_OPTIONS</span> -jar alien4cloud-ui-1.1.0-<span class="o">{</span>version<span class="o">}</span>-standalone.war</code></pre></div>
+java <span class="nv">$JAVA_OPTIONS</span> -jar alien4cloud-ui-1.4.0-<span class="o">{</span>version<span class="o">}</span>-standalone.war</code></pre></div>
 
 <div class="note info">
 <h5> JVM tunning</h5>
@@ -79,13 +79,53 @@ java <span class="nv">$JAVA_OPTIONS</span> -jar alien4cloud-ui-1.1.0-<span class
 
 <h1 id="logging-configuration">Logging configuration</h1>
 
-<p>If you need to customize log4j (in order to activate some loggers, change the log file location …) add a log4j.properties in the config folder and specify the classpath for java :</p>
+<p>If you need to customize log4j2 (in order to activate some loggers, change the log file location …) add a <strong>log4j2.xml</strong> in the config folder and specify the classpath for java :</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">java <span class="nv">$JAVA_OPTIONS</span> -cp config/:alien4cloud-ui-1.1.0-<span class="o">{</span>version<span class="o">}</span>-standalone.war org.springframework.boot.loader.WarLauncher</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">java <span class="nv">$JAVA_OPTIONS</span> -cp config/:alien4cloud-ui-1.4.0-<span class="o">{</span>version<span class="o">}</span>-standalone.war org.springframework.boot.loader.WarLauncher</code></pre></div>
 
-<p>You can find a log4j sample configuration file at <a href="https://github.com/alien4cloud/alien4cloud/blob/master/alien4cloud-ui/src/main/resources/log4j.properties">log4j.properties</a></p>
+<p>You can find a log4j2 sample configuration file at <a href="https://github.com/alien4cloud/alien4cloud/blob/develop/alien4cloud-ui/src/main/resources/log4j2.xml">log4j2.xml</a></p>
 
-<p>For example, to use Alien with the level debug, you need to replace the <em>info</em> keyword by <em>debug</em> in the second line.</p>
+<p>For example, to use Alien with the level debug :</p>
+
+<p>Replace</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">&lt;root <span class="nv">level</span><span class="o">=</span><span class="s2">&quot;info&quot;</span>&gt;</code></pre></div>
+
+<p>by</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">&lt;root <span class="nv">level</span><span class="o">=</span><span class="s2">&quot;debug&quot;</span>&gt;</code></pre></div>
+
+<h2 id="specific-appender-for-the-deployment-logs">Specific appender for the deployment logs</h2>
+
+<div class="note info">
+<h5>Premium feature</h5>
+<p>This section refers to a premium feature.</p>
+</div>
+
+<p>Alien4Cloud premium offer the possibilty to see / search deployment logs from premium orchestrators.
+Since Alien 1.4, a specific logger is used for this events.</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">&lt;logger <span class="nv">name</span><span class="o">=</span><span class="s2">&quot;DEPLOYMENT_LOGS_LOGGER&quot;</span> <span class="nv">level</span><span class="o">=</span><span class="s2">&quot;info&quot;</span> <span class="nv">additivity</span><span class="o">=</span><span class="s2">&quot;false&quot;</span>&gt;
+    &lt;AppenderRef <span class="nv">ref</span><span class="o">=</span><span class="s2">&quot;DEPLOYMENT_LOGS_APPENDER&quot;</span> /&gt;
+&lt;/logger&gt;</code></pre></div>
+
+<p>You can enable this logger in <strong>alien4cloud-config.yml</strong> :</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">logs_deployment_appender:
+  <span class="nb">enable</span>: <span class="nb">true</span></code></pre></div>
+
+<p>This logger has a rolling file appender, you can adapt it to your requirements.
+By default, logs older than 30 days are automatically deleted.</p>
+
+<p>For example, you can change this time retention in the <strong>log4j2.xml</strong> config to 10mn:</p>
+
+<p>Replace</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">&lt;IfLastModified <span class="nv">age</span><span class="o">=</span><span class="s2">&quot;30d&quot;</span>/&gt;</code></pre></div>
+
+<p>by</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">&lt;IfLastModified <span class="nv">age</span><span class="o">=</span><span class="s2">&quot;10mn&quot;</span>/&gt;</code></pre></div>
 
 <h1 id="audit-configuration">Audit configuration</h1>
 

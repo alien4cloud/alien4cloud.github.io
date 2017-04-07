@@ -31,7 +31,7 @@ ga('send', 'pageview');
 <div class="row"><ul class="nav nav-pills" id="summarypanel"></ul></div>
 <hr style="margin-top:5px; margin-bottom:5px;" />
 
-<p><em>Section in progress&#8230;</em></p>
+<p><em>Section in progress…</em></p>
 
 <p>Services in alien4cloud design any already running resource (databases, application providing an API etc.) that can be used by the applications through matching of abstract nodes (just like on demand resources).</p>
 
@@ -47,7 +47,7 @@ ga('send', 'pageview');
 
 <p><img src="../../images/1.4.0/user_guide/service/service_list.png" alt="service_list" /></p>
 
-<p>Let&#8217;s say you have a Mongodb database that you want to expose to other applications, you can drag the component <code>mongod-type</code> and drop it on the demarcated zone on the left to create the service Mongo. It&#8217;s not shown in the image but <code>mongod-type</code> derived from <code>AbstractMongod</code></p>
+<p>Let’s say you have a Mongodb database that you want to expose to other applications, you can drag the component <code>mongod-type</code> and drop it on the demarcated zone on the left to create the service Mongo. It’s not shown in the image but <code>mongod-type</code> derived from <code>AbstractMongod</code></p>
 
 <p><img src="../../images/1.4.0/user_guide/service/create_external_service.png" alt="create_external_service" /></p>
 
@@ -109,6 +109,64 @@ ga('send', 'pageview');
 <p>The MongoDB service example in the two sections above can be found <a href="https://github.com/alien4cloud/samples/tree/master/mongo">here</a>. It comes with a topology template <em>mongod-type</em> that defines a simple topology containing a MongoDB hosted on a Compute. This template is exposed as a type named <em>mongod-type</em> using substitution exposition.</p>
 
 <p>The node cellar application, which consumes the service, can be found <a href="https://github.com/alien4cloud/samples/tree/master/topology-nodecellar-service">here</a>. In the topology template <em>Nodecellar-ClientService</em>, the abstract node <em>alien.nodes.AbstractMongod</em> was matched to the MongoDB service.</p>
+
+<h1 id="advanced">Advanced</h1>
+
+<h2 id="relationship-and-service">Relationship and service</h2>
+
+<p><strong>TLDR;</strong> When a relationship is involving a service, think “half relationship”, one half relationship is managing the source side, and the other one the target side.</p>
+
+<p>Services are running resources managed by third parties, as such only the third party is authorized to manage the service settings.
+In order to protect the integrity of: services, service consumers and service providers, we cannot let everybody alters a service and vice versa.
+Only operations defined by the owner can be executed on it.</p>
+
+<p>For example: a service consumer is not allowed to execute operations on the service side.</p>
+
+<p>In Tosca, the source of the relatonship is responsible to define operations executed on both side (source and target), this is a problem when a service is involved.
+The solution chosen by A4C is to:</p>
+
+<ul>
+  <li>let the administrator configures the source with one relationship that holds all the operations impacting the source and another one for the target with operations that will impact the target.</li>
+  <li>not execute any operations impacting a side we don’t manage</li>
+</ul>
+
+<p>When a service is involved, a relationship should be seen as a half relationship.
+One part of the relationship is defined by the consumer and the other part by the provider. At runtime the 2 relationships are merged into 1.</p>
+
+<h2 id="how-to-define-relationships-on-the-service-side">How to define relationships on the service side</h2>
+
+<p>Depending if the service is a consumer or a provider you will need to add a <em>half</em> relationship on a service capability or a service requirement.</p>
+
+<p>In the case of the MongoDB service described above we need to add the relationship to the <em>“database_endpoint”</em> capability.</p>
+
+<p>Let’s say we’d like to run a script everytime a new consumer is added.
+For that we need to create a relationship dedicated to the service side:</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">tosca_definitions_version</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">alien_dsl_1_3_0</span>
+<span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">A relationship definition for the service side</span>
+<span class="l-Scalar-Plain">template_name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">mongo_db_relaitonship_service_side</span>
+<span class="l-Scalar-Plain">template_version</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">0.1.0-SNAPSHOT</span>
+<span class="l-Scalar-Plain">template_author</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">admin</span>
+
+<span class="l-Scalar-Plain">imports</span><span class="p-Indicator">:</span>
+  <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">tosca-normative-types:1.0.0-ALIEN12</span>
+
+<span class="l-Scalar-Plain">relationship_types</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">org.alien4cloud.relationships.NodejsConnectToMongoServiceSide</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">derived_from</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.relationships.ConnectsTo</span>
+        <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Relationship use to define operations run on the mongo side</span>
+        <span class="l-Scalar-Plain">interfaces</span><span class="p-Indicator">:</span>
+          <span class="l-Scalar-Plain">Configure</span><span class="p-Indicator">:</span>
+              <span class="l-Scalar-Plain">add_source</span><span class="p-Indicator">:</span>
+                  <span class="l-Scalar-Plain">implementation</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">scripts/when_new_source.sh</span></code></pre></div>
+
+<p>And upload this yaml as we would do if it was a component.</p>
+
+<p>Then attach the NodejsConnectToMongoServiceSide to the service capability <em>“database_endpoint”</em>:</p>
+
+<p><img src="../../images/1.4.0/user_guide/service/service_mongodb_relationship.png" alt="service_list" /></p>
+
+<p>And that’s it.</p>
 
         <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.4.0/user_guide/services_management.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
 	  </div>
