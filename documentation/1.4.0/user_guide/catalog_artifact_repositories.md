@@ -82,7 +82,7 @@ node_types:
 
 ## Maven
 
-In maven, you need to use the following syntax to refer to your artifact file : `<maven-group-id>:<artifact-id>:<artifact-version>@<file-extension>`.
+In maven, you need to use the following syntax to refer to your artifact file : `<group>:<artifact>:<version>:<classifier>@<extension>`.
 
 If your maven artifact as no SNAPSHOT maven classifier, Alien 4 cloud will download your file the first time and only this time. Conversely, if your artifact as a SNAPSHOT classifier and has changed between two deployments, Alien will redownload your artifact.
 
