@@ -3,9 +3,11 @@ layout: post
 title: Orchestrators and locations
 root: ../../
 categories: DOCUMENTATION-1.4.0
-parent: [concepts]
+parent:
+  - concepts
 node_name: concepts-orchestrators-locations
 weight: 100
+published: true
 ---
 
 Orchestrator and locations are the fundamental concepts that allows alien 4 cloud to bring deployment's portability across various technologies (orchestrators) and targets (locations).
@@ -49,7 +51,7 @@ Here a list of supported resources with Cloudify 3:
 |  | windows | **.bat** (_alien.artifacts.BatchScript_) |
 
 {%info%}
-Some Alien users deployed also **Puppet artifact** through grooving script.
+Some Alien users deployed also **Puppet artifact** through Groovy script.
 {%endinfo%}
 
 {%note%}
