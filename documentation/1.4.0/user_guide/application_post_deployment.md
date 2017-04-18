@@ -3,10 +3,8 @@ layout: post
 title: Post deployment operations
 root: ../../
 categories: DOCUMENTATION-1.4.0
-parent:
-  - user_guide
-  - application_management
-node_name: post_deployment
+parent: [user_guide, application_management, application_runtime]
+node_name: appliation_post_deployment
 weight: 300
 published: true
 ---

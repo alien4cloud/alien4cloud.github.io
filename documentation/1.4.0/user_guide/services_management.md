@@ -28,7 +28,7 @@ The first method to define a service in alien4cloud is to declare manually a ser
 
 Let's say you have a Mongodb database that you want to expose to other applications, you can drag the component `mongod-type` and drop it on the demarcated zone on the left to create the service Mongo. It's not shown in the image but `mongod-type` derived from `AbstractMongod`
 
- ![create_external_service](../../images/1.4.0/user_guide/service/create_external_service.png)
+![create_external_service](../../images/1.4.0/user_guide/service/create_external_service.png)
 
 After the creation, the service appears on the left hand side list and can be configured.
 

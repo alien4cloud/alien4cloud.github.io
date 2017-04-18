@@ -15,7 +15,7 @@ weight: 800
 This section refers to a premium feature.
 {% endinfo %}
 
-The Alien post-deployment web application is a Spring boot application, that helps managing patches or operations added to a node within a deployment. You MUST deploy it if you plan on providing to the users the ability to perform [post deployment operations](#/documentation/1.4.0/user_guide/post_deployment.html) on an application.  
+The Alien post-deployment web application is a Spring boot application, that helps managing patches or operations added to a node within a deployment. You MUST deploy it if you plan on providing to the users the ability to perform [post deployment operations](#/documentation/1.4.0/user_guide/application_post_deployment.html) on an application.  
 
 {%info%}
 <h5>Where to deploy</h5>

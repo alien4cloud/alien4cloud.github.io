@@ -20,7 +20,7 @@ We are also very exited also to start working on alien 4 cloud 1.5.0 that will b
 
 # Location resources right management
 
-
+Alien 4 cloud 1.4.0 increase flexibility of right management for cloud resources allowing to specify fined grained authorizations to specific cloud resources to some users, group of users, applications or even application environments.
 
 # On-demand custom location resource templates
 
