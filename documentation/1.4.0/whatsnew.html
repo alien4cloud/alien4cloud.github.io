@@ -38,9 +38,9 @@ ga('send', 'pageview');
 
 <p>We are also very exited also to start working on alien 4 cloud 1.5.0 that will be a major version with a particular focus on both networking support improvements and post deployment management.</p>
 
-<h1 id="topology-variants">Topology variants</h1>
+<h1 id="location-resources-right-management">Location resources right management</h1>
 
-<p>It is now possible to defined in alien4cloud multiple variants of topologies for a single application version. This basically allows to define for example a development topology that contains all elements on a single compute node (to reduce costs), and a production topology that contains the database and web-application on different servers and eventually add scaling.</p>
+<p>Alien 4 cloud 1.4.0 increase flexibility of right management for cloud resources allowing to specify fined grained authorizations to specific cloud resources to some users, group of users, applications or even application environments.</p>
 
 <h1 id="on-demand-custom-location-resource-templates">On-demand custom location resource templates</h1>
 
@@ -48,14 +48,22 @@ ga('send', 'pageview');
 
 <p>Having created such a template, this means that it is now possible to match abstract nodes to custom resources in a topology, allowing for more flexibility and reusability.</p>
 
+<h1 id="topology-variants">Topology variants</h1>
+
+<p>It is now possible to defined in alien4cloud multiple variants of topologies for a single application version. This basically allows to define for example a development topology that contains all elements on a single compute node (to reduce costs), and a production topology that contains the database and web-application on different servers and eventually add scaling.</p>
+
+<p>For more information on ALM concepts in alien4cloud and topology variants go <a href="#/documentation/1.4.0/concepts/applications.html">here</a>. In order to see how to configure versions and topology variants (also referred as topology versions) go <a href="#/documentation/1.4.0/user_guide/application_management.html">here</a>.</p>
+
 <h1 id="services">Services</h1>
 
 <p>Services is a brand new concept in alien4cloud that allow to separate the lifecycle and responsabilities of various elements of your application(s). From a consumer point of view services are really much like on demand resources, the difference here is that while on-demand resources lifecycle is controlled by the consumer, the service lifecycle is actually controlled and managed by the service owner.</p>
 
 <p>Find out more on:
- - how admin can define a service to reuse existing external applications here
- - how an application in alien4cloud can become a service to be reused by other applications
- - how to consume a service</p>
+* how admin can define a service to reuse existing external applications here
+* how an application in alien4cloud can become a service to be reused by other applications
+* how to consume a service</p>
+
+<h1 id="improved-deployment-setup">Improved deployment setup</h1>
 
 <h1 id="topology-update">Topology update</h1>
 

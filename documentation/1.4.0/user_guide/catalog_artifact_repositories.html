@@ -95,7 +95,7 @@ But bear in mind the passwords are stored in plain text and can be seen by anyon
 
 <h2 id="maven">Maven</h2>
 
-<p>In maven, you need to use the following syntax to refer to your artifact file : <code>&lt;maven-group-id&gt;:&lt;artifact-id&gt;:&lt;artifact-version&gt;@&lt;file-extension&gt;</code>.</p>
+<p>In maven, you need to use the following syntax to refer to your artifact file : <code>&lt;group&gt;:&lt;artifact&gt;:&lt;version&gt;:&lt;classifier&gt;@&lt;extension&gt;</code>.</p>
 
 <p>If your maven artifact as no SNAPSHOT maven classifier, Alien 4 cloud will download your file the first time and only this time. Conversely, if your artifact as a SNAPSHOT classifier and has changed between two deployments, Alien will redownload your artifact.</p>
 

@@ -8,7 +8,7 @@
 ga('create', 'UA-73216650-1', 'auto');
 ga('set', {
   page: '/documentation/1.4.0/user_guide/application_deployment.html',
-  title: 'Application deployment'
+  title: 'Deployment'
 });
 ga('send', 'pageview');
 
@@ -23,7 +23,7 @@ ga('send', 'pageview');
       <div id="content" class="col-sm-8 col-md-9">
     
         <div style="height: 50px;">
-          <h1 class="pull-left" style="margin-top: 0px;">Application deployment</h1>
+          <h1 class="pull-left" style="margin-top: 0px;">Deployment</h1>
           <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.4.0/user_guide/application_deployment.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
         </div>
         
@@ -35,9 +35,31 @@ ga('send', 'pageview');
 The deployment setup is done by going through a number of hierarchical steps.
 Each step perform a validation of the deployment topology, and errors details are displayed. Note that you can not go to the next step  when the current one is still not valid.</p>
 
+<h1 id="inputs">Inputs</h1>
+
+<p>Inputs is an efficient way to configure environment specific properties that may be shared by a single topology, or to let the user(s) responsible for deployment configure some of the deployment properties without having to deal with the complexity of the topology editor and all of it&#8217;s components.</p>
+
+<p>There is two types of inputs:</p>
+
+<ul>
+  <li><strong>Properties</strong>: For example the designer may choose to let the deployer configure Number of CPUs, JAVA VM heap etc.</li>
+  <li><strong>Artifacts</strong>: For example a license file, initial data file, configuration file for a software etc.</li>
+</ul>
+
+<p>Inputs may be optional or required, if any required input is not defined alien4cloud will display a <code>todo list</code> and prevent the user for going to the next configuration step.</p>
+
+<p><a href="../../images/user_guide/application/deployment/user_guide_deployment_setup_inputs.png"><img src="../../images/user_guide/application/deployment/user_guide_deployment_setup_inputs.png" alt="Deployment inputs" /></a></p>
+
+<p>Once all required inputs are defined, the <em>location selection</em> step is unlocked.</p>
+
 <h1 id="location-selection">Location selection</h1>
+
+<p>Location selection allow the deployment user to select where he wants to actually deploy the application. Alien 4 cloud will display to the user a list of locations that are authorized for the user to deploy on. The alien4cloud admin is responsible for configuration of the locations and for granting access to them.</p>
+
+<p>Note that the access may be configured per user or per application/ application environment meaning that, as a user, you may see some locations available for some of your environments and not for some others. If you feel that a location you need to deploy your application is missing you should ask for permissions to your alien4cloud admin.</p>
+
 <p>The first thing to do is to select, among the displayed location, the one on which you would like to deploy.
- The proposed locations are determined by matching every existing location against the topology, done by a matcher plugin.</p>
+ The proposed locations are determined by matching every existing location against the topology, done by a matcher plugin.  </p>
 
 <p><a href="../../images/user_guide/application/deployment/user_guide_deployment_setup.png"><img src="../../images/user_guide/application/deployment/user_guide_deployment_setup.png" alt="Configure your deployment" /></a></p>
 
@@ -48,22 +70,16 @@ Each step perform a validation of the deployment topology, and errors details ar
   <li>The current user have sufficient rights to deploy on the location</li>
 </ul>
 
-<h1 id="node-substitution-">Node substitution :</h1>
+<h1 id="node-substitution">Node substitution</h1>
 
 <p>Next step is to substitute some abstract nodes from your topology with resources provided by the selected location.<br />
 In the meantime, you can edit some properties if you need to.</p>
 
 <p><a href="../../images/user_guide/application/deployment//user_guide_deployment_setup_substitution.png"><img src="../../images/user_guide/application/deployment/user_guide_deployment_setup_substitution.png" alt="Node substitution" /></a></p>
 
-<h1 id="inputs-properties-and-artifacts">Inputs: properties and artifacts</h1>
+<h1 id="service-exposition">Service exposition</h1>
 
-<p>Here you set values to inputs and provider deployments properties. Also, you can upload artifacts set as input in the topology.</p>
-
-<p>Here you need to select the value for your <code>inputs</code>. If they are some missing configuration in your topology, a <code>todo list</code> will be displayed.</p>
-
-<p><a href="../../images/user_guide/application/deployment/user_guide_deployment_setup_inputs.png"><img src="../../images/user_guide/application/deployment/user_guide_deployment_setup_inputs.png" alt="Deployment inputs" /></a></p>
-
-<p>Once all those steps are valid, the <em>deploy</em> step is unlocked, and if your topology is valid and ready for deployment, you can hit the deploy button to proceed.<br />
+<p>and if your topology is valid and ready for deployment, you can hit the deploy button to proceed.<br />
 You can now see what is happening on the <a href="#/documentation/1.4.0/user_guide/application_runtime.html">runtime view</a>.</p>
 
 <h1 id="update">Update</h1>
@@ -78,7 +94,6 @@ You can now see what is happening on the <a href="#/documentation/1.4.0/user_gui
 </ul>
 
 <p>Since this feature strongly depends on underlying orchestrator, you should refer to the dedicated documentation portion of the orchestrator you are using to know more about this feature (<a href="#/documentation/1.4.0/orchestrators/cloudify3_driver/deployment_update.html">here</a> for Cloudify orchestrator).</p>
-
 
         <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.4.0/user_guide/application_deployment.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
 	  </div>
