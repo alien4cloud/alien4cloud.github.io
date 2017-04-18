@@ -81,6 +81,13 @@ LIMITATIONS:
  - Services substitution does not yet supports the exposure of multiple instances. Output properties cannot reference properties of scaled instances.
  - Input properties are used both for topology input and deployment inputs. Users should handle connection to services using capabilities only properties/attributes and eventually node attributes but not node properties.
 
+ {%warning%}
+ <h5>Snapshot versions</h5>
+ While creation of services out of snapshot types is possible it is not recommended for two reasons.
+ * The first one is that we believe that it is not a good practice to interact with other teams based on unstable features.
+ * The second is that alien4cloud may not handle node type updates correctly and such usage is done at your own risks.
+ {%endwarning%}
+
 # Example
 
 The MongoDB service example in the two sections above can be found [here](https://github.com/alien4cloud/samples/tree/master/mongo). It comes with a topology template *mongod-type* that defines a simple topology containing a MongoDB hosted on a Compute. This template is exposed as a type named *mongod-type* using substitution exposition.

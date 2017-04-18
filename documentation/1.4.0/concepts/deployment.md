@@ -33,16 +33,17 @@ In a portable topology some of the node specified will be abstract meaning there
 Alien4cloud will automatically try to find a best-match and associate a location provided implementation for every of your abstract nodes. For example a _tosca.nodes.Compute_ node on an Amazon location that is provided by cloudify3 orchestrator will be matched against an _alien.cloudify.aws.nodes.Compute_ that will add some imageId and flavorId properties (that the admin may have configured for you).
 
 Note that there may be two different kind of matched nodes for an abstract node in your topology:
- - On demand resources, that are provided by a given location.
- - Services, that are provided by the admin or other applications and accessible on the location you choosed.
 
- ### On demand resources
+* On demand resources, that are provided by a given location.
+* Services, that are provided by the admin or other applications and accessible on the location you choosed.
 
- On demand resources are elements that will be created (or reserved in the special case of the host pool) for you dynamically when you deploy the application. They will also most of the time be released once the deployment is completed. They follow the same lifecycle as the deployment that is consuming them.
+### On demand resources
 
- The _tosca.nodes.Compute_ matching to a VM is typically on an demand resource, you will create the VM when needed, i.e. when deploying your application and release it once completed.
+On demand resources are elements that will be created (or reserved in the special case of the host pool) for you dynamically when you deploy the application. They will also most of the time be released once the deployment is completed. They follow the same lifecycle as the deployment that is consuming them.
 
- ### Services
+The _tosca.nodes.Compute_ matching to a VM is typically on an demand resource, you will create the VM when needed, i.e. when deploying your application and release it once completed.
+
+### Services
 
 Services are running applications/components that may or may not be managed by alien4cloud and that provide some features required for other deployments. This may be a load-balancer service, a DNS service or a Data-Lake service that is reused by multiple applications working on it. The lifecycle and the ownership of the service is of course not the same as the lifecycle of the application that consume them.
 

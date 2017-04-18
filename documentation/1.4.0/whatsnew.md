@@ -18,9 +18,9 @@ Alien 4 cloud 1.4.0 is a very important version and we are really proud to deliv
 
 We are also very exited also to start working on alien 4 cloud 1.5.0 that will be a major version with a particular focus on both networking support improvements and post deployment management.
 
-# Topology variants
+# Location resources right management
 
-It is now possible to defined in alien4cloud multiple variants of topologies for a single application version. This basically allows to define for example a development topology that contains all elements on a single compute node (to reduce costs), and a production topology that contains the database and web-application on different servers and eventually add scaling.
+
 
 # On-demand custom location resource templates
 
@@ -28,16 +28,28 @@ Custom on demand resources can now be defined as location resource templates, di
 
 Having created such a template, this means that it is now possible to match abstract nodes to custom resources in a topology, allowing for more flexibility and reusability.
 
+# Topology variants
+
+It is now possible to defined in alien4cloud multiple variants of topologies for a single application version. This basically allows to define for example a development topology that contains all elements on a single compute node (to reduce costs), and a production topology that contains the database and web-application on different servers and eventually add scaling.
+
+For more information on ALM concepts in alien4cloud and topology variants go [here](#/documentation/1.4.0/concepts/applications.html). In order to see how to configure versions and topology variants (also referred as topology versions) go [here](#/documentation/1.4.0/user_guide/application_management.html).
+
 # Services
 
 Services is a brand new concept in alien4cloud that allow to separate the lifecycle and responsabilities of various elements of your application(s). From a consumer point of view services are really much like on demand resources, the difference here is that while on-demand resources lifecycle is controlled by the consumer, the service lifecycle is actually controlled and managed by the service owner.
 
 Find out more on:
- - how admin can define a service to reuse existing external applications here
- - how an application in alien4cloud can become a service to be reused by other applications
- - how to consume a service
+* how admin can define a service to reuse existing external applications here
+* how an application in alien4cloud can become a service to be reused by other applications
+* how to consume a service
+
+# Improved deployment setup
+
+
 
 # Topology update
+
+
 
 # TOSCA support
 
