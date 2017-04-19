@@ -10,7 +10,7 @@ weight: 490
 
 An application in alien4cloud is something that you will be able to describe and deploy making it accessible to other users for consumption. To actually realize the deployment multiple people will contribute to the application with various roles in respect to the perimeter they operate.
 
-The application section is accessed through the __applications__ button in the main navigation bar ![Applications navigation button](../../images/1.4.0/user_guide/applications/app_menu.png){: .inline}{:height="20px"}.
+The application section is accessed through the __applications__ button in the main navigation bar ![Applications navigation button](../../images/1.4.0/user_guide/applications/app_menu.png){: height="26px" .inline}.
 
 {%info%}
 To understand the application concept, please refer to [the related concept section](#/documentation/1.4.0/concepts/applications.html).

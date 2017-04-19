@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  Deployment
+title:  Deploy an environment
 root: ../../
 categories: DOCUMENTATION-1.4.0
 parent: [user_guide, application_management]
@@ -10,9 +10,11 @@ weight: 100
 
 {% summary %}{% endsummary %}
 
-To deploy an application you need to setup the context, you can do this in the `Applications > Deployments` sub-menu.  
-The deployment setup is done by going through a number of hierarchical steps.
-Each step perform a validation of the deployment topology, and errors details are displayed. Note that you can not go to the next step  when the current one is still not valid.
+In alien4cloud you actually deploy an environment of an application, in order to prepare and trigger your deployment first go to the deployment page ![Deployment navigation menu](../../images/1.4.0/user_guide/applications/app_deploy_menu.png){: height="26px" .inline}
+
+Before actually deploying your environment you have to configure the deployment. Alien4cloud will drive the user into comprehensive sequential steps in order to configure the deployment.
+
+Each step perform a validation of the deployment topology, and errors details are eventually displayed on the right screen. Note that you can not go to the next step as long as the current one is still not valid.
 
 # Inputs
 

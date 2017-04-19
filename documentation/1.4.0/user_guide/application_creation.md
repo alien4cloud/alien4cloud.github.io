@@ -8,7 +8,7 @@ node_name: application_creation
 weight: 10
 ---
 
-Creation of a new application requires the *APPLICATIONS_MANAGER* or *ADMIN* global rôle. Users with the right roles should see the __New Application__ button ![New Application](../../images/1.4.0/user_guide/applications/new_app_button.png){: .inline}{:height="20px"}.
+Creation of a new application requires the *APPLICATIONS_MANAGER* or *ADMIN* global rôle. Users with the right roles should see the __New Application__ button ![New Application](../../images/1.4.0/user_guide/applications/new_app_button.png){: height="26px" .inline}
 
 Click on the __New Application__ button opens a modal that prompt the user for some fields:
 
