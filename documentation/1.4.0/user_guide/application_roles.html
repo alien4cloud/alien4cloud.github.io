@@ -26,7 +26,24 @@ ga('send', 'pageview');
           <h1 class="pull-left" style="margin-top: 0px;">Grant authorizations</h1>
           <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.4.0/user_guide/application_roles.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
         </div>
-        <h2 id="applications-roles">Application’s roles</h2>
+        <p>To Grant authorizations a platform <strong>ADMIN</strong> or a user with the <strong>APPLICATION_MANAGER</strong> role for the given application must go to the target application and click on the <img src="../../images/1.4.0/user_guide/applications/app_roles_menu.png" alt="Applications roles navigation button" height="26px" class="inline" /> button of the left menu bar.</p>
+
+<div class="note info">
+<h5>Roles information</h5>
+<p>The list of roles available for the application or it’s environment and their explaination is available at the bottom of this page.</p>
+</div>
+
+<p>Some roles are specified for the whole application, for example the APPLICATION_MANAGER role and APPLICATION_DEVOPS (that allow edition of the topologies to deploy) are available for the whole application. Some roles however like the deployment role are specified per environment.</p>
+
+<p>In order to assign a rôle to a user just click on the key button on the user row and assign the role of your choice. you can also assign a rôle to a user group in the same way by going on the <em>Goups</em> tab.</p>
+
+<p><img src="../../images/1.4.0/user_guide/applications/app_role_edit.png" alt="Application role edition" /></p>
+
+<p>For environment related roles just click on the environment choice dropdown and select the environment of your choice.</p>
+
+<p><img src="../../images/1.4.0/user_guide/applications/app_role_env_choice.png" alt="Application role environment switch" style="width: 240px; margin: 0 auto" /></p>
+
+<h2 id="applications-roles">Application’s roles</h2>
 
 <p>These roles defines actions allowed by <em>role</em> on a given application :</p>
 
@@ -49,9 +66,9 @@ ga('send', 'pageview');
   </tbody>
 </table>
 
-<p>In addition to the applications roles, Application manager can specify some roles related to every single environment defined for the application.</p>
-
 <h2 id="environments-roles">Environment’s roles</h2>
+
+<p>In addition to the applications roles, Application manager can specify some roles related to every single environment defined for the application.</p>
 
 <p>These roles defines actions allowed by <em>role</em> on a given environment :  </p>
 

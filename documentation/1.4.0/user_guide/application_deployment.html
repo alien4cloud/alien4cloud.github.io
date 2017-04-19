@@ -8,7 +8,7 @@
 ga('create', 'UA-73216650-1', 'auto');
 ga('set', {
   page: '/documentation/1.4.0/user_guide/application_deployment.html',
-  title: 'Deployment'
+  title: 'Deploy an environment'
 });
 ga('send', 'pageview');
 
@@ -23,7 +23,7 @@ ga('send', 'pageview');
       <div id="content" class="col-sm-8 col-md-9">
     
         <div style="height: 50px;">
-          <h1 class="pull-left" style="margin-top: 0px;">Deployment</h1>
+          <h1 class="pull-left" style="margin-top: 0px;">Deploy an environment</h1>
           <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.4.0/user_guide/application_deployment.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
         </div>
         
@@ -31,9 +31,11 @@ ga('send', 'pageview');
 <div class="row"><ul class="nav nav-pills" id="summarypanel"></ul></div>
 <hr style="margin-top:5px; margin-bottom:5px;" />
 
-<p>To deploy an application you need to setup the context, you can do this in the <code>Applications &gt; Deployments</code> sub-menu.<br />
-The deployment setup is done by going through a number of hierarchical steps.
-Each step perform a validation of the deployment topology, and errors details are displayed. Note that you can not go to the next step  when the current one is still not valid.</p>
+<p>In alien4cloud you actually deploy an environment of an application, in order to prepare and trigger your deployment first go to the deployment page <img src="../../images/1.4.0/user_guide/applications/app_deploy_menu.png" alt="Deployment navigation menu" height="26px" class="inline" /></p>
+
+<p>Before actually deploying your environment you have to configure the deployment. Alien4cloud will drive the user into comprehensive sequential steps in order to configure the deployment.</p>
+
+<p>Each step perform a validation of the deployment topology, and errors details are eventually displayed on the right screen. Note that you can not go to the next step as long as the current one is still not valid.</p>
 
 <h1 id="inputs">Inputs</h1>
 

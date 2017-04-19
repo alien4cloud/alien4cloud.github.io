@@ -7,7 +7,7 @@
 
 ga('create', 'UA-73216650-1', 'auto');
 ga('set', {
-  page: '/documentation/1.4.0/user_guide/tosca_catalog_custom_resources.html',
+  page: '/documentation/1.4.0/user_guide/catalog_custom_resources.html',
   title: 'Custom On-demand Resources Nodes'
 });
 ga('send', 'pageview');
@@ -24,18 +24,13 @@ ga('send', 'pageview');
     
         <div style="height: 50px;">
           <h1 class="pull-left" style="margin-top: 0px;">Custom On-demand Resources Nodes</h1>
-          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.4.0/user_guide/tosca_catalog_custom_resources.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.4.0/user_guide/catalog_custom_resources.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
         </div>
         <p>Custom on-demand resources are resources provided by TOSCA catalog but instanciated and managed by the orchestrator.</p>
 
 <p>Usually, on-demand resources (computes, block storage, networks …) are provided by the orchestrator as types. They are defined in the locations as nodes to be matched with their abstract versions in topology templates. Only the orchestrator knows how to provide a compute on EC2, OpenStack and so on (depending on orchestrator capabilities) …</p>
 
 <p>Since 1.3.1, you can provide your own types as on-demand resources. This page will explain you how to build your own on demand custom resources types and use them as custom resource nodes in your topologies.</p>
-
-<div class="note warning">
-<p>Coming version of A4C will give you the ability to associate such custom types with locations and then define nodes to be used during topology deployment matching.
-For the moment, you can just use these concrete types in your topology.</p>
-</div>
 
 <p>A custom resource node is defined by the facts that:</p>
 
@@ -76,7 +71,7 @@ This is the way the cloudify3 orchestrator manages custom resources.</p>
   <li>on-demand resources other than computes can’t be scaled</li>
 </ul>
 
-        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.4.0/user_guide/tosca_catalog_custom_resources.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.4.0/user_guide/catalog_custom_resources.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
 	  </div>
     </div>
   </div>
@@ -93,7 +88,7 @@ if(hash && hash!== null && hash.match(/html$/)) {
 <script type="text/javascript" src="/js/post-layout.js"></script>
 <script>
 $(document).ready(function () {
-  makeSideBar('DOCUMENTATION-1.4.0', 'documentation/1.4.0/user_guide/tosca_catalog_custom_resources.md');
+  makeSideBar('DOCUMENTATION-1.4.0', 'documentation/1.4.0/user_guide/catalog_custom_resources.md');
 });
 </script>
 
