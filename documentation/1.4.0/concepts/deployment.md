@@ -14,11 +14,13 @@ In alien4cloud the deployment is done through the application environment. As an
 
 However a topology in the editor may not contains enough information to be deployed, this is why the environment + version association will allow you to provide them.
 
-## Input properties
+![Configuration process](../images/1.4.0/concepts/configuration_process.png)
+
+## Topology inputs
 
 The first element that one can specify per environment for same topology are inputs, basically any properties that are environment specific and that should not be configured by the user that make the topology but actually by the user that will deploy it.
 
-## Target location
+## Location choice
 
 As we have seen, the first concept of alien4cloud was orchestrators and Locations defined by the admin. As a responsible of a deployment you will have several locations available to you as configured by the admin, this may be all or a subset of alien4cloud's available locations.
 
@@ -36,6 +38,8 @@ Note that there may be two different kind of matched nodes for an abstract node 
 
 * On demand resources, that are provided by a given location.
 * Services, that are provided by the admin or other applications and accessible on the location you choosed.
+
+![Matching](../images/1.4.0/concepts/matching.png)
 
 ### On demand resources
 

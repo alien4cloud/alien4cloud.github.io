@@ -14,11 +14,6 @@ Usually, on-demand resources (computes, block storage, networks ...) are provide
 
 Since 1.3.1, you can provide your own types as on-demand resources. This page will explain you how to build your own on demand custom resources types and use them as custom resource nodes in your topologies.
 
-{%warning%}
-Coming version of A4C will give you the ability to associate such custom types with locations and then define nodes to be used during topology deployment matching.
-For the moment, you can just use these concrete types in your topology.
-{%endwarning%}
-
 A custom resource node is defined by the facts that:
 
 - it is not hosted on another node.

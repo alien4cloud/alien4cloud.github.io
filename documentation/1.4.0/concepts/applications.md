@@ -12,7 +12,7 @@ Alien 4 Cloud aims at managing application lifecycle and their related deploymen
 
 The application in Alien 4 Cloud is the entity that people are going to deploy. Every application can have one or more versions and one or more environments.
 
-[![Application concepts](../images/1.4.0/concepts/application_relations.png)](../images/application_relations.png)
+![Application concepts](../images/1.4.0/concepts/application_relations.png)
 
 # Version
 
