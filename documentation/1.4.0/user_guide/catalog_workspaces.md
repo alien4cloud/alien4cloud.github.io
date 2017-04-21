@@ -98,3 +98,8 @@ If a user, who can't manage the desire target workspace, want to promote one of 
 Any user with sufficient right will be able to accept or discard the request in the promotion management view.
 
 [![Promotion management](../../images/1.4.0/user_guide/catalog/workspace/promotion-management.png)](../../images/1.4.0/user_guide/catalog/workspace/promotion-management.png)
+
+
+# Delete the workspace plugin
+
+Admin user's can remove the workspace plugin. However a bug can occur if some CSAR are in locate in user or application workspace during this suppresion. To avoid it, we recommed to move all CSAR to the global workspace before this operation.
