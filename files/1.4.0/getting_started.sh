@@ -73,15 +73,15 @@ curl "$ALIEN_URL/rest/latest/orchestrators/$ORCHESTRATORID/configuration" \
 -s -b curlcookie.txt \
 -H 'Content-Type: application/json; charset=UTF-8' \
 -H 'Accept: application/json, text/plain, */*' \
---data-binary '{"pucciniHome":"/Users/lucboutier/pok/alien4cloud-getstarted/puccini-cli-1.4.0-SNAPSHOT"}'
+--data-binary '{"pucciniHome":"/Users/lucboutier/pok/alien4cloud-getstarted/puccini-cli-1.4.0-SNAPSHOT"}' > /dev/null
 
-echo "Enable orchestrator"
+echo "Enable orchestrator (takes a few secs as it checks and configure puccini)"
 curl "$ALIEN_URL/rest/latest/orchestrators/$ORCHESTRATORID/instance" \
 -XPOST \
 -s -b curlcookie.txt \
 -H 'Content-Type: application/json; charset=UTF-8' \
 -H 'Accept: application/json, text/plain, */*' \
---data-binary '{}'
+--data-binary '{}' > /dev/null
 
 sleep 5
 
@@ -103,7 +103,7 @@ RESOURCEID=`curl "$ALIEN_URL/rest/latest/orchestrators/$ORCHESTRATORID/locations
 -H 'Content-Type: application/json;charset=UTF-8' \
 -H 'Accept: application/json, text/plain, */*' \
 --data-binary '{"resourceType":"org.alien4cloud.puccini.docker.nodes.Container","resourceName":"New resource","archiveName":"puccini-docker-provider-types","archiveVersion":"1.4.0-SNAPSHOT","id":"org.alien4cloud.puccini.docker.nodes.Container:1.4.0-SNAPSHOT"}' | \
-    python -c "import sys, json; print json.load(sys.stdin)['data.resourceTemplate.id']"`
+    python -c "import sys, json; print json.load(sys.stdin)['data']['resourceTemplate']['id']"`
 
 echo "Configure template $RESOURCEID"
 curl "$ALIEN_URL/rest/latest/orchestrators/$ORCHESTRATORID/locations/$LOCATIONID/resources/$RESOURCEID/template/properties" \
@@ -111,37 +111,35 @@ curl "$ALIEN_URL/rest/latest/orchestrators/$ORCHESTRATORID/locations/$LOCATIONID
 -s -b curlcookie.txt \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -H 'Accept: application/json, text/plain, */*' \
---data-binary '{"propertyName":"image_id","propertyValue":"alien4cloud/puccini-ubuntu-trusty"}'
+--data-binary '{"propertyName":"image_id","propertyValue":"alien4cloud/puccini-ubuntu-trusty"}' > /dev/null
 
 curl "$ALIEN_URL/rest/latest/orchestrators/$ORCHESTRATORID/locations/$LOCATIONID/resources/$RESOURCEID/template/capabilities/os/properties" \
 -XPOST \
 -s -b curlcookie.txt \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -H 'Accept: application/json, text/plain, */*' \
---data-binary '{"propertyName":"architecture","propertyValue":"x86_64"}'
+--data-binary '{"propertyName":"architecture","propertyValue":"x86_64"}' > /dev/null
 
 curl "$ALIEN_URL/rest/latest/orchestrators/$ORCHESTRATORID/locations/$LOCATIONID/resources/$RESOURCEID/template/capabilities/os/properties" \
 -XPOST \
 -s -b curlcookie.txt \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -H 'Accept: application/json, text/plain, */*' \
---data-binary '{"propertyName":"type","propertyValue":"linux"}'
+--data-binary '{"propertyName":"type","propertyValue":"linux"}' > /dev/null
 
 curl "$ALIEN_URL/rest/latest/orchestrators/$ORCHESTRATORID/locations/$LOCATIONID/resources/$RESOURCEID/template/capabilities/os/properties" \
 -XPOST \
 -s -b curlcookie.txt \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -H 'Accept: application/json, text/plain, */*' \
---data-binary '{"propertyName":"distribution","propertyValue":"ubuntu"}'
+--data-binary '{"propertyName":"distribution","propertyValue":"ubuntu"}' > /dev/null
 
-curl "$ALIEN_URL/rest/latest/orchestrators/$ORCHESTRATORID/locations/$LOCATIONID/resources/$RESOURCEID"
+curl "$ALIEN_URL/rest/latest/orchestrators/$ORCHESTRATORID/locations/$LOCATIONID/resources/$RESOURCEID" \
 -XPUT \
 -s -b curlcookie.txt \
 -H 'Content-Type: application/json; charset=UTF-8' \
 -H 'Accept: application/json, text/plain, */*' \
---data-binary '{"name":"Ubuntu"}'
-
-# echo "Uploading archives"
+--data-binary '{"name":"Ubuntu"}' > /dev/null
 
 if which open > /dev/null ; then
   open 'http://localhost:8088'

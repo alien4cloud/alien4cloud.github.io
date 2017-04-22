@@ -60,13 +60,13 @@ path.repo: /home/elasticsearch/backups
 
 Restart elasticsearch so that the new configuration is taken into account :
 
-{% highlight sh %}
+{% highlight bash %}
 sudo /etc/init.d/elasticsearch restart
 {% endhighlight %}
 
 * Mount shared file system between all your elasticsearch cluster nodes. Here's an example with sshfs :
 
-{% highlight sh %}
+{% highlight bash %}
 # On the file server machine where elasticsearch backups will be hosted
 sudo adduser elasticsearch
 # Copy key file that enable ssh login for this user
@@ -92,13 +92,13 @@ sudo -u elasticsearch rm /home/elasticsearch/backups/test.txt
 
 To backup Alien4Cloud, from the root directory of the unzipped tool, perform the command:
 
-{% highlight sh %}
+{% highlight bash %}
 ./backup-restore-tool.sh -backup -n backup121
 {% endhighlight %}
 
 For more commands and options, you can have the help doc displayed:
 
-{% highlight sh %}
+{% highlight bash %}
 ./backup-restore-tool.sh -help
 {% endhighlight %}
 
@@ -115,7 +115,7 @@ Anyway, if you 100% sure that restore operation has no impact on clouds or plugi
 
 To restore Alien4Cloud, from the root directory of the unzipped tool, perform the command:
 
-{% highlight sh %}
+{% highlight bash %}
 ./backup-restore-tool.sh -restore -n backup121
 {% endhighlight %}
 
@@ -218,17 +218,17 @@ location_import:
 ## perform migration
 
 * From the root directory of the unzipped tool, perform the command:
-{% highlight sh %}
+{% highlight bash %}
 ./migration-tool.sh -migrate -v 1.2.0
 {% endhighlight %}
 
 For more commands and options, you can have the help doc displayed:
-{% highlight sh %}
+{% highlight bash %}
 ./migration-tool.sh -help
 {% endhighlight %}
 
 * Start your new Alien4cloud configured properly, after migration
-{% highlight sh %}
+{% highlight bash %}
 cd /opt/alien4cloud/alien4cloud-premium/
 ./alien4cloud.sh
 {% endhighlight %}
