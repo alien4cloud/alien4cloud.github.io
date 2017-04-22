@@ -20,7 +20,7 @@ echo "Downloading alien4cloud"
 curl -k -o "alien4cloud-dist-1.4.0-SNAPSHOT.tar.gz" -O "https://fastconnect.org/maven/content/repositories/opensource-snapshot/alien4cloud/alien4cloud-dist/1.4.0-SNAPSHOT/alien4cloud-dist-1.4.0-20170421.112240-13-dist.tar.gz" || error_exit $? "Failed downloading alien4cloud"
 
 echo "Downloading puccini"
-curl -k -o "puccini-cli-1.4.0-SNAPSHOT.tgz" -O "https://fastconnect.org/maven/content/repositories/opensource-snapshot/org/alien4cloud/puccini/puccini-cli/1.4.0-SNAPSHOT/puccini-cli-1.4.0-SNAPSHOT.tgz" || error_exit $? "Failed downloading puccini"
+curl -k -o "puccini-cli-1.4.0-SNAPSHOT.tgz" -O "https://fastconnect.org/maven/content/repositories/opensource-snapshot/org/alien4cloud/puccini/puccini-cli/1.4.0-SNAPSHOT/puccini-cli-1.4.0-20170421.165648-1.tgz" || error_exit $? "Failed downloading puccini"
 
 echo "Downloading alien4cloud puccini plugin"
 curl -k -o "alien4cloud-puccini-plugin-1.4.0-SNAPSHOT.zip" -O "https://fastconnect.org/maven/content/repositories/opensource-snapshot/alien4cloud/alien4cloud-puccini-plugin/1.4.0-SNAPSHOT/alien4cloud-puccini-plugin-1.4.0-20170421.133520-2.zip" || error_exit $? "Failed downloading alien4cloud puccini plugin"
@@ -46,6 +46,12 @@ docker pull alien4cloud/puccini-ubuntu-trusty
 echo "Starting alien4cloud"
 cd alien4cloud
 ./alien4cloud.sh &
+
+echo "Waiting for alien4cloud to start"
+until $(curl --output /dev/null --silent --head --fail http://localhost:8088); do
+  printf '.'
+  sleep 5
+done
 
 ALIEN_URL="http://localhost:8088"
 ALIEN_LOGIN="admin"
