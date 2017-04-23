@@ -1,5 +1,5 @@
 #!/bin/bash -e
-INSTALL_DIR="alien4cloud-getstarted"
+INSTALL_DIR="`pwd`/alien4cloud-getstarted"
 
 # Create the install dir if not present.
 if [ ! -d $INSTALL_DIR ]; then
