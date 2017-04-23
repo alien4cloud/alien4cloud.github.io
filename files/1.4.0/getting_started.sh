@@ -45,7 +45,7 @@ docker pull alien4cloud/puccini-ubuntu-trusty
 
 echo "Starting alien4cloud"
 cd alien4cloud
-./alien4cloud.sh &
+./alien4cloud.sh > /dev/null 2>&1 &
 
 echo "Waiting for alien4cloud to start"
 until $(curl --output /dev/null --silent --head --fail http://localhost:8088); do
