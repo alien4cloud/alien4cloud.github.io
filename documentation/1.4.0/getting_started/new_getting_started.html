@@ -38,7 +38,8 @@ ga('send', 'pageview');
   <li>Curl: Our installation script leverage curl so ensure you have the command installed.</li>
   <li>Python: While we don’t really require python for alien4cloud our getting started script leverage python to pre-configure some elements in alien4cloud for you. Running the script without python will install alien4cloud, start it and then fail to configure resources so you’ll have to configure them manually.</li>
   <li>Java: We don’t install java for you so just make sure you have a 8 or higher JDK installed on your working station. If you don’t you can following instructions <a href="https://www.java.com/fr/download/manual.jsp" target="_blank">here</a>.</li>
-  <li>Docker: Our getting started leverage a minimal TOSCA orchestrator that creates docker images to orchestrate deployments in an independent way one from another. We will also use docker container in place of VMs to launch TOSCA blueprints.</li>
+  <li>Docker: Our getting started leverage a minimal TOSCA orchestrator that creates docker images to orchestrate deployments in an independent way one from another. We will also use docker container in place of VMs to launch TOSCA blueprints.
+You need an up-to-date docker, especially if you are running on mac as we leverage the new docker for mac and unix socket communication. We have tested on Docker version 17.03.1-ce, build c6d412e.</li>
   <li>Nothing running on port 8088: That’s alien4cloud default port and as we just launch a4c in our getting started script we need this port free.</li>
   <li>A supported web browser (check versions <a href="/#/documentation/1.4.0/admin_guide/supported_platforms.html">here</a>).</li>
 </ul>
@@ -159,7 +160,7 @@ You can also read more on the alien user guide’s <a href="#/documentation/1.4.
 
 <h1 id="check-that-your-application-is-up-and-running">Check that your application is up and running</h1>
 
-<p>On the runtime view, you can have the detailed deployment progress. Click on the side bar sub-menu <img src="../../images/1.4.0/getting_started/runtime.png" alt="application runtime" class="inline" />,</p>
+<p>On the runtime view, you can have the detailed deployment progress. Click on the side bar sub-menu <img src="../../images/1.4.0/getting_started/runtime.png" alt="application runtime" height="26px" class="inline" />,</p>
 
 <p><img src="../../images/1.4.0/getting_started/runtime_view.png" alt="Runtime view" style="width: 600px; margin: 0 auto" /></p>
 
