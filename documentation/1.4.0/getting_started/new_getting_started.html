@@ -35,6 +35,7 @@ ga('send', 'pageview');
 <h1 id="prerequisites">Prerequisites</h1>
 
 <ul>
+  <li><i class="fa fa-linux"></i> Linux or <i class="fa fa-apple"></i> MacOS version 10.12 (we use a native library for docker communication that has been compiled on this version and we are aware of issues on earlier versions).</li>
   <li>Curl: Our installation script leverage curl so ensure you have the command installed.</li>
   <li>Python: While we don’t really require python for alien4cloud our getting started script leverage python to pre-configure some elements in alien4cloud for you. Running the script without python will install alien4cloud, start it and then fail to configure resources so you’ll have to configure them manually.</li>
   <li>Java: We don’t install java for you so just make sure you have a 8 or higher JDK installed on your working station. If you don’t you can following instructions <a href="https://www.java.com/fr/download/manual.jsp" target="_blank">here</a>.</li>
@@ -45,6 +46,8 @@ You need an up-to-date docker, especially if you are running on mac as we levera
 </ul>
 
 <h1 id="install-launch-and-configure-alien4cloud">Install, launch and configure alien4cloud</h1>
+
+<p>Open a terminal and launch the following command:</p>
 
 <div class="highlight"><pre><code class="language-bash" data-lang="bash">curl -s https://raw.githubusercontent.com/alien4cloud/alien4cloud.github.io/sources/files/1.4.0/getting_started.sh <span class="p">|</span> bash</code></pre></div>
 
