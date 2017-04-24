@@ -18,6 +18,7 @@ This guide explains how to get started with Alien4Cloud and deploy your first ap
 * Python: While we don't really require python for alien4cloud our getting started script leverage python to pre-configure some elements in alien4cloud for you. Running the script without python will install alien4cloud, start it and then fail to configure resources so you'll have to configure them manually.
 * Java: We don't install java for you so just make sure you have a 8 or higher JDK installed on your working station. If you don't you can following instructions [here](https://www.java.com/fr/download/manual.jsp){:target="_blank"}.
 * Docker: Our getting started leverage a minimal TOSCA orchestrator that creates docker images to orchestrate deployments in an independent way one from another. We will also use docker container in place of VMs to launch TOSCA blueprints.
+You need an up-to-date docker, especially if you are running on mac as we leverage the new docker for mac and unix socket communication. We have tested on Docker version 17.03.1-ce, build c6d412e.
 * Nothing running on port 8088: That's alien4cloud default port and as we just launch a4c in our getting started script we need this port free.
 * A supported web browser (check versions [here](/#/documentation/1.4.0/admin_guide/supported_platforms.html)).
 
