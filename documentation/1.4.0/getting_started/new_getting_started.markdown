@@ -14,6 +14,7 @@ This guide explains how to get started with Alien4Cloud and deploy your first ap
 
 # Prerequisites
 
+* <i class="fa fa-linux"></i> Linux or <i class="fa fa-apple"></i> MacOS version 10.12 (we use a native library for docker communication that has been compiled on this version and we are aware of issues on earlier versions).
 * Curl: Our installation script leverage curl so ensure you have the command installed.
 * Python: While we don't really require python for alien4cloud our getting started script leverage python to pre-configure some elements in alien4cloud for you. Running the script without python will install alien4cloud, start it and then fail to configure resources so you'll have to configure them manually.
 * Java: We don't install java for you so just make sure you have a 8 or higher JDK installed on your working station. If you don't you can following instructions [here](https://www.java.com/fr/download/manual.jsp){:target="_blank"}.
@@ -23,6 +24,8 @@ You need an up-to-date docker, especially if you are running on mac as we levera
 * A supported web browser (check versions [here](/#/documentation/1.4.0/admin_guide/supported_platforms.html)).
 
 # Install, launch and configure alien4cloud
+
+Open a terminal and launch the following command:
 
 {% highlight bash %}
 curl -s https://raw.githubusercontent.com/alien4cloud/alien4cloud.github.io/sources/files/1.4.0/getting_started.sh | bash
