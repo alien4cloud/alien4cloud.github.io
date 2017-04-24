@@ -41,7 +41,7 @@ Except docker images we don't store anything outside of the _alien4cloud-getstar
 
 # Let's play!
 
-[![Configure your deployment](../../images/getting_started/authentication-splash-screen.png)](../../images/getting_started/authentication-splash-screen.png)
+![Login screen](../../images/1.4.0/getting_started/authentication-splash-screen.png)
 
 Login into the application using the default user:
 
@@ -65,17 +65,19 @@ Find those types on github here : [https://github.com/alien4cloud/samples](https
 
 The quickest way to import all of these archives is the **Git integration** feature in Alien4Cloud.
 
-Click on ![Go to admin](../../images/getting_started/components-btn.png){: .inline} button in the navigation bar. Then click side bar sub-menu ![Go to git](../../images/getting_started/git-menu-btn.png){: .inline}.
-Now add a new Git location: ![new-git-location](../../images/getting_started/new-git-location-btn.png){: .inline}.
+Click on ![Go to admin](../../images/1.4.0/getting_started/components_menu.png){: height="26px" .inline} button in the navigation bar. Then click side bar sub-menu ![Go to git](../../images/1.4.0/getting_started/git_sub_menu.png){: height="26px" .inline}.
+Now add a new Git location: ![new-git-location](../../images/1.4.0/getting_started/git_location_new.png){: height="26px" .inline}.
 
-Fill the modal like the example below and ![new-git-location](../../images/getting_started/save-btn.png){: .inline}.
+Fill the modal like the example below and ![git configuration](../../images/1.4.0/getting_started/git_configuration.png){: style="width: 600px; margin: 0 auto"}
 
-[![Wordpress Topology](../../images/getting_started/git-location-details.png)](../../images/getting_started/git-location-details.png)
+Now, click on ![import button](../../images/1.4.0/getting_started/import.png){: height="26px" .inline} to pull all components from git and upload them into the Alien4Cloud catalog.
 
-Now, click on ![git import](../../images/getting_started/components-import-btn.png){: .inline} to pull all components from git and upload them into the Alien4Cloud catalog.
+Wait for the import success bar to show and continue:
+
+![Import success](../../images/1.4.0/getting_started/import_success.png)
 
 {% warning %}
-Some warnings will be throw if you specify an other branch or tag. We release some version of Samples, according to our implementation of TOSCA. If you take the wrong Sample, the required normatives types can be missing.
+Some warnings will be throw if you specify an other branch or tag. We release some version of Samples, according to our implementation of TOSCA. If you take the wrong Sample, the required normative types can be missing.
 {% endwarning %}
 
 {% info %}
@@ -84,40 +86,57 @@ Find detailed informations about the Wordpress topology in the [devops guide](#/
 
 # Create a Wordpress application
 
-Now we have the Wordpress template ready to use, we can create an application based on it. To do this, go to ![application](../../images/getting_started/application-btn.png){: .inline} section. Click on ![new application btn](../../images/getting_started/new-application-btn.png){: .inline} button and select the `wordpress-template` in the **topology template** drop-down and the `1.1.0-SNAPHOT` version in **Topology template**.
+Now we have the Wordpress template ready to use, we can create an application based on it. To do this, go to ![application menu](../../images/1.4.0/getting_started/applications_menu.png){: height="26px" .inline} section. Click on ![new application btn](../../images/1.4.0/getting_started/new_application.png){: height="26px" .inline}. In the new application modal fill the name with 'wordpress', click on Topology Template button and select the `wordpress-topology` in the **topology template** list.
 
-The application creation should redirect you on the application informations page.
-To see your application topology, go to ![application topology](../../images/getting_started/app-topo-btn.png){: .inline} page, you will see the following screen.
+![New application modal](../../images/1.4.0/getting_started/new_application_modal.png)
 
-[![Wordpress Topology](../../images/getting_started/wordress-topology.png)](../../images/getting_started/wordress-topology.png)
+Click on _create_ to create the application and be redirected to the application informations page. To see your application topology, click on ![application topology menu](../../images/1.4.0/getting_started/topology_sub_menu.png){: height="26px" .inline}. This will take you to the topology editor.
+
+![Wordpress Topology](../../images/1.4.0/getting_started/topology_editor.png)
+
+As you can see the topology is already complete. We will cover topology edition later on so, for now, let's prepare for deployment.
 
 # Setup and deploy your application
 
-To deploy this new application, go on ![application deployment](../../images/getting_started/application-deployment-btn.png){: .inline} sub-menu and :
+Click on ![application deployment](../../images/1.4.0/getting_started/application_deployment_menu.png){: height="26px" .inline} to configure your deployment:
 
-* Select your location
-* Select the `os_arch` of your computes
-* And click on ![application deployment btn](../../images/getting_started/app-deployment-btn.png){: .inline}
+Inputs are already configured with default values so we automatically skip this step to let you select the location. The installation step configured a local docker location so click on it to select it as a target location:
 
-[![Configure your deployment](../../images/getting_started/deployment-page.png)](../../images/getting_started/deployment-page.png)
+![Location choice](../../images/1.4.0/getting_started/location_choice.png)
+
+Node matching step is here again done automatically for you. During this step Alien4cloud found a valid match for your compute nodes, as there is just one template defined on the orchestrator to provide a ubuntu container that's the one that has been picked up.
+
+While it is good enough for a deployment we will setup some docker related advanced settings that are not included in the portable topology (as they are quite specific on this local docker deployment). What we want to configure is the wordpress container port mapping. Note that this is not done automatically yet by puccini but could be in future implementations.
+
+So let's go on node matching tab ![Node matching tab](../../images/1.4.0/getting_started/node_matching_tab.png){: height="26px" .inline} and select the wordpress compute node called 'computeWww' in our topology
+![Compute Www](../../images/1.4.0/getting_started/matching_computeWww.png){: height="26px" .inline}, then click on the current selected match for the node (well and only choice on this location as currently defined).
+
+![Compute Www matching choice](../../images/1.4.0/getting_started/matching_computeWww_choice.png){: style="width: 600px; margin: 0 auto"}
+
+Let's first expose the port out of the container by changing the exposed_ports property: Click on the edition button for the exposed_ports property ![Exposed ports property](../../images/1.4.0/getting_started/exposed_ports_edit.png){: height="26px" .inline}. In the modal click on the ![Add Exposed port](../../images/1.4.0/getting_started/exposed_ports_add.png){: height="26px" .inline} button to add a new port exposition. Click on the 0 element edit button ![Add Exposed port](../../images/1.4.0/getting_started/exposed_ports_0_edit.png){: height="26px" .inline} and set 80 to the port and tcp to the protocol and close the modal.
+
+![Exposed port configuration](../../images/1.4.0/getting_started/exposed_ports_conf.png){: style="width: 400px; margin: 0 auto"}
+
+Let's now configure the port_mappings ![Exposed ports property](../../images/1.4.0/getting_started/ports_mappings_edit.png){: height="26px" .inline} using the same procedure to configure a port mapping from 80 to, for example 9099
+
+![Exposed port configuration](../../images/1.4.0/getting_started/ports_mappings_conf.png){: style="width: 120px; margin: 0 auto"}
+
+Ok now that the port from the docker container is exposed to the outside world we can deploy our application!
+
+So just go to the deploy tab and click on the ![Deploy](../../images/1.4.0/getting_started/deploy_button.png){: height="26px" .inline} button! Note that this may take a few minutes as we are going to download and install the various components of the topology.
 
 {%info%}
-To understand all configuration available for the deployment page, please refer to the [application management section](#/documentation/1.4.0/user_guide/application_management.html).
+<h5>More on matching and application configuration</h5>
+If you have not done it yet, you can get more informations on the [application](#/documentation/1.4.0/concepts/applications.html) concepts in alien4cloud as well as [deployment configuration and matching](#/documentation/1.4.0/concepts/deployment.html) concepts here.
+You can also read more on the alien user guide's [application management section](#/documentation/1.4.0/user_guide/application_management.html).
 {%endinfo%}
-
-{% warning %}
-In this part, you will be able to check location resources matching and possible errors. This should not happen if your orchestrator and location are well configured. If you need help regarding their configuration, please refer to [this section](#/documentation/1.4.0/user_guide/orchestrator_location_management.html).
-{% endwarning %}
 
 # Check that your application is up and running
 
-On the runtime view, you can have the detailed deployment progress. Click on the side bar sub-menu ![application runtime](../../images/getting_started/app-runtime-btn.png){: .inline},
+On the runtime view, you can have the detailed deployment progress. Click on the side bar sub-menu ![application runtime](../../images/1.4.0/getting_started/runtime.png){: .inline},
 
-[![Wordpress runtime](../../images/getting_started/wordpress-deployment-in-progress.png)](../../images/getting_started/wordpress-deployment-in-progress.png)
+![Runtime view](../../images/1.4.0/getting_started/runtime_view.png){: style="width: 600px; margin: 0 auto"}
 
-When all nodes are deployed, go back in the ![application info](../../images/getting_started/app-info-btn.png){: .inline} sub-menu to get the Wordpress application url and
-test it !
+When all nodes are deployed, just open the wordpress url in your browser. Note that as we defined a specific port mapping making the inner docker port available on our host 9099 port we have to change it accordingly: http://127.0.0.1:9099.
 
-[![Wordpress url](../../images/getting_started/output-url.png)](../../images/getting_started/output-url.png)
-
-And voilà !
+![Wordpress home](../../images/1.4.0/getting_started/wordpress_home.png){: style="width: 300px; margin: 0 auto"}

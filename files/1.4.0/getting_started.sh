@@ -17,7 +17,7 @@ else
 fi
 
 echo "Downloading alien4cloud"
-curl -k -o "alien4cloud-dist-1.4.0-SNAPSHOT.tar.gz" -O "https://fastconnect.org/maven/content/repositories/opensource-snapshot/alien4cloud/alien4cloud-dist/1.4.0-SNAPSHOT/alien4cloud-dist-1.4.0-20170421.112240-13-dist.tar.gz" || error_exit $? "Failed downloading alien4cloud"
+curl -k -o "alien4cloud-dist-1.4.0-SNAPSHOT.tar.gz" -O "https://fastconnect.org/maven/content/repositories/opensource-snapshot/alien4cloud/alien4cloud-dist/1.4.0-SNAPSHOT/alien4cloud-dist-1.4.0-20170424.060246-14-dist.tar.gz" || error_exit $? "Failed downloading alien4cloud"
 
 echo "Downloading puccini"
 curl -k -o "puccini-cli-1.4.0-SNAPSHOT.tgz" -O "https://fastconnect.org/maven/content/repositories/opensource-snapshot/org/alien4cloud/puccini/puccini-cli/1.4.0-SNAPSHOT/puccini-cli-1.4.0-20170421.165648-1.tgz" || error_exit $? "Failed downloading puccini"
