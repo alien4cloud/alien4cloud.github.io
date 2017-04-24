@@ -141,3 +141,19 @@ On the runtime view, you can have the detailed deployment progress. Click on the
 When all nodes are deployed, just open the wordpress url in your browser. Note that as we defined a specific port mapping making the inner docker port available on our host 9099 port we have to change it accordingly: http://127.0.0.1:9099.
 
 ![Wordpress home](../../images/1.4.0/getting_started/wordpress_home.png){: style="width: 300px; margin: 0 auto"}
+
+# Shut down alien4cloud
+
+You can still play with alien4cloud of course as there is plenty to discover ;). But when you want to shut it down just launch the following command:
+
+{% highlight bash %}
+pkill -f 'alien4cloud-ui-1.4.0-SNAPSHOT.war'
+{% endhighlight %}
+
+In order to launch it again no need to launch the curl and download it again of course. So just go to the alien4cloud-getstarted/alien4cloud folder and launch the alien4cloud.sh script.
+
+{% highlight bash %}
+cd alien4cloud-getstarted/alien4cloud
+# note:  > /dev/null 2>&1 & is just to launch it in background so just remove that if you wish to launch alien in front.
+./alien4cloud.sh  > /dev/null 2>&1 &
+{% endhighlight %}
