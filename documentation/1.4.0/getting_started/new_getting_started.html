@@ -168,6 +168,19 @@ You can also read more on the alien user guide’s <a href="#/documentation/1.4.
 
 <p><img src="../../images/1.4.0/getting_started/wordpress_home.png" alt="Wordpress home" style="width: 300px; margin: 0 auto" /></p>
 
+<h1 id="shut-down-alien4cloud">Shut down alien4cloud</h1>
+
+<p>You can still play with alien4cloud of course as there is plenty to discover ;). But when you want to shut it down just launch the following command:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">pkill -f <span class="s1">&#39;alien4cloud-ui-1.4.0-SNAPSHOT.war&#39;</span></code></pre></div>
+
+<p>In order to launch it again no need to launch the curl and download it again of course. So just go to the alien4cloud-getstarted/alien4cloud folder and launch the alien4cloud.sh script.</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">cd </span>alien4cloud-getstarted/alien4cloud
+<span class="c"># note:  &gt; /dev/null 2&gt;&amp;1 &amp; is just to launch it in background so just remove that if you wish to launch alien in front.</span>
+./alien4cloud.sh  &gt; /dev/null 2&gt;<span class="p">&amp;</span><span class="m">1</span> <span class="p">&amp;</span></code></pre></div>
+
+
         <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.4.0/getting_started/new_getting_started.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
 	  </div>
     </div>
