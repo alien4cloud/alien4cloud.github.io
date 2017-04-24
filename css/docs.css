@@ -41,22 +41,22 @@ a.buttonedit {
     color: #FFFFFF;
     padding: 8px 15px;
     border-radius: 5px;
-	text-decoration:none; 
+	text-decoration:none;
   /*  margin: 1.5 * 3 0;*/
 
     /*a {
         font-weight: 700;
-     color:#FFFFFF; 
-     text-decoration:none; 
+     color:#FFFFFF;
+     text-decoration:none;
         margin-left: 10px;
 
 
     }*/
 	a:link, a:visited, a:hover, a:active, a:focus
 	{
-     color:#FFFFFF; 
-     text-decoration:none; 
-     
+     color:#FFFFFF;
+     text-decoration:none;
+
 	}
 }
 /* Keep code small in tables on account of limited space */
@@ -856,11 +856,9 @@ h1[id] {
  */
 
 .highlight {
-  display: block; 
+  display: block;
   padding: 9px 14px;
   margin-bottom: 14px;
-  background-color: #f7f7f9;
-  border: 1px solid #e1e1e8;
   border-radius: 4px;
 }
 .highlight pre {
@@ -891,7 +889,7 @@ h1[id] {
   }
 }
 
-@media screen 
+@media screen
 and (min-width: 482px)
 and (max-width: 768px) {
   pre {

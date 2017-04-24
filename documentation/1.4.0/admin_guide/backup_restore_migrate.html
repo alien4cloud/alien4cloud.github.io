@@ -78,13 +78,13 @@ After unzipping the archive, the tool can be configured by editing the file <str
 
 <p>Restart elasticsearch so that the new configuration is taken into account :</p>
 
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">sudo /etc/init.d/elasticsearch restart</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">sudo /etc/init.d/elasticsearch restart</code></pre></div>
 
 <ul>
   <li>Mount shared file system between all your elasticsearch cluster nodes. Here’s an example with sshfs :</li>
 </ul>
 
-<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="c"># On the file server machine where elasticsearch backups will be hosted</span>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># On the file server machine where elasticsearch backups will be hosted</span>
 sudo adduser elasticsearch
 <span class="c"># Copy key file that enable ssh login for this user</span>
 sudo -u elasticsearch mkdir /home/elasticsearch/.ssh
@@ -109,11 +109,11 @@ sudo -u elasticsearch rm /home/elasticsearch/backups/test.txt</code></pre></div>
 
 <p>To backup Alien4Cloud, from the root directory of the unzipped tool, perform the command:</p>
 
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">./backup-restore-tool.sh -backup -n backup121</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">./backup-restore-tool.sh -backup -n backup121</code></pre></div>
 
 <p>For more commands and options, you can have the help doc displayed:</p>
 
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">./backup-restore-tool.sh -help</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">./backup-restore-tool.sh -help</code></pre></div>
 
 <h2 id="perform-restore">Perform restore</h2>
 
@@ -127,7 +127,7 @@ Anyway, if you 100% sure that restore operation has no impact on clouds or plugi
 
 <p>To restore Alien4Cloud, from the root directory of the unzipped tool, perform the command:</p>
 
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">./backup-restore-tool.sh -restore -n backup121</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">./backup-restore-tool.sh -restore -n backup121</code></pre></div>
 
 <p>Once data is restored, you can restart Alien4Cloud server if needed.</p>
 
@@ -227,17 +227,17 @@ Here is a sample:</p>
   <li>From the root directory of the unzipped tool, perform the command:</li>
 </ul>
 
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">./migration-tool.sh -migrate -v 1.2.0</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">./migration-tool.sh -migrate -v 1.2.0</code></pre></div>
 
 <p>For more commands and options, you can have the help doc displayed:</p>
 
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">./migration-tool.sh -help</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">./migration-tool.sh -help</code></pre></div>
 
 <ul>
   <li>Start your new Alien4cloud configured properly, after migration</li>
 </ul>
 
-<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nb">cd</span> /opt/alien4cloud/alien4cloud-premium/
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">cd</span> /opt/alien4cloud/alien4cloud-premium/
 ./alien4cloud.sh</code></pre></div>
 
 <ul>
