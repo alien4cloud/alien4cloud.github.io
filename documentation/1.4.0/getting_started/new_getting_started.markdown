@@ -133,7 +133,7 @@ You can also read more on the alien user guide's [application management section
 
 # Check that your application is up and running
 
-On the runtime view, you can have the detailed deployment progress. Click on the side bar sub-menu ![application runtime](../../images/1.4.0/getting_started/runtime.png){: .inline},
+On the runtime view, you can have the detailed deployment progress. Click on the side bar sub-menu ![application runtime](../../images/1.4.0/getting_started/runtime.png){: height="26px" .inline},
 
 ![Runtime view](../../images/1.4.0/getting_started/runtime_view.png){: style="width: 600px; margin: 0 auto"}
 
