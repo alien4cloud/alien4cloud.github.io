@@ -26,7 +26,13 @@ ga('send', 'pageview');
           <h1 class="pull-left" style="margin-top: 0px;">Manage versions</h1>
           <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.4.0/user_guide/application_versions.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
         </div>
-        <h1 id="configure-versions">Configure versions</h1>
+        <h1 id="version-numbers">Version numbers</h1>
+
+<p>Version numbers follows the maven convention i.e <major>.<minor>.<incremental>-<qualifier>. Every version that contains the string `-SNAPSHOT` is recognized as SNAPSHOT. This means that in alien4cloud, just like in maven a version as 1.0.0-SNAPSHOT-ALPHA or 1.0.0-ALPHA-SNAPSHOTfoo is recognized as SNAPSHOT and can be modified. We however recommend you to keep -SNAPSHOT at the end of the version string.</qualifier></incremental></minor></major></p>
+
+<p>When creating topology variants you will assign a qualifier to the variant. Alien 4 cloud will automatically add the variant qualifier as first qualifier in the variant version string. So if your version is 1.0.0-SNAPSHOT and your variant qualifier is DEV the version number will be 1.0.0-DEV-SNAPSHOT, if the version number was 1.0.0-SNAPSHOT-ALPHA the variant version number will be 1.0.0-DEV-SNAPSHOT-ALPHA etc.</p>
+
+<h1 id="configure-versions">Configure versions</h1>
 
 <p>While alien 4 cloud creates a default version, you will soon have to create new versions for your application. In alien 4 cloud a version can have multiple topologies variant that we call Topology Versions.</p>
 
