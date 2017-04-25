@@ -8,7 +8,7 @@ node_name: application_versions
 weight: 20
 ---
 
-Version numbers follows the maven convention i.e <major>.<minor>.<incremental>-<qualifier>. Every version that contains the string `-SNAPSHOT` is recognized as SNAPSHOT. This means that in alien4cloud, just like in maven a version as 1.0.0-SNAPSHOT-ALPHA or 1.0.0-ALPHA-SNAPSHOTfoo is recognized as SNAPSHOT and can be modified. We however recommend you to keep -SNAPSHOT at the end of the version string.
+Version numbers follows the maven convention i.e < major >.< minor >.< incremental >-< qualifier >. Every version that contains the string `-SNAPSHOT` is recognized as SNAPSHOT. This means that in alien4cloud, just like in maven a version as 1.0.0-SNAPSHOT-ALPHA or 1.0.0-ALPHA-SNAPSHOTfoo is recognized as SNAPSHOT and can be modified. We however recommend you to keep -SNAPSHOT at the end of the version string.
 
 When creating topology variants you will assign a qualifier to the variant. Alien 4 cloud will automatically add the variant qualifier as first qualifier in the variant version string. So if your version is 1.0.0-SNAPSHOT and your variant qualifier is DEV the version number will be 1.0.0-DEV-SNAPSHOT, if the version number was 1.0.0-SNAPSHOT-ALPHA the variant version number will be 1.0.0-DEV-SNAPSHOT-ALPHA etc.
 
