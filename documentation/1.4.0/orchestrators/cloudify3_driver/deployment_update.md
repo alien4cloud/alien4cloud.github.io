@@ -10,15 +10,16 @@ weight: 6000
 
 Updating a deployment is the operation of modifying a running topology by adding/removing/modifying nodes. It's a kind of hot update.
 
-The deployment update feature of Cloudify is documented [here][http://docs.getcloudify.org/3.4.0/manager/update-deployment/].
+The deployment update feature of Cloudify is documented [here](http://docs.getcloudify.org/3.4.0/manager/update-deployment/).
 
-Obviously, we are not talking about some kind of magic here: when you upgrade a deployment, Cloudify will compare both topologies and will try to discover the way to go from the original to the updated one (add nodes that need to be added, remove thoses that need to be removed ...). 
+Obviously, we are not talking about some kind of magic here: when you upgrade a deployment, Cloudify will compare both topologies and will try to discover the way to go from the original to the updated one (add nodes that need to be added, remove thoses that need to be removed ...).
 
 You can:
 
 - add nodes
 - add relationships
 - changes properties (note that the node is not reinstalled when a property is updated, so the modification of a property will only impact added relationships that eventually refer to this updated property).
+- rename nodes
 - remove nodes
 - remove relationships
 
@@ -43,7 +44,7 @@ In the following section, we will illustrate fews simple update scenarios and th
 
 ### Add a node
 
-A node nammed *Source* is hosted on a node named *Host*. 
+A node nammed *Source* is hosted on a node named *Host*.
 
 ![Before adding node](../../images/cloudify3_driver/deployment_upgrade/add_node_before.png)
 
@@ -112,7 +113,7 @@ Here is the sequence of operations that will be trigerred during deployment upda
 
 ### Add a relationship
 
-A node nammed *Source* and another named *Target* are hosted on a node named *Host*. 
+A node nammed *Source* and another named *Target* are hosted on a node named *Host*.
 
 ![Before adding relationship](../../images/cloudify3_driver/deployment_upgrade/add_relationship_before.png)
 
@@ -146,7 +147,7 @@ Here is the sequence of operations that will be trigerred during deployment upda
 
 ### Add a component and a relationship (new node is target of the relationship)
 
-A node nammed *Source* is hosted on a node named *Host*. 
+A node nammed *Source* is hosted on a node named *Host*.
 
 ![Before adding target](../../images/cloudify3_driver/deployment_upgrade/add_target_before.png)
 
@@ -225,7 +226,7 @@ Here is the sequence of operations that will be trigerred during deployment upda
 
 ### Add a component and a relationship (new node is source of the relationship)
 
-A node nammed *Target* is hosted on a node nammed *Host*. 
+A node nammed *Target* is hosted on a node nammed *Host*.
 
 ![Before adding source](../../images/cloudify3_driver/deployment_upgrade/add_source_before.png)
 
@@ -318,13 +319,13 @@ Here is the sequence of operations that will be trigerred during deployment upda
       <td>Source</td>
       <td>add_target</td>
       <td>Target</td>
-    </tr> 
+    </tr>
   </tbody>
 </table>
 
 ### Remove a node
 
-A node nammed *Source* is hosted on a node named *Host*. 
+A node nammed *Source* is hosted on a node named *Host*.
 
 ![Before removing node](../../images/cloudify3_driver/deployment_upgrade/remove_node_before.png)
 
@@ -488,13 +489,13 @@ Here is the sequence of operations that will be trigerred during deployment upda
   </tbody>
 </table>
 
-### Renaming a node 
+### Renaming a node
 
 {%warning%}
 Renaming a node is just like removing it and adding another (with the new name).
 {%endwarning%}
 
-A node nammed *Source* is hosted on a node named *Host*. 
+A node nammed *Source* is hosted on a node named *Host*.
 
 ![Before ](../../images/cloudify3_driver/deployment_upgrade/rename_node_before.png)
 
@@ -581,9 +582,9 @@ Here is the sequence of operations that will be trigerred during deployment upda
   </tbody>
 </table>
 
-### Adding a node, removing another 
+### Adding a node, removing another
 
-A node nammed *Source* is hosted on a node named *Host*. 
+A node nammed *Source* is hosted on a node named *Host*.
 
 ![Before ](../../images/cloudify3_driver/deployment_upgrade/replace_node_before.png)
 
