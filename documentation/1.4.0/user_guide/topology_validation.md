@@ -15,4 +15,4 @@ The current validation is the validation of the last topology saved with the pen
 The validation of the last saved topology is important because it's the topology used in the deployment.
 Be sure to save a valid topology if you want to deploy.
 
-[![topology editor validation](../../images/1.4.0/user_guide/topology_editor_validation.png)](../../images/1.4.0/user_guide/topology_editor_validation.png)
+[![topology editor validation](../../images/1.4.0/user_guide/topology_editor/topology_editor_validation.png)](../../images/1.4.0/user_guide/topology_editor/topology_editor_validation.png)

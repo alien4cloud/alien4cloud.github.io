@@ -18,11 +18,11 @@ Alien 4 Cloud's editor supports manual definition and simple auto-resolving of d
 
 When you drag and drop a component from the catalog into the editor canvas, Alien4Cloud automatically adds the component's archive into the topology's dependency set.  When several versions of the same dependency archive are available in the catalog, you can choose between versions by clicking on the button below the archive's name.
 
-[![Choose dependency when adding a node](../../images/1.4.0/user_guide/dependencies/dragndrop_dependency.png)](../../images/1.4.0/user_guide/dependencies/dragndrop_dependency.png)
+[![Choose dependency when adding a node](../../images/1.4.0/user_guide/topology_editor/dragndrop_dependency.png)](../../images/1.4.0/user_guide/topology_editor/dragndrop_dependency.png)
 
 The same behavior applies when defining relationships between nodes, as shown below.
 
-[![Choose dependency when adding a relationship](../../images/1.4.0/user_guide/dependencies/relationship_dependency.png)](../../images/1.4.0/user_guide/dependencies/relationship_dependency.png)
+[![Choose dependency when adding a relationship](../../images/1.4.0/user_guide/topology_editor/relationship_dependency.png)](../../images/1.4.0/user_guide/topology_editor/relationship_dependency.png)
 
 ### Conflicts auto-resolving
 
@@ -39,13 +39,13 @@ To display a table of a topology's dependencies, unfold the **dependencies panel
 You can change an archive version by clicking the change version button. Alien4Cloud will automatically launch the necessary recovery operations. If there are missing types in the new version that could affect the topology, then the change is not acknowledged and an error is raised.  
 If needed, transitive dependencies may also be updated to match the newer version.
 
-[![Manual changing of a dependency version](../../images/1.4.0/user_guide/dependencies/dependencies_change.png)](../../images/1.4.0/user_guide/dependencies/dependencies_change.png)
+[![Manual changing of a dependency version](../../images/1.4.0/user_guide/topology_editor/dependencies_change.png)](../../images/1.4.0/user_guide/topology_editor/dependencies_change.png)
 
 ### Transitive dependency conflicts
 
 Transitive dependency conflicts occur when two or more direct dependencies of the topology depend on the same transitive dependency, but with different versions. If so, conflicts are listed in the dependency panel. The topology should theoretically be deployable, but types compatibility is not guaranteed. You may resolve conflicts by manually changing dependency versions.
 
-[![Transitive dependency conflict between jdk-type and tosca-normative-types](../../images/1.4.0/user_guide/dependencies/dependency_conflict.png)](../../images/1.4.0/user_guide/dependencies/dependency_conflict.png)
+[![Transitive dependency conflict between jdk-type and tosca-normative-types](../../images/1.4.0/user_guide/topology_editor/dependency_conflict.png)](../../images/1.4.0/user_guide/topology_editor/dependency_conflict.png)
 
 In the example above, the topology is composed of two node templates:
 

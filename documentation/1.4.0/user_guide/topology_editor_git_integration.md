@@ -11,11 +11,11 @@ weight: 120
 When you create a new topology or application, Alien4Cloud also create a related local git repository.  
 It allows users to benefit from the git history for every modifications that occurs on the topology and it also enable users to push to or to pull from a remote repository.
 
-![Git buttons](../../images/user_guide/user_guide_topology_template_git_buttons.png)<br>
+![Git buttons](../../images/1.4.0/user_guide/topology_editor/git_buttons.png)<br>
 
 ## Define your remote git repository
 
-![Git remote](../../images/user_guide/user_guide_topology_template_git_config.png)<br>
+![Git remote](../../images/1.4.0/user_guide/topology_editor/git_config.png)<br>
 
 You will have to configure the remote git URL before being able to push or pull.
 
