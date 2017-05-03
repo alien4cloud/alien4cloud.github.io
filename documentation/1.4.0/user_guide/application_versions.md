@@ -28,19 +28,42 @@ This screen displays all the versions of the application (by default only a sing
 
 You can create a new version by clicking the __New version__ button ![New version](../../images/1.4.0/user_guide/applications/new_version_button.png){: height="26px" .inline}. Once clicked the new version modal will open so you can configure the new version.
 
-![Create new version from previous](../../images/1.4.0/user_guide/applications/new_version_modal_previous.png)
-
 * __Version number__: This is the number of the new version to create. It must be unique for this application and must follow the maven (and TOSCA) version pattern.
 * __Description__: Optional description for this version.
-* __Initialize topology from__: When creating a new version alien 4 cloud allow you to initialize one or multiple topology versions for this application version. The default option (Previous version) allow you to duplicate all the topology versions from a previous application version for the new application version. Other options are described below.
+* __Initialize topology from__: When creating a new version alien 4 cloud allow you to initialize one or multiple topology versions for this application version. The default option is (_Previous version_).
 
+{%inittab%}
+{% tabcontent From previous version %}
+![Create new version from previous](../../images/1.4.0/user_guide/applications/new_version_modal_previous.png)
+
+This option allow you to duplicate all the topology versions from a previous application version for the new application version.
+{%endtabcontent%}
+
+{% tabcontent From Topology template %}
 ![Create new version from template](../../images/1.4.0/user_guide/applications/new_version_modal_template.png)
 
-When choosing the template creation only a single application topology version will be created. The associated topology will be based on the selected template.
+When choosing the template creation, only a single application topology version will be created. The associated topology will be based on the selected template.
+{%endtabcontent%}
 
+{% tabcontent From scratch %}
 ![Create new version from scratch](../../images/1.4.0/user_guide/applications/new_version_modal_scratch.png)
 
-When choosing the template creation only a single application topology version will be created. The associated topology will be empty.
+When choosed, only a single application topology version will be created. The associated topology will be empty.
+{%endtabcontent%}
+{%endinittab%}
+
+## Update version
+The _description_ field of a version can be updated anytime.  
+However it is not the case for the version number. First of all, a __released__ version number __CANNOT BE UPDATED__. Therefore, make sure your version is a _SNAPSHOT_ one before trying to update.
+The table below sumarize the cases when a version number update can be done:
+
+{: .table .table-bordered}
+| State | Description | Updatable |
+|:---------|:------------|
+| Unused | The version is not yet assigned to an environment | YES |
+| Assigned | The version is assigned to an environment and maybe configured for a future deployment. | YES |
+| Deployed | The version is assigned to a deployed environment | NO |
+| Exposed as Service | The version is assigned to an environment (deployed or not), which is exposed as a service.| NO |
 
 ## Delete version
 
