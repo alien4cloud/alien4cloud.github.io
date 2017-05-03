@@ -46,21 +46,68 @@ ga('send', 'pageview');
 
 <p>You can create a new version by clicking the <strong>New version</strong> button <img src="../../images/1.4.0/user_guide/applications/new_version_button.png" alt="New version" height="26px" class="inline" />. Once clicked the new version modal will open so you can configure the new version.</p>
 
-<p><img src="../../images/1.4.0/user_guide/applications/new_version_modal_previous.png" alt="Create new version from previous" /></p>
-
 <ul>
   <li><strong>Version number</strong>: This is the number of the new version to create. It must be unique for this application and must follow the maven (and TOSCA) version pattern.</li>
   <li><strong>Description</strong>: Optional description for this version.</li>
-  <li><strong>Initialize topology from</strong>: When creating a new version alien 4 cloud allow you to initialize one or multiple topology versions for this application version. The default option (Previous version) allow you to duplicate all the topology versions from a previous application version for the new application version. Other options are described below.</li>
+  <li><strong>Initialize topology from</strong>: When creating a new version alien 4 cloud allow you to initialize one or multiple topology versions for this application version. The default option is (<em>Previous version</em>).</li>
 </ul>
 
+<div class="tabsection"><ul class="nav nav-tabs"></ul><div class="tab-content">
+<div class="tab-pane" id="from_previous_version" title="From previous version">
+<p><img src="../../images/1.4.0/user_guide/applications/new_version_modal_previous.png" alt="Create new version from previous" /></p>
+
+<p>This option allow you to duplicate all the topology versions from a previous application version for the new application version.</p>
+</div>
+
+<div class="tab-pane" id="from_topology_template" title="From Topology template">
 <p><img src="../../images/1.4.0/user_guide/applications/new_version_modal_template.png" alt="Create new version from template" /></p>
 
-<p>When choosing the template creation only a single application topology version will be created. The associated topology will be based on the selected template.</p>
+<p>When choosing the template creation, only a single application topology version will be created. The associated topology will be based on the selected template.</p>
+</div>
 
+<div class="tab-pane" id="from_scratch" title="From scratch">
 <p><img src="../../images/1.4.0/user_guide/applications/new_version_modal_scratch.png" alt="Create new version from scratch" /></p>
 
-<p>When choosing the template creation only a single application topology version will be created. The associated topology will be empty.</p>
+<p>When choosed, only a single application topology version will be created. The associated topology will be empty.</p>
+</div>
+</div></div>
+
+<h2 id="update-version">Update version</h2>
+<p>The <em>description</em> field of a version can be updated anytime.<br />
+However it is not the case for the version number. First of all, a <strong>released</strong> version number <strong>CANNOT BE UPDATED</strong>. Therefore, make sure your version is a <em>SNAPSHOT</em> one before trying to update.
+The table below sumarize the cases when a version number update can be done:</p>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">State</th>
+      <th style="text-align: left">Description</th>
+      <th>Updatable</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Unused</td>
+      <td style="text-align: left">The version is not yet assigned to an environment</td>
+      <td>YES</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Assigned</td>
+      <td style="text-align: left">The version is assigned to an environment and maybe configured for a future deployment.</td>
+      <td>YES</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Deployed</td>
+      <td style="text-align: left">The version is assigned to a deployed environment</td>
+      <td>NO</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Exposed as Service</td>
+      <td style="text-align: left">The version is assigned to an environment (deployed or not), which is exposed as a service.</td>
+      <td>NO</td>
+    </tr>
+  </tbody>
+</table>
 
 <h2 id="delete-version">Delete version</h2>
 
