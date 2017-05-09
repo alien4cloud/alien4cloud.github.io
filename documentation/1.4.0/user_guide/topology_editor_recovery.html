@@ -51,8 +51,8 @@ By analyzing the topology and matching it against the updated archive, the follo
 
 <ul>
   <li><strong>Delete a node template</strong> : If the type related to the Node template has been deleted from the archive</li>
-  <li><strong>Delete a relationship template</strong> : If the type related to the relationship template has been deleted from the archive, or if, the requirement / capability related to the relationship has been removed from the source / target node type.</li>
-  <li><strong>Rebuild a node / relationship template</strong> : If the type related to a Node/Relationship template has somehow change.</li>
+  <li><strong>Delete a relationship template</strong> : If the related type has been deleted from the archive, or if, the related requirement / capability has been removed from the source / target node type.</li>
+  <li><strong>Rebuild a node / relationship template</strong> : If the related type has somehow change.</li>
 </ul>
 
 <h2 id="reset-the-topology">Reset the topology</h2>
@@ -63,6 +63,37 @@ By analyzing the topology and matching it against the updated archive, the follo
 <h5>No rollback possible</h5>
 <p>Beware that these actions will automatically save the topology after being executed, then there is no way back with undo/redo mechanism.</p>
 </div>
+
+<h1 id="limitations">Limitations</h1>
+
+<p>Following are modifications that are not yet processed on topology recovery, along with some illustrations.</p>
+
+<h2 id="capability-type">Capability type</h2>
+<p>Changing the type of a capability that is already a relationship&#8217;s target, will not leads to the validation / rebuilding of the related relationships. Therefore after recovering, you might end up with a relationship with an invalid targeted capability.</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="c1">## original archive</span>
+<span class="l-Scalar-Plain">node_types</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">alien.test.nodes.TestComponent</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">capabilities</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">capa_to_be_changed</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">alien.test.capabilities.CapaToBeChanged</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="c1">## Updated archive</span>
+<span class="l-Scalar-Plain">node_types</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">alien.test.nodes.TestComponent</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">capabilities</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">capa_to_be_changed</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">alien.test.capabilities.CapaToBeChanged2</span> <span class="c1">#updated capability type</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="c1">## Topology template</span>
+<span class="l-Scalar-Plain">node_templates</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">TestComponentSource</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">alien.test.nodes.TestComponentSource</span>
+    <span class="l-Scalar-Plain">requirements</span><span class="p-Indicator">:</span>
+      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">capa_to_be_changed</span><span class="p-Indicator">:</span>   <span class="c1">## will not be rebuilt or validated this relationship against the new targeted capability type</span>
+        <span class="l-Scalar-Plain">node</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">TestComponent</span>
+        <span class="l-Scalar-Plain">capability</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">alien.test.capabilities.CapaToBeChanged</span></code></pre></div>
+
 
         <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.4.0/user_guide/topology_editor_recovery.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
 	  </div>
