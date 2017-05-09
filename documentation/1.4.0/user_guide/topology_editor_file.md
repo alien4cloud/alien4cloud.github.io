@@ -21,11 +21,19 @@ To select your file click on ![upload button](../../images/1.4.0/user_guide/uplo
 
 # Update the YAML of your topology
 
-In previous Alien version a view to see the YAML of your topology exist, useful to export the YAML but only readable.
-In this new verison you can directly edit your YAML to, for example, override an existing relationships or create a new capability type.
+Alien4cloud provides a view to see the YAML of your topology exists, useful to export the YAML.  
+Since `1.3.0`,  you can directly edit your YAML to, for example, override an existing relationships or create a new capability type.
 Don't forget to save your change by clicking on the save button.
 
 [![YAML editor](../../images/1.4.0/user_guide/editor-yaml-view.png)](../../images/1.4.0/user_guide/editor-yaml-view.png)
+
+##Error handling
+The __validation__ of the YAML is __done on saving__. If errors occurs, you will be displayed a popup where you can se what exactly when wrong.
+
+[![YAML editor](../../images/1.4.0/user_guide/topology_editor/yaml_editor_validation_popup.png)](../../images/1.4.0/user_guide/topology_editor/yaml_editor_validation_popup.png)
+
+In addition, you can see errors annotations on the left of the line where the error occur. A mouser over the annotation will display the error in question.
+[![YAML editor](../../images/1.4.0/user_guide/topology_editor/yaml_editor_validation_annotation.png)](../../images/1.4.0/user_guide/topology_editor/yaml_editor_validation_annotation.png)
 
 {%warning%}
 <h5>Limitations</h5>
