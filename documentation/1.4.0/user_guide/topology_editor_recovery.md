@@ -29,8 +29,8 @@ choosing this, alien4cloud will try to recover the topology and make it consiste
 By analyzing the topology and matching it against the updated archive, the following can be decided:
 
   * **Delete a node template** : If the type related to the Node template has been deleted from the archive
-  * **Delete a relationship template** : If the type related to the relationship template has been deleted from the archive, or if, the requirement / capability related to the relationship has been removed from the source / target node type.
-  * **Rebuild a node / relationship template** : If the type related to a Node/Relationship template has somehow change.
+  * **Delete a relationship template** : If the related type has been deleted from the archive, or if, the related requirement / capability has been removed from the source / target node type.
+  * **Rebuild a node / relationship template** : If the related type has somehow change.
 
 ## Reset the topology
 
@@ -40,3 +40,39 @@ This option will delete everything within the topology, leaving it completely em
 <h5>No rollback possible</h5>
 Beware that these actions will automatically save the topology after being executed, then there is no way back with undo/redo mechanism.
 {%endwarning%}
+
+#Limitations
+
+Following are modifications that are not yet processed on topology recovery, along with some illustrations.
+
+## Capability type
+Changing the type of a capability that is already a relationship's target, will not leads to the validation / rebuilding of the related relationships. Therefore after recovering, you might end up with a relationship with an invalid targeted capability.
+
+{% highlight yaml %}
+## original archive
+node_types:
+  alien.test.nodes.TestComponent:
+    capabilities:
+      capa_to_be_changed:
+        type: alien.test.capabilities.CapaToBeChanged
+{%endhighlight%}
+
+{% highlight yaml %}
+## Updated archive
+node_types:
+  alien.test.nodes.TestComponent:
+    capabilities:
+      capa_to_be_changed:
+        type: alien.test.capabilities.CapaToBeChanged2 #updated capability type
+{%endhighlight%}
+
+{% highlight yaml %}
+## Topology template
+node_templates:
+  TestComponentSource:
+    type: alien.test.nodes.TestComponentSource
+    requirements:
+      - capa_to_be_changed:   ## will not be rebuilt or validated this relationship against the new targeted capability type
+        node: TestComponent
+        capability: alien.test.capabilities.CapaToBeChanged
+{%endhighlight%}
