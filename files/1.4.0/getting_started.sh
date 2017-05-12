@@ -17,13 +17,13 @@ else
 fi
 
 echo "Downloading alien4cloud"
-curl -k -o "alien4cloud-dist-1.4.0-SNAPSHOT.tar.gz" -O "https://fastconnect.org/maven/content/repositories/opensource-snapshot/alien4cloud/alien4cloud-dist/1.4.0-SNAPSHOT/alien4cloud-dist-1.4.0-20170424.060246-14-dist.tar.gz" || error_exit $? "Failed downloading alien4cloud"
+curl -k -o "alien4cloud-dist-1.4.0-SNAPSHOT.tar.gz" -O "https://fastconnect.org/maven/service/local/repositories/opensource-snapshot/content/alien4cloud/alien4cloud-dist/1.4.0-RC3-SNAPSHOT/alien4cloud-dist-1.4.0-RC3-20170512.052210-3-dist.tar.gz" || error_exit $? "Failed downloading alien4cloud"
 
 echo "Downloading puccini"
-curl -k -o "puccini-cli-1.4.0-SNAPSHOT.tgz" -O "https://fastconnect.org/maven/content/repositories/opensource-snapshot/org/alien4cloud/puccini/puccini-cli/1.4.0-SNAPSHOT/puccini-cli-1.4.0-20170421.165648-1.tgz" || error_exit $? "Failed downloading puccini"
+curl -k -o "puccini-cli-1.4.0-SNAPSHOT.tgz" -O "https://fastconnect.org/maven/content/repositories/opensource-snapshot/org/alien4cloud/puccini/puccini-cli/1.4.0-RC3-SNAPSHOT/puccini-cli-1.4.0-RC3-SNAPSHOT.tgz" || error_exit $? "Failed downloading puccini"
 
 echo "Downloading alien4cloud puccini plugin"
-curl -k -o "alien4cloud-puccini-plugin-1.4.0-SNAPSHOT.zip" -O "https://fastconnect.org/maven/content/repositories/opensource-snapshot/alien4cloud/alien4cloud-puccini-plugin/1.4.0-SNAPSHOT/alien4cloud-puccini-plugin-1.4.0-20170421.133520-2.zip" || error_exit $? "Failed downloading alien4cloud puccini plugin"
+curl -k -o "alien4cloud-puccini-plugin-1.4.0-SNAPSHOT.zip" -O "https://fastconnect.org/maven/content/repositories/opensource-snapshot/alien4cloud/alien4cloud-puccini-plugin/1.4.0-RC3-SNAPSHOT/alien4cloud-puccini-plugin-1.4.0-RC3-20170511.072424-1.zip" || error_exit $? "Failed downloading alien4cloud puccini plugin"
 
 echo "Extracting alien4cloud"
 tar zxvf alien4cloud-dist-1.4.0-SNAPSHOT.tar.gz
