@@ -79,7 +79,7 @@ curl "$ALIEN_URL/rest/latest/orchestrators/$ORCHESTRATORID/configuration" \
 -s -b curlcookie.txt \
 -H 'Content-Type: application/json; charset=UTF-8' \
 -H 'Accept: application/json, text/plain, */*' \
---data-binary "{\"pucciniHome\":\"$INSTALL_DIR/puccini-cli-1.4.0-SNAPSHOT\"}" > /dev/null
+--data-binary "{\"pucciniHome\":\"$INSTALL_DIR/puccini-cli-1.4.0-RC3-SNAPSHOT\"}" > /dev/null
 
 echo "Enable orchestrator (takes a few secs as it checks and configure puccini)"
 curl "$ALIEN_URL/rest/latest/orchestrators/$ORCHESTRATORID/instance" \

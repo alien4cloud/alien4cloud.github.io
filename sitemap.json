@@ -2304,13 +2304,6 @@
 	},
 
 	{
-		"url": "/documentation/1.2.0/devops_guide/tosca_grammar/get_attribute_definition.html", 
-		"section": "Documentation", 
-		"value": "get_attribute",
-		"tokens": [ "get_attribute"]
-	},
-
-	{
 		"url": "/documentation/1.3.0/devops_guide/tosca_grammar/get_attribute_definition.html", 
 		"section": "Documentation", 
 		"value": "get_attribute",
@@ -2319,6 +2312,13 @@
 
 	{
 		"url": "/documentation/1.4.0/devops_guide/tosca_grammar/get_attribute_definition.html", 
+		"section": "Documentation", 
+		"value": "get_attribute",
+		"tokens": [ "get_attribute"]
+	},
+
+	{
+		"url": "/documentation/1.2.0/devops_guide/tosca_grammar/get_attribute_definition.html", 
 		"section": "Documentation", 
 		"value": "get_attribute",
 		"tokens": [ "get_attribute"]
@@ -2346,7 +2346,7 @@
 	},
 
 	{
-		"url": "/documentation/1.2.0/devops_guide/tosca_grammar/get_operation_output_definition.html", 
+		"url": "/documentation/1.3.0/devops_guide/tosca_grammar/get_operation_output_definition.html", 
 		"section": "Documentation", 
 		"value": "get_operation_output",
 		"tokens": [ "get_operation_output"]
@@ -2360,17 +2360,10 @@
 	},
 
 	{
-		"url": "/documentation/1.3.0/devops_guide/tosca_grammar/get_operation_output_definition.html", 
+		"url": "/documentation/1.2.0/devops_guide/tosca_grammar/get_operation_output_definition.html", 
 		"section": "Documentation", 
 		"value": "get_operation_output",
 		"tokens": [ "get_operation_output"]
-	},
-
-	{
-		"url": "/documentation/1.4.0/devops_guide/tosca_grammar/get_property_definition.html", 
-		"section": "Documentation", 
-		"value": "get_property",
-		"tokens": [ "get_property"]
 	},
 
 	{
@@ -2388,10 +2381,10 @@
 	},
 
 	{
-		"url": "/documentation/1.3.0/getting_started/getting_started.html", 
+		"url": "/documentation/1.4.0/devops_guide/tosca_grammar/get_property_definition.html", 
 		"section": "Documentation", 
-		"value": "Getting started",
-		"tokens": [ "Getting","started"]
+		"value": "get_property",
+		"tokens": [ "get_property"]
 	},
 
 	{
@@ -2402,10 +2395,17 @@
 	},
 
 	{
-		"url": "/documentation/1.4.0/getting_started/getting_started.html", 
+		"url": "/documentation/1.3.0/getting_started/getting_started.html", 
 		"section": "Documentation", 
 		"value": "Getting started",
 		"tokens": [ "Getting","started"]
+	},
+
+	{
+		"url": "/documentation/1.2.0/devops_guide/getting_started_with_tosca_component/getting_started_with_tosca_component.html", 
+		"section": "Documentation", 
+		"value": "Getting started with a TOSCA component",
+		"tokens": [ "Getting","started","with","a","TOSCA","component"]
 	},
 
 	{
@@ -2423,21 +2423,21 @@
 	},
 
 	{
-		"url": "/documentation/1.2.0/devops_guide/getting_started_with_tosca_component/getting_started_with_tosca_component.html", 
+		"url": "/documentation/1.4.0/getting_started/going_further_cfy_boot.html", 
 		"section": "Documentation", 
-		"value": "Getting started with a TOSCA component",
-		"tokens": [ "Getting","started","with","a","TOSCA","component"]
+		"value": "Launch Cloudify on AWS",
+		"tokens": [ "Launch","Cloudify","on","AWS"]
 	},
 
 	{
-		"url": "/documentation/1.3.0/admin_guide/ha.html", 
+		"url": "/documentation/1.4.0/admin_guide/ha.html", 
 		"section": "Documentation", 
 		"value": "Alien High Availability",
 		"tokens": [ "Alien","High","Availability"]
 	},
 
 	{
-		"url": "/documentation/1.4.0/admin_guide/ha.html", 
+		"url": "/documentation/1.3.0/admin_guide/ha.html", 
 		"section": "Documentation", 
 		"value": "Alien High Availability",
 		"tokens": [ "Alien","High","Availability"]
@@ -2458,17 +2458,17 @@
 	},
 
 	{
+		"url": "/documentation/1.2.0/index.html", 
+		"section": "Documentation", 
+		"value": "ALIEN 4 Cloud - 1.2.0 - Documentation",
+		"tokens": [ "ALIEN","4","Cloud","","1.2.0","","Documentation"]
+	},
+
+	{
 		"url": "/documentation/1.3.0/index.html", 
 		"section": "Documentation", 
 		"value": "ALIEN 4 Cloud - 1.3.0 - Documentation",
 		"tokens": [ "ALIEN","4","Cloud","","1.3.0","","Documentation"]
-	},
-
-	{
-		"url": "/documentation/1.3.0/orchestrators/cloudify3_driver/index.html", 
-		"section": "Documentation", 
-		"value": "Cloudify 3",
-		"tokens": [ "Cloudify","3"]
 	},
 
 	{
@@ -2479,17 +2479,10 @@
 	},
 
 	{
-		"url": "/documentation/1.4.0/index.html", 
+		"url": "/documentation/1.3.0/orchestrators/cloudify3_driver/index.html", 
 		"section": "Documentation", 
-		"value": "ALIEN 4 Cloud - 1.4.0 - Documentation",
-		"tokens": [ "ALIEN","4","Cloud","","1.4.0","","Documentation"]
-	},
-
-	{
-		"url": "/documentation/1.2.0/index.html", 
-		"section": "Documentation", 
-		"value": "ALIEN 4 Cloud - 1.2.0 - Documentation",
-		"tokens": [ "ALIEN","4","Cloud","","1.2.0","","Documentation"]
+		"value": "Cloudify 3",
+		"tokens": [ "Cloudify","3"]
 	},
 
 	{
@@ -2514,10 +2507,24 @@
 	},
 
 	{
+		"url": "/documentation/1.4.0/index.html", 
+		"section": "Documentation", 
+		"value": "ALIEN 4 Cloud - 1.4.0 - Documentation",
+		"tokens": [ "ALIEN","4","Cloud","","1.4.0","","Documentation"]
+	},
+
+	{
 		"url": "/index.html", 
 		"section": "", 
 		"value": "ALIEN 4 Cloud",
 		"tokens": [ "ALIEN","4","Cloud"]
+	},
+
+	{
+		"url": "/documentation/1.2.0/admin_guide/index.html", 
+		"section": "Documentation", 
+		"value": "Administration Guide",
+		"tokens": [ "Administration","Guide"]
 	},
 
 	{
@@ -2529,13 +2536,6 @@
 
 	{
 		"url": "/documentation/1.4.0/admin_guide/index.html", 
-		"section": "Documentation", 
-		"value": "Administration Guide",
-		"tokens": [ "Administration","Guide"]
-	},
-
-	{
-		"url": "/documentation/1.2.0/admin_guide/index.html", 
 		"section": "Documentation", 
 		"value": "Administration Guide",
 		"tokens": [ "Administration","Guide"]
@@ -2556,13 +2556,6 @@
 	},
 
 	{
-		"url": "/documentation/1.4.0/orchestrators/marathon_driver/install_config.html", 
-		"section": "Documentation", 
-		"value": "Installing and configuring",
-		"tokens": [ "Installing","and","configuring"]
-	},
-
-	{
 		"url": "/documentation/1.2.0/orchestrators/cloudify3_driver/install_config.html", 
 		"section": "Documentation", 
 		"value": "Installing and configuring",
@@ -2571,6 +2564,13 @@
 
 	{
 		"url": "/documentation/1.4.0/orchestrators/cloudify3_driver/install_config.html", 
+		"section": "Documentation", 
+		"value": "Installing and configuring",
+		"tokens": [ "Installing","and","configuring"]
+	},
+
+	{
+		"url": "/documentation/1.4.0/orchestrators/marathon_driver/install_config.html", 
 		"section": "Documentation", 
 		"value": "Installing and configuring",
 		"tokens": [ "Installing","and","configuring"]
@@ -2598,7 +2598,7 @@
 	},
 
 	{
-		"url": "/documentation/1.2.0/devops_guide/tosca_grammar/interface_definition.html", 
+		"url": "/documentation/1.4.0/devops_guide/tosca_grammar/interface_definition.html", 
 		"section": "Documentation", 
 		"value": "Interface definition",
 		"tokens": [ "Interface","definition"]
@@ -2612,7 +2612,7 @@
 	},
 
 	{
-		"url": "/documentation/1.4.0/devops_guide/tosca_grammar/interface_definition.html", 
+		"url": "/documentation/1.2.0/devops_guide/tosca_grammar/interface_definition.html", 
 		"section": "Documentation", 
 		"value": "Interface definition",
 		"tokens": [ "Interface","definition"]
@@ -2985,8 +2985,8 @@
 	{
 		"url": "/documentation/1.4.0/getting_started/new_getting_started.html", 
 		"section": "Documentation", 
-		"value": "New Getting started (alpha)",
-		"tokens": [ "New","Getting","started","(alpha)"]
+		"value": "Getting started",
+		"tokens": [ "Getting","started"]
 	},
 
 	{

@@ -44,7 +44,7 @@ For that to be done, you have to create a keystore, and eventually a truststore 
 <p>In case you only want the server to be authenticated before the clients, you need specify the location of the keystore, by adding the following options,  </p>
 
 <div class="tabsection"><ul class="nav nav-tabs"></ul><div class="tab-content">
-<div class="tab-pane" id="yaml_configuration" title="YAML configuration">
+<div class="tab-pane" title="YAML configuration">
 <div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">server</span><span class="p-Indicator">:</span>
   <span class="l-Scalar-Plain">port</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">8080</span> <span class="c1"># You might want to change the port to a normalize secured one</span>
   <span class="p-Indicator">[</span><span class="nv">...</span><span class="p-Indicator">]</span>
@@ -70,7 +70,7 @@ For that to be done, you have to create a keystore, and eventually a truststore 
 
 </div>
 
-<div class="tab-pane" id="java_options" title="JAVA options">
+<div class="tab-pane" title="JAVA options">
 <div class="highlight"><pre><code class="language-bash" data-lang="bash">-Dserver.ssl.key-store<span class="o">=</span>path/to/your/server-keystore/server-keystore.jks
 -Dserver.ssl.key-store-password<span class="o">=</span>keyStore-password
 -Dserver.ssl.key-password<span class="o">=</span>key-password</code></pre></div>

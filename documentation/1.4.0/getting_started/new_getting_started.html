@@ -8,7 +8,7 @@
 ga('create', 'UA-73216650-1', 'auto');
 ga('set', {
   page: '/documentation/1.4.0/getting_started/new_getting_started.html',
-  title: 'New Getting started (alpha)'
+  title: 'Getting started'
 });
 ga('send', 'pageview');
 
@@ -23,7 +23,7 @@ ga('send', 'pageview');
       <div id="content" class="col-sm-8 col-md-9">
     
         <div style="height: 50px;">
-          <h1 class="pull-left" style="margin-top: 0px;">New Getting started (alpha)</h1>
+          <h1 class="pull-left" style="margin-top: 0px;">Getting started</h1>
           <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.4.0/getting_started/new_getting_started.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
         </div>
         <p>This guide explains how to get started with Alien4Cloud and deploy your first application. The goal of this guide is not to provide an extensive cover of all the functionalities.</p>
@@ -32,7 +32,11 @@ ga('send', 'pageview');
 <div class="row"><ul class="nav nav-pills" id="summarypanel"></ul></div>
 <hr style="margin-top:5px; margin-bottom:5px;" />
 
-<h1 id="prerequisites">Prerequisites</h1>
+<h1 id="install-launch-and-configure-alien4cloud">Install, launch and configure alien4cloud</h1>
+
+<div class="tabsection"><ul class="nav nav-tabs"></ul><div class="tab-content">
+<div class="tab-pane" title="&lt;i class=&quot;fa fa-linux&quot;&gt;&lt;/i&gt; Linux / &lt;i class=&quot;fa fa-apple&quot;&gt;&lt;/i&gt; MacOS">
+<h2 id="prerequisites">Prerequisites</h2>
 
 <ul>
   <li><i class="fa fa-linux"></i> Linux or <i class="fa fa-apple"></i> MacOS version 10.12 (we use a native library for docker communication that has been compiled on this version and we are aware of issues on earlier versions).</li>
@@ -45,7 +49,7 @@ You need an up-to-date docker, especially if you are running on mac as we levera
   <li>A supported web browser (check versions <a href="/#/documentation/1.4.0/admin_guide/supported_platforms.html">here</a>).</li>
 </ul>
 
-<h1 id="install-launch-and-configure-alien4cloud">Install, launch and configure alien4cloud</h1>
+<h2 id="install-launch-and-configure-alien4cloud">Install, launch and configure alien4cloud</h2>
 
 <p>Open a terminal and launch the following command:</p>
 
@@ -64,6 +68,28 @@ You need an up-to-date docker, especially if you are running on mac as we levera
 <div class="note">
 <p>Except docker images we don’t store anything outside of the <em>alien4cloud-getstarted</em> directory. If you like to remove alien4cloud getting started components just remove this directory.</p>
 </div>
+
+</div>
+<div class="tab-pane" title="&lt;i class=&quot;fa fa-cubes&quot;&gt;&lt;/i&gt; Vagrant">
+<h2 id="prerequisites">Prerequisites</h2>
+
+<ul>
+  <li>Install <a href="https://www.virtualbox.org/wiki/Downloads" target="_blank">VirtualBox</a></li>
+  <li>Install <a href="https://www.vagrantup.com/downloads.html" target="_blank">Vagrant</a></li>
+</ul>
+
+<h2 id="download-and-start-the-box">Download and start the box</h2>
+
+<ul>
+  <li>Download the getting started Vagrantfile(https://raw.githubusercontent.com/alien4cloud/alien4cloud.github.io/sources/files/1.4.0/Vagrantfile){:target=”_blank”}</li>
+  <li>Put the Vagrantfile in a folder, all Vagrant meta data will be written there.</li>
+  <li>Go to the created folder in step 4. Execute ‘vagrant up’ (Note that the first launch may take some time as the box size is 3Gb)</li>
+  <li>Next time, when you bring up the machine, you should execute ‘vagrant up –provision’ instead of ‘vagrant up’ or else Alien won’t start. This is a limitation for the moment, Alien’s web app should have been packaged as service.</li>
+  <li>The URL of alien4cloud will be available at http://192.168.33.10:8088/</li>
+</ul>
+
+</div>
+</div></div>
 
 <h1 id="lets-play">Let’s play!</h1>
 
