@@ -32,8 +32,8 @@ module Jekyll
       end
 
       def add_div_for_tabcontent(context, code)
-        escapedTitle = @title.downcase.gsub(/(\s)/, "_").gsub(".", "_").gsub("+", "P")        
-      	output = "<div class='tab-pane' id='#{escapedTitle}' title='#{@title}'>"
+        escapedTitle = @title.downcase.gsub(/(\s)/, "_").gsub(".", "_").gsub("+", "P")
+      	output = "<div class='tab-pane' id='' title='#{@title}'>"
         output << Kramdown::Document.new(code).to_html
         output << "</div>"
       end

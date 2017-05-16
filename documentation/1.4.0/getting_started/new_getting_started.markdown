@@ -1,6 +1,6 @@
 ---
 layout: post
-title: New Getting started (alpha)
+title: Getting started
 root: ../
 categories: DOCUMENTATION-1.4.0
 parent: []
@@ -12,7 +12,12 @@ This guide explains how to get started with Alien4Cloud and deploy your first ap
 
 {% summary %}{% endsummary %}
 
-# Prerequisites
+# Install, launch and configure alien4cloud
+
+{%inittab%}
+{% tabcontent <i class="fa fa-linux"></i> Linux / <i class="fa fa-apple"></i> MacOS %}
+
+## Prerequisites
 
 * <i class="fa fa-linux"></i> Linux or <i class="fa fa-apple"></i> MacOS version 10.12 (we use a native library for docker communication that has been compiled on this version and we are aware of issues on earlier versions).
 * Curl: Our installation script leverage curl so ensure you have the command installed.
@@ -23,7 +28,7 @@ You need an up-to-date docker, especially if you are running on mac as we levera
 * Nothing running on port 8088: That's alien4cloud default port and as we just launch a4c in our getting started script we need this port free.
 * A supported web browser (check versions [here](/#/documentation/1.4.0/admin_guide/supported_platforms.html)).
 
-# Install, launch and configure alien4cloud
+## Install, launch and configure alien4cloud
 
 Open a terminal and launch the following command:
 
@@ -42,6 +47,25 @@ Yes, we do it all for you! So what's going on in this script ?
 {% note %}
 Except docker images we don't store anything outside of the _alien4cloud-getstarted_ directory. If you like to remove alien4cloud getting started components just remove this directory.
 {% endnote %}
+
+{%endtabcontent%}
+{% tabcontent <i class="fa fa-cubes"></i> Vagrant %}
+
+## Prerequisites
+
+* Install [VirtualBox](https://www.virtualbox.org/wiki/Downloads){:target="_blank"}
+* Install [Vagrant](https://www.vagrantup.com/downloads.html){:target="_blank"}
+
+## Download and start the box
+
+* Download the getting started Vagrantfile(https://raw.githubusercontent.com/alien4cloud/alien4cloud.github.io/sources/files/1.4.0/Vagrantfile){:target="_blank"}
+* Put the Vagrantfile in a folder, all Vagrant meta data will be written there.
+* Go to the created folder in step 4. Execute ‘vagrant up’ (Note that the first launch may take some time as the box size is 3Gb)
+* Next time, when you bring up the machine, you should execute ‘vagrant up --provision’ instead of ‘vagrant up’ or else Alien won’t start. This is a limitation for the moment, Alien’s web app should have been packaged as service.
+* The URL of alien4cloud will be available at http://192.168.33.10:8088/
+
+{%endtabcontent%}
+{%endinittab%}
 
 # Let's play!
 
