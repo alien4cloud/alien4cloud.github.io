@@ -7,7 +7,7 @@ encoding: UTF-8
 
 categories-list: ["DOCUMENTATION", "DOCUMENTATION-1.1.0", "DOCUMENTATION-1.2.0", "DOCUMENTATION-1.3.0", "DOCUMENTATION-1.4.0","RELEASE_NOTES", "DEVELOPER_GUIDE", "ROADMAP"]
 
-last-version: "1.4.0-RC1"
+last-version: "1.4.0-RC3"
 last-snapshot: "1.4.0-SNAPSHOT"
 pullrequesturl: http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/
 

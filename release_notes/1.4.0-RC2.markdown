@@ -1,0 +1,46 @@
+---
+layout: post
+title:  ALIEN for Cloud 1.4.0-RC2
+root: ../
+categories: RELEASE_NOTES
+parent: [release_note]
+node_name: 1.4.0-RC2
+weight: 9940
+exclude_from_search: true
+---
+
+
+
+
+<i class="fa fa-plus text-success"></i> New feature <i class="fa fa-level-up text-primary"></i> Improvement  <i class="fa fa-bug text-danger"></i> Bug <i class="fa fa-exclamation-triangle text-warning"></i> Breaking change
+
+
+### Alien 4 Cloud
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-2225 | Allow configuration of service relationship for the capabilities/requirements of the service application.  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-2317 | Update associated environments when a version name update is updated  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-2318 | Prevent SNAPSHOT version name update in case the version is exposed as a service (deployed or not) / [Documentation](http://alien4cloud.github.io/#/documentation/1.4.0/user_guide/application_versions.html)  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-2319 | Prevent snapshot version name to be updated if deployed. / [Documentation](http://alien4cloud.github.io/#/documentation/1.4.0/user_guide/application_versions.html)  |
+      |  <i class="fa fa-bug text-danger"></i> | ALIEN-2204 | Fixed an issue allowing required fields in configuration view can be set to null.  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2205 | Can not access topology yaml archives files when git pull from editor is failed.  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2232 | Matching is not updated when services are removed/associated to locations.  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2242 | Fixed a bug causing alien to allow deletion of an archive used in an unsaved topology (context topology)  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2269 | Fixed a ui glitch in display of the "Select environment to copy inputs" popup  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2295 | Topoogy recovery not triggerer when a substitution (composition) type changes  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2298 | Renaming the capabilities/requirements of a substituted node type prevent next save operations to work.  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2300 | Fixed an issue introduced in 1.4.0 that caused old browsers to fail due to recent ecma script keyword usage.  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2301 | Fixed name update policies of SNAPSHOT versions based on their deployments and usages. / [Documentation](http://alien4cloud.github.io/#/documentation/1.4.0/user_guide/application_versions.html)  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2302 | Fixed and document behavior of logic to consider a version as snapshot based on the version name (and fixed associated topology variant qualifier generation) / [Documentation](http://alien4cloud.github.io/#/documentation/1.4.0/user_guide/application_versions.html)  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2303 | REST API failed partially when creating an application with a wrong topologyTemplateId leaving an incoherent state.  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2304 | Ok button is enabled even when Promotion is not possible on Archive workspace promotion screen  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2306 | Bad display on confirmation message when scaling, on runtime view  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2309 | Variants list is not loaded when switching Application Version on Environment screen  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2310 | Cannot add new value to UI suggestion list  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2311 | Pre-deployment popup displayed the archive name instead of application name.  |
+  
+
