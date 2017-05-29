@@ -15,11 +15,10 @@ An interface definition defines a named interface that can be associated with a 
 {: .table .table-striped }
 | Keyname         | Required | Type                | Description | tosca_definitions_version |
 |:----------------|:---------|:--------------------|:------------|:--------------------------|
-| description __(2)__ | no | string | An optional description for the interface. | alien_dsl_1_3_0<br> alien_dsl_1_2_0<br> tosca_simple_yaml_1_0 |
-| inputs __(2)__ | no | string | The optional list of input parameter definitions. | N.A. |
+| description __(1)__ | no | string | An optional description for the interface. | alien_dsl_1_3_0<br> alien_dsl_1_2_0<br> tosca_simple_yaml_1_0 |
+| inputs  | no | string | The optional list of input parameter definitions, common to all underling operations | alien_dsl_1_4_0 |
 
-* __(1)__ TOSCA 1.0.0 does not specifies interface for interface definition but this sounds more like a miss. Therefore our tosca_simple_yaml_1_0 support includes support for description keyword.
-* __(2)__ Current implementation of Alien 4 Cloud doesn't take in account inputs global to an interface but only inputs specified on operations.
+* __(1)__ TOSCA 1.0.0 does not specifies description for interface definition but this sounds more like a miss. Therefore our tosca_simple_yaml_1_0 support includes support for description keyword.
 
 ## Grammar
 
@@ -27,7 +26,7 @@ An interface definition defines a named interface that can be associated with a 
 <interface_definition_name>:
   inputs:
     <parameter_definitions>
-  <[operation_definition](#/documentation/1.4.0/devops_guide/tosca_grammar/operation_definition.html)_1>
+  <operation_definition_1>
   ...
   <operation_definition_n>
 {% endhighlight %}

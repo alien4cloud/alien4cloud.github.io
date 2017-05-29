@@ -1,0 +1,149 @@
+---
+layout: post
+title:  ALIEN for Cloud 1.4.0-RC3
+root: ../
+categories: RELEASE_NOTES
+parent: [release_note]
+node_name: 1.4.0-RC3
+weight: 9939
+exclude_from_search: true
+---
+
+
+
+
+<i class="fa fa-plus text-success"></i> New feature <i class="fa fa-level-up text-primary"></i> Improvement  <i class="fa fa-bug text-danger"></i> Bug <i class="fa fa-exclamation-triangle text-warning"></i> Breaking change
+
+
+### Alien 4 Cloud Logs Plugin
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-2035 | Better Identation of the content of a log line   |
+      |  <i class="fa fa-bug text-danger"></i> | ALIEN-2312 | fixed date filter  |
+  
+
+
+### Cloudify 4 PaaS Provider
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+        |  <i class="fa fa-bug text-danger"></i> | ALIEN-2322 | Display cloudify API call faillure in log view  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2323 | Fixed public or private ip_address retrievment for endpoints  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2340 | Fixed issue with event and log polling more than once  |
+  
+
+
+### Cloudify 3 PaaS Provider Premium
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+        |  <i class="fa fa-bug text-danger"></i> | ALIEN-2268 | Issue on deploymentId on some logs when more than one orchestrator is  configured to work with the same Cloudify insance.  |
+  
+
+
+### Cloudify 3 PaaS Provider
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+        |  <i class="fa fa-bug text-danger"></i> | ALIEN-2323 | Fixed public or private ip_address retrievment for endpoints  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2340 | Fixed issue with event and log polling more than once  |
+  
+
+
+### alien 4 Cloud Repository Plugin
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-2337 | Allow artifacts to be validated and retrieved when Alien4Cloud is behind a http proxy  |
+    
+
+
+### Documentation
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-2321 | Doc on save changes popup when leaving the topology editot / [Documentation](#/documentation/1.4.0/user_guide/topology_editor_overview.html)  |
+    
+
+
+### Alien 4 Cloud
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-2270 | Support of global operations inputs, defined on interface level and injected in all of its operations / [Documentation](#/documentation/1.4.0/devops_guide/tosca_grammar/interface_definition.html)  |
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-2068 | diplay input property description in deployment view  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-2294 | Added ability to select a remote file as input artifacts on deployment setup  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-2307 | Parsing errors feedback as popup and annotations when editing and saving yaml file / [Documentation](#/documentation/1.4.0/user_guide/topology_editor_file.html)  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-2315 | popup when error occur when enabling the orchestrator  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-2339 | Provide support for concat function on node and capabilities properties level  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-2348 | Sort applications by deployed status, then by name.  |
+      |  <i class="fa fa-bug text-danger"></i> | ALIEN-2203 | Fixed issue with empty Map type's properties not generated in the YAML   |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2231 | Fixed issue preventing to expose as a service, a deployment of an application created from a topology template  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2238 | Fixed Topology recovery on requirement type changing  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2239 | Fixed an issue preventing usage of complex property values on a capability definition.  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2240 | Fixed issue: CapabilityDefinition properties not mapped to the actual created node template.  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2251 | Fixed potential error on parsing of requirementsa  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2259 | Fixed primitive data type properties editions on Node matching service and location resources views  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2289 | When deleting a resource, clean related icons and images if no used anymore.  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2299 | More comprehensive information on Node filter validation.  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2316 | fixed topology variant naming issue with snapshoot application  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2320 | fixed scalar_unit type properties edition  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2324 | fixed input artifacts rendering on topology yaml view  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2325 | fixed artifact referencing when creating a topology from another one (template or version)  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2326 | fixed support of `.yml` file extension when importing archives from GIT  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2329 | Still needed to clear the browser cache when installing the new A4C version  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2330 | Fixed issue when copying inputs from an environnement using services  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2331 | Fixed update launching button in confirmation popup  |
+    |  <i class="fa fa-exclamation-triangle text-warning">  <i class="fa fa-bug text-danger"></i> | ALIEN-2333 | Removed support of Topology substitution definition in an archive that defines types, as it wasn't fully supported.  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2335 | fixed issue on application environement deletion leak preventing from creating a new application with the same Name/ArchiveName  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2336 | Prevent the usage of "SNASHOP" string in version qualifier  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2341 | fixed issue with Output PROERTIES only displayed when there is an output ATTIBUTE defined  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2342 | Do not serialize property float values as string  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2345 | Fixed issue preventing to display the list or archives right after deleting one.  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2346 | Fixed edition of date type properties  |
+  
+
+
+### Cloudify 4 PaaS Provider Premium
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+        |  <i class="fa fa-bug text-danger"></i> | ALIEN-2268 | Issue on deploymentId on some logs when more than one orchestrator is  configured to work with the same Cloudify insance.  |
+  
+
+
+### Alien 4 Cloud dashbord plugin
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+        |  <i class="fa fa-bug text-danger"></i> | ALIEN-2314 | Fixed issue with max concurrent deployed node counter increasing undefinitely  |
+  
+
