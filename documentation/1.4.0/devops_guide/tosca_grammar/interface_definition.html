@@ -42,25 +42,24 @@ ga('send', 'pageview');
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left">description <strong>(2)</strong></td>
+      <td style="text-align: left">description <strong>(1)</strong></td>
       <td style="text-align: left">no</td>
       <td style="text-align: left">string</td>
       <td style="text-align: left">An optional description for the interface.</td>
       <td style="text-align: left">alien_dsl_1_3_0<br /> alien_dsl_1_2_0<br /> tosca_simple_yaml_1_0</td>
     </tr>
     <tr>
-      <td style="text-align: left">inputs <strong>(2)</strong></td>
+      <td style="text-align: left">inputs</td>
       <td style="text-align: left">no</td>
       <td style="text-align: left">string</td>
-      <td style="text-align: left">The optional list of input parameter definitions.</td>
-      <td style="text-align: left">N.A.</td>
+      <td style="text-align: left">The optional list of input parameter definitions, common to all underling operations</td>
+      <td style="text-align: left">alien_dsl_1_4_0</td>
     </tr>
   </tbody>
 </table>
 
 <ul>
-  <li><strong>(1)</strong> TOSCA 1.0.0 does not specifies interface for interface definition but this sounds more like a miss. Therefore our tosca_simple_yaml_1_0 support includes support for description keyword.</li>
-  <li><strong>(2)</strong> Current implementation of Alien 4 Cloud doesn’t take in account inputs global to an interface but only inputs specified on operations.</li>
+  <li><strong>(1)</strong> TOSCA 1.0.0 does not specifies description for interface definition but this sounds more like a miss. Therefore our tosca_simple_yaml_1_0 support includes support for description keyword.</li>
 </ul>
 
 <h2 id="grammar">Grammar</h2>
@@ -68,7 +67,7 @@ ga('send', 'pageview');
 <div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">&lt;interface_definition_name&gt;</span><span class="p-Indicator">:</span>
   <span class="l-Scalar-Plain">inputs</span><span class="p-Indicator">:</span>
     <span class="l-Scalar-Plain">&lt;parameter_definitions&gt;</span>
-  <span class="l-Scalar-Plain">&lt;[operation_definition](#/documentation/1.4.0/devops_guide/tosca_grammar/operation_definition.html)_1&gt;</span>
+  <span class="l-Scalar-Plain">&lt;operation_definition_1&gt;</span>
   <span class="l-Scalar-Plain">...</span>
   <span class="l-Scalar-Plain">&lt;operation_definition_n&gt;</span></code></pre></div>
 

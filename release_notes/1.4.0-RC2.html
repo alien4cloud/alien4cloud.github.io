@@ -1,0 +1,169 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/release_notes/1.4.0-RC2.html',
+  title: 'ALIEN for Cloud 1.4.0-RC2'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">ALIEN for Cloud 1.4.0-RC2</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/release_notes/1.4.0-RC2.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <p><i class="fa fa-plus text-success"></i> New feature <i class="fa fa-level-up text-primary"></i> Improvement  <i class="fa fa-bug text-danger"></i> Bug <i class="fa fa-exclamation-triangle text-warning"></i> Breaking change</p>
+
+<h3 id="alien-4-cloud">Alien 4 Cloud</h3>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Id</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
+      <td style="text-align: left">ALIEN-2225</td>
+      <td style="text-align: left">Allow configuration of service relationship for the capabilities/requirements of the service application.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
+      <td style="text-align: left">ALIEN-2317</td>
+      <td style="text-align: left">Update associated environments when a version name update is updated</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
+      <td style="text-align: left">ALIEN-2318</td>
+      <td style="text-align: left">Prevent SNAPSHOT version name update in case the version is exposed as a service (deployed or not) / <a href="http://alien4cloud.github.io/#/documentation/1.4.0/user_guide/application_versions.html">Documentation</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
+      <td style="text-align: left">ALIEN-2319</td>
+      <td style="text-align: left">Prevent snapshot version name to be updated if deployed. / <a href="http://alien4cloud.github.io/#/documentation/1.4.0/user_guide/application_versions.html">Documentation</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-2204</td>
+      <td style="text-align: left">Fixed an issue allowing required fields in configuration view can be set to null.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-2205</td>
+      <td style="text-align: left">Can not access topology yaml archives files when git pull from editor is failed.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-2232</td>
+      <td style="text-align: left">Matching is not updated when services are removed/associated to locations.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-2242</td>
+      <td style="text-align: left">Fixed a bug causing alien to allow deletion of an archive used in an unsaved topology (context topology)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-2269</td>
+      <td style="text-align: left">Fixed a ui glitch in display of the “Select environment to copy inputs” popup</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-2295</td>
+      <td style="text-align: left">Topoogy recovery not triggerer when a substitution (composition) type changes</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-2298</td>
+      <td style="text-align: left">Renaming the capabilities/requirements of a substituted node type prevent next save operations to work.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-2300</td>
+      <td style="text-align: left">Fixed an issue introduced in 1.4.0 that caused old browsers to fail due to recent ecma script keyword usage.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-2301</td>
+      <td style="text-align: left">Fixed name update policies of SNAPSHOT versions based on their deployments and usages. / <a href="http://alien4cloud.github.io/#/documentation/1.4.0/user_guide/application_versions.html">Documentation</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-2302</td>
+      <td style="text-align: left">Fixed and document behavior of logic to consider a version as snapshot based on the version name (and fixed associated topology variant qualifier generation) / <a href="http://alien4cloud.github.io/#/documentation/1.4.0/user_guide/application_versions.html">Documentation</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-2303</td>
+      <td style="text-align: left">REST API failed partially when creating an application with a wrong topologyTemplateId leaving an incoherent state.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-2304</td>
+      <td style="text-align: left">Ok button is enabled even when Promotion is not possible on Archive workspace promotion screen</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-2306</td>
+      <td style="text-align: left">Bad display on confirmation message when scaling, on runtime view</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-2309</td>
+      <td style="text-align: left">Variants list is not loaded when switching Application Version on Environment screen</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-2310</td>
+      <td style="text-align: left">Cannot add new value to UI suggestion list</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-2311</td>
+      <td style="text-align: left">Pre-deployment popup displayed the archive name instead of application name.</td>
+    </tr>
+  </tbody>
+</table>
+
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/release_notes/1.4.0-RC2.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('RELEASE_NOTES', 'release_notes/1.4.0-RC2.markdown');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>
