@@ -99,8 +99,7 @@ exclude_from_search: true
     |  <i class="fa fa-level-up text-primary"></i> | ALIEN-2315 | popup when error occur when enabling the orchestrator  |
     |  <i class="fa fa-level-up text-primary"></i> | ALIEN-2339 | Provide support for concat function on node and capabilities properties level  |
     |  <i class="fa fa-level-up text-primary"></i> | ALIEN-2348 | Sort applications by deployed status, then by name.  |
-      |  <i class="fa fa-bug text-danger"></i> | ALIEN-2203 | Fixed issue with empty Map type's properties not generated in the YAML   |
-    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2231 | Fixed issue preventing to expose as a service, a deployment of an application created from a topology template  |
+      |  <i class="fa fa-bug text-danger"></i> | ALIEN-2231 | Fixed issue preventing to expose as a service, a deployment of an application created from a topology template  |
     |  <i class="fa fa-bug text-danger"></i> | ALIEN-2238 | Fixed Topology recovery on requirement type changing  |
     |  <i class="fa fa-bug text-danger"></i> | ALIEN-2239 | Fixed an issue preventing usage of complex property values on a capability definition.  |
     |  <i class="fa fa-bug text-danger"></i> | ALIEN-2240 | Fixed issue: CapabilityDefinition properties not mapped to the actual created node template.  |
