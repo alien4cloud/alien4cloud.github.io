@@ -1,4 +1,5 @@
 #!/bin/bash -e
+ALIEN4CLOUD_VERSION=1.4.0-SNAPSHOT
 INSTALL_DIR="`pwd`/alien4cloud-getstarted"
 
 # Create the install dir if not present.
@@ -17,28 +18,29 @@ else
 fi
 
 echo "Downloading alien4cloud"
-curl -k -o "alien4cloud-dist-1.4.0-SNAPSHOT.tar.gz" -O "https://fastconnect.org/maven/service/local/repositories/opensource-snapshot/content/alien4cloud/alien4cloud-dist/1.4.0-SNAPSHOT/alien4cloud-dist-1.4.0-20170529.072925-16-dist.tar.gz" || error_exit $? "Failed downloading alien4cloud"
+curl -k -o "alien4cloud-dist-${ALIEN4CLOUD_VERSION}.tar.gz" -L "http://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource-snapshot&g=alien4cloud&a=alien4cloud-dist&v=${ALIEN4CLOUD_VERSION}&p=tar.gz&c=dist" || error_exit $? "Failed downloading alien4cloud"
 
 echo "Downloading puccini"
-curl -k -o "puccini-cli-1.4.0-SNAPSHOT.tgz" -O "https://fastconnect.org/maven/content/repositories/opensource-snapshot/org/alien4cloud/puccini/puccini-cli/1.4.0-RC3-SNAPSHOT/puccini-cli-1.4.0-RC3-SNAPSHOT.tgz" || error_exit $? "Failed downloading puccini"
+curl -k -o "puccini-cli-${ALIEN4CLOUD_VERSION}.tgz" -L "http://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource-snapshot&g=org.alien4cloud.puccini&a=puccini-cli&v=${ALIEN4CLOUD_VERSION}&p=tgz" || error_exit $? "Failed downloading puccini"
 
 echo "Downloading alien4cloud puccini plugin"
-curl -k -o "alien4cloud-puccini-plugin-1.4.0-SNAPSHOT.zip" -O "https://fastconnect.org/maven/content/repositories/opensource-snapshot/alien4cloud/alien4cloud-puccini-plugin/1.4.0-RC3-SNAPSHOT/alien4cloud-puccini-plugin-1.4.0-RC3-20170511.072424-1.zip" || error_exit $? "Failed downloading alien4cloud puccini plugin"
+curl -k -o "alien4cloud-puccini-plugin-${ALIEN4CLOUD_VERSION}.zip" -L "http://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource-snapshot&g=alien4cloud&a=alien4cloud-puccini-plugin&v=${ALIEN4CLOUD_VERSION}&p=zip" || error_exit $? "Failed downloading alien4cloud puccini plugin"
 
 echo "Extracting alien4cloud"
-tar zxvf alien4cloud-dist-1.4.0-SNAPSHOT.tar.gz
+tar zxvf alien4cloud-dist-${ALIEN4CLOUD_VERSION}.tar.gz
 
 echo "Extracting puccini"
-tar xvzf puccini-cli-1.4.0-SNAPSHOT.tgz
+tar xvzf puccini-cli-${ALIEN4CLOUD_VERSION}.tgz
 
 echo "Copy puccini plugin to alien4cloud"
-mv alien4cloud-puccini-plugin-1.4.0-SNAPSHOT.zip alien4cloud/init/plugins/
+mv alien4cloud-puccini-plugin-${ALIEN4CLOUD_VERSION}.zip alien4cloud/init/plugins/
 
-rm alien4cloud-dist-1.4.0-SNAPSHOT.tar.gz
-rm puccini-cli-1.4.0-SNAPSHOT.tgz
+rm alien4cloud-dist-${ALIEN4CLOUD_VERSION}.tar.gz
+rm puccini-cli-${ALIEN4CLOUD_VERSION}.tgz
 
 echo "Pulling required docker puccini image"
 docker pull alien4cloud/puccini-deployer-base:1.0.0-alpine
+docker pull alien4cloud/puccini-deployer:${ALIEN4CLOUD_VERSION}
 
 echo "Pulling sample docker ubuntu image"
 docker pull alien4cloud/puccini-ubuntu-trusty
