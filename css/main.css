@@ -1,7 +1,6 @@
 html,body{
   height:100%;
   padding-top:0;
-  background-color: #FFF;
 }
 
 body .container {
@@ -26,6 +25,67 @@ code {
   background: #eeffee;
   color: #00AA00;
   white-space: nowrap;
+}
+
+.home-video {
+  margin-top: -80px;
+  background: linear-gradient(172deg, #398439 0%, #398439 60%, #fff 60.2%, #fff);
+}
+.home-video .container {
+  color: white;
+  padding-top: 100px;
+  padding-bottom: 80px;
+}
+
+.home-title {
+  color: #2379d1;
+}
+
+.home-section {
+  height: 280px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.home-line {
+  position: relative;
+}
+.home-line.odd {
+  background-color: #f0f0f0;
+}
+
+.home-triangle {
+  position: absolute;
+  top: 30px;
+  width: 0;
+  height: 0;
+}
+.home-triangle.ht1 {
+  border-top: 130px solid transparent;
+  border-left: 220px solid #2063d9;
+  border-bottom: 70px solid transparent;
+}
+.home-triangle.ht2 {
+  right: 0px;
+  border-top: 60px solid transparent;
+  border-right: 210px solid #9b4cd9;
+  border-bottom: 160px solid transparent;
+}
+.home-triangle.ht3 {
+  border-top: 50px solid transparent;
+  border-left: 190px solid #d91861;
+  border-bottom: 130px solid transparent;
+}
+.home-triangle.ht4 {
+  right: 0;
+  border-top: 160px solid transparent;
+  border-right: 220px solid #df6d20;
+  border-bottom: 40px solid transparent;
+}
+.home-triangle.ht5 {
+  border-top: 70px solid transparent;
+  border-left: 190px solid #12ad17;
+  border-bottom: 120px solid transparent;
 }
 
 .table-centered tbody tr td {
