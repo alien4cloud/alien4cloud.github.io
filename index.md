@@ -11,7 +11,6 @@ root: ../
         <p class="slogan-title">
           Alien4Cloud<br /><br />
           <small>is an <a href="http://github.com/alien4cloud">open source</a> platform<br/> that makes application management on the cloud easy for entreprises<br/><br/></small>
-          <!--<small>application management on the cloud for enterprise.</small>-->
         </p>
         <p class="home-buttons">
           <a href="#/documentation/1.4.0/getting_started/new_getting_started.html" class="btn btn-primary btn-lg">Get Started</a>
@@ -25,8 +24,8 @@ root: ../
 <div class="container">
   <div class="row">
     <div class="col-md-3 text-center">
-      <img width="100px" style="margin-left: auto; margin-right: auto;" src="/svg/spread_knowlegde.svg" />
-      Spread knowledge and best-practices
+      <img width="100px" style="margin-left: auto; margin-right: auto;" src="/svg/one_click.svg" />
+      Single click deploy to any target
     </div>
     <div class="col-md-3 text-center">
       <img width="100px" style="margin-left: auto; margin-right: auto;" src="/svg/self_service.svg" />
@@ -34,11 +33,11 @@ root: ../
     </div>
     <div class="col-md-3 text-center">
       <img width="100px" style="margin-left: auto; margin-right: auto;" src="/svg/mangeable_it.svg" />
-      Manageable IT infrastructure at any scale
+      Manageable IT infrastructure, private or public, at any scale
     </div>
     <div class="col-md-3 text-center">
-      <img width="100px" style="margin-left: auto; margin-right: auto;" src="/svg/one_click.svg" />
-      Single click deploy to any target
+      <img width="100px" style="margin-left: auto; margin-right: auto;" src="/svg/open_extensible.svg" />
+      Open and extensible
     </div>
   </div>
   <div class="row">
@@ -50,9 +49,9 @@ root: ../
       <img width="100px" style="margin-left: auto; margin-right: auto;" src="/svg/dev_friendly.svg" />
       Dev friendly
     </div>
-    <div class="col-md-3 text-center">
-      <img width="100px" style="margin-left: auto; margin-right: auto;" src="/svg/open_extensible.svg" />
-      Open and extensible
+     <div class="col-md-3 text-center">
+      <img width="100px" style="margin-left: auto; margin-right: auto;" src="/svg/spread_knowlegde.svg" />
+      Spread knowledge and best-practices
     </div>
   </div>
 </div>
@@ -66,17 +65,18 @@ root: ../
 </div>
 
 <div class="home-line odd">
+  <div class="home-triangle"></div>
   <div class="container home-section">
     <div class="row">
-      <div class="col-md-4 col-md-offset-2 hidden-sm hidden-xs">
-        <img src="/svg/spread_knowlegde.svg" />
+      <div class="col-md-4 col-md-offset-1 hidden-sm hidden-xs">
+        <img src="/svg/one_click.svg" />
       </div>
-      <div class="col-md-6">
+       <div class="col-md-7">
         <p class="lead home-title">
-          Spread knowledge and best-practices
+          Single click deploy to any target
         </p>
         <p class="lead">
-          <small>Package your DevOps IT artifacts in reusable TOSCA components and make them available to other in a self-service catalog. Expose your existing artifacts, from Docker containers to classical Shell, Ansible, Batch, Chef, Puppet in a composable and reusable way for non-expert consumers etc.</small>
+          <small>Advanced matching engine allows you to deploy your portable topology to any target! Without any modification just choose to deploy to AWS, Azure, OpenStack, your physical machines etc. Have a docker based application ? Deploy your docker applications seamlessly on Marathon or Kubernetes etc.</small>
         </p>
       </div>
     </div>
@@ -112,7 +112,7 @@ root: ../
       </div>
       <div class="col-md-7">
         <p class="lead home-title">
-          Manageable IT infrastructure at any scale
+          Manageable IT infrastructure, private or public, at any scale
         </p>
         <p class="lead">
           <small>Provide self-service on pre-configured infrastructure resources (cloud, bare metal, already running services) with a comprehensive system of rights and resources access management.</small>
@@ -128,20 +128,23 @@ root: ../
     <div class="row">
       <div class="col-md-7">
         <p class="lead home-title">
-          Single click deploy to any target
+          Open and extensible
         </p>
         <p class="lead">
-          <small>Advanced matching engine allows you to deploy your portable topology to any target! Without any modification just choose to deploy to AWS, Azure, OpenStack, your physical machines etc. Have a docker based application ? Deploy your docker applications seamlessly on Marathon or Kubernetes etc.</small>
+          <small>Add your own devops components, add support for your own custom cloud, leverage any API.<br />
+          Integrate with any of your favorite tools.<br />
+          Extend alien4cloud UI or rest services to add or even override existing screens.
+          </small>
         </p>
       </div>
       <div class="col-md-4 col-md-offset-1 hidden-sm hidden-xs">
-        <img src="/svg/one_click.svg" />
+        <img src="/svg/open_extensible.svg" />
       </div>
     </div>
   </div>
 </div>
 
-<div class="home-line odd">
+<div class="home-line">
   <div class="home-triangle"></div>
   <div class="container home-section">
     <div class="row">
@@ -160,7 +163,7 @@ root: ../
   </div>
 </div>
 
-<div class="home-line">
+<div class="home-line odd">
   <div class="home-triangle"></div>
   <div class="container">
     <div class="row">
@@ -183,22 +186,19 @@ root: ../
   </div>
 </div>
 
-<div class="home-line odd">
-  <div class="home-triangle"></div>
+
+<div class="home-line">
   <div class="container home-section">
     <div class="row">
-      <div class="col-md-4 col-md-offset-1 hidden-sm hidden-xs">
-        <img src="/svg/open_extensible.svg" />
+      <div class="col-md-4 col-md-offset-2 hidden-sm hidden-xs">
+        <img src="/svg/spread_knowlegde.svg" />
       </div>
-      <div class="col-md-7">
+      <div class="col-md-6">
         <p class="lead home-title">
-          Open and extensible
+          Spread knowledge and best-practices
         </p>
         <p class="lead">
-          <small>Add your own devops components, add support for your own custom cloud, leverage any API.<br />
-          Integrate with any of your favorite tools.<br />
-          Extend alien4cloud UI or rest services to add or even override existing screens.
-          </small>
+          <small>Package your DevOps IT artifacts in reusable TOSCA components and make them available to other in a self-service catalog. Expose your existing artifacts, from Docker containers to classical Shell, Ansible, Batch, Chef, Puppet in a composable and reusable way for non-expert consumers etc.</small>
         </p>
       </div>
     </div>
@@ -211,7 +211,11 @@ root: ../
     <div class="row">
       <div class="col-md-6">
         <p class="lead home-title">Success story</p>
-        <p class="lead" style="margin-top:-25px"><small>Société générale improve by XX% blablabla</small></p>
+        <p class="lead" style="margin-top:-25px"><small>Société générale reduced by 66% its time to market.<br/>
+Deployment times in minutes<br/>
+Close to zero incident rate on deployment<br/>
+Application and environments 100% synced (deployment model always up to date)<br/>
+        </small></p>
         <div class="embed-responsive embed-responsive-16by9">
           <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/lCTy2lvHWTw " frameborder="0" allowfullscreen=""></iframe>
         </div>
@@ -219,11 +223,22 @@ root: ../
 
       <div class="col-md-6">
         <p class="lead home-title">Use case</p>
-        <p class="lead" style="margin-top:-25px" ><small>Kubernetes use case</small></p>
+        <p class="lead" style="margin-top:-25px" ><small>Kubernetes use case<br/><br/><br/><br/><br/></small></p>
         <div class="embed-responsive embed-responsive-16by9">
           <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/432Yoc4kIMg" frameborder="0" allowfullscreen=""></iframe>
         </div>
       </div>
+    </div>
+  </div>
+</div>
+
+<div class="contact">
+  <div class="container home-section homepage">
+    <h2>Contact</h2>
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <p class="lead home-title">Need more information?</p>
+        <a href="mailto:sebastien.bergougnoux@fastconnect.fr" class="btn btn-primary btn-lg">Get in touch</a>
     </div>
   </div>
 </div>
