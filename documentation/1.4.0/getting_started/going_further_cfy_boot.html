@@ -32,7 +32,7 @@ ga('send', 'pageview');
 
 <p>In this first going further tutorial we will explain how you can bootstrap an open-source TOSCA orchestrator that is a bit more heavy than Puccini and that we currently recommend for production environments. This orchestrator is cloudify.</p>
 
-<p>Some features that are not yet supported by puccini are supported in Cloudify so this will probably be your choice for more advanced scenarios with alien4cloud. But first of all let&#8217;s look how to bootstrap it.</p>
+<p>Some features that are not yet supported by puccini are supported in Cloudify so this will probably be your choice for more advanced scenarios with alien4cloud. But first of all let’s look how to bootstrap it.</p>
 
 <h1 id="bootstraping-cloudify">Bootstraping cloudify</h1>
 
@@ -40,10 +40,10 @@ ga('send', 'pageview');
 
 <h2 id="security-groups-configuration">Security groups configuration</h2>
 
-<p>As a pre-requisite we will configure Security Groups for our cloudify manager so he can communicate with it&#8217;s other components.</p>
+<p>As a pre-requisite we will configure Security Groups for our cloudify manager so he can communicate with it’s other components.</p>
 
 <ul>
-  <li>cfy_manager_agents: Security group to open the ports on the manager machine so agents can communicate to it.</li>
+  <li><strong>cfy_manager_agents</strong>: Security group to open the ports on the manager machine so agents can communicate to it.</li>
 </ul>
 
 <table class="table table-striped">
@@ -84,7 +84,7 @@ ga('send', 'pageview');
 </table>
 
 <ul>
-  <li>cfy_agents: Security group to use on every agent machine so the manager can communicate with the agent machine.</li>
+  <li><strong>cfy_agents</strong>: Security group to use on every agent machine so the manager can communicate with the agent machine.</li>
 </ul>
 
 <table class="table table-striped">
@@ -113,7 +113,7 @@ ga('send', 'pageview');
 </table>
 
 <ul>
-  <li>cfy_manager_ssl_client: Security group so that clients can access the cloudify manager on ssl (we will configure a secured manager)</li>
+  <li><strong>cfy_manager_ssl_client</strong>: Security group so that clients can access the cloudify manager on ssl (we will configure a secured manager)</li>
 </ul>
 
 <table class="table table-striped">
@@ -142,7 +142,7 @@ ga('send', 'pageview');
 </table>
 
 <ul>
-  <li>cfy_manager_cluster: Security group to cluster the cloudify manager</li>
+  <li><strong>cfy_manager_cluster</strong>: Security group to cluster the cloudify manager</li>
 </ul>
 
 <table class="table table-striped">
@@ -196,17 +196,20 @@ ga('send', 'pageview');
 
 <h2 id="configure-puccini-to-deploy-on-aws">Configure puccini to deploy on aws</h2>
 
-<p>In the basic getting started we auto-configured a local docker location for you so you can match compute nodes on local docker containers.</p>
-
-<p>We want to deploy the cloudify manager on Amazon, in order to do so we will go to the admin section and configure a puccini location. But first there is a configuration file to manually edit in order to configure aws support in puccini.</p>
+<p>In the basic getting started we auto-configured a local docker location for you so you can match compute nodes on local docker containers. We want to deploy the cloudify manager on Amazon, in order to do so we will go to the admin section and configure a puccini location. But first there is a configuration file to manually edit in order to configure aws support in puccini.</p>
 
 <p>Go to the <strong>alien4cloud-getstarted/puccini-cli-1.4.0-RC3-SNAPSHOT/conf/providers/aws/default</strong> folder and copy the <strong>provider.conf.tpl</strong> file to <strong>provider.conf</strong> then edit the file to fill in your access_key_id, access_key_secret and region.</p>
 
-<p>Now go back to alien4cloud in the admin section,</p>
+<p>In alien4cloud ui got to <img src="../../images/1.4.0/user_guide/admin/admin_menu.png" alt="Admin section" height="26px" class="inline" />, then <img src="../../images/1.4.0/user_guide/admin/orchestrators/orchestrator_list_menu.png" alt="Orchestrator list" height="26px" class="inline" />. You should see the list of orchestrators with a single “Puccini simple orchestrator” orchestrator, select it.
+Go to <img src="../../images/1.4.0/user_guide/admin/orchestrators/locations_menu.png" alt="Locations" height="26px" class="inline" /> and then click on <img src="../../images/1.4.0/user_guide/admin/orchestrators/new_location_button.png" alt="Locations" height="26px" class="inline" />.</p>
+
+<p><img src="../../images/1.4.0/user_guide/admin/orchestrators/getting_started_new_aws_loc.png" alt="New aws location modal" /></p>
+
+<p>Click on <img src="../../images/1.4.0/user_guide/admin/orchestrators/on_demand_resources.png" alt="On demand resources" height="26px" class="inline" /> to open the on demand resources configuration tab and drag-and-drop a <em>org.alien4cloud.puccini.aws.nodes.Instance</em> to the left section.</p>
 
 <p>The cloudify types requires a red hat or centos host, in order to allow puccini deploy on these OS you need to configure a cloud init to remove the requiretty option. These option was added in red hat operating system for Security reasons, has been recognized as inefficient and is removed from latests version. It prevent non-interactive ssh connections as the puccini orchestrator is doing.</p>
 
-<p>Edit the <strong>FIELD</strong> in</p>
+<p>Edit the <strong>FIELD</strong> that will setup the VM cloud init using the following code</p>
 
 <div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c">#cloud-config</span>
 runcmd:

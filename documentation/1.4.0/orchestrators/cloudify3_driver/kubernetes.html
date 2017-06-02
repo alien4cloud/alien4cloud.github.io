@@ -8,7 +8,7 @@
 ga('create', 'UA-73216650-1', 'auto');
 ga('set', {
   page: '/documentation/1.4.0/orchestrators/cloudify3_driver/kubernetes.html',
-  title: 'Kubernetes (Alpha Version)'
+  title: 'Kubernetes (Beta)'
 });
 ga('send', 'pageview');
 
@@ -23,7 +23,7 @@ ga('send', 'pageview');
       <div id="content" class="col-sm-8 col-md-9">
     
         <div style="height: 50px;">
-          <h1 class="pull-left" style="margin-top: 0px;">Kubernetes (Alpha Version)</h1>
+          <h1 class="pull-left" style="margin-top: 0px;">Kubernetes (Beta)</h1>
           <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.4.0/orchestrators/cloudify3_driver/kubernetes.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
         </div>
         <p>This page helps you configure and deploy a hybrid nodecellar application on Kubnernetes through Alien4Cloud/Cloudify.</p>
@@ -32,10 +32,20 @@ ga('send', 'pageview');
 
 <ul>
   <li>A Kubernetes cluster</li>
-  <li>A Cloudify Manager running</li>
+  <li>A Cloudify Manager</li>
+  <li>The Cloudify Manager has a <a href="https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-kubectl-binary-via-curl">kubectl</a> installed on it.</li>
   <li>The Cloudify manager must have access to Kubernetes REST API.</li>
   <li>The Kubernetes nodes should eventually be able to communication with Cloudify’s agents. In our case, the Nodecellar node deployed on Kubernetes shouls be able to contact its MongoDB database deployed on Openstack through the port 3000.</li>
 </ul>
+
+<div class="note info">
+<p>You can deploy a Kubernetes Cluster with Alien4Cloud using our components:</p>
+
+<ul>
+  <li><a href="https://github.com/alien4cloud/samples/tree/master/kubernetes">Kubernetes components</a></li>
+  <li><a href="https://github.com/alien4cloud/samples/tree/master/topology-kubernetes">Kubernetes topology</a></li>
+</ul>
+</div>
 
 <h2 id="configurations">Configurations</h2>
 
@@ -51,7 +61,7 @@ Follow the <a href="#/documentation/1.4.0/user_guide/catalog_type_upload.html">i
 <p>Once uploaded, your Alien4Cloud will contains additional types:</p>
 
 <ul>
-  <li>docker-types</li>
+  <li>docker-types </li>
   <li>nodecellar-docker-types (with the 2 node types <code>alien.nodes.Application.Docker.Nodecellar</code> and <code>alien.nodes.Application.Docker.Mongo</code>)</li>
   <li>and 2 topology templates: <code>NodecellarDocker</code> and <code>NodecellarDockerHybrid</code></li>
 </ul>
