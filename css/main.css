@@ -61,48 +61,17 @@ code {
   background-color: #f6f6f6;
 }
 
-.home-triangle {
-  position: absolute;
-  top: 30px;
-  width: 0;
-  height: 0;
+.home-usecase-video {
+  margin-top: 0px;
 }
 
-.home-triangle.small {
-  border-top: 20px solid transparent;
-  border-left: 20px solid #2063d9;
-  border-bottom: 20px solid transparent;
+@media (min-width:992px) {
+  .home-usecase-video {
+    margin-top: 136px;
+  }
 }
 
-.home-triangle.ht1 {
-  border-top: 1300px solid transparent;
-  border-left: 220px solid #2063d9;
-  border-bottom: 70px solid transparent;
-}
-.home-triangle.ht2 {
-  right: 0px;
-  border-top: 60px solid transparent;
-  border-right: 210px solid #9b4cd9;
-  border-bottom: 160px solid transparent;
-}
-.home-triangle.ht3 {
-  border-top: 50px solid transparent;
-  border-left: 190px solid #d91861;
-  border-bottom: 130px solid transparent;
-}
-.home-triangle.ht4 {
-  right: 0;
-  border-top: 160px solid transparent;
-  border-right: 220px solid #df6d20;
-  border-bottom: 40px solid transparent;
-}
-.home-triangle.ht5 {
-  border-top: 70px solid transparent;
-  border-left: 190px solid #12ad17;
-  border-bottom: 120px solid transparent;
-}
-
-.home-caret{
+.home-caret {
   color:#18bc9c;
   text-align: center;
 }
@@ -241,7 +210,7 @@ i.fa-slack {
 @media (min-width: 768px){
   .lead {
       font-size: 20.5px;
-      
+
   }
 
   .title a {

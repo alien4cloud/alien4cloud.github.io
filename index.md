@@ -21,7 +21,7 @@ root: ../
   </div>
 </div>
 
-<div class="container">
+<div class="container hidden-sm hidden-xs">
   <div class="row">
     <div class="col-md-3 text-center">
       <img width="100px" style="margin-left: auto; margin-right: auto;" src="/svg/one_click.svg" />
@@ -54,9 +54,7 @@ root: ../
       Spread knowledge and best-practices
     </div>
   </div>
-</div>
 
-<div>
   <p class="home-caret"><i class="fa fa-2x fa-caret-down" aria-hidden="true"></i></p>
 </div>
 
@@ -65,7 +63,6 @@ root: ../
 </div>
 
 <div class="home-line odd">
-  <div class="home-triangle"></div>
   <div class="container home-section">
     <div class="row">
       <div class="col-md-4 col-md-offset-1 hidden-sm hidden-xs">
@@ -84,7 +81,6 @@ root: ../
 </div>
 
 <div class="home-line">
-  <div class="home-triangle"></div>
   <div class="container home-section">
     <div class="row">
       <div class="col-md-7">
@@ -104,7 +100,6 @@ root: ../
 </div>
 
 <div class="home-line odd">
-  <div class="home-triangle"></div>
   <div class="container home-section">
     <div class="row">
       <div class="col-md-4 col-md-offset-1 hidden-sm hidden-xs">
@@ -123,7 +118,6 @@ root: ../
 </div>
 
 <div class="home-line">
-  <div class="home-triangle"></div>
   <div class="container home-section">
     <div class="row">
       <div class="col-md-7">
@@ -145,7 +139,6 @@ root: ../
 </div>
 
 <div class="home-line">
-  <div class="home-triangle"></div>
   <div class="container home-section">
     <div class="row">
       <div class="col-md-4 col-md-offset-1 hidden-sm hidden-xs">
@@ -164,7 +157,6 @@ root: ../
 </div>
 
 <div class="home-line odd">
-  <div class="home-triangle"></div>
   <div class="container">
     <div class="row">
       <div class="col-md-7">
@@ -223,8 +215,8 @@ Application and environments 100% synced (deployment model always up to date)<br
 
       <div class="col-md-6">
         <p class="lead home-title">Use case</p>
-        <p class="lead" style="margin-top:-25px" ><small>Kubernetes use case<br/><br/><br/><br/><br/></small></p>
-        <div class="embed-responsive embed-responsive-16by9">
+        <p class="lead" style="margin-top:-25px" ><small>Kubernetes use case</small></p>
+        <div class="home-usecase-video embed-responsive embed-responsive-16by9">
           <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/432Yoc4kIMg" frameborder="0" allowfullscreen=""></iframe>
         </div>
       </div>
