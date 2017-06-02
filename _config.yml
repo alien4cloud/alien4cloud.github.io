@@ -12,4 +12,4 @@ last-snapshot: "1.4.0-SNAPSHOT"
 pullrequesturl: http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/
 
 lunr_search:
-  excludes: ["css/*", "documentation/1.2.0/*", "documentation/1.3.0/*"]
+  excludes: ["css/*", "documentation/1.2.0/*", "documentation/1.3.0/*", "documentation/1.4.0/*"]

@@ -1,7 +1,6 @@
 html,body{
   height:100%;
   padding-top:0;
-  background-color: #FFF;
 }
 
 body .container {
@@ -28,13 +27,62 @@ code {
   white-space: nowrap;
 }
 
+.home-buttons{
+  margin-top: 100px;
+  margin-bottom: 20px;
+}
+
+.home-video {
+  margin-top: -80px;
+  background: linear-gradient(172deg, #1bac91, #18bc9c 60%, #fff 60.2%, #fff);
+}
+.home-video .container {
+  color: white;
+  padding-top: 190px;
+  padding-bottom: 100px;
+}
+
+.home-title {
+  color: #2379d1;
+}
+
+.home-section {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.home-line {
+  position: relative;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.home-line.odd {
+  background-color: #f6f6f6;
+}
+
+.home-usecase-video {
+  margin-top: 0px;
+}
+
+@media (min-width:992px) {
+  .home-usecase-video {
+    margin-top: 136px;
+  }
+}
+
+.home-caret {
+  color:#18bc9c;
+  text-align: center;
+}
+
 .table-centered tbody tr td {
   vertical-align: middle;
 }
 
 .features-head th {
   background-color: #575757;
-  color: #FFFFFF;line
+  color: #FFFFFF;
 }
 
 .features-title td {
@@ -49,7 +97,7 @@ code {
   /* Pad bottom by footer height */
   padding: 0 0 260px;
   /* Negative indent footer by its height */
-  margin: 0 auto -235px;
+  margin: 0 auto -260px;
 }
 
 .content {
@@ -61,16 +109,19 @@ code {
   background-color: #575757;
   padding-bottom: 20px;
   padding-top: 20px;
+  margin-top: 40px;
+}
+
+.footer a{
+  font-weight: 100;
+  font-size: 12px;
+  color:#FFFFFF;
 }
 
 .col-m-footer-group ul {
   padding: 0px;
   margin: 0px;
   list-style: none;
-}
-
-.footer a {
-  color:#FFFFFF;
 }
 
 .credit {
@@ -135,4 +186,34 @@ i.fa-slack {
     right: -128px;
   }
 
+}
+
+.homepage h2 {
+  font-size: 30px;
+  padding-top: 60px;
+  padding-bottom: 20px;
+  text-align: right;
+}
+
+.slogan-title{
+  font-size: 28px;
+}
+
+.slogan-title a {
+  color:rgb(44,62,80);
+}
+
+.slogan-title small {
+  font-size: 22px;
+}
+
+@media (min-width: 768px){
+  .lead {
+      font-size: 20.5px;
+
+  }
+
+  .title a {
+    color:black;
+  }
 }
