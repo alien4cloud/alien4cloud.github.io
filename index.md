@@ -15,7 +15,7 @@ root: ../
         <iframe width="560" height="315" src="https://www.youtube.com/embed/432Yoc4kIMg" frameborder="0" allowfullscreen></iframe>
         <p>
           <a href="#/documentation/1.4.0/getting_started/new_getting_started.html" class="btn btn-default btn-lg">Get Started</a>
-          <a href="#/download_page.html" class="btn btn-success btn-lg">Download</a>
+          <a href="/common/download.html" class="btn btn-success btn-lg">Download</a>
         </p>
       </div>
     </div>
