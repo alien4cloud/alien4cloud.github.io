@@ -36,7 +36,7 @@ ga('send', 'pageview');
 <p>This section refers to a premium feature.</p>
 </div>
 
-<p>When deploying A4C in a production environment, you may want to be sure it will be available 24/7, even in case of crashes. We provide a plugin that manages high availability for A4C using a primary/backup mode. </p>
+<p>When deploying A4C in a production environment, you may want to be sure it will be available 24/7, even in case of crashes. We provide a plugin that manages high availability for A4C using a primary/backup mode.</p>
 
 <div class="note warning">
 <p>Note that this page focus only on A4C HA: we don’t consider HA for orchestrators components (managers …) in this page.</p>
@@ -46,14 +46,14 @@ ga('send', 'pageview');
 
 <p>Our HA solution is based on a primary/backup mecanism: you’ll need to deploy several instances of A4C to ensure one will be available at a given time.</p>
 
-<p>The <em>alien4cloud-premium-ha</em> plugin leverages on <a href="https://www.consul.io">Consul</a> features: </p>
+<p>The <em>alien4cloud-premium-ha</em> plugin leverages on <a href="https://www.consul.io">Consul</a> features:</p>
 
 <ul>
-  <li>Key/Value Storage: a distrubuted key/value is used to determine which A4C instance is the leader. </li>
+  <li>Key/Value Storage: a distrubuted key/value is used to determine which A4C instance is the leader.</li>
   <li>Failure Detection: Consul is in charge of checking the liveness of A4C instances.</li>
 </ul>
 
-<p>As a consequence, to use this plugin you will need a Consul server (but you’ll probably use a consul cluster !). </p>
+<p>As a consequence, to use this plugin you will need a Consul server (but you’ll probably use a consul cluster !).</p>
 
 <p>Since A4C use ElasticSearch as a backend server, you’ll need to setup a remote server (instead of launching an embedded one), and you’ll probably prefer to setup an ElasticSearch cluster with replicated nodes.</p>
 
@@ -77,7 +77,7 @@ At this early stage, A4C is not usable.</li>
 
 <p>A4C will then open a session onto consul and try to acquire a lock onto a consul key. If the lock is already acquired (by another instance), it will still in this boostrap mode and will wait for changes on this key. A health check is associated with the sesssion, so consul will check for the liveness of this A4C instance.</p>
 
-<p>When the lock is acquired, this means the current instance is elected as the leader. The whole application context is started, all REST endpoint are available and all the stuffs are waked up. This A4C instance is then fully usable. </p>
+<p>When the lock is acquired, this means the current instance is elected as the leader. The whole application context is started, all REST endpoint are available and all the stuffs are waked up. This A4C instance is then fully usable.</p>
 
 <p>If the JVM or the machine crash (or event if an A4C instance can’t reach ElasticSeach), the health check will fail, consul will disable the session, and the lock (if it is associated with this session) will be released. The primary will fall back in backup mode. Another instance will be elected.</p>
 
