@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  Kubernetes (Alpha Version)
+title:  Kubernetes (Beta)
 root: ../../../
 categories: DOCUMENTATION-1.4.0
 parent: [orchestrators, cloudify_3]
@@ -13,9 +13,17 @@ This page helps you configure and deploy a hybrid nodecellar application on Kubn
 ## Prerequisites ## 
 
 - A Kubernetes cluster
-- A Cloudify Manager running
+- A Cloudify Manager
+- The Cloudify Manager has a [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-kubectl-binary-via-curl) installed on it.
 - The Cloudify manager must have access to Kubernetes REST API.
 - The Kubernetes nodes should eventually be able to communication with Cloudify's agents. In our case, the Nodecellar node deployed on Kubernetes shouls be able to contact its MongoDB database deployed on Openstack through the port 3000.
+
+{% info %}
+You can deploy a Kubernetes Cluster with Alien4Cloud using our components:
+
+- [Kubernetes components](https://github.com/alien4cloud/samples/tree/master/kubernetes)
+- [Kubernetes topology](https://github.com/alien4cloud/samples/tree/master/topology-kubernetes)
+{% endinfo %}
 
 ## Configurations ##
 

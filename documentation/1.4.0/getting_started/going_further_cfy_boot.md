@@ -24,7 +24,7 @@ To bootstrap cloudify on Amazon we will actually leverage puccini as it provides
 
 As a pre-requisite we will configure Security Groups for our cloudify manager so he can communicate with it's other components.
 
-- cfy_manager_agents: Security group to open the ports on the manager machine so agents can communicate to it.
+- **cfy_manager_agents**: Security group to open the ports on the manager machine so agents can communicate to it.
 
 {: .table .table-striped }
 | Type            | Protocol | Port Range | Source             |
@@ -34,7 +34,7 @@ As a pre-requisite we will configure Security Groups for our cloudify manager so
 | Custom TCP Rule | TCP      | 5671       | cfy_agents         |
 | Custom TCP Rule | TCP      | 8101       | cfy_agents         |
 
-- cfy_agents: Security group to use on every agent machine so the manager can communicate with the agent machine.
+- **cfy_agents**: Security group to use on every agent machine so the manager can communicate with the agent machine.
 
 {: .table .table-striped }
 | Type            | Protocol | Port Range | Source             |
@@ -42,7 +42,7 @@ As a pre-requisite we will configure Security Groups for our cloudify manager so
 | SSH             | TCP      | 22         | cfy_manager_agents |
 | WinRM-HTTPS     | TCP      | 5986       | cfy_manager_agents |
 
-- cfy_manager_ssl_client: Security group so that clients can access the cloudify manager on ssl (we will configure a secured manager)
+- **cfy_manager_ssl_client**: Security group so that clients can access the cloudify manager on ssl (we will configure a secured manager)
 
 {: .table .table-striped }
 | Type            | Protocol | Port Range | Source             |
@@ -50,7 +50,7 @@ As a pre-requisite we will configure Security Groups for our cloudify manager so
 | SSH             | TCP      | 22         | 0.0.0.0/0          |
 | HTTPS           | TCP      | 443        | 0.0.0.0/0          |
 
-- cfy_manager_cluster: Security group to cluster the cloudify manager
+- **cfy_manager_cluster**: Security group to cluster the cloudify manager
 
 {: .table .table-striped }
 | Type            | Protocol | Port Range | Source             |
@@ -64,17 +64,20 @@ As a pre-requisite we will configure Security Groups for our cloudify manager so
 
 ## Configure puccini to deploy on aws
 
-In the basic getting started we auto-configured a local docker location for you so you can match compute nodes on local docker containers.
-
-We want to deploy the cloudify manager on Amazon, in order to do so we will go to the admin section and configure a puccini location. But first there is a configuration file to manually edit in order to configure aws support in puccini.
+In the basic getting started we auto-configured a local docker location for you so you can match compute nodes on local docker containers. We want to deploy the cloudify manager on Amazon, in order to do so we will go to the admin section and configure a puccini location. But first there is a configuration file to manually edit in order to configure aws support in puccini.
 
 Go to the __alien4cloud-getstarted/puccini-cli-1.4.0-RC3-SNAPSHOT/conf/providers/aws/default__ folder and copy the __provider.conf.tpl__ file to __provider.conf__ then edit the file to fill in your access_key_id, access_key_secret and region.
 
-Now go back to alien4cloud in the admin section,
+In alien4cloud ui got to ![Admin section](../../images/1.4.0/user_guide/admin/admin_menu.png){: height="26px" .inline}, then ![Orchestrator list](../../images/1.4.0/user_guide/admin/orchestrators/orchestrator_list_menu.png){: height="26px" .inline}. You should see the list of orchestrators with a single "Puccini simple orchestrator" orchestrator, select it.
+Go to ![Locations](../../images/1.4.0/user_guide/admin/orchestrators/locations_menu.png){: height="26px" .inline} and then click on ![Locations](../../images/1.4.0/user_guide/admin/orchestrators/new_location_button.png){: height="26px" .inline}.
+
+![New aws location modal](../../images/1.4.0/user_guide/admin/orchestrators/getting_started_new_aws_loc.png)
+
+Click on ![On demand resources](../../images/1.4.0/user_guide/admin/orchestrators/on_demand_resources.png){: height="26px" .inline} to open the on demand resources configuration tab and drag-and-drop a _org.alien4cloud.puccini.aws.nodes.Instance_ to the left section.
 
 The cloudify types requires a red hat or centos host, in order to allow puccini deploy on these OS you need to configure a cloud init to remove the requiretty option. These option was added in red hat operating system for Security reasons, has been recognized as inefficient and is removed from latests version. It prevent non-interactive ssh connections as the puccini orchestrator is doing.
 
-Edit the __FIELD__ in
+Edit the __FIELD__ that will setup the VM cloud init using the following code
 
 {% highlight bash %}
 #cloud-config
