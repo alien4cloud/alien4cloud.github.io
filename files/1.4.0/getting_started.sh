@@ -17,14 +17,26 @@ else
   exit 1
 fi
 
-echo "Downloading alien4cloud"
-curl -k -o "alien4cloud-dist-${ALIEN4CLOUD_VERSION}.tar.gz" -L "http://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource-snapshot&g=alien4cloud&a=alien4cloud-dist&v=${ALIEN4CLOUD_VERSION}&p=tar.gz&c=dist" || error_exit $? "Failed downloading alien4cloud"
+if [ -f "alien4cloud-dist-${ALIEN4CLOUD_VERSION}.tar.gz" ]; then
+  echo "Downloading alien4cloud"
+  curl -k -o "alien4cloud-dist-${ALIEN4CLOUD_VERSION}.tar.gz" -L "http://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource-snapshot&g=alien4cloud&a=alien4cloud-dist&v=${ALIEN4CLOUD_VERSION}&p=tar.gz&c=dist" || error_exit $? "Failed downloading alien4cloud"
+else
+    echo "An archive of alien4cloud already exist, we will use it"
+fi
 
-echo "Downloading puccini"
-curl -k -o "puccini-cli-${ALIEN4CLOUD_VERSION}.tgz" -L "http://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource-snapshot&g=org.alien4cloud.puccini&a=puccini-cli&v=${ALIEN4CLOUD_VERSION}&p=tgz" || error_exit $? "Failed downloading puccini"
+if [ -f "puccini-cli-${ALIEN4CLOUD_VERSION}.tgz" ]; then
+  echo "Downloading puccini"
+  curl -k -o "puccini-cli-${ALIEN4CLOUD_VERSION}.tgz" -L "http://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource-snapshot&g=org.alien4cloud.puccini&a=puccini-cli&v=${ALIEN4CLOUD_VERSION}&p=tgz" || error_exit $? "Failed downloading puccini"
+else
+    echo "An archive of puccini already exist, we will use it"
+fi
 
-echo "Downloading alien4cloud puccini plugin"
-curl -k -o "alien4cloud-puccini-plugin-${ALIEN4CLOUD_VERSION}.zip" -L "http://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource-snapshot&g=alien4cloud&a=alien4cloud-puccini-plugin&v=${ALIEN4CLOUD_VERSION}&p=zip" || error_exit $? "Failed downloading alien4cloud puccini plugin"
+if [ -f "alien4cloud-puccini-plugin-${ALIEN4CLOUD_VERSION}.zip" ]; then
+  echo "Downloading alien4cloud puccini plugin"
+  curl -k -o "alien4cloud-puccini-plugin-${ALIEN4CLOUD_VERSION}.zip" -L "http://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource-snapshot&g=alien4cloud&a=alien4cloud-puccini-plugin&v=${ALIEN4CLOUD_VERSION}&p=zip" || error_exit $? "Failed downloading alien4cloud puccini plugin"
+else
+    echo "An archive of  alien4cloud puccini plugin already exist, we will use it"
+fi
 
 echo "Extracting alien4cloud"
 tar zxvf alien4cloud-dist-${ALIEN4CLOUD_VERSION}.tar.gz
