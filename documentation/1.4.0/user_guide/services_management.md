@@ -40,7 +40,19 @@ After the creation, the service appears on the left hand side list and can be co
 
 The instance tab gives you access to properties and attributes of your service. The properties and attributes values, that you enter here, can be used later by consumer of the service to establish the connection with the service. In the example, the property `ip_address` of the external Mongo DB has been given.
 
-![service_instance](../../images/1.4.0/user_guide/service/service_instance.png)
+{%info%}
+<h5>IP Address</h5>
+When a service is not managed by A4C you need to define manually how to access the service (i.e. the IP address)
+{%endinfo%}
+
+{%warning%}
+<h5>Limitations</h5>
+A4C 1.4 does not support capabilitie attributes edition yet thus sadly you cannot define the endpoint ip_address on the endpoint itself.
+
+You need to add an attribute on the service node type level following the naming convention: `capabilities.YOUR_CAPABILITY_NAME.ATTRIBUTE_KEY`.
+
+![defining_capabilities_attributes_for_service](../../images/1.4.0/user_guide/service/user_attributes.png)
+{%endwarning%}
 
 The location tab permits to authorize service access to locations. It means only application deployed on the authorized locations can have access to the service.
 
