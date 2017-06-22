@@ -20,6 +20,14 @@ For example you may have an on-demand database, which will be created when you d
 
 When using a service you expect someone else to start the service (either externally to alien4cloud or through an alien deployment) and just consume it. In any case you will not be the owner of the service lifecycle.
 
+{%warning%}
+<h5>Limitation</h5>
+On a topology, a service can expose multiple endpoints but only 1 endpoint can be used otherwise relationship operations won't be called properly.
+
+<h5>Workaround</h5>
+Add the service node multiple time into your topology then use only 1 endpoint by abstract service node (each service node will be connected to the same service).
+{%endwarning%}
+
 # Referencing external services in alien4cloud
 
 The first method to define a service in alien4cloud is to declare manually a service. In order to do this, click on *[Administration]* > *Service*
@@ -46,7 +54,7 @@ When a service is not managed by A4C you need to define manually how to access t
 {%endinfo%}
 
 {%warning%}
-<h5>Limitations</h5>
+<h5>Limitation</h5>
 A4C 1.4 does not support capabilitie attributes edition yet thus sadly you cannot define the endpoint ip_address on the endpoint itself.
 
 You need to add an attribute on the service node type level following the naming convention: `capabilities.YOUR_CAPABILITY_NAME.ATTRIBUTE_KEY`.
