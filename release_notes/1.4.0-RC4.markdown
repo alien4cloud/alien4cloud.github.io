@@ -1,0 +1,92 @@
+---
+layout: post
+title:  ALIEN for Cloud 1.4.0-RC4
+root: ../
+categories: RELEASE_NOTES
+parent: [release_note]
+node_name: 1.4.0-RC4
+weight: 9938
+exclude_from_search: true
+---
+
+
+
+
+<i class="fa fa-plus text-success"></i> New feature <i class="fa fa-level-up text-primary"></i> Improvement  <i class="fa fa-bug text-danger"></i> Bug <i class="fa fa-exclamation-triangle text-warning"></i> Breaking change
+
+
+### Cloudify 4 PaaS Provider
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-2370 | Updated cloudify hostpool version: Plugin: from 1.4 to 1.5, wagon: from 1.1. to 1.2  |
+      |  <i class="fa fa-bug text-danger"></i> | ALIEN-2364 | Fixed application deployment on kubernetes. Should not run commands with 'sudo'  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2407 | Validate provided urls before setting the orchestrator configuration  |
+  
+
+
+### Alien 4 Cloud Logs Plugin
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+        |  <i class="fa fa-bug text-danger"></i> | ALIEN-2405 | UI glitches on long logs lines   |
+  
+
+
+### Cloudify 3 PaaS Provider
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+        |  <i class="fa fa-bug text-danger"></i> | ALIEN-2364 | Fixed application deployment on kubernetes. Should not run commands with 'sudo'  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2412 | Fix attribute escaping  |
+  
+
+
+### Alien 4 Cloud
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-2397 | Generated Start and Stop workflows  |
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-2344 | Improved error message when importing component from unexisting git branch  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-2352 | Better display of application / topology version choice selection in topology editor  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-2355 | Display target name in a tooltip on relationship drag&drop  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-2376 | Services (managed by alien4cloud or not) can be created only from abstrat types  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-2386 | Display the .yml file path on upload info when importing archives from git  |
+      |  <i class="fa fa-bug text-danger"></i> | ALIEN-2347 | Fixed issue on remote deployment artifacts serialization into yaml.  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2349 | Removed 'show only deployed apps' filter button on applications list screen, as application list is now sorted by deployement status and name  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2350 | ADMIN user should not be able to delete a location when an application is deployed on it  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2351 | Fixed issue allowing to create (via REST API) more than one location even if the orchestrator is single location support.  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2357 | Regression: Fixed deployment inputs properties edition not saved  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2358 | Fixed meta-properties display and edition  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2360 | Fixed substitution type search mixing up uppercases and lowercases  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2361 | Fixed potential NPE when getting default value for a property on function evaluation  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2363 | Managed service updated: Substitution outputs properties should be attributes rather than properties for the service instance  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2365 | Regression: fixed display of capabilities on service instance detail view  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2368 | Fixed csar dependency issue preventing to use ( or view details of ) an exposed service (404 error thrown).  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2373 | Fixed issue preventing to create a service without exposing any capability  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2377 | We should keep input artifacts when changing location on deployment setup view  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2387 | Fixed issue with deployment view not updated when a user doesn't have the authorizations on the previously selected location  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2388 | Update node matching matching when inputs are changed on deployment setup.  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2389 | DEPLOYMENT_MANAGER should be able to see patch / operation / logs menus icon on runtime view  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2399 | Allow service ( and capabilities ) attributes edition  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2413 | Fixed CSARS GIT integration: Topology templates were not fully imported  |
+  
+
+
+### Cloudify 4 PaaS Provider Premium
+
+
+> No changes.
+

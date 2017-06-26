@@ -55,9 +55,11 @@ When a service is not managed by A4C you need to define manually how to access t
 
 {%warning%}
 <h5>Limitation</h5>
-A4C 1.4 does not support capabilitie attributes edition yet thus sadly you cannot define the endpoint ip_address on the endpoint itself.
+A4C 1.4 does not support capabilitie attributes edition yet. Thus, sadly you cannot define the endpoint ip_address on the endpoint itself.
 
 You need to add an attribute on the service node type level following the naming convention: `capabilities.YOUR_CAPABILITY_NAME.ATTRIBUTE_KEY`.
+
+For example in our case of Mongo service, we would define the capability `service_api` attribute `ip_address` like this:
 
 ![defining_capabilities_attributes_for_service](../../images/1.4.0/user_guide/service/user_attributes.png)
 {%endwarning%}
@@ -82,21 +84,26 @@ On matching screen, your AbstractMongod will be matched to the service that has 
 
 Turning deployments into services is usually done by the deployment manager of the application environment.
 
-Service definition within Alien4Cloud uses substitution in order to expose properties, requirements or capabilities. The first thing that you need to do is to define your service topology with substitution
+Service definition within Alien4Cloud uses substitution in order to expose properties, requirements or capabilities.  
+The first thing you need to do is to define your service topology, and a substitution for it
 
 ![service_topology](../../images/1.4.0/user_guide/service/service_topology.png)
 
-Once the service topology is done, you might want to create an application and deploy it on your chosen location. Then you can choose to expose your deployment as a service in the *Service management* section
+
+Once the service topology is done, you can set up an environment to be deployed on your chosen location.  
+Before deploying, you can choose to expose your deployment as a service in the *Service management* section
 
 ![service_exposition](../../images/1.4.0/user_guide/service/service_exposition.png)
+
 
 As an admin, the service exposed will be displayed automatically in the service list *[Administration]* > *Service*
 
 ![service_list_with_exposed_mongo](../../images/1.4.0/user_guide/service/service_list_with_exposed_mongo.png)
 
-Once the service is exposed, access to the service, the matching can be configured in the same manner as an external service
+Once the service is exposed, access to the service, the matching can be configured in the same manner as an external service.  
+However, note that the exosed services are automatically available on the location selected for the deployment once deployed.  
 
-LIMITATIONS:
+# Limitations
 
  - Services substitution does not yet supports the exposure of multiple instances. Output properties cannot reference properties of scaled instances.
  - Input properties are used both for topology input and deployment inputs. Users should handle connection to services using capabilities only properties/attributes and eventually node attributes but not node properties.
@@ -104,15 +111,16 @@ LIMITATIONS:
  {%warning%}
  <h5>Snapshot versions</h5>
  While creation of services out of snapshot types is possible it is not recommended for two reasons.
- * The first one is that we believe that it is not a good practice to interact with other teams based on unstable features.
- * The second is that alien4cloud may not handle node type updates correctly and such usage is done at your own risks.
+
+ - The first one is that we believe that it is not a good practice to interact with other teams based on unstable features.
+ - The second is that alien4cloud may not handle node type updates correctly and such usage is done at your own risks.
  {%endwarning%}
 
 # Example
 
-The MongoDB service example in the two sections above can be found [here](https://github.com/alien4cloud/samples/tree/master/mongo). It comes with a topology template *mongod-type* that defines a simple topology containing a MongoDB hosted on a Compute. This template is exposed as a type named *mongod-type* using substitution exposition.
+The MongoDB service example in the two sections above [can be found here](https://github.com/alien4cloud/samples/tree/master/mongo). It comes with a topology template *mongod-type* that defines a simple topology containing a MongoDB hosted on a Compute. This template is exposed as a type named *mongod-type* using substitution exposition.
 
-The node cellar application, which consumes the service, can be found [here](https://github.com/alien4cloud/samples/tree/master/topology-nodecellar-service). In the topology template _Nodecellar-ClientService_, the abstract node *alien.nodes.AbstractMongod* was matched to the MongoDB service.
+The node cellar application, which consumes the service, [can be found here](https://github.com/alien4cloud/samples/tree/master/topology-nodecellar-service). In the topology template _Nodecellar-ClientService_, the abstract node *alien.nodes.AbstractMongod* was matched to the MongoDB service.
 
 
 # Advanced

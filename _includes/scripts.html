@@ -17,7 +17,11 @@
 var lunrIndexLoaded = false;
 function loadLunrIndex() {
   if(lunrIndexLoaded) {
-    document.getElementById('search-results').style.visibility = 'visible';
+    // console.log(document.getElementById('search-results'));
+    var searchResult = document.getElementById('search-results');
+    searchResult.style.visibility = 'visible';
+    searchResult.style.display = 'none';
+    document.getElementById('search-query').value='';
     return;
   }
   console.log("loading index...");
