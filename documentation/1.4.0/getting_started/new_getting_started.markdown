@@ -96,7 +96,17 @@ The quickest way to import all of these archives is the **Git integration** feat
 Click on ![Go to admin](../../images/1.4.0/getting_started/components_menu.png){: height="26px" .inline} button in the navigation bar. Then click side bar sub-menu ![Go to git](../../images/1.4.0/getting_started/git_sub_menu.png){: height="26px" .inline}.
 Now add a new Git location: ![new-git-location](../../images/1.4.0/getting_started/git_location_new.png){: height="26px" .inline}.
 
-Fill the modal like the example below and ![git configuration](../../images/1.4.0/getting_started/git_configuration.png){: style="width: 600px; margin: 0 auto"}
+Fill the modal like the example below with the followings:
+
+* **Repository Url**:    https://github.com/alien4cloud/samples.git
+* **Branch or Tag**  / **Archive's folder**
+  * 1.4.0 / apache
+  * 1.4.0 / php
+  * 1.4.0 / mysql
+  * 1.4.0 / wordpress
+  * 1.4.0 / topology-wordpress  
+
+![git configuration](../../images/1.4.0/getting_started/git_configuration.png){: style="width: 600px; margin: 0 auto"}
 
 Now, click on ![import button](../../images/1.4.0/getting_started/import.png){: height="26px" .inline} to pull all components from git and upload them into the Alien4Cloud catalog.
 
@@ -105,7 +115,7 @@ Wait for the import success bar to show and continue:
 ![Import success](../../images/1.4.0/getting_started/import_success.png)
 
 {% warning %}
-Some warnings will be throw if you specify an other branch or tag. We release some version of Samples, according to our implementation of TOSCA. If you take the wrong Sample, the required normative types can be missing.
+Some warnings will be thrown if you specify an other branch or tag. We release some version of Samples, according to our implementation of TOSCA. If you take the wrong Sample, the required normative types can be missing.
 {% endwarning %}
 
 {% info %}
