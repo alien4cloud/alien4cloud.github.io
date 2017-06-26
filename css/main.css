@@ -104,6 +104,14 @@ code {
   padding-top: 80px;
 }
 
+a {
+  color: #18bc9c;
+}
+
+#sidebar_menu a {
+  color: #2c3e50;
+}
+
 .footer {
   color:#FFFFFF;
   background-color: #575757;

@@ -41,6 +41,14 @@ ga('send', 'pageview');
 
 <p>When using a service you expect someone else to start the service (either externally to alien4cloud or through an alien deployment) and just consume it. In any case you will not be the owner of the service lifecycle.</p>
 
+<div class="note warning">
+<h5>Limitation</h5>
+<p>On a topology, a service can expose multiple endpoints but only 1 endpoint can be used otherwise relationship operations won’t be called properly.</p>
+
+<h5>Workaround</h5>
+<p>Add the service node multiple time into your topology then use only 1 endpoint by abstract service node (each service node will be connected to the same service).</p>
+</div>
+
 <h1 id="referencing-external-services-in-alien4cloud">Referencing external services in alien4cloud</h1>
 
 <p>The first method to define a service in alien4cloud is to declare manually a service. In order to do this, click on <em>[Administration]</em> &gt; <em>Service</em></p>
@@ -61,7 +69,21 @@ ga('send', 'pageview');
 
 <p>The instance tab gives you access to properties and attributes of your service. The properties and attributes values, that you enter here, can be used later by consumer of the service to establish the connection with the service. In the example, the property <code>ip_address</code> of the external Mongo DB has been given.</p>
 
-<p><img src="../../images/1.4.0/user_guide/service/service_instance.png" alt="service_instance" /></p>
+<div class="note info">
+<h5>IP Address</h5>
+<p>When a service is not managed by A4C you need to define manually how to access the service (i.e. the IP address)</p>
+</div>
+
+<div class="note warning">
+<h5>Limitation</h5>
+<p>A4C 1.4 does not support capabilitie attributes edition yet. Thus, sadly you cannot define the endpoint ip_address on the endpoint itself.</p>
+
+<p>You need to add an attribute on the service node type level following the naming convention: <code>capabilities.YOUR_CAPABILITY_NAME.ATTRIBUTE_KEY</code>.</p>
+
+<p>For example in our case of Mongo service, we would define the capability <code>service_api</code> attribute <code>ip_address</code> like this:</p>
+
+<p><img src="../../images/1.4.0/user_guide/service/user_attributes.png" alt="defining_capabilities_attributes_for_service" /></p>
+</div>
 
 <p>The location tab permits to authorize service access to locations. It means only application deployed on the authorized locations can have access to the service.</p>
 
@@ -83,11 +105,13 @@ ga('send', 'pageview');
 
 <p>Turning deployments into services is usually done by the deployment manager of the application environment.</p>
 
-<p>Service definition within Alien4Cloud uses substitution in order to expose properties, requirements or capabilities. The first thing that you need to do is to define your service topology with substitution</p>
+<p>Service definition within Alien4Cloud uses substitution in order to expose properties, requirements or capabilities.<br />
+The first thing you need to do is to define your service topology, and a substitution for it</p>
 
 <p><img src="../../images/1.4.0/user_guide/service/service_topology.png" alt="service_topology" /></p>
 
-<p>Once the service topology is done, you might want to create an application and deploy it on your chosen location. Then you can choose to expose your deployment as a service in the <em>Service management</em> section</p>
+<p>Once the service topology is done, you can set up an environment to be deployed on your chosen location.<br />
+Before deploying, you can choose to expose your deployment as a service in the <em>Service management</em> section</p>
 
 <p><img src="../../images/1.4.0/user_guide/service/service_exposition.png" alt="service_exposition" /></p>
 
@@ -95,9 +119,10 @@ ga('send', 'pageview');
 
 <p><img src="../../images/1.4.0/user_guide/service/service_list_with_exposed_mongo.png" alt="service_list_with_exposed_mongo" /></p>
 
-<p>Once the service is exposed, access to the service, the matching can be configured in the same manner as an external service</p>
+<p>Once the service is exposed, access to the service, the matching can be configured in the same manner as an external service.<br />
+However, note that the exosed services are automatically available on the location selected for the deployment once deployed.</p>
 
-<p>LIMITATIONS:</p>
+<h1 id="limitations">Limitations</h1>
 
 <ul>
   <li>Services substitution does not yet supports the exposure of multiple instances. Output properties cannot reference properties of scaled instances.</li>
@@ -106,17 +131,20 @@ ga('send', 'pageview');
 
 <div class="note warning">
 <h5>Snapshot versions</h5>
-<p>While creation of services out of snapshot types is possible it is not recommended for two reasons.
- * The first one is that we believe that it is not a good practice to interact with other teams based on unstable features.
- * The second is that alien4cloud may not handle node type updates correctly and such usage is done at your own risks.</p>
+<p>While creation of services out of snapshot types is possible it is not recommended for two reasons.</p>
+
+<ul>
+  <li>The first one is that we believe that it is not a good practice to interact with other teams based on unstable features.</li>
+  <li>The second is that alien4cloud may not handle node type updates correctly and such usage is done at your own risks.</li>
+</ul>
 
 </div>
 
 <h1 id="example">Example</h1>
 
-<p>The MongoDB service example in the two sections above can be found <a href="https://github.com/alien4cloud/samples/tree/master/mongo">here</a>. It comes with a topology template <em>mongod-type</em> that defines a simple topology containing a MongoDB hosted on a Compute. This template is exposed as a type named <em>mongod-type</em> using substitution exposition.</p>
+<p>The MongoDB service example in the two sections above <a href="https://github.com/alien4cloud/samples/tree/master/mongo">can be found here</a>. It comes with a topology template <em>mongod-type</em> that defines a simple topology containing a MongoDB hosted on a Compute. This template is exposed as a type named <em>mongod-type</em> using substitution exposition.</p>
 
-<p>The node cellar application, which consumes the service, can be found <a href="https://github.com/alien4cloud/samples/tree/master/topology-nodecellar-service">here</a>. In the topology template <em>Nodecellar-ClientService</em>, the abstract node <em>alien.nodes.AbstractMongod</em> was matched to the MongoDB service.</p>
+<p>The node cellar application, which consumes the service, <a href="https://github.com/alien4cloud/samples/tree/master/topology-nodecellar-service">can be found here</a>. In the topology template <em>Nodecellar-ClientService</em>, the abstract node <em>alien.nodes.AbstractMongod</em> was matched to the MongoDB service.</p>
 
 <h1 id="advanced">Advanced</h1>
 

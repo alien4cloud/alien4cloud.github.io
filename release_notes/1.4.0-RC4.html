@@ -1,0 +1,267 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/release_notes/1.4.0-RC4.html',
+  title: 'ALIEN for Cloud 1.4.0-RC4'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">ALIEN for Cloud 1.4.0-RC4</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/release_notes/1.4.0-RC4.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <p><i class="fa fa-plus text-success"></i> New feature <i class="fa fa-level-up text-primary"></i> Improvement  <i class="fa fa-bug text-danger"></i> Bug <i class="fa fa-exclamation-triangle text-warning"></i> Breaking change</p>
+
+<h3 id="cloudify-4-paas-provider">Cloudify 4 PaaS Provider</h3>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Id</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
+      <td style="text-align: left">ALIEN-2370</td>
+      <td style="text-align: left">Updated cloudify hostpool version: Plugin: from 1.4 to 1.5, wagon: from 1.1. to 1.2</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-2364</td>
+      <td style="text-align: left">Fixed application deployment on kubernetes. Should not run commands with ‘sudo’</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-2407</td>
+      <td style="text-align: left">Validate provided urls before setting the orchestrator configuration</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="alien-4-cloud-logs-plugin">Alien 4 Cloud Logs Plugin</h3>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Id</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-2405</td>
+      <td style="text-align: left">UI glitches on long logs lines</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="cloudify-3-paas-provider">Cloudify 3 PaaS Provider</h3>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Id</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-2364</td>
+      <td style="text-align: left">Fixed application deployment on kubernetes. Should not run commands with ‘sudo’</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-2412</td>
+      <td style="text-align: left">Fix attribute escaping</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="alien-4-cloud">Alien 4 Cloud</h3>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Id</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-plus text-success"></i></td>
+      <td style="text-align: left">ALIEN-2397</td>
+      <td style="text-align: left">Generated Start and Stop workflows</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
+      <td style="text-align: left">ALIEN-2344</td>
+      <td style="text-align: left">Improved error message when importing component from unexisting git branch</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
+      <td style="text-align: left">ALIEN-2352</td>
+      <td style="text-align: left">Better display of application / topology version choice selection in topology editor</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
+      <td style="text-align: left">ALIEN-2355</td>
+      <td style="text-align: left">Display target name in a tooltip on relationship drag&amp;drop</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
+      <td style="text-align: left">ALIEN-2376</td>
+      <td style="text-align: left">Services (managed by alien4cloud or not) can be created only from abstrat types</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
+      <td style="text-align: left">ALIEN-2386</td>
+      <td style="text-align: left">Display the .yml file path on upload info when importing archives from git</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-2347</td>
+      <td style="text-align: left">Fixed issue on remote deployment artifacts serialization into yaml.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-2349</td>
+      <td style="text-align: left">Removed ‘show only deployed apps’ filter button on applications list screen, as application list is now sorted by deployement status and name</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-2350</td>
+      <td style="text-align: left">ADMIN user should not be able to delete a location when an application is deployed on it</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-2351</td>
+      <td style="text-align: left">Fixed issue allowing to create (via REST API) more than one location even if the orchestrator is single location support.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-2357</td>
+      <td style="text-align: left">Regression: Fixed deployment inputs properties edition not saved</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-2358</td>
+      <td style="text-align: left">Fixed meta-properties display and edition</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-2360</td>
+      <td style="text-align: left">Fixed substitution type search mixing up uppercases and lowercases</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-2361</td>
+      <td style="text-align: left">Fixed potential NPE when getting default value for a property on function evaluation</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-2363</td>
+      <td style="text-align: left">Managed service updated: Substitution outputs properties should be attributes rather than properties for the service instance</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-2365</td>
+      <td style="text-align: left">Regression: fixed display of capabilities on service instance detail view</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-2368</td>
+      <td style="text-align: left">Fixed csar dependency issue preventing to use ( or view details of ) an exposed service (404 error thrown).</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-2373</td>
+      <td style="text-align: left">Fixed issue preventing to create a service without exposing any capability</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-2377</td>
+      <td style="text-align: left">We should keep input artifacts when changing location on deployment setup view</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-2387</td>
+      <td style="text-align: left">Fixed issue with deployment view not updated when a user doesn’t have the authorizations on the previously selected location</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-2388</td>
+      <td style="text-align: left">Update node matching matching when inputs are changed on deployment setup.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-2389</td>
+      <td style="text-align: left">DEPLOYMENT_MANAGER should be able to see patch / operation / logs menus icon on runtime view</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-2399</td>
+      <td style="text-align: left">Allow service ( and capabilities ) attributes edition</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-2413</td>
+      <td style="text-align: left">Fixed CSARS GIT integration: Topology templates were not fully imported</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="cloudify-4-paas-provider-premium">Cloudify 4 PaaS Provider Premium</h3>
+
+<blockquote>
+  <p>No changes.</p>
+</blockquote>
+
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/release_notes/1.4.0-RC4.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('RELEASE_NOTES', 'release_notes/1.4.0-RC4.markdown');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>
