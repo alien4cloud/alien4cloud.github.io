@@ -35,7 +35,7 @@ ga('send', 'pageview');
 
 <p><strong>Before migrating data, please make sure to backup your data first.</strong></p>
 
-<p><a href="#/documentation/1.4.0/admin_guide/backup_restore.md">How to backup Alien4Cloud</a></p>
+<p><a href="#/documentation/1.4.0/admin_guide/backup_restore.md">How to backup Alien4Cloud</a> </p>
 
 <h1 id="warnings">Warnings</h1>
 
@@ -52,12 +52,12 @@ We do not guarantee the compatibility of those with the new Alien4cloud version.
 
 <div class="note warning">
 <h5> Orchestrators </h5>
-<p>Orchestrators in alien4cloud are bound to orchestrator plugins. If you are using a custom orchestrator plugin, as stated above, it will discarded after the migration.</p>
+<p>Orchestrators in alien4cloud are bound to orchestrator plugins. If you are using a custom orchestrator plugin, as stated above, it will discarded after the migration. </p>
 </div>
 
 <h1 id="download">Download</h1>
 
-<p><a href="http://fastconnect.org/maven/service/local/artifact/maven/redirect?r=fastconnect&amp;g=alien4cloud&amp;a=alien4cloud-migration&amp;v=LATEST&amp;p=zip&amp;c=distrib" title="migration-tool" class="btn btn-success download-button"><i class="fa fa-download"></i> Migation tool</a></p>
+<p><a href="https://fastconnect.org/maven/content/repositories/fastconnect/alien4cloud/alien4cloud-migration-cfy34/1.4.0/alien4cloud-migration-cfy34-1.4.0-distrib.zip" title="migration-tool" class="btn btn-success download-button"><i class="fa fa-download"></i> Migation tool</a></p>
 
 <h1 id="migrate-from-13x-to-140">Migrate from 1.3.x to 1.4.0</h1>
 
@@ -69,10 +69,10 @@ Concerning either Alien4Cloud or elasticsearch data, no copy or transfert is mad
 <div class="note warning">
 <h5>Alien4Cloud and ElasticSearch states</h5>
 <p>We recommend to stop Alien4Cloud before performing the migration. <strong>ElasticSearch MUST be up and running</strong>. Alien4Cloud should be restarted once the process is completed.  This is quite trivial to do when running in a classical production setup where elasticsearch process is independant from Alien4Cloud ( See <a href="#/documentation/1.4.0/admin_guide/advanced_configuration.html">advanced configuration</a> for more details ).<br />
-However, if running in an embedded configuration, you can’t stop Alien4Cloud without stopping ElasticSearch. Then, just make sure the plateform is not used during the process.</p>
+However, if running in an embedded configuration, you can’t stop Alien4Cloud without stopping ElasticSearch. Then, just make sure the plateform is not used during the process.  </p>
 </div>
 
-<p>In order to migrate Alien4Cloud you must download the <a href="http://fastconnect.org/maven/service/local/artifact/maven/redirect?r=fastconnect&amp;g=alien4cloud&amp;a=alien4cloud-migration&amp;v=LATEST&amp;p=zip&amp;c=distrib" title="migration-tool"> migration tool </a> and copy it on the machine where Alien is running (or anywhere which has access to Alien’s data folders).<br />
+<p>In order to migrate Alien4Cloud you must download the <a href="https://fastconnect.org/maven/content/repositories/fastconnect/alien4cloud/alien4cloud-migration-cfy34/1.4.0/alien4cloud-migration-cfy34-1.4.0-distrib.zip" title="migration-tool"> migration tool </a> and copy it on the machine where Alien is running (or anywhere which has access to Alien’s data folders).<br />
 After unzipping the archive, the tool can be configured by editing the files in <strong><em>path_to_unzipped_tool/config</em></strong></p>
 
 <p><strong><em>config.yml</em></strong></p>
@@ -94,17 +94,12 @@ After unzipping the archive, the tool can be configured by editing the files in 
 <span class="l-Scalar-Plain">exporter.dir</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">/tmp/alien4cloud/migration/1.3/exported</span>
 <span class="l-Scalar-Plain">importer.dir</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">/tmp/alien4cloud/migration/1.3/toImport</span>
 
-<span class="l-Scalar-Plain">transform</span><span class="p-Indicator">:</span>
-<span class="c1"># Application&#39;s Id has changed from 1.2.1 to 1.4.0</span>
-<span class="c1">#Provide here a tag name that, if present on an application, will be use as base for its Id.</span>
-<span class="c1">#If not, an Id will be auto-generate from the application&#39;s name</span>
-  <span class="l-Scalar-Plain">application_tag</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">testTag</span>
-
 <span class="l-Scalar-Plain">alien4cloud</span><span class="p-Indicator">:</span>
 <span class="c1"># alien4cloud runtime directory. See &quot;directories.alien&quot; option in your alien4cloud config</span>
   <span class="l-Scalar-Plain">dir</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">/opt/alien4cloud/data</span>
-<span class="c1"># directory in which alien4cloud stores Cloud Service Archives. See &quot;directories.csar_repository&quot; option in your alien4cloud config</span>
-  <span class="l-Scalar-Plain">csar_repository</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">csar</span></code></pre></div>
+
+<span class="c1"># Uncomment me if you&#39;d like to change cloudify url during the migration</span>
+<span class="c1"># new_cloudify_url: &quot;https://1.1.1.1&quot;</span></code></pre></div>
 
 <h2 id="perform-migration">perform migration</h2>
 
@@ -131,7 +126,7 @@ After unzipping the archive, the tool can be configured by editing the files in 
 
 <ul>
   <li>
-    <p>Verify that all plugins (excepts custom ones) have been re-uploaded properly else re-upload them.</p>
+    <p>Verify that all plugins (excepts custom ones) have been re-uploaded properly else re-upload them.  </p>
   </li>
   <li>
     <p>Refresh your browser by emptying its cache so that new plugins’ UI can be loaded.</p>
