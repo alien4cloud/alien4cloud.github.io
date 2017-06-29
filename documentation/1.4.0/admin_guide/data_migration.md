@@ -80,17 +80,13 @@ poller:
 exporter.dir: /tmp/alien4cloud/migration/1.3/exported
 importer.dir: /tmp/alien4cloud/migration/1.3/toImport
 
-transform:
-# Application's Id has changed from 1.2.1 to 1.4.0
-#Provide here a tag name that, if present on an application, will be use as base for its Id.
-#If not, an Id will be auto-generate from the application's name
-  application_tag: testTag
-
 alien4cloud:
 # alien4cloud runtime directory. See "directories.alien" option in your alien4cloud config
   dir: /opt/alien4cloud/data
-# directory in which alien4cloud stores Cloud Service Archives. See "directories.csar_repository" option in your alien4cloud config
-  csar_repository: csar
+
+# Uncomment me if you'd like to change cloudify url during the migration
+# new_cloudify_url: "https://1.1.1.1"
+
 {% endhighlight %}
 
 
@@ -126,4 +122,4 @@ Normally with this procedure, you should have your Alien functional with new ver
 
 [backup-restore-tool_url]: http://fastconnect.org/maven/service/local/artifact/maven/redirect?r=fastconnect&g=alien4cloud&a=alien4cloud-backup-restore-tools&v=LATEST&p=zip&c=distrib "backup-restore-tool"
 
-[migration-tool_url]: http://fastconnect.org/maven/service/local/artifact/maven/redirect?r=fastconnect&g=alien4cloud&a=alien4cloud-migration&v=LATEST&p=zip&c=distrib "migration-tool"
+[migration-tool_url]: https://fastconnect.org/maven/content/repositories/fastconnect/alien4cloud/alien4cloud-migration-cfy34/1.4.0/alien4cloud-migration-cfy34-1.4.0-distrib.zip "migration-tool"

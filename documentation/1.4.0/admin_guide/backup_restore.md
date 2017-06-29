@@ -124,4 +124,4 @@ Once data is restored, you can restart Alien4Cloud server if needed.
 
 [backup-restore-tool_url]: http://fastconnect.org/maven/service/local/artifact/maven/redirect?r=fastconnect&g=alien4cloud&a=alien4cloud-backup-restore-tools&v=LATEST&p=zip&c=distrib "backup-restore-tool"
 
-[migration-tool_url]: http://fastconnect.org/maven/service/local/artifact/maven/redirect?r=fastconnect&g=alien4cloud&a=alien4cloud-migration&v=LATEST&p=zip&c=distrib "migration-tool"
+[migration-tool_url]: https://fastconnect.org/maven/content/repositories/fastconnect/alien4cloud/alien4cloud-migration-cfy34/1.4.0/alien4cloud-migration-cfy34-1.4.0-distrib.zip "migration-tool"
