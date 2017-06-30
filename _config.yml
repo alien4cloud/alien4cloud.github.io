@@ -9,7 +9,7 @@ categories-list: ["DOCUMENTATION", "DOCUMENTATION-1.1.0", "DOCUMENTATION-1.2.0",
 
 stable-version: "1.4.0"
 last-version: "1.4.0"
-last-snapshot: "1.4.0-SNAPSHOT"
+last-snapshot: "1.4.1-SNAPSHOT"
 
 pullrequesturl: http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/
 
