@@ -20,14 +20,6 @@ For example you may have an on-demand database, which will be created when you d
 
 When using a service you expect someone else to start the service (either externally to alien4cloud or through an alien deployment) and just consume it. In any case you will not be the owner of the service lifecycle.
 
-{%warning%}
-<h5>Limitation</h5>
-On a topology, a service can expose multiple endpoints but only 1 endpoint can be used otherwise relationship operations won't be called properly.
-
-<h5>Workaround</h5>
-Add the service node multiple time into your topology then use only 1 endpoint by abstract service node (each service node will be connected to the same service).
-{%endwarning%}
-
 # Referencing external services in alien4cloud
 
 The first method to define a service in alien4cloud is to declare manually a service. In order to do this, click on *[Administration]* > *Service*
@@ -42,10 +34,12 @@ After the creation, the service appears on the left hand side list and can be co
 
 ![service_list_with_external_mongo](../../images/1.4.0/user_guide/service/service_list_with_external_mongo.png)
 
+## Service details
  Click on the service to see its details. Here the status does not have much sense, a service in enabled state cannot be modified and deleted (it will make more sense with a service exposed by a deployment as Alien4Cloud knows the state of the service).
 
 ![service_detail](../../images/1.4.0/user_guide/service/service_detail.png)
 
+## Instance informations
 The instance tab gives you access to properties and attributes of your service. The properties and attributes values, that you enter here, can be used later by consumer of the service to establish the connection with the service. In the example, the property `ip_address` of the external Mongo DB has been given.
 
 {%info%}
@@ -53,22 +47,26 @@ The instance tab gives you access to properties and attributes of your service. 
 When a service is not managed by A4C you need to define manually how to access the service (i.e. the IP address)
 {%endinfo%}
 
-{%warning%}
-<h5>Limitation</h5>
-A4C 1.4 does not support capabilitie attributes edition yet. Thus, sadly you cannot define the endpoint ip_address on the endpoint itself.
+### Capabilities attributes
 
-You need to add an attribute on the service node type level following the naming convention: `capabilities.YOUR_CAPABILITY_NAME.ATTRIBUTE_KEY`.
+Capabilities attributes are very important as they will provide for infos on how to use / connect to the service.
+`Alien4Cloud 1.4` does not yet support capabilitie attributes edition. Thus, you cannot define for example the endpoint ip_address on the endpoint itself.
+
+To do that, you need to add an attribute on the service node type level following the naming convention:
+
+`capabilities.YOUR_CAPABILITY_NAME.ATTRIBUTE_KEY`.
 
 For example in our case of Mongo service, we would define the capability `service_api` attribute `ip_address` like this:
 
 ![defining_capabilities_attributes_for_service](../../images/1.4.0/user_guide/service/user_attributes.png)
-{%endwarning%}
 
-The location tab permits to authorize service access to locations. It means only application deployed on the authorized locations can have access to the service.
+## Enable service on locations
+The location tab allows to authorize service access to locations. It means only application deployed on the authorized locations can have access to the service.
 
 ![service_location](../../images/1.4.0/user_guide/service/service_location.png)
 
-The security tab permits to authorize service access to application / environment / user or group. Only authorized entity has access to the location.
+## Security
+The security tab allows to authorize service access to application / environment / user or group. Only authorized entity can use the service on deployment.
 
 ![service_security](../../images/1.4.0/user_guide/service/service_security.png)
 
@@ -105,16 +103,93 @@ However, note that the exosed services are automatically available on the locati
 
 # Limitations
 
- - Services substitution does not yet supports the exposure of multiple instances. Output properties cannot reference properties of scaled instances.
- - Input properties are used both for topology input and deployment inputs. Users should handle connection to services using capabilities only properties/attributes and eventually node attributes but not node properties.
+### multiple capabilities exposure
 
- {%warning%}
- <h5>Snapshot versions</h5>
- While creation of services out of snapshot types is possible it is not recommended for two reasons.
+On a topology, a service can expose multiple capabilities, but only 1 can be used. Otherwise, relationship operations won't be called properly.  
+More precisely, asume we have the following node types:
 
- - The first one is that we believe that it is not a good practice to interact with other teams based on unstable features.
- - The second is that alien4cloud may not handle node type updates correctly and such usage is done at your own risks.
- {%endwarning%}
+{%highlight yaml%}
+nodes types:
+  # abstract type, on which the service will be based
+  org.alien4cloud.nodes.AS
+    abstract: true
+    capabilities:
+      ACapa: org.alien4cloud.capabilities.ACapa
+      BCapa: org.alien4cloud.capabilities.BCapa
+
+  org.alien4cloud.nodes.A
+    requirements:
+      AReq: org.alien4cloud.capabilities.ACapa
+
+  org.alien4cloud.nodes.B
+    requirements:
+      BReq: org.alien4cloud.capabilities.BCapa
+{%endhighlight%}
+
+> __wont work__: One node AS, connect both A and B to AS
+
+{%highlight yaml%}
+ #topology
+node_templates:
+ # one abstract node template, will be matched to a service on deployment config
+  AS:
+    type: org.alien4cloud.service.AS
+  A:
+    type: org.alien4cloud.nodes.A
+    requirements:
+      AReq:
+        node: AS # connect A to AS
+        capability: org.alien4cloud.capabilities.ACapa
+  B:
+    type: org.alien4cloud.nodes.B
+    requirements:
+      BReq:
+        node: AS # also connect B to AS
+        capability: org.alien4cloud.capabilities.BCapa
+{%endhighlight%}
+
+> __Workaround__: Two nodes of type AS, connect each A and B to different node templates of type AS.
+Match the two AS type nodetemplates to the same service on deployment
+
+{%highlight yaml%}
+ #topology
+node_templates:
+ # TWO abstract nodes templates, each will be matched to the SAME service on deployment config
+  AS1:
+    type: org.alien4cloud.service.AS
+  AS2:
+    type: org.alien4cloud.service.AS
+  A:
+    type: org.alien4cloud.nodes.A
+    requirements:
+      AReq:
+        node: AS1     # connect A to AS1
+        capability: org.alien4cloud.capabilities.ACapa
+  B:
+    type: org.alien4cloud.nodes.B
+    requirements:
+      BReq:
+        node: AS2     # connect B to AS2
+        capability: org.alien4cloud.capabilities.BCapa
+{%endhighlight%}
+
+### Scalability and services
+Services substitution does not yet supports the exposure of multiple instances. Output properties cannot reference properties of scaled instances.
+
+### Services properties
+Input properties are used both for topology input and deployment inputs.
+Users __SHOULD__ handle __connection to services__ using __capabilities properties/attributes__ and eventually __node attributes__.  
+They __SHOULD NOT__ use  __node properties__ for that purpose.  
+
+
+
+{%warning%}
+ <h5>Services from snapshot versions</h5>
+ While creation of services out of snapshot types is possible, it is not recommended for two reasons:
+
+ - We believe it is not a good practice to interact with other teams based on unstable / unreleased features.
+ - Alien4cloud may not handle node type updates correctly and such usage is done at your own risks.
+{%endwarning%}
 
 # Example
 
