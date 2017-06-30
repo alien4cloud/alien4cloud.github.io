@@ -98,6 +98,8 @@ A request object to pass when updating an orchestrator. Contains updatable field
 |name||false|string||
 
 
+# Map«string,DataType»
+
 # FilterDefinition
 
 
@@ -283,6 +285,7 @@ A request object to pass when updating an orchestrator. Contains updatable field
 |capabilityTypes|Map that contains the capability types used by the configuration types or node types.|false|object||
 |configurationTemplates|List of configuration templates already configured for the location. Usually abstract types.|false|LocationResourceTemplate array||
 |configurationTypes|Map of node types id, node type used to configure a given location.|false|object||
+|dataTypes|Map of data types id, data type used to configure the templates of on-demand resources in a location.|false|object||
 |nodeTemplates|List of node templates already configured for the location.|false|LocationResourceTemplate array||
 |nodeTypes|Map of node types id, node type used to configure the templates of on-demand resources in a location.|false|object||
 |onDemandTypes|Map that contains the on demdand types.|false|object||
@@ -636,6 +639,28 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 |resources||false|string array||
 
 
+# DataType
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|abstract||false|boolean||
+|archiveName||false|string||
+|archiveVersion||false|string||
+|creationDate||false|string (date-time)||
+|deriveFromSimpleType||false|boolean||
+|derivedFrom||false|string array||
+|description||false|string||
+|elementId||false|string||
+|id||false|string||
+|lastUpdateDate||false|string (date-time)||
+|nestedVersion||false|Version||
+|properties||false|object||
+|tags||false|Tag array||
+|workspace||false|string||
+
+
 # RestResponse«List«LocationDTO»»
 
 
@@ -847,8 +872,6 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 |definitionId|Id of the property to set.|true|string||
 |value|Value to set for the property.|true|string||
 
-
-# Map«string,List«string»»
 
 # GetMultipleDataResult«ApplicationEnvironmentAuthorizationDTO»
 

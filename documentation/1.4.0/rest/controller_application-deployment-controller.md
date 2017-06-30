@@ -441,6 +441,44 @@ Returns the detailed informations of the application on the PaaS it is deployed.
 
 * application/json
 
+### Update the active deployment for the given application on the given cloud.
+```
+POST /rest/v1/applications/{applicationId}/environments/{applicationEnvironmentId}/update-deployment
+```
+
+#### Description
+
+Application role required [ APPLICATION_MANAGER | APPLICATION_DEVOPS ] and Application environment role required [ DEPLOYMENT_MANAGER ]
+
+#### Parameters
+
+{: .table .table-bordered}
+|Type|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|----|
+|PathParameter|applicationId|applicationId|true|string||
+|PathParameter|applicationEnvironmentId|applicationEnvironmentId|true|string||
+
+
+#### Responses
+
+{: .table .table-bordered}
+|HTTP Code|Description|Schema|
+|----|----|----|
+|200|OK|DeferredResult«RestResponse«Void»»|
+|201|Created|No Content|
+|401|Unauthorized|No Content|
+|403|Forbidden|No Content|
+|404|Not Found|No Content|
+
+
+#### Consumes
+
+* application/json
+
+#### Produces
+
+* application/json
+
 ### Launch a given workflow.
 ```
 POST /rest/v1/applications/{applicationId}/environments/{applicationEnvironmentId}/workflows/{workflowName}

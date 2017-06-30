@@ -84,6 +84,42 @@ Application role required [ APPLICATION_MANAGER | APPLICATION_DEVOPS ] and Appli
 
 * application/json
 
+### updateDeploymentInputArtifact
+```
+POST /rest/v1/applications/{appId}/environments/{environmentId}/deployment-topology/inputArtifacts/{inputArtifactId}/update
+```
+
+#### Parameters
+
+{: .table .table-bordered}
+|Type|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|----|
+|PathParameter|appId|appId|true|string||
+|PathParameter|environmentId|environmentId|true|string||
+|PathParameter|inputArtifactId|inputArtifactId|true|string||
+|BodyParameter|artifact|artifact|true|DeploymentArtifact||
+
+
+#### Responses
+
+{: .table .table-bordered}
+|HTTP Code|Description|Schema|
+|----|----|----|
+|200|OK|RestResponse«DeploymentTopologyDTO»|
+|201|Created|No Content|
+|401|Unauthorized|No Content|
+|403|Forbidden|No Content|
+|404|Not Found|No Content|
+
+
+#### Consumes
+
+* application/json
+
+#### Produces
+
+* application/json
+
 ### Upload input artifact.
 ```
 POST /rest/v1/applications/{appId}/environments/{environmentId}/deployment-topology/inputArtifacts/{inputArtifactId}/upload

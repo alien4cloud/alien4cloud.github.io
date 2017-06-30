@@ -68,7 +68,6 @@ weight: 9000
 |locationPolicies||false|object||
 |locationResourceTemplates||false|object||
 |nodeTypes||false|object||
-|outputCapabilityProperties||false|object||
 |relationshipTypes||false|object||
 |topology||false|DeploymentTopology||
 |validation||false|TopologyValidationResult||
@@ -308,7 +307,6 @@ Request to set locations policies for a deployment.
 |lastOperationIndex||false|integer (int32)||
 |nodeTypes||false|object||
 |operations||false|AbstractEditorOperation array||
-|outputCapabilityProperties||false|object||
 |relationshipTypes||false|object||
 |topology||false|Topology||
 
@@ -333,7 +331,9 @@ A service is something running somewhere, exposing capabilities and requirements
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
 |applicationPermissions||false|object||
+|capabilitiesRelationshipTypes||false|object||
 |creationDate||false|string (date-time)||
+|dependency||false|CSARDependency||
 |deploymentId||false|string||
 |description||false|string||
 |environmentId||false|string||
@@ -345,7 +345,7 @@ A service is something running somewhere, exposing capabilities and requirements
 |name||false|string||
 |nestedVersion||false|Version||
 |nodeInstance||false|NodeInstance||
-|state||false|string||
+|requirementsRelationshipTypes||false|object||
 |userPermissions||false|object||
 |version||false|string||
 
@@ -417,7 +417,7 @@ A service is something running somewhere, exposing capabilities and requirements
 {: .table .table-bordered}
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
-|code||false|enum (IMPLEMENT, IMPLEMENT_RELATIONSHIP, REPLACE, SATISFY_LOWER_BOUND, PROPERTIES, HA_INVALID, SCALABLE_CAPABILITY_INVALID, NODE_FILTER_INVALID, WORKFLOW_INVALID, INPUT_ARTIFACT_INVALID, ARTIFACT_INVALID, LOCATION_POLICY, LOCATION_UNAUTHORIZED, LOCATION_DISABLED, ORCHESTRATOR_PROPERTY, INPUT_PROPERTY, NODE_NOT_SUBSTITUTED)||
+|code||false|enum (IMPLEMENT, IMPLEMENT_RELATIONSHIP, REPLACE, SATISFY_LOWER_BOUND, PROPERTIES, HA_INVALID, SCALABLE_CAPABILITY_INVALID, NODE_FILTER_INVALID, WORKFLOW_INVALID, INPUT_ARTIFACT_INVALID, ARTIFACT_INVALID, LOCATION_POLICY, LOCATION_UNAUTHORIZED, LOCATION_DISABLED, ORCHESTRATOR_PROPERTY, INPUT_PROPERTY, NODE_NOT_SUBSTITUTED, FORBIDDEN_OPERATION)||
 
 
 # EnvironmentStatusDTO
@@ -427,7 +427,7 @@ A service is something running somewhere, exposing capabilities and requirements
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
 |environmentName||false|string||
-|environmentStatus||false|enum (DEPLOYED, UNDEPLOYED, INIT_DEPLOYMENT, DEPLOYMENT_IN_PROGRESS, UNDEPLOYMENT_IN_PROGRESS, WARNING, FAILURE, UNKNOWN)||
+|environmentStatus||false|enum (DEPLOYED, UNDEPLOYED, INIT_DEPLOYMENT, DEPLOYMENT_IN_PROGRESS, UPDATE_IN_PROGRESS, UPDATED, UNDEPLOYMENT_IN_PROGRESS, WARNING, FAILURE, UPDATE_FAILURE, UNKNOWN)||
 
 
 # Map«string,InstanceInformation»
@@ -442,7 +442,7 @@ A service is something running somewhere, exposing capabilities and requirements
 |----|----|----|----|----|
 |capabilities||false|object||
 |requirements||false|object||
-|substitutionType||false|NodeType||
+|substitutionType||false|string||
 
 
 # LocationResourceTypes
@@ -454,6 +454,7 @@ A service is something running somewhere, exposing capabilities and requirements
 |allNodeTypes|Map that contains all node types.|false|object||
 |capabilityTypes|Map that contains the capability types used by the configuration types or node types.|false|object||
 |configurationTypes|Map of node types id, node type used to configure a given location.|false|object||
+|dataTypes|Map of data types id, data type used to configure the templates of on-demand resources in a location.|false|object||
 |nodeTypes|Map of node types id, node type used to configure the templates of on-demand resources in a location.|false|object||
 |onDemandTypes|Map that contains the on demdand types.|false|object||
 |providedTypes|List of recommended node types ID, e.g. defined at the orchestrator level|false|string array||
@@ -569,6 +570,7 @@ A service is something running somewhere, exposing capabilities and requirements
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
 |nodeTemplateName||false|string||
+|serviceRelationshipType||false|string||
 |targetId||false|string||
 
 
@@ -1111,6 +1113,16 @@ A service is something running somewhere, exposing capabilities and requirements
 |workspace||false|string||
 
 
+# UpdateTopologyVersionForEnvironmentRequest
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|environmentToCopyInput||false|string||
+|newTopologyVersion||false|string||
+
+
 # Map«string,NodeGroup»
 
 # LocationResourceTemplate
@@ -1142,6 +1154,16 @@ A service is something running somewhere, exposing capabilities and requirements
 |----|----|----|----|----|
 |data||false|Deployment||
 |error||false|RestError||
+
+
+# GetInputCandidatesRequest
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|applicationEnvironmentId||false|string||
+|applicationTopologyVersion||false|string||
 
 
 # UpdateTagRequest
@@ -1204,7 +1226,7 @@ A service is something running somewhere, exposing capabilities and requirements
 |groupRoles||false|object||
 |id||false|string||
 |name||false|string||
-|status||false|enum (DEPLOYED, UNDEPLOYED, INIT_DEPLOYMENT, DEPLOYMENT_IN_PROGRESS, UNDEPLOYMENT_IN_PROGRESS, WARNING, FAILURE, UNKNOWN)||
+|status||false|enum (DEPLOYED, UNDEPLOYED, INIT_DEPLOYMENT, DEPLOYMENT_IN_PROGRESS, UPDATE_IN_PROGRESS, UPDATED, UNDEPLOYMENT_IN_PROGRESS, WARNING, FAILURE, UPDATE_FAILURE, UNKNOWN)||
 |userRoles||false|object||
 
 
@@ -1243,8 +1265,19 @@ A service is something running somewhere, exposing capabilities and requirements
 |----|----|----|----|----|
 |description||false|string||
 |environmentType||false|enum (OTHER, DEVELOPMENT, INTEGRATION_TESTS, USER_ACCEPTANCE_TESTS, PRE_PRODUCTION, PRODUCTION)||
+|inputCandidate||false|string||
 |name||false|string||
 |versionId||false|string||
+
+
+# RestResponse«List«ApplicationEnvironment»»
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|data||false|ApplicationEnvironment array||
+|error||false|RestError||
 
 
 # CapabilityType
@@ -1333,6 +1366,23 @@ Request to set locations policies for a deployment.
 
 # Map«string,RelationshipType»
 
+# ApplicationEnvironment
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|applicationId||false|string||
+|description||false|string||
+|environmentType||false|enum (OTHER, DEVELOPMENT, INTEGRATION_TESTS, USER_ACCEPTANCE_TESTS, PRE_PRODUCTION, PRODUCTION)||
+|groupRoles||false|object||
+|id||false|string||
+|name||false|string||
+|topologyVersion||false|string||
+|userRoles||false|object||
+|version||false|string||
+
+
 # Map«string,Array«ApplicationEnvironmentDTO»»
 
 # CSARDependency
@@ -1363,8 +1413,6 @@ Request to set locations policies for a deployment.
 |data||false|FacetedSearchResult||
 |error||false|RestError||
 
-
-# Map«string,List«string»»
 
 # GetMultipleDataResult«ApplicationEnvironmentDTO»
 

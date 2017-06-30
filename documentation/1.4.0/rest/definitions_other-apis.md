@@ -49,10 +49,12 @@ Request to update a service resource.
 {: .table .table-bordered}
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
+|capabilitiesRelationshipTypes|Map capability name -> relationship type id that optionally defines a relationship type to use to perform the service side operations to connect to the service on a given capability|false|object||
 |description|The description of the service.|false|string||
 |locationIds|The list of locations.|false|string array||
 |name|The name of the service.|true|string||
 |nodeInstance|The node instance definition for the service.|true|Represents a simple node instance with it's properties and attributes.||
+|requirementsRelationshipTypes|Map requirement name -> relationship type id that optionally defines a relationship type to use to perform the service side operations to connect to the service on a given requirement.|false|object||
 |version|The version of the service.|true|string||
 
 
@@ -218,10 +220,12 @@ Request to update a service resource.
 {: .table .table-bordered}
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
+|capabilitiesRelationshipTypes|Map capability name -> relationship type id that optionally defines a relationship type to use to perform the service side operations to connect to the service on a given capability|false|object||
 |description|The new description of the service or undefined if update request should not update the service description.|false|string||
 |locationIds|The new list of location ids or undefined if update request should not update the service location ids.|false|string array||
 |name|The new name of the service or undefined if the update request should not update the service name.|false|string||
 |nodeInstance|The new node instance definition for the service or undefined if update request should not update the node instance definition.|false|Represents a simple node instance with it's properties and attributes.||
+|requirementsRelationshipTypes|Map requirement name -> relationship type id that optionally defines a relationship type to use to perform the service side operations to connect to the service on a given requirement.|false|object||
 |version|The new version of the service or undefined if the update request should not update the service version.|false|string||
 
 
@@ -386,7 +390,9 @@ A service is something running somewhere, exposing capabilities and requirements
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
 |applicationPermissions||false|object||
+|capabilitiesRelationshipTypes||false|object||
 |creationDate||false|string (date-time)||
+|dependency||false|CSARDependency||
 |deploymentId||false|string||
 |description||false|string||
 |environmentId||false|string||
@@ -398,7 +404,7 @@ A service is something running somewhere, exposing capabilities and requirements
 |name||false|string||
 |nestedVersion||false|Version||
 |nodeInstance||false|NodeInstance||
-|state||false|string||
+|requirementsRelationshipTypes||false|object||
 |userPermissions||false|object||
 |version||false|string||
 
@@ -727,6 +733,17 @@ A service is something running somewhere, exposing capabilities and requirements
 |----|----|----|----|----|
 |data||false|RepositoryPluginComponent array||
 |error||false|RestError||
+
+
+# CSARDependency
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|hash||false|string||
+|name||false|string||
+|version||false|string||
 
 
 # BasicSearchRequest

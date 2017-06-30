@@ -367,7 +367,6 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 |lastOperationIndex||false|integer (int32)||
 |nodeTypes||false|object||
 |operations||false|AbstractEditorOperation array||
-|outputCapabilityProperties||false|object||
 |relationshipTypes||false|object||
 |topology||false|Topology||
 
@@ -412,7 +411,7 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 {: .table .table-bordered}
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
-|code||false|enum (IMPLEMENT, IMPLEMENT_RELATIONSHIP, REPLACE, SATISFY_LOWER_BOUND, PROPERTIES, HA_INVALID, SCALABLE_CAPABILITY_INVALID, NODE_FILTER_INVALID, WORKFLOW_INVALID, INPUT_ARTIFACT_INVALID, ARTIFACT_INVALID, LOCATION_POLICY, LOCATION_UNAUTHORIZED, LOCATION_DISABLED, ORCHESTRATOR_PROPERTY, INPUT_PROPERTY, NODE_NOT_SUBSTITUTED)||
+|code||false|enum (IMPLEMENT, IMPLEMENT_RELATIONSHIP, REPLACE, SATISFY_LOWER_BOUND, PROPERTIES, HA_INVALID, SCALABLE_CAPABILITY_INVALID, NODE_FILTER_INVALID, WORKFLOW_INVALID, INPUT_ARTIFACT_INVALID, ARTIFACT_INVALID, LOCATION_POLICY, LOCATION_UNAUTHORIZED, LOCATION_DISABLED, ORCHESTRATOR_PROPERTY, INPUT_PROPERTY, NODE_NOT_SUBSTITUTED, FORBIDDEN_OPERATION)||
 
 
 # Map«string,Operation»
@@ -438,7 +437,7 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 |----|----|----|----|----|
 |capabilities||false|object||
 |requirements||false|object||
-|substitutionType||false|NodeType||
+|substitutionType||false|string||
 
 
 # Map«string,SubstitutionTarget»
@@ -552,6 +551,7 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
 |nodeTemplateName||false|string||
+|serviceRelationshipType||false|string||
 |targetId||false|string||
 
 
@@ -615,8 +615,6 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 # Map«string,DeploymentArtifact»
 
 # Map«string,string»
-
-# Map«string,List«string»»
 
 # Tag
 

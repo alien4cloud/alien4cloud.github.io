@@ -446,7 +446,6 @@ weight: 9000
 |lastOperationIndex||false|integer (int32)||
 |nodeTypes||false|object||
 |operations||false|AbstractEditorOperation array||
-|outputCapabilityProperties||false|object||
 |relationshipTypes||false|object||
 |topology||false|Topology||
 
@@ -503,7 +502,7 @@ weight: 9000
 {: .table .table-bordered}
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
-|data||false|enum (DEPLOYED, UNDEPLOYED, INIT_DEPLOYMENT, DEPLOYMENT_IN_PROGRESS, UNDEPLOYMENT_IN_PROGRESS, WARNING, FAILURE, UNKNOWN)||
+|data||false|enum (DEPLOYED, UNDEPLOYED, INIT_DEPLOYMENT, DEPLOYMENT_IN_PROGRESS, UPDATE_IN_PROGRESS, UPDATED, UNDEPLOYMENT_IN_PROGRESS, WARNING, FAILURE, UPDATE_FAILURE, UNKNOWN)||
 |error||false|RestError||
 
 
@@ -532,7 +531,7 @@ weight: 9000
 |----|----|----|----|----|
 |capabilities||false|object||
 |requirements||false|object||
-|substitutionType||false|NodeType||
+|substitutionType||false|string||
 
 
 # Map«string,SubstitutionTarget»
@@ -670,6 +669,7 @@ weight: 9000
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
 |nodeTemplateName||false|string||
+|serviceRelationshipType||false|string||
 |targetId||false|string||
 
 
@@ -733,8 +733,6 @@ weight: 9000
 |data||false|GetMultipleDataResult||
 |error||false|RestError||
 
-
-# Map«string,List«string»»
 
 # Tag
 
