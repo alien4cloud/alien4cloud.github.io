@@ -41,14 +41,6 @@ ga('send', 'pageview');
 
 <p>When using a service you expect someone else to start the service (either externally to alien4cloud or through an alien deployment) and just consume it. In any case you will not be the owner of the service lifecycle.</p>
 
-<div class="note warning">
-<h5>Limitation</h5>
-<p>On a topology, a service can expose multiple endpoints but only 1 endpoint can be used otherwise relationship operations won’t be called properly.</p>
-
-<h5>Workaround</h5>
-<p>Add the service node multiple time into your topology then use only 1 endpoint by abstract service node (each service node will be connected to the same service).</p>
-</div>
-
 <h1 id="referencing-external-services-in-alien4cloud">Referencing external services in alien4cloud</h1>
 
 <p>The first method to define a service in alien4cloud is to declare manually a service. In order to do this, click on <em>[Administration]</em> &gt; <em>Service</em></p>
@@ -63,10 +55,12 @@ ga('send', 'pageview');
 
 <p><img src="../../images/1.4.0/user_guide/service/service_list_with_external_mongo.png" alt="service_list_with_external_mongo" /></p>
 
+<h2 id="service-details">Service details</h2>
 <p>Click on the service to see its details. Here the status does not have much sense, a service in enabled state cannot be modified and deleted (it will make more sense with a service exposed by a deployment as Alien4Cloud knows the state of the service).</p>
 
 <p><img src="../../images/1.4.0/user_guide/service/service_detail.png" alt="service_detail" /></p>
 
+<h2 id="instance-informations">Instance informations</h2>
 <p>The instance tab gives you access to properties and attributes of your service. The properties and attributes values, that you enter here, can be used later by consumer of the service to establish the connection with the service. In the example, the property <code>ip_address</code> of the external Mongo DB has been given.</p>
 
 <div class="note info">
@@ -74,22 +68,26 @@ ga('send', 'pageview');
 <p>When a service is not managed by A4C you need to define manually how to access the service (i.e. the IP address)</p>
 </div>
 
-<div class="note warning">
-<h5>Limitation</h5>
-<p>A4C 1.4 does not support capabilitie attributes edition yet. Thus, sadly you cannot define the endpoint ip_address on the endpoint itself.</p>
+<h3 id="capabilities-attributes">Capabilities attributes</h3>
 
-<p>You need to add an attribute on the service node type level following the naming convention: <code>capabilities.YOUR_CAPABILITY_NAME.ATTRIBUTE_KEY</code>.</p>
+<p>Capabilities attributes are very important as they will provide for infos on how to use / connect to the service.
+<code>Alien4Cloud 1.4</code> does not yet support capabilitie attributes edition. Thus, you cannot define for example the endpoint ip_address on the endpoint itself.</p>
+
+<p>To do that, you need to add an attribute on the service node type level following the naming convention:</p>
+
+<p><code>capabilities.YOUR_CAPABILITY_NAME.ATTRIBUTE_KEY</code>.</p>
 
 <p>For example in our case of Mongo service, we would define the capability <code>service_api</code> attribute <code>ip_address</code> like this:</p>
 
 <p><img src="../../images/1.4.0/user_guide/service/user_attributes.png" alt="defining_capabilities_attributes_for_service" /></p>
-</div>
 
-<p>The location tab permits to authorize service access to locations. It means only application deployed on the authorized locations can have access to the service.</p>
+<h2 id="enable-service-on-locations">Enable service on locations</h2>
+<p>The location tab allows to authorize service access to locations. It means only application deployed on the authorized locations can have access to the service.</p>
 
 <p><img src="../../images/1.4.0/user_guide/service/service_location.png" alt="service_location" /></p>
 
-<p>The security tab permits to authorize service access to application / environment / user or group. Only authorized entity has access to the location.</p>
+<h2 id="security">Security</h2>
+<p>The security tab allows to authorize service access to application / environment / user or group. Only authorized entity can use the service on deployment.</p>
 
 <p><img src="../../images/1.4.0/user_guide/service/service_security.png" alt="service_security" /></p>
 
@@ -120,24 +118,94 @@ Before deploying, you can choose to expose your deployment as a service in the <
 <p><img src="../../images/1.4.0/user_guide/service/service_list_with_exposed_mongo.png" alt="service_list_with_exposed_mongo" /></p>
 
 <p>Once the service is exposed, access to the service, the matching can be configured in the same manner as an external service.<br />
-However, note that the exosed services are automatically available on the location selected for the deployment once deployed.  </p>
+However, note that the exosed services are automatically available on the location selected for the deployment once deployed.</p>
 
 <h1 id="limitations">Limitations</h1>
 
-<ul>
-  <li>Services substitution does not yet supports the exposure of multiple instances. Output properties cannot reference properties of scaled instances.</li>
-  <li>Input properties are used both for topology input and deployment inputs. Users should handle connection to services using capabilities only properties/attributes and eventually node attributes but not node properties.</li>
-</ul>
+<h3 id="multiple-capabilities-exposure">multiple capabilities exposure</h3>
+
+<p>On a topology, a service can expose multiple capabilities, but only 1 can be used. Otherwise, relationship operations won’t be called properly.<br />
+More precisely, asume we have the following node types:</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">nodes types</span><span class="p-Indicator">:</span>
+  <span class="c1"># abstract type, on which the service will be based</span>
+  <span class="l-Scalar-Plain">org.alien4cloud.nodes.AS</span>
+    <span class="l-Scalar-Plain">abstract</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
+    <span class="l-Scalar-Plain">capabilities</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">ACapa</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">org.alien4cloud.capabilities.ACapa</span>
+      <span class="l-Scalar-Plain">BCapa</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">org.alien4cloud.capabilities.BCapa</span>
+
+  <span class="l-Scalar-Plain">org.alien4cloud.nodes.A</span>
+    <span class="l-Scalar-Plain">requirements</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">AReq</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">org.alien4cloud.capabilities.ACapa</span>
+
+  <span class="l-Scalar-Plain">org.alien4cloud.nodes.B</span>
+    <span class="l-Scalar-Plain">requirements</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">BReq</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">org.alien4cloud.capabilities.BCapa</span></code></pre></div>
+
+<blockquote>
+  <p><strong>wont work</strong>: One node AS, connect both A and B to AS</p>
+</blockquote>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="c1">#topology</span>
+<span class="l-Scalar-Plain">node_templates</span><span class="p-Indicator">:</span>
+ <span class="c1"># one abstract node template, will be matched to a service on deployment config</span>
+  <span class="l-Scalar-Plain">AS</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">org.alien4cloud.service.AS</span>
+  <span class="l-Scalar-Plain">A</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">org.alien4cloud.nodes.A</span>
+    <span class="l-Scalar-Plain">requirements</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">AReq</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">node</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">AS</span> <span class="c1"># connect A to AS</span>
+        <span class="l-Scalar-Plain">capability</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">org.alien4cloud.capabilities.ACapa</span>
+  <span class="l-Scalar-Plain">B</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">org.alien4cloud.nodes.B</span>
+    <span class="l-Scalar-Plain">requirements</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">BReq</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">node</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">AS</span> <span class="c1"># also connect B to AS</span>
+        <span class="l-Scalar-Plain">capability</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">org.alien4cloud.capabilities.BCapa</span></code></pre></div>
+
+<blockquote>
+  <p><strong>Workaround</strong>: Two nodes of type AS, connect each A and B to different node templates of type AS.
+Match the two AS type nodetemplates to the same service on deployment</p>
+</blockquote>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="c1">#topology</span>
+<span class="l-Scalar-Plain">node_templates</span><span class="p-Indicator">:</span>
+ <span class="c1"># TWO abstract nodes templates, each will be matched to the SAME service on deployment config</span>
+  <span class="l-Scalar-Plain">AS1</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">org.alien4cloud.service.AS</span>
+  <span class="l-Scalar-Plain">AS2</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">org.alien4cloud.service.AS</span>
+  <span class="l-Scalar-Plain">A</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">org.alien4cloud.nodes.A</span>
+    <span class="l-Scalar-Plain">requirements</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">AReq</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">node</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">AS1</span>     <span class="c1"># connect A to AS1</span>
+        <span class="l-Scalar-Plain">capability</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">org.alien4cloud.capabilities.ACapa</span>
+  <span class="l-Scalar-Plain">B</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">org.alien4cloud.nodes.B</span>
+    <span class="l-Scalar-Plain">requirements</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">BReq</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">node</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">AS2</span>     <span class="c1"># connect B to AS2</span>
+        <span class="l-Scalar-Plain">capability</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">org.alien4cloud.capabilities.BCapa</span></code></pre></div>
+
+<h3 id="scalability-and-services">Scalability and services</h3>
+<p>Services substitution does not yet supports the exposure of multiple instances. Output properties cannot reference properties of scaled instances.</p>
+
+<h3 id="services-properties">Services properties</h3>
+<p>Input properties are used both for topology input and deployment inputs.
+Users <strong>SHOULD</strong> handle <strong>connection to services</strong> using <strong>capabilities properties/attributes</strong> and eventually <strong>node attributes</strong>.<br />
+They <strong>SHOULD NOT</strong> use  <strong>node properties</strong> for that purpose.</p>
 
 <div class="note warning">
-<h5>Snapshot versions</h5>
-<p>While creation of services out of snapshot types is possible it is not recommended for two reasons.</p>
+<h5>Services from snapshot versions</h5>
+<p>While creation of services out of snapshot types is possible, it is not recommended for two reasons:</p>
 
 <ul>
-  <li>The first one is that we believe that it is not a good practice to interact with other teams based on unstable features.</li>
-  <li>The second is that alien4cloud may not handle node type updates correctly and such usage is done at your own risks.</li>
+  <li>We believe it is not a good practice to interact with other teams based on unstable / unreleased features.</li>
+  <li>Alien4cloud may not handle node type updates correctly and such usage is done at your own risks.</li>
 </ul>
-
 </div>
 
 <h1 id="example">Example</h1>
