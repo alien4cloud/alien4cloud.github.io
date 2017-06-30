@@ -64,26 +64,33 @@ As a pre-requisite we will configure Security Groups for our cloudify manager so
 
 ## Configure puccini to deploy on aws
 
+<p class="text-muted">
 In the basic getting started we auto-configured a local docker location for you so you can match compute nodes on local docker containers. We want to deploy the cloudify manager on Amazon, in order to do so we will go to the admin section and configure a puccini location. But first there is a configuration file to manually edit in order to configure aws support in puccini.
+</p>
 
-Go to the __alien4cloud-getstarted/puccini-cli-1.4.0-RC3-SNAPSHOT/conf/providers/aws/default__ folder and copy the __provider.conf.tpl__ file to __provider.conf__ then edit the file to fill in your access_key_id, access_key_secret and region.
+Go to the __alien4cloud-getstarted/puccini-cli-1.4.0-SNAPSHOT/conf/providers/aws/default__ folder and copy the __provider.conf.tpl__ file to __provider.conf__ then edit the file to fill in your access_key_id, access_key_secret and region.
 
-In alien4cloud ui got to ![Admin section](../../images/1.4.0/user_guide/admin/admin_menu.png){: height="26px" .inline}, then ![Orchestrator list](../../images/1.4.0/user_guide/admin/orchestrators/orchestrator_list_menu.png){: height="26px" .inline}. You should see the list of orchestrators with a single "Puccini simple orchestrator" orchestrator, select it.
+In alien4cloud ui got to ![Admin section](../../images/1.4.0/user_guide/admin/admin_menu.png){: height="26px" .inline}, then ![Orchestrator list](../../images/1.4.0/user_guide/admin/orchestrators/orchestrator_list_menu.png){: height="26px" .inline}. You should see the list of orchestrators with a single __Puccini simple orchestrator__ orchestrator, select it.
 Go to ![Locations](../../images/1.4.0/user_guide/admin/orchestrators/locations_menu.png){: height="26px" .inline} and then click on ![Locations](../../images/1.4.0/user_guide/admin/orchestrators/new_location_button.png){: height="26px" .inline}.
 
-![New aws location modal](../../images/1.4.0/user_guide/admin/orchestrators/getting_started_new_aws_loc.png)
+![New aws location modal](../../images/1.4.0/user_guide/admin/orchestrators/getting_started_new_aws_loc.png){: style="width: 500px; margin: 0 auto"}
 
 Click on ![On demand resources](../../images/1.4.0/user_guide/admin/orchestrators/on_demand_resources.png){: height="26px" .inline} to open the on demand resources configuration tab and drag-and-drop a _org.alien4cloud.puccini.aws.nodes.Instance_ to the left section.
 
+<p class="text-muted">
 The cloudify types requires a red hat or centos host, in order to allow puccini deploy on these OS you need to configure a cloud init to remove the requiretty option. These option was added in red hat operating system for Security reasons, has been recognized as inefficient and is removed from latests version. It prevent non-interactive ssh connections as the puccini orchestrator is doing.
+</p>
 
-Edit the __FIELD__ that will setup the VM cloud init using the following code
+Edit the __user_data__ field that will setup the VM cloud init using the following code:
 
 {% highlight bash %}
 #cloud-config
 runcmd:
   - echo 'Defaults:ec2-user !requiretty' > /etc/sudoers.d/999-puccini-cloud-init-requiretty
 {% endhighlight %}
+
+
+
 
 ## Import cloudify TOSCA types
 
