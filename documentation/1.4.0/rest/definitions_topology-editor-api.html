@@ -1459,13 +1459,6 @@ ga('send', 'pageview');
       <td> </td>
     </tr>
     <tr>
-      <td>outputCapabilityProperties</td>
-      <td> </td>
-      <td>false</td>
-      <td>object</td>
-      <td> </td>
-    </tr>
-    <tr>
       <td>relationshipTypes</td>
       <td> </td>
       <td>false</td>
@@ -1673,7 +1666,7 @@ ga('send', 'pageview');
       <td>code</td>
       <td> </td>
       <td>false</td>
-      <td>enum (IMPLEMENT, IMPLEMENT_RELATIONSHIP, REPLACE, SATISFY_LOWER_BOUND, PROPERTIES, HA_INVALID, SCALABLE_CAPABILITY_INVALID, NODE_FILTER_INVALID, WORKFLOW_INVALID, INPUT_ARTIFACT_INVALID, ARTIFACT_INVALID, LOCATION_POLICY, LOCATION_UNAUTHORIZED, LOCATION_DISABLED, ORCHESTRATOR_PROPERTY, INPUT_PROPERTY, NODE_NOT_SUBSTITUTED)</td>
+      <td>enum (IMPLEMENT, IMPLEMENT_RELATIONSHIP, REPLACE, SATISFY_LOWER_BOUND, PROPERTIES, HA_INVALID, SCALABLE_CAPABILITY_INVALID, NODE_FILTER_INVALID, WORKFLOW_INVALID, INPUT_ARTIFACT_INVALID, ARTIFACT_INVALID, LOCATION_POLICY, LOCATION_UNAUTHORIZED, LOCATION_DISABLED, ORCHESTRATOR_PROPERTY, INPUT_PROPERTY, NODE_NOT_SUBSTITUTED, FORBIDDEN_OPERATION)</td>
       <td> </td>
     </tr>
   </tbody>
@@ -1763,7 +1756,7 @@ ga('send', 'pageview');
       <td>substitutionType</td>
       <td> </td>
       <td>false</td>
-      <td>NodeType</td>
+      <td>string</td>
       <td> </td>
     </tr>
   </tbody>
@@ -2178,6 +2171,13 @@ ga('send', 'pageview');
       <td> </td>
     </tr>
     <tr>
+      <td>serviceRelationshipType</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
       <td>targetId</td>
       <td> </td>
       <td>false</td>
@@ -2381,8 +2381,6 @@ ga('send', 'pageview');
 <h1 id="mapstringdeploymentartifact">Map«string,DeploymentArtifact»</h1>
 
 <h1 id="mapstringstring">Map«string,string»</h1>
-
-<h1 id="mapstringliststring">Map«string,List«string»»</h1>
 
 <h1 id="tag">Tag</h1>
 

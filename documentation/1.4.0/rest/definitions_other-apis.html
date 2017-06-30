@@ -137,6 +137,13 @@ ga('send', 'pageview');
   </thead>
   <tbody>
     <tr>
+      <td>capabilitiesRelationshipTypes</td>
+      <td>Map capability name -&gt; relationship type id that optionally defines a relationship type to use to perform the service side operations to connect to the service on a given capability</td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
       <td>description</td>
       <td>The description of the service.</td>
       <td>false</td>
@@ -162,6 +169,13 @@ ga('send', 'pageview');
       <td>The node instance definition for the service.</td>
       <td>true</td>
       <td>Represents a simple node instance with it’s properties and attributes.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>requirementsRelationshipTypes</td>
+      <td>Map requirement name -&gt; relationship type id that optionally defines a relationship type to use to perform the service side operations to connect to the service on a given requirement.</td>
+      <td>false</td>
+      <td>object</td>
       <td> </td>
     </tr>
     <tr>
@@ -797,6 +811,13 @@ ga('send', 'pageview');
   </thead>
   <tbody>
     <tr>
+      <td>capabilitiesRelationshipTypes</td>
+      <td>Map capability name -&gt; relationship type id that optionally defines a relationship type to use to perform the service side operations to connect to the service on a given capability</td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
       <td>description</td>
       <td>The new description of the service or undefined if update request should not update the service description.</td>
       <td>false</td>
@@ -822,6 +843,13 @@ ga('send', 'pageview');
       <td>The new node instance definition for the service or undefined if update request should not update the node instance definition.</td>
       <td>false</td>
       <td>Represents a simple node instance with it’s properties and attributes.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>requirementsRelationshipTypes</td>
+      <td>Map requirement name -&gt; relationship type id that optionally defines a relationship type to use to perform the service side operations to connect to the service on a given requirement.</td>
+      <td>false</td>
+      <td>object</td>
       <td> </td>
     </tr>
     <tr>
@@ -1426,10 +1454,24 @@ ga('send', 'pageview');
       <td> </td>
     </tr>
     <tr>
+      <td>capabilitiesRelationshipTypes</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
       <td>creationDate</td>
       <td> </td>
       <td>false</td>
       <td>string (date-time)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>dependency</td>
+      <td> </td>
+      <td>false</td>
+      <td>CSARDependency</td>
       <td> </td>
     </tr>
     <tr>
@@ -1510,10 +1552,10 @@ ga('send', 'pageview');
       <td> </td>
     </tr>
     <tr>
-      <td>state</td>
+      <td>requirementsRelationshipTypes</td>
       <td> </td>
       <td>false</td>
-      <td>string</td>
+      <td>object</td>
       <td> </td>
     </tr>
     <tr>
@@ -2698,6 +2740,43 @@ ga('send', 'pageview');
       <td> </td>
       <td>false</td>
       <td>RestError</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="csardependency">CSARDependency</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>hash</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>name</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>version</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
       <td> </td>
     </tr>
   </tbody>

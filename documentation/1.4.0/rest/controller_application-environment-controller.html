@@ -114,6 +114,95 @@ POST /rest/v1/applications/{applicationId}/environments
   <li>application/json</li>
 </ul>
 
+<h3 id="get-a-list-of-application-environments-which-has-inputs-for-deployment-that-can-be-copied-when-the-new-application-topology-version-is-bound-to-the-environment">Get a list of application environments, which has inputs for deployment, that can be copied when the new application topology version is bound to the environment</h3>
+<p><code>
+POST /rest/v1/applications/{applicationId}/environments/input-candidates
+</code></p>
+
+<h4 id="parameters-1">Parameters</h4>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>PathParameter</td>
+      <td>applicationId</td>
+      <td>applicationId</td>
+      <td>true</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>BodyParameter</td>
+      <td>getInputCandidatesRequest</td>
+      <td>getInputCandidatesRequest</td>
+      <td>true</td>
+      <td>GetInputCandidatesRequest</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="responses-1">Responses</h4>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>HTTP Code</th>
+      <th>Description</th>
+      <th>Schema</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>200</td>
+      <td>OK</td>
+      <td>RestResponse«List«ApplicationEnvironment»»</td>
+    </tr>
+    <tr>
+      <td>201</td>
+      <td>Created</td>
+      <td>No Content</td>
+    </tr>
+    <tr>
+      <td>401</td>
+      <td>Unauthorized</td>
+      <td>No Content</td>
+    </tr>
+    <tr>
+      <td>403</td>
+      <td>Forbidden</td>
+      <td>No Content</td>
+    </tr>
+    <tr>
+      <td>404</td>
+      <td>Not Found</td>
+      <td>No Content</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="consumes-1">Consumes</h4>
+
+<ul>
+  <li>application/json</li>
+</ul>
+
+<h4 id="produces-1">Produces</h4>
+
+<ul>
+  <li>application/json</li>
+</ul>
+
 <h3 id="search-for-application-environments">Search for application environments</h3>
 <p><code>
 POST /rest/v1/applications/{applicationId}/environments/search
@@ -130,7 +219,7 @@ POST /rest/v1/applications/{applicationId}/environments/search
   </tbody>
 </table>
 
-<h4 id="parameters-1">Parameters</h4>
+<h4 id="parameters-2">Parameters</h4>
 
 <table class="table table-bordered">
   <thead>
@@ -163,7 +252,7 @@ POST /rest/v1/applications/{applicationId}/environments/search
   </tbody>
 </table>
 
-<h4 id="responses-1">Responses</h4>
+<h4 id="responses-2">Responses</h4>
 
 <table class="table table-bordered">
   <thead>
@@ -202,13 +291,13 @@ POST /rest/v1/applications/{applicationId}/environments/search
   </tbody>
 </table>
 
-<h4 id="consumes-1">Consumes</h4>
+<h4 id="consumes-2">Consumes</h4>
 
 <ul>
   <li>application/json</li>
 </ul>
 
-<h4 id="produces-1">Produces</h4>
+<h4 id="produces-2">Produces</h4>
 
 <ul>
   <li>application/json</li>
@@ -230,7 +319,7 @@ GET /rest/v1/applications/{applicationId}/environments/{applicationEnvironmentId
   </tbody>
 </table>
 
-<h4 id="parameters-2">Parameters</h4>
+<h4 id="parameters-3">Parameters</h4>
 
 <table class="table table-bordered">
   <thead>
@@ -263,7 +352,7 @@ GET /rest/v1/applications/{applicationId}/environments/{applicationEnvironmentId
   </tbody>
 </table>
 
-<h4 id="responses-2">Responses</h4>
+<h4 id="responses-3">Responses</h4>
 
 <table class="table table-bordered">
   <thead>
@@ -297,13 +386,13 @@ GET /rest/v1/applications/{applicationId}/environments/{applicationEnvironmentId
   </tbody>
 </table>
 
-<h4 id="consumes-2">Consumes</h4>
+<h4 id="consumes-3">Consumes</h4>
 
 <ul>
   <li>application/json</li>
 </ul>
 
-<h4 id="produces-2">Produces</h4>
+<h4 id="produces-3">Produces</h4>
 
 <ul>
   <li>application/json</li>
@@ -318,7 +407,7 @@ PUT /rest/v1/applications/{applicationId}/environments/{applicationEnvironmentId
 
 <p>The logged-in user must have the application manager role for this application. Application role required [ APPLICATION_MANAGER ]</p>
 
-<h4 id="parameters-3">Parameters</h4>
+<h4 id="parameters-4">Parameters</h4>
 
 <table class="table table-bordered">
   <thead>
@@ -359,7 +448,7 @@ PUT /rest/v1/applications/{applicationId}/environments/{applicationEnvironmentId
   </tbody>
 </table>
 
-<h4 id="responses-3">Responses</h4>
+<h4 id="responses-4">Responses</h4>
 
 <table class="table table-bordered">
   <thead>
@@ -398,13 +487,13 @@ PUT /rest/v1/applications/{applicationId}/environments/{applicationEnvironmentId
   </tbody>
 </table>
 
-<h4 id="consumes-3">Consumes</h4>
+<h4 id="consumes-4">Consumes</h4>
 
 <ul>
   <li>application/json</li>
 </ul>
 
-<h4 id="produces-3">Produces</h4>
+<h4 id="produces-4">Produces</h4>
 
 <ul>
   <li>application/json</li>
@@ -418,101 +507,6 @@ DELETE /rest/v1/applications/{applicationId}/environments/{applicationEnvironmen
 <h4 id="description-4">Description</h4>
 
 <p>The logged-in user must have the application manager role for this application. Application role required [ APPLICATION_MANAGER ]</p>
-
-<h4 id="parameters-4">Parameters</h4>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Type</th>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Required</th>
-      <th>Schema</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>PathParameter</td>
-      <td>applicationId</td>
-      <td>applicationId</td>
-      <td>true</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>PathParameter</td>
-      <td>applicationEnvironmentId</td>
-      <td>applicationEnvironmentId</td>
-      <td>true</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<h4 id="responses-4">Responses</h4>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>HTTP Code</th>
-      <th>Description</th>
-      <th>Schema</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>200</td>
-      <td>OK</td>
-      <td>RestResponse«boolean»</td>
-    </tr>
-    <tr>
-      <td>401</td>
-      <td>Unauthorized</td>
-      <td>No Content</td>
-    </tr>
-    <tr>
-      <td>204</td>
-      <td>No Content</td>
-      <td>No Content</td>
-    </tr>
-    <tr>
-      <td>403</td>
-      <td>Forbidden</td>
-      <td>No Content</td>
-    </tr>
-  </tbody>
-</table>
-
-<h4 id="consumes-4">Consumes</h4>
-
-<ul>
-  <li>application/json</li>
-</ul>
-
-<h4 id="produces-4">Produces</h4>
-
-<ul>
-  <li>application/json</li>
-</ul>
-
-<h3 id="get-an-application-environment-from-its-id-1">Get an application environment from its id</h3>
-<p><code>
-GET /rest/v1/applications/{applicationId}/environments/{applicationEnvironmentId}/status
-</code></p>
-
-<h4 id="description-5">Description</h4>
-
-<table>
-  <tbody>
-    <tr>
-      <td>Returns the application environment. Application role required [ APPLICATION_USER</td>
-      <td>DEPLOYMENT_MANAGER ]</td>
-    </tr>
-  </tbody>
-</table>
 
 <h4 id="parameters-5">Parameters</h4>
 
@@ -561,7 +555,7 @@ GET /rest/v1/applications/{applicationId}/environments/{applicationEnvironmentId
     <tr>
       <td>200</td>
       <td>OK</td>
-      <td>RestResponse«string»</td>
+      <td>RestResponse«boolean»</td>
     </tr>
     <tr>
       <td>401</td>
@@ -569,13 +563,13 @@ GET /rest/v1/applications/{applicationId}/environments/{applicationEnvironmentId
       <td>No Content</td>
     </tr>
     <tr>
-      <td>403</td>
-      <td>Forbidden</td>
+      <td>204</td>
+      <td>No Content</td>
       <td>No Content</td>
     </tr>
     <tr>
-      <td>404</td>
-      <td>Not Found</td>
+      <td>403</td>
+      <td>Forbidden</td>
       <td>No Content</td>
     </tr>
   </tbody>
@@ -593,18 +587,18 @@ GET /rest/v1/applications/{applicationId}/environments/{applicationEnvironmentId
   <li>application/json</li>
 </ul>
 
-<h3 id="deprecated-get-the-id-of-the-topology-linked-to-the-environment">Deprecated: Get the id of the topology linked to the environment</h3>
+<h3 id="get-an-application-environment-from-its-id-1">Get an application environment from its id</h3>
 <p><code>
-GET /rest/v1/applications/{applicationId}/environments/{applicationEnvironmentId}/topology
+GET /rest/v1/applications/{applicationId}/environments/{applicationEnvironmentId}/status
 </code></p>
 
-<h4 id="description-6">Description</h4>
+<h4 id="description-5">Description</h4>
 
 <table>
   <tbody>
     <tr>
-      <td>Application role required [ APPLICATION_MANAGER</td>
-      <td>APPLICATION_DEVOPS ]</td>
+      <td>Returns the application environment. Application role required [ APPLICATION_USER</td>
+      <td>DEPLOYMENT_MANAGER ]</td>
     </tr>
   </tbody>
 </table>
@@ -683,6 +677,202 @@ GET /rest/v1/applications/{applicationId}/environments/{applicationEnvironmentId
 </ul>
 
 <h4 id="produces-6">Produces</h4>
+
+<ul>
+  <li>application/json</li>
+</ul>
+
+<h3 id="deprecated-get-the-id-of-the-topology-linked-to-the-environment">Deprecated: Get the id of the topology linked to the environment</h3>
+<p><code>
+GET /rest/v1/applications/{applicationId}/environments/{applicationEnvironmentId}/topology
+</code></p>
+
+<h4 id="description-6">Description</h4>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Application role required [ APPLICATION_MANAGER</td>
+      <td>APPLICATION_DEVOPS ]</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="parameters-7">Parameters</h4>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>PathParameter</td>
+      <td>applicationId</td>
+      <td>applicationId</td>
+      <td>true</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>PathParameter</td>
+      <td>applicationEnvironmentId</td>
+      <td>applicationEnvironmentId</td>
+      <td>true</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="responses-7">Responses</h4>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>HTTP Code</th>
+      <th>Description</th>
+      <th>Schema</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>200</td>
+      <td>OK</td>
+      <td>RestResponse«string»</td>
+    </tr>
+    <tr>
+      <td>401</td>
+      <td>Unauthorized</td>
+      <td>No Content</td>
+    </tr>
+    <tr>
+      <td>403</td>
+      <td>Forbidden</td>
+      <td>No Content</td>
+    </tr>
+    <tr>
+      <td>404</td>
+      <td>Not Found</td>
+      <td>No Content</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="consumes-7">Consumes</h4>
+
+<ul>
+  <li>application/json</li>
+</ul>
+
+<h4 id="produces-7">Produces</h4>
+
+<ul>
+  <li>application/json</li>
+</ul>
+
+<h3 id="use-new-topology-version-for-the-given-application-environment">Use new topology version for the given application environment</h3>
+<p><code>
+PUT /rest/v1/applications/{applicationId}/environments/{applicationEnvironmentId}/topology-version
+</code></p>
+
+<h4 id="description-7">Description</h4>
+
+<p>The logged-in user must have the application manager role for this application. Application role required [ APPLICATION_MANAGER ]</p>
+
+<h4 id="parameters-8">Parameters</h4>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>PathParameter</td>
+      <td>applicationId</td>
+      <td>applicationId</td>
+      <td>true</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>PathParameter</td>
+      <td>applicationEnvironmentId</td>
+      <td>applicationEnvironmentId</td>
+      <td>true</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>BodyParameter</td>
+      <td>request</td>
+      <td>request</td>
+      <td>true</td>
+      <td>UpdateTopologyVersionForEnvironmentRequest</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="responses-8">Responses</h4>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>HTTP Code</th>
+      <th>Description</th>
+      <th>Schema</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>200</td>
+      <td>OK</td>
+      <td>RestResponse«Void»</td>
+    </tr>
+    <tr>
+      <td>201</td>
+      <td>Created</td>
+      <td>No Content</td>
+    </tr>
+    <tr>
+      <td>401</td>
+      <td>Unauthorized</td>
+      <td>No Content</td>
+    </tr>
+    <tr>
+      <td>403</td>
+      <td>Forbidden</td>
+      <td>No Content</td>
+    </tr>
+    <tr>
+      <td>404</td>
+      <td>Not Found</td>
+      <td>No Content</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="consumes-8">Consumes</h4>
+
+<ul>
+  <li>application/json</li>
+</ul>
+
+<h4 id="produces-8">Produces</h4>
 
 <ul>
   <li>application/json</li>
