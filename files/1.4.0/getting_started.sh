@@ -1,5 +1,5 @@
 #!/bin/bash -e
-ALIEN4CLOUD_VERSION=1.4.0-SNAPSHOT
+ALIEN4CLOUD_VERSION=1.4.0
 INSTALL_DIR="`pwd`/alien4cloud-getstarted"
 
 # Create the install dir if not present.
