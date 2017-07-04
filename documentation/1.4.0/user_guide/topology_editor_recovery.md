@@ -12,7 +12,8 @@ weight: 900
 
 # Problem
 
-A topology is designed with nodes and relationships, based on some imported archives. The topology thus depends on these archives specific versions present at a moment in the catalog. When working with `snapshots archives`, it might happen that these are updated (as we allow uploading and updating snapshots in Alien4cloud) while being used as dependency, eventually leading to a non consistent topology depending on what has changed within it. For example, let's assume we have a topology using a node type coming from a snapshot archive A. Now for some reason, we want to update, or even remove that type from the archive A. What will become of the topology?  
+A topology is designed with nodes and relationships, based on some imported archives. Thus, it depends on these archives specific versions present at a moment in the catalog. When working with `snapshots archives`, it might happen that these are updated (as we allow uploading and updating snapshots in Alien4cloud) while being used as dependency, eventually leading to a non consistent topology depending on what has changed within it.  
+For example, let's assume we have a topology using a node type coming from a snapshot archive _A_. Now for some reason, we want to update, or even remove that type from the archive _A_. What will become of the topology?  
 The purpose of this feature is to try to recover the topology and have a consistent one.
 
 # Recovery choices
@@ -21,7 +22,7 @@ After the update of the used snapshot, if you try to edit the topology, you'll b
 
 [![topology recovery modal](../../images/1.4.0/user_guide/topology_editor/topology_recovery_modal.png)](../../images/1.4.0/user_guide/topology_editor/topology_recovery_modal.png){:target="_blank"}<br>
 
-The choices are: recover or reset the topology.
+The choices are: _recover_ or _reset_ the topology.
 
 ## Recover the topology
 
@@ -34,7 +35,7 @@ By analyzing the topology and matching it against the updated archive, the follo
 
 ## Reset the topology
 
-This option will delete everything within the topology, leaving it completely empty.
+This option will __delete everything__ within the topology, leaving it completely empty.
 
 {%warning%}
 <h5>No rollback possible</h5>
@@ -72,7 +73,7 @@ node_templates:
   TestComponentSource:
     type: alien.test.nodes.TestComponentSource
     requirements:
-      - capa_to_be_changed:   ## will not be rebuilt or validated this relationship against the new targeted capability type
+      - capa_to_be_changed:   ## This relationship will not be rebuilt or validated against the new targeted capability type
         node: TestComponent
         capability: alien.test.capabilities.CapaToBeChanged
 {%endhighlight%}

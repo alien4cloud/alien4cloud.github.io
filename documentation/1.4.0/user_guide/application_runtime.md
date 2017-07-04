@@ -27,12 +27,19 @@ This section refers to a premium feature.
 {% endinfo %}
 
 You can access to the logs view by a submenu of the runtime view. In this page you can see deployments logs in alien4cloud.
-Some facets are also available to search specific logs, and you can dynamically tails the lasted logs.
-You can also click on a log to see all of this informations.
 
 ![Logs view](../../images/user_guide/application/log_view.png)
 
-To add or remove the log information in the table, click on the button of its first line. A modal will appear and you will choose your columns.
+<br/>
+__(1)__ You can search for logs, and filter them by date. Some facets are also available to search specific logs:
+
+![Logs view](../../images/user_guide/application/log_view_filters.png)
+
+<br/>
+__(2)__ You can dynamically tails the lasted logs
+
+<br/>
+To add or remove the log information in the table, click on the cogs button of its first line. A modal will appear and you will choose your columns.
 
 ![Logs modal](../../images/user_guide/application/log_modal.png)
 

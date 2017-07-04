@@ -54,7 +54,7 @@ When choosed, only a single application topology version will be created. The as
 
 ## Update version
 The _description_ field of a version can be updated anytime.  
-However it is not the case for the version number. First of all, a __released__ version number __CANNOT BE UPDATED__. Therefore, make sure your version is a _SNAPSHOT_ one before trying to update.
+However it is not the case for the version number. First of all, a __released__ version number __CANNOT BE UPDATED__.   Therefore, make sure your version is a _SNAPSHOT_ one before trying to update.  
 The table below sumarize the cases when a version number update can be done:
 
 {: .table .table-bordered}

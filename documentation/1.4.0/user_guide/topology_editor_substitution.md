@@ -33,10 +33,3 @@ After clicking `Subsitutions` panel, you can type `tosca.nodes.Root` in search b
 The inputs of your topology template will become properties of the composed type, and what you choose as outputs will be attributes of the new type.
 
 The created type is named like the template and is usable in another template or an application topology. It's content will be wired at runtime stage.
-
-
-# Topology version
-
-In the *topology version* page you can create, edit or delete a version. As we already say in the application concept page, if you remove the ‘SNAPSHOT’ qualifier, your topology will be not editable.
-
-[![*Topology version](../../images/user_guide/topology_version.png)](../../images/user_guide/topology_version.png){:target="_blank"}

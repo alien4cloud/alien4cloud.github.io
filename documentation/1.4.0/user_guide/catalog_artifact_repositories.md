@@ -29,7 +29,9 @@ But bear in mind the passwords are stored in plain text and can be seen by anyon
 To use repositories in your CSARs use [tosca definitions version](#/documentation/1.4.0/devops_guide/dev_ops_guide.html) **alien_dsl_1_3_0** or greater.
 {% endwarning %}
 
-[![components repository view](../../images/1.4.0/user_guide/components-repository-view.png)](../../images/1.4.0/user_guide/components-repository-view.png)
+Click on ![Create template button](../../images/1.4.0/user_guide/repository/repository_menu_btn.png){: .inline} to create a new repository. You can then browse the created repositories:
+
+[![components repository view](../../images/1.4.0/user_guide/repository/components-repository-view.png)](../../images/1.4.0/user_guide/repository/components-repository-view.png)
 
 ## Http
 

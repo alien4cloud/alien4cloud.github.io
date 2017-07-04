@@ -138,7 +138,7 @@ Once created you must configure the location. It requires several steps:
 In this step you need to configure the resources types exposed by location. These resources will help to configure or generate those which will be used in matching on deployment configuration.
 For example, the Cloudify 3 provider exposes configuration resources such as Images, Favors, and Availability zone.
 
-[![Location resources configuration](../../images/1.1.0/user_guide/admin/orchestrators/location-resources-configuration.png)](../../images/1.1.0/user_guide/admin/orchestrators/location-resources-configuration.png)
+[![Location resources configuration](../../images/1.4.0/user_guide/admin/orchestrators/location-resources-configuration.png)](../../images/1.4.0/user_guide/admin/orchestrators/location-resources-configuration.png)
 
 ### On demand resources tab
 

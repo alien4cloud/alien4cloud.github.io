@@ -26,7 +26,7 @@ a new template with the topology composer or upload a zip file with your templat
 
 Click on ![Create template button](../../images/user_guide/user_guide_topology_template_new.png){: .inline} and fill in the form.
 
-![Topology template composer](../../images/1.4.0/user_guide/catalog_new_topo_template.png)
+![Topology template composer](../../images/1.4.0/user_guide/create_topo_template_modal.png)
 
 {% note %}
 This template name will identify your template and must be unique.
@@ -34,7 +34,7 @@ This template name will identify your template and must be unique.
 
 And then compose your template in this view :
 
-![Topology template composer](../../images/user_guide/user_guide_topology_template_composer.png)
+![Topology template composer](../../images/1.4.0/user_guide/topology_template_editor.png)
 
 {%endtabcontent%}
 {% tabcontent Upload a template %}

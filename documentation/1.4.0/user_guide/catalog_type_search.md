@@ -15,12 +15,12 @@ Alien4Cloud  provides ways to browse the uploaded components, with a search engi
 In order to be able to search the repository you must have the _COMPONENT_BROWSER_ role.
 {%endwarning%}
 
-[![Component list](../../images/components_guide/components-list-en.png)](../../images/components_guide/components-list-en.png)
+[![Component list](../../images/1.4.0/user_guide/catalog/types/catalog_overview.png)](../../images/1.4.0/user_guide/catalog/types/catalog_overview.png)
 
 ## How to make a simple search
 
-On the left of the components list page, there is a search pannel (see figure above: **A**).<br>
-For a  simple search, just type the searched text in the seach field and press the magnifier next to it (or press the **Enter** keybord instead). The result of your research will be displayed on the center pannel (see figure above: **B**).
+On the left of the components list page, there is a search pannel.<br>
+For a  simple search, just type the searched text in the seach field and press the magnifier next to it (or press the **Enter** keybord instead). The result of your research will be displayed on the center pannel.
 
 ## How to make a filtered search
 
@@ -38,4 +38,4 @@ Note that when more than one filter are selected, Alien4Cloud applies an AND pol
 
 In order to see components details (description, inheritance, properties, capabilities, requirements, attributes etc.) you can just click on it and the following screen will be displayed:
 
-[![Component details](../../images/components_guide/component-details.png)](../../images/components_guide/component-details.png)
+[![Component details](../../images/1.4.0/user_guide/catalog/types/component_details.png)](../../images/1.4.0/user_guide/catalog/types/component_details.png)

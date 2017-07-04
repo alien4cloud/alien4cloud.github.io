@@ -20,10 +20,7 @@ There are multiple ways to upload components in alien4cloud for evey one of them
 {%inittab%}
 {% tabcontent Drag and Drop enabled %}
 
-*Drag* you archive file > *Drop* it on the **dash dotted** area
-
-[![Upload an archive file with D&D](../../images/1.4.0/user_guide/catalog/types/types_upload.png)](../../images/1.4.0/user_guide/catalog/types/types_upload.png)
-
+*Drag* you archive file > *Drop* it on the **dash dotted** area  
 Once upload has been completed successfully you should be able to see the node types contained in the archive in the components browsing panel.
 
 [![Completed  archive file upload](../../images/1.4.0/user_guide/catalog/types/upload_success.png)](../../images/1.4.0/user_guide/catalog/types/upload_success.png)
@@ -36,7 +33,7 @@ Click on *[Upload CSAR]* > *Select* your archive (The file is automaticly upload
 
 Once upload has been completed successfully you should be able to see the node types contained in the archive in the components browsing panel.
 
-[![Completed  archive file upload](../../images/components_guide/upload-components-finished-en.png)](../../images/components_guide/upload-components-finished-en.png)
+[![Completed  archive file upload](../../images/1.4.0/user_guide/catalog/types/upload_success.png)](../../images/1.4.0/user_guide/catalog/types/upload_success.png)
 {%endtabcontent%}
 
 {% tabcontent Import from a Git location %}

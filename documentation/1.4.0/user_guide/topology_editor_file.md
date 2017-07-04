@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Archive files edition
+title: Archive content
 root: ../../..
 categories: DOCUMENTATION-1.4.0
 parent: [user_guide, topology_editor]
@@ -11,12 +11,14 @@ weight: 200
 {% summary %}{% endsummary %}
 
 
-# Upload new file
-
-In this view you can upload or remove a file to your topology archive. This file can be, for example, a new script for your components or a new artifact.
-To select your file click on ![upload button](../../images/1.4.0/user_guide/upload-file-menu-upload-button.png){: .inline} and then, click on ![add button](../../images/1.4.0/user_guide/upload-file-menu-add-button.png){: .inline} to add it to your topology archive. You can also create a file or a new repository but it cannot be empty (for example, write `foo/bar.txt` to create a new repository 'foo' with a new file 'bar.txt').
+On the editor view, the ![upload button](../../images/1.4.0/user_guide/archive_content_btn.png){: .inline} allows you to browse and edit the content of the current edited topology archive.
 
 [![Upload file view](../../images/1.4.0/user_guide/upload-file-menu.png)](../../images/1.4.0/user_guide/upload-file-menu.png)
+
+# Upload new file
+The architect has the possible to upload or remove a file to your topology archive. This file can for example be a new script for your components or a new artifact.  
+Click on ![upload button](../../images/1.4.0/user_guide/upload-file-menu-upload-button.png){: .inline} to select and upload into the archive a file from your local filesystem.  
+You can also create an empty file, to be edited later on. First, enter the name of the file to create in the edition box, then hit ![add button](../../images/1.4.0/user_guide/upload-file-menu-add-button.png){: .inline}. Note that if entering file name like the `foo/bar.txt`, a new folder 'foo' with a new file 'bar.txt' will be created.
 
 
 # Update the YAML of your topology
