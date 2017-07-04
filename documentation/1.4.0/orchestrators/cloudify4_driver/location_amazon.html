@@ -1,0 +1,101 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/1.4.0/orchestrators/cloudify4_driver/location_amazon.html',
+  title: 'Amazon (AWS)'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Amazon (AWS)</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.4.0/orchestrators/cloudify4_driver/location_amazon.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <p>The open source cloudify 4 orchestrator plugin allows you to deploy applications on Amazon.</p>
+
+<h2 id="configuration">Configuration</h2>
+<p>The configuration of the location is done while configuring the orchestrator, before or after activation.
+Normally there is nothing to do here, as the default provided configurations are good enough to have the location working.</p>
+
+<h2 id="tosca-mapped--location-exposed-types">Tosca mapped / location exposed types</h2>
+<p>The Amazon location exposes some types to help you configure a deployment and map the native Tosca types. Theses nodes are exposed as <code>on demand resources</code> on the location management view.</p>
+
+<h3 id="compute">Compute</h3>
+<p>The tosca type <code>tosca.nodes.Compute</code> is mapped to the amazon nodes:</p>
+
+<ul>
+  <li><code>alien.cloudify.aws.nodes.Compute</code> for a linux compute,</li>
+  <li><code>alien.cloudify.aws.nodes.WindowsCompute</code> for a windows compute.</li>
+</ul>
+
+<p>To help you generate those, configuration resources <code>alien.cloudify.aws.nodes.Image</code> and <code>alien.cloudify.aws.nodes.InstanceType</code> can be created, and then used to auto generate Computes nodes.</p>
+
+<h3 id="network">Network</h3>
+<p>The tosca type <code>tosca.nodes.Network</code> can be mapped as two types of network:</p>
+
+<h4 id="public-network">Public Network</h4>
+<p>Exposed as the location type a public network <code>alien.nodes.aws.PublicNetwork</code>, which will result to the attribution of an elastic ip to the linked resource (compute).</p>
+
+<h4 id="private-network">Private Network</h4>
+<div class="note warning">
+<p>No supported yet.</p>
+</div>
+
+<h3 id="volumes">Volumes</h3>
+<p>The tosca type <code>tosca.nodes.BlockStorage</code> can be mapped as two types of volumes:</p>
+
+<h4 id="deletable-volumes">Deletable volumes</h4>
+<p>Exposed as the location type <code>alien.cloudify.aws.nodes.DeletableVolume</code>, this is a volume that will ALWAYS be DELETED when undeploying the application, leading therefore to the lost of all data stored on it.</p>
+
+<h4 id="reusable-volumes">Reusable volumes</h4>
+<p>Exposed as the location type <code>alien.cloudify.aws.nodes.Volume</code>, this is a volume that will not be deleted at the end of the application life-cycle. It can therefore, between two deployment of the same application on the same environment and location, be re-used and attached to a compute, rending accessible the data previously stored on it.</p>
+
+<h2 id="scaling">Scaling</h2>
+<p>Scaling is now fully supported. Means we can scale a single <code>Compute</code>, or a <code>Compute + Storage + IP-Address</code> association.</p>
+
+<div class="note warning">
+<p><strong>Known limitation when scaling a reusable volume</strong><br />
+When scaling a compute with a reusable volume, A4C will keep trace of the volume ID and zone (more details <a href="/#/documentation/1.4.0/orchestrators/cloudify3_driver/index.html">here</a>).<br />
+Unfortunately the zone information are not correctly handled when the volumes are in the same availability zone thus make sure to check the volumes id and zones properties before redeploying your application.<br />
+<strong><em>This limitation will be fixed very shortly.</em></strong></p>
+</div>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.4.0/orchestrators/cloudify4_driver/location_amazon.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-1.4.0', 'documentation/1.4.0/orchestrators/cloudify4_driver/location_amazon.md');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

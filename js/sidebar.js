@@ -1208,6 +1208,79 @@ var node, children;
     
   
     
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      var parent = sidebarTree["DOCUMENTATION"];
+      
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'concepts') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'concepts',
+              'title': '-',
+              'children': [],
+              'collapsed': true
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+
+        children = parent.children;
+        // try to find the node if exists already
+        node = null;
+        for (var i=0; i<children.length; i++) {
+          if(children[i].name === 'concepts-tosca') {
+            node = children[i];
+          }
+        }
+        if(node === null) {
+          node = {
+            'children': [],
+            'collapsed': true
+          };
+          children.push(node);
+        }
+      
+
+      node.name = "concepts-tosca";
+      node.title = "TOSCA";
+      node.url = "documentation/1.3.0/concepts/tosca.html";
+      node.weight =  500;
+      node.root = "../../";
+    
+  
+    
       var parent = sidebarTree["DOCUMENTATION"];
       
         
@@ -1297,53 +1370,6 @@ var node, children;
       node.name = "concepts-tosca";
       node.title = "TOSCA";
       node.url = "documentation/1.4.0/concepts/tosca.html";
-      node.weight =  500;
-      node.root = "../../";
-    
-  
-    
-      var parent = sidebarTree["DOCUMENTATION"];
-      
-        
-          var nextParent = null;
-          children = parent.children;
-          for (var i=0; i<children.length; i++) {
-            if(children[i].name === 'concepts') {
-              nextParent = children[i];
-            }
-          }
-          if(nextParent === null) {
-            nextParent = {
-              'name': 'concepts',
-              'title': '-',
-              'children': [],
-              'collapsed': true
-            };
-            parent.children.push(nextParent);
-          }
-          parent = nextParent;
-        
-
-        children = parent.children;
-        // try to find the node if exists already
-        node = null;
-        for (var i=0; i<children.length; i++) {
-          if(children[i].name === 'concepts-tosca') {
-            node = children[i];
-          }
-        }
-        if(node === null) {
-          node = {
-            'children': [],
-            'collapsed': true
-          };
-          children.push(node);
-        }
-      
-
-      node.name = "concepts-tosca";
-      node.title = "TOSCA";
-      node.url = "documentation/1.3.0/concepts/tosca.html";
       node.weight =  500;
       node.root = "../../";
     
@@ -1453,6 +1479,32 @@ var node, children;
     'collapsed': true
   };
 
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
   
     
   
@@ -2926,6 +2978,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.2.0"];
       
         
@@ -2970,8 +3024,6 @@ var node, children;
       node.url = "documentation/1.2.0/admin_guide/advanced_configuration.html";
       node.weight =  100;
       node.root = "../../";
-    
-  
     
   
     
@@ -3047,6 +3099,8 @@ var node, children;
       node.url = "documentation/1.2.0/user_guide/application_deployment.html";
       node.weight =  100;
       node.root = "../../";
+    
+  
     
   
     
@@ -3235,8 +3289,6 @@ var node, children;
     
   
     
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.2.0"];
       
         
@@ -3317,8 +3369,6 @@ var node, children;
       node.url = "documentation/1.2.0/devops_guide/tosca_grammar/artifact_definition.html";
       node.weight =  700;
       node.root = "../../../";
-    
-  
     
   
     
@@ -3491,6 +3541,10 @@ var node, children;
       node.url = "documentation/1.2.0/devops_guide/tosca_grammar/attribute_definition.html";
       node.weight =  1200;
       node.root = "../../../";
+    
+  
+    
+  
     
   
     
@@ -3824,6 +3878,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.2.0"];
       
         
@@ -3873,8 +3929,6 @@ var node, children;
     
   
     
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.2.0"];
       
         
@@ -3919,8 +3973,6 @@ var node, children;
       node.url = "documentation/1.2.0/user_guide/components_management.html";
       node.weight =  200;
       node.root = "../../";
-    
-  
     
   
     
@@ -4029,6 +4081,10 @@ var node, children;
     
   
     
+  
+    
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.2.0"];
       
         
@@ -4055,8 +4111,6 @@ var node, children;
       node.url = "documentation/1.2.0/concepts/concepts.html";
       node.weight =  100;
       node.root = "../../";
-    
-  
     
   
     
@@ -4218,8 +4272,6 @@ var node, children;
     
   
     
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.2.0"];
       
         
@@ -4287,8 +4339,6 @@ var node, children;
     
   
     
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.2.0"];
       
         
@@ -4351,6 +4401,10 @@ var node, children;
       node.url = "documentation/1.2.0/rest/controller_application-environment-controller.html";
       node.weight =  23;
       node.root = "../../";
+    
+  
+    
+  
     
   
     
@@ -4427,8 +4481,6 @@ var node, children;
     
   
     
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.2.0"];
       
         
@@ -4496,6 +4548,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.2.0"];
       
         
@@ -4558,8 +4612,6 @@ var node, children;
       node.url = "documentation/1.2.0/rest/controller_application-roles-controller.html";
       node.weight =  18;
       node.root = "../../";
-    
-  
     
   
     
@@ -4636,6 +4688,10 @@ var node, children;
     
   
     
+  
+    
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.2.0"];
       
         
@@ -4698,12 +4754,6 @@ var node, children;
       node.url = "documentation/1.2.0/rest/controller_application-version-controller.html";
       node.weight =  19;
       node.root = "../../";
-    
-  
-    
-  
-    
-  
     
   
     
@@ -4843,6 +4893,10 @@ var node, children;
     
   
     
+  
+    
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.2.0"];
       
         
@@ -4905,6 +4959,8 @@ var node, children;
       node.url = "documentation/1.2.0/rest/controller_basic-error-controller.html";
       node.weight =  35;
       node.root = "../../";
+    
+  
     
   
     
@@ -4975,12 +5031,6 @@ var node, children;
     
   
     
-  
-    
-  
-    
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.2.0"];
       
         
@@ -5046,6 +5096,10 @@ var node, children;
     
   
     
+  
+    
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.2.0"];
       
         
@@ -5108,8 +5162,6 @@ var node, children;
       node.url = "documentation/1.2.0/rest/controller_csar-git-controller.html";
       node.weight =  15;
       node.root = "../../";
-    
-  
     
   
     
@@ -5186,6 +5238,12 @@ var node, children;
     
   
     
+  
+    
+  
+    
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.2.0"];
       
         
@@ -5248,10 +5306,6 @@ var node, children;
       node.url = "documentation/1.2.0/rest/controller_deployment-topology-controller.html";
       node.weight =  20;
       node.root = "../../";
-    
-  
-    
-  
     
   
     
@@ -5399,6 +5453,10 @@ var node, children;
     
   
     
+  
+    
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.2.0"];
       
         
@@ -5461,10 +5519,6 @@ var node, children;
       node.url = "documentation/1.2.0/rest/controller_group-controller.html";
       node.weight =  2;
       node.root = "../../";
-    
-  
-    
-  
     
   
     
@@ -6304,6 +6358,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.2.0"];
       
         
@@ -6366,10 +6422,6 @@ var node, children;
       node.url = "documentation/1.2.0/rest/controller_quick-search-controller.html";
       node.weight =  34;
       node.root = "../../";
-    
-  
-    
-  
     
   
     
@@ -6452,6 +6504,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.2.0"];
       
         
@@ -6514,10 +6568,6 @@ var node, children;
       node.url = "documentation/1.2.0/rest/controller_shutdown-mvc-endpoint.html";
       node.weight =  37;
       node.root = "../../";
-    
-  
-    
-  
     
   
     
@@ -6590,6 +6640,14 @@ var node, children;
     
   
     
+  
+    
+  
+    
+  
+    
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.2.0"];
       
         
@@ -6652,10 +6710,6 @@ var node, children;
       node.url = "documentation/1.2.0/rest/controller_topology-controller.html";
       node.weight =  28;
       node.root = "../../";
-    
-  
-    
-  
     
   
     
@@ -7002,6 +7056,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.2.0"];
       
         
@@ -7064,10 +7120,6 @@ var node, children;
       node.url = "documentation/1.2.0/rest/definitions_admin-api.html";
       node.weight =  9000;
       node.root = "../../";
-    
-  
-    
-  
     
   
     
@@ -7207,6 +7259,10 @@ var node, children;
     
   
     
+  
+    
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.2.0"];
       
         
@@ -7269,6 +7325,8 @@ var node, children;
       node.url = "documentation/1.2.0/rest/definitions_admin-orchestrator-api.html";
       node.weight =  9000;
       node.root = "../../";
+    
+  
     
   
     
@@ -7341,14 +7399,6 @@ var node, children;
     
   
     
-  
-    
-  
-    
-  
-    
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.2.0"];
       
         
@@ -7414,6 +7464,12 @@ var node, children;
     
   
     
+  
+    
+  
+    
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.2.0"];
       
         
@@ -7476,8 +7532,6 @@ var node, children;
       node.url = "documentation/1.2.0/rest/definitions_applications-api.html";
       node.weight =  9000;
       node.root = "../../";
-    
-  
     
   
     
@@ -7696,6 +7750,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.2.0"];
       
         
@@ -7899,8 +7955,6 @@ var node, children;
     
   
     
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.2.0"];
       
         
@@ -7999,6 +8053,8 @@ var node, children;
       node.url = "documentation/1.2.0/devops_guide/tosca_grammar/get_attribute_definition.html";
       node.weight =  300;
       node.root = "../../../";
+    
+  
     
   
     
@@ -8109,6 +8165,10 @@ var node, children;
     
   
     
+  
+    
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.2.0"];
       
         
@@ -8207,10 +8267,6 @@ var node, children;
       node.url = "documentation/1.2.0/devops_guide/tosca_grammar/get_operation_output_definition.html";
       node.weight =  400;
       node.root = "../../../";
-    
-  
-    
-  
     
   
     
@@ -8352,8 +8408,6 @@ var node, children;
     
   
     
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.2.0"];
       
         
@@ -8436,6 +8490,10 @@ var node, children;
     
   
     
+  
+    
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.2.0"];
       
         
@@ -8487,8 +8545,6 @@ var node, children;
     
   
     
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.2.0"];
       
         
@@ -8515,6 +8571,12 @@ var node, children;
       node.url = "documentation/1.2.0/admin_guide/index.html";
       node.weight =  400;
       node.root = "../../";
+    
+  
+    
+  
+    
+  
     
   
     
@@ -8640,10 +8702,6 @@ var node, children;
     
   
     
-  
-    
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.2.0"];
       
         
@@ -8737,6 +8795,10 @@ var node, children;
     
   
     
+  
+    
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.2.0"];
       
         
@@ -8781,6 +8843,8 @@ var node, children;
       node.url = "documentation/1.2.0/devops_guide/lamp_stack_tutorial/lamp_stack.html";
       node.weight =  400;
       node.root = "../../";
+    
+  
     
   
     
@@ -8853,12 +8917,6 @@ var node, children;
     
   
     
-  
-    
-  
-    
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.2.0"];
       
         
@@ -8924,6 +8982,10 @@ var node, children;
     
   
     
+  
+    
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.2.0"];
       
         
@@ -8986,6 +9048,8 @@ var node, children;
       node.url = "documentation/1.2.0/devops_guide/lamp_stack_tutorial/lamp_stack_blockstorage.html";
       node.weight =  200;
       node.root = "../../";
+    
+  
     
   
     
@@ -9129,10 +9193,6 @@ var node, children;
     
   
     
-  
-    
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.2.0"];
       
         
@@ -9200,6 +9260,12 @@ var node, children;
     
   
     
+  
+    
+  
+    
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.2.0"];
       
         
@@ -9262,10 +9328,6 @@ var node, children;
       node.url = "documentation/1.2.0/admin_guide/ldap.html";
       node.weight =  100;
       node.root = "../../";
-    
-  
-    
-  
     
   
     
@@ -9362,6 +9424,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.2.0"];
       
         
@@ -9442,6 +9506,12 @@ var node, children;
       node.url = "documentation/1.2.0/orchestrators/cloudify3_driver/location_azure.html";
       node.weight =  1000;
       node.root = "../../../";
+    
+  
+    
+  
+    
+  
     
   
     
@@ -9532,6 +9602,10 @@ var node, children;
     
   
     
+  
+    
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.2.0"];
       
         
@@ -9617,12 +9691,6 @@ var node, children;
     
   
     
-  
-    
-  
-    
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.2.0"];
       
         
@@ -9703,6 +9771,8 @@ var node, children;
       node.url = "documentation/1.2.0/orchestrators/cloudify3_driver/location_vsphere.html";
       node.weight =  1000;
       node.root = "../../../";
+    
+  
     
   
     
@@ -9926,6 +9996,10 @@ var node, children;
     
   
     
+  
+    
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.2.0"];
       
         
@@ -10006,10 +10080,6 @@ var node, children;
       node.url = "documentation/1.2.0/devops_guide/tosca_grammar/operation_definition.html";
       node.weight =  900;
       node.root = "../../../";
-    
-  
-    
-  
     
   
     
@@ -10150,8 +10220,6 @@ var node, children;
     
   
     
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.2.0"];
       
         
@@ -10232,6 +10300,12 @@ var node, children;
     
   
     
+  
+    
+  
+    
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.2.0"];
       
         
@@ -10276,10 +10350,6 @@ var node, children;
       node.url = "documentation/1.2.0/rest/overview_admin-audit-api.html";
       node.weight =  4;
       node.root = "../../";
-    
-  
-    
-  
     
   
     
@@ -10336,6 +10406,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.2.0"];
       
         
@@ -10387,6 +10459,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.2.0"];
       
         
@@ -10431,6 +10505,8 @@ var node, children;
       node.url = "documentation/1.2.0/rest/overview_admin-plugin-api.html";
       node.weight =  2;
       node.root = "../../";
+    
+  
     
   
     
@@ -10542,10 +10618,6 @@ var node, children;
     
   
     
-  
-    
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.2.0"];
       
         
@@ -10590,8 +10662,6 @@ var node, children;
       node.url = "documentation/1.2.0/rest/overview_components-api.html";
       node.weight =  6;
       node.root = "../../";
-    
-  
     
   
     
@@ -10790,6 +10860,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.2.0"];
       
         
@@ -10946,6 +11018,10 @@ var node, children;
     
   
     
+  
+    
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.2.0"];
       
         
@@ -10990,12 +11066,6 @@ var node, children;
       node.url = "documentation/1.2.0/admin_guide/ports_requirements.html";
       node.weight =  10;
       node.root = "../../";
-    
-  
-    
-  
-    
-  
     
   
     
@@ -11063,6 +11133,8 @@ var node, children;
       node.url = "documentation/1.2.0/user_guide/post_deployment.html";
       node.weight =  300;
       node.root = "../../";
+    
+  
     
   
     
@@ -11206,6 +11278,14 @@ var node, children;
     
   
     
+  
+    
+  
+    
+  
+    
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.2.0"];
       
         
@@ -11268,14 +11348,6 @@ var node, children;
       node.url = "documentation/1.2.0/orchestrators/cloudify3_driver/prerequisites.html";
       node.weight =  1000;
       node.root = "../../../";
-    
-  
-    
-  
-    
-  
-    
-  
     
   
     
@@ -11361,6 +11433,14 @@ var node, children;
       node.url = "documentation/1.2.0/devops_guide/tosca_grammar/property_definition.html";
       node.weight =  1300;
       node.root = "../../../";
+    
+  
+    
+  
+    
+  
+    
+  
     
   
     
@@ -11457,8 +11537,6 @@ var node, children;
     
   
     
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.2.0"];
       
         
@@ -11544,10 +11622,6 @@ var node, children;
     
   
     
-  
-    
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.2.0"];
       
         
@@ -11592,6 +11666,10 @@ var node, children;
       node.url = "documentation/1.2.0/concepts/roles.html";
       node.weight =  1;
       node.root = "../../";
+    
+  
+    
+  
     
   
     
@@ -11661,8 +11739,6 @@ var node, children;
       node.url = "documentation/1.2.0/admin_guide/saml.html";
       node.weight =  200;
       node.root = "../../";
-    
-  
     
   
     
@@ -11788,8 +11864,6 @@ var node, children;
     
   
     
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.2.0"];
       
         
@@ -11852,8 +11926,6 @@ var node, children;
       node.url = "documentation/1.2.0/admin_guide/security_patch.html";
       node.weight =  400;
       node.root = "../../";
-    
-  
     
   
     
@@ -11940,6 +12012,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.2.0"];
       
         
@@ -11984,6 +12058,12 @@ var node, children;
       node.url = "documentation/1.2.0/user_guide/suggestion.html";
       node.weight =  600;
       node.root = "../../";
+    
+  
+    
+  
+    
+  
     
   
     
@@ -12100,8 +12180,6 @@ var node, children;
       node.url = "documentation/1.2.0/admin_guide/supported_platforms.html";
       node.weight =  200;
       node.root = "../../";
-    
-  
     
   
     
@@ -12379,10 +12457,6 @@ var node, children;
     
   
     
-  
-    
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.2.0"];
       
         
@@ -12478,6 +12552,10 @@ var node, children;
     
   
     
+  
+    
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.2.0"];
       
         
@@ -12522,6 +12600,10 @@ var node, children;
       node.url = "documentation/1.2.0/devops_guide/tosca_concepts.html";
       node.weight =  400;
       node.root = "../../";
+    
+  
+    
+  
     
   
     
@@ -12594,8 +12676,6 @@ var node, children;
     
   
     
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.2.0"];
       
         
@@ -12658,8 +12738,6 @@ var node, children;
       node.url = "documentation/1.2.0/devops_guide/normative_types/tosca_concepts_types_normative.html";
       node.weight =  200;
       node.root = "../../";
-    
-  
     
   
     
@@ -12743,8 +12821,6 @@ var node, children;
       node.url = "documentation/1.2.0/devops_guide/normative_types/tosca_concepts_types_normative_capabilities.html";
       node.weight =  100;
       node.root = "../../";
-    
-  
     
   
     
@@ -12942,8 +13018,6 @@ var node, children;
     
   
     
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.2.0"];
       
         
@@ -13009,6 +13083,14 @@ var node, children;
     
   
     
+  
+    
+  
+    
+  
+    
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.2.0"];
       
         
@@ -13053,8 +13135,6 @@ var node, children;
       node.url = "documentation/1.2.0/devops_guide/design_tutorial/tutorials.html";
       node.weight =  500;
       node.root = "../../";
-    
-  
     
   
     
@@ -13124,8 +13204,6 @@ var node, children;
       node.url = "documentation/1.2.0/devops_guide/design_tutorial/tutorials_component_design.html";
       node.weight =  100;
       node.root = "../../";
-    
-  
     
   
     
@@ -13202,6 +13280,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.2.0"];
       
         
@@ -13228,10 +13308,6 @@ var node, children;
       node.url = "documentation/1.2.0/user_guide/user_guide.html";
       node.weight =  300;
       node.root = "../../";
-    
-  
-    
-  
     
   
     
@@ -13286,8 +13362,6 @@ var node, children;
     
   
     
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.2.0"];
       
         
@@ -13314,6 +13388,10 @@ var node, children;
       node.url = "documentation/1.2.0/whatsnew.html";
       node.weight =  75;
       node.root = "../";
+    
+  
+    
+  
     
   
     
@@ -13596,10 +13674,6 @@ var node, children;
     
   
     
-  
-    
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.3.0"];
       
         
@@ -13644,6 +13718,12 @@ var node, children;
       node.url = "documentation/1.3.0/admin_guide/advanced_configuration.html";
       node.weight =  100;
       node.root = "../../";
+    
+  
+    
+  
+    
+  
     
   
     
@@ -13864,6 +13944,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.3.0"];
       
         
@@ -13935,8 +14017,6 @@ var node, children;
     
   
     
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.3.0"];
       
         
@@ -13981,8 +14061,6 @@ var node, children;
       node.url = "documentation/1.3.0/concepts/applications.html";
       node.weight =  400;
       node.root = "../../";
-    
-  
     
   
     
@@ -14050,6 +14128,8 @@ var node, children;
       node.url = "documentation/1.3.0/devops_guide/tosca_grammar/artifact_definition.html";
       node.weight =  700;
       node.root = "../../../";
+    
+  
     
   
     
@@ -14126,6 +14206,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.3.0"];
       
         
@@ -14195,8 +14277,6 @@ var node, children;
     
   
     
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.3.0"];
       
         
@@ -14241,6 +14321,8 @@ var node, children;
       node.url = "documentation/1.3.0/admin_guide/backup_restore_migrate.html";
       node.weight =  200;
       node.root = "../../";
+    
+  
     
   
     
@@ -14306,8 +14388,6 @@ var node, children;
       node.url = "documentation/1.3.0/devops_guide/tosca_grammar/capability_definition.html";
       node.weight =  120;
       node.root = "../../../";
-    
-  
     
   
     
@@ -14398,10 +14478,6 @@ var node, children;
     
   
     
-  
-    
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.3.0"];
       
         
@@ -14469,6 +14545,10 @@ var node, children;
     
   
     
+  
+    
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.3.0"];
       
         
@@ -14513,8 +14593,6 @@ var node, children;
       node.url = "documentation/1.3.0/user_guide/catalog.html";
       node.weight =  10;
       node.root = "../../";
-    
-  
     
   
     
@@ -14580,6 +14658,8 @@ var node, children;
       node.url = "documentation/1.3.0/user_guide/catalog_artifact_repositories.html";
       node.weight =  400;
       node.root = "../../";
+    
+  
     
   
     
@@ -14853,8 +14933,6 @@ var node, children;
     
   
     
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.3.0"];
       
         
@@ -14917,6 +14995,8 @@ var node, children;
       node.url = "documentation/1.3.0/user_guide/catalog_workspaces.html";
       node.weight =  10;
       node.root = "../../";
+    
+  
     
   
     
@@ -15046,6 +15126,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.3.0"];
       
         
@@ -15129,12 +15211,6 @@ var node, children;
     
   
     
-  
-    
-  
-    
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.3.0"];
       
         
@@ -15161,6 +15237,10 @@ var node, children;
       node.url = "documentation/1.3.0/concepts/concepts.html";
       node.weight =  100;
       node.root = "../../";
+    
+  
+    
+  
     
   
     
@@ -15226,8 +15306,6 @@ var node, children;
       node.url = "documentation/1.3.0/devops_guide/tosca_grammar/constraints.html";
       node.weight =  90;
       node.root = "../../";
-    
-  
     
   
     
@@ -15371,6 +15449,10 @@ var node, children;
     
   
     
+  
+    
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.3.0"];
       
         
@@ -15438,8 +15520,6 @@ var node, children;
     
   
     
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.3.0"];
       
         
@@ -15502,6 +15582,8 @@ var node, children;
       node.url = "documentation/1.3.0/rest/controller_application-environment-roles-controller.html";
       node.weight =  27;
       node.root = "../../";
+    
+  
     
   
     
@@ -15714,10 +15796,6 @@ var node, children;
     
   
     
-  
-    
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.3.0"];
       
         
@@ -15854,6 +15932,10 @@ var node, children;
     
   
     
+  
+    
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.3.0"];
       
         
@@ -15916,8 +15998,6 @@ var node, children;
       node.url = "documentation/1.3.0/rest/controller_audit-controller.html";
       node.weight =  12;
       node.root = "../../";
-    
-  
     
   
     
@@ -16063,6 +16143,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.3.0"];
       
         
@@ -16125,10 +16207,6 @@ var node, children;
       node.url = "documentation/1.3.0/rest/controller_component-controller.html";
       node.weight =  17;
       node.root = "../../";
-    
-  
-    
-  
     
   
     
@@ -16201,6 +16279,12 @@ var node, children;
     
   
     
+  
+    
+  
+    
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.3.0"];
       
         
@@ -16263,14 +16347,6 @@ var node, children;
       node.url = "documentation/1.3.0/rest/controller_deployment-controller.html";
       node.weight =  31;
       node.root = "../../";
-    
-  
-    
-  
-    
-  
-    
-  
     
   
     
@@ -16416,6 +16492,10 @@ var node, children;
     
   
     
+  
+    
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.3.0"];
       
         
@@ -16548,10 +16628,6 @@ var node, children;
     
   
     
-  
-    
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.3.0"];
       
         
@@ -16614,6 +16690,12 @@ var node, children;
       node.url = "documentation/1.3.0/rest/controller_group-controller.html";
       node.weight =  2;
       node.root = "../../";
+    
+  
+    
+  
+    
+  
     
   
     
@@ -16686,8 +16768,6 @@ var node, children;
     
   
     
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.3.0"];
       
         
@@ -16753,8 +16833,6 @@ var node, children;
     
   
     
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.3.0"];
       
         
@@ -16817,6 +16895,8 @@ var node, children;
       node.url = "documentation/1.3.0/rest/controller_location-controller.html";
       node.weight =  10;
       node.root = "../../";
+    
+  
     
   
     
@@ -16893,8 +16973,6 @@ var node, children;
     
   
     
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.3.0"];
       
         
@@ -16957,6 +17035,8 @@ var node, children;
       node.url = "documentation/1.3.0/rest/controller_location-resources-controller.html";
       node.weight =  6;
       node.root = "../../";
+    
+  
     
   
     
@@ -17037,6 +17117,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.3.0"];
       
         
@@ -17099,8 +17181,6 @@ var node, children;
       node.url = "documentation/1.3.0/rest/controller_metrics-mvc-endpoint.html";
       node.weight =  42;
       node.root = "../../";
-    
-  
     
   
     
@@ -17173,6 +17253,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.3.0"];
       
         
@@ -17235,8 +17317,6 @@ var node, children;
       node.url = "documentation/1.3.0/rest/controller_orchestrator-controller.html";
       node.weight =  8;
       node.root = "../../";
-    
-  
     
   
     
@@ -17315,8 +17395,6 @@ var node, children;
     
   
     
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.3.0"];
       
         
@@ -17379,6 +17457,8 @@ var node, children;
       node.url = "documentation/1.3.0/rest/controller_plugin-controller.html";
       node.weight =  3;
       node.root = "../../";
+    
+  
     
   
     
@@ -17453,8 +17533,6 @@ var node, children;
     
   
     
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.3.0"];
       
         
@@ -17517,6 +17595,10 @@ var node, children;
       node.url = "documentation/1.3.0/rest/controller_quick-search-controller.html";
       node.weight =  39;
       node.root = "../../";
+    
+  
+    
+  
     
   
     
@@ -17652,8 +17734,6 @@ var node, children;
     
   
     
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.3.0"];
       
         
@@ -17716,6 +17796,8 @@ var node, children;
       node.url = "documentation/1.3.0/rest/controller_runtime-controller.html";
       node.weight =  30;
       node.root = "../../";
+    
+  
     
   
     
@@ -17863,10 +17945,6 @@ var node, children;
     
   
     
-  
-    
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.3.0"];
       
         
@@ -17938,6 +18016,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.3.0"];
       
         
@@ -18000,8 +18080,6 @@ var node, children;
       node.url = "documentation/1.3.0/rest/controller_topology-location-matching-controller.html";
       node.weight =  32;
       node.root = "../../";
-    
-  
     
   
     
@@ -18145,6 +18223,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.3.0"];
       
         
@@ -18210,8 +18290,6 @@ var node, children;
     
   
     
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.3.0"];
       
         
@@ -18274,6 +18352,10 @@ var node, children;
       node.url = "documentation/1.3.0/rest/controller_workspace-topology-catalog-controller.html";
       node.weight =  19;
       node.root = "../../";
+    
+  
+    
+  
     
   
     
@@ -18533,6 +18615,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.3.0"];
       
         
@@ -18595,8 +18679,6 @@ var node, children;
       node.url = "documentation/1.3.0/rest/definitions_admin-audit-api.html";
       node.weight =  9000;
       node.root = "../../";
-    
-  
     
   
     
@@ -18673,8 +18755,6 @@ var node, children;
     
   
     
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.3.0"];
       
         
@@ -18737,10 +18817,6 @@ var node, children;
       node.url = "documentation/1.3.0/rest/definitions_admin-orchestrator-api.html";
       node.weight =  9000;
       node.root = "../../";
-    
-  
-    
-  
     
   
     
@@ -18811,6 +18887,12 @@ var node, children;
     
   
     
+  
+    
+  
+    
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.3.0"];
       
         
@@ -18873,12 +18955,6 @@ var node, children;
       node.url = "documentation/1.3.0/rest/definitions_admin-user-api.html";
       node.weight =  9000;
       node.root = "../../";
-    
-  
-    
-  
-    
-  
     
   
     
@@ -18949,6 +19025,10 @@ var node, children;
     
   
     
+  
+    
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.3.0"];
       
         
@@ -19014,8 +19094,6 @@ var node, children;
     
   
     
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.3.0"];
       
         
@@ -19078,6 +19156,8 @@ var node, children;
       node.url = "documentation/1.3.0/rest/definitions_catalog-api.html";
       node.weight =  9000;
       node.root = "../../";
+    
+  
     
   
     
@@ -19221,6 +19301,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.3.0"];
       
         
@@ -19283,8 +19365,6 @@ var node, children;
       node.url = "documentation/1.3.0/rest/definitions_topology-editor-api.html";
       node.weight =  9000;
       node.root = "../../";
-    
-  
     
   
     
@@ -19363,6 +19443,10 @@ var node, children;
     
   
     
+  
+    
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.3.0"];
       
         
@@ -19389,8 +19473,6 @@ var node, children;
       node.url = "documentation/1.3.0/devops_guide/dev_ops_guide.html";
       node.weight =  350;
       node.root = "../../";
-    
-  
     
   
     
@@ -19534,6 +19616,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.3.0"];
       
         
@@ -19614,8 +19698,6 @@ var node, children;
       node.url = "documentation/1.3.0/devops_guide/tosca_grammar/get_attribute_definition.html";
       node.weight =  300;
       node.root = "../../../";
-    
-  
     
   
     
@@ -19708,10 +19790,6 @@ var node, children;
     
   
     
-  
-    
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.3.0"];
       
         
@@ -19792,6 +19870,8 @@ var node, children;
       node.url = "documentation/1.3.0/devops_guide/tosca_grammar/get_operation_output_definition.html";
       node.weight =  400;
       node.root = "../../../";
+    
+  
     
   
     
@@ -19884,6 +19964,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.3.0"];
       
         
@@ -19910,8 +19992,6 @@ var node, children;
       node.url = "documentation/1.3.0/getting_started/getting_started.html";
       node.weight =  100;
       node.root = "../";
-    
-  
     
   
     
@@ -20025,19 +20105,6 @@ var node, children;
     
   
     
-      var parent = sidebarTree["DOCUMENTATION-1.3.0"];
-      
-        node = parent;
-      
-
-      node.name = "index";
-      node.title = "ALIEN 4 Cloud - 1.3.0 - Documentation";
-      node.url = "documentation/1.3.0/index.html";
-      node.weight =  0;
-      node.root = "../";
-    
-  
-    
   
     
       var parent = sidebarTree["DOCUMENTATION-1.3.0"];
@@ -20084,6 +20151,21 @@ var node, children;
       node.url = "documentation/1.3.0/orchestrators/cloudify3_driver/index.html";
       node.weight =  1000;
       node.root = "../../../";
+    
+  
+    
+      var parent = sidebarTree["DOCUMENTATION-1.3.0"];
+      
+        node = parent;
+      
+
+      node.name = "index";
+      node.title = "ALIEN 4 Cloud - 1.3.0 - Documentation";
+      node.url = "documentation/1.3.0/index.html";
+      node.weight =  0;
+      node.root = "../";
+    
+  
     
   
     
@@ -20197,6 +20279,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.3.0"];
       
         
@@ -20264,6 +20348,10 @@ var node, children;
     
   
     
+  
+    
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.3.0"];
       
         
@@ -20308,8 +20396,6 @@ var node, children;
       node.url = "documentation/1.3.0/admin_guide/installation_configuration.html";
       node.weight =  10;
       node.root = "../../";
-    
-  
     
   
     
@@ -20384,6 +20470,10 @@ var node, children;
     
   
     
+  
+    
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.3.0"];
       
         
@@ -20451,6 +20541,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.3.0"];
       
         
@@ -20495,8 +20587,6 @@ var node, children;
       node.url = "documentation/1.3.0/devops_guide/lamp_stack_tutorial/lamp_stack.html";
       node.weight =  400;
       node.root = "../../";
-    
-  
     
   
     
@@ -20640,8 +20730,6 @@ var node, children;
     
   
     
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.3.0"];
       
         
@@ -20704,10 +20792,6 @@ var node, children;
       node.url = "documentation/1.3.0/devops_guide/lamp_stack_tutorial/lamp_stack_blockstorage.html";
       node.weight =  200;
       node.root = "../../";
-    
-  
-    
-  
     
   
     
@@ -20778,6 +20862,12 @@ var node, children;
     
   
     
+  
+    
+  
+    
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.3.0"];
       
         
@@ -20840,8 +20930,6 @@ var node, children;
       node.url = "documentation/1.3.0/devops_guide/lamp_stack_tutorial/lamp_stack_php.html";
       node.weight =  200;
       node.root = "../../";
-    
-  
     
   
     
@@ -20985,6 +21073,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.3.0"];
       
         
@@ -21065,6 +21155,10 @@ var node, children;
       node.url = "documentation/1.3.0/orchestrators/cloudify3_driver/location_amazon.html";
       node.weight =  1000;
       node.root = "../../../";
+    
+  
+    
+  
     
   
     
@@ -21161,6 +21255,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.3.0"];
       
         
@@ -21241,10 +21337,6 @@ var node, children;
       node.url = "documentation/1.3.0/orchestrators/cloudify3_driver/location_byon.html";
       node.weight =  1000;
       node.root = "../../../";
-    
-  
-    
-  
     
   
     
@@ -21337,6 +21429,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.3.0"];
       
         
@@ -21422,6 +21516,10 @@ var node, children;
     
   
     
+  
+    
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.3.0"];
       
         
@@ -21489,8 +21587,6 @@ var node, children;
     
   
     
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.3.0"];
       
         
@@ -21535,6 +21631,10 @@ var node, children;
       node.url = "documentation/1.3.0/orchestrators/marathon_driver/marathon_driver.html";
       node.weight =  1000;
       node.root = "../../../";
+    
+  
+    
+  
     
   
     
@@ -21614,10 +21714,6 @@ var node, children;
       node.url = "documentation/1.3.0/devops_guide/tosca_grammar/node_filter.html";
       node.weight =  130;
       node.root = "../../../";
-    
-  
-    
-  
     
   
     
@@ -21708,6 +21804,10 @@ var node, children;
     
   
     
+  
+    
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.3.0"];
       
         
@@ -21773,12 +21873,6 @@ var node, children;
     
   
     
-  
-    
-  
-    
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.3.0"];
       
         
@@ -21841,6 +21935,8 @@ var node, children;
       node.url = "documentation/1.3.0/devops_guide/tosca_grammar/operation_definition.html";
       node.weight =  150;
       node.root = "../../../";
+    
+  
     
   
     
@@ -21999,6 +22095,12 @@ var node, children;
     
   
     
+  
+    
+  
+    
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.3.0"];
       
         
@@ -22025,8 +22127,6 @@ var node, children;
       node.url = "documentation/1.3.0/rest/overview.html";
       node.weight =  9000;
       node.root = "../../";
-    
-  
     
   
     
@@ -22081,10 +22181,6 @@ var node, children;
     
   
     
-  
-    
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.3.0"];
       
         
@@ -22129,6 +22225,12 @@ var node, children;
       node.url = "documentation/1.3.0/rest/overview_admin-audit-api.html";
       node.weight =  4;
       node.root = "../../";
+    
+  
+    
+  
+    
+  
     
   
     
@@ -22232,14 +22334,6 @@ var node, children;
     
   
     
-  
-    
-  
-    
-  
-    
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.3.0"];
       
         
@@ -22340,6 +22434,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.3.0"];
       
         
@@ -22435,6 +22531,8 @@ var node, children;
       node.url = "documentation/1.3.0/rest/overview_applications-deployment-api.html";
       node.weight =  9;
       node.root = "../../";
+    
+  
     
   
     
@@ -22542,6 +22640,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.3.0"];
       
         
@@ -22586,8 +22686,6 @@ var node, children;
       node.url = "documentation/1.3.0/rest/overview_topology-editor-api.html";
       node.weight =  10;
       node.root = "../../";
-    
-  
     
   
     
@@ -22711,6 +22809,10 @@ var node, children;
     
   
     
+  
+    
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.3.0"];
       
         
@@ -22773,8 +22875,6 @@ var node, children;
       node.url = "documentation/1.3.0/user_guide/plugin_management.html";
       node.weight =  100;
       node.root = "../../";
-    
-  
     
   
     
@@ -22867,12 +22967,6 @@ var node, children;
     
   
     
-  
-    
-  
-    
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.3.0"];
       
         
@@ -22935,6 +23029,12 @@ var node, children;
       node.url = "documentation/1.3.0/admin_guide/ports_requirements.html";
       node.weight =  20;
       node.root = "../../";
+    
+  
+    
+  
+    
+  
     
   
     
@@ -23009,8 +23109,6 @@ var node, children;
     
   
     
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.3.0"];
       
         
@@ -23055,6 +23153,8 @@ var node, children;
       node.url = "documentation/1.3.0/admin_guide/post_deployment_application.html";
       node.weight =  800;
       node.root = "../../";
+    
+  
     
   
     
@@ -23214,6 +23314,10 @@ var node, children;
     
   
     
+  
+    
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.3.0"];
       
         
@@ -23348,8 +23452,6 @@ var node, children;
     
   
     
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.3.0"];
       
         
@@ -23435,8 +23537,6 @@ var node, children;
     
   
     
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.3.0"];
       
         
@@ -23499,6 +23599,8 @@ var node, children;
       node.url = "documentation/1.3.0/devops_guide/tosca_grammar/relationship_type.html";
       node.weight =  50;
       node.root = "../../../";
+    
+  
     
   
     
@@ -23573,6 +23675,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.3.0"];
       
         
@@ -23640,10 +23744,6 @@ var node, children;
     
   
     
-  
-    
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.3.0"];
       
         
@@ -23688,6 +23788,8 @@ var node, children;
       node.url = "documentation/1.3.0/concepts/roles.html";
       node.weight =  1;
       node.root = "../../";
+    
+  
     
   
     
@@ -23813,6 +23915,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.3.0"];
       
         
@@ -23880,6 +23984,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.3.0"];
       
         
@@ -23942,8 +24048,6 @@ var node, children;
       node.url = "documentation/1.3.0/admin_guide/security_patch.html";
       node.weight =  400;
       node.root = "../../";
-    
-  
     
   
     
@@ -24026,8 +24130,6 @@ var node, children;
     
   
     
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.3.0"];
       
         
@@ -24077,6 +24179,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.3.0"];
       
         
@@ -24121,8 +24225,6 @@ var node, children;
       node.url = "documentation/1.3.0/user_guide/suggestion.html";
       node.weight =  600;
       node.root = "../../";
-    
-  
     
   
     
@@ -24188,6 +24290,10 @@ var node, children;
       node.url = "documentation/1.3.0/orchestrators/cloudify3_driver/supported_locations.html";
       node.weight =  2000;
       node.root = "../../../";
+    
+  
+    
+  
     
   
     
@@ -24264,8 +24370,6 @@ var node, children;
     
   
     
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.3.0"];
       
         
@@ -24317,6 +24421,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.3.0"];
       
         
@@ -24361,8 +24467,6 @@ var node, children;
       node.url = "documentation/1.3.0/user_guide/topology_editor.html";
       node.weight =  200;
       node.root = "../../";
-    
-  
     
   
     
@@ -24701,6 +24805,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.3.0"];
       
         
@@ -24830,8 +24936,6 @@ var node, children;
       node.url = "documentation/1.3.0/user_guide/topology_editor_portability.html";
       node.weight =  800;
       node.root = "../../..";
-    
-  
     
   
     
@@ -24966,6 +25070,8 @@ var node, children;
       node.url = "documentation/1.3.0/user_guide/topology_editor_substitution.html";
       node.weight =  190;
       node.root = "../../..";
+    
+  
     
   
     
@@ -25107,10 +25213,6 @@ var node, children;
     
   
     
-  
-    
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.3.0"];
       
         
@@ -25173,6 +25275,8 @@ var node, children;
       node.url = "documentation/1.3.0/user_guide/topology_validation.html";
       node.weight =  250;
       node.root = "../../..";
+    
+  
     
   
     
@@ -25249,10 +25353,6 @@ var node, children;
     
   
     
-  
-    
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.3.0"];
       
         
@@ -25304,6 +25404,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.3.0"];
       
         
@@ -25348,6 +25450,10 @@ var node, children;
       node.url = "documentation/1.3.0/devops_guide/normative_types/tosca_concepts_types_normative.html";
       node.weight =  200;
       node.root = "../../";
+    
+  
+    
+  
     
   
     
@@ -25487,8 +25593,6 @@ var node, children;
     
   
     
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.3.0"];
       
         
@@ -25621,6 +25725,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.3.0"];
       
         
@@ -25665,8 +25771,6 @@ var node, children;
       node.url = "documentation/1.3.0/devops_guide/tosca_normative_lifecycle.html";
       node.weight =  400;
       node.root = "../../";
-    
-  
     
   
     
@@ -25863,8 +25967,6 @@ var node, children;
     
   
     
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.3.0"];
       
         
@@ -25891,6 +25993,12 @@ var node, children;
       node.url = "documentation/1.3.0/user_guide/user_guide.html";
       node.weight =  300;
       node.root = "../../";
+    
+  
+    
+  
+    
+  
     
   
     
@@ -25956,10 +26064,6 @@ var node, children;
       node.url = "documentation/1.3.0/user_guide/user_management.html";
       node.weight =  10;
       node.root = "../../";
-    
-  
-    
-  
     
   
     
@@ -26212,6 +26316,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.4.0"];
       
         
@@ -26260,6 +26366,87 @@ var node, children;
   
     
   
+    
+      var parent = sidebarTree["DOCUMENTATION-1.4.0"];
+      
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'orchestrators') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'orchestrators',
+              'title': '-',
+              'children': [],
+              'collapsed': true
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'cloudify_4') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'cloudify_4',
+              'title': '-',
+              'children': [],
+              'collapsed': true
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'cloudify_4_install') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'cloudify_4_install',
+              'title': '-',
+              'children': [],
+              'collapsed': true
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+
+        children = parent.children;
+        // try to find the node if exists already
+        node = null;
+        for (var i=0; i<children.length; i++) {
+          if(children[i].name === 'ansible_support') {
+            node = children[i];
+          }
+        }
+        if(node === null) {
+          node = {
+            'children': [],
+            'collapsed': true
+          };
+          children.push(node);
+        }
+      
+
+      node.name = "ansible_support";
+      node.title = "Ansible support";
+      node.url = "documentation/1.4.0/orchestrators/cloudify4_driver/ansible_support.html";
+      node.weight =  1001;
+      node.root = "../../../";
     
   
     
@@ -26415,6 +26602,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.4.0"];
       
         
@@ -26477,8 +26666,6 @@ var node, children;
       node.url = "documentation/1.4.0/user_guide/application_deployment.html";
       node.weight =  100;
       node.root = "../../";
-    
-  
     
   
     
@@ -26813,8 +27000,6 @@ var node, children;
     
   
     
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.4.0"];
       
         
@@ -26877,6 +27062,8 @@ var node, children;
       node.url = "documentation/1.4.0/user_guide/application_runtime.html";
       node.weight =  200;
       node.root = "../../";
+    
+  
     
   
     
@@ -26991,6 +27178,10 @@ var node, children;
       node.url = "documentation/1.4.0/concepts/applications.html";
       node.weight =  400;
       node.root = "../../";
+    
+  
+    
+  
     
   
     
@@ -27134,8 +27325,6 @@ var node, children;
     
   
     
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.4.0"];
       
         
@@ -27203,8 +27392,6 @@ var node, children;
     
   
     
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.4.0"];
       
         
@@ -27249,8 +27436,6 @@ var node, children;
       node.url = "documentation/1.4.0/admin_guide/backup_restore.html";
       node.weight =  200;
       node.root = "../../";
-    
-  
     
   
     
@@ -27320,6 +27505,8 @@ var node, children;
       node.url = "documentation/1.4.0/devops_guide/tosca_grammar/capability_definition.html";
       node.weight =  120;
       node.root = "../../../";
+    
+  
     
   
     
@@ -27410,6 +27597,10 @@ var node, children;
     
   
     
+  
+    
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.4.0"];
       
         
@@ -27475,10 +27666,6 @@ var node, children;
     
   
     
-  
-    
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.4.0"];
       
         
@@ -27523,6 +27710,8 @@ var node, children;
       node.url = "documentation/1.4.0/user_guide/catalog.html";
       node.weight =  10;
       node.root = "../../";
+    
+  
     
   
     
@@ -27590,8 +27779,6 @@ var node, children;
       node.url = "documentation/1.4.0/user_guide/catalog_artifact_repositories.html";
       node.weight =  400;
       node.root = "../../";
-    
-  
     
   
     
@@ -27928,6 +28115,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.4.0"];
       
         
@@ -27990,8 +28179,6 @@ var node, children;
       node.url = "documentation/1.4.0/user_guide/catalog_workspaces.html";
       node.weight =  10;
       node.root = "../../";
-    
-  
     
   
     
@@ -28066,8 +28253,6 @@ var node, children;
     
   
     
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.4.0"];
       
         
@@ -28112,6 +28297,8 @@ var node, children;
       node.url = "documentation/1.4.0/concepts/components.html";
       node.weight =  200;
       node.root = "../../";
+    
+  
     
   
     
@@ -28206,6 +28393,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.4.0"];
       
         
@@ -28232,8 +28421,6 @@ var node, children;
       node.url = "documentation/1.4.0/concepts/concepts.html";
       node.weight =  100;
       node.root = "../../";
-    
-  
     
   
     
@@ -28310,6 +28497,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.4.0"];
       
         
@@ -28372,6 +28561,8 @@ var node, children;
       node.url = "documentation/1.4.0/rest/controller_application-controller.html";
       node.weight =  24;
       node.root = "../../";
+    
+  
     
   
     
@@ -28446,8 +28637,6 @@ var node, children;
     
   
     
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.4.0"];
       
         
@@ -28515,8 +28704,6 @@ var node, children;
     
   
     
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.4.0"];
       
         
@@ -28579,8 +28766,6 @@ var node, children;
       node.url = "documentation/1.4.0/rest/controller_application-environment-roles-controller.html";
       node.weight =  25;
       node.root = "../../";
-    
-  
     
   
     
@@ -28655,6 +28840,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.4.0"];
       
         
@@ -28717,8 +28904,6 @@ var node, children;
       node.url = "documentation/1.4.0/rest/controller_application-meta-property-controller.html";
       node.weight =  29;
       node.root = "../../";
-    
-  
     
   
     
@@ -28789,6 +28974,12 @@ var node, children;
     
   
     
+  
+    
+  
+    
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.4.0"];
       
         
@@ -28851,10 +29042,6 @@ var node, children;
       node.url = "documentation/1.4.0/rest/controller_application-tags-controller.html";
       node.weight =  22;
       node.root = "../../";
-    
-  
-    
-  
     
   
     
@@ -28994,6 +29181,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.4.0"];
       
         
@@ -29056,6 +29245,8 @@ var node, children;
       node.url = "documentation/1.4.0/rest/controller_audit-controller.html";
       node.weight =  13;
       node.root = "../../";
+    
+  
     
   
     
@@ -29130,12 +29321,6 @@ var node, children;
     
   
     
-  
-    
-  
-    
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.4.0"];
       
         
@@ -29198,6 +29383,10 @@ var node, children;
       node.url = "documentation/1.4.0/rest/controller_cloud-service-archive-controller.html";
       node.weight =  17;
       node.root = "../../";
+    
+  
+    
+  
     
   
     
@@ -29339,10 +29528,6 @@ var node, children;
     
   
     
-  
-    
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.4.0"];
       
         
@@ -29405,6 +29590,8 @@ var node, children;
       node.url = "documentation/1.4.0/rest/controller_deployment-controller.html";
       node.weight =  36;
       node.root = "../../";
+    
+  
     
   
     
@@ -29542,6 +29729,10 @@ var node, children;
     
   
     
+  
+    
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.4.0"];
       
         
@@ -29604,10 +29795,6 @@ var node, children;
       node.url = "documentation/1.4.0/rest/controller_endpoint-mvc-adapter.html";
       node.weight =  49;
       node.root = "../../";
-    
-  
-    
-  
     
   
     
@@ -29881,8 +30068,6 @@ var node, children;
     
   
     
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.4.0"];
       
         
@@ -29945,6 +30130,8 @@ var node, children;
       node.url = "documentation/1.4.0/rest/controller_health-mvc-endpoint.html";
       node.weight =  53;
       node.root = "../../";
+    
+  
     
   
     
@@ -30017,6 +30204,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.4.0"];
       
         
@@ -30079,8 +30268,6 @@ var node, children;
       node.url = "documentation/1.4.0/rest/controller_location-controller.html";
       node.weight =  11;
       node.root = "../../";
-    
-  
     
   
     
@@ -30220,6 +30407,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.4.0"];
       
         
@@ -30282,8 +30471,6 @@ var node, children;
       node.url = "documentation/1.4.0/rest/controller_location-resources-controller.html";
       node.weight =  5;
       node.root = "../../";
-    
-  
     
   
     
@@ -30553,8 +30740,6 @@ var node, children;
     
   
     
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.4.0"];
       
         
@@ -30622,6 +30807,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.4.0"];
       
         
@@ -30684,8 +30871,6 @@ var node, children;
       node.url = "documentation/1.4.0/rest/controller_orchestrator-configuration-controller.html";
       node.weight =  12;
       node.root = "../../";
-    
-  
     
   
     
@@ -30768,6 +30953,10 @@ var node, children;
     
   
     
+  
+    
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.4.0"];
       
         
@@ -30830,8 +31019,6 @@ var node, children;
       node.url = "documentation/1.4.0/rest/controller_plugin-controller.html";
       node.weight =  3;
       node.root = "../../";
-    
-  
     
   
     
@@ -30973,8 +31160,6 @@ var node, children;
     
   
     
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.4.0"];
       
         
@@ -31109,6 +31294,10 @@ var node, children;
     
   
     
+  
+    
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.4.0"];
       
         
@@ -31171,8 +31360,6 @@ var node, children;
       node.url = "documentation/1.4.0/rest/controller_runtime-controller.html";
       node.weight =  35;
       node.root = "../../";
-    
-  
     
   
     
@@ -31308,6 +31495,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.4.0"];
       
         
@@ -31370,10 +31559,6 @@ var node, children;
       node.url = "documentation/1.4.0/rest/controller_tag-configuration-controller.html";
       node.weight =  14;
       node.root = "../../";
-    
-  
-    
-  
     
   
     
@@ -31515,6 +31700,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.4.0"];
       
         
@@ -31577,6 +31764,8 @@ var node, children;
       node.url = "documentation/1.4.0/rest/controller_topology-location-matching-controller.html";
       node.weight =  37;
       node.root = "../../";
+    
+  
     
   
     
@@ -31720,8 +31909,6 @@ var node, children;
     
   
     
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.4.0"];
       
         
@@ -31784,6 +31971,8 @@ var node, children;
       node.url = "documentation/1.4.0/rest/controller_workspace-controller.html";
       node.weight =  19;
       node.root = "../../";
+    
+  
     
   
     
@@ -31856,10 +32045,6 @@ var node, children;
     
   
     
-  
-    
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.4.0"];
       
         
@@ -31907,6 +32092,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.4.0"];
       
         
@@ -31951,8 +32138,6 @@ var node, children;
       node.url = "documentation/1.4.0/admin_guide/data_migration.html";
       node.weight =  200;
       node.root = "../../";
-    
-  
     
   
     
@@ -32090,8 +32275,6 @@ var node, children;
     
   
     
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.4.0"];
       
         
@@ -32154,6 +32337,8 @@ var node, children;
       node.url = "documentation/1.4.0/rest/definitions_admin-api.html";
       node.weight =  9000;
       node.root = "../../";
+    
+  
     
   
     
@@ -32230,6 +32415,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.4.0"];
       
         
@@ -32292,8 +32479,6 @@ var node, children;
       node.url = "documentation/1.4.0/rest/definitions_admin-metaproperties-api.html";
       node.weight =  9000;
       node.root = "../../";
-    
-  
     
   
     
@@ -32366,6 +32551,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.4.0"];
       
         
@@ -32428,6 +32615,8 @@ var node, children;
       node.url = "documentation/1.4.0/rest/definitions_admin-plugin-api.html";
       node.weight =  9000;
       node.root = "../../";
+    
+  
     
   
     
@@ -32569,8 +32758,6 @@ var node, children;
     
   
     
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.4.0"];
       
         
@@ -32638,6 +32825,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.4.0"];
       
         
@@ -32700,8 +32889,6 @@ var node, children;
       node.url = "documentation/1.4.0/rest/definitions_catalog-api.html";
       node.weight =  9000;
       node.root = "../../";
-    
-  
     
   
     
@@ -32845,10 +33032,6 @@ var node, children;
     
   
     
-  
-    
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.4.0"];
       
         
@@ -32911,6 +33094,10 @@ var node, children;
       node.url = "documentation/1.4.0/rest/definitions_topology-editor-api.html";
       node.weight =  9000;
       node.root = "../../";
+    
+  
+    
+  
     
   
     
@@ -33052,6 +33239,71 @@ var node, children;
           var nextParent = null;
           children = parent.children;
           for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'cloudify_4') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'cloudify_4',
+              'title': '-',
+              'children': [],
+              'collapsed': true
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+
+        children = parent.children;
+        // try to find the node if exists already
+        node = null;
+        for (var i=0; i<children.length; i++) {
+          if(children[i].name === 'cloudify_4_deployment_update') {
+            node = children[i];
+          }
+        }
+        if(node === null) {
+          node = {
+            'children': [],
+            'collapsed': true
+          };
+          children.push(node);
+        }
+      
+
+      node.name = "cloudify_4_deployment_update";
+      node.title = "Deployment Update";
+      node.url = "documentation/1.4.0/orchestrators/cloudify4_driver/deployment_update.html";
+      node.weight =  6000;
+      node.root = "../../../";
+    
+  
+    
+      var parent = sidebarTree["DOCUMENTATION-1.4.0"];
+      
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'orchestrators') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'orchestrators',
+              'title': '-',
+              'children': [],
+              'collapsed': true
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
             if(children[i].name === 'cloudify_3') {
               nextParent = children[i];
             }
@@ -33095,8 +33347,6 @@ var node, children;
     
   
     
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.4.0"];
       
         
@@ -33123,6 +33373,8 @@ var node, children;
       node.url = "documentation/1.4.0/devops_guide/dev_ops_guide.html";
       node.weight =  350;
       node.root = "../../";
+    
+  
     
   
     
@@ -33527,6 +33779,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.4.0"];
       
         
@@ -33618,6 +33872,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.4.0"];
       
         
@@ -33683,10 +33939,6 @@ var node, children;
     
   
     
-  
-    
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.4.0"];
       
         
@@ -33731,6 +33983,8 @@ var node, children;
       node.url = "documentation/1.4.0/getting_started/going_further_cfy_boot.html";
       node.weight =  10;
       node.root = "../";
+    
+  
     
   
     
@@ -33785,10 +34039,6 @@ var node, children;
     
   
     
-  
-    
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.4.0"];
       
         node = parent;
@@ -33799,6 +34049,12 @@ var node, children;
       node.url = "documentation/1.4.0/index.html";
       node.weight =  0;
       node.root = "../";
+    
+  
+    
+  
+    
+  
     
   
     
@@ -33853,7 +34109,50 @@ var node, children;
     
   
     
-  
+      var parent = sidebarTree["DOCUMENTATION-1.4.0"];
+      
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'orchestrators') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'orchestrators',
+              'title': '-',
+              'children': [],
+              'collapsed': true
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+
+        children = parent.children;
+        // try to find the node if exists already
+        node = null;
+        for (var i=0; i<children.length; i++) {
+          if(children[i].name === 'cloudify_4') {
+            node = children[i];
+          }
+        }
+        if(node === null) {
+          node = {
+            'children': [],
+            'collapsed': true
+          };
+          children.push(node);
+        }
+      
+
+      node.name = "cloudify_4";
+      node.title = "Cloudify 4";
+      node.url = "documentation/1.4.0/orchestrators/cloudify4_driver/index.html";
+      node.weight =  3000;
+      node.root = "../../../";
     
   
     
@@ -33891,6 +34190,71 @@ var node, children;
   
     
   
+    
+  
+    
+      var parent = sidebarTree["DOCUMENTATION-1.4.0"];
+      
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'orchestrators') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'orchestrators',
+              'title': '-',
+              'children': [],
+              'collapsed': true
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'cloudify_4') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'cloudify_4',
+              'title': '-',
+              'children': [],
+              'collapsed': true
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+
+        children = parent.children;
+        // try to find the node if exists already
+        node = null;
+        for (var i=0; i<children.length; i++) {
+          if(children[i].name === 'cloudify_4_install') {
+            node = children[i];
+          }
+        }
+        if(node === null) {
+          node = {
+            'children': [],
+            'collapsed': true
+          };
+          children.push(node);
+        }
+      
+
+      node.name = "cloudify_4_install";
+      node.title = "Installing and configuring";
+      node.url = "documentation/1.4.0/orchestrators/cloudify4_driver/install_config.html";
+      node.weight =  2000;
+      node.root = "../../../";
     
   
     
@@ -33961,6 +34325,10 @@ var node, children;
     
   
     
+  
+    
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.4.0"];
       
         
@@ -34026,14 +34394,6 @@ var node, children;
     
   
     
-  
-    
-  
-    
-  
-    
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.4.0"];
       
         
@@ -34078,6 +34438,12 @@ var node, children;
       node.url = "documentation/1.4.0/admin_guide/installation_configuration.html";
       node.weight =  10;
       node.root = "../../";
+    
+  
+    
+  
+    
+  
     
   
     
@@ -34150,10 +34516,6 @@ var node, children;
     
   
     
-  
-    
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.4.0"];
       
         
@@ -34218,6 +34580,69 @@ var node, children;
       node.root = "../../../";
     
   
+    
+      var parent = sidebarTree["DOCUMENTATION-1.4.0"];
+      
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'orchestrators') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'orchestrators',
+              'title': '-',
+              'children': [],
+              'collapsed': true
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'cloudify_4') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'cloudify_4',
+              'title': '-',
+              'children': [],
+              'collapsed': true
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+
+        children = parent.children;
+        // try to find the node if exists already
+        node = null;
+        for (var i=0; i<children.length; i++) {
+          if(children[i].name === 'cloudify_4_kubernetes') {
+            node = children[i];
+          }
+        }
+        if(node === null) {
+          node = {
+            'children': [],
+            'collapsed': true
+          };
+          children.push(node);
+        }
+      
+
+      node.name = "cloudify_4_kubernetes";
+      node.title = "Kubernetes (Beta)";
+      node.url = "documentation/1.4.0/orchestrators/cloudify4_driver/kubernetes.html";
+      node.weight =  5000;
+      node.root = "../../../";
     
   
     
@@ -34375,6 +34800,12 @@ var node, children;
     
   
     
+  
+    
+  
+    
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.4.0"];
       
         
@@ -34455,8 +34886,6 @@ var node, children;
       node.url = "documentation/1.4.0/devops_guide/lamp_stack_tutorial/lamp_stack_application.html";
       node.weight =  800;
       node.root = "../../";
-    
-  
     
   
     
@@ -34551,6 +34980,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.4.0"];
       
         
@@ -34634,12 +35065,6 @@ var node, children;
     
   
     
-  
-    
-  
-    
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.4.0"];
       
         
@@ -34720,6 +35145,12 @@ var node, children;
       node.url = "documentation/1.4.0/devops_guide/lamp_stack_tutorial/lamp_stack_php.html";
       node.weight =  200;
       node.root = "../../";
+    
+  
+    
+  
+    
+  
     
   
     
@@ -34808,12 +35239,6 @@ var node, children;
     
   
     
-  
-    
-  
-    
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.4.0"];
       
         
@@ -34876,6 +35301,95 @@ var node, children;
       node.url = "documentation/1.4.0/admin_guide/ldap.html";
       node.weight =  100;
       node.root = "../../";
+    
+  
+    
+  
+    
+  
+    
+      var parent = sidebarTree["DOCUMENTATION-1.4.0"];
+      
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'orchestrators') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'orchestrators',
+              'title': '-',
+              'children': [],
+              'collapsed': true
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'cloudify_4') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'cloudify_4',
+              'title': '-',
+              'children': [],
+              'collapsed': true
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'supported_locations') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'supported_locations',
+              'title': '-',
+              'children': [],
+              'collapsed': true
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+
+        children = parent.children;
+        // try to find the node if exists already
+        node = null;
+        for (var i=0; i<children.length; i++) {
+          if(children[i].name === 'amazon') {
+            node = children[i];
+          }
+        }
+        if(node === null) {
+          node = {
+            'children': [],
+            'collapsed': true
+          };
+          children.push(node);
+        }
+      
+
+      node.name = "amazon";
+      node.title = "Amazon (AWS)";
+      node.url = "documentation/1.4.0/orchestrators/cloudify4_driver/location_amazon.html";
+      node.weight =  1000;
+      node.root = "../../../";
+    
+  
     
   
     
@@ -34961,8 +35475,6 @@ var node, children;
       node.url = "documentation/1.4.0/orchestrators/cloudify3_driver/location_amazon.html";
       node.weight =  1000;
       node.root = "../../../";
-    
-  
     
   
     
@@ -35073,6 +35585,89 @@ var node, children;
           var nextParent = null;
           children = parent.children;
           for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'cloudify_4') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'cloudify_4',
+              'title': '-',
+              'children': [],
+              'collapsed': true
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'supported_locations') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'supported_locations',
+              'title': '-',
+              'children': [],
+              'collapsed': true
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+
+        children = parent.children;
+        // try to find the node if exists already
+        node = null;
+        for (var i=0; i<children.length; i++) {
+          if(children[i].name === 'azure') {
+            node = children[i];
+          }
+        }
+        if(node === null) {
+          node = {
+            'children': [],
+            'collapsed': true
+          };
+          children.push(node);
+        }
+      
+
+      node.name = "azure";
+      node.title = "Azure";
+      node.url = "documentation/1.4.0/orchestrators/cloudify4_driver/location_azure.html";
+      node.weight =  1000;
+      node.root = "../../../";
+    
+  
+    
+      var parent = sidebarTree["DOCUMENTATION-1.4.0"];
+      
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'orchestrators') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'orchestrators',
+              'title': '-',
+              'children': [],
+              'collapsed': true
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
             if(children[i].name === 'cloudify_3') {
               nextParent = children[i];
             }
@@ -35129,10 +35724,6 @@ var node, children;
       node.url = "documentation/1.4.0/orchestrators/cloudify3_driver/location_azure.html";
       node.weight =  1000;
       node.root = "../../../";
-    
-  
-    
-  
     
   
     
@@ -35218,6 +35809,176 @@ var node, children;
       node.name = "byon";
       node.title = "BYON";
       node.url = "documentation/1.4.0/orchestrators/cloudify3_driver/location_byon.html";
+      node.weight =  1000;
+      node.root = "../../../";
+    
+  
+    
+      var parent = sidebarTree["DOCUMENTATION-1.4.0"];
+      
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'orchestrators') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'orchestrators',
+              'title': '-',
+              'children': [],
+              'collapsed': true
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'cloudify_4') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'cloudify_4',
+              'title': '-',
+              'children': [],
+              'collapsed': true
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'supported_locations') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'supported_locations',
+              'title': '-',
+              'children': [],
+              'collapsed': true
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+
+        children = parent.children;
+        // try to find the node if exists already
+        node = null;
+        for (var i=0; i<children.length; i++) {
+          if(children[i].name === 'byon') {
+            node = children[i];
+          }
+        }
+        if(node === null) {
+          node = {
+            'children': [],
+            'collapsed': true
+          };
+          children.push(node);
+        }
+      
+
+      node.name = "byon";
+      node.title = "BYON";
+      node.url = "documentation/1.4.0/orchestrators/cloudify4_driver/location_byon.html";
+      node.weight =  1000;
+      node.root = "../../../";
+    
+  
+    
+  
+    
+  
+    
+      var parent = sidebarTree["DOCUMENTATION-1.4.0"];
+      
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'orchestrators') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'orchestrators',
+              'title': '-',
+              'children': [],
+              'collapsed': true
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'cloudify_4') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'cloudify_4',
+              'title': '-',
+              'children': [],
+              'collapsed': true
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'supported_locations') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'supported_locations',
+              'title': '-',
+              'children': [],
+              'collapsed': true
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+
+        children = parent.children;
+        // try to find the node if exists already
+        node = null;
+        for (var i=0; i<children.length; i++) {
+          if(children[i].name === 'openstack') {
+            node = children[i];
+          }
+        }
+        if(node === null) {
+          node = {
+            'children': [],
+            'collapsed': true
+          };
+          children.push(node);
+        }
+      
+
+      node.name = "openstack";
+      node.title = "Openstack";
+      node.url = "documentation/1.4.0/orchestrators/cloudify4_driver/location_openstack.html";
       node.weight =  1000;
       node.root = "../../../";
     
@@ -35310,6 +36071,93 @@ var node, children;
     
   
     
+  
+    
+  
+    
+      var parent = sidebarTree["DOCUMENTATION-1.4.0"];
+      
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'orchestrators') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'orchestrators',
+              'title': '-',
+              'children': [],
+              'collapsed': true
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'cloudify_4') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'cloudify_4',
+              'title': '-',
+              'children': [],
+              'collapsed': true
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'supported_locations') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'supported_locations',
+              'title': '-',
+              'children': [],
+              'collapsed': true
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+
+        children = parent.children;
+        // try to find the node if exists already
+        node = null;
+        for (var i=0; i<children.length; i++) {
+          if(children[i].name === 'vsphere') {
+            node = children[i];
+          }
+        }
+        if(node === null) {
+          node = {
+            'children': [],
+            'collapsed': true
+          };
+          children.push(node);
+        }
+      
+
+      node.name = "vsphere";
+      node.title = "vSphere";
+      node.url = "documentation/1.4.0/orchestrators/cloudify4_driver/location_vsphere.html";
+      node.weight =  1000;
+      node.root = "../../../";
+    
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.4.0"];
       
         
@@ -35395,10 +36243,6 @@ var node, children;
     
   
     
-  
-    
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.4.0"];
       
         
@@ -35464,6 +36308,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.4.0"];
       
         
@@ -35508,8 +36354,6 @@ var node, children;
       node.url = "documentation/1.4.0/orchestrators/marathon_driver/marathon_driver.html";
       node.weight =  1000;
       node.root = "../../../";
-    
-  
     
   
     
@@ -35617,8 +36461,6 @@ var node, children;
     
   
     
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.4.0"];
       
         
@@ -35681,6 +36523,12 @@ var node, children;
       node.url = "documentation/1.4.0/devops_guide/tosca_grammar/node_filter.html";
       node.weight =  130;
       node.root = "../../../";
+    
+  
+    
+  
+    
+  
     
   
     
@@ -35767,10 +36615,6 @@ var node, children;
     
   
     
-  
-    
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.4.0"];
       
         
@@ -35840,6 +36684,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.4.0"];
       
         
@@ -35902,6 +36748,8 @@ var node, children;
       node.url = "documentation/1.4.0/devops_guide/tosca_grammar/operation_definition.html";
       node.weight =  150;
       node.root = "../../../";
+    
+  
     
   
     
@@ -36062,10 +36910,6 @@ var node, children;
     
   
     
-  
-    
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.4.0"];
       
         
@@ -36092,6 +36936,8 @@ var node, children;
       node.url = "documentation/1.4.0/rest/overview.html";
       node.weight =  9000;
       node.root = "../../";
+    
+  
     
   
     
@@ -36150,8 +36996,6 @@ var node, children;
     
   
     
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.4.0"];
       
         
@@ -36196,8 +37040,6 @@ var node, children;
       node.url = "documentation/1.4.0/rest/overview_admin-audit-api.html";
       node.weight =  4;
       node.root = "../../";
-    
-  
     
   
     
@@ -36252,8 +37094,6 @@ var node, children;
     
   
     
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.4.0"];
       
         
@@ -36301,6 +37141,12 @@ var node, children;
     
   
     
+  
+    
+  
+    
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.4.0"];
       
         
@@ -36345,8 +37191,6 @@ var node, children;
       node.url = "documentation/1.4.0/rest/overview_admin-plugin-api.html";
       node.weight =  2;
       node.root = "../../";
-    
-  
     
   
     
@@ -36405,8 +37249,6 @@ var node, children;
     
   
     
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.4.0"];
       
         
@@ -36454,6 +37296,10 @@ var node, children;
     
   
     
+  
+    
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.4.0"];
       
         
@@ -36498,8 +37344,6 @@ var node, children;
       node.url = "documentation/1.4.0/rest/overview_applications-deployment-api.html";
       node.weight =  9;
       node.root = "../../";
-    
-  
     
   
     
@@ -36554,6 +37398,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.4.0"];
       
         
@@ -36598,8 +37444,6 @@ var node, children;
       node.url = "documentation/1.4.0/rest/overview_other-apis.html";
       node.weight =  11;
       node.root = "../../";
-    
-  
     
   
     
@@ -36705,6 +37549,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.4.0"];
       
         
@@ -36774,12 +37620,6 @@ var node, children;
     
   
     
-  
-    
-  
-    
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.4.0"];
       
         
@@ -36842,6 +37682,8 @@ var node, children;
       node.url = "documentation/1.4.0/user_guide/plugin_management.html";
       node.weight =  100;
       node.root = "../../";
+    
+  
     
   
     
@@ -36929,6 +37771,8 @@ var node, children;
       node.url = "documentation/1.4.0/devops_guide/tosca_grammar/policy.html";
       node.weight =  300;
       node.root = "../../../";
+    
+  
     
   
     
@@ -37145,6 +37989,89 @@ var node, children;
     
   
     
+      var parent = sidebarTree["DOCUMENTATION-1.4.0"];
+      
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'orchestrators') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'orchestrators',
+              'title': '-',
+              'children': [],
+              'collapsed': true
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'cloudify_4') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'cloudify_4',
+              'title': '-',
+              'children': [],
+              'collapsed': true
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'cloudify_4_install') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'cloudify_4_install',
+              'title': '-',
+              'children': [],
+              'collapsed': true
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+
+        children = parent.children;
+        // try to find the node if exists already
+        node = null;
+        for (var i=0; i<children.length; i++) {
+          if(children[i].name === 'postdeploment_config') {
+            node = children[i];
+          }
+        }
+        if(node === null) {
+          node = {
+            'children': [],
+            'collapsed': true
+          };
+          children.push(node);
+        }
+      
+
+      node.name = "postdeploment_config";
+      node.title = "Post-Deployment configuration";
+      node.url = "documentation/1.4.0/orchestrators/cloudify4_driver/postdeployment_config.html";
+      node.weight =  1000;
+      node.root = "../../../";
+    
+  
+    
   
     
       var parent = sidebarTree["DOCUMENTATION-1.4.0"];
@@ -37212,7 +38139,68 @@ var node, children;
     
   
     
-  
+      var parent = sidebarTree["DOCUMENTATION-1.4.0"];
+      
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'orchestrators') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'orchestrators',
+              'title': '-',
+              'children': [],
+              'collapsed': true
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'cloudify_4') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'cloudify_4',
+              'title': '-',
+              'children': [],
+              'collapsed': true
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+
+        children = parent.children;
+        // try to find the node if exists already
+        node = null;
+        for (var i=0; i<children.length; i++) {
+          if(children[i].name === 'cloudify_4_prerequisites') {
+            node = children[i];
+          }
+        }
+        if(node === null) {
+          node = {
+            'children': [],
+            'collapsed': true
+          };
+          children.push(node);
+        }
+      
+
+      node.name = "cloudify_4_prerequisites";
+      node.title = "Prerequisites";
+      node.url = "documentation/1.4.0/orchestrators/cloudify4_driver/prerequisites.html";
+      node.weight =  1000;
+      node.root = "../../../";
     
   
     
@@ -37283,6 +38271,12 @@ var node, children;
     
   
     
+  
+    
+  
+    
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.4.0"];
       
         
@@ -37345,8 +38339,6 @@ var node, children;
       node.url = "documentation/1.4.0/devops_guide/tosca_grammar/property_definition.html";
       node.weight =  80;
       node.root = "../../../";
-    
-  
     
   
     
@@ -37439,8 +38431,6 @@ var node, children;
     
   
     
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.4.0"];
       
         
@@ -37503,6 +38493,8 @@ var node, children;
       node.url = "documentation/1.4.0/devops_guide/tosca_grammar/relationship_type.html";
       node.weight =  50;
       node.root = "../../../";
+    
+  
     
   
     
@@ -37573,10 +38565,6 @@ var node, children;
     
   
     
-  
-    
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.4.0"];
       
         
@@ -37642,6 +38630,14 @@ var node, children;
     
   
     
+  
+    
+  
+    
+  
+    
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.4.0"];
       
         
@@ -37686,12 +38682,6 @@ var node, children;
       node.url = "documentation/1.4.0/concepts/roles.html";
       node.weight =  1;
       node.root = "../../";
-    
-  
-    
-  
-    
-  
     
   
     
@@ -37764,6 +38754,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.4.0"];
       
         
@@ -37808,8 +38800,6 @@ var node, children;
       node.url = "documentation/1.4.0/admin_guide/security.html";
       node.weight =  400;
       node.root = "../../";
-    
-  
     
   
     
@@ -37953,6 +38943,10 @@ var node, children;
     
   
     
+  
+    
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.4.0"];
       
         
@@ -38015,8 +39009,6 @@ var node, children;
       node.url = "documentation/1.4.0/admin_guide/security_ui_rest.html";
       node.weight =  200;
       node.root = "../../";
-    
-  
     
   
     
@@ -38193,8 +39185,6 @@ var node, children;
     
   
     
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.4.0"];
       
         
@@ -38259,6 +39249,69 @@ var node, children;
       node.root = "../../../";
     
   
+    
+      var parent = sidebarTree["DOCUMENTATION-1.4.0"];
+      
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'orchestrators') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'orchestrators',
+              'title': '-',
+              'children': [],
+              'collapsed': true
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+          var nextParent = null;
+          children = parent.children;
+          for (var i=0; i<children.length; i++) {
+            if(children[i].name === 'cloudify_4') {
+              nextParent = children[i];
+            }
+          }
+          if(nextParent === null) {
+            nextParent = {
+              'name': 'cloudify_4',
+              'title': '-',
+              'children': [],
+              'collapsed': true
+            };
+            parent.children.push(nextParent);
+          }
+          parent = nextParent;
+        
+
+        children = parent.children;
+        // try to find the node if exists already
+        node = null;
+        for (var i=0; i<children.length; i++) {
+          if(children[i].name === 'supported_locations') {
+            node = children[i];
+          }
+        }
+        if(node === null) {
+          node = {
+            'children': [],
+            'collapsed': true
+          };
+          children.push(node);
+        }
+      
+
+      node.name = "supported_locations";
+      node.title = "Supported locations (IaaSs)";
+      node.url = "documentation/1.4.0/orchestrators/cloudify4_driver/supported_locations.html";
+      node.weight =  2000;
+      node.root = "../../../";
     
   
     
@@ -38333,6 +39386,10 @@ var node, children;
     
   
     
+  
+    
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.4.0"];
       
         
@@ -38382,8 +39439,6 @@ var node, children;
     
   
     
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.4.0"];
       
         
@@ -38428,6 +39483,8 @@ var node, children;
       node.url = "documentation/1.4.0/user_guide/topology_editor.html";
       node.weight =  200;
       node.root = "../../";
+    
+  
     
   
     
@@ -38556,7 +39613,7 @@ var node, children;
       
 
       node.name = "topology_editor_file";
-      node.title = "Archive files edition";
+      node.title = "Archive content";
       node.url = "documentation/1.4.0/user_guide/topology_editor_file.html";
       node.weight =  200;
       node.root = "../../..";
@@ -38766,8 +39823,6 @@ var node, children;
     
   
     
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.4.0"];
       
         
@@ -38897,6 +39952,8 @@ var node, children;
       node.url = "documentation/1.4.0/user_guide/topology_editor_portability.html";
       node.weight =  800;
       node.root = "../../..";
+    
+  
     
   
     
@@ -39034,8 +40091,6 @@ var node, children;
     
   
     
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.4.0"];
       
         
@@ -39098,6 +40153,10 @@ var node, children;
       node.url = "documentation/1.4.0/user_guide/topology_editor_workflows.html";
       node.weight =  180;
       node.root = "../../";
+    
+  
+    
+  
     
   
     
@@ -39251,8 +40310,6 @@ var node, children;
     
   
     
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.4.0"];
       
         
@@ -39355,8 +40412,6 @@ var node, children;
     
   
     
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.4.0"];
       
         
@@ -39422,6 +40477,8 @@ var node, children;
     
   
     
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.4.0"];
       
         
@@ -39484,6 +40541,8 @@ var node, children;
       node.url = "documentation/1.4.0/devops_guide/normative_types/tosca_concepts_types_normative_nodes.html";
       node.weight =  200;
       node.root = "../../";
+    
+  
     
   
     
@@ -39570,8 +40629,6 @@ var node, children;
     
   
     
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.4.0"];
       
         
@@ -39616,6 +40673,8 @@ var node, children;
       node.url = "documentation/1.4.0/devops_guide/tosca_grammar/tosca_grammar.html";
       node.weight =  1;
       node.root = "../../../";
+    
+  
     
   
     
@@ -39670,12 +40729,6 @@ var node, children;
     
   
     
-  
-    
-  
-    
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.4.0"];
       
         
@@ -39720,6 +40773,8 @@ var node, children;
       node.url = "documentation/1.4.0/devops_guide/design_tutorial/tutorials.html";
       node.weight =  500;
       node.root = "../../";
+    
+  
     
   
     
@@ -39789,6 +40844,8 @@ var node, children;
       node.url = "documentation/1.4.0/devops_guide/design_tutorial/tutorials_component_design.html";
       node.weight =  100;
       node.root = "../../";
+    
+  
     
   
     
@@ -39898,8 +40955,6 @@ var node, children;
     
   
     
-  
-    
       var parent = sidebarTree["DOCUMENTATION-1.4.0"];
       
         
@@ -39965,6 +41020,12 @@ var node, children;
     
   
     
+  
+    
+  
+    
+  
+    
       var parent = sidebarTree["DOCUMENTATION-1.4.0"];
       
         
@@ -39991,10 +41052,6 @@ var node, children;
       node.url = "documentation/1.4.0/whatsnew.html";
       node.weight =  75;
       node.root = "../";
-    
-  
-    
-  
     
   
     
@@ -43473,6 +44530,10 @@ var node, children;
     
   
     
+  
+    
+  
+    
       var parent = sidebarTree["RELEASE_NOTES"];
       
         
@@ -44083,6 +45144,28 @@ var node, children;
   
     
   
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
 
   sidebarTree["DEVELOPER_GUIDE"] = {
     'name': "DEVELOPER_GUIDE",
@@ -44090,6 +45173,8 @@ var node, children;
     'collapsed': true
   };
 
+  
+    
   
     
   
@@ -44878,6 +45963,10 @@ var node, children;
     
   
     
+  
+    
+  
+    
       var parent = sidebarTree["DEVELOPER_GUIDE"];
       
         node = parent;
@@ -44888,6 +45977,8 @@ var node, children;
       node.url = "developer_guide/index.html";
       node.weight =  0;
       node.root = "../";
+    
+  
     
   
     
@@ -44961,6 +46052,18 @@ var node, children;
       node.url = "developer_guide/internal-architecture.html";
       node.weight =  100;
       node.root = "../";
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
     
   
     
@@ -45786,6 +46889,12 @@ var node, children;
     
   
     
+  
+    
+  
+    
+  
+    
       var parent = sidebarTree["DEVELOPER_GUIDE"];
       
         
@@ -45888,6 +46997,32 @@ var node, children;
     'collapsed': true
   };
 
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
   
     
   

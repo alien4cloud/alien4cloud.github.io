@@ -1,0 +1,88 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/1.4.0/orchestrators/cloudify4_driver/prerequisites.html',
+  title: 'Prerequisites'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Prerequisites</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.4.0/orchestrators/cloudify4_driver/prerequisites.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <p>Here are some prerequisite steps that need to be done in order to use the cloudify 4 driver.</p>
+
+<h2 id="install-cloudify-40">Install cloudify 4.0</h2>
+
+<p>How to install cloudify 4.0 is described <a href="http://docs.getcloudify.org/4.0.0/intro/what-is-cloudify/">here.</a></p>
+
+<h2 id="bootstrap-your-manager">Bootstrap your manager</h2>
+
+<p>How to bootstrap cloudify 4.0 is described <a href="http://docs.getcloudify.org/4.0.0/manager/bootstrapping/">here.</a></p>
+
+<div class="note warning">
+<p>Note that cloudify 4.0 only support bootstraping on CentOS 7.x or RHEL 7.x.</p>
+</div>
+
+<h2 id="secure-your-manager">Secure your manager</h2>
+
+<p>How to secure your manager is described <a href="http://docs.getcloudify.org/4.0.0/manager/security/">here.</a></p>
+
+<div class="note warning">
+<p>Following configuration is only suitable for testing purpose, in production you should customize with your own own configuration.</p>
+</div>
+
+<p>To perform a rapid test of the feature, you can just enable those following keys in the bootstrap inputs</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">admin_username</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">admin</span>
+<span class="l-Scalar-Plain">admin_password</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">admin</span>
+<span class="l-Scalar-Plain">ssl_enabled</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
+<span class="l-Scalar-Plain">security_enabled</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span></code></pre></div>
+
+<p>In the shell that you’ll use to bootstrap cloudify you should export those following variables</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">export </span><span class="nv">CLOUDIFY_SSL_TRUST_ALL</span><span class="o">=</span>True
+<span class="nb">export </span><span class="nv">CLOUDIFY_USERNAME</span><span class="o">=</span>admin
+<span class="nb">export </span><span class="nv">CLOUDIFY_PASSWORD</span><span class="o">=</span>admin</code></pre></div>
+
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.4.0/orchestrators/cloudify4_driver/prerequisites.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-1.4.0', 'documentation/1.4.0/orchestrators/cloudify4_driver/prerequisites.markdown');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

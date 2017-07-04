@@ -33,7 +33,8 @@ ga('send', 'pageview');
 
 <h1 id="problem">Problem</h1>
 
-<p>A topology is designed with nodes and relationships, based on some imported archives. The topology thus depends on these archives specific versions present at a moment in the catalog. When working with <code>snapshots archives</code>, it might happen that these are updated (as we allow uploading and updating snapshots in Alien4cloud) while being used as dependency, eventually leading to a non consistent topology depending on what has changed within it. For example, let&#8217;s assume we have a topology using a node type coming from a snapshot archive A. Now for some reason, we want to update, or even remove that type from the archive A. What will become of the topology?<br />
+<p>A topology is designed with nodes and relationships, based on some imported archives. Thus, it depends on these archives specific versions present at a moment in the catalog. When working with <code>snapshots archives</code>, it might happen that these are updated (as we allow uploading and updating snapshots in Alien4cloud) while being used as dependency, eventually leading to a non consistent topology depending on what has changed within it.<br />
+For example, let&#8217;s assume we have a topology using a node type coming from a snapshot archive <em>A</em>. Now for some reason, we want to update, or even remove that type from the archive <em>A</em>. What will become of the topology?<br />
 The purpose of this feature is to try to recover the topology and have a consistent one.</p>
 
 <h1 id="recovery-choices">Recovery choices</h1>
@@ -42,7 +43,7 @@ The purpose of this feature is to try to recover the topology and have a consist
 
 <p><a href="../../images/1.4.0/user_guide/topology_editor/topology_recovery_modal.png" target="_blank"><img src="../../images/1.4.0/user_guide/topology_editor/topology_recovery_modal.png" alt="topology recovery modal" /></a><br /></p>
 
-<p>The choices are: recover or reset the topology.</p>
+<p>The choices are: <em>recover</em> or <em>reset</em> the topology.</p>
 
 <h2 id="recover-the-topology">Recover the topology</h2>
 
@@ -57,7 +58,7 @@ By analyzing the topology and matching it against the updated archive, the follo
 
 <h2 id="reset-the-topology">Reset the topology</h2>
 
-<p>This option will delete everything within the topology, leaving it completely empty.</p>
+<p>This option will <strong>delete everything</strong> within the topology, leaving it completely empty.</p>
 
 <div class="note warning">
 <h5>No rollback possible</h5>
@@ -90,7 +91,7 @@ By analyzing the topology and matching it against the updated archive, the follo
   <span class="l-Scalar-Plain">TestComponentSource</span><span class="p-Indicator">:</span>
     <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">alien.test.nodes.TestComponentSource</span>
     <span class="l-Scalar-Plain">requirements</span><span class="p-Indicator">:</span>
-      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">capa_to_be_changed</span><span class="p-Indicator">:</span>   <span class="c1">## will not be rebuilt or validated this relationship against the new targeted capability type</span>
+      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">capa_to_be_changed</span><span class="p-Indicator">:</span>   <span class="c1">## This relationship will not be rebuilt or validated against the new targeted capability type</span>
         <span class="l-Scalar-Plain">node</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">TestComponent</span>
         <span class="l-Scalar-Plain">capability</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">alien.test.capabilities.CapaToBeChanged</span></code></pre></div>
 

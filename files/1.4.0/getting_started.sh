@@ -1,5 +1,6 @@
 #!/bin/bash -e
 ALIEN4CLOUD_VERSION=1.4.0
+FASTCONNECT_REPOSITORY=opensource
 INSTALL_DIR="`pwd`/alien4cloud-getstarted"
 
 # Create the install dir if not present.
@@ -19,21 +20,21 @@ fi
 
 if [ ! -f "alien4cloud-dist-${ALIEN4CLOUD_VERSION}.tar.gz" ]; then
   echo "Downloading alien4cloud"
-  curl -k -o "alien4cloud-dist-${ALIEN4CLOUD_VERSION}.tar.gz" -L "http://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource-snapshot&g=alien4cloud&a=alien4cloud-dist&v=${ALIEN4CLOUD_VERSION}&p=tar.gz&c=dist" || error_exit $? "Failed downloading alien4cloud"
+  curl -k -o "alien4cloud-dist-${ALIEN4CLOUD_VERSION}.tar.gz" -L "http://fastconnect.org/maven/service/local/artifact/maven/redirect?r=$FASTCONNECT_REPOSITORY&g=alien4cloud&a=alien4cloud-dist&v=${ALIEN4CLOUD_VERSION}&p=tar.gz&c=dist" || error_exit $? "Failed downloading alien4cloud"
 else
     echo "An archive of alien4cloud already exist, we will use it"
 fi
 
 if [ ! -f "puccini-cli-${ALIEN4CLOUD_VERSION}.tgz" ]; then
   echo "Downloading puccini"
-  curl -k -o "puccini-cli-${ALIEN4CLOUD_VERSION}.tgz" -L "http://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource-snapshot&g=org.alien4cloud.puccini&a=puccini-cli&v=${ALIEN4CLOUD_VERSION}&p=tgz" || error_exit $? "Failed downloading puccini"
+  curl -k -o "puccini-cli-${ALIEN4CLOUD_VERSION}.tgz" -L "http://fastconnect.org/maven/service/local/artifact/maven/redirect?r=$FASTCONNECT_REPOSITORY&g=org.alien4cloud.puccini&a=puccini-cli&v=${ALIEN4CLOUD_VERSION}&p=tgz" || error_exit $? "Failed downloading puccini"
 else
     echo "An archive of puccini already exist, we will use it"
 fi
 
 if [ ! -f "alien4cloud-puccini-plugin-${ALIEN4CLOUD_VERSION}.zip" ]; then
   echo "Downloading alien4cloud puccini plugin"
-  curl -k -o "alien4cloud-puccini-plugin-${ALIEN4CLOUD_VERSION}.zip" -L "http://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource-snapshot&g=alien4cloud&a=alien4cloud-puccini-plugin&v=${ALIEN4CLOUD_VERSION}&p=zip" || error_exit $? "Failed downloading alien4cloud puccini plugin"
+  curl -k -o "alien4cloud-puccini-plugin-${ALIEN4CLOUD_VERSION}.zip" -L "http://fastconnect.org/maven/service/local/artifact/maven/redirect?r=$FASTCONNECT_REPOSITORY&g=alien4cloud&a=alien4cloud-puccini-plugin&v=${ALIEN4CLOUD_VERSION}&p=zip" || error_exit $? "Failed downloading alien4cloud puccini plugin"
 else
     echo "An archive of  alien4cloud puccini plugin already exist, we will use it"
 fi
@@ -123,7 +124,7 @@ RESOURCEID=`curl "$ALIEN_URL/rest/latest/orchestrators/$ORCHESTRATORID/locations
 -b curlcookie.txt \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -H 'Accept: application/json, text/plain, */*' \
---data-binary '{"resourceType":"org.alien4cloud.puccini.docker.nodes.Container","resourceName":"New resource","archiveName":"puccini-docker-provider-types","archiveVersion":"1.4.0-SNAPSHOT","id":"org.alien4cloud.puccini.docker.nodes.Container:1.4.0-SNAPSHOT"}' | \
+--data-binary '{"resourceType":"org.alien4cloud.puccini.docker.nodes.Container","resourceName":"New resource","archiveName":"puccini-docker-provider-types","archiveVersion":"'$ALIEN4CLOUD_VERSION'","id":"org.alien4cloud.puccini.docker.nodes.Container:'$ALIEN4CLOUD_VERSION'"}' | \
     python -c "import sys, json; print json.load(sys.stdin)['data']['resourceTemplate']['id']"`
 
 echo "Configure template $RESOURCEID"

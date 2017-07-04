@@ -1,0 +1,202 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/1.4.0/orchestrators/cloudify4_driver/location_azure.html',
+  title: 'Azure'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Azure</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.4.0/orchestrators/cloudify4_driver/location_azure.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <div class="note info">
+<h5>Premium feature</h5>
+<p>Azure is a Premium feature.</p>
+</div>
+
+<h2 id="configuration">Configuration</h2>
+<p>The configuration of the location is done while configuring the orchestrator, before or after activation.
+Note that for the azure location, some properties are required.</p>
+
+<div class="note info">
+<p>In addition to the base configuration that are DSL and imports, you’ll need to provide some informations from your bootstrapped manager (available on your Azure portal, or contact your administrator):</p>
+
+<ul>
+  <li><strong>location</strong>: The location in which the cloudify manager is bootstrapped (i.e: westeurope, northeurope, eastus, etc). For now, all the deployed application will be done in that location.</li>
+  <li><strong>resourceGroup</strong>: The <code>resource group name</code> in which your manager is.</li>
+  <li><strong>virtualNetwork</strong>: The <code>virtual network name</code> to which the manager is linked.</li>
+  <li><strong>subnet</strong>: The <code>subnet name</code> on which the manager is connected.</li>
+</ul>
+</div>
+
+<p>Here are the minimum required properties you must configure before enable the location
+<a href="../../images/cloudify3_driver/config_location_azure.png" title="Azure location configuration"><img src="../../images/cloudify3_driver/config_location_azure.png" alt="Azure location configuration" title="Azure location configuration" /></a></p>
+
+<h2 id="tosca-mapped-types">Tosca mapped types</h2>
+<p>The Azure location exposes some types to help you configure a deployment and map the native Tosca types. Theses nodes are exposed as <code>on demand resources</code> the location management view.</p>
+
+<h3 id="compute">Compute</h3>
+<p>The tosca type <code>tosca.nodes.Compute</code> is mapped to the azure nodes:</p>
+
+<ul>
+  <li><code>alien.cloudify.azure.nodes.Compute</code> for a linux compute,</li>
+  <li><code>alien.cloudify.azure.nodes.WindowsCompute</code> for a windows compute.</li>
+</ul>
+
+<p>Their configurations required to be familiar with the azure way to describe an image (see  <a href="https://msdn.microsoft.com/en-us/library/azure/mt163591.aspx#bk_imageref" target="_blank">image reference</a> ) and flavor  (see <a href="https://msdn.microsoft.com/en-us/library/azure/mt163591.aspx#bk_hardware" target="_blank">hardware profile</a> )</p>
+
+<div class="note info">
+<p>Note that if the property <code>storage_account_name</code> is not set on the compute node, Alien4Cloud will create a temporary Storage Account to store the os-disk files.
+This storage account will be deleted when undeploying the application.</p>
+</div>
+
+<p>To help you getting started with Azure, here a step by step instructions to quickly add an Ubuntu and a Windows compute resources:</p>
+
+<h4 id="configuring-an-ubuntu-compute-resource">Configuring an Ubuntu compute resource</h4>
+
+<ol>
+  <li>
+    <p>Go to the your orchestrator locations screen. You should see a screen like this:
+<a href="../../images/cloudify3_driver/azure_resource_configuration.png" title="Azure Resource configuration"><img src="../../images/cloudify3_driver/azure_resource_configuration.png" alt="Azure resource configuration" title="Azure Resource configuration" /></a></p>
+  </li>
+  <li>
+    <p>Select the resource type <code>alien.cloudify.azure.nodes.Image</code> in the combox box and click the add button.</p>
+  </li>
+  <li>
+    <p>Then set the properties as in the screenshot:
+<a href="../../images/cloudify3_driver/azure_resource_image_ubuntu.png" title="Configure Ubuntu image"><img src="../../images/cloudify3_driver/azure_resource_image_ubuntu.png" alt="Configure Ubuntu image" title="Configure Ubuntu image" /></a></p>
+  </li>
+  <li>
+    <p>Next step is to set an Ubuntu image id like the following:
+<a href="../../images/cloudify3_driver/azure_resource_image_ubuntu_id.png" title="Configure Ubuntu image id"><img src="../../images/cloudify3_driver/azure_resource_image_ubuntu_id.png" alt="Configure Ubuntu image id" title="Configure Ubuntu image id" /></a></p>
+  </li>
+  <li>
+    <p>Add a <code>alien.cloudify.azure.nodes.hardwareProfile</code> and configure it like the following:
+<a href="../../images/cloudify3_driver/azure_resource_hardware_medium.png" title="Configure hardware profile"><img src="../../images/cloudify3_driver/azure_resource_hardware_medium.png" alt="Configure hardware profile" title="Configure hardware profile" /></a></p>
+  </li>
+  <li>
+    <p>Go to the On demand tab and click the auto_config button</p>
+  </li>
+  <li>
+    <p>You should notice that the user property is mandatory. Let’s set a <code>ubuntu</code> user.
+<a href="../../images/cloudify3_driver/azure_ondemand_resource_auto_config.png" title="Azure auto-config"><img src="../../images/cloudify3_driver/azure_ondemand_resource_auto_config.png" alt="Azure auto-config" title="Azure auto-config" /></a></p>
+  </li>
+  <li>
+    <p>Make sure you check the <code>pubkey auth only</code> checkbox.
+<a href="../../images/cloudify3_driver/azure_ondemand_resource_ubuntu_pubkey_auth_only.png" title="Pubkey auth only checkbox"><img src="../../images/cloudify3_driver/azure_ondemand_resource_ubuntu_pubkey_auth_only.png" alt="Pubkey auth only checkbox" title="Pubkey auth only checkbox" /></a></p>
+  </li>
+  <li>
+    <p>Let’s configure a compute which use an public key auth only. Click the configuration property of the Compute node and add a public key as in the screenshot.
+<a href="../../images/cloudify3_driver/azure_ondemand_resource_ubuntu_user_config.png" title="User configuration"><img src="../../images/cloudify3_driver/azure_ondemand_resource_ubuntu_user_config.png" alt="User configuration" title="User configuration" /></a></p>
+    <ul>
+      <li>The <code>path</code> property specifies the full path on the created VM where ssh public key is stored.</li>
+      <li>The <code>keyData</code> property is the SSH public key certifiate used to authenticate with the VM through ssh. The key needs to be at least 2048-bit and in ssh-rsa format.</li>
+    </ul>
+  </li>
+</ol>
+
+<div class="note info">
+<p>The <code>keyData</code> value must correspond to the private key file that the manager will use to connect to the target VM.<br />
+By default the manager will use a agent key defined during bootstrap. You can override the private key that the manager will use by overriding the property <em>cloudify_agent &gt; key</em> on the compute’s node. This property specifies a path to the private key that will be used to connect to the host. Make sure that the path to the key exist on the manager.</p>
+
+<p>You can use the following to get the keyData for Azure: <code>ssh-keygen -y -f &lt;your private keyfile&gt;</code></p>
+</div>
+
+<h4 id="configuring-a-windows-compute-resource">Configuring a Windows compute resource</h4>
+
+<p>Let’s configure a Windows compute resource for Azure using a user/password.</p>
+
+<p><a href="../../images/cloudify3_driver/azure_ondemand_resource_windows.png" title="Windows compute configuration"><img src="../../images/cloudify3_driver/azure_ondemand_resource_windows.png" alt="Windows compute configuration" title="Windows compute configuration" /></a></p>
+
+<p><a href="../../images/cloudify3_driver/azure_ondemand_resource_windows_imageid.png" title="Windows image id configuration"><img src="../../images/cloudify3_driver/azure_ondemand_resource_windows_imageid.png" alt="Windows image id configuration" title="Windows image id configuration" /></a></p>
+
+<h3 id="networks">Networks</h3>
+
+<h4 id="public-network">Public Network</h4>
+<p>Exposed as the location type a public network <code>alien.cloudify.azure.nodes.PublicNetwork</code>, which will result to the attribution of public ip to the linked resource (compute).</p>
+
+<h4 id="private-network">Private Network</h4>
+<p>The tosca type <code>tosca.nodes.Network</code> can also be mapped as a private network using a location node of type <code>alien.cloudify.azure.nodes.PrivateNetwork</code>.</p>
+
+<h3 id="volumes">Volumes</h3>
+
+<p>The tosca type <code>tosca.nodes.BlockStorage</code> can be mapped as two types of volumes:</p>
+
+<h4 id="deletable-volumes">Deletable volumes</h4>
+<p>Exposed as the location type <code>alien.cloudify.azure.nodes.DeletableVolume</code>, this is a volume that will ALWAYS be DELETED when undeploying the application, leading therefore to the lost of all data stored on it.</p>
+<div class="note info">
+<p>If the property <code>storage_account_name</code> is not set. Alien4Cloud will create a temporary Storage Account to store the datadisk files.
+This storage account will be deleted when undeploying the application.</p>
+</div>
+
+<h4 id="reusable-volumes">Reusable volumes</h4>
+<p>Exposed as the location type <code>alien.cloudify.azure.nodes.Volume</code>, this is a volume that will not be deleted at the end of the application life-cycle. It can therefore, between two deployment of the same application on the same environment and location, be re-used and attached to a compute, rending accessible the data previously stored on it.</p>
+<div class="note info">
+<p>When using reusable volumes, the property <code>storage_account_name</code> is mandatory.
+The storage account won’t be deleted when undeploying the application and it will keep the datadisk file.</p>
+</div>
+
+<h2 id="scaling">Scaling</h2>
+<p>Scaling is now supported with Azure.<br />
+When scaling a compute it will scale all resources linked to the compute (the Compute itself, the volumes, the IPs and nodes that are hosted on the compute).</p>
+
+<div class="note warning">
+<p>Known scaling limitations due to the combination of 2 contraints using Cloudify’s scaling group:</p>
+
+<ul>
+  <li>One node can only belongs to one group at a time</li>
+  <li>Storage Account nodes must be part of the scaling group.</li>
+</ul>
+
+<p>When having multiple scalable computes in a single application, each compute and its volumes must be place inside a distinct storage account from the each other.<br />
+For instance:</p>
+
+<ul>
+  <li>Scalable compute A has 2 Volumes in storage account S1.</li>
+  <li>Scalable compute B must be in a different storage account from S1.</li>
+  <li>Scalable compute C can have its osdisk stored in storage account S3 and its volumes in different storage accounts S3’ and S3’’ as long as it is different than the ones used by compute A and B and their volumes.</li>
+</ul>
+</div>
+
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.4.0/orchestrators/cloudify4_driver/location_azure.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-1.4.0', 'documentation/1.4.0/orchestrators/cloudify4_driver/location_azure.md');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>
