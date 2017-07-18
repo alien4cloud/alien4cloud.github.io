@@ -27,13 +27,14 @@ The tosca type `tosca.nodes.Compute` is mapped to the amazon nodes:
 
  - `org.alien4cloud.puccini.aws.nodes.Instance` for a compute
 
-To configure a resource, you need to provide the informations for the properties with star:
+To configure a resource, you need to provide the information for the mandatory properties (with star):
 
 * `image_id`: Image id for bootstrapping an instance of AWS
 * `instance_type`: The type for instance of AWS
 * `key_name`: The key pair name
 * `security_groups`: Normally, it requires to put only one security group.
 * `user_data`: We put the script needed to bootstrap an AWS instance. Normally with this script:
+* `puccini_concurrent_restriction`: The number of the task can be executed concurrently on the compute instance.
 
 {% highlight bash%}
 #cloud-config

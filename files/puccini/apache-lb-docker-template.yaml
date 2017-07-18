@@ -1,0 +1,65 @@
+tosca_definitions_version: alien_dsl_1_3_0
+description: Apache load balancer partial topology for docker
+template_name: apache-load-balancer-template-docker-sa
+template_version: 1.0.0-SNAPSHOT
+template_author: Fastconnect
+
+imports:
+# Attention: * means get the latest version only works with Puccini's specific topology
+  - war-apache-load-balanced-topology:*
+  - puccini-docker-provider-types:*
+  - puccini-script-plugin-types:*
+
+topology_template:
+
+  inputs:
+    os_arch:
+      type: string
+      required: false
+    os_type:
+      type: string
+      required: false
+
+  outputs:
+    load_balancer_url:
+      description: The Load Balancer URL here with exposed port mapped
+      value: { concat: ["http://", get_attribute: [LoadBalancerServer, public_ip_address], ":", get_property: [LoadBalancerServer, "port_mappings[0].to"]] }
+
+  node_templates:
+
+    WebServer:
+      type: org.alien4cloud.puccini.docker.nodes.Container
+      properties:
+        image_id: alien4cloud/puccini-ubuntu-trusty
+      requirements:
+        - network:
+            node: Internet
+            capability: tosca.capabilities.Connectivity
+            relationship: tosca.relationships.Network
+      capabilities:
+        scalable:
+          properties:
+            max_instances: 3
+            min_instances: 1
+            default_instances: 1
+
+    LoadBalancerServer:
+      type: org.alien4cloud.puccini.docker.nodes.Container
+      properties:
+        image_id: alien4cloud/puccini-ubuntu-trusty
+        exposed_ports:
+          - port: 80
+        port_mappings:
+          - from: 80
+            to: 50002
+      requirements:
+        - network:
+            node: Internet
+            capability: tosca.capabilities.Connectivity
+            relationship: tosca.relationships.Network
+# This is just to test a docker network, it's not the real public internet network
+    Internet:
+      type: org.alien4cloud.puccini.docker.nodes.Network
+      properties:
+        network_name: tomcatNet
+        cidr: 10.67.79.0/24

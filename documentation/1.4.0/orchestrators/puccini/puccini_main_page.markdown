@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  Puccini
+title:  Puccini (Beta)
 root: ../../../
 categories: DOCUMENTATION-1.4.0
 parent: [orchestrators]
@@ -8,7 +8,8 @@ node_name: puccini_main_page
 weight: 1000
 ---
 
-Puccini is an orchestrator multi-cloud that aims to support deployment on various different locations. This section gives the details to Puccini orchestrator plugin for Alien4Cloud.
+Puccini is an orchestrator multi-cloud that aims to support deployment on various different locations.
+This section gives the details to Puccini orchestrator plugin for Alien4Cloud.
 
 ## Alien4Cloud Puccini support
 

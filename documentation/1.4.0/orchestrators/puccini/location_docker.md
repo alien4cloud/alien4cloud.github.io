@@ -27,9 +27,8 @@ Explanation to the properties:
 * `port_mappings`: Mapping the exposed port of the docker container to the port of the host.
   * `from`: Put the exposed port of the docker container
   * `to`: Put the mapped port of the host
-* `pull_image`: If selected, it will pull the docker image from docker hub
-* `puccini_concurrent_restriction`: The number of the task can be executed concurrently.
-
+* `pull_image`: If selected, it will pull the docker image from docker hub, else local image will be used.
+* `puccini_concurrent_restriction`: The number of the task can be executed concurrently on the compute instance.
 
 ### Network
 The tosca type `tosca.nodes.Network` can be mapped as `org.alien4cloud.puccini.docker.nodes.Network`:
@@ -42,10 +41,10 @@ Explanation to the properties:
 
 ### Volumes
 {% warning %}
-Currently not supported.
+TODO
 {% endwarning %}
 
 ### Deletable volumes
 {% warning %}
-Currently not supported.
+TODO
 {% endwarning %}

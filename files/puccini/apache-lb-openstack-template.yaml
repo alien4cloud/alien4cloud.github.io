@@ -1,0 +1,97 @@
+tosca_definitions_version: alien_dsl_1_3_0
+description: Apache load balancer partial topology for docker
+template_name: apache-load-balancer-template-openstack-sa
+template_version: 1.0.0-SNAPSHOT
+template_author: Fastconnect
+
+imports:
+# Attention: * means get the latest version only works with Puccini's specific topology
+  - war-apache-load-balanced-topology:*
+  - puccini-openstack-provider-types:*
+  - puccini-script-plugin-types:*
+
+topology_template:
+
+  inputs:
+    os_arch:
+      type: string
+      required: false
+    os_type:
+      type: string
+      required: false
+    image:
+      type: string
+    flavor:
+      type: string
+    key_pair_name:
+      type: string
+    user:
+      type: string
+    key_content:
+      type: string
+    security_group_names:
+      type: list
+      entry_schema:
+        type: string
+    external_network_name:
+      type: string
+    cloud_init:
+      type: string
+
+  node_templates:
+
+    WebServer:
+      type: org.alien4cloud.puccini.openstack.nodes.Compute
+      properties:
+        image: { get_input: image }
+        flavor: { get_input: flavor }
+        key_pair_name: { get_input: key_pair_name }
+        security_group_names: { get_input: security_group_names }
+        user: { get_input: user }
+        key_content: { get_input: key_content }
+        user_data: { get_input: cloud_init }
+      requirements:
+        - network:
+            node: Internet
+            capability: tosca.capabilities.Connectivity
+            relationship: tosca.relationships.Network
+        - network:
+            node: privateNetwork
+            capability: tosca.capabilities.Connectivity
+            relationship: tosca.relationships.Network
+      capabilities:
+        scalable:
+          properties:
+            max_instances: 3
+            min_instances: 1
+            default_instances: 1
+
+    LoadBalancerServer:
+      type: org.alien4cloud.puccini.openstack.nodes.Compute
+      properties:
+        image: { get_input: image }
+        flavor: { get_input: flavor }
+        key_pair_name: { get_input: key_pair_name }
+        security_group_names: { get_input: security_group_names }
+        user: { get_input: user }
+        key_content: { get_input: key_content }
+        user_data: { get_input: cloud_init }
+      requirements:
+        - network:
+            node: Internet
+            capability: tosca.capabilities.Connectivity
+            relationship: tosca.relationships.Network
+        - network:
+            node: privateNetwork
+            capability: tosca.capabilities.Connectivity
+            relationship: tosca.relationships.Network
+    Internet:
+      type: org.alien4cloud.puccini.openstack.nodes.ExternalNetwork
+      properties:
+        network_name: { get_input: external_network_name}
+
+    privateNetwork:
+      type: org.alien4cloud.puccini.openstack.nodes.Network
+      properties:
+        network_name: apacheLBStandAlone
+        cidr: "192.168.1.0/24"

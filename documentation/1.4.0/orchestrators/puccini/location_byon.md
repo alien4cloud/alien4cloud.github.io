@@ -22,3 +22,4 @@ The resource type `org.alien4cloud.puccini.byon.nodes.Compute` is provided for m
 * `ip_address`: IP address for the machines
 * `user`: The user for login onto the machine
 * `key_content`: The private key for login onto the machine
+* `puccini_concurrent_restriction`: The number of the task can be executed concurrently on the compute instance.

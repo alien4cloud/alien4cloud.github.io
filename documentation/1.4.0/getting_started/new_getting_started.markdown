@@ -200,6 +200,8 @@ That is it! You should now be a little bit familiar with Alien4cloud interface. 
 
 Now you can [go further into the getting started](#/documentation/1.4.0/getting_started/going_further_cfy_boot.html) to see more cool stuffs, like how to deploy on Amazon cloud. (Example of a cloudify manager)
 
+You can see more details about Puccini's supported locations and resources [here](#/documentation/1.4.0/orchestrators/puccini/puccini_main_page.html).
+
 For more, take a look on the [user guide](#/documentation/1.4.0/user_guide/user_guide.html).  
 
 If you want to understand a bit more about the concepts developed in Alien4cloud, [here you go](#/documentation/1.4.0/concepts/concepts.html), and you might want to check out for the [TOSCA usage guide](#/documentation/1.4.0/getting_started/devops_guide/dev_ops_guide.html) too.

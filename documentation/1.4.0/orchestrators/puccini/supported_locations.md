@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  Supported locations (IaaSs)
+title:  Supported locations (Beta)
 root: ../../../
 categories: DOCUMENTATION-1.4.0
 parent: [orchestrators, puccini_main_page]

@@ -37,6 +37,7 @@ Normally, you need to provide the basic information for the resource:
 * `security_group_names`: You can provide the security group for this resource
 * `user`: The user name for login on the instance.
 * `key_content`: The private key of authentication for login on the instance. ***Pay attention*** when doing the copy paste. You need to select the multi-line mode before filling in the private key because the private key contains multiple line.
+* `puccini_concurrent_restriction`: The number of the task can be executed concurrently on the compute instance.
 
 ### Network
 The tosca type `tosca.nodes.Network` can be mapped as two types of network:
@@ -54,10 +55,10 @@ Normally, the property `cidr` and `network_name` should be given.
 
 ### Volumes
 {% warning %}
-Currently not supported.
+TODO.
 {% endwarning %}
 
 ### Deletable volumes
 {% warning %}
-Currently not supported.
+TODO.
 {% endwarning %}
