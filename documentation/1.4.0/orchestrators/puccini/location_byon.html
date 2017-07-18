@@ -1,0 +1,70 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/1.4.0/orchestrators/puccini/location_byon.html',
+  title: 'BYON'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">BYON</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.4.0/orchestrators/puccini/location_byon.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <p>The puccini orchestrator plugin allows you to deploy applications on existing machines.</p>
+
+<h2 id="prerequisites">Prerequisites</h2>
+<p>The physical or virtual machines should be given before doing the configuration for the resources. It is easy to bring on your virtual machines with <strong>vagrant</strong>.</p>
+
+<h2 id="tosca-mapped--location-exposed-types">Tosca mapped / location exposed types</h2>
+<p>The BYON location exposes some types to help you configure a deployment and map the native Tosca types. These nodes are exposed as <code>on demand resources</code> on the location management view.</p>
+
+<h3 id="compute">Compute</h3>
+<p>The resource type <code>org.alien4cloud.puccini.byon.nodes.Compute</code> is provided for mapping a compute.</p>
+
+<ul>
+  <li><code>ip_address</code>: IP address for the machines</li>
+  <li><code>user</code>: The user for login onto the machine</li>
+  <li><code>key_content</code>: The private key for login onto the machine</li>
+  <li><code>puccini_concurrent_restriction</code>: The number of the task can be executed concurrently on the compute instance.</li>
+</ul>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.4.0/orchestrators/puccini/location_byon.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-1.4.0', 'documentation/1.4.0/orchestrators/puccini/location_byon.md');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

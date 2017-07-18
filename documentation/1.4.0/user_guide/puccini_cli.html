@@ -1,0 +1,261 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/1.4.0/user_guide/puccini_cli.html',
+  title: 'Puccini CLI (Beta)'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Puccini CLI (Beta)</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.4.0/user_guide/puccini_cli.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <p>Puccini CLI is a shell to interact with Puccini orchestrator.</p>
+
+<hr style="margin-top:5px; margin-bottom:5px;" />
+<div class="row"><ul class="nav nav-pills" id="summarypanel"></ul></div>
+<hr style="margin-top:5px; margin-bottom:5px;" />
+
+<h1 id="run-puccini-cli">Run Puccini CLI</h1>
+<p>The simplest way to get the CLI is to launch the <a href="#documentation/1.4.0/getting_started/new_getting_started.html">Getting Started</a> script.
+Then you could go to <code>cd alien4cloud-getstarted/puccini-cli-${VERSION}/bin/</code>, once inside the folder you can launch <code>./tdk.sh</code>.
+The script will start an interactive shell with history, auto-completion. Don’t hesitate to type <code>TAB</code> or <code>CTRL+R</code> when you are in the shell mode.</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">// List all available commands
+<span class="nb">help</span>
+
+// Get <span class="nb">help </span><span class="k">for</span> a specific command. You should have information about sub-commands<span class="err">&#39;</span> syntax and what each sub-command does ...
+<span class="nb">help </span>agent</code></pre></div>
+
+<h1 id="quick-getting-started">Quick getting started</h1>
+<p>The below instructions will help you to deploy a sample web app hosted on Tomcat, and put behind an apache load balancer.
+The commands in this example suppose that you have all your CSARs inside a folder named <code>Projects/</code>, which is at the same level as <code>puccini-cli-${VERSION}/</code>.
+Please take note that the path here is not important, from the moment when you give the correct path it will work (can be absolute path).</p>
+
+<ul>
+  <li>
+    <p>Download <a href="/files/puccini/apache-lb-docker-template.yaml">Docker specific topology</a> and put it in <code>Projects/puccini_topology/</code>.</p>
+  </li>
+  <li>
+    <p>Fetch samples</p>
+  </li>
+</ul>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># Clone samples</span>
+<span class="nb">cd </span>Projects/
+git clone https://github.com/alien4cloud/alien4cloud-extended-types.git
+git clone git clone https://github.com/alien4cloud/samples.git
+<span class="c"># Launch Puccini CLI</span>
+<span class="nb">cd</span> ../puccini-cli-<span class="k">${</span><span class="nv">VERSION</span><span class="k">}</span>/bin
+./tdk.sh</code></pre></div>
+
+<ul>
+  <li>Inside Puccini’s interactive shell</li>
+</ul>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># Install some types necessary to deploy a topology apache load balancer</span>
+csar install ../../Projects/alien4cloud-extended-types/alien-base-types/
+csar install ../../Projects/samples/org/alien4cloud/lang/java/pub/
+csar install ../../Projects/samples/org/alien4cloud/lang/java/jdk/linux/
+csar install ../../Projects/samples/tomcat-war/
+csar install ../../Projects/samples/apache-load-balancer/
+csar install ../../Projects/samples/topology-load-balancer-tomcat/
+<span class="c"># Create a deployment image</span>
+deployment create aplb ../../Projects/puccini_topology/
+<span class="c"># Create agent to deploy</span>
+agent create aplb
+<span class="c"># Follow the log of deployment</span>
+agent log aplb
+<span class="c"># Show outputs</span>
+agent info aplb</code></pre></div>
+
+<ul>
+  <li>Get the URL to access to the web app from the deployment’s output, paste it in your browser and enjoy !</li>
+  <li>You can continue to check the next sections to have more details about the CLI’s usage</li>
+</ul>
+
+<h1 id="advanced-usage">Advanced usage</h1>
+
+<p>The common workflow to use puccini to develop recipe / manage deployments is:</p>
+
+<h2 id="install-csars">Install CSARs</h2>
+<p>Develop your tosca recipe and topology with pure abstract native types <code>tosca.nodes.Compute</code>, <code>tosca.nodes.Network</code> … then install it.</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">csar install /home/bobo/Documents/fastconnect/samples/org/alien4cloud/lang/java/pub
+...
+csar install /home/bobo/Documents/fastconnect/samples/topology-load-balancer-tomcat</code></pre></div>
+
+<p>Create the puccini specific topology to map all abstract native nodes to puccini native nodes.
+As an example, you can see the <a href="https://github.com/alien4cloud/samples/blob/master/topology-load-balancer-tomcat/topology-load-balancer-tomcat.yaml">abstract topology</a> use abstract <code>tosca.nodes.Compute</code>.</p>
+
+<ol>
+  <li>The <a href="/files/puccini/apache-lb-aws-template.yaml">AWS specific topology</a> use concrete type <code>org.alien4cloud.puccini.aws.nodes.Instance</code>.</li>
+  <li>The <a href="/files/puccini/apache-lb-docker-template.yaml">Docker specific topology</a> use concrete type <code>org.alien4cloud.puccini.docker.nodes.Container</code>.</li>
+  <li>The <a href="/files/puccini/apache-lb-openstack-template.yaml">Openstack specific topology</a> use concrete type <code>org.alien4cloud.puccini.openstack.nodes.Compute</code>.</li>
+</ol>
+
+<p>The specific topology import the abstract topology and override nodes and inputs with the same names, you can add more nodes in the specific topology.</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">imports</span><span class="p-Indicator">:</span>
+<span class="p-Indicator">-</span> <span class="l-Scalar-Plain">war-apache-load-balanced-topology:*</span>
+<span class="l-Scalar-Plain">topology_template</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">inputs</span><span class="p-Indicator">:</span>
+    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">...</span>
+  <span class="l-Scalar-Plain">node_templates</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">WebServer</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">org.alien4cloud.puccini.docker.nodes.Container</span></code></pre></div>
+
+<p>To display all installed csars.</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">csar list</code></pre></div>
+
+<p>Puccini CLI can handle multi-modules project. If you have a project which contains multiple modules (CSAR), Puccini CLI can parse, construct the dependency graph, and install all modules in correct order.</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">// Here, we install all the csar artifacts found in the project samples
+project build /home/bobo/Documents/fastconnect/samples</code></pre></div>
+
+<h2 id="create-a-deployment">Create a deployment</h2>
+<p>You can create a deployment from your specific Puccini topology created in the precedent step so that Puccini knows which IAAS provider to target.
+The deployment will then be created with the specific topology and so concrete type as <code>org.alien4cloud.puccini.aws.nodes.Instance</code> will be instantiated.
+Basically, a deployment is a docker image with every necessary resources to instantiate the topology.</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">deployment create myDeployment /home/bobo/Documents/fastconnect/puccini-topology</code></pre></div>
+
+<p>To display all the existing deployments.</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">deployment list</code></pre></div>
+
+<h2 id="launch-the-deployment">Launch the deployment</h2>
+<p>From deployment images, you can create deployment agents (micro managers) which are docker containers that handle the lifecycle of your application.
+You can deploy/undeploy/scale your application thanks to the agents.</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># Create agent (docker container) from deployment image and run install workflow</span>
+agent create myDeployment</code></pre></div>
+
+<p>To display all the existing agents.</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">agent list</code></pre></div>
+
+<h2 id="tail-deployments-log">Tail deployment’s log</h2>
+<p>We can see the log when the deployment is running.</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">agent log myDeployment
+<span class="c"># To filter the log whose type is workflow_event.</span>
+agent log --logType<span class="o">=</span>workflow_event myDeployment</code></pre></div>
+
+<h2 id="show-deployments-information">Show deployment’s information</h2>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># Show all deployment information such as node, instances, executions, outputs ...</span>
+agent info myDeployment</code></pre></div>
+
+<h2 id="scale">Scale</h2>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># Scale myNode to a new instance count of 2</span>
+agent scale myDeployment myNode 2</code></pre></div>
+
+<h2 id="update-and-resume">Update and resume</h2>
+<p>With <code>agent log myDeployment</code> or <code>agent info --executions myDeployment</code>, you might observe that your deployment has failed. 
+You might be able to fix your recipe and then hot reload it with puccini. 
+Once recipe is updated, if you took care to make your operation idempotent, you can resume the execution from the failure point (the operation in failure will be re-executed).
+Even if your operation did modify the state of the machine in a way that it cannot be resumed, you can just connect to the machine, put the machine back in a clean state and then resume (if we suppose that it takes less time than re-run the whole deployment from the beginning).</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># After fixing your recipe, update the csar installed in the local repository</span>
+csar install myCsar
+<span class="c"># Regenerate the deployment image, update the work folder</span>
+deployment create my_deployment
+<span class="c"># Take note that you can bypass the image generation by modifying directly compiled csar inside path_to_puccini/work/myDeployment/recipe/src/main/resources, but then next &#39;agent create myDeployment&#39; will not use the updated recipe</span>
+<span class="c"># Update recipe on the agent</span>
+agent update my_deployment
+<span class="c"># Resume the the deployment from the last failure point</span>
+agent resume my_deployment</code></pre></div>
+
+<h2 id="undeploy">Undeploy</h2>
+<p>We can undeploy the application after it is deployed.</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># Launch uninstall workflow and delete the agent</span>
+agent delete myDeployment
+<span class="c"># Tear down the infrastructure and delete the agent (only delete IAAS components as compute network)</span>
+agent delete -f myDeployment
+<span class="c"># Delete the agent and ignore the deployment</span>
+agent delete --ignore-deployment myDeployment</code></pre></div>
+
+<h2 id="deployment-with-other-clouds">Deployment with other clouds</h2>
+<p>The example, which was given util now deploys on docker as the default puccini provider. You might want to work with one of the supported IAAS Openstack, AWS or byon.</p>
+
+<ul>
+  <li>
+    <p>Configure the provider at <code>path_to_puccini/conf/providers/${provider_name}/${target_name}</code> following the template file <code>provider.conf.tpl</code>, you must then rename it to <code>provider.conf</code>.
+As you can see as provider, you have the choice between Openstack, AWS and docker.
+Target enables you to have multiple configurations for the same IAAS.
+In all of your commands when no target is specified, puccini takes the target named <code>default</code>. 
+If you don’t want to configure statically inside Puccini, you can configure those configurations as inputs of your deployment.</p>
+  </li>
+  <li>
+    <p>Create your puccini topology for the configured cloud by importing puccini provider types:</p>
+  </li>
+</ul>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">imports</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">...</span>
+    <span class="l-Scalar-Plain">- puccini-aws-provider-types:*</span>
+
+  <span class="l-Scalar-Plain">node_templates</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">WebServer</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">org.alien4cloud.puccini.aws.nodes.Instance</span></code></pre></div>
+
+<ul>
+  <li>Create your deployment and your agent in the same manner as with docker provider. An example of a deployment AWS can be found <a href="./test/src/it/resources/csars/aws/standalone/apache-lb/template.yaml">here</a></li>
+</ul>
+
+<h2 id="ansible-support">Ansible support</h2>
+
+<p>Puccini supports Ansible as an artifact executor. To rapidly test Ansible with Puccini :</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># Use this new image as base image to build all micro manager from now on, the image has ansible installed</span>
+deployer use alien4cloud/puccini-deployer-ansible:1.4.0
+<span class="c"># Install your types which uses Ansible</span>
+csar install path_to_your_ansible_types
+<span class="c"># Create the deployment image</span>
+deployment create --input<span class="o">=</span>path_to_aws_inputs.yml my_deployment path_to_aws_topology
+<span class="c"># Run your deployment</span></code></pre></div>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.4.0/user_guide/puccini_cli.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-1.4.0', 'documentation/1.4.0/user_guide/puccini_cli.md');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

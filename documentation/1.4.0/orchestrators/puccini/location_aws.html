@@ -1,0 +1,101 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/1.4.0/orchestrators/puccini/location_aws.html',
+  title: 'AWS'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">AWS</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.4.0/orchestrators/puccini/location_aws.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <p>The puccini orchestrator plugin allows you to deploy the applications on AWS.</p>
+
+<h2 id="configuration">Configuration</h2>
+<p>The configuration of the location needs to be done while configuring the orchestrator before its activation.</p>
+
+<p>You need to fill in the informations with your AWS account. In the configuration of orchestrator, go to <code>locationConfiguration</code> -&gt; <code>aws</code> -&gt; <code>defaultConfiguration</code>.</p>
+
+<ul>
+  <li><code>accessKeyId</code>: Your access key id for AWS</li>
+  <li><code>accessKeySecret</code>: The content of your access key</li>
+  <li><code>region</code>: The name of your AWS region</li>
+</ul>
+
+<h2 id="tosca-mapped--location-exposed-types">Tosca mapped / location exposed types</h2>
+<p>The Amazon location exposes some types to help you configure a deployment and map the native Tosca types. Theses nodes are exposed as <code>on demand resources</code> on the location management view.</p>
+
+<h3 id="compute">Compute</h3>
+<p>The tosca type <code>tosca.nodes.Compute</code> is mapped to the amazon nodes:</p>
+
+<ul>
+  <li><code>org.alien4cloud.puccini.aws.nodes.Instance</code> for a compute</li>
+</ul>
+
+<p>To configure a resource, you need to provide the information for the mandatory properties (with star):</p>
+
+<ul>
+  <li><code>image_id</code>: Image id for bootstrapping an instance of AWS</li>
+  <li><code>instance_type</code>: The type for instance of AWS</li>
+  <li><code>key_name</code>: The key pair name</li>
+  <li><code>security_groups</code>: Normally, it requires to put only one security group.</li>
+  <li><code>user_data</code>: We put the script needed to bootstrap an AWS instance. Normally with this script:</li>
+  <li><code>puccini_concurrent_restriction</code>: The number of the task can be executed concurrently on the compute instance.</li>
+</ul>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c">#cloud-config</span>
+runcmd:
+  - <span class="nb">echo</span> <span class="s1">&#39;Defaults:ec2-user !requiretty&#39;</span> &gt; /etc/sudoers.d/999-puccini-cloud-init-requiretty</code></pre></div>
+
+<ul>
+  <li><code>user</code>: The user name for login on the instance.</li>
+  <li><code>key_content</code>: The private key of authentication for login on the instance. Pay attention when doing the copy paste. You need to select the multi-line mode before filling in the private key because the private key contains multiple line.</li>
+</ul>
+
+<h3 id="network">Network</h3>
+<p>The tosca type <code>tosca.nodes.Network</code> can be mapped as the public network:</p>
+
+<h4 id="public-network">Public Network</h4>
+<p>Exposed as the location type a public network <code>org.alien4cloud.puccini.aws.nodes.PublicNetwork</code>, which will result to the attribution of an elastic ip to the linked resource (compute). Normally, we don’t need to configure this resource.</p>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.4.0/orchestrators/puccini/location_aws.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-1.4.0', 'documentation/1.4.0/orchestrators/puccini/location_aws.md');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

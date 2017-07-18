@@ -1,0 +1,101 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/1.4.0/orchestrators/puccini/location_docker.html',
+  title: 'Docker'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Docker</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.4.0/orchestrators/puccini/location_docker.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <p>The puccini orchestrator plugin allows you to deploy applications on Docker.</p>
+
+<h2 id="tosca-mapped--location-exposed-types">Tosca mapped / location exposed types</h2>
+<p>The Docker location exposes some types to help you configure a deployment and map the native Tosca types. Theses nodes are exposed as <code>on demand resources</code> on the location management view.</p>
+
+<h3 id="compute">Compute</h3>
+<p>The tosca type <code>tosca.nodes.Compute</code> is mapped to the Docker nodes:</p>
+
+<ul>
+  <li><code>org.alien4cloud.puccini.docker.nodes.Container</code> for a docker container</li>
+</ul>
+
+<p>Explanation to the properties:</p>
+
+<ul>
+  <li><code>image_id</code>: The image id for running the container</li>
+  <li><code>tag</code>: The tag for the docker image</li>
+  <li><code>interactive</code>:</li>
+  <li><code>exposed_ports</code>: Put the exposed port of the docker container</li>
+  <li><code>port_mappings</code>: Mapping the exposed port of the docker container to the port of the host.
+    <ul>
+      <li><code>from</code>: Put the exposed port of the docker container</li>
+      <li><code>to</code>: Put the mapped port of the host</li>
+    </ul>
+  </li>
+  <li><code>pull_image</code>: If selected, it will pull the docker image from docker hub, else local image will be used.</li>
+  <li><code>puccini_concurrent_restriction</code>: The number of the task can be executed concurrently on the compute instance.</li>
+</ul>
+
+<h3 id="network">Network</h3>
+<p>The tosca type <code>tosca.nodes.Network</code> can be mapped as <code>org.alien4cloud.puccini.docker.nodes.Network</code>:</p>
+
+<p>Explanation to the properties:</p>
+
+<ul>
+  <li><code>network_name</code>: The name of the network</li>
+  <li><code>cidr</code>: The ip range of the network</li>
+</ul>
+
+<h3 id="volumes">Volumes</h3>
+<div class="note warning">
+<p>TODO</p>
+</div>
+
+<h3 id="deletable-volumes">Deletable volumes</h3>
+<div class="note warning">
+<p>TODO</p>
+</div>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.4.0/orchestrators/puccini/location_docker.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-1.4.0', 'documentation/1.4.0/orchestrators/puccini/location_docker.md');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

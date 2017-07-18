@@ -1,0 +1,83 @@
+tosca_definitions_version: alien_dsl_1_3_0
+description: Apache load balancer partial topology for aws
+template_name: apache-load-balancer-template-aws-sa
+template_version: 1.0.0-SNAPSHOT
+template_author: Fastconnect
+
+imports:
+# Attention: * means get the latest version only works with Puccini's specific topology
+  - war-apache-load-balanced-topology:*
+  - puccini-aws-provider-types:*
+  - puccini-script-plugin-types:*
+
+topology_template:
+
+  inputs:
+    user:
+      type: string
+    key_content:
+      type: string
+    os_arch:
+      type: string
+      required: false
+    os_type:
+      type: string
+      required: false
+    image_id:
+      type: string
+    instance_type:
+      type: string
+    key_name:
+      type: string
+    security_groups:
+      type: list
+      entry_schema:
+        type: string
+    cloud_init:
+      type: string
+
+  node_templates:
+
+    WebServer:
+      type: org.alien4cloud.puccini.aws.nodes.Instance
+      properties:
+        image_id: { get_input: image_id }
+        instance_type: { get_input: instance_type }
+        key_name: { get_input: key_name }
+        security_groups: { get_input: security_groups }
+        user: { get_input: user }
+        key_content: { get_input: key_content }
+        user_data: { get_input: cloud_init }
+      requirements:
+        - network:
+            node: Internet
+            capability: tosca.capabilities.Connectivity
+            relationship: tosca.relationships.Network
+      capabilities:
+        scalable:
+          properties:
+            max_instances: 3
+            min_instances: 1
+            default_instances: 1
+
+    LoadBalancerServer:
+      type: org.alien4cloud.puccini.aws.nodes.Instance
+      properties:
+        image_id: { get_input: image_id }
+        instance_type: { get_input: instance_type }
+        key_name: { get_input: key_name }
+        security_groups: { get_input: security_groups }
+        user: { get_input: user }
+        key_content: { get_input: key_content }
+        user_data: |
+          #!/bin/sh
+          sudo cp /etc/hosts /tmp/hosts
+          echo 127.0.0.1 `hostname` | sudo tee /etc/hosts > /dev/null
+          cat  /tmp/hosts | sudo tee -a /etc/hosts > /dev/null
+      requirements:
+        - network:
+            node: Internet
+            capability: tosca.capabilities.Connectivity
+            relationship: tosca.relationships.Network
+    Internet:
+      type: org.alien4cloud.puccini.aws.nodes.PublicNetwork

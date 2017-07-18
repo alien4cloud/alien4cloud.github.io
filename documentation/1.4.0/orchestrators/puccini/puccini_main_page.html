@@ -1,0 +1,64 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/1.4.0/orchestrators/puccini/puccini_main_page.html',
+  title: 'Puccini (Beta)'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Puccini (Beta)</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.4.0/orchestrators/puccini/puccini_main_page.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <p>Puccini is an orchestrator multi-cloud that aims to support deployment on various different locations.
+This section gives the details to Puccini orchestrator plugin for Alien4Cloud.</p>
+
+<h2 id="alien4cloud-puccini-support">Alien4Cloud Puccini support</h2>
+
+<p>The alien4cloud puccini plugin exposes several nodes so that TOSCA templates can be deployed on various locations, such as <strong><em>Amazon</em></strong>, <strong><em>Openstack</em></strong>, etc…</p>
+
+<p>See <a href="#/documentation/1.4.0/orchestrators/puccini/supported_locations.html">Supported locations</a> for more details.</p>
+
+<h2 id="orchestrator-configuration">Orchestrator configuration</h2>
+<p>To be able to use puccini orchestrator plugin, you need to download the puccini package. And then go to <code>Driver configuration</code> and fill in the <em><code>pucciniHome</code></em> with the <strong>absolute path to the puccini package</strong>.</p>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.4.0/orchestrators/puccini/puccini_main_page.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-1.4.0', 'documentation/1.4.0/orchestrators/puccini/puccini_main_page.markdown');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>
