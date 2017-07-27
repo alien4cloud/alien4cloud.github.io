@@ -1,0 +1,79 @@
+---
+layout: post
+title:  ALIEN for Cloud 1.4.1-SM1
+root: ../
+categories: RELEASE_NOTES
+parent: [release_note]
+node_name: 1.4.1-SM1
+weight: 9936
+exclude_from_search: true
+---
+
+
+
+
+<i class="fa fa-plus text-success"></i> New feature <i class="fa fa-level-up text-primary"></i> Improvement  <i class="fa fa-bug text-danger"></i> Bug <i class="fa fa-exclamation-triangle text-warning"></i> Breaking change
+
+
+### Alien 4 Cloud Logs Plugin
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+        |  <i class="fa fa-bug text-danger"></i> | ALIEN-2390 | Fixed: Logs not refreshed when changing the selected environement in runtime section  |
+  
+
+
+### Cloudify 4 PaaS Provider
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+        |  <i class="fa fa-bug text-danger"></i> | ALIEN-2406 | Fixed issue preventing to delete an application when the orchestrator used for past deployment has been deleted  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2417 | Improved retry mechanism when orchestratir is down  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2420 | Fixed  deployment setup node matching for locations Azure, Byon  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2430 | Auto-Generate linux OR windows computes for supported locations, according to the configuration resource Image "os_type" property  |
+  
+
+
+### Cloudify 3 PaaS Provider
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+        |  <i class="fa fa-bug text-danger"></i> | ALIEN-2417 | Improved retry mechanism when orchestratir is down  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2430 | Auto-Generate linux OR windows computes for supported locations, according to the configuration resource Image "os_type" property  |
+  
+
+
+### Alien 4 Cloud
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-2419 | Node matching improvment  |
+      |  <i class="fa fa-bug text-danger"></i> | ALIEN-2366 | Merge pull request #109: Add entry schema on map in the velocity template of input  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2406 | Fixed issue preventing to delete an application when the orchestrator used for past deployment has been deleted  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2436 | fixed ui glitch: drop zone no visible when catalog is too long on service page  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2437 | fixed: only 1 field saved when editing complex input properties  |
+  
+
+
+### Cloudify 4 PaaS Provider Premium
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+        |  <i class="fa fa-bug text-danger"></i> | ALIEN-2420 | Fixed  deployment setup node matching for locations Azure, Byon  |
+  
+
