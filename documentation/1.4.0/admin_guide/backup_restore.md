@@ -22,7 +22,7 @@ The backup and restore tool is responsible to backup alien4cloud data:
 But Alien4Cloud distribution binaries (excluding plugins) and configuration files won't be backed up.
 
 
-# Dowbload 
+# Download 
 
 [<i class="fa fa-download"></i> Backup / Restore tool][backup-restore-tool_url]{: .btn}{: .btn-success}{: .download-button}
 
