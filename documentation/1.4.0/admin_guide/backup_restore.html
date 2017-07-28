@@ -39,7 +39,7 @@ ga('send', 'pageview');
 
 <p>But Alien4Cloud distribution binaries (excluding plugins) and configuration files won’t be backed up.</p>
 
-<h1 id="dowbload">Dowbload</h1>
+<h1 id="download">Download</h1>
 
 <p><a href="http://fastconnect.org/maven/service/local/artifact/maven/redirect?r=fastconnect&amp;g=alien4cloud&amp;a=alien4cloud-backup-restore-tools&amp;v=LATEST&amp;p=zip&amp;c=distrib" title="backup-restore-tool" class="btn btn-success download-button"><i class="fa fa-download"></i> Backup / Restore tool</a></p>
 
@@ -114,6 +114,11 @@ sudo -u elasticsearch rm /home/elasticsearch/backups/test.txt</code></pre></div>
 However, if running in an embedded configuration, you can’t stop Alien4Cloud without stopping ElasticSearch. Then, just make sure the plateform is not used during the process.
 <br />
 Anyway, if you 100% sure that restore operation has no impact on clouds or plugins configuration you can perform a ‘hot restore’ and don’t need to stop Alien4Cloud.</p>
+</div>
+
+<div class="note warning">
+<h5>Backup/snapshot access rights</h5>
+<p>The Elasticsearch backup directory (path.repo: /home/elasticsearch/backups) must be accessible by the ElasticSearch process in order to be able to restore the data.</p>
 </div>
 
 <p>To restore Alien4Cloud, from the root directory of the unzipped tool, perform the command:</p>
