@@ -31,7 +31,15 @@ On the orchestrator list, select and click on the newly created orchestrator, fo
 
 1. **<u>Connection Configuration</u>**: Click on the `Configuration` link to configure connection to your bootstrapped cloudify's manager.
 In the `Driver configuration` section, change the URL to use the correct IP of your manager that you obtained after the bootstrap operation.
-If your manager is secured, you can configure the admin credentials, the `disableSslVerification` option should only be set to true for testing purpose, it will disable all certificate validation for SSL.<br><br>
+If your manager is secured, you can configure the admin credentials, the `disableSslVerification` option should only be set to true for testing purpose, it will disable all certificate validation for SSL. The connection timeout in milliseconds between A4C and Cloudify instance can be configured with the property `connectionTimeout`.
+<br/>
+
+{% info %}
+<h5>Retry mechanism</h5>
+A retry mechanism will be enabled if you configure Cloudify in H.A (more than 1 instance). In H.A. a request that fails because of connection issues will be retried straight away on another available Cloudify instance. In case none of Cloudify instances respond sucessfully A4C will wait for `failOverDelay` in milliseconds and try to contact one more time all the Cloudify instances (up to `failOverRetry` times or a working instance has been found).   
+{% endinfo %}
+
+<br><br>
 [![Connection configuration][config_orchestrator_cloudifyConUrl]][config_orchestrator_cloudifyConUrl]<br>
 
 2. **<u>Enable Orchestrator</u>**: You can then switch back to the `Information` tab and enable the orchestrator by clicking on the `Enable orchestrator` button.<br><br>
