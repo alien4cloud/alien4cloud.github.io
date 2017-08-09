@@ -32,8 +32,8 @@ ga('send', 'pageview');
 <p>First step of course is to download the plugin.</p>
 
 <ul>
-  <li><a href="https://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource&amp;g=alien4cloud&amp;a=alien4cloud-cloudify4-provider&amp;v=1.4.0&amp;p=zip" class="btn btn-success download-button navbar-btn">last stable version</a> works with the latest stable alien version.</li>
-  <li><a href="https://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource-snapshot&amp;g=alien4cloud&amp;a=alien4cloud-cloudify4-provider&amp;v=1.4.0&amp;p=zip" class="btn btn-warning download-button navbar-btn">last build version</a> works with the latest build alien version.</li>
+  <li><a href="https://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource&amp;g=alien4cloud&amp;a=alien4cloud-cloudify4-provider&amp;v=1.4.1-SM1&amp;p=zip" class="btn btn-success download-button navbar-btn">last stable version</a> works with the latest stable alien version.</li>
+  <li><a href="https://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource-snapshot&amp;g=alien4cloud&amp;a=alien4cloud-cloudify4-provider&amp;v=1.4.1-SM1&amp;p=zip" class="btn btn-warning download-button navbar-btn">last build version</a> works with the latest build alien version.</li>
 </ul>
 
 <h2 id="install">Install</h2>
@@ -52,12 +52,21 @@ ga('send', 'pageview');
 <p>On the orchestrator list, select and click on the newly created orchestrator, follow these steps to configure your orchestrator:</p>
 
 <ol>
-  <li>
-    <p><strong><u>Connection Configuration</u></strong>: Click on the <code>Configuration</code> link to configure connection to your bootstrapped cloudify’s manager.
+  <li><strong><u>Connection Configuration</u></strong>: Click on the <code>Configuration</code> link to configure connection to your bootstrapped cloudify’s manager.
 In the <code>Driver configuration</code> section, change the URL to use the correct IP of your manager that you obtained after the bootstrap operation.
-If your manager is secured, you can configure the admin credentials, the <code>disableSslVerification</code> option should only be set to true for testing purpose, it will disable all certificate validation for SSL.<br /><br />
+If your manager is secured, you can configure the admin credentials, the <code>disableSslVerification</code> option should only be set to true for testing purpose, it will disable all certificate validation for SSL. The connection timeout in milliseconds between A4C and Cloudify instance can be configured with the property <code>connectionTimeout</code>.
+<br /></li>
+</ol>
+
+<div class="note info">
+<h5>Retry mechanism</h5>
+<p>A retry mechanism will be enabled if you configure Cloudify in H.A (more than 1 instance). In H.A. a request that fails because of connection issues will be retried straight away on another available Cloudify instance. In case none of Cloudify instances respond sucessfully A4C will wait for <code>failOverDelay</code> in milliseconds and try to contact one more time all the Cloudify instances (up to <code>failOverRetry</code> times or a working instance has been found).</p>
+</div>
+
+<p><br /><br />
 <a href="../../images/cloudify3_driver/config_orchestrator_cloudifyConUrl.png" title="Connection configuration"><img src="../../images/cloudify3_driver/config_orchestrator_cloudifyConUrl.png" alt="Connection configuration" title="Connection configuration" /></a><br /></p>
-  </li>
+
+<ol>
   <li>
     <p><strong><u>Enable Orchestrator</u></strong>: You can then switch back to the <code>Information</code> tab and enable the orchestrator by clicking on the <code>Enable orchestrator</code> button.<br /><br />
 <a href="../../images/cloudify3_driver/config_orchestrator_enableOrchestrator.png" title="Enable orchestrator"><img src="../../images/cloudify3_driver/config_orchestrator_enableOrchestrator.png" alt="Enable Orchestrator" title="Enable orchestrator" /></a><br />
