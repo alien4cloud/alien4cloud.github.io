@@ -1,0 +1,73 @@
+---
+layout: post
+title:  ALIEN for Cloud 1.4.1
+root: ../
+categories: RELEASE_NOTES
+parent: [release_note]
+node_name: 1.4.1
+weight: 9935
+exclude_from_search: true
+---
+
+
+
+
+<i class="fa fa-plus text-success"></i> New feature <i class="fa fa-level-up text-primary"></i> Improvement  <i class="fa fa-bug text-danger"></i> Bug <i class="fa fa-exclamation-triangle text-warning"></i> Breaking change
+
+
+### Cloudify 4 PaaS Provider
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+        |  <i class="fa fa-bug text-danger"></i> | ALIEN-2447 | Should not fail undeployment when errors occurs during workflow execution  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2464 | Fixed an major issue introduced in 1.4.0 that prevent details display in the runtime view on some clouds including OpenStack or with some specific TOSCA components using TARGET get_attributes  |
+  
+
+
+### Cloudify 3 PaaS Provider
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+        |  <i class="fa fa-bug text-danger"></i> | ALIEN-2447 | Should not fail undeployment when errors occurs during workflow execution  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2464 | Fixed an major issue introduced in 1.4.0 that prevent details display in the runtime view on some clouds including OpenStack or with some specific TOSCA components using TARGET get_attributes  |
+  
+
+
+### Alien 4 Cloud
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-21 | Users can now download TOSCA Archive From CSAR view or Application editor view  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-2456 | Added maintenance mode management to Alien4Cloud  |
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-2442 | Keep track of the selected environments/versions when browsing through application management views  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-2449 | Increased artifact selection modal size  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-2450 | Added a modal to warn on alien dependencies resolution behaviour when adding a node that creates a version conflict  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-2452 | Users can now create a custom workflow with name "post_update", and this one will be launched right after the triggered update of the deployed application is successful.  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-2453 | Improve matching and ordering on component search results  |
+      |  <i class="fa fa-bug text-danger"></i> | ALIEN-2392 | Clean  input properties and artifacts from deployment config when deleted from the topology  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2408 | Fixed Workflow view broken when a workflow contains cycles	  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2416 | Keep previous plugin state on alien4cloud restart, when the plugin is loaded from init directory  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2421 | Fixed ui glitched on service view for the component with a long type name  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2435 | Fixed: On-demand resource types (to add) not updated when changing selected location on location view  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2438 | LIMITATION: Deployment of topologies with multiple relationships between 2 identical nodes fails on cloudify (cloudify limitation). Added a message to prevent deploying with such topologies.  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2439 | Fixed issue with translations when upgrading alien4cloud  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2443 | "Replace Node" feature in topology editor should not propose more than one version for a same node type. Only the latest version should be proposed.  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2445 | Display "Updated" deployment status on application info view  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2446 | fixed ui glitch  scripts names are truncated on archive content browsing  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2448 | Display artifact remote repository information when exposed as a deployment input  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2454 | Fixed component image (Picture) when swithing variants and when 2 components have the same name  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2459 | Fixed potential NPE on properties validation, introduced in 1.4.1-SM1  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2461 | Fixed deploment configuration validation, broke in 1.4.1-SM1  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2462 | Fixed an issue in validation of capabilities and relationships properties in a topology  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2465 | Fixed issue with minification causing wrong Ace IDE file format and various ui glitches  |
+  
+

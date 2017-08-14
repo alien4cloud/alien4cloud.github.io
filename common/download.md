@@ -15,7 +15,15 @@ root: ../
       <a href="http://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource&g=alien4cloud&a=alien4cloud-dist&v={{ site.last-version }}&p=tar.gz&c=dist" ><i class="fa fa-download"></i> Alien 4 Cloud latest sprint milestone</a>
       <br />
       <a href="http://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource-snapshot&g=alien4cloud&a=alien4cloud-dist&v={{ site.last-snapshot }}&p=tar.gz&c=dist" ><i class="fa fa-download"></i> Alien 4 Cloud latest build</a>
+      <br />
+      <h4>Old stable versions</h4>
+      <ul>
+      {% for oldstable in site.old-stables %}
+        <li><a href="http://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource&g=alien4cloud&a=alien4cloud-dist&v={{ oldstable }}&p=tar.gz&c=dist">{{ oldstable }}</a></li>
+      {% endfor %}
+      </ul>
     </div>
+
     <div class="col-md-6">
       <h2>Premium edition</h2>
       <br />
@@ -25,6 +33,15 @@ root: ../
       <a href="http://fastconnect.org/maven/service/local/artifact/maven/redirect?r=fastconnect&g=alien4cloud&a=alien4cloud-premium-dist&v={{ site.last-version }}&p=tar.gz&c=dist"><i class="fa fa-download"></i> Alien 4 Cloud Premium latest sprint milestone</a>
       <br />
       <a href="http://fastconnect.org/maven/service/local/artifact/maven/redirect?r=fastconnect-snapshot&g=alien4cloud&a=alien4cloud-premium-dist&v={{ site.last-snapshot }}&p=tar.gz&c=dist" ><i class="fa fa-download"></i> Alien 4 Cloud Premium latest build</a>
+
+      <br />
+      <h4>Old stable versions</h4>
+      <ul>
+      {% for oldstable in site.old-stables %}
+        <li><a href="https://fastconnect.org/maven/service/local/repositories/fastconnect/content/alien4cloud/alien4cloud-premium-dist/{{ oldstable }}/alien4cloud-premium-dist-{{ oldstable }}-dist.tar.gz">{{ oldstable }}</a></li>
+      {% endfor %}
+      </ul>
+
       <br />
       <br />
       <p>

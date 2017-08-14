@@ -19,14 +19,21 @@ This guide explains how to get started with Alien4Cloud and deploy your first ap
 
 ## Prerequisites
 
-* <i class="fa fa-linux"></i> Linux or <i class="fa fa-apple"></i> MacOS version 10.12 (we use a native library for docker communication that has been compiled on this version and we are aware of issues on earlier versions).
-* Curl: Our installation script leverage curl so ensure you have the command installed.
-* Python: While we don't really require python for alien4cloud our getting started script leverage python to pre-configure some elements in alien4cloud for you. Running the script without python will install alien4cloud, start it and then fail to configure resources so you'll have to configure them manually.
-* Java: We don't install java for you so just make sure you have a 8 or higher JDK installed on your working station. If you don't you can following instructions [here](https://www.java.com/fr/download/manual.jsp){:target="_blank"}.
-* Docker: Our getting started leverage a minimal TOSCA orchestrator that creates docker images to orchestrate deployments in an independent way one from another. We will also use docker container in place of VMs to launch TOSCA blueprints.
-You need an up-to-date docker, especially if you are running on mac as we leverage the new docker for mac and unix socket communication. We have tested on Docker version 17.03.1-ce, build c6d412e.
-* Nothing running on port 8088: That's alien4cloud default port and as we just launch a4c in our getting started script we need this port free.
-* A supported web browser (check versions [here](/#/documentation/1.4.0/admin_guide/supported_platforms.html)).
+* __Operating system__:<i class="fa fa-linux"></i> Linux or <i class="fa fa-apple"></i> MacOS version 10.12 (we use a native library for docker communication that has been compiled on this version and we are aware of issues on earlier versions).
+
+* __Curl__: Our installation script leverage curl so ensure you have the command installed.
+
+* __Python__: While we don't really require python for alien4cloud our getting started script leverage python to pre-configure some elements in alien4cloud for you. Running the script without python will install alien4cloud, start it and then fail to configure resources so you'll have to configure them manually.
+
+* __Java 8__: We don't install java for you so just make sure you have a 8 or higher JDK installed on your working station. If you don't you can following instructions [here](https://www.java.com/fr/download/manual.jsp){:target="_blank"}.
+
+* __Docker__: Our getting started leverage a minimal TOSCA orchestrator that creates docker images to orchestrate deployments in an independent way one from another. We will also use docker container in place of VMs to launch TOSCA blueprints.
+You need an up-to-date docker, especially if you are running on mac as we leverage the new docker for mac and unix socket communication. We have tested on `Docker version 17.03.1-ce,
+build c6d412e`.
+
+* __Ports__: Nothing running on port 8088: That's alien4cloud default port and as we just launch a4c in our getting started script we need this port free.
+
+* __Browser__: A supported web browser (check versions [here](/#/documentation/1.4.0/admin_guide/supported_platforms.html)).
 
 ## Install, launch and configure alien4cloud
 
@@ -38,11 +45,15 @@ curl -s https://raw.githubusercontent.com/alien4cloud/alien4cloud.github.io/sour
 
 Yes, we do it all for you! So what's going on in this script ?
 
-* Install: We will create an __alien4cloud-getstarted__ directory in which we will fetch alien4cloud opensource version, a minimal TOSCA orchestrator called puccini, the plugin to let alien4cloud work with puccini and we're going to configure it all for you!
-* Prepare: Pull some docker images required for puccini and that we know working with our samples (Docker images tends to be minimal and some of them don't even have a bash installed or sudo command).
-* Start: Well that's kind of an easy step, we just launch alien4cloud in the background for you.
-* Post-start configure: When launched we configure an orchestrator and it's location for you so you can perform docker deployments. That's just a few curl requests on the a4c rest API!
-* Launch your browser so you really don't have anything to do!
+* _Install_: We will create a directory named __alien4cloud-getstarted__ in which we will fetch alien4cloud opensource version, a minimal TOSCA orchestrator called puccini, the plugin to let alien4cloud work with puccini and we're going to configure it all for you!
+
+* _Prepare_: Pull some docker images required for puccini and that we know working with our samples (Docker images tends to be minimal and some of them don't even have a bash installed or sudo command).
+
+* _Start_: Well that's kind of an easy step, we just launch alien4cloud in the background for you.
+
+* _Post-start configure_: When launched we configure an orchestrator and it's location for you so you can perform docker deployments. That's just a few curl requests on the a4c rest API!
+
+* _Launch your browser_: If possible, so you really don't have anything to do!
 
 {% note %}
 Except docker images we don't store anything outside of the _alien4cloud-getstarted_ directory. If you like to remove alien4cloud getting started components just remove this directory.
@@ -83,13 +94,13 @@ The admin user is granted will all rights on the platform. This getting started 
 # Import components in Alien4Cloud
 
 The Wordpress topology is using custom types, we have to upload them first.
-Find those types on github here : [https://github.com/alien4cloud/samples](https://github.com/alien4cloud/samples){:target="_blank"}
+Find those types on github: [https://github.com/alien4cloud/samples](https://github.com/alien4cloud/samples){:target="_blank"}
 
-* **apache** : the webserver [here](https://github.com/alien4cloud/samples/tree/master/apache){:target="_blank"}
-* **php** : the php interperter [here](https://github.com/alien4cloud/samples/tree/master/php){:target="_blank"}
-* **mysql** : the database required by Wordpress [here](https://github.com/alien4cloud/samples/tree/master/mysql){:target="_blank"}
-* **wordpress** : the blog component [here](https://github.com/alien4cloud/samples/tree/master/wordpress){:target="_blank"}
-* **topology-wordpress** : the topology composed by previous components [here](https://github.com/alien4cloud/samples/tree/master/topology-wordpress){:target="_blank"}
+* **[apache](https://github.com/alien4cloud/samples/tree/master/apache){:target="_blank"}** : the webserver
+* **[php](https://github.com/alien4cloud/samples/tree/master/php){:target="_blank"}** : the php interperter
+* **[mysql](https://github.com/alien4cloud/samples/tree/master/mysql){:target="_blank"}** : the database required by Wordpress
+* **[wordpress](https://github.com/alien4cloud/samples/tree/master/wordpress){:target="_blank"}** : the blog component
+* **[topology-wordpress](https://github.com/alien4cloud/samples/tree/master/topology-wordpress){:target="_blank"}** : the topology composed by previous components
 
 The quickest way to import all of these archives is the **Git integration** feature in Alien4Cloud.
 

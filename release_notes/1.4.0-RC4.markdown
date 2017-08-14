@@ -25,7 +25,7 @@ exclude_from_search: true
       |  <i class="fa fa-level-up text-primary"></i> | ALIEN-2370 | Updated cloudify hostpool version: Plugin: from 1.4 to 1.5, wagon: from 1.1. to 1.2  |
       |  <i class="fa fa-bug text-danger"></i> | ALIEN-2364 | Fixed application deployment on kubernetes. Should not run commands with 'sudo'  |
     |  <i class="fa fa-bug text-danger"></i> | ALIEN-2407 | Validate provided urls before setting the orchestrator configuration  |
-  
+
 
 
 ### Alien 4 Cloud Logs Plugin
@@ -36,7 +36,7 @@ exclude_from_search: true
   | Type        | Id         | Description |
   |:------------|:-----------|:------------|
         |  <i class="fa fa-bug text-danger"></i> | ALIEN-2405 | UI glitches on long logs lines   |
-  
+
 
 
 ### Cloudify 3 PaaS Provider
@@ -48,7 +48,7 @@ exclude_from_search: true
   |:------------|:-----------|:------------|
         |  <i class="fa fa-bug text-danger"></i> | ALIEN-2364 | Fixed application deployment on kubernetes. Should not run commands with 'sudo'  |
     |  <i class="fa fa-bug text-danger"></i> | ALIEN-2412 | Fix attribute escaping  |
-  
+
 
 
 ### Alien 4 Cloud
@@ -82,11 +82,10 @@ exclude_from_search: true
     |  <i class="fa fa-bug text-danger"></i> | ALIEN-2389 | DEPLOYMENT_MANAGER should be able to see patch / operation / logs menus icon on runtime view  |
     |  <i class="fa fa-bug text-danger"></i> | ALIEN-2399 | Allow service ( and capabilities ) attributes edition  |
     |  <i class="fa fa-bug text-danger"></i> | ALIEN-2413 | Fixed CSARS GIT integration: Topology templates were not fully imported  |
-  
+
 
 
 ### Cloudify 4 PaaS Provider Premium
 
 
 > No changes.
-
