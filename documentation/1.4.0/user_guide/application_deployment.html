@@ -61,7 +61,7 @@ ga('send', 'pageview');
 <p>Note that the access may be configured per user or per application/ application environment meaning that, as a user, you may see some locations available for some of your environments and not for some others. If you feel that a location you need to deploy your application is missing you should ask for permissions to your alien4cloud admin.</p>
 
 <p>You can select among the displayed location, the one on which you would like to deploy.<br />
-The proposed locations are determined by matching every existing location against the topology, done by a matcher plugin.</p>
+The proposed locations are determined by matching every existing location against the topology, done by a matcher plugin.  </p>
 
 <p><a href="../../images/user_guide/application/deployment/user_guide_deployment_setup.png"><img src="../../images/user_guide/application/deployment/user_guide_deployment_setup.png" alt="Configure your deployment" /></a></p>
 
@@ -85,9 +85,9 @@ You can also decide (if possible) if you want to expose your deployment as a ser
 
 <p><a href="../../images/user_guide/application/deployment/deployment_deploy.png"><img src="../../images/user_guide/application/deployment/deployment_deploy.png" alt="deploy" /></a></p>
 
-<p>A final validation is made, taking into account everything that has been configured up until now, and eventually errors are displayed.</p>
+<p>A final validation is made, taking into account everything that has been configured up until now, and eventually errors are displayed.  </p>
 
-<p>If your topology is valid and ready for deployment, you can hit the deploy button to proceed.</p>
+<p>If your topology is valid and ready for deployment, you can hit the deploy button to proceed.  </p>
 
 <p>You can now follow the deployement progress on the <a href="#/documentation/1.4.0/user_guide/application_runtime.html">runtime view</a>.</p>
 
@@ -105,6 +105,8 @@ Upgrading a deployment means <strong>adding/removing/changing nodes and/or relat
 </ul>
 
 <p>Since this feature strongly depends on underlying orchestrator, you should refer to the dedicated documentation portion of the orchestrator you are using to know more about this feature (<a href="#/documentation/1.4.0/orchestrators/cloudify3_driver/deployment_update.html">for Cloudify orchestrator</a>).</p>
+
+<p>Since 1.4.1, in addition to the update process, alien4cloud will, right after the update automatically trigger the <strong>post_update</strong> workflow in case one is defined in the <em>original topology</em> and in the <em>updated topology</em>. Note that while we decided to add this option in 1.4.1 version we also decided to apply to this option the same limitation that exist in Cloudify meaning that, as no custom workflow can be updated with this orchestrator you won&#8217;t be able also to update or add a post_update workflow in case it is not defined in the initial topology. However we will trigger the workflow only if it is still defined in the updated topology meaning that while you cannot change or add this behaviour you may decide to stop applying it.</p>
 
         <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.4.0/user_guide/application_deployment.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
 	  </div>
