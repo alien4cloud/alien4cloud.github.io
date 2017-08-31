@@ -53,10 +53,13 @@ ga('send', 'pageview');
 
 <ol>
   <li><strong><u>Connection Configuration</u></strong>: Click on the <code>Configuration</code> link to configure connection to your bootstrapped cloudify’s manager.
-In the <code>Driver configuration</code> section, change the URL to use the correct IP of your manager that you obtained after the bootstrap operation.
-If your manager is secured, you can configure the admin credentials, the <code>disableSslVerification</code> option should only be set to true for testing purpose, it will disable all certificate validation for SSL. The connection timeout in milliseconds between A4C and Cloudify instance can be configured with the property <code>connectionTimeout</code>.
-<br /></li>
+In the <code>Driver configuration</code> section, change the URL to use the correct IP of your manager that you obtained after the bootstrap operation.</li>
 </ol>
+
+<p>If your cloudify manager is actually a cluster of instances you can specify a comma separated list of urls rather than a single url so the alien4cloud cloudify4 plugin will find the active member and fail-over automatically in case of failure of one of the node.</p>
+
+<p>If your manager is secured, you can configure the admin credentials, the <code>disableSslVerification</code> option should only be set to true for testing purpose, it will disable all certificate validation for SSL. The connection timeout in milliseconds between A4C and Cloudify instance can be configured with the property <code>connectionTimeout</code>.
+<br /></p>
 
 <div class="note info">
 <h5>Retry mechanism</h5>
