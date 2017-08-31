@@ -31,6 +31,9 @@ On the orchestrator list, select and click on the newly created orchestrator, fo
 
 1. **<u>Connection Configuration</u>**: Click on the `Configuration` link to configure connection to your bootstrapped cloudify's manager.
 In the `Driver configuration` section, change the URL to use the correct IP of your manager that you obtained after the bootstrap operation.
+
+If your cloudify manager is actually a cluster of instances you can specify a comma separated list of urls rather than a single url so the alien4cloud cloudify4 plugin will find the active member and fail-over automatically in case of failure of one of the node.
+
 If your manager is secured, you can configure the admin credentials, the `disableSslVerification` option should only be set to true for testing purpose, it will disable all certificate validation for SSL. The connection timeout in milliseconds between A4C and Cloudify instance can be configured with the property `connectionTimeout`.
 <br/>
 
