@@ -10,8 +10,6 @@ weight: 300
 
 {%summary%}{%endsummary%}
 
-*Section in progress...*
-
 Services in alien4cloud design any already running resource (databases, application providing an API etc.) that can be used by the applications through matching of abstract nodes (just like on demand resources).
 
 The fundamental difference between service and on-demand resource is the ownership of the resource lifecycle. While on-demand resources lifecycle is managed by the consuming application, services are elements external to the application but yet consumed by the application.
