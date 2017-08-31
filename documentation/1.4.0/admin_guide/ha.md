@@ -202,7 +202,7 @@ With a CONSUL_SERVER_ADDRESS environment variable that contains the comma separa
 
 Consul template will be responsible for updating the ngnix configuration when the alien4cloud master node changes. In order to configure it we will create a __/etc/consul_template/consul_template.conf__ file with the following content:
 
-{% highlight json %}
+{% highlight bash %}
 consul = "127.0.0.1:%CONSUL_API_PORT%"
 
 template {
@@ -224,7 +224,7 @@ Where %CONSUL_API_PORT% should be replaced with the actual port of the consul cl
 
 Finally add a template file __/etc/consul_template/nginx.conf.ctpl__ so consul template can update the ngnix configuration with the following configuration (this configuration is for a secured alien4cloud server).
 
-{% highlight json %}
+{% highlight bash %}
 {{ if key "service/a4c/leader" }}
 server {
         listen %LISTEN_PORT% default ssl;

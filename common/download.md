@@ -27,7 +27,7 @@ root: ../
     <div class="col-md-6">
       <h2>Premium edition</h2>
       <br />
-      <a href="https://fastconnect.org/maven/service/local/repositories/fastconnect/content/alien4cloud/alien4cloud-premium-dist/{{ site.stable-version }}/alien4cloud-premium-dist-{{ site.stable-version }}-dist.tar.gz" class="btn btn-success btn-lg">Alien 4 Cloud Premium {{ site.stable-version }}</a>
+      <a href="https://fastconnect.org/maven/service/local/repositories/fastconnect/content/alien4cloud/alien4cloud-premium-dist/{{ site.premium-stable-version }}/alien4cloud-premium-dist-{{ site.premium-stable-version }}-dist.tar.gz" class="btn btn-success btn-lg">Alien 4 Cloud Premium {{ site.premium-stable-version }}</a>
       <br />
       <br />
       <a href="http://fastconnect.org/maven/service/local/artifact/maven/redirect?r=fastconnect&g=alien4cloud&a=alien4cloud-premium-dist&v={{ site.last-version }}&p=tar.gz&c=dist"><i class="fa fa-download"></i> Alien 4 Cloud Premium latest sprint milestone</a>
