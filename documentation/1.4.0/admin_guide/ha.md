@@ -225,6 +225,7 @@ Where %CONSUL_API_PORT% should be replaced with the actual port of the consul cl
 Finally add a template file __/etc/consul_template/nginx.conf.ctpl__ so consul template can update the ngnix configuration with the following configuration (this configuration is for a secured alien4cloud server).
 
 {% highlight bash %}
+{% raw %}
 {{ if key "service/a4c/leader" }}
 server {
         listen %LISTEN_PORT% default ssl;
@@ -268,6 +269,7 @@ server {
         }
 }
 {{ end }}
+{% endraw %}
 {% endhighlight %}
 
 Where __%LISTEN_PORT%__ should be replaced with the port on which you want to expose the ngnix server and __%SERVER_NAME%__ should be replaced with the public ip address of the ngnix host.
