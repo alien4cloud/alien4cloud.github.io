@@ -235,7 +235,8 @@ ssl <span class="o">{</span>
 
 <p>Finally add a template file <strong>/etc/consul_template/nginx.conf.ctpl</strong> so consul template can update the ngnix configuration with the following configuration (this configuration is for a secured alien4cloud server).</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">server <span class="o">{</span>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="o">{{</span> <span class="k">if</span> key <span class="s2">&quot;service/a4c/leader&quot;</span> <span class="o">}}</span>
+server <span class="o">{</span>
         listen %LISTEN_PORT% default ssl<span class="p">;</span>
         server_name %SERVER_NAME%<span class="p">;</span>
 
@@ -249,7 +250,7 @@ ssl <span class="o">{</span>
         ssl_prefer_server_ciphers on<span class="p">;</span>
 
         location / <span class="o">{</span>
-                proxy_pass https:///<span class="p">;</span>
+                proxy_pass https://<span class="o">{{</span>key <span class="s2">&quot;service/a4c/leader&quot;</span><span class="o">}}</span>/<span class="p">;</span>
                 proxy_ssl_session_reuse on<span class="p">;</span>
                 proxy_set_header                Host %SERVER_NAME%<span class="p">;</span>
                 proxy_pass_request_headers      on<span class="p">;</span>
@@ -257,7 +258,7 @@ ssl <span class="o">{</span>
                 proxy_redirect http:// https://<span class="p">;</span>
         <span class="o">}</span>
 <span class="o">}</span>
-
+<span class="o">{{</span> <span class="k">else</span> <span class="o">}}</span>
 server <span class="o">{</span>
         listen %LISTEN_PORT% default_server<span class="p">;</span>
         listen <span class="o">[</span>::<span class="o">]</span>:%LISTEN_PORT% default_server <span class="nv">ipv6only</span><span class="o">=</span>on<span class="p">;</span>
@@ -275,7 +276,8 @@ server <span class="o">{</span>
         location / <span class="o">{</span>
                 try_files <span class="nv">$uri</span> <span class="nv">$uri</span>/ <span class="o">=</span>404<span class="p">;</span>
         <span class="o">}</span>
-<span class="o">}</span></code></pre></div>
+<span class="o">}</span>
+<span class="o">{{</span> end <span class="o">}}</span></code></pre></div>
 
 <p>Where <strong>%LISTEN_PORT%</strong> should be replaced with the port on which you want to expose the ngnix server and <strong>%SERVER_NAME%</strong> should be replaced with the public ip address of the ngnix host.</p>
 
