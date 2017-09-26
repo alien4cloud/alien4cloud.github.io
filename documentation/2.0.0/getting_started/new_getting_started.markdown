@@ -1,0 +1,218 @@
+---
+layout: post
+title: Getting started
+root: ../
+categories: DOCUMENTATION-2.0.0
+parent: []
+node_name: new_getting_started
+weight: 101
+---
+
+This guide explains how to get started with Alien4Cloud and deploy your first application. The goal of this guide is not to provide an extensive cover of all the functionalities.
+
+{% summary %}{% endsummary %}
+
+# Install, launch and configure alien4cloud
+
+{%inittab%}
+{% tabcontent <i class="fa fa-linux"></i> Linux / <i class="fa fa-apple"></i> MacOS %}
+
+## Prerequisites
+
+* __Operating system__:<i class="fa fa-linux"></i> Linux or <i class="fa fa-apple"></i> MacOS version 10.12 (we use a native library for docker communication that has been compiled on this version and we are aware of issues on earlier versions).
+
+* __Curl__: Our installation script leverage curl so ensure you have the command installed.
+
+* __Python__: While we don't really require python for alien4cloud our getting started script leverage python to pre-configure some elements in alien4cloud for you. Running the script without python will install alien4cloud, start it and then fail to configure resources so you'll have to configure them manually.
+
+* __Java 8__: We don't install java for you so just make sure you have a 8 or higher JDK installed on your working station. If you don't you can following instructions [here](https://www.java.com/fr/download/manual.jsp){:target="_blank"}.
+
+* __Docker__: Our getting started leverage a minimal TOSCA orchestrator that creates docker images to orchestrate deployments in an independent way one from another. We will also use docker container in place of VMs to launch TOSCA blueprints.
+You need an up-to-date docker, especially if you are running on mac as we leverage the new docker for mac and unix socket communication. We have tested on `Docker version 17.03.1-ce,
+build c6d412e`.
+
+* __Ports__: Nothing running on port 8088: That's alien4cloud default port and as we just launch a4c in our getting started script we need this port free.
+
+* __Browser__: A supported web browser (check versions [here](/#/documentation/2.0.0/admin_guide/supported_platforms.html)).
+
+## Install, launch and configure alien4cloud
+
+Open a terminal and launch the following command:
+
+{% highlight bash %}
+curl -s https://raw.githubusercontent.com/alien4cloud/alien4cloud.github.io/sources/files/1.4.0/getting_started.sh | bash
+{% endhighlight %}
+
+Yes, we do it all for you! So what's going on in this script ?
+
+* _Install_: We will create a directory named __alien4cloud-getstarted__ in which we will fetch alien4cloud opensource version, a minimal TOSCA orchestrator called puccini, the plugin to let alien4cloud work with puccini and we're going to configure it all for you!
+
+* _Prepare_: Pull some docker images required for puccini and that we know working with our samples (Docker images tends to be minimal and some of them don't even have a bash installed or sudo command).
+
+* _Start_: Well that's kind of an easy step, we just launch alien4cloud in the background for you.
+
+* _Post-start configure_: When launched we configure an orchestrator and it's location for you so you can perform docker deployments. That's just a few curl requests on the a4c rest API!
+
+* _Launch your browser_: If possible, so you really don't have anything to do!
+
+{% note %}
+Except docker images we don't store anything outside of the _alien4cloud-getstarted_ directory. If you like to remove alien4cloud getting started components just remove this directory.
+{% endnote %}
+
+{%endtabcontent%}
+{% tabcontent <i class="fa fa-cubes"></i> Vagrant %}
+
+## Prerequisites
+
+* Install [VirtualBox](https://www.virtualbox.org/wiki/Downloads){:target="_blank"}
+* Install [Vagrant](https://www.vagrantup.com/downloads.html){:target="_blank"}
+
+## Download and start the box
+
+* Download the getting started [Vagrantfile](https://raw.githubusercontent.com/alien4cloud/alien4cloud.github.io/sources/files/1.4.0/Vagrantfile){:target="_blank"}
+* Put the Vagrantfile in a folder, all Vagrant meta data will be written there.
+* Go to the created folder in step 4. Execute ‘vagrant up’ (Note that the first launch may take some time as the box size is 3Gb)
+* Next time, when you bring up the machine, you should execute ‘vagrant up --provision’ instead of ‘vagrant up’ or else Alien won’t start. This is a limitation for the moment, Alien’s web app should have been packaged as service.
+* The URL of alien4cloud will be available at http://192.168.33.10:8088/
+
+{%endtabcontent%}
+{%endinittab%}
+
+# Let's play!
+
+![Login screen](../../images/2.0.0/getting_started/authentication-splash-screen.png)
+
+Login into the application using the default user:
+
+* user: **admin**
+* password: **admin**
+
+{%note%}
+The admin user is granted will all rights on the platform. This getting started will perform all operations using the admin user. Of course if you want to setup an Alien4Cloud for production usage and multi-users and role management you should probably refer to [advanced configurations and installation](#/documentation/2.0.0/admin_guide/advanced_configuration.html) of Alien4Cloud as well as user guide for [user management](#/documentation/2.0.0/user_guide/user_management.html).
+{%endnote%}
+
+# Import components in Alien4Cloud
+
+The Wordpress topology is using custom types, we have to upload them first.
+Find those types on github: [https://github.com/alien4cloud/samples](https://github.com/alien4cloud/samples){:target="_blank"}
+
+* **[apache](https://github.com/alien4cloud/samples/tree/master/apache){:target="_blank"}** : the webserver
+* **[php](https://github.com/alien4cloud/samples/tree/master/php){:target="_blank"}** : the php interperter
+* **[mysql](https://github.com/alien4cloud/samples/tree/master/mysql){:target="_blank"}** : the database required by Wordpress
+* **[wordpress](https://github.com/alien4cloud/samples/tree/master/wordpress){:target="_blank"}** : the blog component
+* **[topology-wordpress](https://github.com/alien4cloud/samples/tree/master/topology-wordpress){:target="_blank"}** : the topology composed by previous components
+
+The quickest way to import all of these archives is the **Git integration** feature in Alien4Cloud.
+
+Click on ![Go to admin](../../images/2.0.0/getting_started/components_menu.png){: height="26px" .inline} button in the navigation bar. Then click side bar sub-menu ![Go to git](../../images/2.0.0/getting_started/git_sub_menu.png){: height="26px" .inline}.
+Now add a new Git location: ![new-git-location](../../images/2.0.0/getting_started/git_location_new.png){: height="26px" .inline}.
+
+Fill the modal like the example below with the followings:
+
+* **Repository Url**:    https://github.com/alien4cloud/samples.git
+* **Branch or Tag**  / **Archive's folder**
+  * 1.4.0 / apache
+  * 1.4.0 / php
+  * 1.4.0 / mysql
+  * 1.4.0 / wordpress
+  * 1.4.0 / topology-wordpress  
+
+![git configuration](../../images/2.0.0/getting_started/git_configuration.png){: style="width: 600px; margin: 0 auto"}
+
+Now, click on ![import button](../../images/2.0.0/getting_started/import.png){: height="26px" .inline} to pull all components from git and upload them into the Alien4Cloud catalog.
+
+Wait for the import success bar to show and continue:
+
+![Import success](../../images/2.0.0/getting_started/import_success.png)
+
+{% warning %}
+Some warnings will be thrown if you specify an other branch or tag. We release some version of Samples, according to our implementation of TOSCA. If you take the wrong Sample, the required normative types can be missing.
+{% endwarning %}
+
+{% info %}
+Find detailed informations about the Wordpress topology in the [devops guide](#/documentation/2.0.0/devops_guide/lamp_stack_tutorial/lamp_stack_application.html).
+{% endinfo %}
+
+# Create a Wordpress application
+
+Now we have the Wordpress template ready to use, we can create an application based on it. To do this, go to ![application menu](../../images/2.0.0/getting_started/applications_menu.png){: height="26px" .inline} section. Click on ![new application btn](../../images/2.0.0/getting_started/new_application.png){: height="26px" .inline}. In the new application modal fill the name with 'wordpress', click on Topology Template button and select the `wordpress-topology` in the **topology template** list.
+
+![New application modal](../../images/2.0.0/getting_started/new_application_modal.png)
+
+Click on _create_ to create the application and be redirected to the application informations page. To see your application topology, click on ![application topology menu](../../images/2.0.0/getting_started/topology_sub_menu.png){: height="26px" .inline}. This will take you to the topology editor.
+
+![Wordpress Topology](../../images/2.0.0/getting_started/topology_editor.png)
+
+As you can see the topology is already complete. We will cover topology edition later on so, for now, let's prepare for deployment.
+
+# Setup and deploy your application
+
+Click on ![application deployment](../../images/2.0.0/getting_started/application_deployment_menu.png){: height="26px" .inline} to configure your deployment:
+
+Inputs are already configured with default values so we automatically skip this step to let you select the location. The installation step configured a local docker location so click on it to select it as a target location:
+
+![Location choice](../../images/2.0.0/getting_started/location_choice.png)
+
+Node matching step is here again done automatically for you. During this step Alien4cloud found a valid match for your compute nodes, as there is just one template defined on the orchestrator to provide a ubuntu container that's the one that has been picked up.
+
+While it is good enough for a deployment we will setup some docker related advanced settings that are not included in the portable topology (as they are quite specific on this local docker deployment). What we want to configure is the wordpress container port mapping. Note that this is not done automatically yet by puccini but could be in future implementations.
+
+So let's go on node matching tab ![Node matching tab](../../images/2.0.0/getting_started/node_matching_tab.png){: height="26px" .inline} and select the wordpress compute node called 'computeWww' in our topology
+![Compute Www](../../images/2.0.0/getting_started/matching_computeWww.png){: height="26px" .inline}, then click on the current selected match for the node (well and only choice on this location as currently defined).
+
+![Compute Www matching choice](../../images/2.0.0/getting_started/matching_computeWww_choice.png){: style="width: 600px; margin: 0 auto"}
+
+Let's first expose the port out of the container by changing the exposed_ports property: Click on the edition button for the exposed_ports property ![Exposed ports property](../../images/2.0.0/getting_started/exposed_ports_edit.png){: height="26px" .inline}. In the modal click on the ![Add Exposed port](../../images/2.0.0/getting_started/exposed_ports_add.png){: height="26px" .inline} button to add a new port exposition. Click on the 0 element edit button ![Add Exposed port](../../images/2.0.0/getting_started/exposed_ports_0_edit.png){: height="26px" .inline} and set 80 to the port and tcp to the protocol and close the modal.
+
+![Exposed port configuration](../../images/2.0.0/getting_started/exposed_ports_conf.png){: style="width: 400px; margin: 0 auto"}
+
+Let's now configure the port_mappings ![Exposed ports property](../../images/2.0.0/getting_started/ports_mappings_edit.png){: height="26px" .inline} using the same procedure to configure a port mapping from 80 to, for example 9099
+
+![Exposed port configuration](../../images/2.0.0/getting_started/ports_mappings_conf.png){: style="width: 120px; margin: 0 auto"}
+
+Ok now that the port from the docker container is exposed to the outside world we can deploy our application!
+
+So just go to the deploy tab and click on the ![Deploy](../../images/2.0.0/getting_started/deploy_button.png){: height="26px" .inline} button! Note that this may take a few minutes as we are going to download and install the various components of the topology.
+
+{%info%}
+<h5>More on matching and application configuration</h5>
+If you have not done it yet, you can get more informations on the [application](#/documentation/2.0.0/concepts/applications.html) concepts in alien4cloud as well as [deployment configuration and matching](#/documentation/2.0.0/concepts/deployment.html) concepts here.
+You can also read more on the alien user guide's [application management section](#/documentation/2.0.0/user_guide/application_management.html).
+{%endinfo%}
+
+# Check that your application is up and running
+
+On the runtime view, you can have the detailed deployment progress. Click on the side bar sub-menu ![application runtime](../../images/2.0.0/getting_started/runtime.png){: height="26px" .inline},
+
+![Runtime view](../../images/2.0.0/getting_started/runtime_view.png){: style="width: 600px; margin: 0 auto"}
+
+When all nodes are deployed, just open the wordpress url in your browser. Note that as we defined a specific port mapping making the inner docker port available on our host 9099 port we have to change it accordingly: http://127.0.0.1:9099.
+
+![Wordpress home](../../images/2.0.0/getting_started/wordpress_home.png){: style="width: 300px; margin: 0 auto"}
+
+# Shut down alien4cloud
+
+You can still play with alien4cloud of course as there is plenty to discover ;). But when you want to shut it down just launch the following command:
+
+{% highlight bash %}
+pkill -f 'alien4cloud-ui-2.0.0-SNAPSHOT.war'
+{% endhighlight %}
+
+In order to launch it again no need to launch the curl and download it again of course. So just go to the alien4cloud-getstarted/alien4cloud folder and launch the alien4cloud.sh script.
+
+{% highlight bash %}
+cd alien4cloud-getstarted/alien4cloud
+# note:  > /dev/null 2>&1 & is just to launch it in background so just remove that if you wish to launch alien in front.
+./alien4cloud.sh  > /dev/null 2>&1 &
+{% endhighlight %}
+
+#Done!!!
+That is it! You should now be a little bit familiar with Alien4cloud interface. But there is more under the skin!
+
+Now you can [go further into the getting started](#/documentation/2.0.0/getting_started/going_further_cfy_boot.html) to see more cool stuffs, like how to deploy on Amazon cloud. (Example of a cloudify manager)
+
+You can see more details about Puccini's supported locations and resources [here](#/documentation/2.0.0/orchestrators/puccini/puccini_main_page.html).
+
+For more, take a look on the [user guide](#/documentation/2.0.0/user_guide/user_guide.html).  
+
+If you want to understand a bit more about the concepts developed in Alien4cloud, [here you go](#/documentation/2.0.0/concepts/concepts.html), and you might want to check out for the [TOSCA usage guide](#/documentation/2.0.0/getting_started/devops_guide/dev_ops_guide.html) too.
