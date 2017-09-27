@@ -71,6 +71,10 @@ Everything should work on its own in HA mode. Just make sure to install and conf
 ### Install and configure
 As stated above, the logs server application is to be installed on the Cloudify manager machine. You can download it [alien4cloud-cfy-logs](https://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource&g=alien4cloud&a=alien4cloud-cfy-logs&v={{ site.last-version }}&p=zip){: .btn}{: .btn-success}{: .download-button}{: .navbar-btn}.
 
+{%warning%}
+For now, the Cloudify manager and the logs server should be installed using the same security mode. This means, if you bootstrapped a SSL secured manager (HTTPS), you __MUST__ also install and configure the log application in SSL secured mode.
+{%endwarning%}
+
 1. unzip the file in your prefred location. We will call it `$a4c_log_dir`
 2. The server configuration file is located at `$a4c_log_dir/config/alien4cloud-cfy-logs-config.yml`. The main property you would want to configure is `server.port`
 
