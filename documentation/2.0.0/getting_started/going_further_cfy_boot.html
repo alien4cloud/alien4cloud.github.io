@@ -1,0 +1,256 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/2.0.0/getting_started/going_further_cfy_boot.html',
+  title: 'Launch Cloudify on AWS'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Launch Cloudify on AWS</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/2.0.0/getting_started/going_further_cfy_boot.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <div class="note warning">
+<p>THIS SECTION IS BEING WRITTEN AND IS NOT YET COMPLETED.</p>
+</div>
+
+<p>In this first going further tutorial we will explain how you can bootstrap an open-source TOSCA orchestrator that is a bit more heavy than Puccini and that we currently recommend for production environments. This orchestrator is cloudify.</p>
+
+<p>Some features that are not yet supported by puccini are supported in Cloudify so this will probably be your choice for more advanced scenarios with alien4cloud. But first of all let’s look how to bootstrap it.</p>
+
+<h1 id="bootstraping-cloudify">Bootstraping cloudify</h1>
+
+<p>To bootstrap cloudify on Amazon we will actually leverage puccini as it provides support for every features requested to actually launch a TOSCA recipe that describe a cloudify orchestrator.</p>
+
+<h2 id="security-groups-configuration">Security groups configuration</h2>
+
+<p>As a pre-requisite we will configure Security Groups for our cloudify manager so he can communicate with it’s other components.</p>
+
+<ul>
+  <li><strong>cfy_manager_agents</strong>: Security group to open the ports on the manager machine so agents can communicate to it.</li>
+</ul>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Protocol</th>
+      <th style="text-align: left">Port Range</th>
+      <th style="text-align: left">Source</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Custom TCP Rule</td>
+      <td style="text-align: left">TCP</td>
+      <td style="text-align: left">53229</td>
+      <td style="text-align: left">cfy_agents</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Custom TCP Rule</td>
+      <td style="text-align: left">TCP</td>
+      <td style="text-align: left">53333</td>
+      <td style="text-align: left">cfy_agents</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Custom TCP Rule</td>
+      <td style="text-align: left">TCP</td>
+      <td style="text-align: left">5671</td>
+      <td style="text-align: left">cfy_agents</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Custom TCP Rule</td>
+      <td style="text-align: left">TCP</td>
+      <td style="text-align: left">8101</td>
+      <td style="text-align: left">cfy_agents</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li><strong>cfy_agents</strong>: Security group to use on every agent machine so the manager can communicate with the agent machine.</li>
+</ul>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Protocol</th>
+      <th style="text-align: left">Port Range</th>
+      <th style="text-align: left">Source</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">SSH</td>
+      <td style="text-align: left">TCP</td>
+      <td style="text-align: left">22</td>
+      <td style="text-align: left">cfy_manager_agents</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">WinRM-HTTPS</td>
+      <td style="text-align: left">TCP</td>
+      <td style="text-align: left">5986</td>
+      <td style="text-align: left">cfy_manager_agents</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li><strong>cfy_manager_ssl_client</strong>: Security group so that clients can access the cloudify manager on ssl (we will configure a secured manager)</li>
+</ul>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Protocol</th>
+      <th style="text-align: left">Port Range</th>
+      <th style="text-align: left">Source</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">SSH</td>
+      <td style="text-align: left">TCP</td>
+      <td style="text-align: left">22</td>
+      <td style="text-align: left">0.0.0.0/0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">HTTPS</td>
+      <td style="text-align: left">TCP</td>
+      <td style="text-align: left">443</td>
+      <td style="text-align: left">0.0.0.0/0</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li><strong>cfy_manager_cluster</strong>: Security group to cluster the cloudify manager</li>
+</ul>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Protocol</th>
+      <th style="text-align: left">Port Range</th>
+      <th style="text-align: left">Source</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Custom TCP Rule</td>
+      <td style="text-align: left">TCP</td>
+      <td style="text-align: left">8300</td>
+      <td style="text-align: left">0.0.0.0/0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Custom TCP Rule</td>
+      <td style="text-align: left">TCP</td>
+      <td style="text-align: left">15432</td>
+      <td style="text-align: left">0.0.0.0/0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Custom TCP Rule</td>
+      <td style="text-align: left">TCP</td>
+      <td style="text-align: left">22000</td>
+      <td style="text-align: left">0.0.0.0/0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Custom UDP Rule</td>
+      <td style="text-align: left">UDP</td>
+      <td style="text-align: left">8301</td>
+      <td style="text-align: left">0.0.0.0/0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Custom TCP Rule</td>
+      <td style="text-align: left">TCP</td>
+      <td style="text-align: left">8301</td>
+      <td style="text-align: left">0.0.0.0/0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Custom TCP Rule</td>
+      <td style="text-align: left">TCP</td>
+      <td style="text-align: left">8500</td>
+      <td style="text-align: left">0.0.0.0/0</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="configure-puccini-to-deploy-on-aws">Configure puccini to deploy on aws</h2>
+
+<p class="text-muted">
+In the basic getting started we auto-configured a local docker location for you so you can match compute nodes on local docker containers. We want to deploy the cloudify manager on Amazon, in order to do so we will go to the admin section and configure a puccini location. But first there is a configuration file to manually edit in order to configure aws support in puccini.
+</p>
+
+<p>Go to the <strong>alien4cloud-getstarted/puccini-cli-{version}/conf/providers/aws/default</strong> folder and copy the <strong>provider.conf.tpl</strong> file to <strong>provider.conf</strong> then edit the file to fill in your access_key_id, access_key_secret and region.</p>
+
+<p>In alien4cloud ui got to <img src="../../images/2.0.0/user_guide/admin/admin_menu.png" alt="Admin section" height="26px" class="inline" />, then <img src="../../images/2.0.0/user_guide/admin/orchestrators/orchestrator_list_menu.png" alt="Orchestrator list" height="26px" class="inline" />. You should see the list of orchestrators with a single <strong>Puccini simple orchestrator</strong> orchestrator, select it.
+Go to <img src="../../images/2.0.0/user_guide/admin/orchestrators/locations_menu.png" alt="Locations" height="26px" class="inline" /> and then click on <img src="../../images/2.0.0/user_guide/admin/orchestrators/new_location_button.png" alt="Locations" height="26px" class="inline" />.</p>
+
+<p><img src="../../images/2.0.0/user_guide/admin/orchestrators/getting_started_new_aws_loc.png" alt="New aws location modal" style="width: 500px; margin: 0 auto" /></p>
+
+<p>Click on <img src="../../images/2.0.0/user_guide/admin/orchestrators/on_demand_resources.png" alt="On demand resources" height="26px" class="inline" /> to open the on demand resources configuration tab and drag-and-drop a <em>org.alien4cloud.puccini.aws.nodes.Instance</em> to the left section.</p>
+
+<p class="text-muted">
+The cloudify types requires a red hat or centos host, in order to allow puccini deploy on these OS you need to configure a cloud init to remove the requiretty option. These option was added in red hat operating system for Security reasons, has been recognized as inefficient and is removed from latests version. It prevent non-interactive ssh connections as the puccini orchestrator is doing.
+</p>
+
+<p>Edit the <strong>user_data</strong> field that will setup the VM cloud init using the following code:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c">#cloud-config</span>
+runcmd:
+  - <span class="nb">echo</span> <span class="s1">&#39;Defaults:ec2-user !requiretty&#39;</span> &gt; /etc/sudoers.d/999-puccini-cloud-init-requiretty</code></pre></div>
+
+<h2 id="import-cloudify-tosca-types">Import cloudify TOSCA types</h2>
+
+<p>You have learned in the getting started how to import archives from git so import the cloudify types archive from:
+* https://github.com/alien4cloud/samples/tree/master/cloudify-types</p>
+
+<h2 id="configure-your-topology">Configure your topology</h2>
+
+<p>Drag and drop a Compute node, dra</p>
+
+<h2 id="configure-your-matching-information">Configure your matching information</h2>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/2.0.0/getting_started/going_further_cfy_boot.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-2.0.0', 'documentation/2.0.0/getting_started/going_further_cfy_boot.md');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

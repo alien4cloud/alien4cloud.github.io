@@ -1,0 +1,78 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/2.0.0/user_guide/topology_editor_history.html',
+  title: 'Edition history'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Edition history</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/2.0.0/user_guide/topology_editor_history.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <h1 id="pending-operations-history">Pending operations history</h1>
+
+<p>The sub-menu history provide a view to see the two histories.</p>
+
+<p>The default history is the list of current operation on the topology with :</p>
+
+<ul>
+  <li>the author</li>
+  <li>the operation name</li>
+</ul>
+
+<p>Select an operation to see it’s details.</p>
+
+<h1 id="git-history">Git history</h1>
+
+<p>Every archive under edition in alien4cloud is managed using the git version control system. This enabled git history feature out of the box in addition to the current operations history. Every time a topology is saved in alien4cloud a commit is performed on the local git history with an auto-generated commit message that contains the summary of operations applied while saving.</p>
+
+<ul>
+  <li>date of commit</li>
+  <li>name of the user who save the topology archive</li>
+  <li>email of the user who save the topology archive</li>
+  <li>message with all operations applied during save and their author (which may be or not the same as the commit author)</li>
+</ul>
+
+<p><a href="../../images/2.0.0/user_guide/topology_editor/editor-history-git.png"><img src="../../images/2.0.0/user_guide/topology_editor/editor-history-git.png" alt="Editor history git" /></a></p>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/2.0.0/user_guide/topology_editor_history.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-2.0.0', 'documentation/2.0.0/user_guide/topology_editor_history.md');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

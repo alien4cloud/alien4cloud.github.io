@@ -1,0 +1,60 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/2.0.0/devops_guide/custom_types/new_types_with_alien.html',
+  title: 'Create TOSCA archive with alien4cloud'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Create TOSCA archive with alien4cloud</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/2.0.0/devops_guide/custom_types/new_types_with_alien.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <p>While alien4cloud has a TOSCA topology editor it does not ship yet a TOSCA type editor. Therefore you will have to write TOSCA types in an external editor.</p>
+
+<p>In order to perform validation of your types when writing it you should first have an alien4cloud server (either local or have a remote one available). Then you can use the following script that will package a given directory in a zip file, upload it into alien and display the validation result (out of the API response json).</p>
+
+<div data-gist="https://gist.github.com/lucboutier/b6536c4fe633c0d295df6b7fa995a1aa.js"></div>
+
+<p>As long as your archive is a SNAPSHOT archive you can re-upload it as much as you like. You can then use it in a topology and launch it to perform the actual deployment on the cloud you like!</p>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/2.0.0/devops_guide/custom_types/new_types_with_alien.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-2.0.0', 'documentation/2.0.0/devops_guide/custom_types/new_types_with_alien.markdown');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

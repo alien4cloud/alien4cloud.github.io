@@ -32,14 +32,15 @@ ga('send', 'pageview');
 <hr style="margin-top:5px; margin-bottom:5px;" />
 
 <h1 id="location">Location</h1>
-<p>Every new location is private, you need to authorize some entities to used it.
+<p>Every new location is private, you need to authorize some entities to use it.
 This entities can be one of the following :</p>
 
 <ul>
   <li><strong>user</strong></li>
   <li><strong>group</strong></li>
-  <li><strong>application environment</strong></li>
   <li><strong>application</strong></li>
+  <li><strong>application environment</strong></li>
+  <li><strong>application environment type</strong></li>
 </ul>
 
 <p>The choice of these entities allows a security policy for location adapted to all situations.</p>
@@ -51,34 +52,41 @@ The view is splitted into tabs, each tab reffering to one entity type.</p>
 
 <p><img src="../../images/1.4.0/user_guide/security/security_user.png" alt="security_user" /></p>
 
-<p>Click on the <strong>Authorize user</strong> button to add new users. The group tab have the same logic.</p>
+<p>Click on the <img src="../../images/1.4.0/user_guide/security/security_user_authirize_btn.png" alt="update button" height="26px" class="inline" /> button to grant users
+or on this one <img src="../../images/1.4.0/user_guide/security/security_app_delete.png" alt="delete button" height="26px" class="inline" /> to revoke authorizations of an user.</p>
 
 <p><img src="../../images/1.4.0/user_guide/security/security_modal_group.png" alt="security_modal_group" /></p>
 
-<h2 id="authorize-application-environment-or-application">Authorize application environment or application</h2>
+<p>This is exactly the same logic to manage authorizations on <strong>groups</strong>.</p>
 
-<p>The third tab is for application and application environment. An application can have many environment,
-so if you authorized an application for a location, this authorization is valid for all of this environments.</p>
+<h2 id="authorize-application-environment-application-environment-type-or-application">Authorize application environment, application environment type or application</h2>
 
-<p><img src="../../images/1.4.0/user_guide/security/security_app.png" alt="security_app" /></p>
+<p>The third tab is for application, application environment and application environment type. An application can have many environments,
+so if you authorize an application for a location, this authorization is valid for all of this nested resources (this include application environment and application environment type).</p>
+
+<p><img src="../../images/1.4.0/user_guide/security/security_modal_application.png" alt="security_modal_application" /></p>
 
 <p>You can however specifically choose to authorize only a set of environments of one application. In this case, the authorized environments
 are displayed by a badge.</p>
 
-<p><img src="../../images/1.4.0/user_guide/security/security_modal_application.png" alt="security_modal_application" /></p>
+<p>Finally, you can choose to authorize a set of environment types of one application. All existing and futur environments with the the authorize environment type will be able to use the ressource. Manage ressource by environment type avoids the admin from always having to set new authorizations for new environments. Authorized environment types are displayed by a badge.</p>
+
+<p><img src="../../images/1.4.0/user_guide/security/security_app.png" alt="security_app" /></p>
+
+<p>Click on this icon <img src="../../images/1.4.0/user_guide/security/security_app_update.png" alt="update button" height="26px" class="inline" /> to update rigths on an authorized application or on this one <img src="../../images/1.4.0/user_guide/security/security_app_delete.png" alt="delete button" height="26px" class="inline" /> to revoke all authorizations for this application (this inclued nested resources).</p>
 
 <h1 id="location-resources">Location resources</h1>
 
 <p>As for the location, all location resources are private. The mechanism to change the authorizations on a location resource is the same as for location.
-Note : to grant the accesse to a resource on a location resoure, the subject must already have the authorization on the location.</p>
+Grant an authorization on a location resource for an entity without authorization on location will automatically grant the
+entity for the location.</p>
 
 <p><img src="../../images/1.4.0/user_guide/security/multi_select.png" alt="multi_select" /></p>
 
-<p>Despite, a short way exist to grant / revoke authorization on many location resources. Indeed, locations resources can be selected by a checkbox.
-Furthermore, you can force the authorization on a location resource for a subject without authorization on location, this will automatically grant the
-subject for the location.</p>
+<p>To manage the authorizations on a specific resource or display this current authorizations, click on your resource (like to edit this properties) and go to
+the security panel.</p>
 
-<p><img src="../../images/1.4.0/user_guide/security/modal_with_force_button.png" alt="modal_with_force_button" /></p>
+<p><img src="../../images/1.4.0/user_guide/security/security_resource_detail.png" alt="multi_select" /></p>
 
         <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.4.0/user_guide/location_autorization.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
 	  </div>

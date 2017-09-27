@@ -1,0 +1,114 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/2.0.0/user_guide/location_autorization.html',
+  title: 'Location / resources autorization'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Location / resources autorization</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/2.0.0/user_guide/location_autorization.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        
+<hr style="margin-top:5px; margin-bottom:5px;" />
+<div class="row"><ul class="nav nav-pills" id="summarypanel"></ul></div>
+<hr style="margin-top:5px; margin-bottom:5px;" />
+
+<h1 id="location">Location</h1>
+<p>Every new location is private, you need to authorize some entities to use it.
+This entities can be one of the following :</p>
+
+<ul>
+  <li><strong>user</strong></li>
+  <li><strong>group</strong></li>
+  <li><strong>application</strong></li>
+  <li><strong>application environment</strong></li>
+  <li><strong>application environment type</strong></li>
+</ul>
+
+<p>The choice of these entities allows a security policy for location adapted to all situations.</p>
+
+<h2 id="authorize-user-or-group">Authorize user or group</h2>
+
+<p>Each location have a security panel. In this view you can manage authorizations for all entities.
+The view is splitted into tabs, each tab reffering to one entity type.</p>
+
+<p><img src="../../images/2.0.0/user_guide/security/security_user.png" alt="security_user" /></p>
+
+<p>Click on the <img src="../../images/2.0.0/user_guide/security/security_user_authirize_btn.png" alt="update button" height="26px" class="inline" /> button to grant users
+or on this one <img src="../../images/2.0.0/user_guide/security/security_app_delete.png" alt="delete button" height="26px" class="inline" /> to revoke authorizations of an user.</p>
+
+<p><img src="../../images/2.0.0/user_guide/security/security_modal_group.png" alt="security_modal_group" /></p>
+
+<p>This is exactly the same logic to manage authorizations on <strong>groups</strong>.</p>
+
+<h2 id="authorize-application-environment-application-environment-type-or-application">Authorize application environment, application environment type or application</h2>
+
+<p>The third tab is for application, application environment and application environment type. An application can have many environments,
+so if you authorize an application for a location, this authorization is valid for all of this nested resources (this include application environment and application environment type).</p>
+
+<p><img src="../../images/2.0.0/user_guide/security/security_modal_application.png" alt="security_modal_application" /></p>
+
+<p>You can however specifically choose to authorize only a set of environments of one application. In this case, the authorized environments
+are displayed by a badge.</p>
+
+<p>Finally, you can choose to authorize a set of environment types of one application. All existing and futur environments with the the authorize environment type will be able to use the ressource. Manage ressource by environment type avoids the admin from always having to set new authorizations for new environments. Authorized environment types are displayed by a badge.</p>
+
+<p><img src="../../images/2.0.0/user_guide/security/security_app.png" alt="security_app" /></p>
+
+<p>Click on this icon <img src="../../images/2.0.0/user_guide/security/security_app_update.png" alt="update button" height="26px" class="inline" /> to update rigths on an authorized application or on this one <img src="../../images/2.0.0/user_guide/security/security_app_delete.png" alt="delete button" height="26px" class="inline" /> to revoke all authorizations for this application (this inclued nested resources).</p>
+
+<h1 id="location-resources">Location resources</h1>
+
+<p>As for the location, all location resources are private. The mechanism to change the authorizations on a location resource is the same as for location.
+Grant an authorization on a location resource for an entity without authorization on location will automatically grant the
+entity for the location.</p>
+
+<p><img src="../../images/2.0.0/user_guide/security/multi_select.png" alt="multi_select" /></p>
+
+<p>To manage the authorizations on a specific resource or display this current authorizations, click on your resource (like to edit this properties) and go to
+the security panel.</p>
+
+<p><img src="../../images/2.0.0/user_guide/security/security_resource_detail.png" alt="multi_select" /></p>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/2.0.0/user_guide/location_autorization.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-2.0.0', 'documentation/2.0.0/user_guide/location_autorization.md');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

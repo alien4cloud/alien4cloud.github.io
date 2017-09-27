@@ -1,0 +1,68 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/2.0.0/devops_guide/tosca_concepts_types_custom.html',
+  title: 'Writing custom types'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Writing custom types</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/2.0.0/devops_guide/tosca_concepts_types_custom.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <p>TOSCA specification allows definition of a cloud application by defining a set of nodes that are connected to other using relationships.</p>
+
+<p>In order to improve reusability of components and defined recipes, TOSCA allow the definition of NodeTypes that defines components and eventually their implementation (for example a Java NodeType and the script implementation to install it on a virtual server). The defined NodeTypes can then be reused when a developer or application architect want to define the topology of a cloud application.</p>
+
+<div class="note info">
+<p>TOSCA and thus Alien 4 Cloud allows you to define some abstract types (basically meta-types without implementation). This allows of course to dissociate the specific technical implementations from the actual definition of a component (writing an abstract Java node and several implementations with chef, puppet etc.).</p>
+
+<p>This can also be leveraged in order to meta-model your applications for the cloud even if you don’t need to deploy them right now. Alien 4 Cloud advisory features for moving to the cloud leverage this to quiclky map your Information System and get feedback on your application’s cloud maturity and migration advisory.</p>
+</div>
+
+<p>The sub-sections details how you can write your own Capability Types, Node Types and Relationship Types to extends the one that Alien 4 Cloud already provides to you.</p>
+
+<div class="note info">
+<p>Definition of Node Types and other elements in TOSCA should be done in a definition file and packaged in a <a href="#/documentation/2.0.0/concepts/tosca.html">Cloud Service Archive</a></p>
+</div>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/2.0.0/devops_guide/tosca_concepts_types_custom.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-2.0.0', 'documentation/2.0.0/devops_guide/tosca_concepts_types_custom.markdown');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

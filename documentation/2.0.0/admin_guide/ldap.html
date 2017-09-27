@@ -1,0 +1,242 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/2.0.0/admin_guide/ldap.html',
+  title: 'LDAP integration'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">LDAP integration</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/2.0.0/admin_guide/ldap.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <p>Alien 4 Cloud can interface with an external LDAP server in order to retrieve users and perform authentication. When using an LDAP server, the Alien admin can still manage ‘local’ users inside Alien while LDAP users should be managed inside the LDAP repository. It is possible also to delegate global rôle management inside Alien even for LDAP users or to define a mapping from roles inside LDAP to roles within Alien.</p>
+
+<h1 id="ldap-configuration">LDAP configuration</h1>
+
+<p>In order to plug-in ALIEN to your LDAP repository, you must configure the ldap section of the <em>alien4cloud-config.yml</em> file.</p>
+
+<h2 id="enable-ldap">Enable LDAP</h2>
+
+<p>Enabling ldap is as easy as updating the ldap configuration section and changing the enabled flag to true.</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="c1">### Ldap Configuration</span>
+<span class="l-Scalar-Plain">ldap</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">enabled</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
+  <span class="l-Scalar-Plain">...</span>
+<span class="c1">### End Ldap Configuration</span></code></pre></div>
+
+<h2 id="configure-ldap-server">Configure LDAP Server</h2>
+
+<p>The first step in order to configure LDAP in Alien 4 Cloud is to configure the server parameters:</p>
+
+<h3 id="keynames">Keynames</h3>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Keyname</th>
+      <th style="text-align: left">Required</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">anonymousReadOnly</td>
+      <td style="text-align: left">yes</td>
+      <td style="text-align: left">Some LDAP server setups allow anonymous read-only access. If you want to use anonymous Contexts for read-only operations, set the anonymousReadOnly property to true.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">url</td>
+      <td style="text-align: left">yes</td>
+      <td style="text-align: left">Url of the ldap server.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">userDn</td>
+      <td style="text-align: left">yes</td>
+      <td style="text-align: left">Dn of the user to use in order to connect to the LDAP server.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">password</td>
+      <td style="text-align: left">yes</td>
+      <td style="text-align: left">Password of the user to use in order to connect to the LDAP server.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="example">Example</h3>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">ldap</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">...</span>
+  <span class="l-Scalar-Plain">anonymousReadOnly</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
+  <span class="l-Scalar-Plain">url</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">ldap://ldap.fastconnect.fr:389</span>
+  <span class="l-Scalar-Plain">userDn</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">uid=admin,ou=system</span>
+  <span class="l-Scalar-Plain">password</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">secret</span>
+  <span class="l-Scalar-Plain">...</span></code></pre></div>
+
+<h2 id="configure-users-retrieval">Configure users retrieval</h2>
+
+<p>In order to retrieve users from the LDAP you must specify the base in which to look for users as well as an optional filter to retrieve only the users entries (and filter inactive if you have some for example).</p>
+
+<h3 id="keynames-1">Keynames</h3>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Keyname</th>
+      <th style="text-align: left">Required</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">base</td>
+      <td style="text-align: left">yes</td>
+      <td style="text-align: left">The base in which to look for users within your LDAP</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">filter</td>
+      <td style="text-align: left">yes</td>
+      <td style="text-align: left">A filter query to be processed by your LDAP server to filter users retrieved into Alien 4 Cloud.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="example-1">Example</h3>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">ldap</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">...</span>
+  <span class="l-Scalar-Plain">base</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">ou=People,dc=fastconnect,dc=fr</span>
+  <span class="l-Scalar-Plain">filter</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">(&amp;(objectClass=person)(!(objectClass=CalendarResource))(accountStatus=active))</span>
+  <span class="l-Scalar-Plain">...</span></code></pre></div>
+
+<h2 id="configure-user-mapping">Configure user mapping</h2>
+
+<p>Now that you can retrieve users from LDAP it is critical to define a Mapping from your LDAP user entry attributes to Alien 4 Cloud properties for a user.</p>
+
+<h3 id="keynames-2">Keynames</h3>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Keyname</th>
+      <th style="text-align: left">Required</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">mapping:<br />  id:</td>
+      <td style="text-align: left">yes</td>
+      <td style="text-align: left">Name of the LDAP attribute that contains the unique id for the user within ldap that should be used as user’s login (username) within Alien 4 Cloud.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">mapping:<br />  firstname:</td>
+      <td style="text-align: left">yes</td>
+      <td style="text-align: left">Name of the LDAP attribute that contains the user’s firstname</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">mapping:<br />  lastname:</td>
+      <td style="text-align: left">yes</td>
+      <td style="text-align: left">Name of the LDAP attribute that contains the user’s lastname</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">mapping:<br />  email:</td>
+      <td style="text-align: left">yes</td>
+      <td style="text-align: left">Name of the LDAP attribute that contains the user’s email</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">mapping:<br />  active:<br />    key:</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">Name of the LDAP attribute that allows to know if a user is active.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">mapping:<br />  active:<br />    value:</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">Value of the LDAP attribute for which the user is considered as active.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">mapping:<br />  roles:<br />    defaults:</td>
+      <td style="text-align: left">yes</td>
+      <td style="text-align: left">Roles to use when importing a user when no rôle mapping is defined.<br />Note: this roles are used only on user import. When no role mapping is defined the roles of users can be managed in Alien4Cloud.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">mapping:<br />  roles:<br />    key:</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">Name of the LDAP attribute that contains the user’s roles. If this key is not specified, user roles will be managed inside alien.<br />Note: at import users will be created inside alien with the default roles.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">mapping:<br />  roles:<br />    key:</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">Mapping of a LDAP rôle to an ALIEN rôle. Note that it is not currently possible to map a single LDAP rôle to multiple Alien roles.</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="c1">### Ldap Configuration</span>
+<span class="l-Scalar-Plain">ldap</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">...</span>
+  <span class="l-Scalar-Plain">mapping</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">id</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">uid</span>
+    <span class="l-Scalar-Plain">firstname</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">givenName</span>
+    <span class="l-Scalar-Plain">lastname</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">sn</span>
+    <span class="l-Scalar-Plain">email</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">mail</span>
+    <span class="c1"># optional mapping key and value to dertermine if the user is active</span>
+    <span class="l-Scalar-Plain">active</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">key</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">accountStatus</span>
+      <span class="l-Scalar-Plain">value</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">active</span>
+    <span class="l-Scalar-Plain">roles</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">defaults</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">COMPONENTS_BROWSER</span>
+      <span class="c1"># optional configuration for role mapping (when you want to manage roles in ldap and not in alien for ldap users).</span>
+      <span class="c1">#key: description</span>
+      <span class="c1">#mapping: ROLE_CLOUDADMINS=ADMIN,ROLE_CLOUDCOMPONENTS=COMPONENTS_MANAGER</span>
+  <span class="c1">### End Ldap Configuration</span></code></pre></div>
+
+<h2 id="limitations-and-known-issues">Limitations and known issues</h2>
+
+<div class="note warning">
+<p>Even when a user has roles managed in LDAP an Alien admin can edit it’s roles. However when the user will log-in the roles from LDAP will be reloaded into alien.</p>
+
+<p>Roles changed in LDAP will not appear in Alien as long as the User doesn’t log-in.</p>
+</div>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/2.0.0/admin_guide/ldap.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-2.0.0', 'documentation/2.0.0/admin_guide/ldap.md');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

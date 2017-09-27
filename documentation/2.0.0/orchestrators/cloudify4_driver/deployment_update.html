@@ -1,0 +1,721 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/2.0.0/orchestrators/cloudify4_driver/deployment_update.html',
+  title: 'Deployment Update'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Deployment Update</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/2.0.0/orchestrators/cloudify4_driver/deployment_update.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <p>Updating a deployment is the operation of modifying a running topology by adding/removing/modifying nodes. It’s a kind of hot update.</p>
+
+<p>The deployment update feature of Cloudify is documented <a href="http://docs.getcloudify.org/3.4.0/manager/update-deployment/">here</a>.</p>
+
+<p>Obviously, we are not talking about some kind of magic here: when you upgrade a deployment, Cloudify will compare both topologies and will try to discover the way to go from the original to the updated one (add nodes that need to be added, remove thoses that need to be removed …).</p>
+
+<p>You can:</p>
+
+<ul>
+  <li>add nodes</li>
+  <li>add relationships</li>
+  <li>changes properties (note that the node is not reinstalled when a property is updated, so the modification of a property will only impact added relationships that eventually refer to this updated property).</li>
+  <li>rename nodes</li>
+  <li>remove nodes</li>
+  <li>remove relationships</li>
+</ul>
+
+<p>You can’t:</p>
+
+<ul>
+  <li>change the type of a node</li>
+  <li>change a target of a hostedOn relationship</li>
+  <li>add/remove a node group</li>
+  <li>add a scalable compute (as a consequence of the preceding point, since scaling is managed using scaling groups)</li>
+  <li>add/remove a custom workflow</li>
+</ul>
+
+<h2 id="workflow--lifecyle">Workflow &amp; Lifecyle</h2>
+
+<div class="note info">
+<p>An important thing to note concerning deployment upgrade is that the task sequence will differ from a standard workflow (when the target topology is deployed from scratch):</p>
+
+<ul>
+  <li>Cloudify use it’s own sequence that differs from TOSCA.</li>
+  <li>when a node becomes the source of a relationship, the TOSCA workflow can’t be respected.</li>
+</ul>
+</div>
+
+<p>In the following section, we will illustrate fews simple update scenarios and the resulting operation sequence call.</p>
+
+<h3 id="add-a-node">Add a node</h3>
+
+<p>A node nammed <em>Source</em> is hosted on a node named <em>Host</em>.</p>
+
+<p><img src="../../images/cloudify3_driver/deployment_upgrade/add_node_before.png" alt="Before adding node" /></p>
+
+<p>After the update, a node named <em>Target</em> is also hosted on <em>Host</em>.</p>
+
+<p><img src="../../images/cloudify3_driver/deployment_upgrade/add_node_after.png" alt="After adding node" /></p>
+
+<p>Here is the sequence of operations that will be trigerred during deployment update:</p>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Node</th>
+      <th>Operation</th>
+      <th>Tiers</th>
+    </tr>
+  </thead>
+  <tbody style="text-align: center;">
+<tr>
+<td>Target</td>
+<td>create</td>
+<td></td>
+</tr>
+<tr>
+<td>Host</td>
+<td>pre_configure_target</td>
+<td>Target</td>
+</tr>
+<tr>
+<td>Target</td>
+<td>pre_configure_source</td>
+<td>Host</td>
+</tr>
+<tr>
+<td>Target</td>
+<td>configure</td>
+<td></td>
+</tr>
+<tr>
+<td>Host</td>
+<td>post_configure_target</td>
+<td>Target</td>
+</tr>
+<tr>
+<td>Target</td>
+<td>post_configure_source</td>
+<td>Host</td>
+</tr>
+<tr>
+<td>Target</td>
+<td>start</td>
+<td></td>
+</tr>
+<tr>
+<td>Host</td>
+<td>add_source</td>
+<td>Target</td>
+</tr>
+<tr>
+<td>Target</td>
+<td>add_target</td>
+<td>Host</td>
+</tr>
+  </tbody>
+</table>
+
+<h3 id="add-a-relationship">Add a relationship</h3>
+
+<p>A node nammed <em>Source</em> and another named <em>Target</em> are hosted on a node named <em>Host</em>.</p>
+
+<p><img src="../../images/cloudify3_driver/deployment_upgrade/add_relationship_before.png" alt="Before adding relationship" /></p>
+
+<p>After update, a relationship link <em>Source</em> to <em>Target</em>.</p>
+
+<p><img src="../../images/cloudify3_driver/deployment_upgrade/add_relationship_after.png" alt="After adding relationship" /></p>
+
+<p>Here is the sequence of operations that will be trigerred during deployment update:</p>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Node</th>
+      <th>Operation</th>
+      <th>Tiers</th>
+    </tr>
+  </thead>
+  <tbody style="text-align: center;">
+<tr>
+<td>Source</td>
+<td>add_target</td>
+<td>Target</td>
+</tr>
+<tr>
+<td>Target</td>
+<td>add_source</td>
+<td>Source</td>
+</tr>  
+  </tbody>
+</table>
+
+<h3 id="add-a-component-and-a-relationship-new-node-is-target-of-the-relationship">Add a component and a relationship (new node is target of the relationship)</h3>
+
+<p>A node nammed <em>Source</em> is hosted on a node named <em>Host</em>.</p>
+
+<p><img src="../../images/cloudify3_driver/deployment_upgrade/add_target_before.png" alt="Before adding target" /></p>
+
+<p>After the update, a node named <em>Target</em> is also hosted on <em>Host</em> and a relation is weaved between <em>Source</em> and <em>Target</em>.</p>
+
+<p><img src="../../images/cloudify3_driver/deployment_upgrade/add_target_after.png" alt="After adding target" /></p>
+
+<p>Here is the sequence of operations that will be trigerred during deployment update:</p>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Node</th>
+      <th>Operation</th>
+      <th>Tiers</th>
+    </tr>
+  </thead>
+  <tbody style="text-align: center;">
+<tr>
+<td>Target</td>
+<td>create</td>
+<td></td>
+</tr>
+<tr>
+<td>Host</td>
+<td>pre_configure_target</td>
+<td>Target</td>
+</tr>
+<tr>
+<td>Target</td>
+<td>pre_configure_source</td>
+<td>Host</td>
+</tr>
+<tr>
+<td>Target</td>
+<td>configure</td>
+<td></td>
+</tr>
+<tr>
+<td>Host</td>
+<td>post_configure_target</td>
+<td>Target</td>
+</tr>
+<tr>
+<td>Target</td>
+<td>post_configure_source</td>
+<td>Host</td>
+</tr>
+<tr>
+<td>Target</td>
+<td>start</td>
+<td></td>
+</tr>
+<tr>
+<td>Host</td>
+<td>add_source</td>
+<td>Target</td>
+</tr>
+<tr>
+<td>Target</td>
+<td>add_target</td>
+<td>Host</td>
+</tr>
+<tr>
+<td>Source</td>
+<td>add_target</td>
+<td>Target</td>
+</tr>
+<tr>
+<td>Target</td>
+<td>add_source</td>
+<td>Source</td>
+</tr>
+  </tbody>
+</table>
+
+<h3 id="add-a-component-and-a-relationship-new-node-is-source-of-the-relationship">Add a component and a relationship (new node is source of the relationship)</h3>
+
+<p>A node nammed <em>Target</em> is hosted on a node nammed <em>Host</em>.</p>
+
+<p><img src="../../images/cloudify3_driver/deployment_upgrade/add_source_before.png" alt="Before adding source" /></p>
+
+<p>After the update, a node named <em>Source</em> is also hosted on <em>Host</em> and a relation is weaved between <em>Source</em> and <em>Target</em>.</p>
+
+<p><img src="../../images/cloudify3_driver/deployment_upgrade/add_source_after.png" alt="After adding source" /></p>
+
+<p>Here is the sequence of operations that will be trigerred during deployment update:</p>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Node</th>
+      <th>Operation</th>
+      <th>Tiers</th>
+    </tr>
+  </thead>
+  <tbody style="text-align: center;">
+    <tr>
+      <td>Source</td>
+      <td>create</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Host</td>
+      <td>pre_configure_target</td>
+      <td>Source</td>
+    </tr>
+    <tr>
+      <td>Source</td>
+      <td>pre_configure_source</td>
+      <td>Host</td>
+    </tr>  
+    <tr>
+      <td>Source</td>
+      <td>pre_configure_source</td>
+      <td>target</td>
+    </tr>  
+    <tr>
+      <td>Target</td>
+      <td>pre_configure_target</td>
+      <td>Source</td>
+    </tr>  
+    <tr>
+      <td>source</td>
+      <td>configure</td>
+      <td></td>
+    </tr>  
+    <tr>
+      <td>Host</td>
+      <td>post_configure_target</td>
+      <td>Source</td>
+    </tr>  
+    <tr>
+      <td>Source</td>
+      <td>post_configure_source</td>
+      <td>Host</td>
+    </tr>  
+    <tr>
+      <td>Source</td>
+      <td>post_configure_source</td>
+      <td>Target</td>
+    </tr>  
+    <tr>
+      <td>Target</td>
+      <td>post_configure_target</td>
+      <td>Source</td>
+    </tr>  
+    <tr>
+      <td>Source</td>
+      <td>start</td>
+      <td></td>
+    </tr>  
+    <tr>
+      <td>Host</td>
+      <td>add_source</td>
+      <td>Source</td>
+    </tr>  
+    <tr>
+      <td>Source</td>
+      <td>add_target</td>
+      <td>Host</td>
+    </tr>  
+    <tr>
+      <td>Target</td>
+      <td>add_source</td>
+      <td>Source</td>
+    </tr>  
+    <tr>
+      <td>Source</td>
+      <td>add_target</td>
+      <td>Target</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="remove-a-node">Remove a node</h3>
+
+<p>A node nammed <em>Source</em> is hosted on a node named <em>Host</em>.</p>
+
+<p><img src="../../images/cloudify3_driver/deployment_upgrade/remove_node_before.png" alt="Before removing node" /></p>
+
+<p>After the update, the node named <em>Source</em> is removed.</p>
+
+<p><img src="../../images/cloudify3_driver/deployment_upgrade/remove_node_after.png" alt="After removing node" /></p>
+
+<p>Here is the sequence of operations that will be trigered during deployment update:</p>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Node</th>
+      <th>Operation</th>
+      <th>Tiers</th>
+    </tr>
+  </thead>
+  <tbody style="text-align: center;">
+<tr>
+<td>Source</td>
+<td>stop</td>
+<td></td>
+</tr>
+<tr>
+<td>Host</td>
+<td>remove_source</td>
+<td>Source</td>
+</tr>
+<tr>
+<td>Source</td>
+<td>remove_target</td>
+<td>Host</td>
+</tr>
+<tr>
+<td>Source</td>
+<td>delete</td>
+<td></td>
+</tr>
+  </tbody>
+</table>
+
+<h3 id="remove-a-relationship">Remove a relationship</h3>
+
+<p>A node nammed <em>Source</em> is hosted on a node named <em>Host</em>. Another node <em>Target</em> is also hosted on <em>Host</em> and linked to <em>Source</em> by a connectTo relationship.</p>
+
+<p><img src="../../images/cloudify3_driver/deployment_upgrade/remove_rs_before.png" alt="Before " /></p>
+
+<p>After the update, the relationship between <em>Source</em> and <em>Target</em> is removed.</p>
+
+<p><img src="../../images/cloudify3_driver/deployment_upgrade/remove_rs_after.png" alt="After " /></p>
+
+<div class="note warning">
+<p>No operations are called, this seems to be a bug !</p>
+</div>
+
+<h3 id="remove-a-node-that-is-source-of-a-relationship">Remove a node that is source of a relationship</h3>
+
+<p>A node nammed <em>Source</em> is hosted on a node named <em>Host</em>. Another node <em>Target</em> is also hosted on <em>Host</em> and linked to <em>Source</em> by a connectTo relationship.</p>
+
+<p><img src="../../images/cloudify3_driver/deployment_upgrade/rm_src_before.png" alt="Before" /></p>
+
+<p>After the update, the node <em>Source</em> and the relationship are removed.</p>
+
+<p><img src="../../images/cloudify3_driver/deployment_upgrade/rm_src_after.png" alt="After" /></p>
+
+<p>Here is the sequence of operations that will be trigerred during deployment update:</p>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Node</th>
+      <th>Operation</th>
+      <th>Tiers</th>
+    </tr>
+  </thead>
+  <tbody style="text-align: center;">
+<tr>
+<td>Source</td>
+<td>stop</td>
+<td></td>
+</tr>
+<tr>
+<td>Host</td>
+<td>remove_source</td>
+<td>Source</td>
+</tr>
+<tr>
+<td>Source</td>
+<td>remove_target</td>
+<td>Host</td>
+</tr>
+<tr>
+<td>Source</td>
+<td>remove_target</td>
+<td>Target</td>
+</tr>
+<tr>
+<td>Target</td>
+<td>remove_source</td>
+<td>Source</td>
+</tr>
+<tr>
+<td>Source</td>
+<td>delete</td>
+<td></td>
+</tr>  
+  </tbody>
+</table>
+
+<h3 id="remove-a-node-that-is-target-of-a-relationship">Remove a node that is target of a relationship</h3>
+
+<p>A node nammed <em>Source</em> is hosted on a node named <em>Host</em>. Another node <em>Target</em> is also hosted on <em>Host</em> and linked to <em>Source</em> by a connectTo relationship.</p>
+
+<p><img src="../../images/cloudify3_driver/deployment_upgrade/rm_tgt_before.png" alt="Before " /></p>
+
+<p>After the update, the node <em>Target</em> and the relationship are removed.</p>
+
+<p><img src="../../images/cloudify3_driver/deployment_upgrade/rm_tgt_after.png" alt="After " /></p>
+
+<p>Here is the sequence of operations that will be trigerred during deployment update:</p>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Node</th>
+      <th>Operation</th>
+      <th>Tiers</th>
+    </tr>
+  </thead>
+  <tbody style="text-align: center;">
+<tr>
+<td>Source</td>
+<td>remove_target</td>
+<td>Target</td>
+</tr>
+<tr>
+<td>Target</td>
+<td>remove_source</td>
+<td>Source</td>
+</tr>
+<tr>
+<td>Target</td>
+<td>stop</td>
+<td></td>
+</tr>
+<tr>
+<td>Host</td>
+<td>remove_source</td>
+<td>Target</td>
+</tr>
+<tr>
+<td>Target</td>
+<td>remove_target</td>
+<td>Host</td>
+</tr>
+<tr>
+<td>Target</td>
+<td>delete</td>
+<td></td>
+</tr>
+  </tbody>
+</table>
+
+<h3 id="renaming-a-node">Renaming a node</h3>
+
+<div class="note warning">
+<p>Renaming a node is just like removing it and adding another (with the new name).</p>
+</div>
+
+<p>A node nammed <em>Source</em> is hosted on a node named <em>Host</em>.</p>
+
+<p><img src="../../images/cloudify3_driver/deployment_upgrade/rename_node_before.png" alt="Before " /></p>
+
+<p>After the update, the node <em>Source</em> is renamed to <em>Renamed</em>.</p>
+
+<p><img src="../../images/cloudify3_driver/deployment_upgrade/rename_node_after.png" alt="After " /></p>
+
+<p>Here is the sequence of operations that will be trigerred during deployment update:</p>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Node</th>
+      <th>Operation</th>
+      <th>Tiers</th>
+    </tr>
+  </thead>
+  <tbody style="text-align: center;">
+<tr>
+<td>Renamed</td>
+<td>create</td>
+<td></td>
+</tr>
+<tr>
+<td>Host</td>
+<td>pre_configure_target</td>
+<td>Renamed</td>
+</tr>
+<tr>
+<td>Renamed</td>
+<td>pre_configure_source</td>
+<td>Host</td>
+</tr>
+<tr>
+<td>Renamed</td>
+<td>configure</td>
+<td></td>
+</tr>
+<tr>
+<td>Host</td>
+<td>post_configure_target</td>
+<td>Renamed</td>
+</tr>
+<tr>
+<td>Renamed</td>
+<td>post_configure_source</td>
+<td>Host</td>
+</tr>
+<tr>
+<td>Renamed</td>
+<td>start</td>
+<td></td>
+</tr>
+<tr>
+<td>Host</td>
+<td>add_source</td>
+<td>Renamed</td>
+</tr>
+<tr>
+<td>Renamed</td>
+<td>add_target</td>
+<td>Host</td>
+</tr>
+<tr>
+<td>Source</td>
+<td>stop</td>
+<td></td>
+</tr>
+<tr>
+<td>Host</td>
+<td>remove_source</td>
+<td>Source</td>
+</tr>
+<tr>
+<td>Source</td>
+<td>remove_target</td>
+<td>Host</td>
+</tr>
+<tr>
+<td>Source</td>
+<td>delete</td>
+<td></td>
+</tr>
+  </tbody>
+</table>
+
+<h3 id="adding-a-node-removing-another">Adding a node, removing another</h3>
+
+<p>A node nammed <em>Source</em> is hosted on a node named <em>Host</em>.</p>
+
+<p><img src="../../images/cloudify3_driver/deployment_upgrade/replace_node_before.png" alt="Before " /></p>
+
+<p>After the update, the node <em>Source</em> is removed, and a node <em>Target</em> is added.</p>
+
+<p><img src="../../images/cloudify3_driver/deployment_upgrade/replace_node_after.png" alt="After " /></p>
+
+<p>Here is the sequence of operations that will be trigerred during deployment update:</p>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Node</th>
+      <th>Operation</th>
+      <th>Tiers</th>
+    </tr>
+  </thead>
+  <tbody style="text-align: center;">
+<tr>
+<td>Target</td>
+<td>create</td>
+<td></td>
+</tr>
+<tr>
+<td>Host</td>
+<td>pre_configure_target</td>
+<td>Target</td>
+</tr>
+<tr>
+<td>Target</td>
+<td>pre_configure_source</td>
+<td>Host</td>
+</tr>
+<tr>
+<td>Target</td>
+<td>configure</td>
+<td></td>
+</tr>
+<tr>
+<td>Host</td>
+<td>post_configure_target</td>
+<td>Target</td>
+</tr>
+<tr>
+<td>Target</td>
+<td>post_configure_source</td>
+<td>Host</td>
+</tr>
+<tr>
+<td>Target</td>
+<td>start</td>
+<td></td>
+</tr>
+<tr>
+<td>Host</td>
+<td>add_source</td>
+<td>Target</td>
+</tr>
+<tr>
+<td>Target</td>
+<td>add_target</td>
+<td>Host</td>
+</tr>
+<tr>
+<td>Source</td>
+<td>stop</td>
+<td></td>
+</tr>
+<tr>
+<td>Host</td>
+<td>remove_source</td>
+<td>Source</td>
+</tr>
+<tr>
+<td>Source</td>
+<td>remove_target</td>
+<td>Host</td>
+</tr>
+<tr>
+<td>Source</td>
+<td>delete</td>
+<td></td>
+</tr>
+  </tbody>
+</table>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/2.0.0/orchestrators/cloudify4_driver/deployment_update.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-2.0.0', 'documentation/2.0.0/orchestrators/cloudify4_driver/deployment_update.md');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

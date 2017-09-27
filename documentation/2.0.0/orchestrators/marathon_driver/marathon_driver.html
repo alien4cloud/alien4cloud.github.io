@@ -1,0 +1,103 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/2.0.0/orchestrators/marathon_driver/marathon_driver.html',
+  title: 'Mesos + Marathon'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Mesos + Marathon</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/2.0.0/orchestrators/marathon_driver/marathon_driver.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <p><a href="http://mesos.apache.org">Mesos</a> is like a kernel for the datacenter. It provides fine-grained abstraction of the datacenter resources, isolation and native support for Docker containers. <a href="https://mesosphere.github.io/marathon/">Marathon</a> is an open-source meta-framework for Mesos dedicated to container orchestration. It is developed and maintained by Mesosphere. Marathon is a production-ready container orchestration platform for Mesos with fist-class Docker support. It features automated health-checks and failure recovery, allowing seamless execution of services or long-running jobs. Being a meta-framework, Marathon is also proficient in running other Mesos frameworks, such as Chronos.</p>
+
+<p>Combined, Mesos and Marathon can turn any datacenter into a highly available, scalable and fault-tolerant PaaS for cloud applications. We developed a Marathon orchestrator plugin for Alien 4 Cloud, as part of our 1.4.0 roadmap to achieve Docker support.</p>
+
+<div class="note warning">
+<p>This project is at an alpha stage and still undergoing development. We might add, change, or delete any functionality described in this document. Any <a href="https://github.com/alien4cloud/alien4cloud-marathon-plugin/issues">feedback</a> would be highly appreciated !</p>
+</div>
+
+<h2 id="alien-4-cloud-marathon-support">Alien 4 Cloud Marathon support</h2>
+
+<p>The plugin features deployment and management of complex topologies with containers in Marathon by leveraging <a href="https://github.com/alien4cloud/docker-tosca-types">docker-tosca-types</a>. Currently, we only support running Docker containers.</p>
+
+<p>Topologies deployed with the plugin benefit from Marathon’s fault-recovery features. This means that Marathon will gracefully re-schedule and restart (possibly, on a different agent) a failing container.</p>
+
+<p>We made a <a href="https://www.youtube.com/watch?v=kXrNanNMkhU">demonstration video</a> showcasing the deployment of Nodecellar using the plugin.</p>
+
+<h3 id="service-discovery">Service discovery</h3>
+
+<p><strong>TL;DR</strong>: Service discovery is pretty much automatic using the Marathon plugin with MesosDNS &amp; MarathonLB running on your cluster.</p>
+
+<p>Service discovery between containers launched by the plugin through Marathon is achieved using MesosDNS and <a href="https://github.com/mesosphere/marathon-lb">MarathonLB</a>, respectively a DNS service and a HAProxy load balancer that provides port-based service discovery. Both are running in the cluster as Marathon tasks.</p>
+
+<p>Containers launched with Marathon are all resolvable through DNS resolution using the <em>app_name.marathon.mesos</em> pattern (but you will still need to know the containers’ allocated port, which should be randomly assigned by Marathon), or using MarathonLB as a reverse proxy, using a well-know service port. When assigned a service port, containers running in Marathon can be accessed by reaching MarathonLB on the said service port. Because MarathonLB itself is running on Marathon, it’s IP address is also resolvable through MesosDNS. This means that containers with service ports can be accessed using the pattern *<marathonlb_id>.marathon.mesos:<service_port>* where <marathonlb_id> is MarathonLB's app ID in Marathon.</marathonlb_id></service_port></marathonlb_id></p>
+
+<p>This whole mechanism being relatively complex, the plugin will automatically assign a service port to containers that are targeted by a <em>ConnectsTo</em> relationship from at least another container in the topology. Respectively, the plugin will also replace any reference to the target’s endpoint port and ip_address attributes with the service port and MarathonLB DNS name, respectively.</p>
+
+<h3 id="external-storage-support">External Storage support</h3>
+
+<p><strong>TL;DR</strong>: We added experimental support of the external storage feature from Marathon. We currently use <a href="https://rexray.readthedocs.io/en/stable/">REX-Ray</a> as a Docker Volume Driver. The REX-Ray service needs IAAS credentials to operate.</p>
+
+<div class="note warning">
+<p>Please note that while REX-Ray is able to dynamically provision volumes on your provider, those will NOT be cleaned up upon undeployment. REX-Ray currently only supports AWS, although it is moving forward quite rapidly, and new features or providers are likely to be added in the near future. As of today, REX-Ray does not support high availability.</p>
+</div>
+
+<p>REX-Ray is built on a client-server architecture, with clients operating as Docker Volume Drivers that use the <a href="http://libstorage.readthedocs.io/en/stable/">libStorage</a> service. The libStorage service (which we also call RexRayServer for simplicity) runs alongside the Master(s) node(s) and is able to provision and mount storage resources on the fly. It needs to be configured and given proper credentials to manage storage providers. Storage providers configuration is best described in <a href="http://libstorage.readthedocs.io/en/stable/user-guide/storage-providers/">libStorage’s documentation</a>.</p>
+
+<h3 id="http-health-checks">HTTP Health checks</h3>
+
+<p>In addition to Mesos tasks states, Marathon features automatic HTTP health checks against running containers. A health check is considered passing if its HTTP response code is between 200 and 399 inclusive, and its response is received within the a timeout period.</p>
+
+<p>The plugin adds a default health check to all the containers in the topology.</p>
+
+<h3 id="known-limitations-and-caveats">Known limitations and caveats</h3>
+<ul>
+  <li>It is not possible to scale Docker containers. This is due to Marathon only allowing singletons when using external volumes in conjunction with containers.</li>
+  <li>We did not exactly follow the TOSCA model for Docker containers as it is still incubating.</li>
+  <li>It not possible to stop the deployment of an application. Wait for it to be deployed then hit un-deploy.</li>
+  <li>The connexion to Marathon is NOT secured.</li>
+  <li>Health checks events are not parsed. However, the health of each instance is polled when refreshing the runtime view.</li>
+</ul>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/2.0.0/orchestrators/marathon_driver/marathon_driver.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-2.0.0', 'documentation/2.0.0/orchestrators/marathon_driver/marathon_driver.markdown');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>
