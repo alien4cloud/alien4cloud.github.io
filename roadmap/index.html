@@ -9,77 +9,155 @@ root: ../
     Roadmap
   </h1>
   <p>
-    The following represents current view of Alien4Cloud development team of its product development cycle and future directions. It is intended for information purposes only, and should not be interpreted as a commitment, though we do our best to reach the dates and features set mentioned below.
+    The following represents current view of Alien4Cloud development team of its product development cycle and future directions.
+    It is intended for information purposes only, and should not be interpreted as a commitment, though we do our best to
+    reach the dates and features set mentioned below.
   </p>
   <p>
-    Premium features, support and certifications are available under a subscription, delivered by <a href="http://fastconnect.fr" target="_blank">FastConnect</a>, a <a href="http://www.bull.com" target="_blank">Bull, Atos technologies</a> subsidiary. Contact us for more details.
+    Premium features, support and certifications are available under a subscription, delivered by <a href="http://fastconnect.fr"
+      target="_blank">FastConnect</a>, a <a href="http://www.bull.com" target="_blank">Bull, Atos technologies</a> subsidiary.
+    Contact us for more details.
   </p>
   <p>
-    We deliver major releases every 4 month.
-    Please note that we also deliver intermediate sprint releases in <a href="https://github.com/alien4cloud/alien4cloud" target="_blank">Alien4Cloud GitHub repo</a>, every 3 weeks, in order to get feedback on features while still in development.
+    We deliver major releases every 4 month. Please note that we also deliver intermediate sprint releases in <a href="https://github.com/alien4cloud/alien4cloud"
+      target="_blank">Alien4Cloud GitHub repo</a>, every 3 weeks, in order to get feedback on features while still in development.
   </p>
+
+  <br/>
+  <br/>
 
   <ul class="cbp_tmtimeline">
     <li>
-      <time class="cbp_tmtime" datetime="2017-05"><span>May 2017</span> <span>v 1.4.0</span></time>
+      <time class="cbp_tmtime" datetime="2018-02"><span>Beginning of 2018</span> <span>v 2.0</span></time>
       <div class="cbp_tmicon"><i class="fa fa-rocket"></i></div>
       <div class="cbp_tmlabel">
         <h4>Core</h4>
+
         <ul>
-          <li>Manage topologies versions: ability to have several topologies for a specific Application version.
-            Allows to adapt for a same application version to different deployment architectures (HA, LB, security, …) per environment.</li>
-          <li>Fine grained access rights on locations and resources within a location</li>
-          <li>Services management
+          <!-- core -->
+          <li>Container/Docker: Design containers based portable blueprints deployable on different Docker infrastructure with
+            support of their specificities</li>
+          <ul>
+            <li>Define a group of containers as a single unit deployment to ensure co-localization and common usage of resources</li>
+            <li>Post-matching with containers platform specific properties</li>
+            <li>Kubernetes support</li>
             <ul>
-              <li>Declare already provisioned resource as a service accessible by Alien4Cloud application resources</li>
-              <li>Expose a deployed application as a service</li>
+              <li>DNS & Kubernetes Services support improvements</li>
+              <li>Integration with external registry for public network exposed services</li>
             </ul>
-          </li>
-          <li>Advanced post-deployment updates, upgrades & sync</li>
-          <li>Security improvements on runtime within Cloudify 4.0 – Premium</li>
-          <li>End to end HA support improvement when leveraging Cloudify runtime orchestrator</li>
-          <li>Dev/Ops/User experience improvements
-            <ul>        
-              <li>ease Types and Topologies development and tests</li>
-              <li>leverage Docker to improve instanciation time when developing/testing</li>
-              <li>improve logs screens usability</li>
-              <li>Jenkins plug-in, bringing Continuous Delivery to Jenkins users </li>
-            </ul>
-          </li>
-        </ul>
-        <h4>Orchestrators certifications</h4>
-        <ul>
-          <li>Cloudify v4.0</li>
-        </ul>
-        <h4>Infrastructure support</h4>
-        <ul>
-          <li>Ansible plug-in improvements for more native support </li>
-          <li>Docker
+            <li>AWS ECS support</li>
+            <li>Ease usage of docker image with the ability to reference an image from a public or a private repository</li>
+            <li>Display number of deployed containers and metrics on dashboards (Max & current)</li>
+          </ul>
+
+          <li>Improve variables/inputs management across environments</li>
+
+          <li>TOSCA Catalog:</li>
+          <ul>
+            <li>Upload an image for a substituted type</li>
+            <li>Access to the A4C forge: public and private blueprints</li>
+          </ul>
+
+          <li>New policies engine:</li>
+          <ul>
+            <li>Manage placement policies</li>
             <ul>
-              <li>On-demand hybrid deployment through Cloudify integration & user defined matching</li>
+              <li>Affinity - Anti-Affinity policies</li>
+              <li>Multi zones placement policies: Manage HA or topology performance by associating nodes to zones</li>
             </ul>
-          </li>
-          <li>Certification for following infrastructures/IaaS
+
+            <li>Manage runtime policies</li>
             <ul>
-              <li>Amazon Web Services</li>
-              <li>Microsoft Azure</li>
-              <li>VMWare VSphere</li>
-              <li>Openstack</li>
-              <li>Host-pool (physical machines) </li>
+              <li>Auto-scaling integration </li>
+              <li>Auto-Healing</li>
             </ul>
-          </li>
-        </ul>
-        <h4>TOSCA conformance</h4>
-        <ul>
-          <li>Small enhancements to improve TOSCA 1.0 YML conformance</li>
-          <li>Support for alien 4 cloud 1.2 and 1.3 DSL</li>
-        </ul>
-        <h4>Additional Premium features</h4>
-        <ul>
-          <li>v1.3 to v1.4 Migration tools</li>
-        </ul>
-      </div>
+
+            <li>Supported containers platform policies</li>
+            <ul>
+              <li>Kubernetes </li>
+              <li>Aws ECS</li>
+            </ul>
+          </ul>
+
+          <li>Workflows:</li>
+          <ul>
+            <li>Improved worflows editor to support operations on relationships</li>
+            <li>Launch a custom workflow on a specific instance of a scaled node</li>
+            <li>Display deployment progress on the workflow view</li>
+          </ul>
+
+          <li>Deployment:</li>
+          <ul>
+            <li>Display deployments history at the application environment level</li>
+            <li>Retrieve a deployed topology (Blueprint, location, matching, variables,inputs)</li>
+          </ul>
+
+          <li>Monitoring integration:</li>
+          <ul>
+            <li>New monitoring tools/ Status feedback loop (For VMs, Containers, Containers scheduler)</li>
+            <li>Viewing metrics and detail cluster state information</li>
+          </ul>
+
+          <li>Security:</li>
+          <ul>
+            <li>Secrets management</li>
+            <ul>
+              <li>Improve application password management (UI - API)</li>
+              <li>Out of the box Vault solution and support for custom vault integration</li>
+            </ul>
+            <li>Generate security groups from A4C for AWS, Azure, OpenStack</li>
+            <li>Manage infrastructures resources security by environments type</li>
+          </ul>
+
+          <li>User experience:</li>
+          <ul>
+            <li>Streamlined process deployments</li>
+            <li>Improved Archives/Catalog screen</li>
+          </ul>
     </li>
+    </ul>
+    <!-- / CORE -->
+
+    <h4>Orchestrators certifications</h4>
+    <ul>
+      <li>Cloudify v4.0</li>
+    </ul>
+    <!-- / Orchestrators -->
+
+    <h4>Infrastructure support</h4>
+    <ul>
+      <li>Improve integration capabilities with orchestrators and implementation artifacts support</li>
+      <li>Certification for following infrastructures/IaaS
+        <ul>
+          <li>Amazon Web Services</li>
+          <li>Microsoft Azure</li>
+          <li>VMWare VSphere</li>
+          <li>Openstack</li>
+          <li>Host-pool (physical machines)
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <!-- / Infrastructure -->
+
+    <h4>TOSCA conformance</h4>
+    <ul>
+      <li>Improve networks support to reach TOSCA spec 1.1</li>
+      <li>Support for alien 4 cloud 1.4 and 2.0 DSL</li>
+    </ul>
+    <!-- / TOSCA -->
+
+
+    <h4>Additional Premium features</h4>
+    <ul>
+      <li>v1.4 to v2.0 Migration tools</li>
+    </ul>
+    </div>
+    </li>
+
+    <br/>
+    <br/>
+
     <li>
       <time class="cbp_tmtime" datetime="2016-10"><span>To be defined</span> <span>Future</span></time>
       <div class="cbp_tmicon"><i class="fa fa-rocket"></i></div>
@@ -87,7 +165,6 @@ root: ../
         <h4>Core</h4>
         <ul>
           <li>TOSCA evolutions support</li>
-          <li>Simple profile in YAML v1.0</li>
           <li>Enhanced extensibility & pluggability</li>
           <li>Quotas management</li>
           <li>Multi locations 24x7 app-centric placement & runtime policies</li>
@@ -99,13 +176,12 @@ root: ../
           <li>Docker swarm</li>
           <li>Cloud Foundry integration</li>
           <li>OpenShift integration</li>
-          <li>Docker schedulers integration improvements</li>	
+          <li>Docker schedulers integration improvements</li>
         </ul>
         <h4>Additional Premium features</h4>
         <ul>
           <li>NFV/SDN capabilities</li>
           <li>Application Lifecycle Management features & Promotion workflow</li>
-          <li>Improved application password management</li>
           <li>Analytics and governance dashboards</li>
           <li>Simplified Self Service</li>
           <li>Chargeback & billing platforms integration</li>
