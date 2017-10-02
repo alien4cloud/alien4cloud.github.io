@@ -297,8 +297,9 @@ ha.consulLockDelayInSecond | 0 | The delai between the session invalidation and 
 ha.lockAcquisitionDelayInSecond | 20 | In second, the delai before trying to acquire a lock when after a failure (when consul is not reachable for example. |
 ha.consul_tls_enabled | false | When true, use https to talk to consul (and then, need for a keystore and a truststore to be configured). |
 ha.keyStorePath | | The key store for SSL connection to consul. |
+ha.keyStorePwd | | The password for keystore. |
 ha.trustStorePath | | The truststore for SSL connection to consul. |
-ha.keyStoresPwd | | The password for keystore and truststore. |
+ha.trustStorePwd | | The password for truststore. |
 ha.serverProtocol | http | The protocol where the alien instance can be contacted (use to build the health check url). Just set to 'https' if alien ssl is on. |
 ha.health_disk_space_threshold | 10 * 1024 * 1024 (10 Mo) | The health check endpoint will check the remaining disk space on the host of the A4C instance. Under this threshold, the health check will fail. |
 ha.consulQueryTimeoutInMin | 3 | The HA plugin use this timeout when querying consul with blocking read. |
