@@ -1,0 +1,37 @@
+---
+layout: post
+title:  ALIEN for Cloud 1.4.2
+root: ../
+categories: RELEASE_NOTES
+parent: [release_note]
+node_name: 1.4.2
+weight: 9933
+exclude_from_search: true
+---
+
+
+
+
+<i class="fa fa-plus text-success"></i> New feature <i class="fa fa-level-up text-primary"></i> Improvement  <i class="fa fa-bug text-danger"></i> Bug <i class="fa fa-exclamation-triangle text-warning"></i> Breaking change
+
+
+### Cloudify 4 PaaS Provider
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+        |  <i class="fa fa-bug text-danger"></i> | ALIEN-2488 | Fixed: A4C_EXECUTION_USER was overrided by the value of node property "user" if present  |
+
+
+
+### Alien 4 Cloud
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+        |  <i class="fa fa-bug text-danger"></i> | ALIEN-2475 | Fixed a bug in /rest/v1/deployments API that returned the first hundred deployments and not the last hundred deployments  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2489 | Fixed an issue that prevented relationships operations to be injected from service side in case of a target service  |

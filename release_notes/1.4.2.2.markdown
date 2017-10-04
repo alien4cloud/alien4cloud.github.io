@@ -1,0 +1,37 @@
+---
+layout: post
+title:  ALIEN for Cloud 1.4.2.2
+root: ../
+categories: RELEASE_NOTES
+parent: [release_note]
+node_name: 1.4.2.2
+weight: 9931
+exclude_from_search: true
+---
+
+
+
+
+<i class="fa fa-plus text-success"></i> New feature <i class="fa fa-level-up text-primary"></i> Improvement  <i class="fa fa-bug text-danger"></i> Bug <i class="fa fa-exclamation-triangle text-warning"></i> Breaking change
+
+
+### Alien 4 Cloud Premium
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+        |  <i class="fa fa-bug text-danger"></i> | ALIEN-2550 | Auto-upgrade of the index mapping from 1.4.1 to 1.4.2.2  |
+
+
+
+### Alien 4 Cloud
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+        |  <i class="fa fa-bug text-danger"></i> | ALIEN-2547 | Fix the broken search on modal to grant/revoke authorization on location resources for applications, environments and environment types  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2551 | Fix display on services authorizaton for applications, environments and environment types  |
