@@ -64,7 +64,7 @@ The location tab allows to authorize service access to locations. It means only 
 ![service_location](../../images/2.0.0/user_guide/service/service_location.png)
 
 ## Security
-The security tab allows to authorize service access to application / environment / user or group. Only authorized entity can use the service on deployment.
+The security tab allows to authorize service access to application / environments / environment types / user or group. Only authorized entity can use the service on deployment.
 
 ![service_security](../../images/2.0.0/user_guide/service/service_security.png)
 
