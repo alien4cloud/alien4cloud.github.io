@@ -1,0 +1,5 @@
+digraph relationship_stop_workflow {
+  target_stopping -> relationship_remove_source -> target_stop -> target_stopped;
+  source_stopping -> relationship_remove_target -> source_stop -> source_stopped;
+  source_stopped -> target_stopping;
+}
