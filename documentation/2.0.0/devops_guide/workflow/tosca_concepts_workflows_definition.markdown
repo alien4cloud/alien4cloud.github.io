@@ -12,7 +12,7 @@ weight: 100
 
 A topology can contains workflows section with multiple workflows identified by its **workflow_id**.
 A workflow is a collection of steps with dependencies between them.
-You can imagine a workflow as a acyclic directed graph, steps are the graph's nodes and dependencies between them are the graph's edges.
+You can imagine a workflow as an acyclic directed graph, steps are the graph's nodes and dependencies between them are the graph's edges.
 
 ### Grammar
 
@@ -27,7 +27,7 @@ You can imagine a workflow as a acyclic directed graph, steps are the graph's no
 # Step definition
 
 A step can be related to a node or a relationship of the topology and may contains one or multiple activities.
-Each activity describe the action that will be done on the node or the relationship.
+Each activity describes the action that will be done on the node or the relationship.
 
 ### Node step grammar
 

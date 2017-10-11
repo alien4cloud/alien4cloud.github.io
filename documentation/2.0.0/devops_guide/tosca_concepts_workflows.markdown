@@ -24,3 +24,10 @@ Alien4Cloud defines 2 additional default workflows:
 In order to ease TOSCA usage the normative types specification include default lifecycle operations on node types and relationship types that can be used in order to automatically generate workflows (plans).
 This is why in most of the case, users don't need to define workflow, except specific needs for custom workflow (backup, restore, update workflow ...) or in some really rare cases custom default workflows (install, uninstall, start, stop).
 {% endinfo %}
+
+{% warning %}
+Breaking changes for workflow in the 2.0.0 version (alien_dsl_2_0_0):
+
+ * Custom workflow not supported anymore in older dsl versions than alien_dsl_2_0_0, all existing topologies will see their workflow section replaced with default workflows by migration tool.
+ * In alien_dsl_1_4_0 and older, the default workflow is generated differently for different types of relationships (HostedOn is different to other types), in alien_dsl_2_0_0, every relationship behaves exactly like HostedOn. The workflow is a lots more flattened, no more concurrent creations between the source and the target of a relationship. Please see [Workflow generation](#workflow/tosca_concepts_workflows_default.html).
+{% endwarning %}
