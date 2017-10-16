@@ -199,11 +199,8 @@ Starting from 1.4.3 to solve the issue, we changed the way we get logs from clou
 </div>
 <ol>
   <li>Modify the configuration of Logstash:
-    <ul>
-      <li>Edit the file <strong><em>/etc/logstash/conf.d/logstash.conf</em></strong></li>
-      <li>Find the <code>output</code> section, and add the following (replace <em>HTTP_PORT</em> with the value of: <code>server.http.port</code> if SSL enabled, <code>server.port</code> otherwise):</li>
-    </ul>
-  </li>
+  * Edit the file <strong><em>/etc/logstash/conf.d/logstash.conf</em></strong>
+  * Find the <code>output</code> section, and add the following (replace <em>HTTP_PORT</em> with the value of: <code>server.http.port</code> if SSL enabled, <code>server.port</code> otherwise):</li>
 </ol>
 
 <div class="highlight"><pre><code class="language-bash" data-lang="bash">output <span class="o">{</span>
