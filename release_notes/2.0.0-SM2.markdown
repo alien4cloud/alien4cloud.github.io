@@ -1,0 +1,71 @@
+---
+layout: post
+title:  ALIEN for Cloud 2.0.0-SM2
+root: ../
+categories: RELEASE_NOTES
+parent: [release_note]
+node_name: 2.0.0-SM2
+weight: 9930
+exclude_from_search: true
+---
+
+
+
+
+<i class="fa fa-plus text-success"></i> New feature <i class="fa fa-level-up text-primary"></i> Improvement  <i class="fa fa-bug text-danger"></i> Bug <i class="fa fa-exclamation-triangle text-warning"></i> Breaking change
+
+
+### Cloudify 4 PaaS Provider
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-2477 | Wokflows now include relationships operations  |
+    
+
+
+### Tosca Components
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-2479 | Updated container TOSCA types to allow grouping them as a single deployment unit.  |
+      
+
+
+### Alien 4 Cloud Portability insight plugin
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+        |  <i class="fa fa-bug text-danger"></i> | ALIEN-2569 | Fixed toplogy an components portability display  |
+  
+
+
+### Alien 4 Cloud
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-2481 | [ALPHA] Policies definition and management: Add policies to the topology, define imlementation as location resources, and match them on deployment setpup  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-2514 | [ALPHA] Use Git repository to manage deployment configuration. Matching and inputs are now stored in git repo.  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-2534 | ALPHA:  Ability to define variables per environment type  |
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-2477 | Wokflows now include relationships operations  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-2507 | Add a search for environments and versions list on application info view  |
+      |  <i class="fa fa-bug text-danger"></i> | ALIEN-2472 | Fixed conflict in Elasticsearch mapping on inputParameters between nodes  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2547 | Fix the broken search on modal to grant/revoke authorization on location resources for applications, environments and environment types  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2551 | Fix display on services authorizaton for applications, environments and environment types  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2552 | Fixed conflict in Elasticsearch mapping on inputParameters between nodes  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2558 | Put back button to create a topology template in archive management view  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2564 | UI glichtes fixed  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2568 | Fixed topology variant deletion  |
+  
+
