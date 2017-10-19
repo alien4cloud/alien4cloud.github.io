@@ -6,6 +6,7 @@ categories: DOCUMENTATION-1.4.0
 parent: []
 node_name: new_getting_started
 weight: 101
+published: true
 ---
 
 This guide explains how to get started with Alien4Cloud and deploy your first application. The goal of this guide is not to provide an extensive cover of all the functionalities.
@@ -195,7 +196,7 @@ When all nodes are deployed, just open the wordpress url in your browser. Note t
 You can still play with alien4cloud of course as there is plenty to discover ;). But when you want to shut it down just launch the following command:
 
 {% highlight bash %}
-pkill -f 'alien4cloud-ui-1.4.0-SNAPSHOT.war'
+pkill -f 'alien4cloud-ui-1.4.0.war'
 {% endhighlight %}
 
 In order to launch it again no need to launch the curl and download it again of course. So just go to the alien4cloud-getstarted/alien4cloud folder and launch the alien4cloud.sh script.
