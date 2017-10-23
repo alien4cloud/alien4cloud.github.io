@@ -49,75 +49,6 @@ sudo rpm -i http://repository.cloudifysource.org/cloudify/4.1.1/ga-release/cloud
 <span class="nb">cd</span> /opt/cfy/cloudify-manager-blueprints
 sudo cfy bootstrap simple-manager-blueprint.yaml -i simple-manager-blueprint-inputs.yaml</code></pre></div>
 
-<h2 id="patch-the-manager">Patch the manager</h2>
-
-<div class="note warning">
-<p>Some behaviors has changed between Cloudify 3.4 and Cloudify 4.x thus to make it still compatible with Alien4Cloud you need to apply the few following patches.</p>
-</div>
-
-<h3 id="safe-clean-patch">Safe Clean Patch</h3>
-
-<p>Cloudify now clean its artifacts in the /tmp folder after each executions but since Alien4Cloud did it already we have a conflict.<br />
-To workaround any issues, make sure to apply the following patch:</p>
-
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">sudo cp /opt/mgmtworker/env/lib/python2.7/site-packages/script_runner/tasks.py /opt/mgmtworker/env/lib/python2.7/site-packages/script_runner/tasks.py.default
-sudo curl -L https://raw.githubusercontent.com/alien4cloud/samples/master/org/alien4cloud/automation/cloudify/patches/patch_tasks/playbook/roles/create/files/tasks.py -o /opt/mgmtworker/env/lib/python2.7/site-packages/script_runner/tasks.py
-sudo rm -f /opt/mgmtworker/env/lib/python2.7/site-packages/script_runner/tasks.pyc</code></pre></div>
-
-<h3 id="iaas-credentials">IaaS Credentials</h3>
-
-<p>Cloudify has removed the iaas informations from the manager’s context. Theorically, it now needs to be feeded in each the blueprints you want to deploy.<br />
-The Cloudify provider for Alien4Cloud do not yet support this new behavior so for now, you will need to configure your manager to set iaas informations into the context</p>
-
-<p>We provide a python script to help you configure your manager.</p>
-
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">curl -LO https://raw.githubusercontent.com/alien4cloud/samples/1.4.0/org/alien4cloud/automation/cloudify/manager/v4/scripts/iaas/cfy_config_iaas.py
-<span class="c"># sudo /opt/cfy/embedded/bin/python cfy_config_iaas.py -u USERNAME -p PASSWORD --ssl config -c ./iaas_config.yaml -i {aws,openstack,azure}</span>
-<span class="c"># So for instance if your manager is installed on AWS:</span>
-sudo /opt/cfy/embedded/bin/python cfy_config_iaas.py -u admin -p admin --ssl config -c ./iaas_config.yaml -i aws</code></pre></div>
-
-<p>A configuration sample <code>iaas_config.yaml</code> for <strong><em>AWS</em></strong>:</p>
-
-<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">aws_access_key</span><span class="p-Indicator">:</span> <span class="s">&#39;AWS_ACCESS_KEY&#39;</span>
-<span class="l-Scalar-Plain">aws_secret_key</span><span class="p-Indicator">:</span> <span class="s">&#39;AWS_SECRET_KEY&#39;</span>
-<span class="l-Scalar-Plain">aws_region</span><span class="p-Indicator">:</span> <span class="s">&#39;AWS_REGION&#39;</span>
-
-<span class="l-Scalar-Plain">agent_keypair_name</span><span class="p-Indicator">:</span> <span class="s">&#39;KEY_PAIR_NAME&#39;</span>
-<span class="l-Scalar-Plain">agent_security_group_id</span><span class="p-Indicator">:</span> <span class="s">&#39;DEFAULT_AGENT_SECGROUP_ID&#39;</span> <span class="c1"># The default sg that will be assigned to each computes that are provisionned by the manager</span>
-<span class="l-Scalar-Plain">agent_sh_user</span><span class="p-Indicator">:</span> <span class="s">&#39;DEFAULT_AGENT_SSH_USER&#39;</span>
-<span class="l-Scalar-Plain">agent_private_key_path</span><span class="p-Indicator">:</span> <span class="s">&#39;PATH_TO_AGENT_KEYFILE&#39;</span></code></pre></div>
-
-<p>A configuration sample <code>iaas_config.yaml</code> for <strong><em>OpenStack</em></strong>:</p>
-
-<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">auth_url</span><span class="p-Indicator">:</span> <span class="s">&#39;OS_KEYSTONE_URL&#39;</span>
-<span class="l-Scalar-Plain">username</span><span class="p-Indicator">:</span> <span class="s">&#39;OS_USERNAME&#39;</span>
-<span class="l-Scalar-Plain">password</span><span class="p-Indicator">:</span> <span class="s">&#39;OS_PASSWORD&#39;</span>
-<span class="l-Scalar-Plain">region</span><span class="p-Indicator">:</span> <span class="s">&#39;OS_REGION&#39;</span>
-<span class="l-Scalar-Plain">tenant_name</span><span class="p-Indicator">:</span> <span class="s">&#39;OS_TENANT_NAME&#39;</span>
-
-<span class="l-Scalar-Plain">agent_sh_user</span><span class="p-Indicator">:</span> <span class="s">&#39;DEFAULT_AGENT_SSH_USER&#39;</span>
-<span class="l-Scalar-Plain">agent_private_key_path</span><span class="p-Indicator">:</span> <span class="s">&#39;PATH_TO_AGENT_KEYFILE&#39;</span>
-
-<span class="l-Scalar-Plain">resources</span><span class="p-Indicator">:</span>
-  <span class="l-Scalar-Plain">agents_keypair</span><span class="p-Indicator">:</span>
-    <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="s">&#39;AGENT_KEYPAIR_NAME&#39;</span>
-  <span class="l-Scalar-Plain">agents_security_group</span><span class="p-Indicator">:</span>
-    <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="s">&#39;DEFAULT_AGENT_SECGROUP_NAME&#39;</span> <span class="c1"># The default sg that will be assigned to each computes that are provisionned by the manager</span>
-  <span class="l-Scalar-Plain">int_network</span><span class="p-Indicator">:</span>
-    <span class="l-Scalar-Plain">id</span><span class="p-Indicator">:</span> <span class="s">&#39;MANAGER_NETWORK_ID&#39;</span>
-    <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="s">&#39;MANAGER_NETWORK_NAME&#39;</span></code></pre></div>
-
-<p>A configuration sample <code>iaas_config.yaml</code> for <strong><em>Azure</em></strong>:</p>
-
-<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">subscription_id</span><span class="p-Indicator">:</span> <span class="s">&#39;YOUR_SUBSCRIPTION_ID&#39;</span>
-<span class="l-Scalar-Plain">tenant_id</span><span class="p-Indicator">:</span> <span class="s">&#39;YOUR_TENANT_ID&#39;</span>
-<span class="l-Scalar-Plain">client_id</span><span class="p-Indicator">:</span> <span class="s">&#39;YOUR_CLIENT_ID&#39;</span>
-<span class="l-Scalar-Plain">client_secret</span><span class="p-Indicator">:</span> <span class="s">&#39;YOUR_CLIENT_SECRET&#39;</span>
-<span class="l-Scalar-Plain">location</span><span class="p-Indicator">:</span> <span class="s">&#39;YOUR_LOCATION_VALUE&#39;</span>
-
-<span class="l-Scalar-Plain">agent_sh_user</span><span class="p-Indicator">:</span> <span class="s">&#39;DEFAULT_AGENT_SSH_USER&#39;</span>
-<span class="l-Scalar-Plain">agent_private_key_path</span><span class="p-Indicator">:</span> <span class="s">&#39;PATH_TO_AGENT_KEYFILE&#39;</span></code></pre></div>
-
 <h2 id="secure-your-manager">Secure your manager</h2>
 
 <p>Starting from 4.0, Cloudify’s manager is secured by default using a username/password with a default SSL on the nginx for the REST API and the WebUI.<br />
@@ -143,84 +74,13 @@ If you want to set your password, uncomment and edit the following keys in the i
 You can generate and provide your own certificate by copy it into  /opt/cfy/cloudify-manager-blueprints/resources/ssl
 Make sure you name it <code>cloudify_external_cert.pem</code> and <code>cloudify_external_key.pem</code>.</p>
 
-<h2 id="alien4cloud-143-and-above-deployment-logs-configuration">Alien4Cloud 1.4.3 and above: Deployment logs configuration</h2>
-<p>Prior to <code>alien4cloud 1.4.3</code>, the cloudify 4 orchestrator used to pull logs directly from cloudify event API. However, users noticed that, with a great deal of deployments and usages, some logs were lost and not getting back to alien4cloud.<br />
-Starting from 1.4.3 to solve the issue, we changed the way we get logs from cloudify, by adding a tier web application <code>alien4cloud-cfy-logs</code>  as logs server for alien4cloud, and to be deployed on the Cloudify manager machine.</p>
+<h2 id="additional-configuration-steps">Additional configuration steps</h2>
 
-<h3 id="how-does-it-work">How does it work?</h3>
-<p><code>alien4cloud-cfy-logs</code> is a web application exposing several endpoints to manage deployments logs.</p>
-
-<ol>
-  <li>When an orchestrator (cloudify4) is created in alien4cloud, it will register itself to the logs server, and then start an active polling.</li>
-  <li>On the other hand, Cloudify, or more precisely its Logstash component, will push events on the logs server using a specific API endpoint.</li>
-  <li>The server saves logs on the filesystem for every saved orchestrator registration.</li>
-  <li>An orchestrator poll for logs, receive one, and then send an ACK to the log server</li>
-  <li>The server received the ACK, ant then deletes the acknowledged log file for that orchestrator</li>
-</ol>
-
-<div class="note info">
-<h5>HA concern</h5>
-<p>Everything should work on its own in HA mode. Just make sure to install and configure the logs server on every instance of the Cloudify cluster.</p>
-
-<p><a href="../../images/cloudify4_driver/a4c-logs-archi.png" title="alien4cloud-cfy-logs architecture"><img src="../../images/cloudify4_driver/a4c-logs-archi.png" alt="Connection configuration" title="alien4cloud-cfy-logs architecture" /></a></p>
-
-</div>
-
-<h3 id="install-and-configure">Install and configure</h3>
-<p>As stated above, the logs server application is to be installed on the Cloudify manager machine. You can download it <a href="https://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource&amp;g=alien4cloud&amp;a=alien4cloud-cfy-logs&amp;v=2.0.0-SM2&amp;p=zip" class="btn btn-success download-button navbar-btn">alien4cloud-cfy-logs</a>.</p>
-
-<div class="note warning">
-<p>For now, the Cloudify manager and the logs server should be installed using the same security mode. This means, if you bootstrapped a SSL secured manager (HTTPS), you <strong>MUST</strong> also install and configure the log application in SSL secured mode.</p>
-</div>
-
-<ol>
-  <li>Unzip the file in your prefered location. We will call it <code>$a4c_log_dir</code></li>
-  <li>The server configuration file is located at <code>$a4c_log_dir/config/alien4cloud-cfy-logs-config.yml</code>. The main property you would want to configure is <code>server.port</code></li>
-</ol>
-
-<div class="note info">
-<h5>SSL configuration</h5>
-<p>The logs server can be configured with SSL security, <a href="#/documentation/1.4.0/admin_guide/security_patch.html">similar config here</a>.</p>
-
-<p>However, the Logstash version used in Cloudify cannot push logs over HTTPS protocol. therefore, the log pushing endoint should and is the only one running un HTTP protocol when the log server is secured with SSL. Therefore, remember to configure the property <code>server.http.port</code>, for the HTTP protocol.</p>
-
-<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">server</span><span class="p-Indicator">:</span>
-  <span class="c1">## HTTPS port</span>
-  <span class="l-Scalar-Plain">port</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">8443</span>
-  <span class="l-Scalar-Plain">ssl</span><span class="p-Indicator">:</span>
-    <span class="l-Scalar-Plain">enabled</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
-    <span class="l-Scalar-Plain">key-store</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">ssl/server-keystore.jks</span>
-    <span class="l-Scalar-Plain">key-store-password</span><span class="p-Indicator">:</span> <span class="err">*****</span>
-    <span class="l-Scalar-Plain">key-password</span><span class="p-Indicator">:</span> <span class="err">*****</span>
- <span class="c1">## HTTP  port. Only if SSL is enabled</span>
-  <span class="l-Scalar-Plain">http</span><span class="p-Indicator">:</span>
-    <span class="l-Scalar-Plain">port</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">8200</span></code></pre></div>
-
-</div>
-<ol>
-  <li>Modify the configuration of Logstash:
-    <ul>
-      <li>Edit the file <strong><em>/etc/logstash/conf.d/logstash.conf</em></strong></li>
-      <li>Find the <code>output</code> section, and add the following (replace <em>HTTP_PORT</em> with the value of: <code>server.http.port</code> if SSL enabled, <code>server.port</code> otherwise):</li>
-    </ul>
-  </li>
-</ol>
-
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">output <span class="o">{</span>
-    http <span class="o">{</span>
-      <span class="nv">http_method</span> <span class="o">=</span>&gt; <span class="s1">&#39;post&#39;</span>
-      <span class="nv">url</span> <span class="o">=</span>&gt; <span class="s1">&#39;http://localhost:&lt;HTTP_PORT&gt;/api/v1/logs&#39;</span>
-    <span class="o">}</span>
-    <span class="o">[</span>...<span class="o">]</span>
-  <span class="o">}</span></code></pre></div>
-
-<ol>
-  <li>Restart logstash service:</li>
-</ol>
-
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">sudo systemctl restart logstash.service</code></pre></div>
-
-<p>Your logs server is now configured and fully able to communicate with both Cloudify and Alien4Cloud.</p>
+<ul>
+  <li><a href="#/documentation/1.4.0/orchestrators/cloudify4_driver/prerequisites_patches.html">Cloudify 4.x patches</a></li>
+  <li><a href="#/documentation/1.4.0/orchestrators/cloudify4_driver/prerequisites_logs.html">Deployment logs configuration</a></li>
+  <li><a href="#/documentation/1.4.0/orchestrators/cloudify4_driver/prerequisites_offline.html">Offline configuration</a></li>
+</ul>
 
         <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.4.0/orchestrators/cloudify4_driver/prerequisites.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
 	  </div>
