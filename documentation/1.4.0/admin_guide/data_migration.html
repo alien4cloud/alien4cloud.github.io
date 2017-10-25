@@ -8,7 +8,7 @@
 ga('create', 'UA-73216650-1', 'auto');
 ga('set', {
   page: '/documentation/1.4.0/admin_guide/data_migration.html',
-  title: 'Migrate from 1.3.x to 1.4.0'
+  title: 'Migrate from 1.3.x to 1.4.x'
 });
 ga('send', 'pageview');
 
@@ -23,7 +23,7 @@ ga('send', 'pageview');
       <div id="content" class="col-sm-8 col-md-9">
     
         <div style="height: 50px;">
-          <h1 class="pull-left" style="margin-top: 0px;">Migrate from 1.3.x to 1.4.0</h1>
+          <h1 class="pull-left" style="margin-top: 0px;">Migrate from 1.3.x to 1.4.x</h1>
           <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.4.0/admin_guide/data_migration.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
         </div>
         
@@ -41,7 +41,7 @@ ga('send', 'pageview');
 
 <div class="note warning">
 <h5> Compatibility </h5>
-<p>This guide can only used for migration from <strong><code>1.3.x</code></strong> to <strong><code>1.4.0</code></strong>.</p>
+<p>This guide can only used for migration from <strong><code>1.3.x</code></strong> to <strong><code>1.4.x</code></strong>.</p>
 </div>
 
 <div class="note warning">
@@ -55,11 +55,11 @@ We do not guarantee the compatibility of those with the new Alien4cloud version.
 <p>Orchestrators in alien4cloud are bound to orchestrator plugins. If you are using a custom orchestrator plugin, as stated above, it will discarded after the migration.</p>
 </div>
 
-<h1 id="download">Download</h1>
+<h1 id="migrate-from-13x-to-140">Migrate from 1.3.x to 1.4.0</h1>
+
+<h2 id="download">Download</h2>
 
 <p><a href="http://fastconnect.org/maven/service/local/artifact/maven/redirect?r=fastconnect&amp;g=alien4cloud&amp;a=alien4cloud-migration&amp;v=LATEST&amp;p=zip&amp;c=distrib" title="migration-tool" class="btn btn-success download-button"><i class="fa fa-download"></i> Migation tool</a></p>
-
-<h1 id="migrate-from-13x-to-140">Migrate from 1.3.x to 1.4.0</h1>
 
 <p>The migration tool takes as input old data, and transform them to be complient with the new alien4cloud version.<br />
 Concerning either Alien4Cloud or elasticsearch data, no copy or transfert is made, meaning the existing data are really transformed and modified. Therefore, to be able to run the new version of the product with the migrated data, <strong>make sure the two instances of Alien4Cloud are configured to use the same and identical data path</strong>.</p>
@@ -135,6 +135,9 @@ After unzipping the archive, the tool can be configured by editing the files in 
 
 <p>Normally with this procedure, you should have your Alien functional with new version 1.4.0.</p>
 
+<h1 id="migrate-from-140-to-14x">Migrate from 1.4.0 to 1.4.x</h1>
+
+<p>The premium dist versions of Alien4Cloud 1.4.x are packaged with the plugin <strong>alien4cloud-migration-plugin</strong> to perform an auto migration of datas from 1.4.0 to a more recent version at the first boot.</p>
 
         <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.4.0/admin_guide/data_migration.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
 	  </div>
