@@ -62,3 +62,60 @@ The most important improvement on the TOSCA support is the management and inject
 # Documentation and sizing recommendations
 
 Previous versions of alien4cloud where less robust than the current one and in addition to better response to wrong platform sizing we also provide a more comprehensive sizing guide that will hopefully help you to get the most of the alien4cloud platform.
+
+
+
+# Fixes in 1.4.x
+
+
+Alien 4 cloud 1.4.0 is the lasted supported version.
+Here you can see all bug fixes to improve the stability of this version into some minor versions.
+
+
+
+
+
+ <i class="fa fa-plus text-success"></i> New feature <i class="fa fa-level-up text-primary"></i> Improvement  <i class="fa fa-bug text-danger"></i> Bug <i class="fa fa-exclamation-triangle text-warning"></i> Breaking change
+
+
+### Alien 4 Cloud
+
+
+
+   {: .table .table-bordered}
+   | Type        | Id         | Description |
+   |:------------|:-----------|:------------|
+         |  <i class="fa fa-bug text-danger"></i> | ALIEN-2475 | Fixed a bug in /rest/v1/deployments API that returned the first hundred deployments and not the last hundred deployments  |
+     |  <i class="fa fa-bug text-danger"></i> | ALIEN-2489 | Fixed an issue that prevented relationships operations to be injected from service side in case of a target service  |
+     |  <i class="fa fa-level-up text-primary"></i> | ALIEN-2517 | Location resources security can now be managed per environment type  |
+     |  <i class="fa fa-bug text-danger"></i> | ALIEN-2547 | Fix the broken search on modal to grant/revoke authorization on location resources for applications, environments and environment types  |
+ |  <i class="fa fa-bug text-danger"></i> | ALIEN-2551 | Fix display on services authorizaton for applications, environments and environment types  |
+ |  <i class="fa fa-bug text-danger"></i> | ALIEN-2552 | Fixed conflict in Elasticsearch mapping on inputParameters between nodes  |
+ |  <i class="fa fa-bug text-danger"></i> | ALIEN-2578 | Fix bug on substitutions  |
+ |  <i class="fa fa-bug text-danger"></i> | ALIEN-2578 | Display the expected topology after a change version on the topology catalog  |
+
+
+
+### Cloudify 4 PaaS Provider
+
+
+
+ {: .table .table-bordered}
+ | Type        | Id         | Description |
+ |:------------|:-----------|:------------|
+       |  <i class="fa fa-bug text-danger"></i> | ALIEN-2488 | Fixed: A4C_EXECUTION_USER was overrided by the value of node property "user" if present  |
+       |  <i class="fa fa-bug text-danger"></i> | ALIEN-2440 | Include a new log mechanism for cloudify 4 and alien with a server component |
+       |  <i class="fa fa-bug text-danger"></i> | ALIEN-2604 | Fix bug on block storage volume ID  |
+
+
+
+### Alien 4 Cloud Premium
+
+
+
+{: .table .table-bordered}
+| Type        | Id         | Description |
+|:------------|:-----------|:------------|
+      |  <i class="fa fa-bug text-danger"></i> | ALIEN-2550 | Auto-upgrade of the index mapping from 1.4.1 to 1.4.2.2  |
+      |  <i class="fa fa-bug text-danger"></i> | ALIEN-2553 | Fix error during undeployment of invalid blueprint  |
+  |  <i class="fa fa-bug text-danger"></i> | ALIEN-2575 | Fix wrong return on the get_attribute TOSCA function  |
