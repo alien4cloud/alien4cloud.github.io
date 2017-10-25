@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Migrate from 1.3.x to 1.4.0'
+title: 'Migrate from 1.3.x to 1.4.x'
 categories: DOCUMENTATION-1.4.0
 root: ../../
 parent:
@@ -17,13 +17,13 @@ published: true
 
 **Before migrating data, please make sure to backup your data first.**
 
-[How to backup Alien4Cloud](#/documentation/1.4.0/admin_guide/backup_restore.md) 
+[How to backup Alien4Cloud](#/documentation/1.4.0/admin_guide/backup_restore.md)
 
 # Warnings
 
 {% warning %}
 <h5> Compatibility </h5>
-This guide can only used for migration from __`1.3.x`__ to __`1.4.0`__.
+This guide can only used for migration from __`1.3.x`__ to __`1.4.x`__.
 {% endwarning %}
 
 {% warning %}
@@ -34,16 +34,17 @@ We do not guarantee the compatibility of those with the new Alien4cloud version.
 
 {% warning %}
 <h5> Orchestrators </h5>
-Orchestrators in alien4cloud are bound to orchestrator plugins. If you are using a custom orchestrator plugin, as stated above, it will discarded after the migration. 
+Orchestrators in alien4cloud are bound to orchestrator plugins. If you are using a custom orchestrator plugin, as stated above, it will discarded after the migration.
 {% endwarning %}
 
 
 
-# Download ##
-
-[<i class="fa fa-download"></i> Migation tool][migration-tool_url]{: .btn}{: .btn-success}{: .download-button}
 
 # Migrate from 1.3.x to 1.4.0
+
+## Download ##
+
+[<i class="fa fa-download"></i> Migation tool][migration-tool_url]{: .btn}{: .btn-success}{: .download-button}
 
 The migration tool takes as input old data, and transform them to be complient with the new alien4cloud version.  
 Concerning either Alien4Cloud or elasticsearch data, no copy or transfert is made, meaning the existing data are really transformed and modified. Therefore, to be able to run the new version of the product with the migrated data, **make sure the two instances of Alien4Cloud are configured to use the same and identical data path**.
@@ -123,3 +124,8 @@ Normally with this procedure, you should have your Alien functional with new ver
 [backup-restore-tool_url]: http://fastconnect.org/maven/service/local/artifact/maven/redirect?r=fastconnect&g=alien4cloud&a=alien4cloud-backup-restore-tools&v=LATEST&p=zip&c=distrib "backup-restore-tool"
 
 [migration-tool_url]: http://fastconnect.org/maven/service/local/artifact/maven/redirect?r=fastconnect&g=alien4cloud&a=alien4cloud-migration&v=LATEST&p=zip&c=distrib "migration-tool"
+
+
+# Migrate from 1.4.0 to 1.4.x
+
+The premium dist versions of Alien4Cloud 1.4.x are packaged with the plugin **alien4cloud-migration-plugin** to perform an auto migration of datas from 1.4.0 to a more recent version at the first boot. 
