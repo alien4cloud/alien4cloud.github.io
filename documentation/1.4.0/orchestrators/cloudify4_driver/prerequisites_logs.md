@@ -30,7 +30,7 @@ Everything should work on its own in HA mode. Just make sure to install and conf
 {%endinfo%}
 
 ### Install and configure
-As stated above, the logs server application is to be installed on the Cloudify manager machine. You can download it [alien4cloud-cfy-logs](https://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource&g=alien4cloud&a=alien4cloud-cfy-logs&v={{ site.last-version }}&p=zip){: .btn}{: .btn-success}{: .download-button}{: .navbar-btn}.
+As stated above, the logs server application is to be installed on the Cloudify manager machine. You can download it [alien4cloud-cfy-logs](https://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource&g=alien4cloud&a=alien4cloud-cfy-logs&v={{ site.log_app_version }}&p=zip){: .btn}{: .btn-success}{: .download-button}{: .navbar-btn}.
 
 {%warning%}
 For now, the Cloudify manager and the logs server should be installed using the same security mode. This means, if you bootstrapped a SSL secured manager (HTTPS), you __MUST__ also install and configure the log application in SSL secured mode.
@@ -61,7 +61,7 @@ server:
 
     {%endhighlight%}
 {%endinfo%}    
-  3. Modify the configuration of Logstash:
+  3- Update the configuration of Logstash:
   * Edit the file ***/etc/logstash/conf.d/logstash.conf***
   * Find the `output` section, and add the following (replace _HTTP_PORT_ with the value of: `server.http.port` if SSL enabled, `server.port` otherwise):
   {%highlight bash%}
@@ -74,9 +74,15 @@ server:
   }
   {%endhighlight%}
 
-  4. Restart logstash service:
+   4-  Start the log server :
+{%highlight bash%}
+cd $a4c_log_dir
+./alien4cloud-cfy-logs.sh
+{%endhighlight%}
+
+   5-  Restart logstash service:
 {%highlight bash%}
 sudo systemctl restart logstash.service
 {%endhighlight%}
 
-Your logs server is now configured and fully able to communicate with both Cloudify and Alien4Cloud.
+Your logs server is now running and fully able to communicate with both Cloudify and Alien4Cloud.
