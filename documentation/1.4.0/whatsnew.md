@@ -93,6 +93,7 @@ Here you can see all bug fixes to improve the stability of this version into som
  |  <i class="fa fa-bug text-danger"></i> | ALIEN-2552 | Fixed conflict in Elasticsearch mapping on inputParameters between nodes  |
  |  <i class="fa fa-bug text-danger"></i> | ALIEN-2578 | Fix bug on substitutions  |
  |  <i class="fa fa-bug text-danger"></i> | ALIEN-2578 | Display the expected topology after a change version on the topology catalog  |
+ |  <i class="fa fa-bug text-danger"></i> | ALIEN-2598 | Fix 409 error when trying to re-deploy just after a deployment failure  |
 
 
 
