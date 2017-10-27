@@ -46,7 +46,7 @@ root: ../
       <br />
       <p>
         Need and account for Premium Download ?<br />
-        <a href="mailto:sebastien.bergougnoux@fastconnect.fr" class="btn btn-primary btn-lg">Contact us </a>
+        <a href="mailto:sebastien.bergougnoux@atos.net" class="btn btn-primary btn-lg">Contact us </a>
       </p>
     </div>
   </div>
