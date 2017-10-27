@@ -79,6 +79,125 @@ ga('send', 'pageview');
 
 <p>Previous versions of alien4cloud where less robust than the current one and in addition to better response to wrong platform sizing we also provide a more comprehensive sizing guide that will hopefully help you to get the most of the alien4cloud platform.</p>
 
+<h1 id="fixes-in-14x">Fixes in 1.4.x</h1>
+
+<p>Alien 4 cloud 1.4.0 is the lasted supported version.
+Here you can see all bug fixes to improve the stability of this version into some minor versions.</p>
+
+<p><i class="fa fa-plus text-success"></i> New feature <i class="fa fa-level-up text-primary"></i> Improvement  <i class="fa fa-bug text-danger"></i> Bug <i class="fa fa-exclamation-triangle text-warning"></i> Breaking change</p>
+
+<h3 id="alien-4-cloud">Alien 4 Cloud</h3>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Id</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-2475</td>
+      <td style="text-align: left">Fixed a bug in /rest/v1/deployments API that returned the first hundred deployments and not the last hundred deployments</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-2489</td>
+      <td style="text-align: left">Fixed an issue that prevented relationships operations to be injected from service side in case of a target service</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
+      <td style="text-align: left">ALIEN-2517</td>
+      <td style="text-align: left">Location resources security can now be managed per environment type</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-2547</td>
+      <td style="text-align: left">Fix the broken search on modal to grant/revoke authorization on location resources for applications, environments and environment types</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-2551</td>
+      <td style="text-align: left">Fix display on services authorizaton for applications, environments and environment types</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-2552</td>
+      <td style="text-align: left">Fixed conflict in Elasticsearch mapping on inputParameters between nodes</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-2578</td>
+      <td style="text-align: left">Fix bug on substitutions</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-2578</td>
+      <td style="text-align: left">Display the expected topology after a change version on the topology catalog</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="cloudify-4-paas-provider">Cloudify 4 PaaS Provider</h3>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Id</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-2488</td>
+      <td style="text-align: left">Fixed: A4C_EXECUTION_USER was overrided by the value of node property &#8220;user&#8221; if present</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-2440</td>
+      <td style="text-align: left">Include a new log mechanism for cloudify 4 and alien with a server component</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-2604</td>
+      <td style="text-align: left">Fix bug on block storage volume ID</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="alien-4-cloud-premium">Alien 4 Cloud Premium</h3>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Id</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-2550</td>
+      <td style="text-align: left">Auto-upgrade of the index mapping from 1.4.1 to 1.4.2.2</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-2553</td>
+      <td style="text-align: left">Fix error during undeployment of invalid blueprint</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-2575</td>
+      <td style="text-align: left">Fix wrong return on the get_attribute TOSCA function</td>
+    </tr>
+  </tbody>
+</table>
+
         <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.4.0/whatsnew.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
 	  </div>
     </div>

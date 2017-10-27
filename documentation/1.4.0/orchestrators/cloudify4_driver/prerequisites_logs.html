@@ -50,7 +50,7 @@ Starting from 1.4.3 to solve the issue, we changed the way we get logs from clou
 </div>
 
 <h3 id="install-and-configure">Install and configure</h3>
-<p>As stated above, the logs server application is to be installed on the Cloudify manager machine. You can download it <a href="https://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource&amp;g=alien4cloud&amp;a=alien4cloud-cfy-logs&amp;v=2.0.0-SM2&amp;p=zip" class="btn btn-success download-button navbar-btn">alien4cloud-cfy-logs</a>.</p>
+<p>As stated above, the logs server application is to be installed on the Cloudify manager machine. You can download it <a href="https://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource&amp;g=alien4cloud&amp;a=alien4cloud-cfy-logs&amp;v=1.4.3.1&amp;p=zip" class="btn btn-success download-button navbar-btn">alien4cloud-cfy-logs</a>.</p>
 
 <div class="note warning">
 <p>For now, the Cloudify manager and the logs server should be installed using the same security mode. This means, if you bootstrapped a SSL secured manager (HTTPS), you <strong>MUST</strong> also install and configure the log application in SSL secured mode.</p>
@@ -80,14 +80,9 @@ Starting from 1.4.3 to solve the issue, we changed the way we get logs from clou
     <span class="l-Scalar-Plain">port</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">8200</span></code></pre></div>
 
 </div>
-<ol>
-  <li>Modify the configuration of Logstash:
-    <ul>
-      <li>Edit the file <strong><em>/etc/logstash/conf.d/logstash.conf</em></strong></li>
-      <li>Find the <code>output</code> section, and add the following (replace <em>HTTP_PORT</em> with the value of: <code>server.http.port</code> if SSL enabled, <code>server.port</code> otherwise):</li>
-    </ul>
-  </li>
-</ol>
+<p>3- Update the configuration of Logstash:
+  * Edit the file <strong><em>/etc/logstash/conf.d/logstash.conf</em></strong>
+  * Find the <code>output</code> section, and add the following (replace <em>HTTP_PORT</em> with the value of: <code>server.http.port</code> if SSL enabled, <code>server.port</code> otherwise):</p>
 
 <div class="highlight"><pre><code class="language-bash" data-lang="bash">output <span class="o">{</span>
     http <span class="o">{</span>
@@ -97,13 +92,16 @@ Starting from 1.4.3 to solve the issue, we changed the way we get logs from clou
     <span class="o">[</span>...<span class="o">]</span>
   <span class="o">}</span></code></pre></div>
 
-<ol>
-  <li>Restart logstash service:</li>
-</ol>
+<p>4-  Start the log server :</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">cd</span> <span class="nv">$a4c_log_dir</span>
+./alien4cloud-cfy-logs.sh</code></pre></div>
+
+<p>5-  Restart logstash service:</p>
 
 <div class="highlight"><pre><code class="language-bash" data-lang="bash">sudo systemctl restart logstash.service</code></pre></div>
 
-<p>Your logs server is now configured and fully able to communicate with both Cloudify and Alien4Cloud.</p>
+<p>Your logs server is now running and fully able to communicate with both Cloudify and Alien4Cloud.</p>
 
         <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.4.0/orchestrators/cloudify4_driver/prerequisites_logs.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
 	  </div>
