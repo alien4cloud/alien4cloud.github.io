@@ -68,10 +68,8 @@ Previous versions of alien4cloud where less robust than the current one and in a
 # Fixes in 1.4.x
 
 
-Alien 4 cloud 1.4.0 is the lasted supported version.
-Here you can see all bug fixes to improve the stability of this version into some minor versions.
-
-
+Alien 4 cloud {{ oldstable }} is the lasted supported version.
+Here you can see all bug fixes to improve the stability since the version 1.4.0.
 
 
 
@@ -106,7 +104,8 @@ Here you can see all bug fixes to improve the stability of this version into som
  |:------------|:-----------|:------------|
        |  <i class="fa fa-bug text-danger"></i> | ALIEN-2488 | Fixed: A4C_EXECUTION_USER was overrided by the value of node property "user" if present  |
        |  <i class="fa fa-bug text-danger"></i> | ALIEN-2440 | Include a new log mechanism for cloudify 4 and alien with a server component |
-       |  <i class="fa fa-bug text-danger"></i> | ALIEN-2604 | Fix bug on block storage volume ID  |
+       |  <i class="fa fa-bug text-danger"></i> | ALIEN-2553 | Fix error during undeployment of invalid blueprint  |
+       |  <i class="fa fa-bug text-danger"></i> | ALIEN-2575 | Fix wrong return on the get_attribute TOSCA function  |
 
 
 
@@ -117,6 +116,17 @@ Here you can see all bug fixes to improve the stability of this version into som
 {: .table .table-bordered}
 | Type        | Id         | Description |
 |:------------|:-----------|:------------|
-      |  <i class="fa fa-bug text-danger"></i> | ALIEN-2550 | Auto-upgrade of the index mapping from 1.4.1 to 1.4.2.2  |
-      |  <i class="fa fa-bug text-danger"></i> | ALIEN-2553 | Fix error during undeployment of invalid blueprint  |
-  |  <i class="fa fa-bug text-danger"></i> | ALIEN-2575 | Fix wrong return on the get_attribute TOSCA function  |
+      |  <i class="fa fa-bug text-danger"></i> | ALIEN-2550 | Migration plugin to lasted version  |
+
+
+
+
+
+### Cloudify 4 PaaS Provider Premium
+
+
+
+ {: .table .table-bordered}
+ | Type        | Id         | Description |
+ |:------------|:-----------|:------------|
+ |  <i class="fa fa-bug text-danger"></i> | ALIEN-2604 | Fix bug on block storage volume ID  |
