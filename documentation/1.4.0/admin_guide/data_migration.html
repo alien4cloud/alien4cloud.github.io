@@ -137,7 +137,16 @@ After unzipping the archive, the tool can be configured by editing the files in 
 
 <h1 id="migrate-from-140-to-14x">Migrate from 1.4.0 to 1.4.x</h1>
 
-<p>The premium dist versions of Alien4Cloud 1.4.x are packaged with the plugin <strong>alien4cloud-migration-plugin</strong> to perform an auto migration of datas from 1.4.0 to a more recent version at the first boot. Note : you need to disable services to make migration if you have used this feature before Alien 1.4.2.</p>
+<p>The premium dist versions of Alien4Cloud 1.4.x are packaged with the plugin <strong>alien4cloud-migration-plugin</strong> to perform an auto migration of datas from 1.4.0 to a more recent version at the first boot.</p>
+
+<p>However, you need to update the configuration of your orchestrators :</p>
+
+<ul>
+  <li>set the port of the new application log. <a href="#/documentation/1.4.0/orchestrators/cloudify4_driver/prerequisites_logs.html"> More informations.</a></li>
+  <li>add a new import for your locations, <strong>plugins/overrides/plugin-included.yaml</strong> if online or <strong>plugins/overrides/plugin-managed.yaml</strong> if offline. <a href="#/documentation/1.4.0/orchestrators/cloudify4_driver/prerequisites_offline.html"> More informations. </a></li>
+</ul>
+
+<p>Note : you need to disable services to make migration if you have used this feature before Alien 1.4.2.</p>
 
         <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.4.0/admin_guide/data_migration.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
 	  </div>
