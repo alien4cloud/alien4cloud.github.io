@@ -128,11 +128,32 @@ Normally with this procedure, you should have your Alien functional with new ver
 
 # Migrate from 1.4.0 to 1.4.x
 
-The premium dist versions of Alien4Cloud 1.4.x are packaged with the plugin **alien4cloud-migration-plugin** to perform an auto migration of datas from 1.4.0 to a more recent version at the first boot.
+The premium dist versions of Alien4Cloud 1.4.x are packaged with the plugin alien4cloud-migration-plugin to perform an auto migration of datas contains in ES from 1.4.0 to a more recent version at the first boot. Note : you need to disable services to make migration if you have used this feature before Alien 1.4.2.
 
-However, you need to update the configuration of your orchestrators :
 
-  * set the port of the new application log. [ More informations.](#/documentation/1.4.0/orchestrators/cloudify4_driver/prerequisites_logs.html)
-  * add a new import for your locations, **plugins/overrides/plugin-included.yaml** if online or **plugins/overrides/plugin-managed.yaml** if offline. [ More informations. ](#/documentation/1.4.0/orchestrators/cloudify4_driver/prerequisites_offline.html)
+## Standard migration procedure :
 
-Note : you need to disable services to make migration if you have used this feature before Alien 1.4.2.
+  * stop Alien4Cloud process.
+  * install the new log application on each Cloudify manager machine.[ More informations.](#/documentation/1.4.0/orchestrators/cloudify4_driver/prerequisites_logs.html)
+  * replace the old folder of Alien4Cloud Premium by the new version of Alien4Cloud Premium
+  * update the **alien4Cloud-config.yaml**.
+  * start Alien4Cloud
+  * on each orchestrator configuration, set the port of the new application log. [ More informations.](#/documentation/1.4.0/orchestrators/cloudify4_driver/prerequisites_logs.html)
+  * on each orchestrator configuration, add a new import for your location, **plugins/overrides/plugin-included.yaml** if online or **plugins/overrides/plugin-managed.yaml** if offline. [ More informations. ](#/documentation/1.4.0/orchestrators/cloudify4_driver/prerequisites_offline.html)
+
+
+## Migration of an Alien4Cloud HA
+
+In case of the migration of an [Alien4Cloud HA](#/documentation/1.4.0/admin_guide/ha.html):
+
+  * stop backup computes then the master.
+  * install the new log application on each Cloudify manager machine.[ More informations.](#/documentation/1.4.0/orchestrators/cloudify4_driver/prerequisites_logs.html)
+  * copied your old Alien4Cloud folder. It’s necessary for your rollback and you will help to fill the new file configuration of Alien4Cloud.
+  * don’t touch the folder that is mounted to shared runtime, just replace the old folder of Alien4Cloud Premium by the new version of Alien4Cloud Premium.
+  * update the **alien4Cloud-config.yaml** on each Alien4Cloud.
+  * start the Alien4Cloud master and wait the end of migration.
+  * on each orchestrator configuration, set the port of the new application log. [ More informations.](#/documentation/1.4.0/orchestrators/cloudify4_driver/prerequisites_logs.html)
+  * on each orchestrator configuration, add a new import for your location, **plugins/overrides/plugin-included.yaml** if online or **plugins/overrides/plugin-managed.yaml** if offline. [ More informations. ](#/documentation/1.4.0/orchestrators/cloudify4_driver/prerequisites_offline.html)
+  * start the backup computes.
+
+Note: migration plugin of Alien4Cloud checks that the migration is already done on the Alien4cloud master, so it’s normal if you notice that migration process is not launched on the backup computes.
