@@ -126,9 +126,9 @@ Normally with this procedure, you should have your Alien functional with new ver
 [migration-tool_url]: http://fastconnect.org/maven/service/local/artifact/maven/redirect?r=fastconnect&g=alien4cloud&a=alien4cloud-migration&v=LATEST&p=zip&c=distrib "migration-tool"
 
 
-# Migrate from 1.4.0 to 1.4.x
+# Migrate from 1.4.x to 1.4.3.1
 
-The premium dist versions of Alien4Cloud 1.4.x are packaged with the plugin alien4cloud-migration-plugin to perform an auto migration of datas contains in ES from 1.4.0 to a more recent version at the first boot. Note : you need to disable services to make migration if you have used this feature before Alien 1.4.2.
+The premium dist versions of Alien4Cloud 1.4.3.1 are packaged with the plugin alien4cloud-migration-plugin to perform an auto migration of datas contains in ES from 1.4.0 to a more recent version at the first boot. Note : you need to disable services to make migration if you have used this feature before Alien 1.4.2.
 
 
 ## Standard migration procedure :
