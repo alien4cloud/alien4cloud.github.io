@@ -128,4 +128,11 @@ Normally with this procedure, you should have your Alien functional with new ver
 
 # Migrate from 1.4.0 to 1.4.x
 
-The premium dist versions of Alien4Cloud 1.4.x are packaged with the plugin **alien4cloud-migration-plugin** to perform an auto migration of datas from 1.4.0 to a more recent version at the first boot. Note : you need to disable services to make migration if you have used this feature before Alien 1.4.2.
+The premium dist versions of Alien4Cloud 1.4.x are packaged with the plugin **alien4cloud-migration-plugin** to perform an auto migration of datas from 1.4.0 to a more recent version at the first boot.
+
+However, you need to update the configuration of your orchestrators :
+
+  * set the port of the new application log. [ More informations.](#/documentation/1.4.0/orchestrators/cloudify4_driver/prerequisites_logs.html)
+  * add a new import for your locations, **plugins/overrides/plugin-included.yaml** if online or **plugins/overrides/plugin-managed.yaml** if offline. [ More informations. ](#/documentation/1.4.0/orchestrators/cloudify4_driver/prerequisites_offline.html)
+
+Note : you need to disable services to make migration if you have used this feature before Alien 1.4.2.
