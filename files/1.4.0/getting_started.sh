@@ -1,5 +1,5 @@
 #!/bin/bash -e
-ALIEN4CLOUD_VERSION=1.4.0
+ALIEN4CLOUD_VERSION=1.4.3.1
 FASTCONNECT_REPOSITORY=opensource
 INSTALL_DIR="`pwd`/alien4cloud-getstarted"
 
@@ -163,12 +163,12 @@ curl "$ALIEN_URL/rest/latest/orchestrators/$ORCHESTRATORID/locations/$LOCATIONID
 -H 'Accept: application/json, text/plain, */*' \
 --data-binary '{"name":"Ubuntu"}' > /dev/null
 
-if which open > /dev/null ; then
-  open 'http://localhost:8088'
-elif which xdg-open > /dev/null ; then
+if which xdg-open > /dev/null ; then
   xdg-open 'http://localhost:8088'
 elif which gnome-open > /dev/null ; then
   gnome-open 'http://localhost:8088'
+elif which open > /dev/null ; then
+  open 'http://localhost:8088'
 elif which python > /dev/null ; then
   python -mwebbrowser 'http://localhost:8088'
 else

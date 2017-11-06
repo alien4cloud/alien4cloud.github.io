@@ -91,8 +91,6 @@ ga('send', 'pageview');
 
 <p>This type represents an attachment relationship between two nodes.  For example, an AttachTo relationship type would be used for attaching a storage node to a Compute node.</p>
 
-<h2 id="properties">Properties</h2>
-
 <h2 id="definition-4">Definition</h2>
 
 <div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">tosca.relationships.AttachTo</span><span class="p-Indicator">:</span>
@@ -105,6 +103,16 @@ ga('send', 'pageview');
         <span class="l-Scalar-Plain">min_length</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">1</span>
     <span class="l-Scalar-Plain">device</span><span class="p-Indicator">:</span>
       <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">string</span></code></pre></div>
+
+<h1 id="toscarelationshipsroutesto">tosca.relationships.RoutesTo</h1>
+
+<p>This type represents an intentional network routing between two Endpoints in different networks.</p>
+
+<h2 id="definition-5">Definition</h2>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">tosca.relationships.RoutesTo</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">derived_from</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.relationships.ConnectsTo</span>
+    <span class="l-Scalar-Plain">valid_target_types</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span> <span class="nv">tosca.capabilities.Endpoint</span> <span class="p-Indicator">]</span></code></pre></div>
 
 
         <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/1.4.0/devops_guide/normative_types/tosca_concepts_types_normative_relationships.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
