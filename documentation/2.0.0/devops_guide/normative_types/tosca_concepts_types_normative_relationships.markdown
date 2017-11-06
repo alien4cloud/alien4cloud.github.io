@@ -79,8 +79,6 @@ tosca.relationships.ConnectsTo:
 
 This type represents an attachment relationship between two nodes.  For example, an AttachTo relationship type would be used for attaching a storage node to a Compute node.
 
-## Properties
-
 ## Definition
 
 {% highlight yaml %}
@@ -94,4 +92,16 @@ tosca.relationships.AttachTo:
         min_length: 1
     device:
       type: string
+{% endhighlight %}
+
+# tosca.relationships.RoutesTo
+
+This type represents an intentional network routing between two Endpoints in different networks.
+
+## Definition
+
+{% highlight yaml %}
+tosca.relationships.RoutesTo:
+    derived_from: tosca.relationships.ConnectsTo
+    valid_target_types: [ tosca.capabilities.Endpoint ]
 {% endhighlight %}

@@ -128,7 +128,7 @@ Normally with this procedure, you should have your Alien functional with new ver
 
 # Migrate from 1.4.x to 1.4.3.1
 
-The premium dist versions of Alien4Cloud 1.4.3.1 are packaged with the plugin alien4cloud-migration-plugin to perform an auto migration of datas contains in ES from 1.4.0 to a more recent version at the first boot. Note : you need to disable services to make migration if you have used this feature before Alien 1.4.2.
+The premium dist versions of Alien4Cloud 1.4.3.1 are packaged with the plugin alien4cloud-migration-plugin to perform an auto migration of datas contains in ES from 1.4.x to 1.4.3.1 at the first boot. Note : you need to disable services to make migration if you have used this feature before Alien 1.4.2.
 
 
 ## Standard migration procedure :
