@@ -186,7 +186,7 @@ On the runtime view, you can have the detailed deployment progress. Click on the
 
 ![Runtime view](../../images/2.0.0/getting_started/runtime_view.png){: style="width: 600px; margin: 0 auto"}
 
-When all nodes are deployed, just open the wordpress url in your browser. Note that as we defined a specific port mapping making the inner docker port available on our host 9099 port we have to change it accordingly: http://127.0.0.1:9099.
+When all nodes are deployed, just open the wordpress url in your browser. Note that as we defined a specific port mapping making the inner docker port available on our host 9099 port by also adding the private ip address of the virtual machine, we have to change it accordingly: http://192.168.33.10:9099.
 
 ![Wordpress home](../../images/2.0.0/getting_started/wordpress_home.png){: style="width: 300px; margin: 0 auto"}
 
