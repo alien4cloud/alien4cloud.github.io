@@ -71,7 +71,7 @@ Except docker images we don't store anything outside of the _alien4cloud-getstar
 
 * Download the getting started [Vagrantfile](https://raw.githubusercontent.com/alien4cloud/alien4cloud.github.io/sources/files/1.4.0/Vagrantfile){:target="_blank"}
 * Put the Vagrantfile in a folder, all Vagrant meta data will be written there.
-* Go to the created folder in step 4. Execute ‘vagrant up’ (Note that the first launch may take some time as the box size is 3Gb)
+* Go to the created folder last step. Execute ‘vagrant up’ (Note that the first launch may take some time as the box size is 3Gb)
 * Next time, when you bring up the machine, you should execute ‘vagrant up --provision’ instead of ‘vagrant up’ or else Alien won’t start. This is a limitation for the moment, Alien’s web app should have been packaged as service.
 * The URL of alien4cloud will be available at http://192.168.33.10:8088/
 
