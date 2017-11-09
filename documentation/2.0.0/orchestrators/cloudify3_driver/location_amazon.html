@@ -33,7 +33,7 @@ ga('send', 'pageview');
 Normally there is nothing to do here, as the default provided configurations are good enough to have the location working.</p>
 
 <h2 id="tosca-mapped--location-exposed-types">Tosca mapped / location exposed types</h2>
-<p>The Amazon location exposes some types to help you configure a deployment and map the native Tosca types. Theses nodes are exposed as <code>on demand resources</code> on the location management view.  </p>
+<p>The Amazon location exposes some types to help you configure a deployment and map the native Tosca types. Theses nodes are exposed as <code>on demand resources</code> on the location management view.</p>
 
 <h3 id="compute">Compute</h3>
 <p>The tosca type <code>tosca.nodes.Compute</code> is mapped to the amazon nodes:</p>
@@ -49,7 +49,7 @@ Normally there is nothing to do here, as the default provided configurations are
 <p>The tosca type <code>tosca.nodes.Network</code> can be mapped as two types of network:</p>
 
 <h4 id="public-network">Public Network</h4>
-<p>Exposed as the location type a public network <code>alien.nodes.aws.PublicNetwork</code>, which will result to the attribution of an elastic ip to the linked resource (compute).  </p>
+<p>Exposed as the location type a public network <code>alien.nodes.aws.PublicNetwork</code>, which will result to the attribution of an elastic ip to the linked resource (compute).</p>
 
 <h4 id="private-network">Private Network</h4>
 <div class="note warning">
@@ -57,7 +57,7 @@ Normally there is nothing to do here, as the default provided configurations are
 </div>
 
 <h3 id="volumes">Volumes</h3>
-<p>The tosca type <code>tosca.nodes.BlockStorage</code> can be mapped as two types of volumes:  </p>
+<p>The tosca type <code>tosca.nodes.BlockStorage</code> can be mapped as two types of volumes:</p>
 
 <h4 id="deletable-volumes">Deletable volumes</h4>
 <p>Exposed as the location type <code>alien.cloudify.aws.nodes.DeletableVolume</code>, this is a volume that will ALWAYS be DELETED when undeploying the application, leading therefore to the lost of all data stored on it.</p>

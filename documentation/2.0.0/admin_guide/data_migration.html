@@ -35,7 +35,7 @@ ga('send', 'pageview');
 
 <p><strong>Before migrating data, please make sure to backup your data first.</strong></p>
 
-<p><a href="#/documentation/2.0.0/admin_guide/backup_restore.md">How to backup Alien4Cloud</a> </p>
+<p><a href="#/documentation/2.0.0/admin_guide/backup_restore.md">How to backup Alien4Cloud</a></p>
 
 <h1 id="warnings">Warnings</h1>
 
@@ -52,7 +52,7 @@ We do not guarantee the compatibility of those with the new Alien4cloud version.
 
 <div class="note warning">
 <h5> Orchestrators </h5>
-<p>Orchestrators in alien4cloud are bound to orchestrator plugins. If you are using a custom orchestrator plugin, as stated above, it will discarded after the migration. </p>
+<p>Orchestrators in alien4cloud are bound to orchestrator plugins. If you are using a custom orchestrator plugin, as stated above, it will discarded after the migration.</p>
 </div>
 
 <h1 id="download">Download</h1>
@@ -69,7 +69,7 @@ Concerning either Alien4Cloud or elasticsearch data, no copy or transfert is mad
 <div class="note warning">
 <h5>Alien4Cloud and ElasticSearch states</h5>
 <p>We recommend to stop Alien4Cloud before performing the migration. <strong>ElasticSearch MUST be up and running</strong>. Alien4Cloud should be restarted once the process is completed.  This is quite trivial to do when running in a classical production setup where elasticsearch process is independant from Alien4Cloud ( See <a href="#/documentation/2.0.0/admin_guide/advanced_configuration.html">advanced configuration</a> for more details ).<br />
-However, if running in an embedded configuration, you can’t stop Alien4Cloud without stopping ElasticSearch. Then, just make sure the plateform is not used during the process.  </p>
+However, if running in an embedded configuration, you can’t stop Alien4Cloud without stopping ElasticSearch. Then, just make sure the plateform is not used during the process.</p>
 </div>
 
 <p>In order to migrate Alien4Cloud you must download the <a href="http://fastconnect.org/maven/service/local/artifact/maven/redirect?r=fastconnect&amp;g=alien4cloud&amp;a=alien4cloud-migration&amp;v=LATEST&amp;p=zip&amp;c=distrib" title="migration-tool"> migration tool </a> and copy it on the machine where Alien is running (or anywhere which has access to Alien’s data folders).<br />
@@ -126,7 +126,7 @@ After unzipping the archive, the tool can be configured by editing the files in 
 
 <ul>
   <li>
-    <p>Verify that all plugins (excepts custom ones) have been re-uploaded properly else re-upload them.  </p>
+    <p>Verify that all plugins (excepts custom ones) have been re-uploaded properly else re-upload them.</p>
   </li>
   <li>
     <p>Refresh your browser by emptying its cache so that new plugins’ UI can be loaded.</p>
