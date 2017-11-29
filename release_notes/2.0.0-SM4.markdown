@@ -1,0 +1,39 @@
+---
+layout: post
+title:  ALIEN for Cloud 2.0.0-SM4
+root: ../
+categories: RELEASE_NOTES
+parent: [release_note]
+node_name: 2.0.0-SM4
+weight: 9930
+exclude_from_search: true
+---
+
+
+
+
+<i class="fa fa-plus text-success"></i> New feature <i class="fa fa-level-up text-primary"></i> Improvement  <i class="fa fa-bug text-danger"></i> Bug <i class="fa fa-exclamation-triangle text-warning"></i> Breaking change
+
+
+### Alien 4 Cloud
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-2480 | Define and apply Kubernetes placement policies on containers  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-2615 | Create a TOSCA recipe to install an hashicorp vault server and put in in the public library.  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-2616 | Allow definition of secrets in a TOSCA blueprint through YAML edition  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-2622 | Define and apply native auto-scaling for Kubernetes Container  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-2624 | Configure a Vault in alien4cloud  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-2639 | Manage containers unit manual scaling on kubernetes from A4C  |
+        |  <i class="fa fa-bug text-danger"></i> | ALIEN-2611 | Deleting Application with a variant generate an exception  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2640 | [Technical] NodeType/PropertyConstraint cannot be cloned  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2641 | Javascript undefined error on current deployment info screen when no output attribute is defined.  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2642 | Runtime view instance click to see details is broken  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2677 | Cannot remove a specific role (application manager, architect, components browser, component manager) from a single user having admin role  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2690 | Fixed an issue introduced with ui refactoring on environment status that was not updated anymore.  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2691 | Repository configuration screen has been removed since 2.0.0-SM1  |
+  
+
