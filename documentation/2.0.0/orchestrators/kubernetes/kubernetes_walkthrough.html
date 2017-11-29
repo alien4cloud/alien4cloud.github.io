@@ -1,0 +1,121 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/2.0.0/orchestrators/kubernetes/kubernetes_walkthrough.html',
+  title: 'Kubernetes Walkthrough'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Kubernetes Walkthrough</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/2.0.0/orchestrators/kubernetes/kubernetes_walkthrough.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <p>Starting from 2.0.0 the way we manage Kubernetes integration has changed and is now independent from the orchestrator. Any orchestrator that can fullfill the prerequisites will now be able to leverage on Kubernetes scheduler.</p>
+
+<h1 id="orchestrator-prerequisites">Orchestrator prerequisites</h1>
+
+<ul>
+  <li>the binary <a href="https://kubernetes.io/docs/tasks/tools/install-kubectl/">kubectl</a> must be installed on the manager.</li>
+  <li>the K8S cluster config file must be placed in <code>/etc/kubernetes/admin.conf</code>.</li>
+  <li>the K8S cluster API must be reachable from the manager.</li>
+</ul>
+
+<h1 id="tosca-types">TOSCA types</h1>
+
+<p>Our base types for container based topology design has evolved to take into account the specificities of container schedulers (Kubernetes, AWS EC2 …).</p>
+
+<p>Container images still being described with the abstract type <code>tosca.nodes.Container.Application.DockerContainer</code>. You can consider it as a wrapper for the docker image. It handles the capabilities and requirements related to the application it runs.</p>
+
+<p>A new type has been introduced: a <code>org.alien4cloud.extended.container.types.ContainerRuntime</code> represents the container itself, independently of the image the container will host. A <code>ContainerRuntime</code> hosts one and only one <code>DockerContainer</code>.</p>
+
+<p>Another type has been introduced: a <code>org.alien4cloud.extended.container.types.ContainerDeploymentUnit</code> is a unit that will group several containers and deploy them as a single unit. It can host several <code>ContainerRuntime</code>s but also volumes. When using Kubernetes, it will become a Pod (or a Deployment).</p>
+
+<p>So we now have <code>ContainerDeploymentUnit</code> that can host several <code>ContainerRuntime</code>s and volumes. A <code>ContainerRuntime</code> hosts one single containerized application (A node of a type that extends <code>tosca.nodes.Container.Application.DockerContainer</code> and that offers capabilities and specify it’s requirements).</p>
+
+<p>In the example below, we have 1 deployment unit (node CDU) that host 2 container runtime (the two CRs) and 1 volume. Each container runtime host its containrized application (Apache and Mongod)</p>
+
+<p><img src="../../images/kubernetes_walkthrough/containers_types_sample_topology.png" alt="Container sample topology" style="width: 200px; margin: 0 auto" /></p>
+
+<p>Note that all these types are abstract. They will be replaced by a Kubernetes modifier at deployment stage.</p>
+
+<div class="note info">
+<p>A modifier is a piece of code that can transform a topology before you deploy it. It can be associated to a location or to a policy. It is generally embedded into a plugin. It can add nodes, transform nodes … It will be executed at the deployment stage you configure: after location matching, after location resource matching …</p>
+</div>
+
+<h1 id="kubernetes-plugin">Kubernetes plugin</h1>
+
+<p>The <a href="https://fastconnect.org/a4c-gitlab/alien4cloud-premium/alien4cloud-kubernetes-plugin">kubernetes plugin</a> comes with:</p>
+
+<ul>
+  <li>A CSAR with dedicated Kubernetes abstract and concrete types and policies.</li>
+  <li>2 topology modifiers that transform an abstract container based topology into something deployable onto a Kubernetes cluster.</li>
+  <li>policies’ modifiers</li>
+</ul>
+
+<h1 id="prerequisites">Prerequisites</h1>
+
+<p>To deploy onto Kubernetes cluster through ALIEN, you will need:</p>
+
+<ul>
+  <li>A Kubernetes cluster deployed on AWS with AWS extensions (ability to provision EBS) with at least 2 nodes</li>
+  <li>A Cloudify manager:
+    <ul>
+      <li>the binary <a href="https://kubernetes.io/docs/tasks/tools/install-kubectl/">kubectl</a> must be installed on the manager.</li>
+      <li>the K8S cluster config file must be placed in <code>/etc/kubernetes/admin.conf</code>.</li>
+      <li>the K8S cluster API must be reachable from the manager.</li>
+    </ul>
+  </li>
+  <li>An alien with:
+    <ul>
+      <li>a valid orchestrator linked to the CFY manager with an AWS location.</li>
+      <li>the following archives imported from GIT:
+        <ul>
+          <li>https://github.com/alien4cloud/tosca-normative-types.git (tests/2.0.0)</li>
+          <li>https://github.com/alien4cloud/alien4cloud-extended-types.git (tests/2.0.0 alien-base-types)</li>
+          <li>https://github.com/alien4cloud/docker-tosca-types.git (tests/2.0.0-alt docker-types)</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/2.0.0/orchestrators/kubernetes/kubernetes_walkthrough.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-2.0.0', 'documentation/2.0.0/orchestrators/kubernetes/kubernetes_walkthrough.markdown');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>
