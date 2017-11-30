@@ -128,7 +128,7 @@ All the samples bellow can be found in the [samples](https://github.com/alien4cl
 
 ## A simple Apache container
 
-Our first trivial topology help us validate our setup : a single Apache container.
+Our first trivial topology help us validate our setup : a single Apache container. You can find it [here](https://github.com/alien4cloud/samples/tree/master/org/alien4cloud/doc/kube/topology/01-simple-apache) (or use the **01-simple-apache** if you have imported the samples).
 
 ![Topology](../../images/kubernetes_walkthrough/topo-01-simple-apache.png){: style="width: 200px; margin: 0 auto"}
 
@@ -167,13 +167,15 @@ You can test your apache using one of the cluster node public IP and the nodePor
 
 ### Add the node label affinity policy
 
+For this example, we'll use the [02-simple-apache-affinity](https://github.com/alien4cloud/samples/tree/master/org/alien4cloud/doc/kube/topology/02-simple-apache-affinity) topology.
+
 We now want to specify the node onto our pod will be deployed. We'll use a placement policy.
 
 
 
 ### Attach a hostpath volume
 
-03-simple-apache-hostPath
+For this example, we'll use the [03-simple-apache-hostPath](https://github.com/alien4cloud/samples/tree/master/org/alien4cloud/doc/kube/topology/03-simple-apache-hostPath) topology.
 
 ![Topology](../../images/kubernetes_walkthrough/topologie-03-simple-apache-hostPath.png){: style="width: 200px; margin: 0 auto"}
 
@@ -200,6 +202,8 @@ The port is 31455. Change security group and test the endpoint.
 ![ServiceNodePort](../../images/kubernetes_walkthrough/ApacheHostPathTest.png){: style="width: 600px; margin: 0 auto"}
 
 ### Attach a emptyDir volume
+
+For this example, we'll use the [04-simple-apache-emptyDir](https://github.com/alien4cloud/samples/tree/master/org/alien4cloud/doc/kube/topology/04-simple-apache-emptyDir) topology.
 
 In this example, we'll see how we can share a same volume between 2 containers in the same pod.
 
