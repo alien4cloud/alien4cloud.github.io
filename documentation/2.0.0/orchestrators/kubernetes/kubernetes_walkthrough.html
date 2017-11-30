@@ -175,7 +175,7 @@ A <strong>Policy modifier</strong> is associated with a concrete policy and will
 
 <h2 id="a-simple-apache-container">A simple Apache container</h2>
 
-<p>Our first trivial topology help us validate our setup : a single Apache container.</p>
+<p>Our first trivial topology help us validate our setup : a single Apache container. You can find it <a href="https://github.com/alien4cloud/samples/tree/master/org/alien4cloud/doc/kube/topology/01-simple-apache">here</a> (or use the <strong>01-simple-apache</strong> if you have imported the samples).</p>
 
 <p><img src="../../images/kubernetes_walkthrough/topo-01-simple-apache.png" alt="Topology" style="width: 200px; margin: 0 auto" /></p>
 
@@ -216,11 +216,13 @@ Find the <strong>nodePort</strong> value.</p>
 
 <h3 id="add-the-node-label-affinity-policy">Add the node label affinity policy</h3>
 
+<p>For this example, we’ll use the <a href="https://github.com/alien4cloud/samples/tree/master/org/alien4cloud/doc/kube/topology/02-simple-apache-affinity">02-simple-apache-affinity</a> topology.</p>
+
 <p>We now want to specify the node onto our pod will be deployed. We’ll use a placement policy.</p>
 
 <h3 id="attach-a-hostpath-volume">Attach a hostpath volume</h3>
 
-<p>03-simple-apache-hostPath</p>
+<p>For this example, we’ll use the <a href="https://github.com/alien4cloud/samples/tree/master/org/alien4cloud/doc/kube/topology/03-simple-apache-hostPath">03-simple-apache-hostPath</a> topology.</p>
 
 <p><img src="../../images/kubernetes_walkthrough/topologie-03-simple-apache-hostPath.png" alt="Topology" style="width: 200px; margin: 0 auto" /></p>
 
@@ -245,6 +247,8 @@ ubuntu@ip-172-31-19-47:~<span class="nv">$ </span>kubectl get service apache-htt
 <p><img src="../../images/kubernetes_walkthrough/ApacheHostPathTest.png" alt="ServiceNodePort" style="width: 600px; margin: 0 auto" /></p>
 
 <h3 id="attach-a-emptydir-volume">Attach a emptyDir volume</h3>
+
+<p>For this example, we’ll use the <a href="https://github.com/alien4cloud/samples/tree/master/org/alien4cloud/doc/kube/topology/04-simple-apache-emptyDir">04-simple-apache-emptyDir</a> topology.</p>
 
 <p>In this example, we’ll see how we can share a same volume between 2 containers in the same pod.</p>
 
