@@ -124,7 +124,7 @@ In the location tab **Policies**, you can add the following policies provided by
 
 # Examples walkthrough
 
-Work in progess ...
+All the samples bellow can be found in the [samples](https://github.com/alien4cloud/samples/tree/master/org/alien4cloud/doc/kube) repository https://github.com/alien4cloud/samples (folder org/alien4cloud/doc/kube)
 
 ## A simple Apache container
 
@@ -219,6 +219,12 @@ The Busybox container just echo 'Hello World' into a file (see the **docker_run_
 
 ## A nodecellar connecting to a mongo
 
+TBD
+
 ### Add the anti-affinity policy
 
+TBD
+
 ### Add the auto scaling policy
+
+TBD
