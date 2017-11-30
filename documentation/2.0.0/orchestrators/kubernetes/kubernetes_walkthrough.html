@@ -103,11 +103,12 @@ A <strong>Policy modifier</strong> is associated with a concrete policy and will
     <ul>
       <li>a valid orchestrator linked to the CFY manager with an AWS location.</li>
       <li>the kubernetes plugin</li>
+      <li>the http repository plugin (the samples use an http repository)</li>
       <li>the following archives imported from GIT:
         <ul>
-          <li>https://github.com/alien4cloud/tosca-normative-types.git 2.0.0-SM4</li>
-          <li>https://github.com/alien4cloud/alien4cloud-extended-types.git 2.0.0-SM4 alien-base-types</li>
-          <li>https://github.com/alien4cloud/docker-tosca-types.git 2.0.0-SM4 docker-types</li>
+          <li>https://github.com/alien4cloud/tosca-normative-types.git branch <strong>2.0.0-SM4</strong></li>
+          <li>https://github.com/alien4cloud/alien4cloud-extended-types.git branch <strong>2.0.0-SM4</strong> folder <strong>alien-base-types</strong></li>
+          <li>https://github.com/alien4cloud/docker-tosca-types.git <strong>2.0.0-SM4</strong> folder <strong>docker-types</strong></li>
         </ul>
       </li>
     </ul>
@@ -174,9 +175,94 @@ A <strong>Policy modifier</strong> is associated with a concrete policy and will
 
 <h2 id="a-simple-apache-container">A simple Apache container</h2>
 
+<p>Our first trivial topology help us validate our setup : a single Apache container.</p>
+
+<p><img src="../../images/kubernetes_walkthrough/topo-01-simple-apache.png" alt="Topology" style="width: 200px; margin: 0 auto" /></p>
+
+<div class="note info">
+<p>You can see that our node named <strong>Container</strong> of type <code>org.alien4cloud.extended.container.types.ContainerRuntime</code> is not hosted on a <code>ContainerDeploymentUnit</code>. Since a container can not be deployed without being hosted on a Pod in K8S, the modifier will create for you a <code>ContainerDeploymentUnit</code> for each ‘orphan’ container.</p>
+</div>
+
+<p>Deploy it using the location you have setup. The topology transformed by the first modifier will contain abstract kubernetes nodes that will be auto matched with the concrete on demand resource you have setup before.</p>
+
+<p>At kubernetes level few things will be started:</p>
+
+<ul>
+  <li>a kubernetes deployment containing your container.</li>
+  <li>a service of type NodePort, exposing the apache endpoint.</li>
+</ul>
+
+<div class="note info">
+<p>For each endpoint found in the topology, the topology modifier will create a service of type NodePort. This allow others containers to connect to underlying endpoint and eventually to connect to the endpoint from outside the cluster.</p>
+</div>
+
+<div class="note warning">
+<p>For the moment, we don’t expose automatically endpoint to the outside. We only use services of type <a href="https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport">NodePort</a> that open a port on the hosting node. You’ll have to change your security rules if you want to access your endpoint from outside.</p>
+
+<p>Find the service on the Kubernetes dashboard and open the yaml.<br />
+<br />
+<img src="../../images/kubernetes_walkthrough/k8s-service-find.png" alt="Services" />
+<br />
+Find the <strong>nodePort</strong> value.</p>
+
+<p><img src="../../images/kubernetes_walkthrough/k8s-service-nodePort.png" alt="ServiceNodePort" /></p>
+
+<p>Open this port on all the nodes of your cluster if you want to access to your endpoint (use a dedicated security group that is associated to all your cluster nodes).</p>
+</div>
+
+<p>You can test your apache using one of the cluster node public IP and the nodePort exposed by your service.<br />
+<br />
+<img src="../../images/kubernetes_walkthrough/working-apache.png" alt="ServiceNodePort" style="width: 400px; margin: 0 auto" /></p>
+
 <h3 id="add-the-node-label-affinity-policy">Add the node label affinity policy</h3>
 
+<p>We now want to specify the node onto our pod will be deployed. We’ll use a placement policy.</p>
+
 <h3 id="attach-a-hostpath-volume">Attach a hostpath volume</h3>
+
+<p>03-simple-apache-hostPath</p>
+
+<p><img src="../../images/kubernetes_walkthrough/topologie-03-simple-apache-hostPath.png" alt="Topology" style="width: 200px; margin: 0 auto" /></p>
+
+<p>In this topology we have added a volume to the deployment unit.
+We’ll match it to a <a href="https://kubernetes.io/docs/concepts/storage/volumes/#hostpath">hostPath</a> volume. With this kind of volume, we can mount a given directory of the hosting node as a volume for the container. In our example, we will mount the <code>/var/log</code> volume at the <code>/usr/local/apache2/htdocs</code> mount point on the container. By this way we’ll be able to display our logs through our webserver !</p>
+
+<p>Deploy the topology, and at matching stage, choose the resource of type <code>org.alien4cloud.kubernetes.api.types.volume.HostPathVolumeSource</code> for the node named ‘Volume’. Set the property <code>spec.path</code> to <code>/usr/local/apache2/htdocs</code> and deploy.</p>
+
+<p>Find the port exposed by the nodes :</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">ubuntu@ip-172-31-19-47:~<span class="nv">$ </span>kubectl get services
+NAME                                       TYPE        CLUSTER-IP       EXTERNAL-IP   PORT<span class="o">(</span>S<span class="o">)</span>        AGE
+apache-http-endpoint-service--1667037327   NodePort    10.152.183.176   &lt;none&gt;        80:31455/TCP   17m
+default-http-backend                       ClusterIP   10.152.183.167   &lt;none&gt;        80/TCP         3d
+kubernetes                                 ClusterIP   10.152.183.1     &lt;none&gt;        443/TCP        3d
+ubuntu@ip-172-31-19-47:~<span class="nv">$ </span>kubectl get service apache-http-endpoint-service--1667037327 -o<span class="o">=</span><span class="nv">jsonpath</span><span class="o">={</span>.spec.ports<span class="o">[</span>0<span class="o">]</span>.nodePort<span class="o">}</span> <span class="o">&amp;&amp;</span> <span class="nb">echo</span>
+31455</code></pre></div>
+
+<p>The port is 31455. Change security group and test the endpoint.
+<br /></p>
+
+<p><img src="../../images/kubernetes_walkthrough/ApacheHostPathTest.png" alt="ServiceNodePort" style="width: 600px; margin: 0 auto" /></p>
+
+<h3 id="attach-a-emptydir-volume">Attach a emptyDir volume</h3>
+
+<p>In this example, we’ll see how we can share a same volume between 2 containers in the same pod.</p>
+
+<p><img src="../../images/kubernetes_walkthrough/topologie-04-simple-apache-emptyDir.png" alt="Topology" style="width: 400px; margin: 0 auto" /></p>
+
+<p>The volume is attached to the 2 container:</p>
+
+<ul>
+  <li>mounted at <code>/usr/local/apache2/htdocs</code> for the Apache container.</li>
+  <li>mounted at <code>/tmp/emptyDir</code> for the Busybox container.</li>
+</ul>
+
+<p>This time, we’ll match the volume to an <a href="https://kubernetes.io/docs/concepts/storage/volumes/#emptydir">emptyDir</a> volume (on demand resource of type <code>org.alien4cloud.kubernetes.api.types.volume.EmptyDirVolumeSource</code>).</p>
+
+<p>The Busybox container just echo ‘Hello World’ into a file (see the <strong>docker_run_cmd</strong> property of the <strong>BusyboxBash</strong> container node) . Since the same directory is mount by the apache at <code>/usr/local/apache2/htdocs</code>, this index.html become the welcome page of our fabulous website !
+<br /></p>
+
+<p><img src="../../images/kubernetes_walkthrough/workingApacheEmptyDir.png" alt="ServiceNodePort" style="width: 600px; margin: 0 auto" /></p>
 
 <h2 id="a-nodecellar-connecting-to-a-mongo">A nodecellar connecting to a mongo</h2>
 
