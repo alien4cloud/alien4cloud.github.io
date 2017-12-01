@@ -66,6 +66,14 @@ If your topology is valid and ready for deployment, you can hit the deploy butto
 
 You can now follow the deployement progress on the [runtime view](#/documentation/2.0.0/user_guide/application_runtime.html).
 
+
+## Secret management
+
+If your location if configured to support a secret manager, a modal will request your credentials for this secret manager for any operation of an deployed environment.
+
+[![credential_modal](../../images/2.0.0/user_guide/applications/deployment/credential_modal.png)](../../images/2.0.0/user_guide/applications/deployment/credential_modal.png)
+
+
 # Update
 
 Once an application has been successfully deployed, you can upgrade it by hitting the ![Deployment update](../../images/user_guide/application/deployment/update_btn.png){: height="26px" .inline} button.  

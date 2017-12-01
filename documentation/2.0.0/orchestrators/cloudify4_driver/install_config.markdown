@@ -85,9 +85,20 @@ To create resources that cannot be auto-configured (such as volume or network or
 
 [config_orchestrator_volume]: ../../images/cloudify3_driver/config_orchestrator_volume.png  "Volume"
 
+# Secret provider
+
+If you whant to used secret in your futurs deployments, you need to configure the secret provider in charge of the managing of your secrets. Alien4Cloud premium support a Vault crecret manager, you can configure the Vaut URL, authentification method and certificate in the location view.
+
+
+[![secret_config_provider](../../images/cloudify4_driver/config/secret_config_provider.png)](../../images/cloudify4_driver/config/secret_config_provider.png)
+
+
 # Offline environment
 
 In order to deploy applications in an offline environment, you will need to add some libraries in your PyPI repository and make it available to the manager depending on the IaaS you are targetting.
+
+[config_orchestrator_volume]: ../../images/cloudify3_driver/config_orchestrator_volume.png  "Volume"
+
 
 ## Dependencies for Amazon
 
