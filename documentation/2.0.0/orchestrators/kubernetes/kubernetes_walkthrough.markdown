@@ -169,9 +169,26 @@ You can test your apache using one of the cluster node public IP and the nodePor
 
 For this example, we'll use the [02-simple-apache-affinity](https://github.com/alien4cloud/samples/tree/master/org/alien4cloud/doc/kube/topology/02-simple-apache-affinity) topology.
 
-We now want to specify the node onto our pod will be deployed. We'll use a placement policy.
+![Topology](../../images/kubernetes_walkthrough/02-simple-apache-affinity-topology.png){: style="width: 200px; margin: 0 auto"}
 
+We now want to specify the node onto our pod will be deployed. For that we'll use a placement policy (`tosca.policies.Placement`).
 
+You must tag get an existing tag for a given node of your Kube cluster (the tag will be used by the concrete Kube policy).
+
+{% highlight bash%}
+TODO: decribe K8S node tag operation.
+{% endhighlight %}
+
+At deployment stage, ensure the topology policy match the location policy of type `org.alien4cloud.kubernetes.api.policies.NodeAffinityLabel`. Edit the policy property **matchExpressions** in order to have :
+
+{% highlight yaml%}
+key: Mylabel
+operator: In
+values:
+  - MyLabelValue1
+{% endhighlight %}
+
+Deploy and ensure the Deployment is effectively deployed on the chosen node. To be sure it wasn't due to chance, undeploy, change the tag value, deploy again and check again !
 
 ### Attach a hostpath volume
 
@@ -180,7 +197,7 @@ For this example, we'll use the [03-simple-apache-hostPath](https://github.com/a
 ![Topology](../../images/kubernetes_walkthrough/topologie-03-simple-apache-hostPath.png){: style="width: 200px; margin: 0 auto"}
 
 In this topology we have added a volume to the deployment unit.
-We'll match it to a [hostPath](https://kubernetes.io/docs/concepts/storage/volumes/#hostpath) volume. With this kind of volume, we can mount a given directory of the hosting node as a volume for the container. In our example, we will mount the `/var/log` volume at the `/usr/local/apache2/htdocs` mount point on the container. By this way we'll be able to display our logs through our webserver !
+We'll match it to a [hostPath](https://kubernetes.io/docs/concepts/storage/volumes/#hostpath) volume. With this kind of volume, we can mount a given directory of the hosting node as a volume for the container. In our example, we will mount the `/var/log` volume at the `/usr/local/apache2/htdocs` mount point on the container. By this way we'll be able to display our logs through our webserver ! It's not very usefull and not very secured IRL but just simple and fun in this boarding context ;)
 
 Deploy the topology, and at matching stage, choose the resource of type `org.alien4cloud.kubernetes.api.types.volume.HostPathVolumeSource` for the node named 'Volume'. Set the property `spec.path` to `/usr/local/apache2/htdocs` and deploy.
 
@@ -201,7 +218,7 @@ The port is 31455. Change security group and test the endpoint.
 
 ![ServiceNodePort](../../images/kubernetes_walkthrough/ApacheHostPathTest.png){: style="width: 600px; margin: 0 auto"}
 
-### Attach a emptyDir volume
+### Attach an emptyDir volume
 
 For this example, we'll use the [04-simple-apache-emptyDir](https://github.com/alien4cloud/samples/tree/master/org/alien4cloud/doc/kube/topology/04-simple-apache-emptyDir) topology.
 
@@ -212,23 +229,53 @@ In this example, we'll see how we can share a same volume between 2 containers i
 The volume is attached to the 2 container:
 
 - mounted at `/usr/local/apache2/htdocs` for the Apache container.
-- mounted at `/tmp/emptyDir` for the Busybox container.
+- mounted at `/tmp/emptyDir` for the sidecar container.
 
 This time, we'll match the volume to an [emptyDir](https://kubernetes.io/docs/concepts/storage/volumes/#emptydir) volume (on demand resource of type `org.alien4cloud.kubernetes.api.types.volume.EmptyDirVolumeSource`).
 
-The Busybox container just echo 'Hello World' into a file (see the **docker_run_cmd** property of the **BusyboxBash** container node) . Since the same directory is mount by the apache at `/usr/local/apache2/htdocs`, this index.html become the welcome page of our fabulous website !
+The SidecarContainer is a busybox that just just echo 'Hello World' into a file (see the **docker_run_cmd** property of the **BusyboxBash** container node) . Since the same directory is mount by the apache at `/usr/local/apache2/htdocs`, this index.html become the welcome page of our fabulous website !
 <br>
 
 ![ServiceNodePort](../../images/kubernetes_walkthrough/workingApacheEmptyDir.png){: style="width: 600px; margin: 0 auto"}
 
-## A nodecellar connecting to a mongo
+## A Nodecellar connecting to a Mongo
+
+For this example, we'll use the [05-nodecellar-mongo](https://github.com/alien4cloud/samples/tree/master/org/alien4cloud/doc/kube/topology/05-nodecellar-mongo) topology.
+
+![Topology](../../images/kubernetes_walkthrough/05-nodecellar-mongo-topology.png){: style="width: 500px; margin: 0 auto"}
+
+### Manually scale the Nodecellar
 
 TBD
 
 ### Add the anti-affinity policy
 
-TBD
+For this example, we'll use the [05-nodecellar-mongo](https://github.com/alien4cloud/samples/tree/master/org/alien4cloud/doc/kube/topology/06-nodecellar-mongo-antiaffinity) topology.
+
+In this topology we want to avoid the Nodecellar and the Mongo deployments to be collocated (deployed on the same cluster node). For that we use an `org.alien4cloud.policies.AntiAffinity` that targets these two nodes.
+
+![Topology](../../images/kubernetes_walkthrough/06-nodecellar-mongo-antiaffinity-topology.png){: style="width: 500px; margin: 0 auto"}
+
+At the deployment setup, during the matching phase, ensure the policy is matched using `org.alien4cloud.kubernetes.api.policies.AntiAffinityLabel`. The K8S modifier will generate the rigth config to make sure both deployments are not deployed on the same node (expecting you have at least 2 nodes in your cluster).
 
 ### Add the auto scaling policy
 
-TBD
+For this example, we'll use the [07-nodecellar-mongo-autoscalling](https://github.com/alien4cloud/samples/tree/master/org/alien4cloud/doc/kube/topology/07-nodecellar-mongo-autoscalling) topology.
+
+In this topology we have added a policy of type `tosca.policies.Scaling`. At rutime, we want the front end server (the Nodecallar) to be scaled if the CPU utilization is greater than 10%.
+
+![Topology](../../images/kubernetes_walkthrough/07-nodecellar-mongo-autoscalling-topology.png){: style="width: 500px; margin: 0 auto"}
+
+During mathcing phase, ensure the **AutoScale** policy is matched to the location policy of type `org.alien4cloud.kubernetes.api.policies.AutoscalingPolicy` and setup this one to make sure that it's properties are:
+
+{% highlight bash %}
+minReplicas: 1
+maxReplicas: 4
+metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      targetAverageUtilization: 10
+{% endhighlight %}
+
+Generate load on the server (use JMeter for example) and ensure the frontend pod is actually scalled.
