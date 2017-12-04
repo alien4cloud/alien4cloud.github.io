@@ -214,6 +214,19 @@ Find the <strong>nodePort</strong> value.</p>
 <br />
 <img src="../../images/kubernetes_walkthrough/working-apache.png" alt="ServiceNodePort" style="width: 400px; margin: 0 auto" /></p>
 
+<div class="note info">
+<p>When a endpoint is exposed by a service, it is joinable through one of the cluster node external IP.</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="o">[</span>ec2-user@ip-172-31-42-102 ~<span class="o">]</span><span class="nv">$ </span>kubectl --kubeconfig<span class="o">=</span>/etc/kubernetes/admin.conf get nodes
+NAME                                          STATUS    ROLES     AGE       VERSION
+ip-172-31-34-200.eu-west-1.compute.internal   Ready     &lt;none&gt;    6d        v1.8.4
+<span class="o">[</span>ec2-user@ip-172-31-42-102 ~<span class="o">]</span><span class="nv">$ </span>kubectl --kubeconfig<span class="o">=</span>/etc/kubernetes/admin.conf get node ip-172-31-34-200.eu-west-1.compute.internal -o<span class="o">=</span>json <span class="p">|</span> grep -C <span class="m">1</span> ExternalIP
+                <span class="s2">&quot;address&quot;</span>: <span class="s2">&quot;52.31.250.27&quot;</span>,
+                <span class="s2">&quot;type&quot;</span>: <span class="s2">&quot;ExternalIP&quot;</span>
+            <span class="o">}</span>,</code></pre></div>
+
+</div>
+
 <h3 id="add-the-node-label-affinity-policy">Add the node label affinity policy</h3>
 
 <p>For this example, we’ll use the <a href="https://github.com/alien4cloud/samples/tree/master/org/alien4cloud/doc/kube/topology/02-simple-apache-affinity">02-simple-apache-affinity</a> topology.</p>
@@ -224,7 +237,11 @@ Find the <strong>nodePort</strong> value.</p>
 
 <p>You must tag get an existing tag for a given node of your Kube cluster (the tag will be used by the concrete Kube policy).</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">TODO: decribe K8S node tag operation.</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="o">[</span>ec2-user@ip-172-31-42-102 xdeWork<span class="o">]</span><span class="nv">$ </span>kubectl --kubeconfig<span class="o">=</span>/etc/kubernetes/admin.conf get nodes
+NAME                                          STATUS    ROLES     AGE       VERSION
+ip-172-31-34-200.eu-west-1.compute.internal   Ready     &lt;none&gt;    6d        v1.8.4
+<span class="o">[</span>ec2-user@ip-172-31-42-102 xdeWork<span class="o">]</span><span class="nv">$ </span>kubectl --kubeconfig<span class="o">=</span>/etc/kubernetes/admin.conf label nodes ip-172-31-34-200.eu-west-1.compute.internal <span class="nv">Mylabel</span><span class="o">=</span>MyLabelValue1
+node <span class="s2">&quot;ip-172-31-34-200.eu-west-1.compute.internal&quot;</span> labeled</code></pre></div>
 
 <p>At deployment stage, ensure the topology policy match the location policy of type <code>org.alien4cloud.kubernetes.api.policies.NodeAffinityLabel</code>. Edit the policy property <strong>matchExpressions</strong> in order to have :</p>
 
@@ -267,7 +284,7 @@ ubuntu@ip-172-31-19-47:~<span class="nv">$ </span>kubectl get service apache-htt
 
 <p>In this example, we’ll see how we can share a same volume between 2 containers in the same pod.</p>
 
-<p><img src="../../images/kubernetes_walkthrough/topologie-04-simple-apache-emptyDir.png" alt="Topology" style="width: 400px; margin: 0 auto" /></p>
+<p><img src="../../images/kubernetes_walkthrough/topologie-04-simple-apache-emptyDir.png" alt="Topology" style="width: 200px; margin: 0 auto" /></p>
 
 <p>The volume is attached to the 2 container:</p>
 
@@ -287,11 +304,30 @@ ubuntu@ip-172-31-19-47:~<span class="nv">$ </span>kubectl get service apache-htt
 
 <p>For this example, we’ll use the <a href="https://github.com/alien4cloud/samples/tree/master/org/alien4cloud/doc/kube/topology/05-nodecellar-mongo">05-nodecellar-mongo</a> topology.</p>
 
+<p>In this example, we’ll connect 2 containers: the Nodecellar will connect to a Mongo database. The modifier will create a service in front of the Mongo container so it can be accessed using a <a href="https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services---service-types">clusterIp</a>, wherever it is deployed on the cluster.</p>
+
 <p><img src="../../images/kubernetes_walkthrough/05-nodecellar-mongo-topology.png" alt="Topology" style="width: 500px; margin: 0 auto" /></p>
+
+<p>Find the port of the Nodecellar service:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="o">[</span>ec2-user@ip-172-31-42-102 ~<span class="o">]</span><span class="nv">$ </span>kubectl --kubeconfig<span class="o">=</span>/etc/kubernetes/admin.conf get services
+NAME                                            TYPE        CLUSTER-IP       EXTERNAL-IP   PORT<span class="o">(</span>S<span class="o">)</span>           AGE
+default-http-backend                            ClusterIP   10.152.183.167   &lt;none&gt;        80/TCP            6d
+kubernetes                                      ClusterIP   10.152.183.1     &lt;none&gt;        443/TCP           6d
+mongo-mongo-db-service--601356641               NodePort    10.152.183.158   &lt;none&gt;        27017:31992/TCP   5m
+nodecellar-nodecellar-app-service--1210144207   NodePort    10.152.183.153   &lt;none&gt;        3000:32353/TCP    4m</code></pre></div>
+
+<p>Here, the port was <strong>32353</strong>.</p>
+
+<p><img src="../../images/kubernetes_walkthrough/06-nodecellar-mongo-antiaffinity-test.png" alt="Test" style="width: 600px; margin: 0 auto" /></p>
+
+<p>To ensure the Nocellar is actually connected to the Mongo, start browsing the cellar.</p>
 
 <h3 id="manually-scale-the-nodecellar">Manually scale the Nodecellar</h3>
 
-<p>TBD</p>
+<p>To manually scale the application frontend, go to the runtime view and click to the <strong>CellarDeployment_Resource</strong> node and use the <code>org.alien4cloud.management.ClusterControl.scale</code> operation.</p>
+
+<p><img src="../../images/kubernetes_walkthrough/05-nodecellar-mongo-manuallyscale.png" alt="Test" /></p>
 
 <h3 id="add-the-anti-affinity-policy">Add the anti-affinity policy</h3>
 
@@ -322,6 +358,29 @@ metrics:
       targetAverageUtilization: 10</code></pre></div>
 
 <p>Generate load on the server (use JMeter for example) and ensure the frontend pod is actually scalled.</p>
+
+<p>Inspired from <a href="https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/">K8S doc</a> you can try this (replace nodeIp:nodePort by the correct values):</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>kubectl run -i --tty load-generator --image<span class="o">=</span>busybox /bin/sh
+
+Hit enter <span class="k">for</span> <span class="nb">command </span>prompt
+
+<span class="nv">$ </span><span class="k">while</span> <span class="nb">true</span><span class="p">;</span> <span class="k">do</span> wget -q -O- http://nodeIp:nodePort<span class="p">;</span> <span class="k">done</span></code></pre></div>
+
+<div class="note info">
+<p>Since the wget will be done from inside the cluster (on a container hosted on the cluster), we are able to target the cluster IP and the port 3000 of the service (the one defined in the Nodecellar container).</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="o">[</span>ec2-user@ip-172-31-42-102 ~<span class="o">]</span><span class="nv">$ </span>kubectl --kubeconfig<span class="o">=</span>/etc/kubernetes/admin.conf get services
+NAME                                            TYPE        CLUSTER-IP       EXTERNAL-IP   PORT<span class="o">(</span>S<span class="o">)</span>           AGE
+default-http-backend                            ClusterIP   10.152.183.167   &lt;none&gt;        80/TCP            6d
+kubernetes                                      ClusterIP   10.152.183.1     &lt;none&gt;        443/TCP           6d
+mongo-mongo-db-service--1451478299              NodePort    10.152.183.174   &lt;none&gt;        27017:31239/TCP   11m
+nodecellar-nodecellar-app-service--1142367332   NodePort    10.152.183.219   &lt;none&gt;        3000:30966/TCP    10m</code></pre></div>
+
+<p>In this example, from inside the cluster, we are able to target the url <strong>http://10.152.183.219:3000</strong></p>
+</div>
+
+<p>When the Pod has been scaled, stop the load generator and wait for minutes, the Autoscaler will scale down to 1 instance.</p>
 
         <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/2.0.0/orchestrators/kubernetes/kubernetes_walkthrough.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
 	  </div>
