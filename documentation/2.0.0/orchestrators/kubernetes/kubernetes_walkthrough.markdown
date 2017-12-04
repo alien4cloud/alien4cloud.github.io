@@ -165,6 +165,19 @@ You can test your apache using one of the cluster node public IP and the nodePor
 <br>
 ![ServiceNodePort](../../images/kubernetes_walkthrough/working-apache.png){: style="width: 400px; margin: 0 auto"}
 
+{% info %}
+When a endpoint is exposed by a service, it is joinable through one of the cluster node external IP.
+{% highlight bash%}
+[ec2-user@ip-172-31-42-102 ~]$ kubectl --kubeconfig=/etc/kubernetes/admin.conf get nodes
+NAME                                          STATUS    ROLES     AGE       VERSION
+ip-172-31-34-200.eu-west-1.compute.internal   Ready     <none>    6d        v1.8.4
+[ec2-user@ip-172-31-42-102 ~]$ kubectl --kubeconfig=/etc/kubernetes/admin.conf get node ip-172-31-34-200.eu-west-1.compute.internal -o=json | grep -C 1 ExternalIP
+                "address": "52.31.250.27",
+                "type": "ExternalIP"
+            },
+{% endhighlight %}
+{% endinfo %}
+
 ### Add the node label affinity policy
 
 For this example, we'll use the [02-simple-apache-affinity](https://github.com/alien4cloud/samples/tree/master/org/alien4cloud/doc/kube/topology/02-simple-apache-affinity) topology.
@@ -176,7 +189,11 @@ We now want to specify the node onto our pod will be deployed. For that we'll us
 You must tag get an existing tag for a given node of your Kube cluster (the tag will be used by the concrete Kube policy).
 
 {% highlight bash%}
-TODO: decribe K8S node tag operation.
+[ec2-user@ip-172-31-42-102 xdeWork]$ kubectl --kubeconfig=/etc/kubernetes/admin.conf get nodes
+NAME                                          STATUS    ROLES     AGE       VERSION
+ip-172-31-34-200.eu-west-1.compute.internal   Ready     <none>    6d        v1.8.4
+[ec2-user@ip-172-31-42-102 xdeWork]$ kubectl --kubeconfig=/etc/kubernetes/admin.conf label nodes ip-172-31-34-200.eu-west-1.compute.internal Mylabel=MyLabelValue1
+node "ip-172-31-34-200.eu-west-1.compute.internal" labeled  
 {% endhighlight %}
 
 At deployment stage, ensure the topology policy match the location policy of type `org.alien4cloud.kubernetes.api.policies.NodeAffinityLabel`. Edit the policy property **matchExpressions** in order to have :
@@ -224,7 +241,7 @@ For this example, we'll use the [04-simple-apache-emptyDir](https://github.com/a
 
 In this example, we'll see how we can share a same volume between 2 containers in the same pod.
 
-![Topology](../../images/kubernetes_walkthrough/topologie-04-simple-apache-emptyDir.png){: style="width: 400px; margin: 0 auto"}
+![Topology](../../images/kubernetes_walkthrough/topologie-04-simple-apache-emptyDir.png){: style="width: 200px; margin: 0 auto"}
 
 The volume is attached to the 2 container:
 
@@ -242,11 +259,32 @@ The SidecarContainer is a busybox that just just echo 'Hello World' into a file 
 
 For this example, we'll use the [05-nodecellar-mongo](https://github.com/alien4cloud/samples/tree/master/org/alien4cloud/doc/kube/topology/05-nodecellar-mongo) topology.
 
+In this example, we'll connect 2 containers: the Nodecellar will connect to a Mongo database. The modifier will create a service in front of the Mongo container so it can be accessed using a [clusterIp](https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services---service-types), wherever it is deployed on the cluster.
+
 ![Topology](../../images/kubernetes_walkthrough/05-nodecellar-mongo-topology.png){: style="width: 500px; margin: 0 auto"}
+
+Find the port of the Nodecellar service:
+
+{% highlight bash%}
+[ec2-user@ip-172-31-42-102 ~]$ kubectl --kubeconfig=/etc/kubernetes/admin.conf get services
+NAME                                            TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)           AGE
+default-http-backend                            ClusterIP   10.152.183.167   <none>        80/TCP            6d
+kubernetes                                      ClusterIP   10.152.183.1     <none>        443/TCP           6d
+mongo-mongo-db-service--601356641               NodePort    10.152.183.158   <none>        27017:31992/TCP   5m
+nodecellar-nodecellar-app-service--1210144207   NodePort    10.152.183.153   <none>        3000:32353/TCP    4m
+{% endhighlight %}
+
+Here, the port was **32353**.
+
+![Test](../../images/kubernetes_walkthrough/06-nodecellar-mongo-antiaffinity-test.png){: style="width: 600px; margin: 0 auto"}
+
+To ensure the Nocellar is actually connected to the Mongo, start browsing the cellar.
 
 ### Manually scale the Nodecellar
 
-TBD
+To manually scale the application frontend, go to the runtime view and click to the **CellarDeployment_Resource** node and use the `org.alien4cloud.management.ClusterControl.scale` operation.
+
+![Test](../../images/kubernetes_walkthrough/05-nodecellar-mongo-manuallyscale.png)
 
 ### Add the anti-affinity policy
 
@@ -279,3 +317,30 @@ metrics:
 {% endhighlight %}
 
 Generate load on the server (use JMeter for example) and ensure the frontend pod is actually scalled.
+
+Inspired from [K8S doc](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/) you can try this (replace nodeIp:nodePort by the correct values):
+
+{% highlight bash %}
+$ kubectl run -i --tty load-generator --image=busybox /bin/sh
+
+Hit enter for command prompt
+
+$ while true; do wget -q -O- http://nodeIp:nodePort; done
+{% endhighlight %}
+
+{% info %}
+Since the wget will be done from inside the cluster (on a container hosted on the cluster), we are able to target the cluster IP and the port 3000 of the service (the one defined in the Nodecellar container).
+
+{% highlight bash %}
+[ec2-user@ip-172-31-42-102 ~]$ kubectl --kubeconfig=/etc/kubernetes/admin.conf get services
+NAME                                            TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)           AGE
+default-http-backend                            ClusterIP   10.152.183.167   <none>        80/TCP            6d
+kubernetes                                      ClusterIP   10.152.183.1     <none>        443/TCP           6d
+mongo-mongo-db-service--1451478299              NodePort    10.152.183.174   <none>        27017:31239/TCP   11m
+nodecellar-nodecellar-app-service--1142367332   NodePort    10.152.183.219   <none>        3000:30966/TCP    10m
+{% endhighlight %}
+
+In this example, from inside the cluster, we are able to target the url **http://10.152.183.219:3000**
+{% endinfo %}
+
+When the Pod has been scaled, stop the load generator and wait for minutes, the Autoscaler will scale down to 1 instance.
