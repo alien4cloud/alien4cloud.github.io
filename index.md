@@ -230,7 +230,7 @@ Application and environments 100% synced (deployment model always up to date)<br
     <div class="row">
       <div class="col-md-12 text-center">
         <p class="lead home-title">Need more information?</p>
-        <a href="mailto:sebastien.bergougnoux@fastconnect.fr" class="btn btn-primary btn-lg">Get in touch</a>
+        <a href="mailto:sebastien.bergougnoux@atos.net" class="btn btn-primary btn-lg">Get in touch</a>
     </div>
   </div>
 </div>
