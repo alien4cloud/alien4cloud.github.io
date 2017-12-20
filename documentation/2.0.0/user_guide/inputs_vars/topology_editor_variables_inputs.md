@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Variables and préconfigured inputs
+title: Variables and pre-configured inputs
 root: ../../../
 categories: DOCUMENTATION-2.0.0
 parent: [user_guide, topology_editor]
@@ -8,11 +8,11 @@ node_name: topology_editor_var_inputs
 weight: 170
 ---
 
-From version `2.0.0`, Alien 4 cloud provides a way to define a set of key/value data called variables, that can be used to configure a deployment on different environements.  
+From version `2.0.0`, Alien 4 cloud provides a way to define a set of key/value data called variables, that can be used to configure a deployment on different environments.  
 This section details what is the purpose of variables, how they work, and how a user can manage (define and reference) these on a deployment.
 
 #Goal
-Inputs can be defined when designing the application topology. Generally, they are use to customize the deployment of the topology on different environements. The deployer should then, fill them up, according to some information such as the context, the environement type, the location, etc. You can have many of them, and it can sometimes be a burden for the deployer to fill them up, especially when they do not change that much between deployments and environments.
+Inputs can be defined when designing the application topology. Generally, they are used to customize the deployment of the topology on different environments. The deployer should then, fill them up, according to some information such as the context, the environment type, the location, etc. You can have many of them, and it can sometimes be a burden for the deployer to fill them up, especially when they do not change that much between deployments and environments.
 The purpose of the variables in alien4cloud is, in general to ease such tasks, but more:
 
 - Defining reusable informations for inputs,

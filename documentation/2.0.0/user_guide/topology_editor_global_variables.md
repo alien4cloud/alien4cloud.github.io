@@ -7,6 +7,11 @@ parent: [user_guide, topology_editor]
 node_name: topology_editor_global_variables
 weight: 150
 ---
+{%warning%}
+<h5>Deprecated</h5>
+This way of accessing global variables (provided variables) is deprecated.
+Check [Variables and pre-configured inputs](#/documentation/2.0.0/user_guide/inputs_vars/topology_editor_variables_inputs.html) instead.
+{%endwarning%}
 
 Alien 4 cloud provide a very convenient system that allows to reference contextual (application/location) variables in a topology through the usage of TOSCA input functions. This section details how you can reference this variables in the topology and how they work.
 
