@@ -10,7 +10,7 @@ weight: 100
 
 {% summary %}{% endsummary %}
 
-In alien4cloud you actually deploy an environment of an application, in order to prepare and trigger your deployment first go to the deployment page ![Deployment navigation menu](../../images/2.0.0/user_guide/applications/app_deploy_menu.png){: height="26px" .inline}
+In alien4cloud you actually deploy an environment of an application, in order to prepare and trigger your deployment first choose your environment in the application details page. 
 
 Before deploying your environment you have to configure the deployment, and alien4cloud will drive the user into comprehensive sequential steps in order to archive it.
 
@@ -27,7 +27,9 @@ There is two types of inputs:
 
 Inputs may be optional or required, if any required input is not defined alien4cloud will display a `todo list` and prevent the user for going to the next configuration step.
 
-[![Deployment inputs](../../images/user_guide/application/deployment/user_guide_deployment_setup_inputs.png)](../../images/user_guide/application/deployment/user_guide_deployment_setup_inputs.png)
+Inputs may be a secret that will be retrieved later at deployment time by clicking on ![Go to admin](../../images/2.0.0/user_guide/topology_editor/secret_property _button.png){: .inline}.
+
+[![Deployment inputs](../../images/2.0.0/user_guide/applications/deployment/user_guide_deployment_setup_inputs.png)](../../images/2.0.0/user_guide/application/deployment/user_guide_deployment_setup_inputs.png)
 
 Once all required inputs are defined, the *location selection* step is unlocked.
 
@@ -40,7 +42,7 @@ Note that the access may be configured per user or per application/ application 
 You can select among the displayed location, the one on which you would like to deploy.  
 The proposed locations are determined by matching every existing location against the topology, done by a matcher plugin.  
 
-[![Configure your deployment](../../images/user_guide/application/deployment/user_guide_deployment_setup.png)](../../images/user_guide/application/deployment/user_guide_deployment_setup.png)
+[![Configure your deployment](../../images/2.0.0/user_guide/applications/deployment/user_guide_deployment_setup.png)](../../images/2.0.0/user_guide/applications/deployment/user_guide_deployment_setup.png)
 
  For now, note that if no matching plugin is configured by the administrator, a default matcher is used, checking the following:
 
@@ -52,24 +54,28 @@ The proposed locations are determined by matching every existing location agains
 Next step is to substitute some abstract nodes from your topology with resources provided by the selected location.  
 In the meantime, you can edit some properties if you need to.
 
-[![Node substitution](../../images/user_guide/application/deployment/user_guide_deployment_setup_substitution.png)](../../images/user_guide/application/deployment/user_guide_deployment_setup_substitution.png)
+[![Node substitution](../../images/2.0.0/user_guide/applications/deployment/user_guide_deployment_setup_substitution.png)](../../images/2.0.0/user_guide/applications/deployment/user_guide_deployment_setup_substitution.png)
 
 # Deploy
 This is the last step. If the orchestrator defined some deployment properties, here is the place to fill them up.  
 You can also decide (if possible) if you want to expose your deployment as a service. ([More about services here...](#/documentation/2.0.0/concepts/services.html))
 
-[![deploy](../../images/user_guide/application/deployment/deployment_deploy.png)](../../images/user_guide/application/deployment/deployment_deploy.png)
+[![deploy](../../images/2.0.0/user_guide/applications/deployment/deployment_deploy.png)](../../images/2.0.0/user_guide/applications/deployment/deployment_deploy.png)
 
 A final validation is made, taking into account everything that has been configured up until now, and eventually errors are displayed.  
 
 If your topology is valid and ready for deployment, you can hit the deploy button to proceed.  
 
-You can now follow the deployement progress on the [runtime view](#/documentation/2.0.0/user_guide/application_runtime.html).
+You can now follow the deployment progress on the [runtime view](#/documentation/2.0.0/user_guide/application_runtime.html).
 
 
 ## Secret management
 
-If your location if configured to support a secret manager, a modal will request your credentials for this secret manager for any operation of an deployed environment.
+If a secret provider (such as HashiCorp Vault) is associated with the location of the environment, the deployer will be asked to enter the credentials to access to the secret vault.
+
+The credentials will be checked and used by Alien4Cloud and the underlying orchestrator to resolve secrets declared in your deployment (inputs, properties etc ...).
+
+If your deployment does not need to access to a secret vault, you can click on Skip but then the deployment will fail if a secret is found in the deployment.
 
 [![credential_modal](../../images/2.0.0/user_guide/applications/deployment/credential_modal.png)](../../images/2.0.0/user_guide/applications/deployment/credential_modal.png)
 

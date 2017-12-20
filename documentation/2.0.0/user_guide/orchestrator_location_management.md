@@ -186,4 +186,9 @@ must see constraint violation error if any in this location meta-properties form
 
 ### Security
 
-To manage the authorizations on location, refear to [this page](#/documentation/2.0.0/user_guide/location_autorization.html).
+To manage the authorizations on location, please refer to [this page](#/documentation/2.0.0/user_guide/location_autorization.html).
+
+
+### Secret
+
+To associate a secret provider (such as HashiCorp Vault) to the location, please refer to [this page](#/documentation/2.0.0/user_guide/location_secret.html).
