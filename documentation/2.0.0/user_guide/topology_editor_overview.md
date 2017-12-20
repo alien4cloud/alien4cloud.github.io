@@ -31,9 +31,9 @@ When you try to leave the editor, if there are pending (unsaved) operations, a p
 - __Save__: Will trigger a save action on all pending operations.
 - __Skip__: Will not trigger the save action. Note that this __WILL NOT CLEAR__ the pending operations. Therefore, you will still have them when comming back on the editor, as long as your edit session hasn't expired.
 
-{%note%}
+{%info%}
 <h5>Shortcuts</h5>
 _Save_, _undo_ and _redo_ are the first shortcuts that we have introduced in the alien 4 cloud editor. We will add some more shortcuts in the future versions, join us on slack and ask for your favorites shortcuts or even better contribute to the project and make things happen!
 
-To get the list of all shortcuts available press the _?_ key.
-{%endnote%}
+To get the list of all shortcuts available press the ___?___ key.
+{%endinfo%}
