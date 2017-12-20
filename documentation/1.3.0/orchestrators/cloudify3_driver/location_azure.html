@@ -104,9 +104,11 @@ This storage account will be deleted when undeploying the application.</p>
   </li>
   <li>
     <p>Let’s configure a compute which use an public key auth only. Click the configuration property of the Compute node and add a public key as in the screenshot.
-<a href="../../images/cloudify3_driver/azure_ondemand_resource_ubuntu_user_config.png" title="User configuration"><img src="../../images/cloudify3_driver/azure_ondemand_resource_ubuntu_user_config.png" alt="User configuration" title="User configuration" /></a>
-- The <code>path</code> property specifies the full path on the created VM where ssh public key is stored.
-- The <code>keyData</code> property is the SSH public key certifiate used to authenticate with the VM through ssh. The key needs to be at least 2048-bit and in ssh-rsa format.</p>
+<a href="../../images/cloudify3_driver/azure_ondemand_resource_ubuntu_user_config.png" title="User configuration"><img src="../../images/cloudify3_driver/azure_ondemand_resource_ubuntu_user_config.png" alt="User configuration" title="User configuration" /></a></p>
+    <ul>
+      <li>The <code>path</code> property specifies the full path on the created VM where ssh public key is stored.</li>
+      <li>The <code>keyData</code> property is the SSH public key certifiate used to authenticate with the VM through ssh. The key needs to be at least 2048-bit and in ssh-rsa format.</li>
+    </ul>
   </li>
 </ol>
 
