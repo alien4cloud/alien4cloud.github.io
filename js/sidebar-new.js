@@ -60180,7 +60180,7 @@ var node, children;
       
 
       node.name = "topology_editor_var_inputs";
-      node.title = "Variables and préconfigured inputs";
+      node.title = "Variables and pre-configured inputs";
       node.url = "documentation/2.0.0/user_guide/inputs_vars/topology_editor_variables_inputs.html";
       node.weight =  170;
       node.root = "../../../";
