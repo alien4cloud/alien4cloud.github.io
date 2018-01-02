@@ -8,10 +8,8 @@ node_name: tosca_catalog_topology_search
 weight: 210
 ---
 
-# Topology list
+Once you have created or uploaded an archive that contains a topology you should be able to see it in the browse topology tab of the catalog. Search and filters is working in a similar fashion as the components browsing tab.
 
-Once you have created / uploaded an archive that contains a topology you should be able to see it in the template list :
+![Topology template list](../../images/2.0.0/user_guide/catalog/topologies/list.png)
 
-![Topology template list](../../images/2.0.0/user_guide/topology_template_list.png)
-
-From now you can use any template when [creating a new application](#/documentation/2.0.0/user_guide/application_management.html). But before that, you might want to  [edit the topology](#/documentation/2.0.0/user_guide/topology_edition.html).
+Topology templates can be used when [creating a new application](#/documentation/2.0.0/user_guide/application_management.html). You also can view and [edit the topology](#/documentation/2.0.0/user_guide/topology_edition.html) by clicking on the desired element in the list.

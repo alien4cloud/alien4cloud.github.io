@@ -5,20 +5,17 @@ root: ../../
 categories: DOCUMENTATION-2.0.0
 parent:
   - user_guide
-  - tosca_catalog
-node_name: tosca_catalog_artifact_repositories
-weight: 400
-published: true
+  - admin
+node_name: admin_artifact_repositories
+weight: 350
 ---
 
 {% summary %}{% endsummary %}
-
 
 # How the repositories are managed
 
 When you upload a CSARs with a repository inside, Alien try to fetch the artifact from the remote repository. If this type is not supported or if
 the artifact is not available (wrong URL or wrong credential), an error is throw during the parsing. In a CSAR, I can reference a repository by this URL.
-
 
 In the components view you can define new repositories artifact configuration. This configuration offers you the ability to add credentials to your artifact resolver (which is in charge to fetch your remote artifact).
 By storing repositories artifact configuration (repository URL and credentials) into Alien4Cloud database this allow you to create a CSARs without hard-coding repositories password multiple times. Alien4Cloud will be able to retrieve the password using the repository URL.

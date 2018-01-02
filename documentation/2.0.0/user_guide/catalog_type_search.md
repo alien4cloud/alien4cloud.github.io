@@ -8,27 +8,28 @@ node_name: tosca_catalog_type_search
 weight: 110
 ---
 
-Alien4Cloud  provides ways to browse the uploaded components, with a search engine allowing filters.
+The browse components tab allows to list and search node types indexed from the various archives in alien4cloud.
 
 {%warning%}
 <h5>Roles and security</h5>
 In order to be able to search the repository you must have the _COMPONENT_BROWSER_ role.
 {%endwarning%}
 
-[![Component list](../../images/2.0.0/user_guide/catalog/types/catalog_overview.png)](../../images/2.0.0/user_guide/catalog/types/catalog_overview.png)
+![Component list](../../images/2.0.0/user_guide/catalog/types/catalog_overview.png)
 
-## How to make a simple search
+## Searching for components
 
-On the left of the components list page, there is a search pannel.<br>
-For a  simple search, just type the searched text in the seach field and press the magnifier next to it (or press the **Enter** keybord instead). The result of your research will be displayed on the center pannel.
+For a  simple search, just type the searched text in the search field and press **Enter** or click on the magnifier.
 
-## How to make a filtered search
+## Using filters
 
-You might wish to filter your search or results, for there are too many components corresponding to the simple search.
-Still on the left search pannel, you can select one or more filters (facets). You can also remove them if they do not fit you.
+Alien4cloud computes some handy facets for you to filter the search results. In order to display the available filters, just click on the filter button (![Filter button](../../images/2.0.0/user_guide/catalog/types/filter_button.png){: height="22px" .inline}).
 
-[![Component facets filters](../../images/components_guide/components-list-search-facets.png)](../../images/components_guide/components-list-search-facets.png)
+Every section can be collapsed. In order to select a filter value, just click on a proposed value.
 
+![Filters](../../images/2.0.0/user_guide/catalog/types/filters.png)
+
+In order to remove a filter, just click on it in the search bar (![Filter button](../../images/2.0.0/user_guide/catalog/types/remove_filter.png){: height="22px" .inline}).
 
 {% info %}
 Note that when more than one filter are selected, Alien4Cloud applies an AND policy.
@@ -36,6 +37,6 @@ Note that when more than one filter are selected, Alien4Cloud applies an AND pol
 
 ## Component overview
 
-In order to see components details (description, inheritance, properties, capabilities, requirements, attributes etc.) you can just click on it and the following screen will be displayed:
+In order to see components details (description, inheritance, properties, capabilities, requirements, attributes etc.) just click on it and the following screen will be displayed:
 
 [![Component details](../../images/2.0.0/user_guide/catalog/types/component_details.png)](../../images/2.0.0/user_guide/catalog/types/component_details.png)
