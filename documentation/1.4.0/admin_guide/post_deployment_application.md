@@ -23,6 +23,10 @@ You can deploy the post deployment application where ever suits you, but note th
 For example, for the users of the cloudify 3 orchestrator plugin, it is possible to deploy it on your manager instance. Just make sure to open the configured ports.
 {%endinfo%}
 
+# Download
+The application is owned by Alien4Cloud premium dist. Here is the link to download it
+<a href="http://fastconnect.org/maven/service/local/artifact/maven/redirect?r=fastconnect&g=alien4cloud&a=alien4cloud-postdeployment-rest&v={{ site.last-version }}&p=zip"><i class="fa fa-download"></i> Alien 4 Cloud Post Deployment Application</a>
+
 # Installation
 The application already contains a basic configuration that is good enough for test environment. However in order to move into production, you should customize the configuration.
 
