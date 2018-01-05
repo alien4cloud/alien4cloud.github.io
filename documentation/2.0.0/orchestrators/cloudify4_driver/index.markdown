@@ -5,7 +5,7 @@ root: ../../../
 categories: DOCUMENTATION-2.0.0
 parent: [orchestrators]
 node_name: cloudify_4
-weight: 3000
+weight: 1000
 ---
 
 cloudify 4 is an opensource orchestrator backed by GigaSpaces that aims to support deployment on various different locations.
