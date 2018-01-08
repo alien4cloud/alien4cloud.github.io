@@ -1,0 +1,74 @@
+---
+layout: post
+title:  ALIEN for Cloud 2.0.0-SM3
+root: ../
+categories: RELEASE_NOTES
+parent: [release_note]
+node_name: 2.0.0-SM3
+weight: 9929
+exclude_from_search: true
+---
+
+
+
+
+<i class="fa fa-plus text-success"></i> New feature <i class="fa fa-level-up text-primary"></i> Improvement  <i class="fa fa-bug text-danger"></i> Bug <i class="fa fa-exclamation-triangle text-warning"></i> Breaking change
+
+
+### Cloudify 4 PaaS Provider
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+        |  <i class="fa fa-bug text-danger"></i> | ALIEN-2553 | Fix error during undeployment of invalid blueprint  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2575 | Fix wrong return on the get_attribute TOSCA function  |
+  
+
+
+### Alien 4 Cloud Premium
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-2583 | Support for anti-affinity policy in kubernetes plugin.  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-2584 | Kubernetes plugin allows processing of agnostics container elements into kubernetes TOSCA nodes, including support of services and policies.  |
+    
+
+
+### Alien 4 Cloud
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-2567 | Allow configuration of location modifier in the admin section.  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-2594 | Add TOSCA YAML export of policy templates.  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-2597 | TOSCA yaml export now includes node templates metadata.  |
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-2133 | Workflows that are not custom are not generated in yaml view anymore.  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-2531 | Improved the selection of topology template when creating a new application or a new application version.  |
+      |  <i class="fa fa-bug text-danger"></i> | ALIEN-2545 | Fixed the display of version selection box when adding components in the editor.  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2559 | Fixed a minor issue in orchestrator left menu display.  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2560 | Add back update button that disappeared with ui refactoring in 2.0.0-SM1  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2572 | Fixed deployment outputs display  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2596 | Fixed a bug in workflow cycle detection algorithm causing an excessive heap consumption.  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2602 | Fixed issue with node matching preventing to select a location when configuring the next deployment of an environement.  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2609 | Fixed a workflow parsing bug when a step has no activities.  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2610 | Fixed an issue preventing topology update to change accordingly the archive version for artifacts.  |
+  
+
+
+### Cloudify 4 PaaS Provider Premium
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+        |  <i class="fa fa-bug text-danger"></i> | ALIEN-2604 | Fix bug on block storage volume ID  |
+  
+
