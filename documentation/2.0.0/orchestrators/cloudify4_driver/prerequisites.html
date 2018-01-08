@@ -28,21 +28,31 @@ ga('send', 'pageview');
         </div>
         <p>Here are some prerequisite steps that need to be done in order to use the cloudify 4 driver.</p>
 
-<h2 id="install-cloudify-40">Install cloudify 4.0</h2>
+<h2 id="install-cloudify-411">Install Cloudify 4.1.1</h2>
 
-<p>How to install cloudify 4.0 is described <a href="http://docs.getcloudify.org/4.0.0/intro/what-is-cloudify/">here.</a></p>
+<p>How to install cloudify 4.1.1 is described <a href="http://docs.getcloudify.org/4.1.0/installation/from-packages/" target="_blank">here</a>.</p>
 
 <h2 id="bootstrap-your-manager">Bootstrap your manager</h2>
 
-<p>How to bootstrap cloudify 4.0 is described <a href="http://docs.getcloudify.org/4.0.0/manager/bootstrapping/">here.</a></p>
+<p>How to bootstrap cloudify 4.1.1 is described <a href="http://docs.getcloudify.org/4.1.0/installation/bootstrapping/" target="_blank">here</a>.</p>
 
 <div class="note warning">
-<p>Note that cloudify 4.0 only support bootstraping on CentOS 7.x or RHEL 7.x.</p>
+<p>Note that cloudify 4.1.1 only support bootstraping on CentOS 7.x or RHEL 7.x.</p>
 </div>
+
+<p>Here a simple snippet to bootstrap the manager:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">curl -LO http://repository.cloudifysource.org/cloudify/4.1.1/ga-release/cloudify-enterprise-cli-4.1.1ga.rpm
+sudo rpm -i http://repository.cloudifysource.org/cloudify/4.1.1/ga-release/cloudify-enterprise-cli-4.1.1ga.rpm
+<span class="c"># Edit /opt/cfy/cloudify-manager-blueprints/simple-manager-blueprint-inputs.yaml</span>
+<span class="c"># Then bootstrap the manager</span>
+<span class="nb">cd</span> /opt/cfy/cloudify-manager-blueprints
+sudo cfy bootstrap simple-manager-blueprint.yaml -i simple-manager-blueprint-inputs.yaml</code></pre></div>
 
 <h2 id="secure-your-manager">Secure your manager</h2>
 
-<p>How to secure your manager is described <a href="http://docs.getcloudify.org/4.0.0/manager/security/">here.</a></p>
+<p>Starting from 4.0, Cloudify’s manager is secured by default using a username/password with a default SSL on the nginx for the REST API and the WebUI.<br />
+At bootstrap, it will generate a private certificate for internal communications between manager’s component and its agents.</p>
 
 <div class="note warning">
 <p>Following configuration is only suitable for testing purpose, in production you should customize with your own own configuration.</p>
@@ -50,17 +60,27 @@ ga('send', 'pageview');
 
 <p>To perform a rapid test of the feature, you can just enable those following keys in the bootstrap inputs</p>
 
+<h3 id="setting-the-crendentials">Setting the crendentials</h3>
+
+<p>By default, the username is ‘admin’ with a generated password at bootstrap.<br />
+If you want to set your password, uncomment and edit the following keys in the inputs file.</p>
+
 <div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">admin_username</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">admin</span>
-<span class="l-Scalar-Plain">admin_password</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">admin</span>
-<span class="l-Scalar-Plain">ssl_enabled</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
-<span class="l-Scalar-Plain">security_enabled</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span></code></pre></div>
+<span class="l-Scalar-Plain">admin_password</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">admin</span></code></pre></div>
 
-<p>In the shell that you’ll use to bootstrap cloudify you should export those following variables</p>
+<h3 id="setting-the-nginx-ssl">Setting the Nginx SSL</h3>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">export </span><span class="nv">CLOUDIFY_SSL_TRUST_ALL</span><span class="o">=</span>True
-<span class="nb">export </span><span class="nv">CLOUDIFY_USERNAME</span><span class="o">=</span>admin
-<span class="nb">export </span><span class="nv">CLOUDIFY_PASSWORD</span><span class="o">=</span>admin</code></pre></div>
+<p>If not provided, The bootstrap workflow will generate default a key and a certificate for the external communication with NGinx (REST API &amp; WebUI).
+You can generate and provide your own certificate by copy it into  /opt/cfy/cloudify-manager-blueprints/resources/ssl
+Make sure you name it <code>cloudify_external_cert.pem</code> and <code>cloudify_external_key.pem</code>.</p>
 
+<h2 id="additional-configuration-steps">Additional configuration steps</h2>
+
+<ul>
+  <li><a href="#/documentation/1.4.0/orchestrators/cloudify4_driver/prerequisites_patches.html">Cloudify 4.x patches</a></li>
+  <li><a href="#/documentation/1.4.0/orchestrators/cloudify4_driver/prerequisites_logs.html">Deployment logs configuration</a></li>
+  <li><a href="#/documentation/1.4.0/orchestrators/cloudify4_driver/prerequisites_offline.html">Offline configuration</a></li>
+</ul>
 
         <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/2.0.0/orchestrators/cloudify4_driver/prerequisites.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
 	  </div>
