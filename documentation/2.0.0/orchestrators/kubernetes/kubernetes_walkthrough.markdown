@@ -344,3 +344,11 @@ In this example, from inside the cluster, we are able to target the url **http:/
 {% endinfo %}
 
 When the Pod has been scaled, stop the load generator and wait for minutes, the Autoscaler will scale down to 1 instance.
+
+## A Nodecellar container connecting to a Mongo DB deployed on a VM (hybrid topology)
+
+For this example, we'll use the [08-nodecellar-mongo-hybrid](https://github.com/alien4cloud/samples/tree/master/org/alien4cloud/doc/kube/topology/08-nodecellar-mongo-hybrid) topology.
+
+In this example, we'll connect a container to an external service: the Nodecellar will connect to a Mongo database that is deployed onto a classical VM (a container/VM hybrid topology). The modifier will create a slector less service in front of the Mongo
+
+![Topology](../../images/kubernetes_walkthrough/08-nodecellar-mongo-hybrid-topology.png){: style="width: 500px; margin: 0 auto"}
