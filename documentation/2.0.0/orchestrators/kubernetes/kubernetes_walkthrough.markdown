@@ -349,6 +349,6 @@ When the Pod has been scaled, stop the load generator and wait for minutes, the 
 
 For this example, we'll use the [08-nodecellar-mongo-hybrid](https://github.com/alien4cloud/samples/tree/master/org/alien4cloud/doc/kube/topology/08-nodecellar-mongo-hybrid) topology.
 
-In this example, we'll connect a container to an external service: the Nodecellar will connect to a Mongo database that is deployed onto a classical VM (a container/VM hybrid topology). The modifier will create a slector less service in front of the Mongo
+In this example, we'll connect a container to an external service: the Nodecellar will connect to a Mongo database that is deployed onto a classical VM (a container/VM hybrid topology). The modifier will create a [selector less service](https://kubernetes.io/docs/concepts/services-networking/service/#services-without-selectors) in front of the Mongo.
 
 ![Topology](../../images/kubernetes_walkthrough/08-nodecellar-mongo-hybrid-topology.png){: style="width: 500px; margin: 0 auto"}
