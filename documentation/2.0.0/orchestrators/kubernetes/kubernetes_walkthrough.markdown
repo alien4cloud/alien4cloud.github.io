@@ -180,7 +180,7 @@ ip-172-31-34-200.eu-west-1.compute.internal   Ready     <none>    6d        v1.8
 
 ### Add the node label affinity policy
 
-For this example, we'll use the [02-simple-apache-affinity](https://github.com/alien4cloud/samples/tree/master/org/alien4cloud/doc/kube/topology/02-simple-apache-affinity) topology.
+For this example, we'll use the [02-simple-apache-affinity](https://github.com/alien4cloud/samples/blob/master/org/alien4cloud/doc/kube/topology/02-simple-apache-affinity/tosca.yaml) topology.
 
 ![Topology](../../images/kubernetes_walkthrough/02-simple-apache-affinity-topology.png){: style="width: 200px; margin: 0 auto"}
 
@@ -209,7 +209,7 @@ Deploy and ensure the Deployment is effectively deployed on the chosen node. To 
 
 ### Attach a hostpath volume
 
-For this example, we'll use the [03-simple-apache-hostPath](https://github.com/alien4cloud/samples/tree/master/org/alien4cloud/doc/kube/topology/03-simple-apache-hostPath) topology.
+For this example, we'll use the [03-simple-apache-hostPath](https://github.com/alien4cloud/samples/tree/master/org/alien4cloud/doc/kube/topology/03-simple-apache-hostPath/tosca.yaml) topology.
 
 ![Topology](../../images/kubernetes_walkthrough/topologie-03-simple-apache-hostPath.png){: style="width: 200px; margin: 0 auto"}
 
@@ -237,7 +237,7 @@ The port is 31455. Change security group and test the endpoint.
 
 ### Attach an emptyDir volume
 
-For this example, we'll use the [04-simple-apache-emptyDir](https://github.com/alien4cloud/samples/tree/master/org/alien4cloud/doc/kube/topology/04-simple-apache-emptyDir) topology.
+For this example, we'll use the [04-simple-apache-emptyDir](https://github.com/alien4cloud/samples/tree/master/org/alien4cloud/doc/kube/topology/04-simple-apache-emptyDir/tosca.yaml) topology.
 
 In this example, we'll see how we can share a same volume between 2 containers in the same pod.
 
@@ -257,7 +257,7 @@ The SidecarContainer is a busybox that just just echo 'Hello World' into a file 
 
 ## A Nodecellar connecting to a Mongo
 
-For this example, we'll use the [05-nodecellar-mongo](https://github.com/alien4cloud/samples/tree/master/org/alien4cloud/doc/kube/topology/05-nodecellar-mongo) topology.
+For this example, we'll use the [05-nodecellar-mongo](https://github.com/alien4cloud/samples/tree/master/org/alien4cloud/doc/kube/topology/05-nodecellar-mongo/tosca.yaml) topology.
 
 In this example, we'll connect 2 containers: the Nodecellar will connect to a Mongo database. The modifier will create a service in front of the Mongo container so it can be accessed using a [clusterIp](https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services---service-types), wherever it is deployed on the cluster.
 
@@ -288,7 +288,7 @@ To manually scale the application frontend, go to the runtime view and click to 
 
 ### Add the anti-affinity policy
 
-For this example, we'll use the [05-nodecellar-mongo](https://github.com/alien4cloud/samples/tree/master/org/alien4cloud/doc/kube/topology/06-nodecellar-mongo-antiaffinity) topology.
+For this example, we'll use the [05-nodecellar-mongo](https://github.com/alien4cloud/samples/tree/master/org/alien4cloud/doc/kube/topology/06-nodecellar-mongo-antiaffinity/tosca.yaml) topology.
 
 In this topology we want to avoid the Nodecellar and the Mongo deployments to be collocated (deployed on the same cluster node). For that we use an `org.alien4cloud.policies.AntiAffinity` that targets these two nodes.
 
@@ -298,7 +298,7 @@ At the deployment setup, during the matching phase, ensure the policy is matched
 
 ### Add the auto scaling policy
 
-For this example, we'll use the [07-nodecellar-mongo-autoscalling](https://github.com/alien4cloud/samples/tree/master/org/alien4cloud/doc/kube/topology/07-nodecellar-mongo-autoscalling) topology.
+For this example, we'll use the [07-nodecellar-mongo-autoscalling](https://github.com/alien4cloud/samples/tree/master/org/alien4cloud/doc/kube/topology/07-nodecellar-mongo-autoscalling/tosca.yaml) topology.
 
 In this topology we have added a policy of type `tosca.policies.Scaling`. At rutime, we want the front end server (the Nodecallar) to be scaled if the CPU utilization is greater than 10%.
 
