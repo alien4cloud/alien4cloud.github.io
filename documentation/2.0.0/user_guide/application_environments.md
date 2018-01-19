@@ -7,11 +7,11 @@ parent: [user_guide, application_management]
 node_name: application_environments
 weight: 30
 ---
-
-In the *environment* management page you can create, edit or delete an environment. The version and the cloud are the most important informations.
+To go to the page of managing environments, you need to click on the button __environments button__ ![Versions button](../../images/2.0.0/user_guide/applications/environments_button.png){: height="26px" .inline} found in the main page of application.
+In the *environments* management page, you can create, edit or delete an environment.
 
 ![Environments management page](../../images/2.0.0/user_guide/applications/app_environments.png)
 
 {%warning%}
-An environment cannot be deleted when it's application is still deploy.
+An environment cannot be deleted when its application is still in status of deployed.
 {%endwarning%}

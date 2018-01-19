@@ -28,13 +28,13 @@ If you want to create new plugins for Alien 4 Cloud please refer to the [develop
 
 *Drag* you archive file > *Drop* it on the **dash dotted** area
 
-[![Upload an archive file with D&D](../../images/user_guide/upload-plugin-archive.png)](../../images/user_guide/upload-plugin-archive.png)
+![Upload an archive file with D&D](../../images/2.0.0/user_guide/admin/plugin_management.png)
 {%endtabcontent%}
 {% tabcontent Drag and Drop disabled %}
 
 Click on *[Upload plugin]* > *Select* your archive (The file is automatically uploaded)
 
-[![Upload an archive file without D&D](../../images/user_guide/upload-plugin-wihout-drag-and-drop.png)](../../images/user_guide/upload-plugin-wihout-drag-and-drop.png)
+![Upload an archive file without D&D](../../images/user_guide/upload-plugin-wihout-drag-and-drop.png)
 {%endtabcontent%}
 {%endinittab%}
 
@@ -45,7 +45,7 @@ This is especially true when removing or disabling a plugin as the rest services
 
 # Plugin configuration
 
-Some plugins may requires specific configuration that is global to the plugin. In case a plugin can be configured you will see the following icon : ![configure plugin](../../images/user_guide/configure-plugin.png){: .inline}
+Some plugins may requires specific configuration that is global to the plugin. In case a plugin can be configured you will see the following icon : ![configure plugin](../../images/2.0.0/user_guide/admin/plugin_global_configuration.png){: .inline}
 
 ## Advanced plugins configurations
 

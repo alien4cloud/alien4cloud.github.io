@@ -24,12 +24,12 @@ __APPLICATIONS_MANAGER__ and alien4cloud __ADMIN__ will be interested to start w
 If you are an __APPLICATION_MANAGER__ you may be interested into the following:
 
 * [Grant authorizations](#/documentation/2.0.0/user_guide/application_roles.html): allowing you to manage roles.
-* [Manage versions](#/documentation/2.0.0/user_guide/application_versions.html): explains how you can create new application versions.
-* [Manage environments](#/documentation/2.0.0/user_guide/application_environments.html): guide you through the creation and management of environments for your application and especially how you set the next version for a given environment
+* [Manage versions](#/documentation/2.0.0/user_guide/application_versions.html): explaining how you can create new application versions.
+* [Manage environments](#/documentation/2.0.0/user_guide/application_environments.html): leading you through the creation and management of environments for your application and especially how you set the next version for a given environment
 
 If you are an __APPLICATION_DEVOPS__ you should look at the [topology editor section](#/documentation/2.0.0/user_guide/topology_editor.html) to learn how to edit the topologies of the application versions.
 
 To configure and deploy environment(s) of the application look at the
 
-* [Configure and deploy](#/documentation/2.0.0/user_guide/application_deployment.html)
+* [Configure and deploy an environment](#/documentation/2.0.0/user_guide/application_deployment.html)
 * [Managing runtime](#/documentation/2.0.0/user_guide/application_runtime.html)
