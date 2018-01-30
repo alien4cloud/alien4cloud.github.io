@@ -1,32 +1,28 @@
 ---
 layout: post
-title: Allow to create/list/delete a repository.
+title: Maintenance mode operations.
 root: ../../
 categories: DOCUMENTATION-1.4.0
 parent: [rest_api, rest_api_other-apis]
-node_name: rest_api_controller_repository-controller
-weight: 47
+node_name: rest_api_controller_maintenance-mode-controller
+weight: 46
 ---
 
-### Create a new repository.
+### Get state on current maintenance task.
 ```
-POST /rest/v1/repositories
+GET /rest/v1/maintenance
 ```
 
-#### Parameters
+#### Description
 
-{: .table .table-bordered}
-|Type|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|----|
-|BodyParameter|createRequest|Create repository|true|CreateRepositoryRequest||
-
+Maintenance mode task contains an optional percentage element to provide state on maintenance progress.
 
 #### Responses
 
 {: .table .table-bordered}
 |HTTP Code|Description|Schema|
 |----|----|----|
-|201|Created|RestResponse«string»|
+|200|OK|RestResponse«MaintenanceModeState»|
 |401|Unauthorized|No Content|
 |403|Forbidden|No Content|
 |404|Not Found|No Content|
@@ -40,17 +36,21 @@ POST /rest/v1/repositories
 
 * application/json
 
-### Search for repositories
+### Update maintenance state.
 ```
-POST /rest/v1/repositories/search
+PUT /rest/v1/maintenance
 ```
+
+#### Description
+
+Allow to add a message and eventually update progress of the maintenance.
 
 #### Parameters
 
 {: .table .table-bordered}
 |Type|Name|Description|Required|Schema|Default|
 |----|----|----|----|----|----|
-|BodyParameter|searchRequest|searchRequest|true|FilteredSearchRequest||
+|BodyParameter|updateDTO|updateDTO|true|MaintenanceUpdateDTO||
 
 
 #### Responses
@@ -58,8 +58,7 @@ POST /rest/v1/repositories/search
 {: .table .table-bordered}
 |HTTP Code|Description|Schema|
 |----|----|----|
-|200|OK|RestResponse«FacetedSearchResult»|
-|201|Created|No Content|
+|201|Created|RestResponse«Void»|
 |401|Unauthorized|No Content|
 |403|Forbidden|No Content|
 |404|Not Found|No Content|
@@ -73,52 +72,14 @@ POST /rest/v1/repositories/search
 
 * application/json
 
-### Update the repository.
+### Disable maintenance mode.
 ```
-PUT /rest/v1/repositories/{id}
-```
-
-#### Parameters
-
-{: .table .table-bordered}
-|Type|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|----|
-|PathParameter|id|Id of the repository to update|true|string||
-|BodyParameter|updateRequest|Request for repository update|true|UpdateRepositoryRequest||
-
-
-#### Responses
-
-{: .table .table-bordered}
-|HTTP Code|Description|Schema|
-|----|----|----|
-|200|OK|RestResponse«Void»|
-|201|Created|No Content|
-|401|Unauthorized|No Content|
-|403|Forbidden|No Content|
-|404|Not Found|No Content|
-
-
-#### Consumes
-
-* application/json
-
-#### Produces
-
-* application/json
-
-### Delete a repository.
-```
-DELETE /rest/v1/repositories/{id}
+DELETE /rest/v1/maintenance
 ```
 
-#### Parameters
+#### Description
 
-{: .table .table-bordered}
-|Type|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|----|
-|PathParameter|id|Id of the repository to update|true|string||
-
+Maintenance mode can be disabled only when it has been enabled by a user. Automatic maintenance (migrations etc) cannot be disabled through rest api.
 
 #### Responses
 
@@ -129,6 +90,34 @@ DELETE /rest/v1/repositories/{id}
 |401|Unauthorized|No Content|
 |204|No Content|No Content|
 |403|Forbidden|No Content|
+
+
+#### Consumes
+
+* application/json
+
+#### Produces
+
+* application/json
+
+### Enable maintenance mode.
+```
+POST /rest/v1/maintenance
+```
+
+#### Description
+
+All requests but disable maintenance mode and get maintenance mode state will be denied.
+
+#### Responses
+
+{: .table .table-bordered}
+|HTTP Code|Description|Schema|
+|----|----|----|
+|201|Created|RestResponse«Void»|
+|401|Unauthorized|No Content|
+|403|Forbidden|No Content|
+|404|Not Found|No Content|
 
 
 #### Consumes

@@ -2,10 +2,10 @@
 layout: post
 title: Allow to list all repository plugins (artifact resolver).
 root: ../../
-categories: DOCUMENTATION-2.0.0
+categories: DOCUMENTATION-1.4.0
 parent: [rest_api, rest_api_other-apis]
 node_name: rest_api_controller_repository-plugin-controller
-weight: 40
+weight: 48
 ---
 
 ### Search for repository resolver plugins.

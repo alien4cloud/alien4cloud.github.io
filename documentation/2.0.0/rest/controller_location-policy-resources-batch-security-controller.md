@@ -1,16 +1,16 @@
 ---
 layout: post
-title: Location resource security batch operations
+title: Location policy resource security batch operations
 root: ../../
 categories: DOCUMENTATION-1.4.0
 parent: [rest_api, rest_api_admin-orchestrator-api]
-node_name: rest_api_controller_location-resources-batch-security-controller
-weight: 16
+node_name: rest_api_controller_location-policy-resources-batch-security-controller
+weight: 6
 ---
 
 ### Update applications, environments and environment type authorized to access the location resource
 ```
-POST /rest/v1/orchestrators/{orchestratorId}/locations/{locationId}/resources/security/environmentsPerApplication
+POST /rest/v1/orchestrators/{orchestratorId}/locations/{locationId}/policies/security/environmentsPerApplication
 ```
 
 #### Description
@@ -49,7 +49,7 @@ Only user with ADMIN role can update authorized applications/environments for th
 
 ### Bulk api to grant/revoke permissions for multiple groups on multiple location resources.
 ```
-POST /rest/v1/orchestrators/{orchestratorId}/locations/{locationId}/resources/security/groups
+POST /rest/v1/orchestrators/{orchestratorId}/locations/{locationId}/policies/security/groups
 ```
 
 #### Description
@@ -88,7 +88,7 @@ Only user with ADMIN role can grant access to a group.
 
 ### Bulk api to grant/revoke permissions to multiple users on multiple location resources.
 ```
-POST /rest/v1/orchestrators/{orchestratorId}/locations/{locationId}/resources/security/users
+POST /rest/v1/orchestrators/{orchestratorId}/locations/{locationId}/policies/security/users
 ```
 
 #### Description

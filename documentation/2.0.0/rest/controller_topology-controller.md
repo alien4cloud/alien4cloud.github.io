@@ -2,10 +2,10 @@
 layout: post
 title: Topology Controller
 root: ../../
-categories: DOCUMENTATION-2.0.0
+categories: DOCUMENTATION-1.4.0
 parent: [rest_api, rest_api_topology-editor-api]
 node_name: rest_api_controller_topology-controller
-weight: 38
+weight: 45
 ---
 
 ### Retrieve a topology from it's id.

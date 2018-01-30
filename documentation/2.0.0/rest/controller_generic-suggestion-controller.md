@@ -2,10 +2,10 @@
 layout: post
 title: Generic Suggestion Controller
 root: ../../
-categories: DOCUMENTATION-2.0.0
+categories: DOCUMENTATION-1.4.0
 parent: [rest_api, rest_api_other-apis]
 node_name: rest_api_controller_generic-suggestion-controller
-weight: 42
+weight: 50
 ---
 
 ### Create a suggestion entry

@@ -2,10 +2,10 @@
 layout: post
 title: Allow to grant/revoke services authorizations
 root: ../../
-categories: DOCUMENTATION-2.0.0
+categories: DOCUMENTATION-1.4.0
 parent: [rest_api, rest_api_other-apis]
 node_name: rest_api_controller_service-security-controller
-weight: 41
+weight: 49
 ---
 
 ### Revoke the application's authorisation to access the service resource
@@ -45,14 +45,14 @@ Only user with ADMIN role can revoke access to the location.
 
 * application/json
 
-### List all applications/environments authorized to access the service resource
+### List all applications, environments and environment types authorized to access the service resource
 ```
 GET /rest/v1/services/{serviceId}/security/environmentsPerApplication
 ```
 
 #### Description
 
-Only user with ADMIN role can list authorized applications/environments for the location.
+Only user with ADMIN role can list authorized applications, environments and environment types for the location.
 
 #### Parameters
 
@@ -81,14 +81,14 @@ Only user with ADMIN role can list authorized applications/environments for the 
 
 * application/json
 
-### Update applications/environments authorized to access the service resource
+### Update applications, environments and environment types authorized to access the service resource
 ```
 POST /rest/v1/services/{serviceId}/security/environmentsPerApplication
 ```
 
 #### Description
 
-Only user with ADMIN role can update authorized applications/environments for the location.
+Only user with ADMIN role can update authorized applications, environments and environment types for the location.
 
 #### Parameters
 

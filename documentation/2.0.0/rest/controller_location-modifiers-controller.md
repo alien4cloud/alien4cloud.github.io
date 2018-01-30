@@ -1,16 +1,16 @@
 ---
 layout: post
-title: Allow to create/list/delete a repository.
+title: Advanced feature that allows configuration of modifiers associated with this location.
 root: ../../
 categories: DOCUMENTATION-1.4.0
-parent: [rest_api, rest_api_other-apis]
-node_name: rest_api_controller_repository-controller
-weight: 47
+parent: [rest_api, rest_api_admin-orchestrator-api]
+node_name: rest_api_controller_location-modifiers-controller
+weight: 14
 ---
 
-### Create a new repository.
+### Get all modifiers for a given location.
 ```
-POST /rest/v1/repositories
+GET /rest/v1/orchestrators/{orchestratorId}/locations/{locationId}/modifiers
 ```
 
 #### Parameters
@@ -18,7 +18,7 @@ POST /rest/v1/repositories
 {: .table .table-bordered}
 |Type|Name|Description|Required|Schema|Default|
 |----|----|----|----|----|----|
-|BodyParameter|createRequest|Create repository|true|CreateRepositoryRequest||
+|PathParameter|locationId|Id of the location for which to get all modifiers.|false|string||
 
 
 #### Responses
@@ -26,7 +26,7 @@ POST /rest/v1/repositories
 {: .table .table-bordered}
 |HTTP Code|Description|Schema|
 |----|----|----|
-|201|Created|RestResponse«string»|
+|200|OK|RestResponse«List«LocationModifierReference»»|
 |401|Unauthorized|No Content|
 |403|Forbidden|No Content|
 |404|Not Found|No Content|
@@ -40,42 +40,9 @@ POST /rest/v1/repositories
 
 * application/json
 
-### Search for repositories
+### Add a modifier to a location.
 ```
-POST /rest/v1/repositories/search
-```
-
-#### Parameters
-
-{: .table .table-bordered}
-|Type|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|----|
-|BodyParameter|searchRequest|searchRequest|true|FilteredSearchRequest||
-
-
-#### Responses
-
-{: .table .table-bordered}
-|HTTP Code|Description|Schema|
-|----|----|----|
-|200|OK|RestResponse«FacetedSearchResult»|
-|201|Created|No Content|
-|401|Unauthorized|No Content|
-|403|Forbidden|No Content|
-|404|Not Found|No Content|
-
-
-#### Consumes
-
-* application/json
-
-#### Produces
-
-* application/json
-
-### Update the repository.
-```
-PUT /rest/v1/repositories/{id}
+POST /rest/v1/orchestrators/{orchestratorId}/locations/{locationId}/modifiers
 ```
 
 #### Parameters
@@ -83,8 +50,8 @@ PUT /rest/v1/repositories/{id}
 {: .table .table-bordered}
 |Type|Name|Description|Required|Schema|Default|
 |----|----|----|----|----|----|
-|PathParameter|id|Id of the repository to update|true|string||
-|BodyParameter|updateRequest|Request for repository update|true|UpdateRepositoryRequest||
+|PathParameter|locationId|Id of the location|true|string||
+|BodyParameter|locationModifierReference|The location modifier to add|true|LocationModifierReference||
 
 
 #### Responses
@@ -107,9 +74,9 @@ PUT /rest/v1/repositories/{id}
 
 * application/json
 
-### Delete a repository.
+### Update the order of a modifier.
 ```
-DELETE /rest/v1/repositories/{id}
+PUT /rest/v1/orchestrators/{orchestratorId}/locations/{locationId}/modifiers/from/{from}/to/{to}
 ```
 
 #### Parameters
@@ -117,7 +84,43 @@ DELETE /rest/v1/repositories/{id}
 {: .table .table-bordered}
 |Type|Name|Description|Required|Schema|Default|
 |----|----|----|----|----|----|
-|PathParameter|id|Id of the repository to update|true|string||
+|PathParameter|locationId|Id of the location|true|string||
+|PathParameter|from|From index|true|integer (int32)||
+|PathParameter|to|To index|true|integer (int32)||
+
+
+#### Responses
+
+{: .table .table-bordered}
+|HTTP Code|Description|Schema|
+|----|----|----|
+|200|OK|RestResponse«Void»|
+|201|Created|No Content|
+|401|Unauthorized|No Content|
+|403|Forbidden|No Content|
+|404|Not Found|No Content|
+
+
+#### Consumes
+
+* application/json
+
+#### Produces
+
+* application/json
+
+### Delete a location modifier at the given index.
+```
+DELETE /rest/v1/orchestrators/{orchestratorId}/locations/{locationId}/modifiers/{index}
+```
+
+#### Parameters
+
+{: .table .table-bordered}
+|Type|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|----|
+|PathParameter|locationId|Id of the location|true|string||
+|PathParameter|index|Index of the location modifier to delete|true|integer (int32)||
 
 
 #### Responses

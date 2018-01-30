@@ -2,10 +2,10 @@
 layout: post
 title: Audit Controller
 root: ../../
-categories: DOCUMENTATION-2.0.0
+categories: DOCUMENTATION-1.4.0
 parent: [rest_api, rest_api_admin-audit-api]
 node_name: rest_api_controller_audit-controller
-weight: 13
+weight: 17
 ---
 
 ### Get audit configuration

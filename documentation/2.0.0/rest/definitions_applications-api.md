@@ -2,7 +2,7 @@
 layout: post
 title: Definitions
 root: ../../
-categories: DOCUMENTATION-2.0.0
+categories: DOCUMENTATION-1.4.0
 parent: [rest_api, rest_api_applications-api]
 node_name: rest_api_definitions_applications-api
 weight: 9000
@@ -23,8 +23,6 @@ weight: 9000
 |totalResults||false|integer (int64)||
 |types||false|string array||
 
-
-# Map«string,AbstractStep»
 
 # UpdateApplicationVersionRequest
 
@@ -68,7 +66,10 @@ weight: 9000
 |locationPolicies||false|object||
 |locationResourceTemplates||false|object||
 |nodeTypes||false|object||
+|policyLocationResourceTemplates||false|object||
+|policyTypes||false|object||
 |relationshipTypes||false|object||
+|secretCredentialInfos||false|SecretCredentialInfo array||
 |topology||false|DeploymentTopology||
 |validation||false|TopologyValidationResult||
 
@@ -79,8 +80,10 @@ weight: 9000
 {: .table .table-bordered}
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
+|availablePoliciesSubstitutions|Map of policy id to list of available policy location resource templates' id.|false|object||
 |availableSubstitutions|Map of node id to list of available location resource templates' id.|false|object||
 |substitutionTypes|Location resources types contain types for the templates.|false|LocationResourceTypes||
+|substitutionsPoliciesTemplates|Map of policy location resource id to policies location resource template.|false|object||
 |substitutionsTemplates|Map of location resource id to location resource template.|false|object||
 
 
@@ -116,6 +119,17 @@ weight: 9000
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
 |properties||false|object||
+
+
+# Map«string,PolicyType»
+
+# UpdateVariableFileContentRequest
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|content||false|string||
 
 
 # FilteredSearchRequest
@@ -223,8 +237,12 @@ Request to set locations policies for a deployment.
 |----|----|----|----|----|
 |description||false|string||
 |errors||false|AbstractWorkflowError array||
+|hasCustomModifications||false|boolean||
 |hosts||false|string array||
+|inputs||false|object||
+|metadata||false|object||
 |name||false|string||
+|preconditions||false|PreconditionDefinition array||
 |standard||false|boolean||
 |steps||false|object||
 
@@ -307,6 +325,7 @@ Request to set locations policies for a deployment.
 |lastOperationIndex||false|integer (int32)||
 |nodeTypes||false|object||
 |operations||false|AbstractEditorOperation array||
+|policyTypes||false|object||
 |relationshipTypes||false|object||
 |topology||false|Topology||
 
@@ -338,6 +357,7 @@ A service is something running somewhere, exposing capabilities and requirements
 |description||false|string||
 |environmentId||false|string||
 |environmentPermissions||false|object||
+|environmentTypePermissions||false|object||
 |groupPermissions||false|object||
 |id||false|string||
 |lastUpdateDate||false|string (date-time)||
@@ -348,6 +368,16 @@ A service is something running somewhere, exposing capabilities and requirements
 |requirementsRelationshipTypes||false|object||
 |userPermissions||false|object||
 |version||false|string||
+
+
+# PropertyValue«NodeTemplate»
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|definition||false|boolean||
+|value||false|NodeTemplate||
 
 
 # Application
@@ -377,6 +407,21 @@ A service is something running somewhere, exposing capabilities and requirements
 |attributeValues||false|object||
 |nodeTemplate||false|NodeTemplate||
 |typeVersion||false|string||
+
+
+# GitLocation
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|branch||false|string||
+|credential||false|GitCredential||
+|gitType||false|enum (DeploymentConfig, ApplicationVariables)||
+|id||false|string||
+|local||false|boolean||
+|path||false|string||
+|url||false|string||
 
 
 # RestResponse«Application»
@@ -411,14 +456,27 @@ A service is something running somewhere, exposing capabilities and requirements
 
 # Map«string,NodeType»
 
+# GitCredential
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|password||false|string||
+|username||false|string||
+
+
 # AbstractTask
 
 
 {: .table .table-bordered}
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
-|code||false|enum (IMPLEMENT, IMPLEMENT_RELATIONSHIP, REPLACE, SATISFY_LOWER_BOUND, PROPERTIES, HA_INVALID, SCALABLE_CAPABILITY_INVALID, NODE_FILTER_INVALID, WORKFLOW_INVALID, INPUT_ARTIFACT_INVALID, ARTIFACT_INVALID, LOCATION_POLICY, LOCATION_UNAUTHORIZED, LOCATION_DISABLED, ORCHESTRATOR_PROPERTY, INPUT_PROPERTY, NODE_NOT_SUBSTITUTED, FORBIDDEN_OPERATION)||
+|code||false|enum (LOG, EMPTY, IMPLEMENT_RELATIONSHIP, SATISFY_LOWER_BOUND, PROPERTIES, SCALABLE_CAPABILITY_INVALID, NODE_FILTER_INVALID, WORKFLOW_INVALID, ARTIFACT_INVALID, DEPRECATED_NODE, MISSING_VARIABLES, UNRESOLVABLE_PREDEFINED_INPUTS, PREDEFINED_INPUTS_CONSTRAINT_VIOLATION, PREDEFINED_INPUTS_TYPE_VIOLATION, INPUT_PROPERTY, INPUT_ARTIFACT_INVALID, LOCATION_POLICY, LOCATION_UNAUTHORIZED, LOCATION_DISABLED, NO_NODE_MATCHES, NODE_NOT_SUBSTITUTED, FORBIDDEN_OPERATION, IMPLEMENT, REPLACE, ORCHESTRATOR_PROPERTY, CFY_MULTI_RELATIONS)||
+|source||false|string||
 
+
+# AbstractWorkflowActivity
 
 # EnvironmentStatusDTO
 
@@ -457,6 +515,7 @@ A service is something running somewhere, exposing capabilities and requirements
 |dataTypes|Map of data types id, data type used to configure the templates of on-demand resources in a location.|false|object||
 |nodeTypes|Map of node types id, node type used to configure the templates of on-demand resources in a location.|false|object||
 |onDemandTypes|Map that contains the on demdand types.|false|object||
+|policyTypes|Map of policy types id, policy type used to configure the templates of policies in a location.|false|object||
 |providedTypes|List of recommended node types ID, e.g. defined at the orchestrator level|false|string array||
 
 
@@ -526,6 +585,21 @@ A service is something running somewhere, exposing capabilities and requirements
 |error||false|RestError||
 
 
+# PolicyTemplate
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|description||false|string||
+|name||false|string||
+|properties||false|object||
+|tags||false|Tag array||
+|targets||false|string array||
+|triggers||false|object||
+|type||false|string||
+
+
 # RestResponse«Map«string,Map«string,InstanceInformation»»»
 
 
@@ -534,6 +608,29 @@ A service is something running somewhere, exposing capabilities and requirements
 |----|----|----|----|----|
 |data||false|object||
 |error||false|RestError||
+
+
+# PolicyType
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|abstract||false|boolean||
+|archiveName||false|string||
+|archiveVersion||false|string||
+|creationDate||false|string (date-time)||
+|derivedFrom||false|string array||
+|description||false|string||
+|elementId||false|string||
+|id||false|string||
+|lastUpdateDate||false|string (date-time)||
+|nestedVersion||false|Version||
+|properties||false|object||
+|tags||false|Tag array||
+|targets||false|string array||
+|triggers||false|object||
+|workspace||false|string||
 
 
 # Map«string,IValue»
@@ -548,6 +645,16 @@ A service is something running somewhere, exposing capabilities and requirements
 |----|----|----|----|----|
 |propertyName||false|string||
 |propertyValue||false|object||
+
+
+# SecretCredentialInfo
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|credentialDescriptor||false|object||
+|pluginName||false|string||
 
 
 # ConstraintInformation
@@ -581,7 +688,7 @@ A service is something running somewhere, exposing capabilities and requirements
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
 |constraints||false|PropertyConstraint array||
-|default||false|PropertyValue«DeploymentTopology»||
+|default||false|PropertyValue«PolicyTemplate»||
 |definition||false|boolean||
 |description||false|string||
 |entrySchema||false|PropertyDefinition||
@@ -590,6 +697,8 @@ A service is something running somewhere, exposing capabilities and requirements
 |suggestionId||false|string||
 |type||false|string||
 
+
+# Map«string,WorkflowStep»
 
 # CreateApplicationRequest
 
@@ -622,6 +731,8 @@ A service is something running somewhere, exposing capabilities and requirements
 |definitionId|Id of the property to set.|true|string||
 |value|Value to set for the property.|true|string||
 
+
+# Map«string,PolicyLocationResourceTemplate»
 
 # Tag
 
@@ -663,6 +774,17 @@ A service is something running somewhere, exposing capabilities and requirements
 |properties||false|object||
 
 
+# PolicyEventFilter
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|capability||false|string||
+|node||false|string||
+|requirement||false|string||
+
+
 # SortConfiguration
 
 
@@ -671,6 +793,31 @@ A service is something running somewhere, exposing capabilities and requirements
 |----|----|----|----|----|
 |ascending||false|boolean||
 |sortBy||false|string||
+
+
+# PolicyTrigger
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|actionOperation||false|Operation||
+|actionWorkflow||false|string||
+|condition||false|PolicyCondition||
+|description||false|string||
+|eventFilter||false|PolicyEventFilter||
+|eventType||false|string||
+|timeInterval||false|TimeInterval||
+
+
+# SecretProviderCredentials
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|credentials||false|object||
+|pluginName||false|string||
 
 
 # ApplicationVersion
@@ -686,6 +833,22 @@ A service is something running somewhere, exposing capabilities and requirements
 |released||false|boolean||
 |topologyVersions||false|object||
 |version||false|string||
+
+
+# WorkflowStep
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|activities||false|AbstractWorkflowActivity array||
+|filter||false|AbstractConditionClause array||
+|name||false|string||
+|onFailure||false|string array||
+|onSuccess||false|string array||
+|operationHost||false|string||
+|precedingSteps||false|string array||
+|target||false|string||
 
 
 # RelationshipType
@@ -720,6 +883,7 @@ A service is something running somewhere, exposing capabilities and requirements
 {: .table .table-bordered}
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
+|deployerUsername||false|string||
 |endDate||false|string (date-time)||
 |environmentId||false|string||
 |id||false|string||
@@ -752,15 +916,14 @@ A service is something running somewhere, exposing capabilities and requirements
 |upperBound||false|integer (int32)||
 
 
-# AbstractStep
+# RestResponse«GitLocation»
 
 
 {: .table .table-bordered}
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
-|followingSteps||false|string array||
-|name||false|string||
-|precedingSteps||false|string array||
+|data||false|GitLocation||
+|error||false|RestError||
 
 
 # ApplicationTopologyVersion
@@ -782,11 +945,13 @@ A service is something running somewhere, exposing capabilities and requirements
 |----|----|----|----|----|
 |artifacts||false|object||
 |attributes||false|object||
+|description||false|string||
 |interfaces||false|object||
 |name||false|string||
 |properties||false|object||
 |requirementName||false|string||
 |requirementType||false|string||
+|tags||false|Tag array||
 |target||false|string||
 |targetedCapabilityName||false|string||
 |type||false|string||
@@ -859,6 +1024,8 @@ A service is something running somewhere, exposing capabilities and requirements
 |----|----|----|----|----|
 |applicationEnvironmentId||false|string||
 |applicationId||false|string||
+|secretProviderCredentials||false|object||
+|secretProviderPluginName||false|string||
 
 
 # Map«string,Array«FacetedSearchFacet»»
@@ -947,6 +1114,7 @@ A service is something running somewhere, exposing capabilities and requirements
 |creationDate||false|string (date-time)||
 |dependencies||false|CSARDependency array||
 |deployed||false|boolean||
+|deployerInputProperties||false|object||
 |description||false|string||
 |empty||false|boolean||
 |environmentId||false|string||
@@ -954,22 +1122,28 @@ A service is something running somewhere, exposing capabilities and requirements
 |id||false|string||
 |initialTopologyId||false|string||
 |inputArtifacts||false|object||
-|inputProperties||false|object||
 |inputs||false|object||
 |lastDeploymentTopologyUpdateDate||false|string (date-time)||
 |lastUpdateDate||false|string (date-time)||
 |locationDependencies||false|CSARDependency array||
 |locationGroups||false|object||
+|matchReplacedNodes||false|object||
 |nestedVersion||false|Version||
 |nodeTemplates||false|object||
 |orchestratorId||false|string||
 |originalNodes||false|object||
+|originalPolicies||false|object||
 |outputAttributes||false|object||
 |outputCapabilityProperties||false|object||
 |outputProperties||false|object||
+|policies||false|object||
+|preconfiguredInputProperties||false|object||
 |providerDeploymentProperties||false|object||
 |substitutedNodes||false|object||
+|substitutedPolicies||false|object||
 |substitutionMapping||false|SubstitutionMapping||
+|tags||false|Tag array||
+|unprocessedWorkflows||false|object||
 |uploadedInputArtifacts||false|object||
 |versionId||false|string||
 |workflows||false|object||
@@ -987,6 +1161,19 @@ A service is something running somewhere, exposing capabilities and requirements
 
 
 # Map«string,Capability»
+
+# Request for updating of a repository for storing deployment config.
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|branch|Branch to use|false|string||
+|password|Password to access the git repository.|false|string||
+|path|Path relative to the git repository where the file should be stored|false|string||
+|url|Url of the git repository.|true|string||
+|username|Username to access the git repository.|false|string||
+
 
 # InstanceInformation
 
@@ -1022,9 +1209,23 @@ A service is something running somewhere, exposing capabilities and requirements
 |outputAttributes||false|object||
 |outputCapabilityProperties||false|object||
 |outputProperties||false|object||
+|policies||false|object||
 |substitutionMapping||false|SubstitutionMapping||
+|tags||false|Tag array||
+|unprocessedWorkflows||false|object||
 |workflows||false|object||
 |workspace||false|string||
+
+
+# PreconditionDefinition
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|condition||false|AbstractConditionClause array||
+|target||false|string||
+|targetRelationship||false|string||
 
 
 # RestResponse«Service.»
@@ -1039,12 +1240,34 @@ A service is something running somewhere, exposing capabilities and requirements
 
 # Map«string,List«PropertyConstraint»»
 
+# PolicyLocationResourceTemplate
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|applicationPermissions||false|object||
+|enabled||false|boolean||
+|environmentPermissions||false|object||
+|environmentTypePermissions||false|object||
+|groupPermissions||false|object||
+|id||false|string||
+|locationId||false|string||
+|name||false|string||
+|portabilityDefinitions||false|object||
+|service||false|boolean||
+|template||false|PolicyTemplate||
+|types||false|string array||
+|userPermissions||false|object||
+
+
 # TopologyValidationResult
 
 
 {: .table .table-bordered}
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
+|infoList||false|AbstractTask array||
 |taskList||false|AbstractTask array||
 |valid||false|boolean||
 |warningList||false|AbstractTask array||
@@ -1061,13 +1284,17 @@ A service is something running somewhere, exposing capabilities and requirements
 |artifacts||false|object||
 |attributes||false|object||
 |capabilities||false|object||
+|danglingRequirement||false|boolean||
+|description||false|string||
 |groups||false|string array||
 |interfaces||false|object||
 |name||false|string||
+|nodeFilter||false|NodeFilter||
 |portability||false|object||
 |properties||false|object||
 |relationships||false|object||
 |requirements||false|object||
+|tags||false|Tag array||
 |type||false|string||
 
 
@@ -1113,6 +1340,8 @@ A service is something running somewhere, exposing capabilities and requirements
 |workspace||false|string||
 
 
+# Map«string,PolicyTrigger»
+
 # UpdateTopologyVersionForEnvironmentRequest
 
 
@@ -1125,6 +1354,16 @@ A service is something running somewhere, exposing capabilities and requirements
 
 # Map«string,NodeGroup»
 
+# PropertyValue«PolicyTemplate»
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|definition||false|boolean||
+|value||false|PolicyTemplate||
+
+
 # LocationResourceTemplate
 
 
@@ -1134,6 +1373,7 @@ A service is something running somewhere, exposing capabilities and requirements
 |applicationPermissions||false|object||
 |enabled||false|boolean||
 |environmentPermissions||false|object||
+|environmentTypePermissions||false|object||
 |generated||false|boolean||
 |groupPermissions||false|object||
 |id||false|string||
@@ -1153,6 +1393,16 @@ A service is something running somewhere, exposing capabilities and requirements
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
 |data||false|Deployment||
+|error||false|RestError||
+
+
+# RestResponse«List«SecretCredentialInfo»»
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|data||false|SecretCredentialInfo array||
 |error||false|RestError||
 
 
@@ -1189,6 +1439,18 @@ A service is something running somewhere, exposing capabilities and requirements
 |portability||false|object||
 
 
+# PolicyCondition
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|constraints||false|PropertyConstraint array||
+|evaluations||false|integer (int32)||
+|method||false|string||
+|period||false|string||
+
+
 # RestResponse«ApplicationVersion»
 
 
@@ -1200,6 +1462,16 @@ A service is something running somewhere, exposing capabilities and requirements
 
 
 # Map«string,SubstitutionTarget»
+
+# SecretProviderConfiguration
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|configuration||false|object||
+|pluginName||false|string||
+
 
 # PropertyConstraint
 
@@ -1280,6 +1552,8 @@ A service is something running somewhere, exposing capabilities and requirements
 |error||false|RestError||
 
 
+# Map«string,PolicyTemplate»
+
 # CapabilityType
 
 
@@ -1311,6 +1585,16 @@ A service is something running somewhere, exposing capabilities and requirements
 |----|----|----|----|----|
 |data||false|GetMultipleDataResult«ApplicationVersion»||
 |error||false|RestError||
+
+
+# TimeInterval
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|endTime||false|string||
+|startTime||false|string||
 
 
 # DeferredResult«RestResponse«Void»»
@@ -1427,4 +1711,16 @@ Request to set locations policies for a deployment.
 |totalResults||false|integer (int64)||
 |types||false|string array||
 
+
+# SecretProviderConfigurationAndCredentials
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|credentials||false|object||
+|secretProviderConfiguration||false|SecretProviderConfiguration||
+
+
+# AbstractConditionClause
 

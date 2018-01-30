@@ -2,20 +2,20 @@
 layout: post
 title: Orchestrator security operations
 root: ../../
-categories: DOCUMENTATION-2.0.0
+categories: DOCUMENTATION-1.4.0
 parent: [rest_api, rest_api_admin-orchestrator-api]
 node_name: rest_api_controller_location-security-controller
-weight: 6
+weight: 5
 ---
 
-### List all groups authorized to access the location
+### List all applications,environments and environment types authorized to access the location
 ```
 GET /rest/v1/orchestrators/{orchestratorId}/locations/{locationId}/security/applications/search
 ```
 
 #### Description
 
-Only user with ADMIN role can list authorized applications/environments to the location.
+Only user with ADMIN role can list authorized applications,environments and environment types to the location.
 
 #### Parameters
 
@@ -86,14 +86,14 @@ Only user with ADMIN role can revoke access to the location.
 
 * application/json
 
-### List all applications/environments authorized to access the location
+### List all applications,environments and environment types authorized to access the location
 ```
 GET /rest/v1/orchestrators/{orchestratorId}/locations/{locationId}/security/environmentsPerApplication
 ```
 
 #### Description
 
-Only user with ADMIN role can list authorized applications/environments for the location.
+Only user with ADMIN role can list authorized applications,environments and environment types for the location.
 
 #### Parameters
 
@@ -123,14 +123,14 @@ Only user with ADMIN role can list authorized applications/environments for the 
 
 * application/json
 
-### Update applications/environments authorized to access the location
+### Update applications,environments and environment types authorized to access the location
 ```
 POST /rest/v1/orchestrators/{orchestratorId}/locations/{locationId}/security/environmentsPerApplication
 ```
 
 #### Description
 
-Only user with ADMIN role can update authorized applications/environments for the location.
+Only user with ADMIN role can update authorized applications,environments and environment types for the location.
 
 #### Parameters
 

@@ -2,10 +2,10 @@
 layout: post
 title: Get and update orchestrator configuration.
 root: ../../
-categories: DOCUMENTATION-2.0.0
+categories: DOCUMENTATION-1.4.0
 parent: [rest_api, rest_api_admin-orchestrator-api]
 node_name: rest_api_controller_orchestrator-configuration-controller
-weight: 12
+weight: 10
 ---
 
 ### Get an orchestrator configuration.

@@ -2,7 +2,7 @@
 layout: post
 title: Definitions
 root: ../../
-categories: DOCUMENTATION-2.0.0
+categories: DOCUMENTATION-1.4.0
 parent: [rest_api, rest_api_applications-deployment-api]
 node_name: rest_api_definitions_applications-deployment-api
 weight: 9000
@@ -10,7 +10,36 @@ weight: 9000
 
 {% summary %}{% endsummary %}
 
-# Map«string,AbstractStep»
+# PolicyTrigger
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|actionOperation||false|Operation||
+|actionWorkflow||false|string||
+|condition||false|PolicyCondition||
+|description||false|string||
+|eventFilter||false|PolicyEventFilter||
+|eventType||false|string||
+|timeInterval||false|TimeInterval||
+
+
+# WorkflowStep
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|activities||false|AbstractWorkflowActivity array||
+|filter||false|AbstractConditionClause array||
+|name||false|string||
+|onFailure||false|string array||
+|onSuccess||false|string array||
+|operationHost||false|string||
+|precedingSteps||false|string array||
+|target||false|string||
+
 
 # RelationshipType
 
@@ -44,6 +73,7 @@ weight: 9000
 {: .table .table-bordered}
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
+|deployerUsername||false|string||
 |endDate||false|string (date-time)||
 |environmentId||false|string||
 |id||false|string||
@@ -76,17 +106,6 @@ weight: 9000
 |upperBound||false|integer (int32)||
 
 
-# AbstractStep
-
-
-{: .table .table-bordered}
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|followingSteps||false|string array||
-|name||false|string||
-|precedingSteps||false|string array||
-
-
 # GetMultipleJsonResult
 
 
@@ -110,6 +129,8 @@ weight: 9000
 |----|----|----|----|----|
 |properties||false|object||
 
+
+# Map«string,PolicyType»
 
 # ScrollJsonResult
 
@@ -140,11 +161,13 @@ weight: 9000
 |----|----|----|----|----|
 |artifacts||false|object||
 |attributes||false|object||
+|description||false|string||
 |interfaces||false|object||
 |name||false|string||
 |properties||false|object||
 |requirementName||false|string||
 |requirementType||false|string||
+|tags||false|Tag array||
 |target||false|string||
 |targetedCapabilityName||false|string||
 |type||false|string||
@@ -202,6 +225,16 @@ weight: 9000
 |dependency||false|string||
 |resolvedVersion||false|string||
 |source||false|string||
+
+
+# RestResponse«DeploymentDTO»
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|data||false|DeploymentDTO||
+|error||false|RestError||
 
 
 # PropertyValue«Topology»
@@ -324,8 +357,12 @@ weight: 9000
 |----|----|----|----|----|
 |description||false|string||
 |errors||false|AbstractWorkflowError array||
+|hasCustomModifications||false|boolean||
 |hosts||false|string array||
+|inputs||false|object||
+|metadata||false|object||
 |name||false|string||
+|preconditions||false|PreconditionDefinition array||
 |standard||false|boolean||
 |steps||false|object||
 
@@ -356,12 +393,26 @@ weight: 9000
 |outputAttributes||false|object||
 |outputCapabilityProperties||false|object||
 |outputProperties||false|object||
+|policies||false|object||
 |substitutionMapping||false|SubstitutionMapping||
+|tags||false|Tag array||
+|unprocessedWorkflows||false|object||
 |workflows||false|object||
 |workspace||false|string||
 
 
 # Map«string,PropertyDefinition»
+
+# PreconditionDefinition
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|condition||false|AbstractConditionClause array||
+|target||false|string||
+|targetRelationship||false|string||
+
 
 # Map«string,List«PropertyConstraint»»
 
@@ -373,6 +424,17 @@ weight: 9000
 |----|----|----|----|----|
 |result||false|object||
 |setOrExpired||false|boolean||
+
+
+# LocationModifierReference
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|beanName||false|string||
+|phase||false|string||
+|pluginId||false|string||
 
 
 # ImplementationArtifact
@@ -422,13 +484,17 @@ weight: 9000
 |artifacts||false|object||
 |attributes||false|object||
 |capabilities||false|object||
+|danglingRequirement||false|boolean||
+|description||false|string||
 |groups||false|string array||
 |interfaces||false|object||
 |name||false|string||
+|nodeFilter||false|NodeFilter||
 |portability||false|object||
 |properties||false|object||
 |relationships||false|object||
 |requirements||false|object||
+|tags||false|Tag array||
 |type||false|string||
 
 
@@ -446,6 +512,7 @@ weight: 9000
 |lastOperationIndex||false|integer (int32)||
 |nodeTypes||false|object||
 |operations||false|AbstractEditorOperation array||
+|policyTypes||false|object||
 |relationshipTypes||false|object||
 |topology||false|Topology||
 
@@ -480,6 +547,8 @@ weight: 9000
 |workspace||false|string||
 
 
+# Map«string,PolicyTrigger»
+
 # GetMultipleDataResult
 
 
@@ -508,6 +577,8 @@ weight: 9000
 
 # Map«string,NodeType»
 
+# AbstractWorkflowActivity
+
 # Map«string,Operation»
 
 # Operation
@@ -523,6 +594,18 @@ weight: 9000
 |portability||false|object||
 
 
+# PolicyCondition
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|constraints||false|PropertyConstraint array||
+|evaluations||false|integer (int32)||
+|method||false|string||
+|period||false|string||
+
+
 # SubstitutionMapping
 
 
@@ -532,6 +615,16 @@ weight: 9000
 |capabilities||false|object||
 |requirements||false|object||
 |substitutionType||false|string||
+
+
+# SecretProviderConfiguration
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|configuration||false|object||
+|pluginName||false|string||
 
 
 # Map«string,SubstitutionTarget»
@@ -633,9 +726,51 @@ weight: 9000
 |nodeTemplateName||false|string||
 |operationName||false|string||
 |parameters||false|object||
+|secretProviderCredentials||false|object||
+|secretProviderPluginName||false|string||
+
+
+# PolicyTemplate
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|description||false|string||
+|name||false|string||
+|properties||false|object||
+|tags||false|Tag array||
+|targets||false|string array||
+|triggers||false|object||
+|type||false|string||
+
+
+# PolicyType
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|abstract||false|boolean||
+|archiveName||false|string||
+|archiveVersion||false|string||
+|creationDate||false|string (date-time)||
+|derivedFrom||false|string array||
+|description||false|string||
+|elementId||false|string||
+|id||false|string||
+|lastUpdateDate||false|string (date-time)||
+|nestedVersion||false|Version||
+|properties||false|object||
+|tags||false|Tag array||
+|targets||false|string array||
+|triggers||false|object||
+|workspace||false|string||
 
 
 # Map«string,IValue»
+
+# Map«string,PolicyTemplate»
 
 # CapabilityType
 
@@ -661,6 +796,16 @@ weight: 9000
 
 
 # Map«string,Requirement»
+
+# TimeInterval
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|endTime||false|string||
+|startTime||false|string||
+
 
 # SubstitutionTarget
 
@@ -715,6 +860,8 @@ weight: 9000
 |name||false|string||
 |version||false|string||
 
+
+# Map«string,WorkflowStep»
 
 # Map«string,NodeTemplate»
 
@@ -788,13 +935,16 @@ A location represents a cloud, a region of a cloud, a set of machines and resour
 |dependencies||false|CSARDependency array||
 |environmentPermissions||false|object||
 |environmentType||false|string||
+|environmentTypePermissions||false|object||
 |groupPermissions||false|object||
 |id||false|string||
 |infrastructureType||false|string||
 |lastUpdateDate||false|string (date-time)||
 |metaProperties||false|object||
+|modifiers||false|LocationModifierReference array||
 |name||false|string||
 |orchestratorId||false|string||
+|secretProviderConfiguration||false|SecretProviderConfiguration||
 |userPermissions||false|object||
 
 
@@ -807,4 +957,17 @@ A location represents a cloud, a region of a cloud, a set of machines and resour
 |capabilities||false|object||
 |properties||false|object||
 
+
+# PolicyEventFilter
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|capability||false|string||
+|node||false|string||
+|requirement||false|string||
+
+
+# AbstractConditionClause
 

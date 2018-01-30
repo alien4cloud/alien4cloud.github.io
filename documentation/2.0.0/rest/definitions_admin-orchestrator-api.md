@@ -2,7 +2,7 @@
 layout: post
 title: Definitions
 root: ../../
-categories: DOCUMENTATION-2.0.0
+categories: DOCUMENTATION-1.4.0
 parent: [rest_api, rest_api_admin-orchestrator-api]
 node_name: rest_api_definitions_admin-orchestrator-api
 weight: 9000
@@ -18,18 +18,6 @@ weight: 9000
 |----|----|----|----|----|
 |data||false|OrchestratorConfiguration||
 |error||false|RestError||
-
-
-# UserDTO
-
-
-{: .table .table-bordered}
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|email||false|string||
-|firstName||false|string||
-|lastName||false|string||
-|username||false|string||
 
 
 # GroupDTO
@@ -54,23 +42,6 @@ weight: 9000
 |error||false|RestError||
 
 
-# RequirementDefinition
-
-
-{: .table .table-bordered}
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|capabilityName||false|string||
-|description||false|string||
-|id||false|string||
-|lowerBound||false|integer (int32)||
-|nodeFilter||false|NodeFilter||
-|nodeType||false|string||
-|relationshipType||false|string||
-|type||false|string||
-|upperBound||false|integer (int32)||
-
-
 # GetMultipleDataResult«UserDTO»
 
 
@@ -85,19 +56,6 @@ weight: 9000
 |types||false|string array||
 
 
-# Orchestrator update request.
-
-
-A request object to pass when updating an orchestrator. Contains updatable fields. a topology deployment. An orchestrator may manage one or multiple locations.
-
-
-{: .table .table-bordered}
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|deploymentNamePattern||false|string||
-|name||false|string||
-
-
 # Map«string,DataType»
 
 # FilterDefinition
@@ -109,23 +67,7 @@ A request object to pass when updating an orchestrator. Contains updatable field
 |properties||false|object||
 
 
-# RelationshipTemplate
-
-
-{: .table .table-bordered}
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|artifacts||false|object||
-|attributes||false|object||
-|interfaces||false|object||
-|name||false|string||
-|properties||false|object||
-|requirementName||false|string||
-|requirementType||false|string||
-|target||false|string||
-|targetedCapabilityName||false|string||
-|type||false|string||
-
+# Map«string,PolicyType»
 
 # RestResponse«Void»
 
@@ -136,18 +78,7 @@ A request object to pass when updating an orchestrator. Contains updatable field
 |error||false|RestError||
 
 
-# Version
-
-
-{: .table .table-bordered}
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|buildNumber||false|integer (int32)||
-|incrementalVersion||false|integer (int32)||
-|majorVersion||false|integer (int32)||
-|minorVersion||false|integer (int32)||
-|qualifier||false|string||
-
+# Map«string,object»
 
 # Request to update a location resource.
 
@@ -167,6 +98,550 @@ A request object to pass when updating an orchestrator. Contains updatable field
 |----|----|----|----|----|
 |multipleLocations||false|boolean||
 |types||false|string array||
+
+
+# UpdateLocationRequest
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|environmentType||false|string||
+|name||false|string||
+|secretProviderConfiguration||false|SecretProviderConfiguration||
+
+
+# RestResponse«GetMultipleDataResult«Orchestrator.»»
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|data||false|GetMultipleDataResult«Orchestrator.»||
+|error||false|RestError||
+
+
+# RestResponse«Contains a custom resource template with its location's updated dependencies.»
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|data||false|Contains a custom resource template with its location's updated dependencies.||
+|error||false|RestError||
+
+
+# Capability
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|properties||false|object||
+|type||false|string||
+
+
+# Request to update a location resource template property.
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|propertyName|Name of the property to update.|false|string||
+|propertyValue|Value of the property to update, the type must be equal to the type of the property that will be updated.|false|object||
+
+
+# PropertyValue
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|definition||false|boolean||
+|value||false|object||
+
+
+# Map«string,Interface»
+
+# Map«string,RelationshipTemplate»
+
+# Map«string,PropertyDefinition»
+
+# RestResponse«Array«string»»
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|data||false|string array||
+|error||false|RestError||
+
+
+# ImplementationArtifact
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|archiveName||false|string||
+|archiveVersion||false|string||
+|artifactRef||false|string||
+|artifactRepository||false|string||
+|artifactType||false|string||
+|repositoryCredential||false|object||
+|repositoryName||false|string||
+|repositoryURL||false|string||
+
+
+# Requirement
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|properties||false|object||
+|type||false|string||
+
+
+# RestResponse«ConstraintInformation»
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|data||false|ConstraintInformation||
+|error||false|RestError||
+
+
+# RestResponse«GetMultipleDataResult«ApplicationEnvironmentAuthorizationDTO»»
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|data||false|GetMultipleDataResult«ApplicationEnvironmentAuthorizationDTO»||
+|error||false|RestError||
+
+
+# PropertyValue«NodeTemplate»
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|definition||false|boolean||
+|value||false|NodeTemplate||
+
+
+# Application
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|creationDate||false|string (date-time)||
+|description||false|string||
+|groupRoles||false|object||
+|id||false|string||
+|imageId||false|string||
+|lastUpdateDate||false|string (date-time)||
+|metaProperties||false|object||
+|name||false|string||
+|tags||false|Tag array||
+|userRoles||false|object||
+
+
+# RestResponse«string»
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|data||false|string||
+|error||false|RestError||
+
+
+# Map«string,NodeType»
+
+# RestResponse«List«LocationModifierReference»»
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|data||false|LocationModifierReference array||
+|error||false|RestError||
+
+
+# Request for creation of a new location's resource.
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|archiveName|Archive name of the resource type.|false|string||
+|archiveVersion|Archive version of the resource type.|false|string||
+|resourceName|Name of the location's resource.|true|string||
+|resourceType|Type of the location's resource.|true|string||
+
+
+# RestResponse«LocationDTO»
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|data||false|LocationDTO||
+|error||false|RestError||
+
+
+# Map«string,Operation»
+
+# RestError
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|code||false|integer (int32)||
+|message||false|string||
+
+
+# DataType
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|abstract||false|boolean||
+|archiveName||false|string||
+|archiveVersion||false|string||
+|creationDate||false|string (date-time)||
+|deriveFromSimpleType||false|boolean||
+|derivedFrom||false|string array||
+|description||false|string||
+|elementId||false|string||
+|id||false|string||
+|lastUpdateDate||false|string (date-time)||
+|nestedVersion||false|Version||
+|properties||false|object||
+|tags||false|Tag array||
+|workspace||false|string||
+
+
+# RestResponse«List«LocationDTO»»
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|data||false|LocationDTO array||
+|error||false|RestError||
+
+
+# RestResponse«List«ApplicationEnvironmentAuthorizationDTO»»
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|data||false|ApplicationEnvironmentAuthorizationDTO array||
+|error||false|RestError||
+
+
+# PolicyTemplate
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|description||false|string||
+|name||false|string||
+|properties||false|object||
+|tags||false|Tag array||
+|targets||false|string array||
+|triggers||false|object||
+|type||false|string||
+
+
+# PolicyType
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|abstract||false|boolean||
+|archiveName||false|string||
+|archiveVersion||false|string||
+|creationDate||false|string (date-time)||
+|derivedFrom||false|string array||
+|description||false|string||
+|elementId||false|string||
+|id||false|string||
+|lastUpdateDate||false|string (date-time)||
+|nestedVersion||false|Version||
+|properties||false|object||
+|tags||false|Tag array||
+|targets||false|string array||
+|triggers||false|object||
+|workspace||false|string||
+
+
+# Map«string,IValue»
+
+# Usage
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|resourceId||false|string||
+|resourceName||false|string||
+|resourceType||false|string||
+|workspace||false|string||
+
+
+# GetMultipleDataResult«Orchestrator.»
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|data||false|Orchestrator. array||
+|from||false|integer (int32)||
+|queryDuration||false|integer (int64)||
+|to||false|integer (int32)||
+|totalResults||false|integer (int64)||
+|types||false|string array||
+
+
+# Map«string,Requirement»
+
+# ConstraintInformation
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|name||false|string||
+|path||false|string||
+|reference||false|object||
+|type||false|string||
+|value||false|string||
+
+
+# RestResponse«List«LocationResourceTemplate»»
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|data||false|LocationResourceTemplate array||
+|error||false|RestError||
+
+
+# PropertyDefinition
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|constraints||false|PropertyConstraint array||
+|default||false|PropertyValue||
+|definition||false|boolean||
+|description||false|string||
+|password||false|boolean||
+|required||false|boolean||
+|suggestionId||false|string||
+|type||false|string||
+
+
+# GetMultipleDataResult«GroupDTO»
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|data||false|GroupDTO array||
+|from||false|integer (int32)||
+|queryDuration||false|integer (int64)||
+|to||false|integer (int32)||
+|totalResults||false|integer (int64)||
+|types||false|string array||
+
+
+# SecretProviderConfigurationsDTO
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|currentConfiguration||false|SecretProviderConfiguration||
+|genericFormByPluginName||false|object||
+
+
+# Request to update or check the value of a property.
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|definitionId|Id of the property to set.|true|string||
+|value|Value to set for the property.|true|string||
+
+
+# Tag
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|name||false|string||
+|value||false|string||
+
+
+# AbstractPropertyValue
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|definition||false|boolean||
+
+
+# Interface
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|description||false|string||
+|operations||false|object||
+|type||false|string||
+
+
+# NodeFilter
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|capabilities||false|object||
+|properties||false|object||
+
+
+# PolicyEventFilter
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|capability||false|string||
+|node||false|string||
+|requirement||false|string||
+
+
+# PolicyTrigger
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|actionOperation||false|Operation||
+|actionWorkflow||false|string||
+|condition||false|PolicyCondition||
+|description||false|string||
+|eventFilter||false|PolicyEventFilter||
+|eventType||false|string||
+|timeInterval||false|TimeInterval||
+
+
+# UserDTO
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|email||false|string||
+|firstName||false|string||
+|lastName||false|string||
+|username||false|string||
+
+
+# RequirementDefinition
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|capabilityName||false|string||
+|description||false|string||
+|id||false|string||
+|lowerBound||false|integer (int32)||
+|nodeFilter||false|NodeFilter||
+|nodeType||false|string||
+|relationshipType||false|string||
+|type||false|string||
+|upperBound||false|integer (int32)||
+
+
+# Orchestrator update request.
+
+
+A request object to pass when updating an orchestrator. Contains updatable fields. a topology deployment. An orchestrator may manage one or multiple locations.
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|deploymentNamePattern||false|string||
+|name||false|string||
+
+
+# RelationshipTemplate
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|artifacts||false|object||
+|attributes||false|object||
+|description||false|string||
+|interfaces||false|object||
+|name||false|string||
+|properties||false|object||
+|requirementName||false|string||
+|requirementType||false|string||
+|tags||false|Tag array||
+|target||false|string||
+|targetedCapabilityName||false|string||
+|type||false|string||
+
+
+# Version
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|buildNumber||false|integer (int32)||
+|incrementalVersion||false|integer (int32)||
+|majorVersion||false|integer (int32)||
+|minorVersion||false|integer (int32)||
+|qualifier||false|string||
+
+
+# AbstractTemplate
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|description||false|string||
+|name||false|string||
+|properties||false|object||
+|tags||false|Tag array||
+|type||false|string||
 
 
 # CapabilityDefinition
@@ -221,19 +696,10 @@ A request object to pass when updating an orchestrator. Contains updatable field
 |----|----|----|----|----|
 |location||false|Location||
 |resources||false|Contains the types and templates of elements configured for a given location.||
+|secretProviderConfigurations||false|SecretProviderConfigurationsDTO||
 
 
 # Map«string,FilterDefinition»
-
-# UpdateLocationRequest
-
-
-{: .table .table-bordered}
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|environmentType||false|string||
-|name||false|string||
-
 
 # Contains a custom resource template with its location's updated dependencies.
 
@@ -242,37 +708,7 @@ A request object to pass when updating an orchestrator. Contains updatable field
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
 |newDependencies|The location's dependencies, which might have been updated when creating the resource template.|false|CSARDependency array||
-|resourceTemplate|A custom configured resource template.|false|LocationResourceTemplate||
-
-
-# RestResponse«GetMultipleDataResult«Orchestrator.»»
-
-
-{: .table .table-bordered}
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|data||false|GetMultipleDataResult«Orchestrator.»||
-|error||false|RestError||
-
-
-# RestResponse«Contains a custom resource template with its location's updated dependencies.»
-
-
-{: .table .table-bordered}
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|data||false|Contains a custom resource template with its location's updated dependencies.||
-|error||false|RestError||
-
-
-# Capability
-
-
-{: .table .table-bordered}
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|properties||false|object||
-|type||false|string||
+|resourceTemplate|A custom configured resource template.|false|AbstractLocationResourceTemplate||
 
 
 # Contains the types and templates of elements configured for a given location.
@@ -289,6 +725,8 @@ A request object to pass when updating an orchestrator. Contains updatable field
 |nodeTemplates|List of node templates already configured for the location.|false|LocationResourceTemplate array||
 |nodeTypes|Map of node types id, node type used to configure the templates of on-demand resources in a location.|false|object||
 |onDemandTypes|Map that contains the on demdand types.|false|object||
+|policyTemplates|List of policies templates already configured for the location.|false|PolicyLocationResourceTemplate array||
+|policyTypes|Map of policy types id, policy type used to configure the templates of policies in a location.|false|object||
 |providedTypes|List of recommended node types ID, e.g. defined at the orchestrator level|false|string array||
 
 
@@ -321,32 +759,6 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 
 # Map«string,Capability»
 
-# Request to update a location resource template property.
-
-
-{: .table .table-bordered}
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|propertyName|Name of the property to update.|false|string||
-|propertyValue|Value of the property to update, the type must be equal to the type of the property that will be updated.|false|object||
-
-
-# PropertyValue
-
-
-{: .table .table-bordered}
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|definition||false|boolean||
-|value||false|object||
-
-
-# Map«string,Interface»
-
-# Map«string,RelationshipTemplate»
-
-# Map«string,PropertyDefinition»
-
 # Map«string,List«PropertyConstraint»»
 
 # RestResponse«GetMultipleDataResult«GroupDTO»»
@@ -359,40 +771,36 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 |error||false|RestError||
 
 
-# RestResponse«Array«string»»
+# PolicyLocationResourceTemplate
 
 
 {: .table .table-bordered}
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
-|data||false|string array||
-|error||false|RestError||
+|applicationPermissions||false|object||
+|enabled||false|boolean||
+|environmentPermissions||false|object||
+|environmentTypePermissions||false|object||
+|groupPermissions||false|object||
+|id||false|string||
+|locationId||false|string||
+|name||false|string||
+|portabilityDefinitions||false|object||
+|service||false|boolean||
+|template||false|PolicyTemplate||
+|types||false|string array||
+|userPermissions||false|object||
 
 
-# ImplementationArtifact
-
-
-{: .table .table-bordered}
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|archiveName||false|string||
-|archiveVersion||false|string||
-|artifactRef||false|string||
-|artifactRepository||false|string||
-|artifactType||false|string||
-|repositoryCredential||false|object||
-|repositoryName||false|string||
-|repositoryURL||false|string||
-
-
-# Requirement
+# LocationModifierReference
 
 
 {: .table .table-bordered}
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
-|properties||false|object||
-|type||false|string||
+|beanName||false|string||
+|phase||false|string||
+|pluginId||false|string||
 
 
 # NodeTemplate
@@ -404,24 +812,18 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 |artifacts||false|object||
 |attributes||false|object||
 |capabilities||false|object||
+|danglingRequirement||false|boolean||
+|description||false|string||
 |groups||false|string array||
 |interfaces||false|object||
 |name||false|string||
+|nodeFilter||false|NodeFilter||
 |portability||false|object||
 |properties||false|object||
 |relationships||false|object||
 |requirements||false|object||
+|tags||false|Tag array||
 |type||false|string||
-
-
-# RestResponse«ConstraintInformation»
-
-
-{: .table .table-bordered}
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|data||false|ConstraintInformation||
-|error||false|RestError||
 
 
 # NodeType
@@ -454,16 +856,6 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 |workspace||false|string||
 
 
-# RestResponse«GetMultipleDataResult«ApplicationEnvironmentAuthorizationDTO»»
-
-
-{: .table .table-bordered}
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|data||false|GetMultipleDataResult«ApplicationEnvironmentAuthorizationDTO»||
-|error||false|RestError||
-
-
 # Request for creation of a new location.
 
 
@@ -474,46 +866,16 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 |name|Name of the location (must be unique for this orchestrator as this allow users to identify it).|true|string||
 
 
-# Application
+# Map«string,PolicyTrigger»
+
+# PropertyValue«PolicyTemplate»
 
 
 {: .table .table-bordered}
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
-|creationDate||false|string (date-time)||
-|description||false|string||
-|groupRoles||false|object||
-|id||false|string||
-|imageId||false|string||
-|lastUpdateDate||false|string (date-time)||
-|metaProperties||false|object||
-|name||false|string||
-|tags||false|Tag array||
-|userRoles||false|object||
-
-
-# RestResponse«string»
-
-
-{: .table .table-bordered}
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|data||false|string||
-|error||false|RestError||
-
-
-# Map«string,NodeType»
-
-# Request for creation of a new location's resource.
-
-
-{: .table .table-bordered}
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|archiveName|Archive name of the resource type.|false|string||
-|archiveVersion|Archive version of the resource type.|false|string||
-|resourceName|Name of the location's resource.|true|string||
-|resourceType|Type of the location's resource.|true|string||
+|definition||false|boolean||
+|value||false|PolicyTemplate||
 
 
 # LocationResourceTemplate
@@ -525,6 +887,7 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 |applicationPermissions||false|object||
 |enabled||false|boolean||
 |environmentPermissions||false|object||
+|environmentTypePermissions||false|object||
 |generated||false|boolean||
 |groupPermissions||false|object||
 |id||false|string||
@@ -547,18 +910,6 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 |error||false|RestError||
 
 
-# RestResponse«LocationDTO»
-
-
-{: .table .table-bordered}
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|data||false|LocationDTO||
-|error||false|RestError||
-
-
-# Map«string,Operation»
-
 # Operation
 
 
@@ -570,6 +921,18 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 |implementationArtifact||false|ImplementationArtifact||
 |inputParameters||false|object||
 |portability||false|object||
+
+
+# PolicyCondition
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|constraints||false|PropertyConstraint array||
+|evaluations||false|integer (int32)||
+|method||false|string||
+|period||false|string||
 
 
 # RestResponse«List«UserDTO»»
@@ -593,6 +956,16 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 |resources||false|string array||
 
 
+# SecretProviderConfiguration
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|configuration||false|object||
+|pluginName||false|string||
+
+
 # RestResponse«GetMultipleDataResult«UserDTO»»
 
 
@@ -614,16 +987,6 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 |definition||false|boolean||
 
 
-# RestError
-
-
-{: .table .table-bordered}
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|code||false|integer (int32)||
-|message||false|string||
-
-
 # Map«string,Set«string»»
 
 # ApplicationEnvironmentAuthorizationUpdateRequest
@@ -634,54 +997,12 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 |----|----|----|----|----|
 |applicationsToAdd||false|string array||
 |applicationsToDelete||false|string array||
+|environmentTypesToAdd||false|string array||
+|environmentTypesToDelete||false|string array||
 |environmentsToAdd||false|string array||
 |environmentsToDelete||false|string array||
 |resources||false|string array||
 
-
-# DataType
-
-
-{: .table .table-bordered}
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|abstract||false|boolean||
-|archiveName||false|string||
-|archiveVersion||false|string||
-|creationDate||false|string (date-time)||
-|deriveFromSimpleType||false|boolean||
-|derivedFrom||false|string array||
-|description||false|string||
-|elementId||false|string||
-|id||false|string||
-|lastUpdateDate||false|string (date-time)||
-|nestedVersion||false|Version||
-|properties||false|object||
-|tags||false|Tag array||
-|workspace||false|string||
-
-
-# RestResponse«List«LocationDTO»»
-
-
-{: .table .table-bordered}
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|data||false|LocationDTO array||
-|error||false|RestError||
-
-
-# RestResponse«List«ApplicationEnvironmentAuthorizationDTO»»
-
-
-{: .table .table-bordered}
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|data||false|ApplicationEnvironmentAuthorizationDTO array||
-|error||false|RestError||
-
-
-# Map«string,IValue»
 
 # CapabilityType
 
@@ -706,33 +1027,15 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 |workspace||false|string||
 
 
-# Usage
+# TimeInterval
 
 
 {: .table .table-bordered}
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
-|resourceId||false|string||
-|resourceName||false|string||
-|resourceType||false|string||
-|workspace||false|string||
+|endTime||false|string||
+|startTime||false|string||
 
-
-# GetMultipleDataResult«Orchestrator.»
-
-
-{: .table .table-bordered}
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|data||false|Orchestrator. array||
-|from||false|integer (int32)||
-|queryDuration||false|integer (int64)||
-|to||false|integer (int32)||
-|totalResults||false|integer (int64)||
-|types||false|string array||
-
-
-# Map«string,Requirement»
 
 # RestResponse«Orchestrator.»
 
@@ -742,19 +1045,6 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 |----|----|----|----|----|
 |data||false|Orchestrator.||
 |error||false|RestError||
-
-
-# ConstraintInformation
-
-
-{: .table .table-bordered}
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|name||false|string||
-|path||false|string||
-|reference||false|object||
-|type||false|string||
-|value||false|string||
 
 
 # RestResponse«LocationSupport»
@@ -767,33 +1057,30 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 |error||false|RestError||
 
 
-# RestResponse«List«LocationResourceTemplate»»
+# AbstractLocationResourceTemplate
 
 
 {: .table .table-bordered}
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
-|data||false|LocationResourceTemplate array||
-|error||false|RestError||
-
-
-# PropertyDefinition
-
-
-{: .table .table-bordered}
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|constraints||false|PropertyConstraint array||
-|default||false|PropertyValue||
-|definition||false|boolean||
-|description||false|string||
-|password||false|boolean||
-|required||false|boolean||
-|suggestionId||false|string||
-|type||false|string||
+|applicationPermissions||false|object||
+|enabled||false|boolean||
+|environmentPermissions||false|object||
+|environmentTypePermissions||false|object||
+|groupPermissions||false|object||
+|id||false|string||
+|locationId||false|string||
+|name||false|string||
+|portabilityDefinitions||false|object||
+|service||false|boolean||
+|template||false|AbstractTemplate||
+|types||false|string array||
+|userPermissions||false|object||
 
 
 # Map«string,AbstractPropertyValue»
+
+# Map«string,Map«string,object»»
 
 # ApplicationEnvironment
 
@@ -822,20 +1109,6 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 |id||false|string||
 
 
-# GetMultipleDataResult«GroupDTO»
-
-
-{: .table .table-bordered}
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|data||false|GroupDTO array||
-|from||false|integer (int32)||
-|queryDuration||false|integer (int64)||
-|to||false|integer (int32)||
-|totalResults||false|integer (int64)||
-|types||false|string array||
-
-
 # CSARDependency
 
 
@@ -860,17 +1133,8 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
 |application||false|Application||
+|environmentTypes||false|string array||
 |environments||false|ApplicationEnvironment array||
-
-
-# Request to update or check the value of a property.
-
-
-{: .table .table-bordered}
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|definitionId|Id of the property to set.|true|string||
-|value|Value to set for the property.|true|string||
 
 
 # GetMultipleDataResult«ApplicationEnvironmentAuthorizationDTO»
@@ -887,36 +1151,6 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 |types||false|string array||
 
 
-# Tag
-
-
-{: .table .table-bordered}
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|name||false|string||
-|value||false|string||
-
-
-# AbstractPropertyValue
-
-
-{: .table .table-bordered}
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|definition||false|boolean||
-
-
-# Interface
-
-
-{: .table .table-bordered}
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|description||false|string||
-|operations||false|object||
-|type||false|string||
-
-
 # Location
 
 
@@ -931,23 +1165,16 @@ A location represents a cloud, a region of a cloud, a set of machines and resour
 |dependencies||false|CSARDependency array||
 |environmentPermissions||false|object||
 |environmentType||false|string||
+|environmentTypePermissions||false|object||
 |groupPermissions||false|object||
 |id||false|string||
 |infrastructureType||false|string||
 |lastUpdateDate||false|string (date-time)||
 |metaProperties||false|object||
+|modifiers||false|LocationModifierReference array||
 |name||false|string||
 |orchestratorId||false|string||
+|secretProviderConfiguration||false|SecretProviderConfiguration||
 |userPermissions||false|object||
-
-
-# NodeFilter
-
-
-{: .table .table-bordered}
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|capabilities||false|object||
-|properties||false|object||
 
 

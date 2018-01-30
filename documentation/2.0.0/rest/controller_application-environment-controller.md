@@ -2,10 +2,10 @@
 layout: post
 title: Manages application's environments
 root: ../../
-categories: DOCUMENTATION-2.0.0
+categories: DOCUMENTATION-1.4.0
 parent: [rest_api, rest_api_applications-api]
 node_name: rest_api_controller_application-environment-controller
-weight: 26
+weight: 31
 ---
 
 ### Create a new application environment

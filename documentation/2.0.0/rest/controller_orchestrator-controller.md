@@ -2,10 +2,10 @@
 layout: post
 title: Manages orchestrators.
 root: ../../
-categories: DOCUMENTATION-2.0.0
+categories: DOCUMENTATION-1.4.0
 parent: [rest_api, rest_api_admin-orchestrator-api]
 node_name: rest_api_controller_orchestrator-controller
-weight: 9
+weight: 8
 ---
 
 ### Search for orchestrators.

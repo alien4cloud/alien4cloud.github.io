@@ -1,16 +1,16 @@
 ---
 layout: post
-title: Location resource security operations
+title: Location policy resources security operations
 root: ../../
 categories: DOCUMENTATION-1.4.0
 parent: [rest_api, rest_api_admin-orchestrator-api]
-node_name: rest_api_controller_location-resources-security-controller
-weight: 7
+node_name: rest_api_controller_location-policy-resources-security-controller
+weight: 15
 ---
 
 ### Revoke the application's authorisation to access the location resource
 ```
-DELETE /rest/v1/orchestrators/{orchestratorId}/locations/{locationId}/resources/{resourceId}/security/applications/{applicationId}
+DELETE /rest/v1/orchestrators/{orchestratorId}/locations/{locationId}/policies/{resourceId}/security/applications/{applicationId}
 ```
 
 #### Description
@@ -49,7 +49,7 @@ Only user with ADMIN role can revoke access to the location.
 
 ### List all applications,environments and environment types authorized to access the location resource
 ```
-GET /rest/v1/orchestrators/{orchestratorId}/locations/{locationId}/resources/{resourceId}/security/environmentsPerApplication
+GET /rest/v1/orchestrators/{orchestratorId}/locations/{locationId}/policies/{resourceId}/security/environmentsPerApplication
 ```
 
 #### Description
@@ -87,7 +87,7 @@ Only user with ADMIN role can list authorized applications,environments and envi
 
 ### Update applications,environments and environment types authorized to access the location resource
 ```
-POST /rest/v1/orchestrators/{orchestratorId}/locations/{locationId}/resources/{resourceId}/security/environmentsPerApplication
+POST /rest/v1/orchestrators/{orchestratorId}/locations/{locationId}/policies/{resourceId}/security/environmentsPerApplication
 ```
 
 #### Description
@@ -127,7 +127,7 @@ Only user with ADMIN role can update authorized applications,environments and en
 
 ### List all groups authorized to access the location
 ```
-GET /rest/v1/orchestrators/{orchestratorId}/locations/{locationId}/resources/{resourceId}/security/groups
+GET /rest/v1/orchestrators/{orchestratorId}/locations/{locationId}/policies/{resourceId}/security/groups
 ```
 
 #### Description
@@ -165,7 +165,7 @@ Only user with ADMIN role can list authorized groups to the location.
 
 ### Grant access to the location to the groups
 ```
-POST /rest/v1/orchestrators/{orchestratorId}/locations/{locationId}/resources/{resourceId}/security/groups
+POST /rest/v1/orchestrators/{orchestratorId}/locations/{locationId}/policies/{resourceId}/security/groups
 ```
 
 #### Description
@@ -205,7 +205,7 @@ Only user with ADMIN role can grant access to a group.
 
 ### Revoke the group's authorisation to access the location
 ```
-DELETE /rest/v1/orchestrators/{orchestratorId}/locations/{locationId}/resources/{resourceId}/security/groups/{groupId}
+DELETE /rest/v1/orchestrators/{orchestratorId}/locations/{locationId}/policies/{resourceId}/security/groups/{groupId}
 ```
 
 #### Description
@@ -244,7 +244,7 @@ Only user with ADMIN role can revoke access to the location.
 
 ### List all users authorized to access the location resource
 ```
-GET /rest/v1/orchestrators/{orchestratorId}/locations/{locationId}/resources/{resourceId}/security/users
+GET /rest/v1/orchestrators/{orchestratorId}/locations/{locationId}/policies/{resourceId}/security/users
 ```
 
 #### Description
@@ -282,7 +282,7 @@ Only user with ADMIN role can list authorized users to the location.
 
 ### Grant access to the location's resource to the users, send back the new authorised users list
 ```
-POST /rest/v1/orchestrators/{orchestratorId}/locations/{locationId}/resources/{resourceId}/security/users
+POST /rest/v1/orchestrators/{orchestratorId}/locations/{locationId}/policies/{resourceId}/security/users
 ```
 
 #### Description
@@ -322,7 +322,7 @@ Only user with ADMIN role can grant access to another users.
 
 ### Revoke the user's authorisation to access a location resource, send back the new authorised users list
 ```
-DELETE /rest/v1/orchestrators/{orchestratorId}/locations/{locationId}/resources/{resourceId}/security/users/{username}
+DELETE /rest/v1/orchestrators/{orchestratorId}/locations/{locationId}/policies/{resourceId}/security/users/{username}
 ```
 
 #### Description

@@ -2,10 +2,10 @@
 layout: post
 title: Manages application's versions
 root: ../../
-categories: DOCUMENTATION-2.0.0
+categories: DOCUMENTATION-1.4.0
 parent: [rest_api, rest_api_applications-api]
 node_name: rest_api_controller_application-version-controller
-weight: 32
+weight: 38
 ---
 
 ### Get the first snapshot application version for an application.

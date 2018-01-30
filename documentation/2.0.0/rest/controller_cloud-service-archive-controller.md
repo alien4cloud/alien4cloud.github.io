@@ -2,10 +2,10 @@
 layout: post
 title: Operations on CSARs
 root: ../../
-categories: DOCUMENTATION-2.0.0
+categories: DOCUMENTATION-1.4.0
 parent: [rest_api, rest_api_catalog-api]
 node_name: rest_api_controller_cloud-service-archive-controller
-weight: 17
+weight: 21
 ---
 
 ### Upload a csar zip file.
@@ -176,4 +176,40 @@ POST /rest/v1/csars/{csarId}/dependencies
 #### Produces
 
 * application/json
+
+### Download a CSAR given its id.
+```
+GET /rest/v1/csars/{csarId}/download
+```
+
+#### Description
+
+Returns zipped content of a CSAR.
+
+#### Parameters
+
+{: .table .table-bordered}
+|Type|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|----|
+|PathParameter|csarId|csarId|true|string||
+
+
+#### Responses
+
+{: .table .table-bordered}
+|HTTP Code|Description|Schema|
+|----|----|----|
+|200|OK|InputStreamResource|
+|401|Unauthorized|No Content|
+|403|Forbidden|No Content|
+|404|Not Found|No Content|
+
+
+#### Consumes
+
+* application/json
+
+#### Produces
+
+* application/octet-stream
 

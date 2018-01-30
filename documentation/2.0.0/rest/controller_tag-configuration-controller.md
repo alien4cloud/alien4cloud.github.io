@@ -2,10 +2,10 @@
 layout: post
 title: Tag Configuration Controller
 root: ../../
-categories: DOCUMENTATION-2.0.0
+categories: DOCUMENTATION-1.4.0
 parent: [rest_api, rest_api_admin-metaproperties-api]
 node_name: rest_api_controller_tag-configuration-controller
-weight: 14
+weight: 18
 ---
 
 ### Save tag configuration.

@@ -2,10 +2,10 @@
 layout: post
 title: Operations on workspaces
 root: ../../
-categories: DOCUMENTATION-2.0.0
+categories: DOCUMENTATION-1.4.0
 parent: [rest_api, rest_api_workspaces-api]
 node_name: rest_api_controller_workspace-controller
-weight: 19
+weight: 23
 ---
 
 ### Get workspaces that the current user has the right to upload to

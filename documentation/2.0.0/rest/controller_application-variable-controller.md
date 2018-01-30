@@ -1,64 +1,16 @@
 ---
 layout: post
-title: Metrics Mvc Endpoint
+title: Application Variable Controller
 root: ../../
 categories: DOCUMENTATION-1.4.0
-parent: [rest_api, rest_api_admin-api]
-node_name: rest_api_controller_metrics-mvc-endpoint
-weight: 58
+parent: [rest_api, rest_api_applications-api]
+node_name: rest_api_controller_application-variable-controller
+weight: 35
 ---
 
-### invoke
+### getContent
 ```
-GET /rest/admin/metrics
-```
-
-#### Responses
-
-{: .table .table-bordered}
-|HTTP Code|Description|Schema|
-|----|----|----|
-|200|OK|object|
-|401|Unauthorized|No Content|
-|403|Forbidden|No Content|
-|404|Not Found|No Content|
-
-
-#### Consumes
-
-* application/json
-
-#### Produces
-
-* application/json
-
-### invoke
-```
-GET /rest/admin/metrics.json
-```
-
-#### Responses
-
-{: .table .table-bordered}
-|HTTP Code|Description|Schema|
-|----|----|----|
-|200|OK|object|
-|401|Unauthorized|No Content|
-|403|Forbidden|No Content|
-|404|Not Found|No Content|
-
-
-#### Consumes
-
-* application/json
-
-#### Produces
-
-* application/json
-
-### value
-```
-GET /rest/admin/metrics/{name}
+GET /rest/v1/applications/{applicationId}/variables
 ```
 
 #### Parameters
@@ -66,7 +18,7 @@ GET /rest/admin/metrics/{name}
 {: .table .table-bordered}
 |Type|Name|Description|Required|Schema|Default|
 |----|----|----|----|----|----|
-|PathParameter|name|name|true|string||
+|PathParameter|applicationId|applicationId|true|string||
 
 
 #### Responses
@@ -74,7 +26,41 @@ GET /rest/admin/metrics/{name}
 {: .table .table-bordered}
 |HTTP Code|Description|Schema|
 |----|----|----|
-|200|OK|object|
+|200|OK|RestResponse«string»|
+|401|Unauthorized|No Content|
+|403|Forbidden|No Content|
+|404|Not Found|No Content|
+
+
+#### Consumes
+
+* application/json
+
+#### Produces
+
+* application/json
+
+### upload
+```
+POST /rest/v1/applications/{applicationId}/variables
+```
+
+#### Parameters
+
+{: .table .table-bordered}
+|Type|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|----|
+|PathParameter|applicationId|applicationId|true|string||
+|BodyParameter|request|request|true|UpdateVariableFileContentRequest||
+
+
+#### Responses
+
+{: .table .table-bordered}
+|HTTP Code|Description|Schema|
+|----|----|----|
+|200|OK|RestResponse«Void»|
+|201|Created|No Content|
 |401|Unauthorized|No Content|
 |403|Forbidden|No Content|
 |404|Not Found|No Content|

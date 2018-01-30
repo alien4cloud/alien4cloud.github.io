@@ -2,10 +2,10 @@
 layout: post
 title: This api allows to perfom admin oriented requests on deployment events.
 root: ../../
-categories: DOCUMENTATION-2.0.0
+categories: DOCUMENTATION-1.4.0
 parent: [rest_api, rest_api_applications-deployment-api]
 node_name: rest_api_controller_deployment-events-controller
-weight: 34
+weight: 41
 ---
 
 ### Get deployment status events from a given date.

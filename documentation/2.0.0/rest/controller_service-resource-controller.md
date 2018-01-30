@@ -2,10 +2,10 @@
 layout: post
 title: Allow to create/read/update/delete and search services.
 root: ../../
-categories: DOCUMENTATION-2.0.0
+categories: DOCUMENTATION-1.4.0
 parent: [rest_api, rest_api_other-apis]
 node_name: rest_api_controller_service-resource-controller
-weight: 46
+weight: 54
 ---
 
 ### List and iterate service resources.

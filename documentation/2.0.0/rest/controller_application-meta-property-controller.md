@@ -2,10 +2,10 @@
 layout: post
 title: Operations on Application's meta-properties
 root: ../../
-categories: DOCUMENTATION-2.0.0
+categories: DOCUMENTATION-1.4.0
 parent: [rest_api, rest_api_applications-api]
 node_name: rest_api_controller_application-meta-property-controller
-weight: 29
+weight: 34
 ---
 
 ### upsertProperty

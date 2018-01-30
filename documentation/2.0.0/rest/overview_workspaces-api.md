@@ -2,7 +2,7 @@
 layout: post
 title: workspaces-api
 root: ../../
-categories: DOCUMENTATION-2.0.0
+categories: DOCUMENTATION-1.4.0
 parent: [rest_api]
 node_name: rest_api_workspaces-api
 weight: 7

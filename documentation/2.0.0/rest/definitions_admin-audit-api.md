@@ -2,7 +2,7 @@
 layout: post
 title: Definitions
 root: ../../
-categories: DOCUMENTATION-2.0.0
+categories: DOCUMENTATION-1.4.0
 parent: [rest_api, rest_api_admin-audit-api]
 node_name: rest_api_definitions_admin-audit-api
 weight: 9000
@@ -60,6 +60,7 @@ weight: 9000
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
 |action||false|string||
+|bodyHiddenFields||false|string array||
 |category||false|string||
 |enabled||false|boolean||
 |method||false|string||

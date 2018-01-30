@@ -2,10 +2,10 @@
 layout: post
 title: Environment Mvc Endpoint
 root: ../../
-categories: DOCUMENTATION-2.0.0
+categories: DOCUMENTATION-1.4.0
 parent: [rest_api, rest_api_admin-api]
 node_name: rest_api_controller_environment-mvc-endpoint
-weight: 51
+weight: 59
 ---
 
 ### invoke

@@ -2,7 +2,7 @@
 layout: post
 title: Definitions
 root: ../../
-categories: DOCUMENTATION-2.0.0
+categories: DOCUMENTATION-1.4.0
 parent: [rest_api, rest_api_workspaces-api]
 node_name: rest_api_definitions_workspaces-api
 weight: 9000
@@ -21,6 +21,7 @@ weight: 9000
 |delegateType||false|string||
 |dependencies||false|CSARDependency array||
 |description||false|string||
+|hasTopology||false|boolean||
 |hash||false|string||
 |id||false|string||
 |importDate||false|string (date-time)||
@@ -28,6 +29,7 @@ weight: 9000
 |license||false|string||
 |name||false|string||
 |nestedVersion||false|Version||
+|nodeTypesCount||false|integer (int64)||
 |tags||false|Tag array||
 |templateAuthor||false|string||
 |toscaDefaultNamespace||false|string||
