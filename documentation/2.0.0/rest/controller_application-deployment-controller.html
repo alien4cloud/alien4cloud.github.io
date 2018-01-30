@@ -383,14 +383,21 @@ GET /rest/v1/applications/{applicationId}/environments/{applicationEnvironmentId
   <li>application/json</li>
 </ul>
 
-<h3 id="un-deploys-the-application-on-the-configured-paas">Un-Deploys the application on the configured PaaS.</h3>
+<h3 id="get-current-secret-provider-configuration-for-the-given-application-on-the-given-cloud">Get current secret provider configuration for the given application on the given cloud.</h3>
 <p><code>
-DELETE /rest/v1/applications/{applicationId}/environments/{applicationEnvironmentId}/deployment
+GET /rest/v1/applications/{applicationId}/environments/{applicationEnvironmentId}/current-secret-provider-configurations
 </code></p>
 
 <h4 id="description-4">Description</h4>
 
-<p>The logged-in user must have the [ APPLICATION_MANAGER ] role for this application. Application environment role required [ DEPLOYMENT_MANAGER ]</p>
+<table>
+  <tbody>
+    <tr>
+      <td>Application role required [ APPLICATION_MANAGER</td>
+      <td>APPLICATION_DEVOPS ] and Application environment role required [ DEPLOYMENT_MANAGER ]</td>
+    </tr>
+  </tbody>
+</table>
 
 <h4 id="parameters-4">Parameters</h4>
 
@@ -439,7 +446,7 @@ DELETE /rest/v1/applications/{applicationId}/environments/{applicationEnvironmen
     <tr>
       <td>200</td>
       <td>OK</td>
-      <td>RestResponse«Void»</td>
+      <td>RestResponse«List«SecretCredentialInfo»»</td>
     </tr>
     <tr>
       <td>401</td>
@@ -447,13 +454,13 @@ DELETE /rest/v1/applications/{applicationId}/environments/{applicationEnvironmen
       <td>No Content</td>
     </tr>
     <tr>
-      <td>204</td>
-      <td>No Content</td>
+      <td>403</td>
+      <td>Forbidden</td>
       <td>No Content</td>
     </tr>
     <tr>
-      <td>403</td>
-      <td>Forbidden</td>
+      <td>404</td>
+      <td>Not Found</td>
       <td>No Content</td>
     </tr>
   </tbody>
@@ -471,22 +478,14 @@ DELETE /rest/v1/applications/{applicationId}/environments/{applicationEnvironmen
   <li>application/json</li>
 </ul>
 
-<h3 id="get-detailed-informations-for-every-instances-of-every-node-of-the-application-on-the-paas">Get detailed informations for every instances of every node of the application on the PaaS.</h3>
+<h3 id="un-deploys-the-application-on-the-configured-paas">Un-Deploys the application on the configured PaaS.</h3>
 <p><code>
-GET /rest/v1/applications/{applicationId}/environments/{applicationEnvironmentId}/deployment/informations
+PUT /rest/v1/applications/{applicationId}/environments/{applicationEnvironmentId}/deployment
 </code></p>
 
 <h4 id="description-5">Description</h4>
 
-<table>
-  <tbody>
-    <tr>
-      <td>Application role required [ APPLICATION_MANAGER</td>
-      <td>APPLICATION_DEVOPS ] and Application environment role required [ APPLICATION_USER</td>
-      <td>DEPLOYMENT_MANAGER ]</td>
-    </tr>
-  </tbody>
-</table>
+<p>The logged-in user must have the [ APPLICATION_MANAGER ] role for this application. Application environment role required [ DEPLOYMENT_MANAGER ]</p>
 
 <h4 id="parameters-5">Parameters</h4>
 
@@ -518,6 +517,14 @@ GET /rest/v1/applications/{applicationId}/environments/{applicationEnvironmentId
       <td>string</td>
       <td> </td>
     </tr>
+    <tr>
+      <td>BodyParameter</td>
+      <td>secretProviderConfigurationAndCredentials</td>
+      <td>The secret provider configuration and credentials.</td>
+      <td>false</td>
+      <td>SecretProviderConfigurationAndCredentials</td>
+      <td> </td>
+    </tr>
   </tbody>
 </table>
 
@@ -535,7 +542,12 @@ GET /rest/v1/applications/{applicationId}/environments/{applicationEnvironmentId
     <tr>
       <td>200</td>
       <td>OK</td>
-      <td>DeferredResult«RestResponse«Map«string,Map«string,InstanceInformation»»»»</td>
+      <td>RestResponse«Void»</td>
+    </tr>
+    <tr>
+      <td>201</td>
+      <td>Created</td>
+      <td>No Content</td>
     </tr>
     <tr>
       <td>401</td>
@@ -567,10 +579,14 @@ GET /rest/v1/applications/{applicationId}/environments/{applicationEnvironmentId
   <li>application/json</li>
 </ul>
 
-<h3 id="switchmaintenancemodeoff">switchMaintenanceModeOff</h3>
+<h3 id="un-deploys-the-application-on-the-configured-paas-1">Un-Deploys the application on the configured PaaS.</h3>
 <p><code>
-DELETE /rest/v1/applications/{applicationId}/environments/{applicationEnvironmentId}/deployment/maintenance
+DELETE /rest/v1/applications/{applicationId}/environments/{applicationEnvironmentId}/deployment
 </code></p>
+
+<h4 id="description-6">Description</h4>
+
+<p>The logged-in user must have the [ APPLICATION_MANAGER ] role for this application. Application environment role required [ DEPLOYMENT_MANAGER ]</p>
 
 <h4 id="parameters-6">Parameters</h4>
 
@@ -651,10 +667,22 @@ DELETE /rest/v1/applications/{applicationId}/environments/{applicationEnvironmen
   <li>application/json</li>
 </ul>
 
-<h3 id="switchmaintenancemodeon">switchMaintenanceModeOn</h3>
+<h3 id="get-detailed-informations-for-every-instances-of-every-node-of-the-application-on-the-paas">Get detailed informations for every instances of every node of the application on the PaaS.</h3>
 <p><code>
-POST /rest/v1/applications/{applicationId}/environments/{applicationEnvironmentId}/deployment/maintenance
+GET /rest/v1/applications/{applicationId}/environments/{applicationEnvironmentId}/deployment/informations
 </code></p>
+
+<h4 id="description-7">Description</h4>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Application role required [ APPLICATION_MANAGER</td>
+      <td>APPLICATION_DEVOPS ] and Application environment role required [ APPLICATION_USER</td>
+      <td>DEPLOYMENT_MANAGER ]</td>
+    </tr>
+  </tbody>
+</table>
 
 <h4 id="parameters-7">Parameters</h4>
 
@@ -703,12 +731,7 @@ POST /rest/v1/applications/{applicationId}/environments/{applicationEnvironmentI
     <tr>
       <td>200</td>
       <td>OK</td>
-      <td>RestResponse«Void»</td>
-    </tr>
-    <tr>
-      <td>201</td>
-      <td>Created</td>
-      <td>No Content</td>
+      <td>DeferredResult«RestResponse«Map«string,Map«string,InstanceInformation»»»»</td>
     </tr>
     <tr>
       <td>401</td>
@@ -740,9 +763,9 @@ POST /rest/v1/applications/{applicationId}/environments/{applicationEnvironmentI
   <li>application/json</li>
 </ul>
 
-<h3 id="switchinstancemaintenancemodeoff">switchInstanceMaintenanceModeOff</h3>
+<h3 id="switchmaintenancemodeoff">switchMaintenanceModeOff</h3>
 <p><code>
-DELETE /rest/v1/applications/{applicationId}/environments/{applicationEnvironmentId}/deployment/{nodeTemplateId}/{instanceId}/maintenance
+DELETE /rest/v1/applications/{applicationId}/environments/{applicationEnvironmentId}/deployment/maintenance
 </code></p>
 
 <h4 id="parameters-8">Parameters</h4>
@@ -771,22 +794,6 @@ DELETE /rest/v1/applications/{applicationId}/environments/{applicationEnvironmen
       <td>PathParameter</td>
       <td>applicationEnvironmentId</td>
       <td>applicationEnvironmentId</td>
-      <td>true</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>PathParameter</td>
-      <td>nodeTemplateId</td>
-      <td>nodeTemplateId</td>
-      <td>true</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>PathParameter</td>
-      <td>instanceId</td>
-      <td>instanceId</td>
       <td>true</td>
       <td>string</td>
       <td> </td>
@@ -840,9 +847,9 @@ DELETE /rest/v1/applications/{applicationId}/environments/{applicationEnvironmen
   <li>application/json</li>
 </ul>
 
-<h3 id="switchinstancemaintenancemodeon">switchInstanceMaintenanceModeOn</h3>
+<h3 id="switchmaintenancemodeon">switchMaintenanceModeOn</h3>
 <p><code>
-POST /rest/v1/applications/{applicationId}/environments/{applicationEnvironmentId}/deployment/{nodeTemplateId}/{instanceId}/maintenance
+POST /rest/v1/applications/{applicationId}/environments/{applicationEnvironmentId}/deployment/maintenance
 </code></p>
 
 <h4 id="parameters-9">Parameters</h4>
@@ -871,22 +878,6 @@ POST /rest/v1/applications/{applicationId}/environments/{applicationEnvironmentI
       <td>PathParameter</td>
       <td>applicationEnvironmentId</td>
       <td>applicationEnvironmentId</td>
-      <td>true</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>PathParameter</td>
-      <td>nodeTemplateId</td>
-      <td>nodeTemplateId</td>
-      <td>true</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>PathParameter</td>
-      <td>instanceId</td>
-      <td>instanceId</td>
       <td>true</td>
       <td>string</td>
       <td> </td>
@@ -945,12 +936,217 @@ POST /rest/v1/applications/{applicationId}/environments/{applicationEnvironmentI
   <li>application/json</li>
 </ul>
 
+<h3 id="switchinstancemaintenancemodeoff">switchInstanceMaintenanceModeOff</h3>
+<p><code>
+DELETE /rest/v1/applications/{applicationId}/environments/{applicationEnvironmentId}/deployment/{nodeTemplateId}/{instanceId}/maintenance
+</code></p>
+
+<h4 id="parameters-10">Parameters</h4>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>PathParameter</td>
+      <td>applicationId</td>
+      <td>applicationId</td>
+      <td>true</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>PathParameter</td>
+      <td>applicationEnvironmentId</td>
+      <td>applicationEnvironmentId</td>
+      <td>true</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>PathParameter</td>
+      <td>nodeTemplateId</td>
+      <td>nodeTemplateId</td>
+      <td>true</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>PathParameter</td>
+      <td>instanceId</td>
+      <td>instanceId</td>
+      <td>true</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="responses-10">Responses</h4>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>HTTP Code</th>
+      <th>Description</th>
+      <th>Schema</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>200</td>
+      <td>OK</td>
+      <td>RestResponse«Void»</td>
+    </tr>
+    <tr>
+      <td>401</td>
+      <td>Unauthorized</td>
+      <td>No Content</td>
+    </tr>
+    <tr>
+      <td>204</td>
+      <td>No Content</td>
+      <td>No Content</td>
+    </tr>
+    <tr>
+      <td>403</td>
+      <td>Forbidden</td>
+      <td>No Content</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="consumes-10">Consumes</h4>
+
+<ul>
+  <li>application/json</li>
+</ul>
+
+<h4 id="produces-10">Produces</h4>
+
+<ul>
+  <li>application/json</li>
+</ul>
+
+<h3 id="switchinstancemaintenancemodeon">switchInstanceMaintenanceModeOn</h3>
+<p><code>
+POST /rest/v1/applications/{applicationId}/environments/{applicationEnvironmentId}/deployment/{nodeTemplateId}/{instanceId}/maintenance
+</code></p>
+
+<h4 id="parameters-11">Parameters</h4>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>PathParameter</td>
+      <td>applicationId</td>
+      <td>applicationId</td>
+      <td>true</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>PathParameter</td>
+      <td>applicationEnvironmentId</td>
+      <td>applicationEnvironmentId</td>
+      <td>true</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>PathParameter</td>
+      <td>nodeTemplateId</td>
+      <td>nodeTemplateId</td>
+      <td>true</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>PathParameter</td>
+      <td>instanceId</td>
+      <td>instanceId</td>
+      <td>true</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="responses-11">Responses</h4>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>HTTP Code</th>
+      <th>Description</th>
+      <th>Schema</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>200</td>
+      <td>OK</td>
+      <td>RestResponse«Void»</td>
+    </tr>
+    <tr>
+      <td>201</td>
+      <td>Created</td>
+      <td>No Content</td>
+    </tr>
+    <tr>
+      <td>401</td>
+      <td>Unauthorized</td>
+      <td>No Content</td>
+    </tr>
+    <tr>
+      <td>403</td>
+      <td>Forbidden</td>
+      <td>No Content</td>
+    </tr>
+    <tr>
+      <td>404</td>
+      <td>Not Found</td>
+      <td>No Content</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="consumes-11">Consumes</h4>
+
+<ul>
+  <li>application/json</li>
+</ul>
+
+<h4 id="produces-11">Produces</h4>
+
+<ul>
+  <li>application/json</li>
+</ul>
+
 <h3 id="get-last-runtime-deployed-topology-of-an-application-or-else-get-the-current-deployment-topology-for-the-environment">Get last runtime (deployed) topology of an application or else get the current deployment topology for the environment.</h3>
 <p><code>
 GET /rest/v1/applications/{applicationId}/environments/{applicationEnvironmentId}/runtime-topology
 </code></p>
 
-<h4 id="parameters-10">Parameters</h4>
+<h4 id="parameters-12">Parameters</h4>
 
 <table class="table table-bordered">
   <thead>
@@ -983,7 +1179,7 @@ GET /rest/v1/applications/{applicationId}/environments/{applicationEnvironmentId
   </tbody>
 </table>
 
-<h4 id="responses-10">Responses</h4>
+<h4 id="responses-12">Responses</h4>
 
 <table class="table table-bordered">
   <thead>
@@ -1017,13 +1213,13 @@ GET /rest/v1/applications/{applicationId}/environments/{applicationEnvironmentId
   </tbody>
 </table>
 
-<h4 id="consumes-10">Consumes</h4>
+<h4 id="consumes-12">Consumes</h4>
 
 <ul>
   <li>application/json</li>
 </ul>
 
-<h4 id="produces-10">Produces</h4>
+<h4 id="produces-12">Produces</h4>
 
 <ul>
   <li>application/json</li>
@@ -1034,7 +1230,7 @@ GET /rest/v1/applications/{applicationId}/environments/{applicationEnvironmentId
 POST /rest/v1/applications/{applicationId}/environments/{applicationEnvironmentId}/scale/{nodeTemplateId}
 </code></p>
 
-<h4 id="description-6">Description</h4>
+<h4 id="description-8">Description</h4>
 
 <table>
   <tbody>
@@ -1045,7 +1241,7 @@ POST /rest/v1/applications/{applicationId}/environments/{applicationEnvironmentI
   </tbody>
 </table>
 
-<h4 id="parameters-11">Parameters</h4>
+<h4 id="parameters-13">Parameters</h4>
 
 <table class="table table-bordered">
   <thead>
@@ -1091,201 +1287,12 @@ POST /rest/v1/applications/{applicationId}/environments/{applicationEnvironmentI
       <td>integer (int32)</td>
       <td> </td>
     </tr>
-  </tbody>
-</table>
-
-<h4 id="responses-11">Responses</h4>
-
-<table class="table table-bordered">
-  <thead>
     <tr>
-      <th>HTTP Code</th>
-      <th>Description</th>
-      <th>Schema</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>200</td>
-      <td>OK</td>
-      <td>DeferredResult«RestResponse«Void»»</td>
-    </tr>
-    <tr>
-      <td>201</td>
-      <td>Created</td>
-      <td>No Content</td>
-    </tr>
-    <tr>
-      <td>401</td>
-      <td>Unauthorized</td>
-      <td>No Content</td>
-    </tr>
-    <tr>
-      <td>403</td>
-      <td>Forbidden</td>
-      <td>No Content</td>
-    </tr>
-    <tr>
-      <td>404</td>
-      <td>Not Found</td>
-      <td>No Content</td>
-    </tr>
-  </tbody>
-</table>
-
-<h4 id="consumes-11">Consumes</h4>
-
-<ul>
-  <li>application/json</li>
-</ul>
-
-<h4 id="produces-11">Produces</h4>
-
-<ul>
-  <li>application/json</li>
-</ul>
-
-<h3 id="update-the-active-deployment-for-the-given-application-on-the-given-cloud">Update the active deployment for the given application on the given cloud.</h3>
-<p><code>
-POST /rest/v1/applications/{applicationId}/environments/{applicationEnvironmentId}/update-deployment
-</code></p>
-
-<h4 id="description-7">Description</h4>
-
-<table>
-  <tbody>
-    <tr>
-      <td>Application role required [ APPLICATION_MANAGER</td>
-      <td>APPLICATION_DEVOPS ] and Application environment role required [ DEPLOYMENT_MANAGER ]</td>
-    </tr>
-  </tbody>
-</table>
-
-<h4 id="parameters-12">Parameters</h4>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Type</th>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Required</th>
-      <th>Schema</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>PathParameter</td>
-      <td>applicationId</td>
-      <td>applicationId</td>
-      <td>true</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>PathParameter</td>
-      <td>applicationEnvironmentId</td>
-      <td>applicationEnvironmentId</td>
-      <td>true</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<h4 id="responses-12">Responses</h4>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>HTTP Code</th>
-      <th>Description</th>
-      <th>Schema</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>200</td>
-      <td>OK</td>
-      <td>DeferredResult«RestResponse«Void»»</td>
-    </tr>
-    <tr>
-      <td>201</td>
-      <td>Created</td>
-      <td>No Content</td>
-    </tr>
-    <tr>
-      <td>401</td>
-      <td>Unauthorized</td>
-      <td>No Content</td>
-    </tr>
-    <tr>
-      <td>403</td>
-      <td>Forbidden</td>
-      <td>No Content</td>
-    </tr>
-    <tr>
-      <td>404</td>
-      <td>Not Found</td>
-      <td>No Content</td>
-    </tr>
-  </tbody>
-</table>
-
-<h4 id="consumes-12">Consumes</h4>
-
-<ul>
-  <li>application/json</li>
-</ul>
-
-<h4 id="produces-12">Produces</h4>
-
-<ul>
-  <li>application/json</li>
-</ul>
-
-<h3 id="launch-a-given-workflow">Launch a given workflow.</h3>
-<p><code>
-POST /rest/v1/applications/{applicationId}/environments/{applicationEnvironmentId}/workflows/{workflowName}
-</code></p>
-
-<h4 id="parameters-13">Parameters</h4>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Type</th>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Required</th>
-      <th>Schema</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>PathParameter</td>
-      <td>applicationId</td>
-      <td>Application id.</td>
-      <td>true</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>PathParameter</td>
-      <td>applicationEnvironmentId</td>
-      <td>Deployment id.</td>
-      <td>true</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>PathParameter</td>
-      <td>workflowName</td>
-      <td>Workflow name.</td>
-      <td>true</td>
-      <td>string</td>
+      <td>BodyParameter</td>
+      <td>secretProviderConfigurationAndCredentials</td>
+      <td>The secret provider configuration ans credentials.</td>
+      <td>false</td>
+      <td>SecretProviderConfigurationAndCredentials</td>
       <td> </td>
     </tr>
   </tbody>
@@ -1337,6 +1344,219 @@ POST /rest/v1/applications/{applicationId}/environments/{applicationEnvironmentI
 </ul>
 
 <h4 id="produces-13">Produces</h4>
+
+<ul>
+  <li>application/json</li>
+</ul>
+
+<h3 id="update-the-active-deployment-for-the-given-application-on-the-given-cloud">Update the active deployment for the given application on the given cloud.</h3>
+<p><code>
+POST /rest/v1/applications/{applicationId}/environments/{applicationEnvironmentId}/update-deployment
+</code></p>
+
+<h4 id="description-9">Description</h4>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Application role required [ APPLICATION_MANAGER</td>
+      <td>APPLICATION_DEVOPS ] and Application environment role required [ DEPLOYMENT_MANAGER ]</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="parameters-14">Parameters</h4>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>PathParameter</td>
+      <td>applicationId</td>
+      <td>applicationId</td>
+      <td>true</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>PathParameter</td>
+      <td>applicationEnvironmentId</td>
+      <td>applicationEnvironmentId</td>
+      <td>true</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>BodyParameter</td>
+      <td>secretProviderCredentials</td>
+      <td>The secret provider configuration and credentials.</td>
+      <td>false</td>
+      <td>SecretProviderCredentials</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="responses-14">Responses</h4>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>HTTP Code</th>
+      <th>Description</th>
+      <th>Schema</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>200</td>
+      <td>OK</td>
+      <td>DeferredResult«RestResponse«Void»»</td>
+    </tr>
+    <tr>
+      <td>201</td>
+      <td>Created</td>
+      <td>No Content</td>
+    </tr>
+    <tr>
+      <td>401</td>
+      <td>Unauthorized</td>
+      <td>No Content</td>
+    </tr>
+    <tr>
+      <td>403</td>
+      <td>Forbidden</td>
+      <td>No Content</td>
+    </tr>
+    <tr>
+      <td>404</td>
+      <td>Not Found</td>
+      <td>No Content</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="consumes-14">Consumes</h4>
+
+<ul>
+  <li>application/json</li>
+</ul>
+
+<h4 id="produces-14">Produces</h4>
+
+<ul>
+  <li>application/json</li>
+</ul>
+
+<h3 id="launch-a-given-workflow">Launch a given workflow.</h3>
+<p><code>
+POST /rest/v1/applications/{applicationId}/environments/{applicationEnvironmentId}/workflows/{workflowName}
+</code></p>
+
+<h4 id="parameters-15">Parameters</h4>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>PathParameter</td>
+      <td>applicationId</td>
+      <td>Application id.</td>
+      <td>true</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>PathParameter</td>
+      <td>applicationEnvironmentId</td>
+      <td>Deployment id.</td>
+      <td>true</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>PathParameter</td>
+      <td>workflowName</td>
+      <td>Workflow name.</td>
+      <td>true</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>BodyParameter</td>
+      <td>secretProviderConfigurationAndCredentials</td>
+      <td>The secret provider configuration and credentials.</td>
+      <td>false</td>
+      <td>SecretProviderConfigurationAndCredentials</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="responses-15">Responses</h4>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>HTTP Code</th>
+      <th>Description</th>
+      <th>Schema</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>200</td>
+      <td>OK</td>
+      <td>DeferredResult«RestResponse«Void»»</td>
+    </tr>
+    <tr>
+      <td>201</td>
+      <td>Created</td>
+      <td>No Content</td>
+    </tr>
+    <tr>
+      <td>401</td>
+      <td>Unauthorized</td>
+      <td>No Content</td>
+    </tr>
+    <tr>
+      <td>403</td>
+      <td>Forbidden</td>
+      <td>No Content</td>
+    </tr>
+    <tr>
+      <td>404</td>
+      <td>Not Found</td>
+      <td>No Content</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="consumes-15">Consumes</h4>
+
+<ul>
+  <li>application/json</li>
+</ul>
+
+<h4 id="produces-15">Produces</h4>
 
 <ul>
   <li>application/json</li>

@@ -89,8 +89,6 @@ ga('send', 'pageview');
   </tbody>
 </table>
 
-<h1 id="mapstringabstractstep">Map«string,AbstractStep»</h1>
-
 <h1 id="updateapplicationversionrequest">UpdateApplicationVersionRequest</h1>
 
 <table class="table table-bordered">
@@ -237,10 +235,31 @@ ga('send', 'pageview');
       <td> </td>
     </tr>
     <tr>
+      <td>policyLocationResourceTemplates</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>policyTypes</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
       <td>relationshipTypes</td>
       <td> </td>
       <td>false</td>
       <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>secretCredentialInfos</td>
+      <td> </td>
+      <td>false</td>
+      <td>SecretCredentialInfo array</td>
       <td> </td>
     </tr>
     <tr>
@@ -274,6 +293,13 @@ ga('send', 'pageview');
   </thead>
   <tbody>
     <tr>
+      <td>availablePoliciesSubstitutions</td>
+      <td>Map of policy id to list of available policy location resource templates’ id.</td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
       <td>availableSubstitutions</td>
       <td>Map of node id to list of available location resource templates’ id.</td>
       <td>false</td>
@@ -285,6 +311,13 @@ ga('send', 'pageview');
       <td>Location resources types contain types for the templates.</td>
       <td>false</td>
       <td>LocationResourceTypes</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>substitutionsPoliciesTemplates</td>
+      <td>Map of policy location resource id to policies location resource template.</td>
+      <td>false</td>
+      <td>object</td>
       <td> </td>
     </tr>
     <tr>
@@ -426,6 +459,31 @@ ga('send', 'pageview');
       <td> </td>
       <td>false</td>
       <td>object</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="mapstringpolicytype">Map«string,PolicyType»</h1>
+
+<h1 id="updatevariablefilecontentrequest">UpdateVariableFileContentRequest</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>content</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
       <td> </td>
     </tr>
   </tbody>
@@ -763,6 +821,13 @@ ga('send', 'pageview');
       <td> </td>
     </tr>
     <tr>
+      <td>hasCustomModifications</td>
+      <td> </td>
+      <td>false</td>
+      <td>boolean</td>
+      <td> </td>
+    </tr>
+    <tr>
       <td>hosts</td>
       <td> </td>
       <td>false</td>
@@ -770,10 +835,31 @@ ga('send', 'pageview');
       <td> </td>
     </tr>
     <tr>
+      <td>inputs</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>metadata</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
       <td>name</td>
       <td> </td>
       <td>false</td>
       <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>preconditions</td>
+      <td> </td>
+      <td>false</td>
+      <td>PreconditionDefinition array</td>
       <td> </td>
     </tr>
     <tr>
@@ -1075,6 +1161,13 @@ ga('send', 'pageview');
       <td> </td>
     </tr>
     <tr>
+      <td>policyTypes</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
       <td>relationshipTypes</td>
       <td> </td>
       <td>false</td>
@@ -1193,6 +1286,13 @@ ga('send', 'pageview');
       <td> </td>
     </tr>
     <tr>
+      <td>environmentTypePermissions</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
       <td>groupPermissions</td>
       <td> </td>
       <td>false</td>
@@ -1260,6 +1360,36 @@ ga('send', 'pageview');
       <td> </td>
       <td>false</td>
       <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="propertyvaluenodetemplate">PropertyValue«NodeTemplate»</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>definition</td>
+      <td> </td>
+      <td>false</td>
+      <td>boolean</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>value</td>
+      <td> </td>
+      <td>false</td>
+      <td>NodeTemplate</td>
       <td> </td>
     </tr>
   </tbody>
@@ -1388,6 +1518,71 @@ ga('send', 'pageview');
   </tbody>
 </table>
 
+<h1 id="gitlocation">GitLocation</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>branch</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>credential</td>
+      <td> </td>
+      <td>false</td>
+      <td>GitCredential</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>gitType</td>
+      <td> </td>
+      <td>false</td>
+      <td>enum (DeploymentConfig, ApplicationVariables)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>id</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>local</td>
+      <td> </td>
+      <td>false</td>
+      <td>boolean</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>path</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>url</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
 <h1 id="restresponseapplication">RestResponse«Application»</h1>
 
 <table class="table table-bordered">
@@ -1480,6 +1675,36 @@ ga('send', 'pageview');
 
 <h1 id="mapstringnodetype">Map«string,NodeType»</h1>
 
+<h1 id="gitcredential">GitCredential</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>password</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>username</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
 <h1 id="abstracttask">AbstractTask</h1>
 
 <table class="table table-bordered">
@@ -1497,11 +1722,20 @@ ga('send', 'pageview');
       <td>code</td>
       <td> </td>
       <td>false</td>
-      <td>enum (IMPLEMENT, IMPLEMENT_RELATIONSHIP, REPLACE, SATISFY_LOWER_BOUND, PROPERTIES, HA_INVALID, SCALABLE_CAPABILITY_INVALID, NODE_FILTER_INVALID, WORKFLOW_INVALID, INPUT_ARTIFACT_INVALID, ARTIFACT_INVALID, LOCATION_POLICY, LOCATION_UNAUTHORIZED, LOCATION_DISABLED, ORCHESTRATOR_PROPERTY, INPUT_PROPERTY, NODE_NOT_SUBSTITUTED, FORBIDDEN_OPERATION)</td>
+      <td>enum (LOG, EMPTY, IMPLEMENT_RELATIONSHIP, SATISFY_LOWER_BOUND, PROPERTIES, SCALABLE_CAPABILITY_INVALID, NODE_FILTER_INVALID, WORKFLOW_INVALID, ARTIFACT_INVALID, DEPRECATED_NODE, MISSING_VARIABLES, UNRESOLVABLE_PREDEFINED_INPUTS, PREDEFINED_INPUTS_CONSTRAINT_VIOLATION, PREDEFINED_INPUTS_TYPE_VIOLATION, INPUT_PROPERTY, INPUT_ARTIFACT_INVALID, LOCATION_POLICY, LOCATION_UNAUTHORIZED, LOCATION_DISABLED, NO_NODE_MATCHES, NODE_NOT_SUBSTITUTED, FORBIDDEN_OPERATION, IMPLEMENT, REPLACE, ORCHESTRATOR_PROPERTY, CFY_MULTI_RELATIONS)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>source</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
       <td> </td>
     </tr>
   </tbody>
 </table>
+
+<h1 id="abstractworkflowactivity">AbstractWorkflowActivity</h1>
 
 <h1 id="environmentstatusdto">EnvironmentStatusDTO</h1>
 
@@ -1625,6 +1859,13 @@ ga('send', 'pageview');
     <tr>
       <td>onDemandTypes</td>
       <td>Map that contains the on demdand types.</td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>policyTypes</td>
+      <td>Map of policy types id, policy type used to configure the templates of policies in a location.</td>
       <td>false</td>
       <td>object</td>
       <td> </td>
@@ -1877,6 +2118,71 @@ ga('send', 'pageview');
   </tbody>
 </table>
 
+<h1 id="policytemplate">PolicyTemplate</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>description</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>name</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>properties</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>tags</td>
+      <td> </td>
+      <td>false</td>
+      <td>Tag array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>targets</td>
+      <td> </td>
+      <td>false</td>
+      <td>string array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>triggers</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>type</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
 <h1 id="restresponsemapstringmapstringinstanceinformation">RestResponse«Map«string,Map«string,InstanceInformation»»»</h1>
 
 <table class="table table-bordered">
@@ -1902,6 +2208,127 @@ ga('send', 'pageview');
       <td> </td>
       <td>false</td>
       <td>RestError</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="policytype">PolicyType</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>abstract</td>
+      <td> </td>
+      <td>false</td>
+      <td>boolean</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>archiveName</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>archiveVersion</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>creationDate</td>
+      <td> </td>
+      <td>false</td>
+      <td>string (date-time)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>derivedFrom</td>
+      <td> </td>
+      <td>false</td>
+      <td>string array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>description</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>elementId</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>id</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>lastUpdateDate</td>
+      <td> </td>
+      <td>false</td>
+      <td>string (date-time)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>nestedVersion</td>
+      <td> </td>
+      <td>false</td>
+      <td>Version</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>properties</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>tags</td>
+      <td> </td>
+      <td>false</td>
+      <td>Tag array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>targets</td>
+      <td> </td>
+      <td>false</td>
+      <td>string array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>triggers</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>workspace</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
       <td> </td>
     </tr>
   </tbody>
@@ -1936,6 +2363,36 @@ ga('send', 'pageview');
       <td> </td>
       <td>false</td>
       <td>object</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="secretcredentialinfo">SecretCredentialInfo</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>credentialDescriptor</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>pluginName</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
       <td> </td>
     </tr>
   </tbody>
@@ -2053,7 +2510,7 @@ ga('send', 'pageview');
       <td>default</td>
       <td> </td>
       <td>false</td>
-      <td>PropertyValue«DeploymentTopology»</td>
+      <td>PropertyValue«PolicyTemplate»</td>
       <td> </td>
     </tr>
     <tr>
@@ -2107,6 +2564,8 @@ ga('send', 'pageview');
     </tr>
   </tbody>
 </table>
+
+<h1 id="mapstringworkflowstep">Map«string,WorkflowStep»</h1>
 
 <h1 id="createapplicationrequest">CreateApplicationRequest</h1>
 
@@ -2211,6 +2670,8 @@ ga('send', 'pageview');
     </tr>
   </tbody>
 </table>
+
+<h1 id="mapstringpolicylocationresourcetemplate">Map«string,PolicyLocationResourceTemplate»</h1>
 
 <h1 id="tag">Tag</h1>
 
@@ -2332,6 +2793,43 @@ ga('send', 'pageview');
   </tbody>
 </table>
 
+<h1 id="policyeventfilter">PolicyEventFilter</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>capability</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>node</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>requirement</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
 <h1 id="sortconfiguration">SortConfiguration</h1>
 
 <table class="table table-bordered">
@@ -2354,6 +2852,101 @@ ga('send', 'pageview');
     </tr>
     <tr>
       <td>sortBy</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="policytrigger">PolicyTrigger</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>actionOperation</td>
+      <td> </td>
+      <td>false</td>
+      <td>Operation</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>actionWorkflow</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>condition</td>
+      <td> </td>
+      <td>false</td>
+      <td>PolicyCondition</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>description</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>eventFilter</td>
+      <td> </td>
+      <td>false</td>
+      <td>PolicyEventFilter</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>eventType</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>timeInterval</td>
+      <td> </td>
+      <td>false</td>
+      <td>TimeInterval</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="secretprovidercredentials">SecretProviderCredentials</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>credentials</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>pluginName</td>
       <td> </td>
       <td>false</td>
       <td>string</td>
@@ -2419,6 +3012,78 @@ ga('send', 'pageview');
     </tr>
     <tr>
       <td>version</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="workflowstep">WorkflowStep</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>activities</td>
+      <td> </td>
+      <td>false</td>
+      <td>AbstractWorkflowActivity array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>filter</td>
+      <td> </td>
+      <td>false</td>
+      <td>AbstractConditionClause array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>name</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>onFailure</td>
+      <td> </td>
+      <td>false</td>
+      <td>string array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>onSuccess</td>
+      <td> </td>
+      <td>false</td>
+      <td>string array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>operationHost</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>precedingSteps</td>
+      <td> </td>
+      <td>false</td>
+      <td>string array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>target</td>
       <td> </td>
       <td>false</td>
       <td>string</td>
@@ -2582,6 +3247,13 @@ ga('send', 'pageview');
     </tr>
   </thead>
   <tbody>
+    <tr>
+      <td>deployerUsername</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
     <tr>
       <td>endDate</td>
       <td> </td>
@@ -2755,7 +3427,7 @@ ga('send', 'pageview');
   </tbody>
 </table>
 
-<h1 id="abstractstep">AbstractStep</h1>
+<h1 id="restresponsegitlocation">RestResponse«GitLocation»</h1>
 
 <table class="table table-bordered">
   <thead>
@@ -2769,24 +3441,17 @@ ga('send', 'pageview');
   </thead>
   <tbody>
     <tr>
-      <td>followingSteps</td>
+      <td>data</td>
       <td> </td>
       <td>false</td>
-      <td>string array</td>
+      <td>GitLocation</td>
       <td> </td>
     </tr>
     <tr>
-      <td>name</td>
+      <td>error</td>
       <td> </td>
       <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>precedingSteps</td>
-      <td> </td>
-      <td>false</td>
-      <td>string array</td>
+      <td>RestError</td>
       <td> </td>
     </tr>
   </tbody>
@@ -2857,6 +3522,13 @@ ga('send', 'pageview');
       <td> </td>
     </tr>
     <tr>
+      <td>description</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
       <td>interfaces</td>
       <td> </td>
       <td>false</td>
@@ -2889,6 +3561,13 @@ ga('send', 'pageview');
       <td> </td>
       <td>false</td>
       <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>tags</td>
+      <td> </td>
+      <td>false</td>
+      <td>Tag array</td>
       <td> </td>
     </tr>
     <tr>
@@ -3138,6 +3817,20 @@ ga('send', 'pageview');
     </tr>
     <tr>
       <td>applicationId</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>secretProviderCredentials</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>secretProviderPluginName</td>
       <td> </td>
       <td>false</td>
       <td>string</td>
@@ -3472,6 +4165,13 @@ ga('send', 'pageview');
       <td> </td>
     </tr>
     <tr>
+      <td>deployerInputProperties</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
       <td>description</td>
       <td> </td>
       <td>false</td>
@@ -3521,13 +4221,6 @@ ga('send', 'pageview');
       <td> </td>
     </tr>
     <tr>
-      <td>inputProperties</td>
-      <td> </td>
-      <td>false</td>
-      <td>object</td>
-      <td> </td>
-    </tr>
-    <tr>
       <td>inputs</td>
       <td> </td>
       <td>false</td>
@@ -3563,6 +4256,13 @@ ga('send', 'pageview');
       <td> </td>
     </tr>
     <tr>
+      <td>matchReplacedNodes</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
       <td>nestedVersion</td>
       <td> </td>
       <td>false</td>
@@ -3591,6 +4291,13 @@ ga('send', 'pageview');
       <td> </td>
     </tr>
     <tr>
+      <td>originalPolicies</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
       <td>outputAttributes</td>
       <td> </td>
       <td>false</td>
@@ -3612,6 +4319,20 @@ ga('send', 'pageview');
       <td> </td>
     </tr>
     <tr>
+      <td>policies</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>preconfiguredInputProperties</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
       <td>providerDeploymentProperties</td>
       <td> </td>
       <td>false</td>
@@ -3626,10 +4347,31 @@ ga('send', 'pageview');
       <td> </td>
     </tr>
     <tr>
+      <td>substitutedPolicies</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
       <td>substitutionMapping</td>
       <td> </td>
       <td>false</td>
       <td>SubstitutionMapping</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>tags</td>
+      <td> </td>
+      <td>false</td>
+      <td>Tag array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>unprocessedWorkflows</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
       <td> </td>
     </tr>
     <tr>
@@ -3694,6 +4436,57 @@ ga('send', 'pageview');
 </table>
 
 <h1 id="mapstringcapability">Map«string,Capability»</h1>
+
+<h1 id="request-for-updating-of-a-repository-for-storing-deployment-config">Request for updating of a repository for storing deployment config.</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>branch</td>
+      <td>Branch to use</td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>password</td>
+      <td>Password to access the git repository.</td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>path</td>
+      <td>Path relative to the git repository where the file should be stored</td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>url</td>
+      <td>Url of the git repository.</td>
+      <td>true</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>username</td>
+      <td>Username to access the git repository.</td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
 
 <h1 id="instanceinformation">InstanceInformation</h1>
 
@@ -3865,10 +4658,31 @@ ga('send', 'pageview');
       <td> </td>
     </tr>
     <tr>
+      <td>policies</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
       <td>substitutionMapping</td>
       <td> </td>
       <td>false</td>
       <td>SubstitutionMapping</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>tags</td>
+      <td> </td>
+      <td>false</td>
+      <td>Tag array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>unprocessedWorkflows</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
       <td> </td>
     </tr>
     <tr>
@@ -3880,6 +4694,43 @@ ga('send', 'pageview');
     </tr>
     <tr>
       <td>workspace</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="preconditiondefinition">PreconditionDefinition</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>condition</td>
+      <td> </td>
+      <td>false</td>
+      <td>AbstractConditionClause array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>target</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>targetRelationship</td>
       <td> </td>
       <td>false</td>
       <td>string</td>
@@ -3920,6 +4771,113 @@ ga('send', 'pageview');
 
 <h1 id="mapstringlistpropertyconstraint">Map«string,List«PropertyConstraint»»</h1>
 
+<h1 id="policylocationresourcetemplate">PolicyLocationResourceTemplate</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>applicationPermissions</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>enabled</td>
+      <td> </td>
+      <td>false</td>
+      <td>boolean</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>environmentPermissions</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>environmentTypePermissions</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>groupPermissions</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>id</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>locationId</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>name</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>portabilityDefinitions</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>service</td>
+      <td> </td>
+      <td>false</td>
+      <td>boolean</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>template</td>
+      <td> </td>
+      <td>false</td>
+      <td>PolicyTemplate</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>types</td>
+      <td> </td>
+      <td>false</td>
+      <td>string array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>userPermissions</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
 <h1 id="topologyvalidationresult">TopologyValidationResult</h1>
 
 <table class="table table-bordered">
@@ -3933,6 +4891,13 @@ ga('send', 'pageview');
     </tr>
   </thead>
   <tbody>
+    <tr>
+      <td>infoList</td>
+      <td> </td>
+      <td>false</td>
+      <td>AbstractTask array</td>
+      <td> </td>
+    </tr>
     <tr>
       <td>taskList</td>
       <td> </td>
@@ -3994,6 +4959,20 @@ ga('send', 'pageview');
       <td> </td>
     </tr>
     <tr>
+      <td>danglingRequirement</td>
+      <td> </td>
+      <td>false</td>
+      <td>boolean</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>description</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
       <td>groups</td>
       <td> </td>
       <td>false</td>
@@ -4012,6 +4991,13 @@ ga('send', 'pageview');
       <td> </td>
       <td>false</td>
       <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>nodeFilter</td>
+      <td> </td>
+      <td>false</td>
+      <td>NodeFilter</td>
       <td> </td>
     </tr>
     <tr>
@@ -4040,6 +5026,13 @@ ga('send', 'pageview');
       <td> </td>
       <td>false</td>
       <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>tags</td>
+      <td> </td>
+      <td>false</td>
+      <td>Tag array</td>
       <td> </td>
     </tr>
     <tr>
@@ -4254,6 +5247,8 @@ ga('send', 'pageview');
   </tbody>
 </table>
 
+<h1 id="mapstringpolicytrigger">Map«string,PolicyTrigger»</h1>
+
 <h1 id="updatetopologyversionforenvironmentrequest">UpdateTopologyVersionForEnvironmentRequest</h1>
 
 <table class="table table-bordered">
@@ -4286,6 +5281,36 @@ ga('send', 'pageview');
 
 <h1 id="mapstringnodegroup">Map«string,NodeGroup»</h1>
 
+<h1 id="propertyvaluepolicytemplate">PropertyValue«PolicyTemplate»</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>definition</td>
+      <td> </td>
+      <td>false</td>
+      <td>boolean</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>value</td>
+      <td> </td>
+      <td>false</td>
+      <td>PolicyTemplate</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
 <h1 id="locationresourcetemplate">LocationResourceTemplate</h1>
 
 <table class="table table-bordered">
@@ -4315,6 +5340,13 @@ ga('send', 'pageview');
     </tr>
     <tr>
       <td>environmentPermissions</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>environmentTypePermissions</td>
       <td> </td>
       <td>false</td>
       <td>object</td>
@@ -4411,6 +5443,36 @@ ga('send', 'pageview');
       <td> </td>
       <td>false</td>
       <td>Deployment</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>error</td>
+      <td> </td>
+      <td>false</td>
+      <td>RestError</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="restresponselistsecretcredentialinfo">RestResponse«List«SecretCredentialInfo»»</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>data</td>
+      <td> </td>
+      <td>false</td>
+      <td>SecretCredentialInfo array</td>
       <td> </td>
     </tr>
     <tr>
@@ -4534,6 +5596,50 @@ ga('send', 'pageview');
   </tbody>
 </table>
 
+<h1 id="policycondition">PolicyCondition</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>constraints</td>
+      <td> </td>
+      <td>false</td>
+      <td>PropertyConstraint array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>evaluations</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int32)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>method</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>period</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
 <h1 id="restresponseapplicationversion">RestResponse«ApplicationVersion»</h1>
 
 <table class="table table-bordered">
@@ -4565,6 +5671,36 @@ ga('send', 'pageview');
 </table>
 
 <h1 id="mapstringsubstitutiontarget">Map«string,SubstitutionTarget»</h1>
+
+<h1 id="secretproviderconfiguration">SecretProviderConfiguration</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>configuration</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>pluginName</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
 
 <h1 id="propertyconstraint">PropertyConstraint</h1>
 
@@ -4855,6 +5991,8 @@ ga('send', 'pageview');
   </tbody>
 </table>
 
+<h1 id="mapstringpolicytemplate">Map«string,PolicyTemplate»</h1>
+
 <h1 id="capabilitytype">CapabilityType</h1>
 
 <table class="table table-bordered">
@@ -5001,6 +6139,36 @@ ga('send', 'pageview');
       <td> </td>
       <td>false</td>
       <td>RestError</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="timeinterval">TimeInterval</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>endTime</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>startTime</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
       <td> </td>
     </tr>
   </tbody>
@@ -5387,6 +6555,38 @@ ga('send', 'pageview');
     </tr>
   </tbody>
 </table>
+
+<h1 id="secretproviderconfigurationandcredentials">SecretProviderConfigurationAndCredentials</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>credentials</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>secretProviderConfiguration</td>
+      <td> </td>
+      <td>false</td>
+      <td>SecretProviderConfiguration</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="abstractconditionclause">AbstractConditionClause</h1>
 
 
         <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/2.0.0/rest/definitions_applications-api.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>

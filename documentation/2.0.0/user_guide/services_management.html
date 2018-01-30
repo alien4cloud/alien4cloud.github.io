@@ -43,20 +43,20 @@ ga('send', 'pageview');
 
 <p>The first method to define a service in alien4cloud is to declare manually a service. In order to do this, click on <em>[Administration]</em> &gt; <em>Service</em></p>
 
-<p><img src="../../images/2.0.0/user_guide/service/service_list.png" alt="service_list" /></p>
+<p><img src="../../images/2.0.0/user_guide/admin/services/service_list.png" alt="service_list" /></p>
 
-<p>Let’s say you have a Mongodb database that you want to expose to other applications, you can drag the component <code>mongod-type</code> and drop it on the demarcated zone on the left to create the service Mongo. It’s not shown in the image but <code>mongod-type</code> derived from <code>AbstractMongod</code></p>
+<p>Let’s say you have a Mongodb database that you want to expose to other applications, you can drag the component <code>MongoSingle</code> and drop it on the demarcated zone on the left to create the service Mongo.</p>
 
-<p><img src="../../images/2.0.0/user_guide/service/create_external_service.png" alt="create_external_service" /></p>
+<p><img src="../../images/2.0.0/user_guide/admin/services/create_external_service.png" alt="create_external_service" /></p>
 
 <p>After the creation, the service appears on the left hand side list and can be configured.</p>
 
-<p><img src="../../images/2.0.0/user_guide/service/service_list_with_external_mongo.png" alt="service_list_with_external_mongo" /></p>
+<p><img src="../../images/2.0.0/user_guide/admin/services/service_list_with_external_mongo.png" alt="service_list_with_external_mongo" /></p>
 
 <h2 id="service-details">Service details</h2>
 <p>Click on the service to see its details. Here the status does not have much sense, a service in enabled state cannot be modified and deleted (it will make more sense with a service exposed by a deployment as Alien4Cloud knows the state of the service).</p>
 
-<p><img src="../../images/2.0.0/user_guide/service/service_detail.png" alt="service_detail" /></p>
+<p><img src="../../images/2.0.0/user_guide/admin/services/service_detail.png" alt="service_detail" /></p>
 
 <h2 id="instance-informations">Instance informations</h2>
 <p>The instance tab gives you access to properties and attributes of your service. The properties and attributes values, that you enter here, can be used later by consumer of the service to establish the connection with the service. In the example, the property <code>ip_address</code> of the external Mongo DB has been given.</p>
@@ -95,7 +95,7 @@ ga('send', 'pageview');
 
 <p>On matching screen, your AbstractMongod will be matched to the service that has been defined lately</p>
 
-<p><img src="../../images/2.0.0/user_guide/service/service_matching.png" alt="service_matching" /></p>
+<p><img src="../../images/2.0.0/user_guide/admin/services/service_matching.png" alt="service_matching" /></p>
 
 <h1 id="turning-deployments-into-services">Turning deployments into services</h1>
 
@@ -104,16 +104,16 @@ ga('send', 'pageview');
 <p>Service definition within Alien4Cloud uses substitution in order to expose properties, requirements or capabilities.<br />
 The first thing you need to do is to define your service topology, and a substitution for it</p>
 
-<p><img src="../../images/2.0.0/user_guide/service/service_topology.png" alt="service_topology" /></p>
+<p><img src="../../images/2.0.0/user_guide/admin/services/service_topology.png" alt="service_topology" /></p>
 
 <p>Once the service topology is done, you can set up an environment to be deployed on your chosen location.<br />
 Before deploying, you can choose to expose your deployment as a service in the <em>Service management</em> section</p>
 
-<p><img src="../../images/2.0.0/user_guide/service/service_exposition.png" alt="service_exposition" /></p>
+<p><img src="../../images/2.0.0/user_guide/admin/services/service_exposition.png" alt="service_exposition" /></p>
 
 <p>As an admin, the service exposed will be displayed automatically in the service list <em>[Administration]</em> &gt; <em>Service</em></p>
 
-<p><img src="../../images/2.0.0/user_guide/service/service_list_with_exposed_mongo.png" alt="service_list_with_exposed_mongo" /></p>
+<p><img src="../../images/2.0.0/user_guide/admin/services/service_list_with_exposed_mongo.png" alt="service_list_with_exposed_mongo" /></p>
 
 <p>Once the service is exposed, access to the service, the matching can be configured in the same manner as an external service.<br />
 However, note that the exosed services are automatically available on the location selected for the deployment once deployed.</p>

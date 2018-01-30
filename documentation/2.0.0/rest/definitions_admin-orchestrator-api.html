@@ -61,50 +61,6 @@ ga('send', 'pageview');
   </tbody>
 </table>
 
-<h1 id="userdto">UserDTO</h1>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Required</th>
-      <th>Schema</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>email</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>firstName</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>lastName</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>username</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
 <h1 id="groupdto">GroupDTO</h1>
 
 <table class="table table-bordered">
@@ -174,6 +130,1848 @@ ga('send', 'pageview');
       <td> </td>
       <td>false</td>
       <td>RestError</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="getmultipledataresultuserdto">GetMultipleDataResult«UserDTO»</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>data</td>
+      <td> </td>
+      <td>false</td>
+      <td>UserDTO array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>from</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int32)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>queryDuration</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int64)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>to</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int32)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>totalResults</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int64)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>types</td>
+      <td> </td>
+      <td>false</td>
+      <td>string array</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="mapstringdatatype">Map«string,DataType»</h1>
+
+<h1 id="filterdefinition">FilterDefinition</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>properties</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="mapstringpolicytype">Map«string,PolicyType»</h1>
+
+<h1 id="restresponsevoid">RestResponse«Void»</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>error</td>
+      <td> </td>
+      <td>false</td>
+      <td>RestError</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="mapstringobject">Map«string,object»</h1>
+
+<h1 id="request-to-update-a-location-resource">Request to update a location resource.</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>enabled</td>
+      <td>Flag to know if the resource is available to be used for configuration or matching.</td>
+      <td>false</td>
+      <td>boolean</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>name</td>
+      <td>New name of the resource.</td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="locationsupport">LocationSupport</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>multipleLocations</td>
+      <td> </td>
+      <td>false</td>
+      <td>boolean</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>types</td>
+      <td> </td>
+      <td>false</td>
+      <td>string array</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="updatelocationrequest">UpdateLocationRequest</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>environmentType</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>name</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>secretProviderConfiguration</td>
+      <td> </td>
+      <td>false</td>
+      <td>SecretProviderConfiguration</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="restresponsegetmultipledataresultorchestrator">RestResponse«GetMultipleDataResult«Orchestrator.»»</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>data</td>
+      <td> </td>
+      <td>false</td>
+      <td>GetMultipleDataResult«Orchestrator.»</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>error</td>
+      <td> </td>
+      <td>false</td>
+      <td>RestError</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="restresponsecontains-a-custom-resource-template-with-its-locations-updated-dependencies">RestResponse«Contains a custom resource template with its location’s updated dependencies.»</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>data</td>
+      <td> </td>
+      <td>false</td>
+      <td>Contains a custom resource template with its location’s updated dependencies.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>error</td>
+      <td> </td>
+      <td>false</td>
+      <td>RestError</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="capability">Capability</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>properties</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>type</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="request-to-update-a-location-resource-template-property">Request to update a location resource template property.</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>propertyName</td>
+      <td>Name of the property to update.</td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>propertyValue</td>
+      <td>Value of the property to update, the type must be equal to the type of the property that will be updated.</td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="propertyvalue">PropertyValue</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>definition</td>
+      <td> </td>
+      <td>false</td>
+      <td>boolean</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>value</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="mapstringinterface">Map«string,Interface»</h1>
+
+<h1 id="mapstringrelationshiptemplate">Map«string,RelationshipTemplate»</h1>
+
+<h1 id="mapstringpropertydefinition">Map«string,PropertyDefinition»</h1>
+
+<h1 id="restresponsearraystring">RestResponse«Array«string»»</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>data</td>
+      <td> </td>
+      <td>false</td>
+      <td>string array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>error</td>
+      <td> </td>
+      <td>false</td>
+      <td>RestError</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="implementationartifact">ImplementationArtifact</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>archiveName</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>archiveVersion</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>artifactRef</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>artifactRepository</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>artifactType</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>repositoryCredential</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>repositoryName</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>repositoryURL</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="requirement">Requirement</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>properties</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>type</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="restresponseconstraintinformation">RestResponse«ConstraintInformation»</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>data</td>
+      <td> </td>
+      <td>false</td>
+      <td>ConstraintInformation</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>error</td>
+      <td> </td>
+      <td>false</td>
+      <td>RestError</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="restresponsegetmultipledataresultapplicationenvironmentauthorizationdto">RestResponse«GetMultipleDataResult«ApplicationEnvironmentAuthorizationDTO»»</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>data</td>
+      <td> </td>
+      <td>false</td>
+      <td>GetMultipleDataResult«ApplicationEnvironmentAuthorizationDTO»</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>error</td>
+      <td> </td>
+      <td>false</td>
+      <td>RestError</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="propertyvaluenodetemplate">PropertyValue«NodeTemplate»</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>definition</td>
+      <td> </td>
+      <td>false</td>
+      <td>boolean</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>value</td>
+      <td> </td>
+      <td>false</td>
+      <td>NodeTemplate</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="application">Application</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>creationDate</td>
+      <td> </td>
+      <td>false</td>
+      <td>string (date-time)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>description</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>groupRoles</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>id</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>imageId</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>lastUpdateDate</td>
+      <td> </td>
+      <td>false</td>
+      <td>string (date-time)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>metaProperties</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>name</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>tags</td>
+      <td> </td>
+      <td>false</td>
+      <td>Tag array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>userRoles</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="restresponsestring">RestResponse«string»</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>data</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>error</td>
+      <td> </td>
+      <td>false</td>
+      <td>RestError</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="mapstringnodetype">Map«string,NodeType»</h1>
+
+<h1 id="restresponselistlocationmodifierreference">RestResponse«List«LocationModifierReference»»</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>data</td>
+      <td> </td>
+      <td>false</td>
+      <td>LocationModifierReference array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>error</td>
+      <td> </td>
+      <td>false</td>
+      <td>RestError</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="request-for-creation-of-a-new-locations-resource">Request for creation of a new location’s resource.</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>archiveName</td>
+      <td>Archive name of the resource type.</td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>archiveVersion</td>
+      <td>Archive version of the resource type.</td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>resourceName</td>
+      <td>Name of the location’s resource.</td>
+      <td>true</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>resourceType</td>
+      <td>Type of the location’s resource.</td>
+      <td>true</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="restresponselocationdto">RestResponse«LocationDTO»</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>data</td>
+      <td> </td>
+      <td>false</td>
+      <td>LocationDTO</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>error</td>
+      <td> </td>
+      <td>false</td>
+      <td>RestError</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="mapstringoperation">Map«string,Operation»</h1>
+
+<h1 id="resterror">RestError</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>code</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int32)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>message</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="datatype">DataType</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>abstract</td>
+      <td> </td>
+      <td>false</td>
+      <td>boolean</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>archiveName</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>archiveVersion</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>creationDate</td>
+      <td> </td>
+      <td>false</td>
+      <td>string (date-time)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>deriveFromSimpleType</td>
+      <td> </td>
+      <td>false</td>
+      <td>boolean</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>derivedFrom</td>
+      <td> </td>
+      <td>false</td>
+      <td>string array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>description</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>elementId</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>id</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>lastUpdateDate</td>
+      <td> </td>
+      <td>false</td>
+      <td>string (date-time)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>nestedVersion</td>
+      <td> </td>
+      <td>false</td>
+      <td>Version</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>properties</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>tags</td>
+      <td> </td>
+      <td>false</td>
+      <td>Tag array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>workspace</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="restresponselistlocationdto">RestResponse«List«LocationDTO»»</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>data</td>
+      <td> </td>
+      <td>false</td>
+      <td>LocationDTO array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>error</td>
+      <td> </td>
+      <td>false</td>
+      <td>RestError</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="restresponselistapplicationenvironmentauthorizationdto">RestResponse«List«ApplicationEnvironmentAuthorizationDTO»»</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>data</td>
+      <td> </td>
+      <td>false</td>
+      <td>ApplicationEnvironmentAuthorizationDTO array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>error</td>
+      <td> </td>
+      <td>false</td>
+      <td>RestError</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="policytemplate">PolicyTemplate</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>description</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>name</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>properties</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>tags</td>
+      <td> </td>
+      <td>false</td>
+      <td>Tag array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>targets</td>
+      <td> </td>
+      <td>false</td>
+      <td>string array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>triggers</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>type</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="policytype">PolicyType</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>abstract</td>
+      <td> </td>
+      <td>false</td>
+      <td>boolean</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>archiveName</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>archiveVersion</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>creationDate</td>
+      <td> </td>
+      <td>false</td>
+      <td>string (date-time)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>derivedFrom</td>
+      <td> </td>
+      <td>false</td>
+      <td>string array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>description</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>elementId</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>id</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>lastUpdateDate</td>
+      <td> </td>
+      <td>false</td>
+      <td>string (date-time)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>nestedVersion</td>
+      <td> </td>
+      <td>false</td>
+      <td>Version</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>properties</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>tags</td>
+      <td> </td>
+      <td>false</td>
+      <td>Tag array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>targets</td>
+      <td> </td>
+      <td>false</td>
+      <td>string array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>triggers</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>workspace</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="mapstringivalue">Map«string,IValue»</h1>
+
+<h1 id="usage">Usage</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>resourceId</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>resourceName</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>resourceType</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>workspace</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="getmultipledataresultorchestrator">GetMultipleDataResult«Orchestrator.»</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>data</td>
+      <td> </td>
+      <td>false</td>
+      <td>Orchestrator. array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>from</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int32)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>queryDuration</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int64)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>to</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int32)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>totalResults</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int64)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>types</td>
+      <td> </td>
+      <td>false</td>
+      <td>string array</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="mapstringrequirement">Map«string,Requirement»</h1>
+
+<h1 id="constraintinformation">ConstraintInformation</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>name</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>path</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>reference</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>type</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>value</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="restresponselistlocationresourcetemplate">RestResponse«List«LocationResourceTemplate»»</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>data</td>
+      <td> </td>
+      <td>false</td>
+      <td>LocationResourceTemplate array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>error</td>
+      <td> </td>
+      <td>false</td>
+      <td>RestError</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="propertydefinition">PropertyDefinition</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>constraints</td>
+      <td> </td>
+      <td>false</td>
+      <td>PropertyConstraint array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>default</td>
+      <td> </td>
+      <td>false</td>
+      <td>PropertyValue</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>definition</td>
+      <td> </td>
+      <td>false</td>
+      <td>boolean</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>description</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>password</td>
+      <td> </td>
+      <td>false</td>
+      <td>boolean</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>required</td>
+      <td> </td>
+      <td>false</td>
+      <td>boolean</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>suggestionId</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>type</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="getmultipledataresultgroupdto">GetMultipleDataResult«GroupDTO»</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>data</td>
+      <td> </td>
+      <td>false</td>
+      <td>GroupDTO array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>from</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int32)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>queryDuration</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int64)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>to</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int32)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>totalResults</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int64)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>types</td>
+      <td> </td>
+      <td>false</td>
+      <td>string array</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="secretproviderconfigurationsdto">SecretProviderConfigurationsDTO</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>currentConfiguration</td>
+      <td> </td>
+      <td>false</td>
+      <td>SecretProviderConfiguration</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>genericFormByPluginName</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="request-to-update-or-check-the-value-of-a-property">Request to update or check the value of a property.</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>definitionId</td>
+      <td>Id of the property to set.</td>
+      <td>true</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>value</td>
+      <td>Value to set for the property.</td>
+      <td>true</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="tag">Tag</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>name</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>value</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="abstractpropertyvalue">AbstractPropertyValue</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>definition</td>
+      <td> </td>
+      <td>false</td>
+      <td>boolean</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="interface">Interface</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>description</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>operations</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>type</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="nodefilter">NodeFilter</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>capabilities</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>properties</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="policyeventfilter">PolicyEventFilter</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>capability</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>node</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>requirement</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="policytrigger">PolicyTrigger</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>actionOperation</td>
+      <td> </td>
+      <td>false</td>
+      <td>Operation</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>actionWorkflow</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>condition</td>
+      <td> </td>
+      <td>false</td>
+      <td>PolicyCondition</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>description</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>eventFilter</td>
+      <td> </td>
+      <td>false</td>
+      <td>PolicyEventFilter</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>eventType</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>timeInterval</td>
+      <td> </td>
+      <td>false</td>
+      <td>TimeInterval</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="userdto">UserDTO</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>email</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>firstName</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>lastName</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>username</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
       <td> </td>
     </tr>
   </tbody>
@@ -258,64 +2056,6 @@ ga('send', 'pageview');
   </tbody>
 </table>
 
-<h1 id="getmultipledataresultuserdto">GetMultipleDataResult«UserDTO»</h1>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Required</th>
-      <th>Schema</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>data</td>
-      <td> </td>
-      <td>false</td>
-      <td>UserDTO array</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>from</td>
-      <td> </td>
-      <td>false</td>
-      <td>integer (int32)</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>queryDuration</td>
-      <td> </td>
-      <td>false</td>
-      <td>integer (int64)</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>to</td>
-      <td> </td>
-      <td>false</td>
-      <td>integer (int32)</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>totalResults</td>
-      <td> </td>
-      <td>false</td>
-      <td>integer (int64)</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>types</td>
-      <td> </td>
-      <td>false</td>
-      <td>string array</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
 <h1 id="orchestrator-update-request">Orchestrator update request.</h1>
 
 <p>A request object to pass when updating an orchestrator. Contains updatable fields. a topology deployment. An orchestrator may manage one or multiple locations.</p>
@@ -348,31 +2088,6 @@ ga('send', 'pageview');
   </tbody>
 </table>
 
-<h1 id="mapstringdatatype">Map«string,DataType»</h1>
-
-<h1 id="filterdefinition">FilterDefinition</h1>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Required</th>
-      <th>Schema</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>properties</td>
-      <td> </td>
-      <td>false</td>
-      <td>object</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
 <h1 id="relationshiptemplate">RelationshipTemplate</h1>
 
 <table class="table table-bordered">
@@ -398,6 +2113,13 @@ ga('send', 'pageview');
       <td> </td>
       <td>false</td>
       <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>description</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
       <td> </td>
     </tr>
     <tr>
@@ -436,6 +2158,13 @@ ga('send', 'pageview');
       <td> </td>
     </tr>
     <tr>
+      <td>tags</td>
+      <td> </td>
+      <td>false</td>
+      <td>Tag array</td>
+      <td> </td>
+    </tr>
+    <tr>
       <td>target</td>
       <td> </td>
       <td>false</td>
@@ -454,29 +2183,6 @@ ga('send', 'pageview');
       <td> </td>
       <td>false</td>
       <td>string</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<h1 id="restresponsevoid">RestResponse«Void»</h1>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Required</th>
-      <th>Schema</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>error</td>
-      <td> </td>
-      <td>false</td>
-      <td>RestError</td>
       <td> </td>
     </tr>
   </tbody>
@@ -533,7 +2239,7 @@ ga('send', 'pageview');
   </tbody>
 </table>
 
-<h1 id="request-to-update-a-location-resource">Request to update a location resource.</h1>
+<h1 id="abstracttemplate">AbstractTemplate</h1>
 
 <table class="table table-bordered">
   <thead>
@@ -547,47 +2253,38 @@ ga('send', 'pageview');
   </thead>
   <tbody>
     <tr>
-      <td>enabled</td>
-      <td>Flag to know if the resource is available to be used for configuration or matching.</td>
-      <td>false</td>
-      <td>boolean</td>
+      <td>description</td>
       <td> </td>
-    </tr>
-    <tr>
-      <td>name</td>
-      <td>New name of the resource.</td>
       <td>false</td>
       <td>string</td>
       <td> </td>
     </tr>
-  </tbody>
-</table>
-
-<h1 id="locationsupport">LocationSupport</h1>
-
-<table class="table table-bordered">
-  <thead>
     <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Required</th>
-      <th>Schema</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>multipleLocations</td>
+      <td>name</td>
       <td> </td>
       <td>false</td>
-      <td>boolean</td>
+      <td>string</td>
       <td> </td>
     </tr>
     <tr>
-      <td>types</td>
+      <td>properties</td>
       <td> </td>
       <td>false</td>
-      <td>string array</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>tags</td>
+      <td> </td>
+      <td>false</td>
+      <td>Tag array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>type</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
       <td> </td>
     </tr>
   </tbody>
@@ -808,40 +2505,17 @@ ga('send', 'pageview');
       <td>Contains the types and templates of elements configured for a given location.</td>
       <td> </td>
     </tr>
+    <tr>
+      <td>secretProviderConfigurations</td>
+      <td> </td>
+      <td>false</td>
+      <td>SecretProviderConfigurationsDTO</td>
+      <td> </td>
+    </tr>
   </tbody>
 </table>
 
 <h1 id="mapstringfilterdefinition">Map«string,FilterDefinition»</h1>
-
-<h1 id="updatelocationrequest">UpdateLocationRequest</h1>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Required</th>
-      <th>Schema</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>environmentType</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>name</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
 
 <h1 id="contains-a-custom-resource-template-with-its-locations-updated-dependencies">Contains a custom resource template with its location’s updated dependencies.</h1>
 
@@ -867,97 +2541,7 @@ ga('send', 'pageview');
       <td>resourceTemplate</td>
       <td>A custom configured resource template.</td>
       <td>false</td>
-      <td>LocationResourceTemplate</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<h1 id="restresponsegetmultipledataresultorchestrator">RestResponse«GetMultipleDataResult«Orchestrator.»»</h1>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Required</th>
-      <th>Schema</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>data</td>
-      <td> </td>
-      <td>false</td>
-      <td>GetMultipleDataResult«Orchestrator.»</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>error</td>
-      <td> </td>
-      <td>false</td>
-      <td>RestError</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<h1 id="restresponsecontains-a-custom-resource-template-with-its-locations-updated-dependencies">RestResponse«Contains a custom resource template with its location’s updated dependencies.»</h1>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Required</th>
-      <th>Schema</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>data</td>
-      <td> </td>
-      <td>false</td>
-      <td>Contains a custom resource template with its location’s updated dependencies.</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>error</td>
-      <td> </td>
-      <td>false</td>
-      <td>RestError</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<h1 id="capability">Capability</h1>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Required</th>
-      <th>Schema</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>properties</td>
-      <td> </td>
-      <td>false</td>
-      <td>object</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>type</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
+      <td>AbstractLocationResourceTemplate</td>
       <td> </td>
     </tr>
   </tbody>
@@ -1028,6 +2612,20 @@ ga('send', 'pageview');
     <tr>
       <td>onDemandTypes</td>
       <td>Map that contains the on demdand types.</td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>policyTemplates</td>
+      <td>List of policies templates already configured for the location.</td>
+      <td>false</td>
+      <td>PolicyLocationResourceTemplate array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>policyTypes</td>
+      <td>Map of policy types id, policy type used to configure the templates of policies in a location.</td>
       <td>false</td>
       <td>object</td>
       <td> </td>
@@ -1134,72 +2732,6 @@ ga('send', 'pageview');
 
 <h1 id="mapstringcapability">Map«string,Capability»</h1>
 
-<h1 id="request-to-update-a-location-resource-template-property">Request to update a location resource template property.</h1>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Required</th>
-      <th>Schema</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>propertyName</td>
-      <td>Name of the property to update.</td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>propertyValue</td>
-      <td>Value of the property to update, the type must be equal to the type of the property that will be updated.</td>
-      <td>false</td>
-      <td>object</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<h1 id="propertyvalue">PropertyValue</h1>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Required</th>
-      <th>Schema</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>definition</td>
-      <td> </td>
-      <td>false</td>
-      <td>boolean</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>value</td>
-      <td> </td>
-      <td>false</td>
-      <td>object</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<h1 id="mapstringinterface">Map«string,Interface»</h1>
-
-<h1 id="mapstringrelationshiptemplate">Map«string,RelationshipTemplate»</h1>
-
-<h1 id="mapstringpropertydefinition">Map«string,PropertyDefinition»</h1>
-
 <h1 id="mapstringlistpropertyconstraint">Map«string,List«PropertyConstraint»»</h1>
 
 <h1 id="restresponsegetmultipledataresultgroupdto">RestResponse«GetMultipleDataResult«GroupDTO»»</h1>
@@ -1232,7 +2764,7 @@ ga('send', 'pageview');
   </tbody>
 </table>
 
-<h1 id="restresponsearraystring">RestResponse«Array«string»»</h1>
+<h1 id="policylocationresourcetemplate">PolicyLocationResourceTemplate</h1>
 
 <table class="table table-bordered">
   <thead>
@@ -1246,23 +2778,100 @@ ga('send', 'pageview');
   </thead>
   <tbody>
     <tr>
-      <td>data</td>
+      <td>applicationPermissions</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>enabled</td>
+      <td> </td>
+      <td>false</td>
+      <td>boolean</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>environmentPermissions</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>environmentTypePermissions</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>groupPermissions</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>id</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>locationId</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>name</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>portabilityDefinitions</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>service</td>
+      <td> </td>
+      <td>false</td>
+      <td>boolean</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>template</td>
+      <td> </td>
+      <td>false</td>
+      <td>PolicyTemplate</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>types</td>
       <td> </td>
       <td>false</td>
       <td>string array</td>
       <td> </td>
     </tr>
     <tr>
-      <td>error</td>
+      <td>userPermissions</td>
       <td> </td>
       <td>false</td>
-      <td>RestError</td>
+      <td>object</td>
       <td> </td>
     </tr>
   </tbody>
 </table>
 
-<h1 id="implementationartifact">ImplementationArtifact</h1>
+<h1 id="locationmodifierreference">LocationModifierReference</h1>
 
 <table class="table table-bordered">
   <thead>
@@ -1276,86 +2885,21 @@ ga('send', 'pageview');
   </thead>
   <tbody>
     <tr>
-      <td>archiveName</td>
+      <td>beanName</td>
       <td> </td>
       <td>false</td>
       <td>string</td>
       <td> </td>
     </tr>
     <tr>
-      <td>archiveVersion</td>
+      <td>phase</td>
       <td> </td>
       <td>false</td>
       <td>string</td>
       <td> </td>
     </tr>
     <tr>
-      <td>artifactRef</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>artifactRepository</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>artifactType</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>repositoryCredential</td>
-      <td> </td>
-      <td>false</td>
-      <td>object</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>repositoryName</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>repositoryURL</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<h1 id="requirement">Requirement</h1>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Required</th>
-      <th>Schema</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>properties</td>
-      <td> </td>
-      <td>false</td>
-      <td>object</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>type</td>
+      <td>pluginId</td>
       <td> </td>
       <td>false</td>
       <td>string</td>
@@ -1399,6 +2943,20 @@ ga('send', 'pageview');
       <td> </td>
     </tr>
     <tr>
+      <td>danglingRequirement</td>
+      <td> </td>
+      <td>false</td>
+      <td>boolean</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>description</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
       <td>groups</td>
       <td> </td>
       <td>false</td>
@@ -1417,6 +2975,13 @@ ga('send', 'pageview');
       <td> </td>
       <td>false</td>
       <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>nodeFilter</td>
+      <td> </td>
+      <td>false</td>
+      <td>NodeFilter</td>
       <td> </td>
     </tr>
     <tr>
@@ -1448,40 +3013,17 @@ ga('send', 'pageview');
       <td> </td>
     </tr>
     <tr>
+      <td>tags</td>
+      <td> </td>
+      <td>false</td>
+      <td>Tag array</td>
+      <td> </td>
+    </tr>
+    <tr>
       <td>type</td>
       <td> </td>
       <td>false</td>
       <td>string</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<h1 id="restresponseconstraintinformation">RestResponse«ConstraintInformation»</h1>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Required</th>
-      <th>Schema</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>data</td>
-      <td> </td>
-      <td>false</td>
-      <td>ConstraintInformation</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>error</td>
-      <td> </td>
-      <td>false</td>
-      <td>RestError</td>
       <td> </td>
     </tr>
   </tbody>
@@ -1657,36 +3199,6 @@ ga('send', 'pageview');
   </tbody>
 </table>
 
-<h1 id="restresponsegetmultipledataresultapplicationenvironmentauthorizationdto">RestResponse«GetMultipleDataResult«ApplicationEnvironmentAuthorizationDTO»»</h1>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Required</th>
-      <th>Schema</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>data</td>
-      <td> </td>
-      <td>false</td>
-      <td>GetMultipleDataResult«ApplicationEnvironmentAuthorizationDTO»</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>error</td>
-      <td> </td>
-      <td>false</td>
-      <td>RestError</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
 <h1 id="request-for-creation-of-a-new-location">Request for creation of a new location.</h1>
 
 <table class="table table-bordered">
@@ -1717,7 +3229,9 @@ ga('send', 'pageview');
   </tbody>
 </table>
 
-<h1 id="application">Application</h1>
+<h1 id="mapstringpolicytrigger">Map«string,PolicyTrigger»</h1>
+
+<h1 id="propertyvaluepolicytemplate">PropertyValue«PolicyTemplate»</h1>
 
 <table class="table table-bordered">
   <thead>
@@ -1731,149 +3245,17 @@ ga('send', 'pageview');
   </thead>
   <tbody>
     <tr>
-      <td>creationDate</td>
+      <td>definition</td>
       <td> </td>
       <td>false</td>
-      <td>string (date-time)</td>
+      <td>boolean</td>
       <td> </td>
     </tr>
     <tr>
-      <td>description</td>
+      <td>value</td>
       <td> </td>
       <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>groupRoles</td>
-      <td> </td>
-      <td>false</td>
-      <td>object</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>id</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>imageId</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>lastUpdateDate</td>
-      <td> </td>
-      <td>false</td>
-      <td>string (date-time)</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>metaProperties</td>
-      <td> </td>
-      <td>false</td>
-      <td>object</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>name</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>tags</td>
-      <td> </td>
-      <td>false</td>
-      <td>Tag array</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>userRoles</td>
-      <td> </td>
-      <td>false</td>
-      <td>object</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<h1 id="restresponsestring">RestResponse«string»</h1>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Required</th>
-      <th>Schema</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>data</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>error</td>
-      <td> </td>
-      <td>false</td>
-      <td>RestError</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<h1 id="mapstringnodetype">Map«string,NodeType»</h1>
-
-<h1 id="request-for-creation-of-a-new-locations-resource">Request for creation of a new location’s resource.</h1>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Required</th>
-      <th>Schema</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>archiveName</td>
-      <td>Archive name of the resource type.</td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>archiveVersion</td>
-      <td>Archive version of the resource type.</td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>resourceName</td>
-      <td>Name of the location’s resource.</td>
-      <td>true</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>resourceType</td>
-      <td>Type of the location’s resource.</td>
-      <td>true</td>
-      <td>string</td>
+      <td>PolicyTemplate</td>
       <td> </td>
     </tr>
   </tbody>
@@ -1908,6 +3290,13 @@ ga('send', 'pageview');
     </tr>
     <tr>
       <td>environmentPermissions</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>environmentTypePermissions</td>
       <td> </td>
       <td>false</td>
       <td>object</td>
@@ -2016,38 +3405,6 @@ ga('send', 'pageview');
   </tbody>
 </table>
 
-<h1 id="restresponselocationdto">RestResponse«LocationDTO»</h1>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Required</th>
-      <th>Schema</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>data</td>
-      <td> </td>
-      <td>false</td>
-      <td>LocationDTO</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>error</td>
-      <td> </td>
-      <td>false</td>
-      <td>RestError</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<h1 id="mapstringoperation">Map«string,Operation»</h1>
-
 <h1 id="operation">Operation</h1>
 
 <table class="table table-bordered">
@@ -2094,6 +3451,50 @@ ga('send', 'pageview');
       <td> </td>
       <td>false</td>
       <td>object</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="policycondition">PolicyCondition</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>constraints</td>
+      <td> </td>
+      <td>false</td>
+      <td>PropertyConstraint array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>evaluations</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int32)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>method</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>period</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
       <td> </td>
     </tr>
   </tbody>
@@ -2166,6 +3567,36 @@ ga('send', 'pageview');
   </tbody>
 </table>
 
+<h1 id="secretproviderconfiguration">SecretProviderConfiguration</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>configuration</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>pluginName</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
 <h1 id="restresponsegetmultipledataresultuserdto">RestResponse«GetMultipleDataResult«UserDTO»»</h1>
 
 <table class="table table-bordered">
@@ -2221,36 +3652,6 @@ ga('send', 'pageview');
   </tbody>
 </table>
 
-<h1 id="resterror">RestError</h1>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Required</th>
-      <th>Schema</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>code</td>
-      <td> </td>
-      <td>false</td>
-      <td>integer (int32)</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>message</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
 <h1 id="mapstringsetstring">Map«string,Set«string»»</h1>
 
 <h1 id="applicationenvironmentauthorizationupdaterequest">ApplicationEnvironmentAuthorizationUpdateRequest</h1>
@@ -2281,6 +3682,20 @@ ga('send', 'pageview');
       <td> </td>
     </tr>
     <tr>
+      <td>environmentTypesToAdd</td>
+      <td> </td>
+      <td>false</td>
+      <td>string array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>environmentTypesToDelete</td>
+      <td> </td>
+      <td>false</td>
+      <td>string array</td>
+      <td> </td>
+    </tr>
+    <tr>
       <td>environmentsToAdd</td>
       <td> </td>
       <td>false</td>
@@ -2303,182 +3718,6 @@ ga('send', 'pageview');
     </tr>
   </tbody>
 </table>
-
-<h1 id="datatype">DataType</h1>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Required</th>
-      <th>Schema</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>abstract</td>
-      <td> </td>
-      <td>false</td>
-      <td>boolean</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>archiveName</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>archiveVersion</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>creationDate</td>
-      <td> </td>
-      <td>false</td>
-      <td>string (date-time)</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>deriveFromSimpleType</td>
-      <td> </td>
-      <td>false</td>
-      <td>boolean</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>derivedFrom</td>
-      <td> </td>
-      <td>false</td>
-      <td>string array</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>description</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>elementId</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>id</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>lastUpdateDate</td>
-      <td> </td>
-      <td>false</td>
-      <td>string (date-time)</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>nestedVersion</td>
-      <td> </td>
-      <td>false</td>
-      <td>Version</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>properties</td>
-      <td> </td>
-      <td>false</td>
-      <td>object</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>tags</td>
-      <td> </td>
-      <td>false</td>
-      <td>Tag array</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>workspace</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<h1 id="restresponselistlocationdto">RestResponse«List«LocationDTO»»</h1>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Required</th>
-      <th>Schema</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>data</td>
-      <td> </td>
-      <td>false</td>
-      <td>LocationDTO array</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>error</td>
-      <td> </td>
-      <td>false</td>
-      <td>RestError</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<h1 id="restresponselistapplicationenvironmentauthorizationdto">RestResponse«List«ApplicationEnvironmentAuthorizationDTO»»</h1>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Required</th>
-      <th>Schema</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>data</td>
-      <td> </td>
-      <td>false</td>
-      <td>ApplicationEnvironmentAuthorizationDTO array</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>error</td>
-      <td> </td>
-      <td>false</td>
-      <td>RestError</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<h1 id="mapstringivalue">Map«string,IValue»</h1>
 
 <h1 id="capabilitytype">CapabilityType</h1>
 
@@ -2601,7 +3840,7 @@ ga('send', 'pageview');
   </tbody>
 </table>
 
-<h1 id="usage">Usage</h1>
+<h1 id="timeinterval">TimeInterval</h1>
 
 <table class="table table-bordered">
   <thead>
@@ -2615,28 +3854,14 @@ ga('send', 'pageview');
   </thead>
   <tbody>
     <tr>
-      <td>resourceId</td>
+      <td>endTime</td>
       <td> </td>
       <td>false</td>
       <td>string</td>
       <td> </td>
     </tr>
     <tr>
-      <td>resourceName</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>resourceType</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>workspace</td>
+      <td>startTime</td>
       <td> </td>
       <td>false</td>
       <td>string</td>
@@ -2644,66 +3869,6 @@ ga('send', 'pageview');
     </tr>
   </tbody>
 </table>
-
-<h1 id="getmultipledataresultorchestrator">GetMultipleDataResult«Orchestrator.»</h1>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Required</th>
-      <th>Schema</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>data</td>
-      <td> </td>
-      <td>false</td>
-      <td>Orchestrator. array</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>from</td>
-      <td> </td>
-      <td>false</td>
-      <td>integer (int32)</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>queryDuration</td>
-      <td> </td>
-      <td>false</td>
-      <td>integer (int64)</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>to</td>
-      <td> </td>
-      <td>false</td>
-      <td>integer (int32)</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>totalResults</td>
-      <td> </td>
-      <td>false</td>
-      <td>integer (int64)</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>types</td>
-      <td> </td>
-      <td>false</td>
-      <td>string array</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<h1 id="mapstringrequirement">Map«string,Requirement»</h1>
 
 <h1 id="restresponseorchestrator">RestResponse«Orchestrator.»</h1>
 
@@ -2730,57 +3895,6 @@ ga('send', 'pageview');
       <td> </td>
       <td>false</td>
       <td>RestError</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<h1 id="constraintinformation">ConstraintInformation</h1>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Required</th>
-      <th>Schema</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>name</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>path</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>reference</td>
-      <td> </td>
-      <td>false</td>
-      <td>object</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>type</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>value</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
       <td> </td>
     </tr>
   </tbody>
@@ -2816,7 +3930,7 @@ ga('send', 'pageview');
   </tbody>
 </table>
 
-<h1 id="restresponselistlocationresourcetemplate">RestResponse«List«LocationResourceTemplate»»</h1>
+<h1 id="abstractlocationresourcetemplate">AbstractLocationResourceTemplate</h1>
 
 <table class="table table-bordered">
   <thead>
@@ -2830,95 +3944,102 @@ ga('send', 'pageview');
   </thead>
   <tbody>
     <tr>
-      <td>data</td>
+      <td>applicationPermissions</td>
       <td> </td>
       <td>false</td>
-      <td>LocationResourceTemplate array</td>
+      <td>object</td>
       <td> </td>
     </tr>
     <tr>
-      <td>error</td>
-      <td> </td>
-      <td>false</td>
-      <td>RestError</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<h1 id="propertydefinition">PropertyDefinition</h1>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Required</th>
-      <th>Schema</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>constraints</td>
-      <td> </td>
-      <td>false</td>
-      <td>PropertyConstraint array</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>default</td>
-      <td> </td>
-      <td>false</td>
-      <td>PropertyValue</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>definition</td>
+      <td>enabled</td>
       <td> </td>
       <td>false</td>
       <td>boolean</td>
       <td> </td>
     </tr>
     <tr>
-      <td>description</td>
+      <td>environmentPermissions</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>environmentTypePermissions</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>groupPermissions</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>id</td>
       <td> </td>
       <td>false</td>
       <td>string</td>
       <td> </td>
     </tr>
     <tr>
-      <td>password</td>
+      <td>locationId</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>name</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>portabilityDefinitions</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>service</td>
       <td> </td>
       <td>false</td>
       <td>boolean</td>
       <td> </td>
     </tr>
     <tr>
-      <td>required</td>
+      <td>template</td>
       <td> </td>
       <td>false</td>
-      <td>boolean</td>
+      <td>AbstractTemplate</td>
       <td> </td>
     </tr>
     <tr>
-      <td>suggestionId</td>
+      <td>types</td>
       <td> </td>
       <td>false</td>
-      <td>string</td>
+      <td>string array</td>
       <td> </td>
     </tr>
     <tr>
-      <td>type</td>
+      <td>userPermissions</td>
       <td> </td>
       <td>false</td>
-      <td>string</td>
+      <td>object</td>
       <td> </td>
     </tr>
   </tbody>
 </table>
 
 <h1 id="mapstringabstractpropertyvalue">Map«string,AbstractPropertyValue»</h1>
+
+<h1 id="mapstringmapstringobject">Map«string,Map«string,object»»</h1>
 
 <h1 id="applicationenvironment">ApplicationEnvironment</h1>
 
@@ -3029,64 +4150,6 @@ ga('send', 'pageview');
   </tbody>
 </table>
 
-<h1 id="getmultipledataresultgroupdto">GetMultipleDataResult«GroupDTO»</h1>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Required</th>
-      <th>Schema</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>data</td>
-      <td> </td>
-      <td>false</td>
-      <td>GroupDTO array</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>from</td>
-      <td> </td>
-      <td>false</td>
-      <td>integer (int32)</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>queryDuration</td>
-      <td> </td>
-      <td>false</td>
-      <td>integer (int64)</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>to</td>
-      <td> </td>
-      <td>false</td>
-      <td>integer (int32)</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>totalResults</td>
-      <td> </td>
-      <td>false</td>
-      <td>integer (int64)</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>types</td>
-      <td> </td>
-      <td>false</td>
-      <td>string array</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
 <h1 id="csardependency">CSARDependency</h1>
 
 <table class="table table-bordered">
@@ -3151,40 +4214,17 @@ ga('send', 'pageview');
       <td> </td>
     </tr>
     <tr>
+      <td>environmentTypes</td>
+      <td> </td>
+      <td>false</td>
+      <td>string array</td>
+      <td> </td>
+    </tr>
+    <tr>
       <td>environments</td>
       <td> </td>
       <td>false</td>
       <td>ApplicationEnvironment array</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<h1 id="request-to-update-or-check-the-value-of-a-property">Request to update or check the value of a property.</h1>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Required</th>
-      <th>Schema</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>definitionId</td>
-      <td>Id of the property to set.</td>
-      <td>true</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>value</td>
-      <td>Value to set for the property.</td>
-      <td>true</td>
-      <td>string</td>
       <td> </td>
     </tr>
   </tbody>
@@ -3248,96 +4288,6 @@ ga('send', 'pageview');
   </tbody>
 </table>
 
-<h1 id="tag">Tag</h1>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Required</th>
-      <th>Schema</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>name</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>value</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<h1 id="abstractpropertyvalue">AbstractPropertyValue</h1>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Required</th>
-      <th>Schema</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>definition</td>
-      <td> </td>
-      <td>false</td>
-      <td>boolean</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<h1 id="interface">Interface</h1>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Required</th>
-      <th>Schema</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>description</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>operations</td>
-      <td> </td>
-      <td>false</td>
-      <td>object</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>type</td>
-      <td> </td>
-      <td>false</td>
-      <td>string</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
 <h1 id="location">Location</h1>
 
 <p>A location represents a cloud, a region of a cloud, a set of machines and resources.basically any location on which alien will be allowed to perform deployment. Locations are managed by orchestrators.</p>
@@ -3389,6 +4339,13 @@ ga('send', 'pageview');
       <td> </td>
     </tr>
     <tr>
+      <td>environmentTypePermissions</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
       <td>groupPermissions</td>
       <td> </td>
       <td>false</td>
@@ -3424,6 +4381,13 @@ ga('send', 'pageview');
       <td> </td>
     </tr>
     <tr>
+      <td>modifiers</td>
+      <td> </td>
+      <td>false</td>
+      <td>LocationModifierReference array</td>
+      <td> </td>
+    </tr>
+    <tr>
       <td>name</td>
       <td> </td>
       <td>false</td>
@@ -3438,37 +4402,14 @@ ga('send', 'pageview');
       <td> </td>
     </tr>
     <tr>
+      <td>secretProviderConfiguration</td>
+      <td> </td>
+      <td>false</td>
+      <td>SecretProviderConfiguration</td>
+      <td> </td>
+    </tr>
+    <tr>
       <td>userPermissions</td>
-      <td> </td>
-      <td>false</td>
-      <td>object</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<h1 id="nodefilter">NodeFilter</h1>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Required</th>
-      <th>Schema</th>
-      <th>Default</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>capabilities</td>
-      <td> </td>
-      <td>false</td>
-      <td>object</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>properties</td>
       <td> </td>
       <td>false</td>
       <td>object</td>

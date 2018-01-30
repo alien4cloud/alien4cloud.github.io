@@ -52,13 +52,13 @@ ga('send', 'pageview');
 
 <p>Once you have installed a plugin, the admin can go on the orchestrator page and configure one. Remember that you can use the Alien 4 Cloud contextual help in order to be guided directly within the application. To create an orchestrator, just go in the <em>orchestrator list</em> page and click on the <em>New orchestrator</em> button.</p>
 
-<p><a href="../../images/1.1.0/user_guide/admin/orchestrators/new-orchestrator.png"><img src="../../images/1.1.0/user_guide/admin/orchestrators/new-orchestrator.png" alt="Create orchestrator" /></a></p>
+<p><img src="../../images/2.0.0/user_guide/admin/orchestrators/new_orchestrator.png" alt="Create orchestrator" /></p>
 
 <h2 id="orchestrator-configuration">Orchestrator configuration</h2>
 
 <p>To configure an orchestrator, select it in the <em>orchestrator list</em> page and go to <em>configuration</em> side menu.</p>
 
-<p><a href="../../images/1.1.0/user_guide/admin/orchestrators/orchestrator_global_configuration.png"><img src="../../images/1.1.0/user_guide/admin/orchestrators/orchestrator_global_configuration.png" alt="Orchestrator conf" /></a><br /></p>
+<p><img src="../../images/2.0.0/user_guide/admin/orchestrators/orchestrator_global_configuration.png" alt="Orchestrator conf" /></p>
 
 <h3 id="naming-policy">Naming policy</h3>
 
@@ -125,7 +125,7 @@ However, when generating the application paaSId (final application name on the P
 <p>Most orchestrator plugins will require specific configuration in order to communicate with the actual orchestrator instance or to configure it’s behavior. As stated, this configuration being specific to the orchestrator, you should refer to the orchestrator specific guide.
 For example, the  cloudify3 provider defines connexion parameters so that Alien 4 Cloud can communicate with the orchestrator engine server (cloudify 3 manager).</p>
 
-<p><a href="../../images/1.1.0/user_guide/admin/orchestrators/orchestrator-driver-configuration.png"><img src="../../images/1.1.0/user_guide/admin/orchestrators/orchestrator-driver-configuration.png" alt="Configure the provider" /></a></p>
+<p><img src="../../images/2.0.0/user_guide/admin/orchestrators/orchestrator_driver_configuration.png" alt="Configure the provider" /></p>
 
 <div class="note info">
 <p>More informations for <a href="#/documentation/2.0.0/orchestrators/cloudify3_driver/index.html">cloudify 3</a> can be found on it specific documentation.</p>
@@ -141,7 +141,7 @@ However, it might occur that you want to update it after having the orchestrator
 
 <p>Once properly configured, you should enable the orchestrator, by hitting the <strong><em>enable</em></strong> button on the <strong>information</strong> screen of the selected orchestration.</p>
 
-<p><a href="../../images/1.1.0/user_guide/admin/orchestrators/orchestrator-enable.png"><img src="../../images/1.1.0/user_guide/admin/orchestrators/orchestrator-enable.png" alt="Enable - disable  orchestrator" /></a></p>
+<p><img src="../../images/2.0.0/user_guide/admin/orchestrators/orchestrator_enable.png" alt="Enable - disable  orchestrator" /></p>
 
 <h1 id="locations-management">Locations management</h1>
 
@@ -152,7 +152,7 @@ Note that you cannot access the location management steps on a disabled orchestr
 
 <p>To create a location, first go to the location the <em>orchestrator list</em> page, by clicking on the side menu represented by a cloud, and then click on the <em>New location</em> button, and fill in the form.</p>
 
-<p><a href="../../images/1.1.0/user_guide/admin/orchestrators/locoation-new-location.png"><img src="../../images/1.1.0/user_guide/admin/orchestrators/location-new-location.png" alt="Create location" /></a></p>
+<p><img src="../../images/2.0.0/user_guide/admin/orchestrators/new_location.png" alt="Create location" /></p>
 
 <h2 id="location-configuration">Location configuration</h2>
 
@@ -171,14 +171,14 @@ Note that you cannot access the location management steps on a disabled orchestr
 <p>In this step you need to configure the resources types exposed by location. These resources will help to configure or generate those which will be used in matching on deployment configuration.
 For example, the Cloudify 3 provider exposes configuration resources such as Images, Favors, and Availability zone.</p>
 
-<p><a href="../../images/2.0.0/user_guide/admin/orchestrators/location-resources-configuration.png"><img src="../../images/2.0.0/user_guide/admin/orchestrators/location-resources-configuration.png" alt="Location resources configuration" /></a></p>
+<p><img src="../../images/2.0.0/user_guide/admin/orchestrators/location_resources_configuration.png" alt="Location resources configuration" /></p>
 
 <h3 id="on-demand-resources-tab">On demand resources tab</h3>
 
 <p>On demand resources are the exact resources used for matching nodes within the topology before deploying, such as Computes, networks and volumes.
 They may a combination of one or more configuration resources. (Example, the on demand resource <em>Compute</em> could be a combination of <em>Image</em> and <em>Flavor</em> configuration resources.). The following is an example based on the Cloudify 3 provider:</p>
 
-<p><a href="../../images/2.0.0/user_guide/admin/orchestrators/location-on-demand-resource.png"><img src="../../images/2.0.0/user_guide/admin/orchestrators/location-on-demand-resource.png" alt="Location on demand resources" /></a></p>
+<p><img src="../../images/2.0.0/user_guide/admin/orchestrators/location_on_demand_resource.png" alt="Location on demand resources" /></p>
 
 <p>To add more resource templates, you can simply drag and drop resources types from the panel on the right.</p>
 
@@ -195,7 +195,7 @@ They may a combination of one or more configuration resources. (Example, the on 
 <p>At this point, we assume that you know what you are doing when creating custom resources. If not, please make sure you go through our <a href="#/documentation/2.0.0/user_guide/tosca_catalog_custom_resources.html">documentation on this feature</a>. Alien has no way to verify if custom resource templates created in the location are compatible with your orchestrator.</p>
 </div>
 
-<p><a href="../../images/2.0.0/user_guide/admin/orchestrators/location-custom-on-demand-resource.png"><img src="../../images/2.0.0/user_guide/admin/orchestrators/location-custom-on-demand-resource.png" alt="Location custom on demand resources" /></a></p>
+<p><img src="../../images/2.0.0/user_guide/admin/orchestrators/location_custom_on_demand_resource.png" alt="Location custom on demand resources" /></p>
 
 <h3 id="meta-properties">Meta properties</h3>
 

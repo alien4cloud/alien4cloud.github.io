@@ -63,6 +63,14 @@ GET /rest/v1/deployments
     </tr>
     <tr>
       <td>QueryParameter</td>
+      <td>environmentId</td>
+      <td>Id of the environment for which to get deployments. if not provided, get deployments without filtering by environment</td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>QueryParameter</td>
       <td>includeSourceSummary</td>
       <td>include or not the source (application or csar) summary in the results</td>
       <td>false</td>
@@ -291,9 +299,9 @@ GET /rest/v1/deployments/{applicationEnvironmentId}/events
   <li>application/json</li>
 </ul>
 
-<h3 id="get-deployment-status-from-its-id">Get deployment status from its id.</h3>
+<h3 id="get-a-deployment-from-its-id">Get a deployment from its id.</h3>
 <p><code>
-GET /rest/v1/deployments/{deploymentId}/status
+GET /rest/v1/deployments/{deploymentId}
 </code></p>
 
 <h4 id="parameters-3">Parameters</h4>
@@ -335,7 +343,7 @@ GET /rest/v1/deployments/{deploymentId}/status
     <tr>
       <td>200</td>
       <td>OK</td>
-      <td>RestResponse«string»</td>
+      <td>RestResponse«DeploymentDTO»</td>
     </tr>
     <tr>
       <td>401</td>
@@ -367,9 +375,9 @@ GET /rest/v1/deployments/{deploymentId}/status
   <li>application/json</li>
 </ul>
 
-<h3 id="undeploy-deployment-from-its-id">Undeploy deployment from its id.</h3>
+<h3 id="get-deployment-status-from-its-id">Get deployment status from its id.</h3>
 <p><code>
-GET /rest/v1/deployments/{deploymentId}/undeploy
+GET /rest/v1/deployments/{deploymentId}/status
 </code></p>
 
 <h4 id="parameters-4">Parameters</h4>
@@ -411,7 +419,7 @@ GET /rest/v1/deployments/{deploymentId}/undeploy
     <tr>
       <td>200</td>
       <td>OK</td>
-      <td>RestResponse«Void»</td>
+      <td>RestResponse«string»</td>
     </tr>
     <tr>
       <td>401</td>
@@ -438,6 +446,82 @@ GET /rest/v1/deployments/{deploymentId}/undeploy
 </ul>
 
 <h4 id="produces-4">Produces</h4>
+
+<ul>
+  <li>application/json</li>
+</ul>
+
+<h3 id="undeploy-deployment-from-its-id">Undeploy deployment from its id.</h3>
+<p><code>
+GET /rest/v1/deployments/{deploymentId}/undeploy
+</code></p>
+
+<h4 id="parameters-5">Parameters</h4>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>PathParameter</td>
+      <td>deploymentId</td>
+      <td>Deployment id.</td>
+      <td>true</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="responses-5">Responses</h4>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>HTTP Code</th>
+      <th>Description</th>
+      <th>Schema</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>200</td>
+      <td>OK</td>
+      <td>RestResponse«Void»</td>
+    </tr>
+    <tr>
+      <td>401</td>
+      <td>Unauthorized</td>
+      <td>No Content</td>
+    </tr>
+    <tr>
+      <td>403</td>
+      <td>Forbidden</td>
+      <td>No Content</td>
+    </tr>
+    <tr>
+      <td>404</td>
+      <td>Not Found</td>
+      <td>No Content</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="consumes-5">Consumes</h4>
+
+<ul>
+  <li>application/json</li>
+</ul>
+
+<h4 id="produces-5">Produces</h4>
 
 <ul>
   <li>application/json</li>

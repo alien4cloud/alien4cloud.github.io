@@ -26,14 +26,14 @@ ga('send', 'pageview');
           <h1 class="pull-left" style="margin-top: 0px;">Orchestrator security operations</h1>
           <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/2.0.0/rest/controller_location-security-controller.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
         </div>
-        <h3 id="list-all-groups-authorized-to-access-the-location">List all groups authorized to access the location</h3>
+        <h3 id="list-all-applicationsenvironments-and-environment-types-authorized-to-access-the-location">List all applications,environments and environment types authorized to access the location</h3>
 <p><code>
 GET /rest/v1/orchestrators/{orchestratorId}/locations/{locationId}/security/applications/search
 </code></p>
 
 <h4 id="description">Description</h4>
 
-<p>Only user with ADMIN role can list authorized applications/environments to the location.</p>
+<p>Only user with ADMIN role can list authorized applications,environments and environment types to the location.</p>
 
 <h4 id="parameters">Parameters</h4>
 
@@ -234,14 +234,14 @@ DELETE /rest/v1/orchestrators/{orchestratorId}/locations/{locationId}/security/a
   <li>application/json</li>
 </ul>
 
-<h3 id="list-all-applicationsenvironments-authorized-to-access-the-location">List all applications/environments authorized to access the location</h3>
+<h3 id="list-all-applicationsenvironments-and-environment-types-authorized-to-access-the-location-1">List all applications,environments and environment types authorized to access the location</h3>
 <p><code>
 GET /rest/v1/orchestrators/{orchestratorId}/locations/{locationId}/security/environmentsPerApplication
 </code></p>
 
 <h4 id="description-2">Description</h4>
 
-<p>Only user with ADMIN role can list authorized applications/environments for the location.</p>
+<p>Only user with ADMIN role can list authorized applications,environments and environment types for the location.</p>
 
 <h4 id="parameters-2">Parameters</h4>
 
@@ -322,14 +322,14 @@ GET /rest/v1/orchestrators/{orchestratorId}/locations/{locationId}/security/envi
   <li>application/json</li>
 </ul>
 
-<h3 id="update-applicationsenvironments-authorized-to-access-the-location">Update applications/environments authorized to access the location</h3>
+<h3 id="update-applicationsenvironments-and-environment-types-authorized-to-access-the-location">Update applications,environments and environment types authorized to access the location</h3>
 <p><code>
 POST /rest/v1/orchestrators/{orchestratorId}/locations/{locationId}/security/environmentsPerApplication
 </code></p>
 
 <h4 id="description-3">Description</h4>
 
-<p>Only user with ADMIN role can update authorized applications/environments for the location.</p>
+<p>Only user with ADMIN role can update authorized applications,environments and environment types for the location.</p>
 
 <h4 id="parameters-3">Parameters</h4>
 
@@ -423,7 +423,7 @@ POST /rest/v1/orchestrators/{orchestratorId}/locations/{locationId}/security/env
   <li>application/json</li>
 </ul>
 
-<h3 id="list-all-groups-authorized-to-access-the-location-1">List all groups authorized to access the location</h3>
+<h3 id="list-all-groups-authorized-to-access-the-location">List all groups authorized to access the location</h3>
 <p><code>
 GET /rest/v1/orchestrators/{orchestratorId}/locations/{locationId}/security/groups
 </code></p>
@@ -612,7 +612,7 @@ POST /rest/v1/orchestrators/{orchestratorId}/locations/{locationId}/security/gro
   <li>application/json</li>
 </ul>
 
-<h3 id="list-all-groups-authorized-to-access-the-location-2">List all groups authorized to access the location</h3>
+<h3 id="list-all-groups-authorized-to-access-the-location-1">List all groups authorized to access the location</h3>
 <p><code>
 GET /rest/v1/orchestrators/{orchestratorId}/locations/{locationId}/security/groups/search
 </code></p>
