@@ -2,7 +2,7 @@
 layout: post
 title: Manages application's deployment logs
 root: ../../
-categories: DOCUMENTATION-1.4.0
+categories: DOCUMENTATION-2.0.0
 parent: [rest_api, rest_api_applications-api]
 node_name: rest_api_controller_application-log-controller
 weight: 32

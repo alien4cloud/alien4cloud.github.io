@@ -2,7 +2,7 @@
 layout: post
 title: Location resource security batch operations
 root: ../../
-categories: DOCUMENTATION-1.4.0
+categories: DOCUMENTATION-2.0.0
 parent: [rest_api, rest_api_admin-orchestrator-api]
 node_name: rest_api_controller_location-resources-batch-security-controller
 weight: 16

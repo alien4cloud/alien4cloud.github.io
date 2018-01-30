@@ -2,7 +2,7 @@
 layout: post
 title: Operations on CSARs
 root: ../../
-categories: DOCUMENTATION-1.4.0
+categories: DOCUMENTATION-2.0.0
 parent: [rest_api, rest_api_catalog-api]
 node_name: rest_api_controller_cloud-service-archive-controller
 weight: 21

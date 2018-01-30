@@ -2,7 +2,7 @@
 layout: post
 title: Allow to create/read/update/delete and search services linked to an application environment.
 root: ../../
-categories: DOCUMENTATION-1.4.0
+categories: DOCUMENTATION-2.0.0
 parent: [rest_api, rest_api_applications-api]
 node_name: rest_api_controller_managed-service-resource-controller
 weight: 36

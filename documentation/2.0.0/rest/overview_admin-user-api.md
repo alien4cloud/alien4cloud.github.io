@@ -2,7 +2,7 @@
 layout: post
 title: admin-user-api
 root: ../../
-categories: DOCUMENTATION-1.4.0
+categories: DOCUMENTATION-2.0.0
 parent: [rest_api]
 node_name: rest_api_admin-user-api
 weight: 1

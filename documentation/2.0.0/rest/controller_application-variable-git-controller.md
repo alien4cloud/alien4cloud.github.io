@@ -2,7 +2,7 @@
 layout: post
 title: Controller to retrieve and setup git configuration for application variables.
 root: ../../
-categories: DOCUMENTATION-1.4.0
+categories: DOCUMENTATION-2.0.0
 parent: [rest_api, rest_api_applications-api]
 node_name: rest_api_controller_application-variable-git-controller
 weight: 26

@@ -2,7 +2,7 @@
 layout: post
 title: Health Mvc Endpoint
 root: ../../
-categories: DOCUMENTATION-1.4.0
+categories: DOCUMENTATION-2.0.0
 parent: [rest_api, rest_api_admin-api]
 node_name: rest_api_controller_health-mvc-endpoint
 weight: 61

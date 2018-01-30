@@ -2,7 +2,7 @@
 layout: post
 title: Allow to grant/revoke services authorizations
 root: ../../
-categories: DOCUMENTATION-1.4.0
+categories: DOCUMENTATION-2.0.0
 parent: [rest_api, rest_api_other-apis]
 node_name: rest_api_controller_service-security-controller
 weight: 49
