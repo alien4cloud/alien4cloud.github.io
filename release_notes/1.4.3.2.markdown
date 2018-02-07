@@ -1,0 +1,26 @@
+---
+layout: post
+title:  ALIEN for Cloud 1.4.3.2
+root: ../
+categories: RELEASE_NOTES
+parent: [release_note]
+node_name: 1.4.3.2
+weight: 9927
+exclude_from_search: true
+---
+
+
+<i class="fa fa-plus text-success"></i> New feature <i class="fa fa-level-up text-primary"></i> Improvement  <i class="fa fa-bug text-danger"></i> Bug <i class="fa fa-exclamation-triangle text-warning"></i> Breaking change
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+  |  <i class="fa fa-bug text-danger"></i> | ALIEN-2752 (SUPALIEN-1054) | Error with HA when SAML is enabled  |
+  |  <i class="fa fa-bug text-danger"></i> | ALIEN-2781 | Fix custom workflow freeze when launching  post update  |
+  |  <i class="fa fa-bug text-danger"></i> | ALIEN-2728 (SUPALIEN-1046) | Error when changing  a component version, property are not displayed  |
+  |  <i class="fa fa-level-up text-primary"></i> | ALIEN-278 | Display custom workflow execution  result (Success or error)  |
+  |  <i class="fa fa-level-up text-primary"></i> | ALIEN-2765 (SUPALIEN 1062) | Add an application log url distinct of the orchestrator URL (Ability to use complex URL including context path) |
+  |  <i class="fa fa-bug text-danger"></i> | ALIEN-2772 (SUPALIEN-1066) | Tooltips are not displayed when editing complex types. |
+  |  <i class="fa fa-bug text-danger"></i> | ALIEN-2669 (SUPALIEN-1011) | Fix LinuxFileSystem CSAR |
