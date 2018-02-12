@@ -26,9 +26,19 @@ ga('send', 'pageview');
           <h1 class="pull-left" style="margin-top: 0px;">Kubernetes Walkthrough</h1>
           <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/2.0.0/orchestrators/kubernetes/kubernetes_walkthrough.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
         </div>
-        <p>Starting from 2.0.0 the way we manage Kubernetes integration has changed and is now independent from the orchestrator. Any orchestrator that can fullfill the prerequisites will now be able to leverage on Kubernetes scheduler.</p>
+        
+<hr style="margin-top:5px; margin-bottom:5px;" />
+<div class="row"><ul class="nav nav-pills" id="summarypanel"></ul></div>
+<hr style="margin-top:5px; margin-bottom:5px;" />
+
+<p>Starting from 2.0.0 the way we manage Kubernetes integration has changed and is now independent from the orchestrator. Any orchestrator that can fullfill the prerequisites will now be able to leverage on Kubernetes scheduler.</p>
 
 <p>Here, We will explain concepts, describe the kubernetes plugin, and try it using simple examples.</p>
+
+<div class="note info">
+<p>In this page, we will use AWS features so you will need a Kubernetes cluster integrated with a AWS account.<br />
+However if you want to deploy a basic Kubernetes cluster you can use our TOSCA types which can be found <a href="https://github.com/alien4cloud/csar-public-library/tree/develop/org/alien4cloud/kubernetes/kubeadm">here</a></p>
+</div>
 
 <h1 id="tosca-types">TOSCA types</h1>
 
