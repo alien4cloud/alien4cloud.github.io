@@ -8,9 +8,18 @@ node_name: kubernetes_walkthrough
 weight: 1000
 ---
 
+{% summary %}{% endsummary %}
+
 Starting from 2.0.0 the way we manage Kubernetes integration has changed and is now independent from the orchestrator. Any orchestrator that can fullfill the prerequisites will now be able to leverage on Kubernetes scheduler.
 
 Here, We will explain concepts, describe the kubernetes plugin, and try it using simple examples.
+
+
+{%info%}
+In this page, we will use AWS features so you will need a Kubernetes cluster integrated with a AWS account.  
+However if you want to deploy a basic Kubernetes cluster you can use our TOSCA types based on kubeadm which can be found [here](https://github.com/alien4cloud/csar-public-library/tree/develop/org/alien4cloud/kubernetes/kubeadm)
+{%endinfo%}
+
 
 # TOSCA types
 
