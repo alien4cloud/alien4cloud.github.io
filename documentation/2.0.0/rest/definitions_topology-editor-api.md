@@ -10,6 +10,37 @@ weight: 9000
 
 {% summary %}{% endsummary %}
 
+# PolicyTrigger
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|actionOperation||false|Operation||
+|actionWorkflow||false|string||
+|condition||false|PolicyCondition||
+|description||false|string||
+|eventFilter||false|PolicyEventFilter||
+|eventType||false|string||
+|timeInterval||false|TimeInterval||
+
+
+# WorkflowStep
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|activities||false|AbstractWorkflowActivity array||
+|filter||false|AbstractConditionClause array||
+|name||false|string||
+|onFailure||false|string array||
+|onSuccess||false|string array||
+|operationHost||false|string||
+|precedingSteps||false|string array||
+|target||false|string||
+
+
 # ILocationMatch
 
 
@@ -21,8 +52,6 @@ weight: 9000
 |ready||false|boolean||
 |reasons||false|object||
 
-
-# Map«string,AbstractStep»
 
 # RelationshipType
 
@@ -67,17 +96,6 @@ weight: 9000
 |upperBound||false|integer (int32)||
 
 
-# AbstractStep
-
-
-{: .table .table-bordered}
-|Name|Description|Required|Schema|Default|
-|----|----|----|----|----|
-|followingSteps||false|string array||
-|name||false|string||
-|precedingSteps||false|string array||
-
-
 # Map«string,DataType»
 
 # FilterDefinition
@@ -89,6 +107,8 @@ weight: 9000
 |properties||false|object||
 
 
+# Map«string,PolicyType»
+
 # RelationshipTemplate
 
 
@@ -97,11 +117,13 @@ weight: 9000
 |----|----|----|----|----|
 |artifacts||false|object||
 |attributes||false|object||
+|description||false|string||
 |interfaces||false|object||
 |name||false|string||
 |properties||false|object||
 |requirementName||false|string||
 |requirementType||false|string||
+|tags||false|Tag array||
 |target||false|string||
 |targetedCapabilityName||false|string||
 |type||false|string||
@@ -254,8 +276,12 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 |----|----|----|----|----|
 |description||false|string||
 |errors||false|AbstractWorkflowError array||
+|hasCustomModifications||false|boolean||
 |hosts||false|string array||
+|inputs||false|object||
+|metadata||false|object||
 |name||false|string||
+|preconditions||false|PreconditionDefinition array||
 |standard||false|boolean||
 |steps||false|object||
 
@@ -286,12 +312,26 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 |outputAttributes||false|object||
 |outputCapabilityProperties||false|object||
 |outputProperties||false|object||
+|policies||false|object||
 |substitutionMapping||false|SubstitutionMapping||
+|tags||false|Tag array||
+|unprocessedWorkflows||false|object||
 |workflows||false|object||
 |workspace||false|string||
 
 
 # Map«string,PropertyDefinition»
+
+# PreconditionDefinition
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|condition||false|AbstractConditionClause array||
+|target||false|string||
+|targetRelationship||false|string||
+
 
 # Map«string,List«PropertyConstraint»»
 
@@ -317,9 +357,21 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 {: .table .table-bordered}
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
+|infoList||false|AbstractTask array||
 |taskList||false|AbstractTask array||
 |valid||false|boolean||
 |warningList||false|AbstractTask array||
+
+
+# LocationModifierReference
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|beanName||false|string||
+|phase||false|string||
+|pluginId||false|string||
 
 
 # Requirement
@@ -343,13 +395,17 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 |artifacts||false|object||
 |attributes||false|object||
 |capabilities||false|object||
+|danglingRequirement||false|boolean||
+|description||false|string||
 |groups||false|string array||
 |interfaces||false|object||
 |name||false|string||
+|nodeFilter||false|NodeFilter||
 |portability||false|object||
 |properties||false|object||
 |relationships||false|object||
 |requirements||false|object||
+|tags||false|Tag array||
 |type||false|string||
 
 
@@ -367,6 +423,7 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 |lastOperationIndex||false|integer (int32)||
 |nodeTypes||false|object||
 |operations||false|AbstractEditorOperation array||
+|policyTypes||false|object||
 |relationshipTypes||false|object||
 |topology||false|Topology||
 
@@ -401,6 +458,8 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 |workspace||false|string||
 
 
+# Map«string,PolicyTrigger»
+
 # Map«string,NodeGroup»
 
 # Map«string,NodeType»
@@ -411,8 +470,11 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 {: .table .table-bordered}
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
-|code||false|enum (IMPLEMENT, IMPLEMENT_RELATIONSHIP, REPLACE, SATISFY_LOWER_BOUND, PROPERTIES, HA_INVALID, SCALABLE_CAPABILITY_INVALID, NODE_FILTER_INVALID, WORKFLOW_INVALID, INPUT_ARTIFACT_INVALID, ARTIFACT_INVALID, LOCATION_POLICY, LOCATION_UNAUTHORIZED, LOCATION_DISABLED, ORCHESTRATOR_PROPERTY, INPUT_PROPERTY, NODE_NOT_SUBSTITUTED, FORBIDDEN_OPERATION)||
+|code||false|enum (LOG, EMPTY, IMPLEMENT_RELATIONSHIP, SATISFY_LOWER_BOUND, PROPERTIES, SCALABLE_CAPABILITY_INVALID, NODE_FILTER_INVALID, WORKFLOW_INVALID, ARTIFACT_INVALID, DEPRECATED_NODE, MISSING_VARIABLES, UNRESOLVABLE_PREDEFINED_INPUTS, PREDEFINED_INPUTS_CONSTRAINT_VIOLATION, PREDEFINED_INPUTS_TYPE_VIOLATION, INPUT_PROPERTY, INPUT_ARTIFACT_INVALID, LOCATION_POLICY, LOCATION_UNAUTHORIZED, LOCATION_DISABLED, NO_NODE_MATCHES, NODE_NOT_SUBSTITUTED, FORBIDDEN_OPERATION, IMPLEMENT, REPLACE, ORCHESTRATOR_PROPERTY, CFY_MULTI_RELATIONS)||
+|source||false|string||
 
+
+# AbstractWorkflowActivity
 
 # Map«string,Operation»
 
@@ -429,6 +491,18 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 |portability||false|object||
 
 
+# PolicyCondition
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|constraints||false|PropertyConstraint array||
+|evaluations||false|integer (int32)||
+|method||false|string||
+|period||false|string||
+
+
 # SubstitutionMapping
 
 
@@ -441,6 +515,16 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 
 
 # Map«string,SubstitutionTarget»
+
+# SecretProviderConfiguration
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|configuration||false|object||
+|pluginName||false|string||
+
 
 # PropertyConstraint
 
@@ -517,7 +601,47 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 |error||false|RestError||
 
 
+# PolicyTemplate
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|description||false|string||
+|name||false|string||
+|properties||false|object||
+|tags||false|Tag array||
+|targets||false|string array||
+|triggers||false|object||
+|type||false|string||
+
+
+# PolicyType
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|abstract||false|boolean||
+|archiveName||false|string||
+|archiveVersion||false|string||
+|creationDate||false|string (date-time)||
+|derivedFrom||false|string array||
+|description||false|string||
+|elementId||false|string||
+|id||false|string||
+|lastUpdateDate||false|string (date-time)||
+|nestedVersion||false|Version||
+|properties||false|object||
+|tags||false|Tag array||
+|targets||false|string array||
+|triggers||false|object||
+|workspace||false|string||
+
+
 # Map«string,IValue»
+
+# Map«string,PolicyTemplate»
 
 # CapabilityType
 
@@ -543,6 +667,16 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 
 
 # Map«string,Requirement»
+
+# TimeInterval
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|endTime||false|string||
+|startTime||false|string||
+
 
 # SubstitutionTarget
 
@@ -608,6 +742,8 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 |error||false|RestError||
 
 
+# Map«string,WorkflowStep»
+
 # Map«string,NodeTemplate»
 
 # Map«string,CapabilityType»
@@ -656,6 +792,19 @@ An orchestrator is alien 4 cloud is a software engine that alien 4 cloud connect
 |properties||false|object||
 
 
+# PolicyEventFilter
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|capability||false|string||
+|node||false|string||
+|requirement||false|string||
+
+
+# AbstractConditionClause
+
 # Location
 
 
@@ -670,13 +819,16 @@ A location represents a cloud, a region of a cloud, a set of machines and resour
 |dependencies||false|CSARDependency array||
 |environmentPermissions||false|object||
 |environmentType||false|string||
+|environmentTypePermissions||false|object||
 |groupPermissions||false|object||
 |id||false|string||
 |infrastructureType||false|string||
 |lastUpdateDate||false|string (date-time)||
 |metaProperties||false|object||
+|modifiers||false|LocationModifierReference array||
 |name||false|string||
 |orchestratorId||false|string||
+|secretProviderConfiguration||false|SecretProviderConfiguration||
 |userPermissions||false|object||
 
 

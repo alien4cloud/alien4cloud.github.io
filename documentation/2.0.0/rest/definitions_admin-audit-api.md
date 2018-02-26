@@ -60,6 +60,7 @@ weight: 9000
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
 |action||false|string||
+|bodyHiddenFields||false|string array||
 |category||false|string||
 |enabled||false|boolean||
 |method||false|string||

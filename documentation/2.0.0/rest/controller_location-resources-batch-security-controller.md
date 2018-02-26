@@ -5,10 +5,10 @@ root: ../../
 categories: DOCUMENTATION-2.0.0
 parent: [rest_api, rest_api_admin-orchestrator-api]
 node_name: rest_api_controller_location-resources-batch-security-controller
-weight: 10
+weight: 16
 ---
 
-### Update applications/environments authorized to access the location resource
+### Update applications, environments and environment type authorized to access the location resource
 ```
 POST /rest/v1/orchestrators/{orchestratorId}/locations/{locationId}/resources/security/environmentsPerApplication
 ```

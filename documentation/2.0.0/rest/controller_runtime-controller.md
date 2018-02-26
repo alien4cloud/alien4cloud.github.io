@@ -5,7 +5,7 @@ root: ../../
 categories: DOCUMENTATION-2.0.0
 parent: [rest_api, rest_api_applications-deployment-api]
 node_name: rest_api_controller_runtime-controller
-weight: 35
+weight: 42
 ---
 
 ### Get non-natives node template of a topology.

@@ -5,7 +5,7 @@ root: ../../
 categories: DOCUMENTATION-2.0.0
 parent: [rest_api, rest_api_other-apis]
 node_name: rest_api_controller_auth-controller
-weight: 43
+weight: 51
 ---
 
 ### Get the current authentication status and user's roles.

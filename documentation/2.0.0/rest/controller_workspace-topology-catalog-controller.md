@@ -5,7 +5,7 @@ root: ../../
 categories: DOCUMENTATION-2.0.0
 parent: [rest_api, rest_api_workspaces-api]
 node_name: rest_api_controller_workspace-topology-catalog-controller
-weight: 20
+weight: 24
 ---
 
 ### Create a topology and register it in the catalog

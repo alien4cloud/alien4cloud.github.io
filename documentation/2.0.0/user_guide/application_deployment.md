@@ -10,39 +10,39 @@ weight: 100
 
 {% summary %}{% endsummary %}
 
-In alien4cloud you actually deploy an environment of an application, in order to prepare and trigger your deployment first choose your environment in the application details page. 
+In alien4cloud you can actually deploy an environment of an application, in order to prepare and trigger your deployment. Firstly choose your environment in the application details page.
 
-Before deploying your environment you have to configure the deployment, and alien4cloud will drive the user into comprehensive sequential steps in order to archive it.
+Before deploying your environment you have to configure the deployment, and alien4cloud will lead the user into comprehensive sequential steps in order to achieve it.
 
-Each step perform a validation of the deployment topology, and errors details are eventually displayed on the right screen. Note that you can not go to the next step as long as the current one is still not valid.
+Each step performs a validation of the deployment topology, and errors details are eventually displayed on the right screen. Note that you can not go to the next step as long as the current one is still not valid.
 
 # Inputs
 
-`Inputs` is an efficient way to configure environment specific properties that may be shared by a single topology, or to let the user(s) responsible for deployment configure some of the deployment properties without having to deal with the complexity of the topology editor and all of it's components.
+`Inputs` is an efficient way to configure environment specific properties that may be shared by a single topology, or to let the user(s) who is responsible for deployment configure some of the deployment properties without having to deal with the complexity of the topology editor and all of its components.
 
 There is two types of inputs:
 
 * __Properties__: For example the designer may choose to let the deployer configure Number of CPUs, JAVA VM heap etc.
 * __Artifacts__: For example a license file, initial data file, configuration file for a software etc.
 
-Inputs may be optional or required, if any required input is not defined alien4cloud will display a `todo list` and prevent the user for going to the next configuration step.
+Inputs may be optional or required, if any required input is not defined, and alien4cloud will display a `todo list` and prevent the user going to the next configuration step.
 
 Inputs may be a secret that will be retrieved later at deployment time by clicking on ![Go to admin](../../images/2.0.0/user_guide/topology_editor/secret_property _button.png){: .inline}.
 
-[![Deployment inputs](../../images/2.0.0/user_guide/applications/deployment/user_guide_deployment_setup_inputs.png)](../../images/2.0.0/user_guide/application/deployment/user_guide_deployment_setup_inputs.png)
+![Deployment inputs](../../images/2.0.0/user_guide/applications/deployment/user_guide_deployment_setup_inputs.png)
 
 Once all required inputs are defined, the *location selection* step is unlocked.
 
 # Location selection
 
-Location selection allow the deployment user to select where he wants to actually deploy the application. Alien 4 cloud will display to the user a list of locations that are authorized for the user to deploy on. The alien4cloud admin is responsible for configuration of the locations and for granting access to them.
+Location selection allows the deployment user to select where he wants to actually deploy the application. Alien4cloud will display to the user a list of locations that are authorized for the user to deploy on. The alien4cloud __ADMIN__ is responsible for configuration of the locations and for granting access to them.
 
-Note that the access may be configured per user or per application/ application environment meaning that, as a user, you may see some locations available for some of your environments and not for some others. If you feel that a location you need to deploy your application is missing you should ask for permissions to your alien4cloud admin.
+Note that the access may be configured per user or per application/ application environment meaning that, as a user, you may see some locations available for some of your environments and not for some others. If you feel that a location you need to deploy your application is missing, you should ask for permissions to your alien4cloud admin.
 
 You can select among the displayed location, the one on which you would like to deploy.  
 The proposed locations are determined by matching every existing location against the topology, done by a matcher plugin.  
 
-[![Configure your deployment](../../images/2.0.0/user_guide/applications/deployment/user_guide_deployment_setup.png)](../../images/2.0.0/user_guide/applications/deployment/user_guide_deployment_setup.png)
+![Configure your deployment](../../images/2.0.0/user_guide/applications/deployment/user_guide_deployment_setup.png)
 
  For now, note that if no matching plugin is configured by the administrator, a default matcher is used, checking the following:
 
@@ -54,13 +54,13 @@ The proposed locations are determined by matching every existing location agains
 Next step is to substitute some abstract nodes from your topology with resources provided by the selected location.  
 In the meantime, you can edit some properties if you need to.
 
-[![Node substitution](../../images/2.0.0/user_guide/applications/deployment/user_guide_deployment_setup_substitution.png)](../../images/2.0.0/user_guide/applications/deployment/user_guide_deployment_setup_substitution.png)
+![Node substitution](../../images/2.0.0/user_guide/applications/deployment/user_guide_deployment_setup_substitution.png)
 
 # Deploy
 This is the last step. If the orchestrator defined some deployment properties, here is the place to fill them up.  
 You can also decide (if possible) if you want to expose your deployment as a service. ([More about services here...](#/documentation/2.0.0/concepts/services.html))
 
-[![deploy](../../images/2.0.0/user_guide/applications/deployment/deployment_deploy.png)](../../images/2.0.0/user_guide/applications/deployment/deployment_deploy.png)
+![deploy](../../images/2.0.0/user_guide/applications/deployment/deployment_deploy.png)
 
 A final validation is made, taking into account everything that has been configured up until now, and eventually errors are displayed.  
 
@@ -77,7 +77,7 @@ The credentials will be checked and used by Alien4Cloud and the underlying orche
 
 If your deployment does not need to access to a secret vault, you can click on Skip but then the deployment will fail if a secret is found in the deployment.
 
-[![credential_modal](../../images/2.0.0/user_guide/applications/deployment/credential_modal.png)](../../images/2.0.0/user_guide/applications/deployment/credential_modal.png)
+![credential_modal](../../images/2.0.0/user_guide/applications/deployment/credential_modal.png)
 
 
 # Update

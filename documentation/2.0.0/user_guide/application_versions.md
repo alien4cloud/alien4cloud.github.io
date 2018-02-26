@@ -8,17 +8,17 @@ node_name: application_versions
 weight: 20
 ---
 
-Version numbers follows the maven convention i.e < major >.< minor >.< incremental >-< qualifier >. Every version that contains the string `-SNAPSHOT` is recognized as SNAPSHOT. This means that in alien4cloud, just like in maven a version as 1.0.0-SNAPSHOT-ALPHA or 1.0.0-ALPHA-SNAPSHOTfoo is recognized as SNAPSHOT and can be modified. We however recommend you to keep -SNAPSHOT at the end of the version string.
+Version numbers follows the maven convention i.e < major >.< minor >.< incremental >-< qualifier >. Every version that contains the string `-SNAPSHOT` is recognized as SNAPSHOT. This means that in alien4cloud, just like in maven a version as 1.0.0-SNAPSHOT-ALPHA or 1.0.0-ALPHA-SNAPSHOT is recognized as SNAPSHOT and can be modified. However, we recommend you to keep -SNAPSHOT at the end of the version string.
 
-When creating topology variants you will assign a qualifier to the variant. Alien 4 cloud will automatically add the variant qualifier as first qualifier in the variant version string. So if your version is 1.0.0-SNAPSHOT and your variant qualifier is DEV the version number will be 1.0.0-DEV-SNAPSHOT, if the version number was 1.0.0-SNAPSHOT-ALPHA the variant version number will be 1.0.0-DEV-SNAPSHOT-ALPHA etc.
+When creating topology variants you will assign a qualifier to the variant. Alien 4 cloud will automatically add the variant qualifier as first qualifier in the variant version string. So if your version is 1.0.0-SNAPSHOT and your variant qualifier is DEV, the version number will be 1.0.0-DEV-SNAPSHOT, if the version number was 1.0.0-SNAPSHOT-ALPHA, the variant version number will be 1.0.0-DEV-SNAPSHOT-ALPHA etc.
 
 # Configure versions
 
-While alien 4 cloud creates a default version, you will soon have to create new versions for your application. In alien 4 cloud a version can have multiple topologies variant that we call Topology Versions.
+When Alien4Cloud creates a default version, you will soon have to create new versions for your application. In Alien4Cloud, a version can have multiple different topologies that we call __Topology Versions__.
 
-To manage Versions and Topology versions you must go to the application version management screen. To do so you must have the *APPLICATION_MANAGER* role for the application (not to be confused with the global *APPLICATIONS_MANAGER* role) or the global *ADMIN* role.
+To manage Versions and Topology versions, you must go to the application version management screen. To do so you must have the *APPLICATION_MANAGER* role for the application (not to be confused with the global *APPLICATIONS_MANAGER* role) or the global *ADMIN* role.
 
-From the application list screen click on the application for which you want to manage versions and then click on the __version button__ ![Versions button](../../images/2.0.0/user_guide/applications/versions_button.png){: height="26px" .inline} in the applications left side-bar menu.
+From the application list screen click on the application for which you want to manage versions and then click on the __version button__ ![Versions button](../../images/2.0.0/user_guide/applications/versions_button.png){: height="26px" .inline} found in the application main page.
 
 This screen displays all the versions of the application (by default only a single 0.1.0-SNAPSHOT version is created) and for each version the list of it's topology variants and their unique version number.
 

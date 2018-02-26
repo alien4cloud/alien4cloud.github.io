@@ -5,7 +5,7 @@ root: ../../
 categories: DOCUMENTATION-2.0.0
 parent: [rest_api, rest_api_other-apis]
 node_name: rest_api_controller_repository-plugin-controller
-weight: 40
+weight: 48
 ---
 
 ### Search for repository resolver plugins.

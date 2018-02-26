@@ -5,7 +5,7 @@ root: ../../
 categories: DOCUMENTATION-2.0.0
 parent: [rest_api, rest_api_applications-api]
 node_name: rest_api_controller_application-environment-roles-controller
-weight: 25
+weight: 30
 ---
 
 ### Add a role to a group on a specific application environment

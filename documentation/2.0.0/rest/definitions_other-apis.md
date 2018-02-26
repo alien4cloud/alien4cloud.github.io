@@ -40,6 +40,16 @@ weight: 9000
 |repositoryType||false|string||
 
 
+# RestResponse«MaintenanceModeState»
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|data||false|MaintenanceModeState||
+|error||false|RestError||
+
+
 # UpdateServiceResourceRequest
 
 
@@ -109,6 +119,16 @@ Request to update a service resource.
 |username||false|string||
 
 
+# MaintenanceUpdateDTO
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|message||false|string||
+|progressPercentage||false|integer (int32)||
+
+
 # PaaSDeploymentLog
 
 
@@ -131,6 +151,15 @@ Request to update a service resource.
 
 
 # Map«string,Array«string»»
+
+# FilterDefinition
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|properties||false|object||
+
 
 # FilteredSearchRequest
 
@@ -161,11 +190,13 @@ Request to update a service resource.
 |----|----|----|----|----|
 |artifacts||false|object||
 |attributes||false|object||
+|description||false|string||
 |interfaces||false|object||
 |name||false|string||
 |properties||false|object||
 |requirementName||false|string||
 |requirementType||false|string||
+|tags||false|Tag array||
 |target||false|string||
 |targetedCapabilityName||false|string||
 |type||false|string||
@@ -261,6 +292,8 @@ Request to update a service resource.
 |repositoryURL||false|string||
 
 
+# Map«string,FilterDefinition»
+
 # FacetedSearchResult«PaaSDeploymentLog»
 
 
@@ -301,6 +334,8 @@ Request to update a service resource.
 |data||false|Service.||
 |error||false|RestError||
 
+
+# Map«string,List«PropertyConstraint»»
 
 # RestResponse«Array«string»»
 
@@ -357,13 +392,17 @@ Request to update a service resource.
 |artifacts||false|object||
 |attributes||false|object||
 |capabilities||false|object||
+|danglingRequirement||false|boolean||
+|description||false|string||
 |groups||false|string array||
 |interfaces||false|object||
 |name||false|string||
+|nodeFilter||false|NodeFilter||
 |portability||false|object||
 |properties||false|object||
 |relationships||false|object||
 |requirements||false|object||
+|tags||false|Tag array||
 |type||false|string||
 
 
@@ -397,6 +436,7 @@ A service is something running somewhere, exposing capabilities and requirements
 |description||false|string||
 |environmentId||false|string||
 |environmentPermissions||false|object||
+|environmentTypePermissions||false|object||
 |groupPermissions||false|object||
 |id||false|string||
 |lastUpdateDate||false|string (date-time)||
@@ -496,6 +536,19 @@ A service is something running somewhere, exposing capabilities and requirements
 |error||false|RestError||
 
 
+# MaintenanceModeState
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|id||false|string||
+|log||false|MaintenanceLog array||
+|progressPercent||false|integer (int32)||
+|user||false|string||
+|userTriggered||false|boolean||
+
+
 # RestResponse«GetMultipleDataResult«Service.»»
 
 
@@ -518,6 +571,17 @@ A service is something running somewhere, exposing capabilities and requirements
 |to||false|integer (int32)||
 |totalResults||false|integer (int64)||
 |types||false|string array||
+
+
+# MaintenanceLog
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|date||false|integer (int64)||
+|message||false|string||
+|user||false|string||
 
 
 # Map«string,Operation»
@@ -544,6 +608,8 @@ A service is something running somewhere, exposing capabilities and requirements
 |data||false|UserDTO array||
 |error||false|RestError||
 
+
+# PropertyConstraint
 
 # IValue
 
@@ -597,6 +663,8 @@ A service is something running somewhere, exposing capabilities and requirements
 |----|----|----|----|----|
 |applicationsToAdd||false|string array||
 |applicationsToDelete||false|string array||
+|environmentTypesToAdd||false|string array||
+|environmentTypesToDelete||false|string array||
 |environmentsToAdd||false|string array||
 |environmentsToDelete||false|string array||
 |resources||false|string array||
@@ -778,6 +846,7 @@ A service is something running somewhere, exposing capabilities and requirements
 |Name|Description|Required|Schema|Default|
 |----|----|----|----|----|
 |application||false|Application||
+|environmentTypes||false|string array||
 |environments||false|ApplicationEnvironment array||
 
 
@@ -829,5 +898,15 @@ A service is something running somewhere, exposing capabilities and requirements
 |description||false|string||
 |operations||false|object||
 |type||false|string||
+
+
+# NodeFilter
+
+
+{: .table .table-bordered}
+|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|
+|capabilities||false|object||
+|properties||false|object||
 
 

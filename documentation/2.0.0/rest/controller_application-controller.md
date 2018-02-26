@@ -5,7 +5,7 @@ root: ../../
 categories: DOCUMENTATION-2.0.0
 parent: [rest_api, rest_api_applications-api]
 node_name: rest_api_controller_application-controller
-weight: 24
+weight: 29
 ---
 
 ### Create a new application in the system.

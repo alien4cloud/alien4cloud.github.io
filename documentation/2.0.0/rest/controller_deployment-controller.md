@@ -5,7 +5,7 @@ root: ../../
 categories: DOCUMENTATION-2.0.0
 parent: [rest_api, rest_api_applications-deployment-api]
 node_name: rest_api_controller_deployment-controller
-weight: 36
+weight: 43
 ---
 
 ### Get 100 last deployments for an orchestrator.
@@ -20,6 +20,7 @@ GET /rest/v1/deployments
 |----|----|----|----|----|----|
 |QueryParameter|orchestratorId|Id of the orchestrator for which to get deployments. If not provided, get deployments for all orchestrators|false|string||
 |QueryParameter|sourceId|Id of the application for which to get deployments. if not provided, get deployments for all applications|false|string||
+|QueryParameter|environmentId|Id of the environment for which to get deployments. if not provided, get deployments without filtering by environment|false|string||
 |QueryParameter|includeSourceSummary|include or not the source (application or csar) summary in the results|false|boolean||
 
 
@@ -96,6 +97,38 @@ GET /rest/v1/deployments/{applicationEnvironmentId}/events
 |HTTP Code|Description|Schema|
 |----|----|----|
 |200|OK|RestResponse«GetMultipleDataResult»|
+|401|Unauthorized|No Content|
+|403|Forbidden|No Content|
+|404|Not Found|No Content|
+
+
+#### Consumes
+
+* application/json
+
+#### Produces
+
+* application/json
+
+### Get a deployment from its id.
+```
+GET /rest/v1/deployments/{deploymentId}
+```
+
+#### Parameters
+
+{: .table .table-bordered}
+|Type|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|----|
+|PathParameter|deploymentId|Deployment id.|true|string||
+
+
+#### Responses
+
+{: .table .table-bordered}
+|HTTP Code|Description|Schema|
+|----|----|----|
+|200|OK|RestResponse«DeploymentDTO»|
 |401|Unauthorized|No Content|
 |403|Forbidden|No Content|
 |404|Not Found|No Content|

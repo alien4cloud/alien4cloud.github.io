@@ -32,6 +32,8 @@ Update the value of `plugins/overrides/plugin-included.yaml` to `plugins/overrid
 
 Download the wagon corresponding to your target IaaS:
 
+[Amazon](https://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource&g=org.cloudify&a=a4c-overrides-amazon&v=1.4.1&p=wgn){: .btn}{: .btn-success}{: .download-button}{: .navbar-btn}
+[Azure](https://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource&g=org.cloudify&a=a4c-overrides-azure&v=1.4.3&p=wgn){: .btn}{: .btn-success}{: .download-button}{: .navbar-btn}
 [Openstack](https://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource&g=org.cloudify&a=a4c-overrides-openstack&v=1.3.1&p=wgn){: .btn}{: .btn-success}{: .download-button}{: .navbar-btn}
 
 Then upload it on your manager:

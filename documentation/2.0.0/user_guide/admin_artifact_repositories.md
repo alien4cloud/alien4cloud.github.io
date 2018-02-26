@@ -15,9 +15,9 @@ weight: 350
 # How the repositories are managed
 
 When you upload a CSARs with a repository inside, Alien try to fetch the artifact from the remote repository. If this type is not supported or if
-the artifact is not available (wrong URL or wrong credential), an error is throw during the parsing. In a CSAR, I can reference a repository by this URL.
+the artifact is not available (wrong URL or wrong credential), an error is thrown during the parsing. In a CSAR, you can reference a repository by this URL.
 
-In the components view you can define new repositories artifact configuration. This configuration offers you the ability to add credentials to your artifact resolver (which is in charge to fetch your remote artifact).
+In the Administration view you can define new artifacts repository by clicking on __Artifacts repositories__ . This configuration offers you the ability to add credentials to your artifact resolver (which is in charge to fetch your remote artifact).
 By storing repositories artifact configuration (repository URL and credentials) into Alien4Cloud database this allow you to create a CSARs without hard-coding repositories password multiple times. Alien4Cloud will be able to retrieve the password using the repository URL.
 But bear in mind the passwords are stored in plain text and can be seen by anyone accessing Alien4Cloud database.
 
@@ -26,9 +26,11 @@ But bear in mind the passwords are stored in plain text and can be seen by anyon
 To use repositories in your CSARs use [tosca definitions version](#/documentation/2.0.0/devops_guide/dev_ops_guide.html) **alien_dsl_1_3_0** or greater.
 {% endwarning %}
 
-Click on ![Create template button](../../images/2.0.0/user_guide/repository/repository_menu_btn.png){: .inline} to create a new repository. You can then browse the created repositories:
+In the artifacts repositories view, you need to click on the button to create a new repository.
 
-[![components repository view](../../images/2.0.0/user_guide/repository/components-repository-view.png)](../../images/2.0.0/user_guide/repository/components-repository-view.png)
+![components repository view](../../images/2.0.0/user_guide/admin/repository/administration_artifacts_repositories.png)
+![new repository](../../images/2.0.0/user_guide/admin/repository/new_repository.png)
+
 
 ## Http
 

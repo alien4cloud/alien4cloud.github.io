@@ -22,20 +22,20 @@ When using a service you expect someone else to start the service (either extern
 
 The first method to define a service in alien4cloud is to declare manually a service. In order to do this, click on *[Administration]* > *Service*
 
-![service_list](../../images/2.0.0/user_guide/service/service_list.png)
+![service_list](../../images/2.0.0/user_guide/admin/services/service_list.png)
 
-Let's say you have a Mongodb database that you want to expose to other applications, you can drag the component `mongod-type` and drop it on the demarcated zone on the left to create the service Mongo. It's not shown in the image but `mongod-type` derived from `AbstractMongod`
+Let's say you have a Mongodb database that you want to expose to other applications, you can drag the component `MongoSingle` and drop it on the demarcated zone on the left to create the service Mongo.
 
-![create_external_service](../../images/2.0.0/user_guide/service/create_external_service.png)
+![create_external_service](../../images/2.0.0/user_guide/admin/services/create_external_service.png)
 
 After the creation, the service appears on the left hand side list and can be configured.
 
-![service_list_with_external_mongo](../../images/2.0.0/user_guide/service/service_list_with_external_mongo.png)
+![service_list_with_external_mongo](../../images/2.0.0/user_guide/admin/services/service_list_with_external_mongo.png)
 
 ## Service details
  Click on the service to see its details. Here the status does not have much sense, a service in enabled state cannot be modified and deleted (it will make more sense with a service exposed by a deployment as Alien4Cloud knows the state of the service).
 
-![service_detail](../../images/2.0.0/user_guide/service/service_detail.png)
+![service_detail](../../images/2.0.0/user_guide/admin/services/service_detail.png)
 
 ## Instance informations
 The instance tab gives you access to properties and attributes of your service. The properties and attributes values, that you enter here, can be used later by consumer of the service to establish the connection with the service. In the example, the property `ip_address` of the external Mongo DB has been given.
@@ -74,7 +74,7 @@ Once the service has been properly defined, authorization has been properly conf
 
 On matching screen, your AbstractMongod will be matched to the service that has been defined lately
 
-![service_matching](../../images/2.0.0/user_guide/service/service_matching.png)
+![service_matching](../../images/2.0.0/user_guide/admin/services/service_matching.png)
 
 # Turning deployments into services
 
@@ -83,18 +83,18 @@ Turning deployments into services is usually done by the deployment manager of t
 Service definition within Alien4Cloud uses substitution in order to expose properties, requirements or capabilities.  
 The first thing you need to do is to define your service topology, and a substitution for it
 
-![service_topology](../../images/2.0.0/user_guide/service/service_topology.png)
+![service_topology](../../images/2.0.0/user_guide/admin/services/service_topology.png)
 
 
 Once the service topology is done, you can set up an environment to be deployed on your chosen location.  
 Before deploying, you can choose to expose your deployment as a service in the *Service management* section
 
-![service_exposition](../../images/2.0.0/user_guide/service/service_exposition.png)
+![service_exposition](../../images/2.0.0/user_guide/admin/services/service_exposition.png)
 
 
 As an admin, the service exposed will be displayed automatically in the service list *[Administration]* > *Service*
 
-![service_list_with_exposed_mongo](../../images/2.0.0/user_guide/service/service_list_with_exposed_mongo.png)
+![service_list_with_exposed_mongo](../../images/2.0.0/user_guide/admin/services/service_list_with_exposed_mongo.png)
 
 Once the service is exposed, access to the service, the matching can be configured in the same manner as an external service.  
 However, note that the exosed services are automatically available on the location selected for the deployment once deployed.  

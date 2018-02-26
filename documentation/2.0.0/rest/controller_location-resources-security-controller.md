@@ -47,14 +47,14 @@ Only user with ADMIN role can revoke access to the location.
 
 * application/json
 
-### List all applications/environments authorized to access the location resource
+### List all applications,environments and environment types authorized to access the location resource
 ```
 GET /rest/v1/orchestrators/{orchestratorId}/locations/{locationId}/resources/{resourceId}/security/environmentsPerApplication
 ```
 
 #### Description
 
-Only user with ADMIN role can list authorized applications/environments for the location.
+Only user with ADMIN role can list authorized applications,environments and environment types for the location.
 
 #### Parameters
 
@@ -85,14 +85,14 @@ Only user with ADMIN role can list authorized applications/environments for the 
 
 * application/json
 
-### Update applications/environments authorized to access the location resource
+### Update applications,environments and environment types authorized to access the location resource
 ```
 POST /rest/v1/orchestrators/{orchestratorId}/locations/{locationId}/resources/{resourceId}/security/environmentsPerApplication
 ```
 
 #### Description
 
-Only user with ADMIN role can update authorized applications/environments for the location.
+Only user with ADMIN role can update authorized applications,environments and environment types for the location.
 
 #### Parameters
 

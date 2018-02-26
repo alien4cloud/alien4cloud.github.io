@@ -5,7 +5,7 @@ root: ../../
 categories: DOCUMENTATION-2.0.0
 parent: [rest_api, rest_api_admin-orchestrator-api]
 node_name: rest_api_controller_location-meta-properties-controller
-weight: 4
+weight: 11
 ---
 
 ### upsertMetaProperty

@@ -5,7 +5,7 @@ root: ../../
 categories: DOCUMENTATION-2.0.0
 parent: [rest_api, rest_api_other-apis]
 node_name: rest_api_controller_quick-search-controller
-weight: 47
+weight: 55
 ---
 
 ### Search for applications or tosca elements in ALIEN's repository.

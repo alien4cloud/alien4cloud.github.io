@@ -5,7 +5,7 @@ root: ../../
 categories: DOCUMENTATION-2.0.0
 parent: [rest_api, rest_api_admin-api]
 node_name: rest_api_controller_heapdump-mvc-endpoint
-weight: 52
+weight: 60
 ---
 
 ### invoke

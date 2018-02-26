@@ -61,6 +61,6 @@ Make sure you name it `cloudify_external_cert.pem` and `cloudify_external_key.pe
 
 ## Additional configuration steps
 
-* [Cloudify 4.x patches](#/documentation/1.4.0/orchestrators/cloudify4_driver/prerequisites_patches.html)
-* [Deployment logs configuration](#/documentation/1.4.0/orchestrators/cloudify4_driver/prerequisites_logs.html)
-* [Offline configuration](#/documentation/1.4.0/orchestrators/cloudify4_driver/prerequisites_offline.html)
+* [Cloudify 4.x patches](#/documentation/2.0.0/orchestrators/cloudify4_driver/prerequisites_patches.html)
+* [Deployment logs configuration](#/documentation/2.0.0/orchestrators/cloudify4_driver/prerequisites_logs.html)
+* [Offline configuration](#/documentation/2.0.0/orchestrators/cloudify4_driver/prerequisites_offline.html)

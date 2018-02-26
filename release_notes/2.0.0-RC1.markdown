@@ -1,0 +1,32 @@
+---
+layout: post
+title:  ALIEN for Cloud 2.0.0-SM6
+root: ../
+categories: RELEASE_NOTES
+parent: [release_note]
+node_name: 2.0.0-SM6
+weight: 9928
+exclude_from_search: true
+---
+
+
+<i class="fa fa-plus text-success"></i> New feature <i class="fa fa-level-up text-primary"></i> Improvement  <i class="fa fa-bug text-danger"></i> Bug <i class="fa fa-exclamation-triangle text-warning"></i> Breaking change
+
+
+### Alien 4 Cloud
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+  |  <i class="fa fa-level-up text-primary"></i> | ALIEN-2721 | On application deletion, also delete the related variables file  |
+  |  <i class="fa fa-level-up text-primary"></i> | ALIEN-2736 | Refresh the Variable value modal display after saving an expression  |
+  |  <i class="fa fa-level-up text-primary"></i> | ALIEN-2742 | Yaml Editor: disable save button when there is no changes to save.  |
+  |  <i class="fa fa-bug text-danger"></i> | ALIEN-2635 | Validate types and contraints of preconfigured inputs on deployment configuration flow.  |
+  |  <i class="fa fa-bug text-danger"></i> | ALIEN-2734 | Improved preconfigured input error handling on deployment configuration  |
+  |  <i class="fa fa-bug text-danger"></i> | ALIEN-2735 | When an input is removed from the topoogy, check and remove if needed its entry from the pre-configured inputs.  |
+  |  <i class="fa fa-bug text-danger"></i> | ALIEN-2743 | Display a message on "Edit input" modal when the provided input value is an expression  |
+  |  <i class="fa fa-bug text-danger"></i> | ALIEN-2753 | A renamed input should keep its pre-configured value.  |
+  |  <i class="fa fa-bug text-danger"></i> | ALIEN-2772 | Fixed property description display in complex types edition modal  |
+  
+

@@ -5,7 +5,7 @@ root: ../../
 categories: DOCUMENTATION-2.0.0
 parent: [rest_api, rest_api_applications-api]
 node_name: rest_api_controller_environment-bulk-controller
-weight: 28
+weight: 33
 ---
 
 ### Get a list of environment from their ids.

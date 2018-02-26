@@ -5,7 +5,7 @@ root: ../../
 categories: DOCUMENTATION-2.0.0
 parent: [rest_api, rest_api_catalog-api]
 node_name: rest_api_controller_component-controller
-weight: 18
+weight: 22
 ---
 
 ### Get details for a component (tosca type) from it's id (including archive hash).
@@ -20,7 +20,7 @@ GET /rest/v1/components/element/{elementId}/version/{version}
 |----|----|----|----|----|----|
 |PathParameter|elementId|elementId|true|string||
 |PathParameter|version|version|true|string||
-|QueryParameter|toscaType|toscaType|false|enum (NODE_TYPE, CAPABILITY_TYPE, RELATIONSHIP_TYPE, ARTIFACT_TYPE)||
+|QueryParameter|toscaType|toscaType|false|enum (NODE_TYPE, CAPABILITY_TYPE, RELATIONSHIP_TYPE, ARTIFACT_TYPE, POLICY_TYPE)||
 
 
 #### Responses
@@ -53,7 +53,7 @@ GET /rest/v1/components/element/{elementId}/versions
 |Type|Name|Description|Required|Schema|Default|
 |----|----|----|----|----|----|
 |PathParameter|elementId|elementId|true|string||
-|QueryParameter|toscaType|toscaType|false|enum (NODE_TYPE, CAPABILITY_TYPE, RELATIONSHIP_TYPE, ARTIFACT_TYPE)||
+|QueryParameter|toscaType|toscaType|false|enum (NODE_TYPE, CAPABILITY_TYPE, RELATIONSHIP_TYPE, ARTIFACT_TYPE, POLICY_TYPE)||
 
 
 #### Responses
@@ -354,7 +354,7 @@ GET /rest/v1/components/{id}
 |Type|Name|Description|Required|Schema|Default|
 |----|----|----|----|----|----|
 |PathParameter|id|id|true|string||
-|QueryParameter|toscaType|toscaType|false|enum (NODE_TYPE, CAPABILITY_TYPE, RELATIONSHIP_TYPE, ARTIFACT_TYPE)||
+|QueryParameter|toscaType|toscaType|false|enum (NODE_TYPE, CAPABILITY_TYPE, RELATIONSHIP_TYPE, ARTIFACT_TYPE, POLICY_TYPE)||
 
 
 #### Responses

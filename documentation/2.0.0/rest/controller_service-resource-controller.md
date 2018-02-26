@@ -5,7 +5,7 @@ root: ../../
 categories: DOCUMENTATION-2.0.0
 parent: [rest_api, rest_api_other-apis]
 node_name: rest_api_controller_service-resource-controller
-weight: 46
+weight: 54
 ---
 
 ### List and iterate service resources.

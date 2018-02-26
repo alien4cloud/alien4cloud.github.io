@@ -5,7 +5,7 @@ root: ../../
 categories: DOCUMENTATION-2.0.0
 parent: [rest_api, rest_api_other-apis]
 node_name: rest_api_controller_repository-controller
-weight: 39
+weight: 47
 ---
 
 ### Create a new repository.

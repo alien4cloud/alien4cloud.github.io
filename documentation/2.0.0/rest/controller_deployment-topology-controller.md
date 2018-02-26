@@ -5,7 +5,7 @@ root: ../../
 categories: DOCUMENTATION-2.0.0
 parent: [rest_api, rest_api_applications-api]
 node_name: rest_api_controller_deployment-topology-controller
-weight: 33
+weight: 39
 ---
 
 ### Get the deployment topology of an application given an environment.
@@ -199,6 +199,82 @@ Application role required [ APPLICATION_MANAGER | APPLICATION_DEVOPS ] and Appli
 
 * */*
 
+### Update policy substitution's property.
+```
+POST /rest/v1/applications/{appId}/environments/{environmentId}/deployment-topology/policies/{nodeId}/substitution/properties
+```
+
+#### Parameters
+
+{: .table .table-bordered}
+|Type|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|----|
+|PathParameter|appId|appId|true|string||
+|PathParameter|environmentId|environmentId|true|string||
+|PathParameter|nodeId|nodeId|true|string||
+|BodyParameter|updateRequest|updateRequest|true|UpdatePropertyRequest||
+
+
+#### Responses
+
+{: .table .table-bordered}
+|HTTP Code|Description|Schema|
+|----|----|----|
+|200|OK|RestResponse«object»|
+|201|Created|No Content|
+|401|Unauthorized|No Content|
+|403|Forbidden|No Content|
+|404|Not Found|No Content|
+
+
+#### Consumes
+
+* application/json
+
+#### Produces
+
+* */*
+
+### Substitute a specific policy by a location policy resource template in the topology of an application, given an environment.
+```
+POST /rest/v1/applications/{appId}/environments/{environmentId}/deployment-topology/policies/{policyId}/substitution
+```
+
+#### Description
+
+Application role required [ APPLICATION_MANAGER | APPLICATION_DEVOPS ] and Application environment role required [ DEPLOYMENT_MANAGER ]
+
+#### Parameters
+
+{: .table .table-bordered}
+|Type|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|----|
+|PathParameter|appId|appId|true|string||
+|PathParameter|environmentId|environmentId|true|string||
+|PathParameter|policyId|policyId|true|string||
+|QueryParameter|locationResourceTemplateId|locationResourceTemplateId|true|string||
+
+
+#### Responses
+
+{: .table .table-bordered}
+|HTTP Code|Description|Schema|
+|----|----|----|
+|200|OK|RestResponse«DeploymentTopologyDTO»|
+|201|Created|No Content|
+|401|Unauthorized|No Content|
+|403|Forbidden|No Content|
+|404|Not Found|No Content|
+
+
+#### Consumes
+
+* application/json
+
+#### Produces
+
+* */*
+
 ### Substitute a specific node by the location resource template in the topology of an application given an environment.
 ```
 POST /rest/v1/applications/{appId}/environments/{environmentId}/deployment-topology/substitutions/{nodeId}
@@ -276,7 +352,7 @@ POST /rest/v1/applications/{appId}/environments/{environmentId}/deployment-topol
 
 * */*
 
-### Update substitution's property.
+### Update node substitution's property.
 ```
 POST /rest/v1/applications/{appId}/environments/{environmentId}/deployment-topology/substitutions/{nodeId}/properties
 ```

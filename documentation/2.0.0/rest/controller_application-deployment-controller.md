@@ -5,7 +5,7 @@ root: ../../
 categories: DOCUMENTATION-2.0.0
 parent: [rest_api, rest_api_applications-api]
 node_name: rest_api_controller_application-deployment-controller
-weight: 31
+weight: 37
 ---
 
 ### Deploys the application on the configured Cloud.
@@ -143,6 +143,82 @@ Application role required [ APPLICATION_MANAGER | APPLICATION_DEVOPS ] and Appli
 |HTTP Code|Description|Schema|
 |----|----|----|
 |200|OK|RestResponse«Deployment»|
+|401|Unauthorized|No Content|
+|403|Forbidden|No Content|
+|404|Not Found|No Content|
+
+
+#### Consumes
+
+* application/json
+
+#### Produces
+
+* application/json
+
+### Get current secret provider configuration for the given application on the given cloud.
+```
+GET /rest/v1/applications/{applicationId}/environments/{applicationEnvironmentId}/current-secret-provider-configurations
+```
+
+#### Description
+
+Application role required [ APPLICATION_MANAGER | APPLICATION_DEVOPS ] and Application environment role required [ DEPLOYMENT_MANAGER ]
+
+#### Parameters
+
+{: .table .table-bordered}
+|Type|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|----|
+|PathParameter|applicationId|applicationId|true|string||
+|PathParameter|applicationEnvironmentId|applicationEnvironmentId|true|string||
+
+
+#### Responses
+
+{: .table .table-bordered}
+|HTTP Code|Description|Schema|
+|----|----|----|
+|200|OK|RestResponse«List«SecretCredentialInfo»»|
+|401|Unauthorized|No Content|
+|403|Forbidden|No Content|
+|404|Not Found|No Content|
+
+
+#### Consumes
+
+* application/json
+
+#### Produces
+
+* application/json
+
+### Un-Deploys the application on the configured PaaS.
+```
+PUT /rest/v1/applications/{applicationId}/environments/{applicationEnvironmentId}/deployment
+```
+
+#### Description
+
+The logged-in user must have the [ APPLICATION_MANAGER ] role for this application. Application environment role required [ DEPLOYMENT_MANAGER ]
+
+#### Parameters
+
+{: .table .table-bordered}
+|Type|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|----|
+|PathParameter|applicationId|applicationId|true|string||
+|PathParameter|applicationEnvironmentId|applicationEnvironmentId|true|string||
+|BodyParameter|secretProviderConfigurationAndCredentials|The secret provider configuration and credentials.|false|SecretProviderConfigurationAndCredentials||
+
+
+#### Responses
+
+{: .table .table-bordered}
+|HTTP Code|Description|Schema|
+|----|----|----|
+|200|OK|RestResponse«Void»|
+|201|Created|No Content|
 |401|Unauthorized|No Content|
 |403|Forbidden|No Content|
 |404|Not Found|No Content|
@@ -419,6 +495,7 @@ Returns the detailed informations of the application on the PaaS it is deployed.
 |PathParameter|applicationEnvironmentId|applicationEnvironmentId|true|string||
 |PathParameter|nodeTemplateId|nodeTemplateId|true|string||
 |QueryParameter|instances|instances|true|integer (int32)||
+|BodyParameter|secretProviderConfigurationAndCredentials|The secret provider configuration ans credentials.|false|SecretProviderConfigurationAndCredentials||
 
 
 #### Responses
@@ -457,6 +534,7 @@ Application role required [ APPLICATION_MANAGER | APPLICATION_DEVOPS ] and Appli
 |----|----|----|----|----|----|
 |PathParameter|applicationId|applicationId|true|string||
 |PathParameter|applicationEnvironmentId|applicationEnvironmentId|true|string||
+|BodyParameter|secretProviderCredentials|The secret provider configuration and credentials.|false|SecretProviderCredentials||
 
 
 #### Responses
@@ -492,6 +570,7 @@ POST /rest/v1/applications/{applicationId}/environments/{applicationEnvironmentI
 |PathParameter|applicationId|Application id.|true|string||
 |PathParameter|applicationEnvironmentId|Deployment id.|true|string||
 |PathParameter|workflowName|Workflow name.|true|string||
+|BodyParameter|secretProviderConfigurationAndCredentials|The secret provider configuration and credentials.|false|SecretProviderConfigurationAndCredentials||
 
 
 #### Responses

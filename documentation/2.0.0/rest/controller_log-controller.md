@@ -5,7 +5,7 @@ root: ../../
 categories: DOCUMENTATION-2.0.0
 parent: [rest_api, rest_api_other-apis]
 node_name: rest_api_controller_log-controller
-weight: 44
+weight: 52
 ---
 
 ### Search for logs of a given deployment
