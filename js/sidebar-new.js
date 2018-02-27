@@ -64544,7 +64544,7 @@ var node, children;
         // try to find the node if exists already
         node = null;
         for (var i=0; i<children.length; i++) {
-          if(children[i].name === '2.0.0-SM6') {
+          if(children[i].name === '2.0.0-RC1') {
             node = children[i];
           }
         }
@@ -64557,8 +64557,8 @@ var node, children;
         }
       
 
-      node.name = "2.0.0-SM6";
-      node.title = "ALIEN for Cloud 2.0.0-SM6";
+      node.name = "2.0.0-RC1";
+      node.title = "ALIEN for Cloud 2.0.0-RC1";
       node.url = "release_notes/2.0.0-RC1.html";
       node.weight =  9928;
       node.root = "../";
