@@ -1,10 +1,10 @@
 ---
 layout: post
-title:  ALIEN for Cloud 2.0.0-SM6
+title:  ALIEN for Cloud 2.0.0-RC1
 root: ../
 categories: RELEASE_NOTES
 parent: [release_note]
-node_name: 2.0.0-SM6
+node_name: 2.0.0-RC1
 weight: 9928
 exclude_from_search: true
 ---
