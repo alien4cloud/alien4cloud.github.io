@@ -352,3 +352,23 @@ For this example, we'll use the [08-nodecellar-mongo-hybrid](https://github.com/
 In this example, we'll connect a container to an external service: the Nodecellar will connect to a Mongo database that is deployed onto a classical VM (a container/VM hybrid topology). The modifier will create a [selector less service](https://kubernetes.io/docs/concepts/services-networking/service/#services-without-selectors) in front of the Mongo.
 
 ![Topology](../../images/kubernetes_walkthrough/08-nodecellar-mongo-hybrid-topology.png){: style="width: 500px; margin: 0 auto"}
+
+## A simple Apache container behind a AWS Elastic Load Balancer
+
+In this example, we'll use a new kind of [LoadBalancer](https://kubernetes.io/docs/concepts/services-networking/service/#type-loadbalancer) service to expose our apache web server : our apache endpoint we be exposed by an AWS ELB.
+
+To deploy this example, you'll need a K8S cluster configured for AWS.
+
+We'll reuse the  [simple apache container topology](https://github.com/alien4cloud/samples/tree/master/org/alien4cloud/doc/kube/topology/01-simple-apache) (or use the **01-simple-apache** if you have imported the samples).
+
+![Topology](../../images/kubernetes_walkthrough/topo-01-simple-apache.png){: style="width: 200px; margin: 0 auto"}
+
+In your location, you must add a new on-demand resource of type `org.alien4cloud.kubernetes.api.types.Service` with the property `spec.service_type` set to `LoadBalancer`.
+
+During the deployment, matche the `Apache_http_endpoint_Service` node to this new service and deploy. After the deployment success, you'll find the link to the external endpoint in the service list:
+
+![Topology](../../images/kubernetes_walkthrough/apacheBehindELBexternalEndpoint.png){: style="width: 700px; margin: 0 auto"}
+
+You can follow the link:
+
+![Topology](../../images/kubernetes_walkthrough/apacheBehindELBtest.png){: style="width: 700px; margin: 0 auto"}
