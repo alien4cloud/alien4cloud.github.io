@@ -26,19 +26,9 @@ ga('send', 'pageview');
           <h1 class="pull-left" style="margin-top: 0px;">Kubernetes Walkthrough</h1>
           <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/2.0.0/orchestrators/kubernetes/kubernetes_walkthrough.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
         </div>
-        
-<hr style="margin-top:5px; margin-bottom:5px;" />
-<div class="row"><ul class="nav nav-pills" id="summarypanel"></ul></div>
-<hr style="margin-top:5px; margin-bottom:5px;" />
-
-<p>Starting from 2.0.0 the way we manage Kubernetes integration has changed and is now independent from the orchestrator. Any orchestrator that can fullfill the prerequisites will now be able to leverage on Kubernetes scheduler.</p>
+        <p>Starting from 2.0.0 the way we manage Kubernetes integration has changed and is now independent from the orchestrator. Any orchestrator that can fullfill the prerequisites will now be able to leverage on Kubernetes scheduler.</p>
 
 <p>Here, We will explain concepts, describe the kubernetes plugin, and try it using simple examples.</p>
-
-<div class="note info">
-<p>In this page, we will use AWS features so you will need a Kubernetes cluster integrated with a AWS account.<br />
-However if you want to deploy a basic Kubernetes cluster you can use our TOSCA types based on kubeadm which can be found <a href="https://github.com/alien4cloud/csar-public-library/tree/develop/org/alien4cloud/kubernetes/kubeadm">here</a></p>
-</div>
 
 <h1 id="tosca-types">TOSCA types</h1>
 
@@ -239,7 +229,7 @@ ip-172-31-34-200.eu-west-1.compute.internal   Ready     &lt;none&gt;    6d      
 
 <h3 id="add-the-node-label-affinity-policy">Add the node label affinity policy</h3>
 
-<p>For this example, we’ll use the <a href="https://github.com/alien4cloud/samples/blob/master/org/alien4cloud/doc/kube/topology/02-simple-apache-affinity/tosca.yaml">02-simple-apache-affinity</a> topology.</p>
+<p>For this example, we’ll use the <a href="https://github.com/alien4cloud/samples/tree/master/org/alien4cloud/doc/kube/topology/02-simple-apache-affinity">02-simple-apache-affinity</a> topology.</p>
 
 <p><img src="../../images/kubernetes_walkthrough/02-simple-apache-affinity-topology.png" alt="Topology" style="width: 200px; margin: 0 auto" /></p>
 
@@ -264,7 +254,7 @@ node <span class="s2">&quot;ip-172-31-34-200.eu-west-1.compute.internal&quot;</s
 
 <h3 id="attach-a-hostpath-volume">Attach a hostpath volume</h3>
 
-<p>For this example, we’ll use the <a href="https://github.com/alien4cloud/samples/tree/master/org/alien4cloud/doc/kube/topology/03-simple-apache-hostPath/tosca.yaml">03-simple-apache-hostPath</a> topology.</p>
+<p>For this example, we’ll use the <a href="https://github.com/alien4cloud/samples/tree/master/org/alien4cloud/doc/kube/topology/03-simple-apache-hostPath">03-simple-apache-hostPath</a> topology.</p>
 
 <p><img src="../../images/kubernetes_walkthrough/topologie-03-simple-apache-hostPath.png" alt="Topology" style="width: 200px; margin: 0 auto" /></p>
 
@@ -290,7 +280,7 @@ ubuntu@ip-172-31-19-47:~<span class="nv">$ </span>kubectl get service apache-htt
 
 <h3 id="attach-an-emptydir-volume">Attach an emptyDir volume</h3>
 
-<p>For this example, we’ll use the <a href="https://github.com/alien4cloud/samples/tree/master/org/alien4cloud/doc/kube/topology/04-simple-apache-emptyDir/tosca.yaml">04-simple-apache-emptyDir</a> topology.</p>
+<p>For this example, we’ll use the <a href="https://github.com/alien4cloud/samples/tree/master/org/alien4cloud/doc/kube/topology/04-simple-apache-emptyDir">04-simple-apache-emptyDir</a> topology.</p>
 
 <p>In this example, we’ll see how we can share a same volume between 2 containers in the same pod.</p>
 
@@ -312,7 +302,7 @@ ubuntu@ip-172-31-19-47:~<span class="nv">$ </span>kubectl get service apache-htt
 
 <h2 id="a-nodecellar-connecting-to-a-mongo">A Nodecellar connecting to a Mongo</h2>
 
-<p>For this example, we’ll use the <a href="https://github.com/alien4cloud/samples/tree/master/org/alien4cloud/doc/kube/topology/05-nodecellar-mongo/tosca.yaml">05-nodecellar-mongo</a> topology.</p>
+<p>For this example, we’ll use the <a href="https://github.com/alien4cloud/samples/tree/master/org/alien4cloud/doc/kube/topology/05-nodecellar-mongo">05-nodecellar-mongo</a> topology.</p>
 
 <p>In this example, we’ll connect 2 containers: the Nodecellar will connect to a Mongo database. The modifier will create a service in front of the Mongo container so it can be accessed using a <a href="https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services---service-types">clusterIp</a>, wherever it is deployed on the cluster.</p>
 
@@ -341,7 +331,7 @@ nodecellar-nodecellar-app-service--1210144207   NodePort    10.152.183.153   &lt
 
 <h3 id="add-the-anti-affinity-policy">Add the anti-affinity policy</h3>
 
-<p>For this example, we’ll use the <a href="https://github.com/alien4cloud/samples/tree/master/org/alien4cloud/doc/kube/topology/06-nodecellar-mongo-antiaffinity/tosca.yaml">05-nodecellar-mongo</a> topology.</p>
+<p>For this example, we’ll use the <a href="https://github.com/alien4cloud/samples/tree/master/org/alien4cloud/doc/kube/topology/06-nodecellar-mongo-antiaffinity">05-nodecellar-mongo</a> topology.</p>
 
 <p>In this topology we want to avoid the Nodecellar and the Mongo deployments to be collocated (deployed on the same cluster node). For that we use an <code>org.alien4cloud.policies.AntiAffinity</code> that targets these two nodes.</p>
 
@@ -351,7 +341,7 @@ nodecellar-nodecellar-app-service--1210144207   NodePort    10.152.183.153   &lt
 
 <h3 id="add-the-auto-scaling-policy">Add the auto scaling policy</h3>
 
-<p>For this example, we’ll use the <a href="https://github.com/alien4cloud/samples/tree/master/org/alien4cloud/doc/kube/topology/07-nodecellar-mongo-autoscalling/tosca.yaml">07-nodecellar-mongo-autoscalling</a> topology.</p>
+<p>For this example, we’ll use the <a href="https://github.com/alien4cloud/samples/tree/master/org/alien4cloud/doc/kube/topology/07-nodecellar-mongo-autoscalling">07-nodecellar-mongo-autoscalling</a> topology.</p>
 
 <p>In this topology we have added a policy of type <code>tosca.policies.Scaling</code>. At rutime, we want the front end server (the Nodecallar) to be scaled if the CPU utilization is greater than 10%.</p>
 
@@ -399,6 +389,26 @@ nodecellar-nodecellar-app-service--1142367332   NodePort    10.152.183.219   &lt
 <p>In this example, we’ll connect a container to an external service: the Nodecellar will connect to a Mongo database that is deployed onto a classical VM (a container/VM hybrid topology). The modifier will create a <a href="https://kubernetes.io/docs/concepts/services-networking/service/#services-without-selectors">selector less service</a> in front of the Mongo.</p>
 
 <p><img src="../../images/kubernetes_walkthrough/08-nodecellar-mongo-hybrid-topology.png" alt="Topology" style="width: 500px; margin: 0 auto" /></p>
+
+<h2 id="a-simple-apache-container-behind-a-aws-elastic-load-balancer">A simple Apache container behind a AWS Elastic Load Balancer</h2>
+
+<p>In this example, we’ll use a new kind of <a href="https://kubernetes.io/docs/concepts/services-networking/service/#type-loadbalancer">LoadBalancer</a> service to expose our apache web server : our apache endpoint we be exposed by an AWS ELB.</p>
+
+<p>To deploy this example, you’ll need a K8S cluster configured for AWS.</p>
+
+<p>We’ll reuse the  <a href="https://github.com/alien4cloud/samples/tree/master/org/alien4cloud/doc/kube/topology/01-simple-apache">simple apache container topology</a> (or use the <strong>01-simple-apache</strong> if you have imported the samples).</p>
+
+<p><img src="../../images/kubernetes_walkthrough/topo-01-simple-apache.png" alt="Topology" style="width: 200px; margin: 0 auto" /></p>
+
+<p>In your location, you must add a new on-demand resource of type <code>org.alien4cloud.kubernetes.api.types.Service</code> with the property <code>spec.service_type</code> set to <code>LoadBalancer</code>.</p>
+
+<p>During the deployment, matche the <code>Apache_http_endpoint_Service</code> node to this new service and deploy. After the deployment success, you’ll find the link to the external endpoint in the service list:</p>
+
+<p><img src="../../images/kubernetes_walkthrough/apacheBehindELBexternalEndpoint.png" alt="Topology" style="width: 700px; margin: 0 auto" /></p>
+
+<p>You can follow the link:</p>
+
+<p><img src="../../images/kubernetes_walkthrough/apacheBehindELBtest.png" alt="Topology" style="width: 700px; margin: 0 auto" /></p>
 
         <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/2.0.0/orchestrators/kubernetes/kubernetes_walkthrough.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
 	  </div>
