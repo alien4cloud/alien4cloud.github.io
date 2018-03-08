@@ -10,11 +10,11 @@ weight: 2000
 
 In his current state, this provider allows you to deploy your application on several IaaSs, called __locations__.  
 
- - [***Amazon***](#/documentation/2.0.0/orchestrators/cloudify3_driver/location_amazon.html)
- - [***Azure***](#/documentation/2.0.0/orchestrators/cloudify3_driver/location_azure.html) (***`Premium`***)
- - [***OpenStack***](#/documentation/2.0.0/orchestrators/cloudify3_driver/location_openstack.html)
- - [***vSphere***](#/documentation/2.0.0/orchestrators/cloudify3_driver/location_vsphere.html) (***`Premium`***)
- - you can even [***Bring Your Own Node***](#/documentation/2.0.0/orchestrators/cloudify3_driver/location_byon.html)
+ - [***Amazon***](#/documentation/2.0.0/orchestrators/cloudify4_driver/location_amazon.html)
+ - [***Azure***](#/documentation/2.0.0/orchestrators/cloudify4_driver/location_azure.html) (***`Premium`***)
+ - [***OpenStack***](#/documentation/2.0.0/orchestrators/cloudify4_driver/location_openstack.html)
+ - [***vSphere***](#/documentation/2.0.0/orchestrators/cloudify4_driver/location_vsphere.html) (***`Premium`***)
+ - you can even [***Bring Your Own Node***](#/documentation/2.0.0/orchestrators/cloudify4_driver/location_byon.html)
 
 [![Supported locations][supported_locations]][supported_locations]
 

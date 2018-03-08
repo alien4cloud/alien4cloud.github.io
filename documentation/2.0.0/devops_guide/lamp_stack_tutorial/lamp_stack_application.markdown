@@ -20,7 +20,7 @@ The components of the Wordpress stack are in version 2.0.0. This version was rel
 
 1. Get, checkout, download all components listed in the [main page](#/documentation/2.0.0/getting_started/lamp_stack.html) of this tutorial
 2.  [Import components](#/documentation/2.0.0/user_guide/components_management.html)  of the Wordpress topology in **A4C**
-3. Configure your cloud plugin [PaaS Provider](#/documentation/2.0.0/orchestrators/cloudify3_driver/index.html)
+3. Configure your cloud plugin [PaaS Provider](#/documentation/2.0.0/orchestrators/cloudify4_driver/index.html)
 4. Then compose you topology following the next steps
 
 {% info %}

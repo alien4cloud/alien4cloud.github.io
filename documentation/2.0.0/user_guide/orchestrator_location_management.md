@@ -97,7 +97,7 @@ For example, the  cloudify3 provider defines connexion parameters so that Alien 
 ![Configure the provider](../../images/2.0.0/user_guide/admin/orchestrators/orchestrator_driver_configuration.png)
 
 {%info%}
-More informations for [cloudify 3](#/documentation/2.0.0/orchestrators/cloudify3_driver/index.html) can be found on it specific documentation.
+More informations for [cloudify 3](#/documentation/2.0.0/orchestrators/cloudify4_driver/index.html) can be found on it specific documentation.
 {%endinfo%}
 
 {%info%}

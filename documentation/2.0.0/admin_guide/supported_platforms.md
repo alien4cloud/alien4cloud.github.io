@@ -35,7 +35,7 @@ Cloudify 3.4 is alien 1.4.0 primary supported orchestrator. For pure docker user
 {: .table .table-bordered}
 | Orchestrators | Deployment artefacts |
 |:----------------|:----------------|
-| _Cloudify 3_ | **.bat** (_alien.artifacts.BatchScript_), **.sh** (_tosca.artifacts.ShellScript_), Ansible playbooks, Docker images (via (Kubernetes)[#/documentation/2.0.0/orchestrators/cloudify3_driver/kubernetes.html] support since 1.3.1) |
+| _Cloudify 3_ | **.bat** (_alien.artifacts.BatchScript_), **.sh** (_tosca.artifacts.ShellScript_), Ansible playbooks, Docker images (via (Kubernetes)[#/documentation/2.0.0/orchestrators/cloudify4_driver/kubernetes.html] support since 1.3.1) |
 | _Marathon_ | Docker images |
 
 
