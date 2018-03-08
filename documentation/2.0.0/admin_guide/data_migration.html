@@ -8,7 +8,7 @@
 ga('create', 'UA-73216650-1', 'auto');
 ga('set', {
   page: '/documentation/2.0.0/admin_guide/data_migration.html',
-  title: 'Migrate from 1.3.x to 1.4.0'
+  title: 'Migration'
 });
 ga('send', 'pageview');
 
@@ -23,7 +23,7 @@ ga('send', 'pageview');
       <div id="content" class="col-sm-8 col-md-9">
     
         <div style="height: 50px;">
-          <h1 class="pull-left" style="margin-top: 0px;">Migrate from 1.3.x to 1.4.0</h1>
+          <h1 class="pull-left" style="margin-top: 0px;">Migration</h1>
           <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/2.0.0/admin_guide/data_migration.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
         </div>
         
@@ -33,108 +33,52 @@ ga('send', 'pageview');
 
 <h1 id="before-anything-else">Before anything else</h1>
 
-<p><strong>Before migrating data, please make sure to backup your data first.</strong></p>
-
-<p><a href="#/documentation/2.0.0/admin_guide/backup_restore.md">How to backup Alien4Cloud</a></p>
-
-<h1 id="warnings">Warnings</h1>
-
 <div class="note warning">
-<h5> Compatibility </h5>
-<p>This guide can only used for migration from <strong><code>1.3.x</code></strong> to <strong><code>1.4.0</code></strong>.</p>
+<h5> Before migrating data, please make sure to backup your data first. </h5>
+<p><a href="#/documentation/2.0.0/admin_guide/backup_restore.html">How to backup Alien4Cloud</a></p>
 </div>
 
-<div class="note warning">
-<h5> Plugins migration </h5>
+<h2 id="warnings">Warnings</h2>
+
+<h3 id="compatibility">Compatibility</h3>
+<p>This guide can only used for migration from the <strong><code>1.4.3.2</code></strong> to <strong><code>2.0.0</code></strong>.</p>
+
+<h3 id="plugins-migration">Plugins migration</h3>
 <p>Please beware that if you have custom plugins imported in your alien4cloud instance, they will be discarded after migration. Therefore, you should re-upload them after the process is over.<br />
 We do not guarantee the compatibility of those with the new Alien4cloud version.</p>
-</div>
 
-<div class="note warning">
-<h5> Orchestrators </h5>
+<h3 id="orchestrators">Orchestrators</h3>
 <p>Orchestrators in alien4cloud are bound to orchestrator plugins. If you are using a custom orchestrator plugin, as stated above, it will discarded after the migration.</p>
-</div>
 
-<h1 id="download">Download</h1>
+<h1 id="migrate-from-the-1432-to-200">Migrate from the 1.4.3.2 to 2.0.0</h1>
 
-<p><a href="http://fastconnect.org/maven/service/local/artifact/maven/redirect?r=fastconnect&amp;g=alien4cloud&amp;a=alien4cloud-migration&amp;v=LATEST&amp;p=zip&amp;c=distrib" title="migration-tool" class="btn btn-success download-button"><i class="fa fa-download"></i> Migation tool</a></p>
+<p>The premium dist versions of Alien4Cloud 2.0.0 are packaged with the plugin alien4cloud-migration-plugin to perform an auto migration of datas contains in ES from the lasted 1.4.3.2 to 2.0.0 at the first boot.</p>
 
-<h1 id="migrate-from-13x-to-140">Migrate from 1.3.x to 1.4.0</h1>
-
-<p>The migration tool takes as input old data, and transform them to be complient with the new alien4cloud version.<br />
-Concerning either Alien4Cloud or elasticsearch data, no copy or transfert is made, meaning the existing data are really transformed and modified. Therefore, to be able to run the new version of the product with the migrated data, <strong>make sure the two instances of Alien4Cloud are configured to use the same and identical data path</strong>.</p>
-
-<p>In addition, <strong>they have to be bind to the same elasticsearch cluster</strong>, or, if running in an embedded mode, <strong>the elasticsearch configurations must be the same in term of data paths</strong>.</p>
-
-<div class="note warning">
-<h5>Alien4Cloud and ElasticSearch states</h5>
-<p>We recommend to stop Alien4Cloud before performing the migration. <strong>ElasticSearch MUST be up and running</strong>. Alien4Cloud should be restarted once the process is completed.  This is quite trivial to do when running in a classical production setup where elasticsearch process is independant from Alien4Cloud ( See <a href="#/documentation/2.0.0/admin_guide/advanced_configuration.html">advanced configuration</a> for more details ).<br />
-However, if running in an embedded configuration, you can’t stop Alien4Cloud without stopping ElasticSearch. Then, just make sure the plateform is not used during the process.</p>
-</div>
-
-<p>In order to migrate Alien4Cloud you must download the <a href="http://fastconnect.org/maven/service/local/artifact/maven/redirect?r=fastconnect&amp;g=alien4cloud&amp;a=alien4cloud-migration&amp;v=LATEST&amp;p=zip&amp;c=distrib" title="migration-tool"> migration tool </a> and copy it on the machine where Alien is running (or anywhere which has access to Alien’s data folders).<br />
-After unzipping the archive, the tool can be configured by editing the files in <strong><em>path_to_unzipped_tool/config</em></strong></p>
-
-<p><strong><em>config.yml</em></strong></p>
-
-<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">elasticsearch</span><span class="p-Indicator">:</span>
-<span class="c1"># Name of your elasticsearch cluster</span>
-  <span class="l-Scalar-Plain">cluster_name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">alien4cloud</span>
-<span class="c1"># Addresses of elasticsearch cluster nodes</span>
-  <span class="l-Scalar-Plain">addresses</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">129.185.67.37:9300,129.185.67.26:9300</span>
-
-<span class="c1"># The poller polls elasticsearch to export data for migration</span>
-<span class="l-Scalar-Plain">poller</span><span class="p-Indicator">:</span>
-<span class="c1"># The poller&#39;s scroll lease and batch size see https://www.elastic.co/guide/en/elasticsearch/guide/1.x/scan-scroll.html</span>
-  <span class="l-Scalar-Plain">scroll</span><span class="p-Indicator">:</span>
-    <span class="l-Scalar-Plain">lease</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">120</span>
-    <span class="l-Scalar-Plain">batch_size</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">100</span>
-
-<span class="c1"># Where elasticsearch data will be exported and store after transformation</span>
-<span class="l-Scalar-Plain">exporter.dir</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">/tmp/alien4cloud/migration/1.3/exported</span>
-<span class="l-Scalar-Plain">importer.dir</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">/tmp/alien4cloud/migration/1.3/toImport</span>
-
-<span class="l-Scalar-Plain">alien4cloud</span><span class="p-Indicator">:</span>
-<span class="c1"># alien4cloud runtime directory. See &quot;directories.alien&quot; option in your alien4cloud config</span>
-  <span class="l-Scalar-Plain">dir</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">/opt/alien4cloud/data</span>
-
-<span class="c1"># Uncomment me if you&#39;d like to change cloudify url during the migration</span>
-<span class="c1"># new_cloudify_url: &quot;https://1.1.1.1&quot;</span></code></pre></div>
-
-<h2 id="perform-migration">perform migration</h2>
+<h2 id="standard-migration-procedure-">Standard migration procedure :</h2>
 
 <ul>
-  <li>From the root directory of the unzipped tool, perform a migration dry run with the command:</li>
+  <li>stop Alien4Cloud process.</li>
+  <li>install the new log application on each Cloudify manager machine.<a href="#/documentation/2.0.0/orchestrators/cloudify4_driver/prerequisites_logs.html"> More informations.</a></li>
+  <li>replace the old folder of Alien4Cloud Premium by the new version of Alien4Cloud Premium</li>
+  <li>update the <strong>alien4Cloud-config.yaml</strong>.</li>
+  <li>start Alien4Cloud</li>
 </ul>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">./migration-tool.sh -migrate_dry_run</code></pre></div>
+<h2 id="migration-of-an-alien4cloud-ha">Migration of an Alien4Cloud HA</h2>
 
-<p>The command above will migrate the data without making any changes on your elasticsearch data. It’s a safe way to see if any error or warning happen during migration.</p>
+<p>In case of the migration of an <a href="#/documentation/2.0.0/admin_guide/ha.html">Alien4Cloud HA</a>:</p>
 
 <ul>
-  <li>If <strong>no WARN or ERROR message</strong> has been produced you can do the effective migration process.</li>
+  <li>stop backup computes then the master.</li>
+  <li>install the new log application on each Cloudify manager machine.<a href="#/documentation/2.0.0/orchestrators/cloudify4_driver/prerequisites_logs.html"> More informations.</a></li>
+  <li>copied your old Alien4Cloud folder. It’s necessary for your rollback and you will help to fill the new file configuration of Alien4Cloud.</li>
+  <li>don’t touch the folder that is mounted to shared runtime, just replace the old folder of Alien4Cloud Premium by the new version of Alien4Cloud Premium.</li>
+  <li>update the <strong>alien4Cloud-config.yaml</strong> on each Alien4Cloud.</li>
+  <li>start the Alien4Cloud master and wait the end of migration.</li>
+  <li>start the backup computes.</li>
 </ul>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">./migration-tool.sh -migrate</code></pre></div>
-
-<ul>
-  <li>Start your new Alien4cloud configured properly, after migration</li>
-</ul>
-
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">cd</span> /opt/alien4cloud/alien4cloud-premium/
-./alien4cloud.sh</code></pre></div>
-
-<ul>
-  <li>
-    <p>Verify that all plugins (excepts custom ones) have been re-uploaded properly else re-upload them.</p>
-  </li>
-  <li>
-    <p>Refresh your browser by emptying its cache so that new plugins’ UI can be loaded.</p>
-  </li>
-</ul>
-
-<p>Normally with this procedure, you should have your Alien functional with new version 1.4.0.</p>
-
+<p>Note: migration plugin of Alien4Cloud checks that the migration is already done on the Alien4cloud master, so it’s normal if you notice that migration process is not launched on the backup computes.</p>
 
         <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/2.0.0/admin_guide/data_migration.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
 	  </div>
