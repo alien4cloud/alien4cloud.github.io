@@ -225,7 +225,7 @@ For this example, we'll use the [03-simple-apache-hostPath](https://github.com/a
 In this topology we have added a volume to the deployment unit.
 We'll match it to a [hostPath](https://kubernetes.io/docs/concepts/storage/volumes/#hostpath) volume. With this kind of volume, we can mount a given directory of the hosting node as a volume for the container. In our example, we will mount the `/var/log` volume at the `/usr/local/apache2/htdocs` mount point on the container. By this way we'll be able to display our logs through our webserver ! It's not very usefull and not very secured IRL but just simple and fun in this boarding context ;)
 
-Deploy the topology, and at matching stage, choose the resource of type `org.alien4cloud.kubernetes.api.types.volume.HostPathVolumeSource` for the node named 'Volume'. Set the property `spec.path` to `/usr/local/apache2/htdocs` and deploy.
+Deploy the topology, and at matching stage, choose the resource of type `org.alien4cloud.kubernetes.api.types.volume.HostPathVolumeSource` for the node named 'Volume'. Set the property `spec.path` to `/var/log` and deploy.
 
 Find the port exposed by the nodes :
 
