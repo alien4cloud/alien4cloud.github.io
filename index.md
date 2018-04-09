@@ -226,7 +226,6 @@ Application and environments 100% synced (deployment model always up to date)<br
 
 <div class="contact">
   <div class="container home-section homepage">
-    <h2>Contact</h2>
     <div class="row">
       <div class="col-md-12 text-center">
         <p class="lead home-title">Need more information?</p>
