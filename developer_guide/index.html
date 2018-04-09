@@ -26,18 +26,23 @@ ga('send', 'pageview');
           <h1 class="pull-left" style="margin-top: 0px;">Developer Guide</h1>
           <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/developer_guide/index.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
         </div>
-        <h1 id="how-to-contribute">How to contribute</h1>
+        <p>We welcome the contributions to Alien4Cloud!</p>
 
-<h2 id="building-alien-4-cloud">Building alien 4 Cloud</h2>
+<h1 id="getting-help">Getting help</h1>
 
-<p>Alien 4 Cloud is written in java for the backend and requires a JDK 8 or newer (note that we test it using JDK 8 only for now).</p>
+<p>If you are looking for something to work on, or need some expert assistance in debugging a problem, our community is always eager to help. You can start by opening an issue in our <a href="https://github.com/alien4cloud/alien4cloud">github</a>.</p>
+
+<h1 id="setting-up-development-environment">Setting up development environment</h1>
+
+<h3 id="install-prerequisites">Install Prerequisites</h3>
+<p>Alien4Cloud is written in Java for the backend and requires a JDK 8 or newer (note that we test it using JDK 8 only for now).</p>
 
 <ul>
   <li>make sure you have a JDK 8 installed</li>
-  <li>make sure you have Maven installed (team is using 3.0.5)</li>
+  <li>make sure you have Maven installed (team is using v3.0.5)</li>
   <li>install Ruby</li>
   <li>install Python</li>
-  <li>install Node.js to get npm command. Check here http://nodejs.org. Note that you need a recent version of npm (2.7.4) in order to build a4c.</li>
+  <li>install Node.js (team is using v4.8.0) to get npm command. Note that you need a recent version of npm (2.7.4) in order to build a4c.</li>
   <li>install bower</li>
 </ul>
 
@@ -69,13 +74,13 @@ ga('send', 'pageview');
 
 <div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>mvn clean install -Dmaven.wagon.http.ssl.insecure<span class="o">=</span><span class="nb">true</span> -Dmaven.wagon.http.ssl.allowall<span class="o">=</span><span class="nb">true</span></code></pre></div>
 
-<h2 id="setup-your-ide">Setup your IDE</h2>
+<h3 id="setting-up-your-ide">Setting up your IDE</h3>
 
 <p>You can of course use the IDE that you like the most but some pre-requisite are required in order to work on alien 4 cloud.</p>
 
 <p>We use <a href="https://projectlombok.org">Lombok</a> in order to avoid writing getter and setters in our code when not required and for some other nice features it provides. You must install plugin or setup your IDE to support lombok (Our team use both IDEA and Eclipse so feel free to ask questions on slack if you have any trouble).</p>
 
-<h2 id="launching-alien4cloud-in-dev-mode">Launching Alien4Cloud in dev mode</h2>
+<h3 id="launching-alien4cloud-in-dev-mode">Launching Alien4Cloud in dev mode</h3>
 
 <p>Launch the REST API using maven</p>
 
@@ -83,7 +88,7 @@ ga('send', 'pageview');
 
 mvn spring-boot:run</code></pre></div>
 
-<p>Launch the UI</p>
+<h3 id="launching-the-ui">Launching the UI</h3>
 
 <div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">cd </span>alien4cloud-ui
 
@@ -105,23 +110,29 @@ grunt serve</code></pre></div>
 
 <p>Note: we encourage you to use the same configuration for your plugins.</p>
 
-<h1 id="contribute-to-existing-plugins">Contribute to existing plugins</h1>
+<h1 id="contributing-to-plugins">Contributing to plugins</h1>
 
-<ul>
-  <li>Cloudify 3 plugin: This is an orchestrator plugin that aims to provide the ability to deploy your applications using the opensource cloudify 3 orchestration technology.</li>
-</ul>
-
-<h1 id="create-new-plugins">Create new plugins</h1>
+<h3 id="creating-new-plugins">Creating new plugins</h3>
 
 <p>ALIEN has been designed to be easily extended and integrated with other systems. It uses a plugin mechanism in order to provide extensions.</p>
 
 <p>Plugins are really opened and you can have access to any core feature from your plugin allowing very powerfull operations through plugins. It is possible to create backend oriented plugins (Java/Spring based), UI plugins (AngularJS) or plugins with both backend and ui components. You can find more informations on plugins in the sub-section of the developer guide.</p>
 
-<h1 id="integrate-with-alien-4-cloud-by-consuming-the-api">Integrate with Alien 4 Cloud by consuming the API</h1>
+<h3 id="existing-plugins">Existing plugins</h3>
+<ul>
+  <li><a href="https://github.com/alien4cloud/alien4cloud-cloudify3-provider">Cloudify3 plugin</a>: This is an orchestrator plugin that aims to provide the ability to deploy your applications using the opensource cloudify3 orchestration technology.</li>
+  <li><a href="https://github.com/alien4cloud/alien4cloud-security-group-plugin">Security Group plugin</a>: This is a topology modifier that will automatically add security groups based on component endpoints of the topology.</li>
+  <li><a href="https://github.com/alien4cloud/alien4cloud-vault-plugin">Vault plugin</a>: This is a plugin integrating Vault into Alien4Cloud.</li>
+  <li><a href="https://github.com/alien4cloud/alien4cloud-repository-plugins">Repository plugin</a>: This is a plugin allowing to deal with the HTTP csar repository.</li>
+  <li><a href="https://github.com/alien4cloud/alien4cloud-marathon-plugin">Marathon plugin</a>: A plugin to integrate Marathon as an orchestrator for Alien4cloud. It features deployment of complex Docker containers topologies on a Mesos/Marathon cluster using MarathonLB and MesosDNS for service discovery.</li>
+  <li><a href="https://github.com/alien4cloud/alien4cloud-kubernetes-plugin">Kubernetes plugin</a>: A plugin that allows transformation of a TOSCA generic topology into a specific kubernetes topology.</li>
+</ul>
 
-<p>Another way to contribute to the Alien 4 Cloud ecosystem is to leverage the API to build integrations with other systems using Alien 4 Cloud REST API.</p>
+<h1 id="integrating-with-alien-4-cloud-via-api">Integrating with Alien 4 Cloud via API</h1>
 
-<p>You can find the documentation of the REST API (here)[] or just browse it directly on your ALIEN’s running instance (<code>http://\&lt;alien-url\&gt;/swagger-ui.html</code>, e.g. <code>http://localhost:8088/swagger-ui.html</code>) and this section will not provides more details about it.</p>
+<p>Another way to contribute to Alien4Cloud ecosystem is to leverage the API to build integrations with other systems using Alien 4 Cloud REST API.</p>
+
+<p>You can browse the REST API directly on your ALIEN’s running instance (<code>http://\&lt;alien-url\&gt;/swagger-ui.html</code>, e.g., <code>http://localhost:8088/swagger-ui.html</code>).</p>
 
         <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/developer_guide/index.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
 	  </div>
