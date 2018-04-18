@@ -1,7 +1,0 @@
-{
-  "POSTDEPLOYMENT":{
-    "CA_CERTIFICATE": "CA certificate",
-    "CLIENT_KEY": "Client key",
-    "CLIENT_CERTIFICATE": "Client certificate"
-  } 
-}

@@ -17,4 +17,4 @@ log_app_version: 1.4.3.2
 pullrequesturl: http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/
 
 lunr_search:
-  excludes: ["css/*", "documentation/1.2.0/*", "documentation/1.3.0/*", "documentation/2.0.0/*", "documentation/2.1.0/*"]
+  excludes: ["css/*", "documentation/1.3.0/*", "documentation/2.0.0/*", "documentation/2.1.0/*"]
