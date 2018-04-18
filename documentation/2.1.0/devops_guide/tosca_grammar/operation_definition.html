@@ -1,0 +1,151 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/2.1.0/devops_guide/tosca_grammar/operation_definition.html',
+  title: 'Operation definition'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Operation definition</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/2.1.0/devops_guide/tosca_grammar/operation_definition.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <p>An operation definition defines a named function or procedure that can be bound to an implementation artifact (e.g., a script).</p>
+
+<h2 id="keynames">Keynames</h2>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th style="text-align: left">Keyname</th>
+      <th style="text-align: left">Required</th>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Description</th>
+      <th style="text-align: left">tosca_definitions_version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">description</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">The optional description string for the associated named operation.</td>
+      <td style="text-align: left">alien_dsl_1_3_0<br /> alien_dsl_1_2_0<br /> tosca_simple_yaml_1_0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">implementation</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">string or <a href="#/documentation/2.1.0/devops_guide/tosca_grammar/artifact_definition.html">implementation artifact definition</a><strong>(1)</strong> <strong>(2)</strong></td>
+      <td style="text-align: left">The optional implementation artifact name (example: a script file name within a TOSCA CSAR file).</td>
+      <td style="text-align: left">alien_dsl_1_3_0<br /> alien_dsl_1_2_0<br /> tosca_simple_yaml_1_0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">inputs <strong>(3)</strong></td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">list of <a href="#/documentation/2.1.0/devops_guide/tosca_grammar/property_definition.html">property definitions</a> or list of <a href="#/documentation/2.1.0/devops_guide/tosca_grammar/parameter_definition.html">property assignment</a></td>
+      <td style="text-align: left">The optional list of input parameter definitions.</td>
+      <td style="text-align: left">alien_dsl_1_3_0<br /> alien_dsl_1_2_0<br /> tosca_simple_yaml_1_0</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li><strong>(1)</strong> TOSCA does not support the implementation artifact definition syntax in 1.0.0 and 1.1.0 versions. This is however not really correct as using artifact extension may not be enough to auto-detect the type of artifact and therefore the way to execute it.</li>
+  <li><strong>(2)</strong> TOSCA allow the implementation keyword to have two children being a primary and dependencies artifacts. We don’t support this notation in alien4cloud and also don’t support yet the ability to specify primary and dependencies artifact. Read how you can <a href="#/documentation/2.1.0/devops_guide/tosca_grammar/artifact_definition.html">get artifacts in alien4cloud</a>.</li>
+  <li><strong>(3)</strong> defined inputs are injected on runtime into as environment variable for the implementation script. In addition of these defined inputs, some properties related to the nodes are also automatically availlable. See <a href="#documentation/2.1.0/devops_guide/tosca_normative_lifecycle.html">Environment variables section</a>.</li>
+</ul>
+
+<div class="note warning">
+<p>The artifact must be related to an artifact type. The way artifacts are related to artifact types is based on the implementation artifact name extension.
+This refers directly to the artifact types file_ext property that may have been defined.</p>
+
+<p>If no artifact type matches the extension Alien 4 Cloud will not allow parsing of the artifact.</p>
+</div>
+
+<div class="note">
+<p>TOSCA supports the definition of primary and dependencies artifacts. This is not yet supported in alien4cloud. Note that primary and dependencies syntax is not in line with the definition of implementation artifacts and not really valid for the reasons explained here.</p>
+</div>
+
+<h2 id="grammar">Grammar</h2>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">&lt;operation_name&gt;</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;operation_description&gt;</span>
+  <span class="l-Scalar-Plain">implementation</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;implementation_artifact_name&gt;</span>
+  <span class="l-Scalar-Plain">inputs</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">&lt;parameter_definition&gt;</span></code></pre></div>
+
+<p>In addition, the following simplified grammar may also be used (where a full definition is not necessary):</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">&lt;operation_name&gt;</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;implementation_artifact_name&gt;</span></code></pre></div>
+
+<div class="note">
+<p>implementation_artifact_name must be the path to a file and is resolved starting from the archive root.</p>
+</div>
+
+<h2 id="example">Example</h2>
+
+<p>The following example shows how to define a node type with operation:</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">node_types</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">fastconnect.nodes.OperationSample</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">interfaces</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">Standard</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">create</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">/scripts/install.sh</span>
+        <span class="l-Scalar-Plain">configure</span><span class="p-Indicator">:</span>
+          <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">This is the configuration description.</span>
+          <span class="l-Scalar-Plain">implementation</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">/scripts/setup.sh</span>
+          <span class="l-Scalar-Plain">inputs</span><span class="p-Indicator">:</span>
+            <span class="l-Scalar-Plain">value_input</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">4</span>
+            <span class="l-Scalar-Plain">function_input</span><span class="p-Indicator">:</span> <span class="p-Indicator">{</span> <span class="nv">get_property</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span> <span class="nv">my_host</span><span class="p-Indicator">,</span> <span class="nv">mem_size</span> <span class="p-Indicator">]</span> <span class="p-Indicator">}</span>
+      <span class="l-Scalar-Plain">custom</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">do_something</span><span class="p-Indicator">:</span>
+          <span class="l-Scalar-Plain">implementation</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">/scripts/do_something.sh</span>
+          <span class="l-Scalar-Plain">inputs</span><span class="p-Indicator">:</span>
+            <span class="l-Scalar-Plain">property_input</span><span class="p-Indicator">:</span>
+              <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">string</span>
+              <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">An input that will have to be provided on operation call.</span>
+              <span class="l-Scalar-Plain">constraints</span><span class="p-Indicator">:</span>
+              <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">min_length</span> <span class="p-Indicator">:</span> <span class="l-Scalar-Plain">4</span>
+              <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">max_length</span> <span class="p-Indicator">:</span> <span class="l-Scalar-Plain">8</span></code></pre></div>
+
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/2.1.0/devops_guide/tosca_grammar/operation_definition.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-2.1.0', 'documentation/2.1.0/devops_guide/tosca_grammar/operation_definition.md');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

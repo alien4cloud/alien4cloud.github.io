@@ -1,0 +1,134 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/2.1.0/admin_guide/post_deployment_application.html',
+  title: 'Alien Post-Deployment application'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Alien Post-Deployment application</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/2.1.0/admin_guide/post_deployment_application.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        
+<hr style="margin-top:5px; margin-bottom:5px;" />
+<div class="row"><ul class="nav nav-pills" id="summarypanel"></ul></div>
+<hr style="margin-top:5px; margin-bottom:5px;" />
+
+<div class="note info">
+<h5>Premium feature</h5>
+<p>This section refers to a premium feature.</p>
+</div>
+
+<p>The Alien post-deployment web application is a Spring boot application, that helps managing patches or operations added to a node within a deployment. You MUST deploy it if you plan on providing to the users the ability to perform <a href="#/documentation/2.1.0/user_guide/application_post_deployment.html">post deployment operations</a> on an application.</p>
+
+<div class="note info">
+<h5>Where to deploy</h5>
+<p>You can deploy the post deployment application where ever suits you, but note that it should be easily accessible from Alien4cloud.<br />
+For example, for the users of the cloudify 3 orchestrator plugin, it is possible to deploy it on your manager instance. Just make sure to open the configured ports.</p>
+</div>
+
+<h1 id="installation">Installation</h1>
+<p>The application already contains a basic configuration that is good enough for test environment. However in order to move into production, you should customize the configuration.</p>
+
+<div class="note warning">
+<p>If you are working with the packaged zip, then you do not need to create the following files (and the start script), a s they are already in the package. However if working directly with the war package, then this might be useful.</p>
+</div>
+
+<p>Along-side to the application war, you should place configuration files in a folder named <code>config</code>:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">├── alien4cloud-postdeployment-rest-<span class="o">{</span>version<span class="o">}</span>.war
+├── config/alien4cloud-post-deployment-config.yml
+├── config/elasticsearch.yml</code></pre></div>
+
+<p>Here you can find a sample configuration for:</p>
+
+<ul>
+  <li><a href="../../../files/alien4cloud-post-deployment-config.sample.yml">alien4cloud-post-deployment-config.yml</a></li>
+  <li><a href="https://github.com/alien4cloud/alien4cloud/blob/master/alien4cloud-ui/src/main/resources/elasticsearch.yml">elasticsearch.yml</a></li>
+</ul>
+
+<p>Feel free to customize the values of the different configurations.  However the main elements you might wish to modify are the</p>
+
+<ul>
+  <li><code>port</code> and the <code>alien_post_deployment</code> for alien4cloud-post-deployment-config.yml</li>
+  <li>elastic search storage directories for elasticsearch.yml</li>
+</ul>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">path</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">data</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">${user.home}/.alienpostdeployment/elasticsearch/data</span>
+    <span class="l-Scalar-Plain">work</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">${user.home}/.alienpostdeployment/elasticsearch/work</span>
+    <span class="l-Scalar-Plain">logs</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">${user.home}/.alienpostdeployment/elasticsearch/logs</span></code></pre></div>
+
+<h2 id="start-script">start script</h2>
+<p>You can also add a simple start script:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">├── start.sh
+├── alien4cloud-postdeployment-rest-<span class="o">{</span>version<span class="o">}</span>.war
+├── config/alien4cloud-post-deployment-config.yml
+├── config/elasticsearch.ymll</code></pre></div>
+
+<p>with the following content:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">cd</span> <span class="sb">`</span>dirname <span class="nv">$0</span><span class="sb">`</span>
+
+<span class="nv">JAVA_OPTIONS</span><span class="o">=</span><span class="s2">&quot;-server -showversion -XX:+AggressiveOpts -Xmx1g -Xms1g -XX:MaxPermSize=256m -XX:+HeapDumpOnOutOfMemoryError&quot;</span>
+
+java <span class="nv">$JAVA_OPTIONS</span> <span class="se">\</span>
+    -cp config/:alien4cloud-postdeployment-rest-<span class="o">{</span>version<span class="o">}</span>.war <span class="se">\</span>
+    org.springframework.boot.loader.WarLauncher
+    <span class="s2">&quot;$@&quot;</span></code></pre></div>
+
+<h1 id="deploying">Deploying</h1>
+
+<p>Just run the script <code>alien4cloud-post-deployment.sh</code> (or the previously created <code>start.sh</code> if not working with the zip package).<br />
+Go to the url <code>http://&lt;deployed_machine_ip&gt;:&lt;server_port&gt;/rest/postdeployment/test</code>, you should have the response: <strong><em>Running</em></strong></p>
+
+<h1 id="advanced-configuration">Advanced configuration</h1>
+
+<h2 id="using-ssl">Using ssl</h2>
+<p>See <a href="#/documentation/2.1.0/admin_guide/security_patch.html">security section</a>.</p>
+
+<h2 id="elasticsearch">ElasticSearch</h2>
+<p>See <a href="#/documentation/2.1.0/admin_guide/advanced_configuration.html">Elastic Search configuration</a> section.</p>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/2.1.0/admin_guide/post_deployment_application.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-2.1.0', 'documentation/2.1.0/admin_guide/post_deployment_application.md');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

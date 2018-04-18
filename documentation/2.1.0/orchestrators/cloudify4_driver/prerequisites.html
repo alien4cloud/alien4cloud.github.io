@@ -1,0 +1,108 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/2.1.0/orchestrators/cloudify4_driver/prerequisites.html',
+  title: 'Prerequisites'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Prerequisites</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/2.1.0/orchestrators/cloudify4_driver/prerequisites.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <p>Here are some prerequisite steps that need to be done in order to use the cloudify 4 driver.</p>
+
+<h2 id="install-cloudify-411">Install Cloudify 4.1.1</h2>
+
+<p>How to install cloudify 4.1.1 is described <a href="http://docs.getcloudify.org/4.1.0/installation/from-packages/" target="_blank">here</a>.</p>
+
+<h2 id="bootstrap-your-manager">Bootstrap your manager</h2>
+
+<p>How to bootstrap cloudify 4.1.1 is described <a href="http://docs.getcloudify.org/4.1.0/installation/bootstrapping/" target="_blank">here</a>.</p>
+
+<div class="note warning">
+<p>Note that cloudify 4.1.1 only support bootstraping on CentOS 7.x or RHEL 7.x.</p>
+</div>
+
+<p>Here a simple snippet to bootstrap the manager:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">curl -LO http://repository.cloudifysource.org/cloudify/4.1.1/ga-release/cloudify-enterprise-cli-4.1.1ga.rpm
+sudo rpm -i http://repository.cloudifysource.org/cloudify/4.1.1/ga-release/cloudify-enterprise-cli-4.1.1ga.rpm
+<span class="c"># Edit /opt/cfy/cloudify-manager-blueprints/simple-manager-blueprint-inputs.yaml</span>
+<span class="c"># Then bootstrap the manager</span>
+<span class="nb">cd</span> /opt/cfy/cloudify-manager-blueprints
+sudo cfy bootstrap simple-manager-blueprint.yaml -i simple-manager-blueprint-inputs.yaml</code></pre></div>
+
+<h2 id="secure-your-manager">Secure your manager</h2>
+
+<p>Starting from 4.0, Cloudify’s manager is secured by default using a username/password with a default SSL on the nginx for the REST API and the WebUI.<br />
+At bootstrap, it will generate a private certificate for internal communications between manager’s component and its agents.</p>
+
+<div class="note warning">
+<p>Following configuration is only suitable for testing purpose, in production you should customize with your own own configuration.</p>
+</div>
+
+<p>To perform a rapid test of the feature, you can just enable those following keys in the bootstrap inputs</p>
+
+<h3 id="setting-the-crendentials">Setting the crendentials</h3>
+
+<p>By default, the username is ‘admin’ with a generated password at bootstrap.<br />
+If you want to set your password, uncomment and edit the following keys in the inputs file.</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">admin_username</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">admin</span>
+<span class="l-Scalar-Plain">admin_password</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">admin</span></code></pre></div>
+
+<h3 id="setting-the-nginx-ssl">Setting the Nginx SSL</h3>
+
+<p>If not provided, The bootstrap workflow will generate default a key and a certificate for the external communication with NGinx (REST API &amp; WebUI).
+You can generate and provide your own certificate by copy it into  /opt/cfy/cloudify-manager-blueprints/resources/ssl
+Make sure you name it <code>cloudify_external_cert.pem</code> and <code>cloudify_external_key.pem</code>.</p>
+
+<h2 id="additional-configuration-steps">Additional configuration steps</h2>
+
+<ul>
+  <li><a href="#/documentation/2.1.0/orchestrators/cloudify4_driver/prerequisites_patches.html">Cloudify 4.x patches</a></li>
+  <li><a href="#/documentation/2.1.0/orchestrators/cloudify4_driver/prerequisites_logs.html">Deployment logs configuration</a></li>
+  <li><a href="#/documentation/2.1.0/orchestrators/cloudify4_driver/prerequisites_offline.html">Offline configuration</a></li>
+</ul>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/2.1.0/orchestrators/cloudify4_driver/prerequisites.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-2.1.0', 'documentation/2.1.0/orchestrators/cloudify4_driver/prerequisites.markdown');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

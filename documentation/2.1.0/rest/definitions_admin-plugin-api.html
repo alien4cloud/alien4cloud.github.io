@@ -1,0 +1,470 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/2.1.0/rest/definitions_admin-plugin-api.html',
+  title: 'Definitions'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Definitions</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/2.1.0/rest/definitions_admin-plugin-api.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        
+<hr style="margin-top:5px; margin-bottom:5px;" />
+<div class="row"><ul class="nav nav-pills" id="summarypanel"></ul></div>
+<hr style="margin-top:5px; margin-bottom:5px;" />
+
+<h1 id="plugindescriptor">PluginDescriptor</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>componentDescriptors</td>
+      <td> </td>
+      <td>false</td>
+      <td>Describe a component of a plugin (can be an IOrchestrator etc.). array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>configurationClass</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>dependencies</td>
+      <td> </td>
+      <td>false</td>
+      <td>string array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>description</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>id</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>name</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>uiEntryPoint</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>version</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="restresponseobject">RestResponse«object»</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>data</td>
+      <td> </td>
+      <td>false</td>
+      <td>object</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>error</td>
+      <td> </td>
+      <td>false</td>
+      <td>RestError</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="restresponsevoid">RestResponse«Void»</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>error</td>
+      <td> </td>
+      <td>false</td>
+      <td>RestError</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="pluginusage">PluginUsage</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>resourceId</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>resourceName</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>resourceType</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="describe-a-component-of-a-plugin-can-be-an-iorchestrator-etc">Describe a component of a plugin (can be an IOrchestrator etc.).</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>beanName</td>
+      <td>Name of the component bean in the plugin spring context.</td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>description</td>
+      <td>Description of the plugin.</td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>name</td>
+      <td>Name of the plugin component.</td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>type</td>
+      <td>Type of the plugin.</td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="resterror">RestError</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>code</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int32)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>message</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="getmultipledataresultplugin">GetMultipleDataResult«Plugin»</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>data</td>
+      <td> </td>
+      <td>false</td>
+      <td>Plugin array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>from</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int32)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>queryDuration</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int64)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>to</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int32)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>totalResults</td>
+      <td> </td>
+      <td>false</td>
+      <td>integer (int64)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>types</td>
+      <td> </td>
+      <td>false</td>
+      <td>string array</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="restresponselistpluginusage">RestResponse«List«PluginUsage»»</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>data</td>
+      <td> </td>
+      <td>false</td>
+      <td>PluginUsage array</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>error</td>
+      <td> </td>
+      <td>false</td>
+      <td>RestError</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="restresponsegetmultipledataresultplugin">RestResponse«GetMultipleDataResult«Plugin»»</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>data</td>
+      <td> </td>
+      <td>false</td>
+      <td>GetMultipleDataResult«Plugin»</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>error</td>
+      <td> </td>
+      <td>false</td>
+      <td>RestError</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="plugin">Plugin</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>configurable</td>
+      <td> </td>
+      <td>false</td>
+      <td>boolean</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>descriptor</td>
+      <td> </td>
+      <td>false</td>
+      <td>PluginDescriptor</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>enabled</td>
+      <td> </td>
+      <td>false</td>
+      <td>boolean</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>esId</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>id</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>pluginPathId</td>
+      <td> </td>
+      <td>false</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/2.1.0/rest/definitions_admin-plugin-api.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-2.1.0', 'documentation/2.1.0/rest/definitions_admin-plugin-api.md');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

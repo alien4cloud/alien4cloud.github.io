@@ -85,6 +85,9 @@ function hideSearchResults() {
             <a href="#/documentation/2.0.0/index.html">2.0.0 - New version</a>
           </li>
           <li>
+            <a href="#/documentation/2.1.0/index.html">2.1.0 - Development version</a>
+          </li>
+          <li>
             <a href="#/documentation/1.4.0/index.html">1.4.0</a>
           </li>
           <li>
@@ -177,137 +180,6 @@ $('#git-icon').tooltip();
   <br/>
 
   <ul class="cbp_tmtimeline">
-    <li>
-      <time class="cbp_tmtime" datetime="2018-02"><span>Beginning of 2018</span> <span>v 2.0</span></time>
-      <div class="cbp_tmicon"><i class="fa fa-rocket"></i></div>
-      <div class="cbp_tmlabel">
-        <h4>Core</h4>
-
-        <ul>
-          <!-- core -->
-          <li>Container/Docker: Design containers based portable blueprints deployable on different Docker infrastructure with
-            support of their specificities</li>
-          <ul>
-            <li>Define a group of containers as a single unit deployment to ensure co-localization and common usage of resources</li>
-            <li>Post-matching with containers platform specific properties</li>
-            <li>Kubernetes support</li>
-            <ul>
-              <li>DNS & Kubernetes Services support improvements</li>
-              <li>Integration with external registry for public network exposed services</li>
-            </ul>
-            <li>AWS ECS support</li>
-            <li>Ease usage of docker image with the ability to reference an image from a public or a private repository</li>
-            <li>Display number of deployed containers and metrics on dashboards (Max & current)</li>
-          </ul>
-
-          <li>Improve variables/inputs management across environments</li>
-
-          <li>TOSCA Catalog:</li>
-          <ul>
-            <li>Upload an image for a substituted type</li>
-            <li>Access to the A4C forge: public and private blueprints</li>
-          </ul>
-
-          <li>New policies engine:</li>
-          <ul>
-            <li>Manage placement policies</li>
-            <ul>
-              <li>Affinity - Anti-Affinity policies</li>
-              <li>Multi zones placement policies: Manage HA or topology performance by associating nodes to zones</li>
-            </ul>
-
-            <li>Manage runtime policies</li>
-            <ul>
-              <li>Auto-scaling integration </li>
-              <li>Auto-Healing</li>
-            </ul>
-
-            <li>Supported containers platform policies</li>
-            <ul>
-              <li>Kubernetes </li>
-              <li>Aws ECS</li>
-            </ul>
-          </ul>
-
-          <li>Workflows:</li>
-          <ul>
-            <li>Improved worflows editor to support operations on relationships</li>
-            <li>Launch a custom workflow on a specific instance of a scaled node</li>
-            <li>Display deployment progress on the workflow view</li>
-          </ul>
-
-          <li>Deployment:</li>
-          <ul>
-            <li>Display deployments history at the application environment level</li>
-            <li>Retrieve a deployed topology (Blueprint, location, matching, variables,inputs)</li>
-          </ul>
-
-          <li>Monitoring integration:</li>
-          <ul>
-            <li>New monitoring tools/ Status feedback loop (For VMs, Containers, Containers scheduler)</li>
-            <li>Viewing metrics and detail cluster state information</li>
-          </ul>
-
-          <li>Security:</li>
-          <ul>
-            <li>Secrets management</li>
-            <ul>
-              <li>Improve application password management (UI - API)</li>
-              <li>Out of the box Vault solution and support for custom vault integration</li>
-            </ul>
-            <li>Generate security groups from A4C for AWS, Azure, OpenStack</li>
-            <li>Manage infrastructures resources security by environments type</li>
-          </ul>
-
-          <li>User experience:</li>
-          <ul>
-            <li>Streamlined process deployments</li>
-            <li>Improved Archives/Catalog screen</li>
-          </ul>
-    </li>
-    </ul>
-    <!-- / CORE -->
-
-    <h4>Orchestrators certifications</h4>
-    <ul>
-      <li>Cloudify v4.0</li>
-    </ul>
-    <!-- / Orchestrators -->
-
-    <h4>Infrastructure support</h4>
-    <ul>
-      <li>Improve integration capabilities with orchestrators and implementation artifacts support</li>
-      <li>Certification for following infrastructures/IaaS
-        <ul>
-          <li>Amazon Web Services</li>
-          <li>Microsoft Azure</li>
-          <li>VMWare VSphere</li>
-          <li>Openstack</li>
-          <li>Host-pool (physical machines)
-          </li>
-        </ul>
-      </li>
-    </ul>
-    <!-- / Infrastructure -->
-
-    <h4>TOSCA conformance</h4>
-    <ul>
-      <li>Improve networks support to reach TOSCA spec 1.1</li>
-      <li>Support for alien 4 cloud 1.4 and 2.0 DSL</li>
-    </ul>
-    <!-- / TOSCA -->
-
-
-    <h4>Additional Premium features</h4>
-    <ul>
-      <li>v1.4 to v2.0 Migration tools</li>
-    </ul>
-    </div>
-    </li>
-
-    <br/>
-    <br/>
-
     <li>
       <time class="cbp_tmtime" datetime="2016-10"><span>To be defined</span> <span>Future</span></time>
       <div class="cbp_tmicon"><i class="fa fa-rocket"></i></div>

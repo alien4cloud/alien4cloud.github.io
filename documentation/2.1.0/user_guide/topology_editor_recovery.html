@@ -1,0 +1,122 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/2.1.0/user_guide/topology_editor_recovery.html',
+  title: 'Topology recovery'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Topology recovery</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/2.1.0/user_guide/topology_editor_recovery.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        
+<hr style="margin-top:5px; margin-bottom:5px;" />
+<div class="row"><ul class="nav nav-pills" id="summarypanel"></ul></div>
+<hr style="margin-top:5px; margin-bottom:5px;" />
+
+<h1 id="problem">Problem</h1>
+
+<p>A topology is designed with nodes and relationships, based on some imported archives. Thus, it depends on these archives specific versions present at a moment in the catalog. When working with <code>snapshots archives</code>, it might happen that these are updated (as we allow uploading and updating snapshots in Alien4cloud) while being used as dependency, eventually leading to a non consistent topology depending on what has changed within it.<br />
+For example, let&#8217;s assume we have a topology using a node type coming from a snapshot archive <em>A</em>. Now for some reason, we want to update, or even remove that type from the archive <em>A</em>. What will become of the topology?<br />
+The purpose of this feature is to try to recover the topology and have a consistent one.</p>
+
+<h1 id="recovery-choices">Recovery choices</h1>
+
+<p>After the update of the used snapshot, if you try to edit the topology, you&#8217;ll be displayed the list of dependencies that have been updated. You&#8217;ll not be able to edit the topology if you do not perform one of the reconciliation action.</p>
+
+<p><a href="../../images/2.1.0/user_guide/topology_editor/topology_recovery_modal.png" target="_blank"><img src="../../images/2.1.0/user_guide/topology_editor/topology_recovery_modal.png" alt="topology recovery modal" /></a><br /></p>
+
+<p>The choices are: <em>recover</em> or <em>reset</em> the topology.</p>
+
+<h2 id="recover-the-topology">Recover the topology</h2>
+
+<p>choosing this, alien4cloud will try to recover the topology and make it consistent with what is currently in the repository.<br />
+By analyzing the topology and matching it against the updated archive, the following can be decided:</p>
+
+<ul>
+  <li><strong>Delete a node template</strong> : If the type related to the Node template has been deleted from the archive</li>
+  <li><strong>Delete a relationship template</strong> : If the related type has been deleted from the archive, or if, the related requirement / capability has been removed from the source / target node type.</li>
+  <li><strong>Rebuild a node / relationship template</strong> : If the related type has somehow change.</li>
+</ul>
+
+<h2 id="reset-the-topology">Reset the topology</h2>
+
+<p>This option will <strong>delete everything</strong> within the topology, leaving it completely empty.</p>
+
+<div class="note warning">
+<h5>No rollback possible</h5>
+<p>Beware that these actions will automatically save the topology after being executed, then there is no way back with undo/redo mechanism.</p>
+</div>
+
+<h1 id="limitations">Limitations</h1>
+
+<p>Following are modifications that are not yet processed on topology recovery, along with some illustrations.</p>
+
+<h2 id="capability-type">Capability type</h2>
+<p>Changing the type of a capability that is already a relationship&#8217;s target, will not leads to the validation / rebuilding of the related relationships. Therefore after recovering, you might end up with a relationship with an invalid targeted capability.</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="c1">## original archive</span>
+<span class="l-Scalar-Plain">node_types</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">alien.test.nodes.TestComponent</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">capabilities</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">capa_to_be_changed</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">alien.test.capabilities.CapaToBeChanged</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="c1">## Updated archive</span>
+<span class="l-Scalar-Plain">node_types</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">alien.test.nodes.TestComponent</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">capabilities</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">capa_to_be_changed</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">alien.test.capabilities.CapaToBeChanged2</span> <span class="c1">#updated capability type</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="c1">## Topology template</span>
+<span class="l-Scalar-Plain">node_templates</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">TestComponentSource</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">alien.test.nodes.TestComponentSource</span>
+    <span class="l-Scalar-Plain">requirements</span><span class="p-Indicator">:</span>
+      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">capa_to_be_changed</span><span class="p-Indicator">:</span>   <span class="c1">## This relationship will not be rebuilt or validated against the new targeted capability type</span>
+        <span class="l-Scalar-Plain">node</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">TestComponent</span>
+        <span class="l-Scalar-Plain">capability</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">alien.test.capabilities.CapaToBeChanged</span></code></pre></div>
+
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/2.1.0/user_guide/topology_editor_recovery.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-2.1.0', 'documentation/2.1.0/user_guide/topology_editor_recovery.md');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

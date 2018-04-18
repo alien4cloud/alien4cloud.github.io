@@ -1,0 +1,99 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/2.1.0/user_guide/topology_editor_file.html',
+  title: 'Archive content'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Archive content</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/2.1.0/user_guide/topology_editor_file.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        
+<hr style="margin-top:5px; margin-bottom:5px;" />
+<div class="row"><ul class="nav nav-pills" id="summarypanel"></ul></div>
+<hr style="margin-top:5px; margin-bottom:5px;" />
+
+<p>On the editor view, the <img src="../../images/2.1.0/user_guide/archive_content_btn.png" alt="upload button" class="inline" /> allows you to browse and edit the content of the current edited topology archive.</p>
+
+<p><a href="../../images/2.1.0/user_guide/upload-file-menu.png"><img src="../../images/2.1.0/user_guide/upload-file-menu.png" alt="Upload file view" /></a></p>
+
+<h1 id="upload-new-file">Upload new file</h1>
+<p>The architect has the possible to upload or remove a file to your topology archive. This file can for example be a new script for your components or a new artifact.<br />
+Click on <img src="../../images/2.1.0/user_guide/upload-file-menu-upload-button.png" alt="upload button" class="inline" /> to select and upload into the archive a file from your local filesystem.<br />
+You can also create an empty file, to be edited later on. First, enter the name of the file to create in the edition box, then hit <img src="../../images/2.1.0/user_guide/upload-file-menu-add-button.png" alt="add button" class="inline" />. Note that if entering file name like the <code>foo/bar.txt</code>, a new folder ‘foo’ with a new file ‘bar.txt’ will be created.</p>
+
+<h1 id="update-the-yaml-of-your-topology">Update the YAML of your topology</h1>
+
+<p>Alien4cloud provides a view to see the YAML of your topology exists, useful to export the YAML.<br />
+Since <code>1.3.0</code>,  you can directly edit your YAML to, for example, override an existing relationships or create a new capability type.
+Don’t forget to save your change by clicking on the save button.</p>
+
+<p><a href="../../images/2.1.0/user_guide/editor-yaml-view.png"><img src="../../images/2.1.0/user_guide/editor-yaml-view.png" alt="YAML editor" /></a></p>
+
+<h2 id="error-handling">Error handling</h2>
+<p>The <strong>validation</strong> of the YAML is <strong>done on saving</strong>. If errors occurs, you will be displayed a popup where you can se what exactly when wrong.</p>
+
+<p><a href="../../images/2.1.0/user_guide/topology_editor/yaml_editor_validation_popup.png"><img src="../../images/2.1.0/user_guide/topology_editor/yaml_editor_validation_popup.png" alt="YAML editor" /></a></p>
+
+<p>In addition, you can see errors annotations on the left of the line where the error occur. A mouser over the annotation will display the error in question.
+<a href="../../images/2.1.0/user_guide/topology_editor/yaml_editor_validation_annotation.png"><img src="../../images/2.1.0/user_guide/topology_editor/yaml_editor_validation_annotation.png" alt="YAML editor" /></a></p>
+
+<div class="note warning">
+<h5>Limitations</h5>
+<ul>
+  <li>
+    <p>The content of the yaml file is currently not automatically updated. If you work with a milestone version of 2.1.0 you must save all pending operations in order to have a generated yaml file up to date with the changes you may have done in the editor.</p>
+  </li>
+  <li>
+    <p>In order to edit the YAML of the topology all previous operations must have been saved.</p>
+  </li>
+</ul>
+</div>
+
+<div class="note info">
+<h5>Shortcuts</h5>
+<p>While you are working in the context of the file editor shortcuts like save, undo and redo are not applied to the alien 4 cloud editor but to the file editor (meaning you won’t save pending operations but only changes to the file currently under edition). When the focus leaves the editor panel then shortcuts are applied to alien 4 cloud topology editor and to pending operations.</p>
+</div>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/2.1.0/user_guide/topology_editor_file.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-2.1.0', 'documentation/2.1.0/user_guide/topology_editor_file.md');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

@@ -1,0 +1,110 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/2.1.0/devops_guide/workflow/tosca_concepts_workflows_default.html',
+  title: 'Workflow generation'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Workflow generation</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/2.1.0/devops_guide/workflow/tosca_concepts_workflows_default.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <p>Default workflows are generated based on the following rules:</p>
+
+<h2 id="install-workflow">Install workflow</h2>
+
+<h3 id="node-workflow">Node workflow</h3>
+
+<p>This is a graph showing default steps that a node must pass through in order to be instantiated in the default <strong>install</strong> workflow</p>
+
+<p><a href="../../images/2.1.0/concepts/install_wf_node.png" target="_blank"><img src="../../images/2.1.0/concepts/install_wf_node.png" alt="*Default node's install workflow" /></a></p>
+
+<h3 id="relationship-workflow">Relationship workflow</h3>
+
+<p>This is a graph showing default steps that 2 nodes with relationship between them must pass through in order to be instantiated in the default <strong>install</strong> workflow</p>
+
+<p><a href="../../images/2.1.0/concepts/install_wf_rel.png" target="_blank"><img src="../../images/2.1.0/concepts/install_wf_rel.png" alt="*Default relationship's install workflow" /></a></p>
+
+<h2 id="uninstall-workflow">Uninstall workflow</h2>
+
+<h3 id="node-workflow-1">Node workflow</h3>
+
+<p>This is a graph showing default steps that a node must pass through in order to be deleted in the default <strong>uninstall</strong> workflow</p>
+
+<p><a href="../../images/2.1.0/concepts/uninstall_wf_node.png" target="_blank"><img src="../../images/2.1.0/concepts/uninstall_wf_node.png" alt="*Default node's uninstall workflow" /></a></p>
+
+<h3 id="relationship-workflow-1">Relationship workflow</h3>
+
+<p>This is a graph showing default steps that 2 nodes with relationship between them must pass through in order to be deleted in the default <strong>uninstall</strong> workflow</p>
+
+<p><a href="../../images/2.1.0/concepts/uninstall_wf_rel.png" target="_blank"><img src="../../images/2.1.0/concepts/uninstall_wf_rel.png" alt="*Default relationship's uninstall workflow" /></a></p>
+
+<h2 id="start-workflow">Start workflow</h2>
+
+<h3 id="node-workflow-2">Node workflow</h3>
+
+<p>This is a graph showing default steps that a node must pass through in order to be started in the default <strong>start</strong> workflow</p>
+
+<p><a href="../../images/2.1.0/concepts/start_wf_node.png" target="_blank"><img src="../../images/2.1.0/concepts/start_wf_node.png" alt="*Default node's start workflow" /></a></p>
+
+<h3 id="relationship-workflow-2">Relationship workflow</h3>
+
+<p>This is a graph showing default steps that 2 nodes with relationship between them must pass through in order to be started in the default <strong>start</strong> workflow</p>
+
+<p><a href="../../images/2.1.0/concepts/start_wf_rel.png" target="_blank"><img src="../../images/2.1.0/concepts/start_wf_rel.png" alt="*Default relationship's start workflow" /></a></p>
+
+<h2 id="stop-workflow">Stop workflow</h2>
+
+<h3 id="node-workflow-3">Node workflow</h3>
+
+<p>This is a graph showing default steps that a node must pass through in order to be stopped in the default <strong>stop</strong> workflow</p>
+
+<p><a href="../../images/2.1.0/concepts/stop_wf_node.png" target="_blank"><img src="../../images/2.1.0/concepts/stop_wf_node.png" alt="*Default node's stop workflow" /></a></p>
+
+<h3 id="relationship-workflow-3">Relationship workflow</h3>
+
+<p>This is a graph showing default steps that 2 nodes with relationship between them must pass through in order to be stopped in the default <strong>stop</strong> workflow</p>
+
+<p><a href="../../images/2.1.0/concepts/stop_wf_rel.png" target="_blank"><img src="../../images/2.1.0/concepts/stop_wf_rel.png" alt="*Default relationship's stop workflow" /></a></p>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/2.1.0/devops_guide/workflow/tosca_concepts_workflows_default.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-2.1.0', 'documentation/2.1.0/devops_guide/workflow/tosca_concepts_workflows_default.markdown');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

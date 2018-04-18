@@ -1,0 +1,123 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/2.1.0/index.html',
+  title: 'ALIEN 4 Cloud - 2.1.0 - Documentation'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">ALIEN 4 Cloud - 2.1.0 - Documentation</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/2.1.0/index.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <p>Welcome on Alien 4 Cloud documentation. You will find here resources to use alien 4 cloud.
+This includes:</p>
+
+<ul>
+  <li>Concepts of Alien 4 Cloud</li>
+  <li>Installation and configuration</li>
+  <li>Creation of cloud services archives (including an overview of OASIS TOSCA concepts)</li>
+</ul>
+
+<hr style="margin-top:5px; margin-bottom:5px;" />
+<div class="row"><ul class="nav nav-pills" id="summarypanel"></ul></div>
+<hr style="margin-top:5px; margin-bottom:5px;" />
+
+<h1 id="alien-for-cloud-high-level-concept">ALIEN for Cloud High level concept</h1>
+
+<p>ALIEN for Cloud (Application LIfecycle ENabler for cloud) is a tool that aims to provide management for enterprise cloud and help enterprise to onboard their applications to a cloud, leverage it’s benefits and, based on project constraints, reach continuous delivery.</p>
+
+<p>As moving to the cloud for an enterprise is a structural change, ALIEN for Cloud leverage the TOSCA standard that is the most advanced and supported standard for the cloud.</p>
+
+<p>The Goal of ALIEN for Cloud is to enable the benefits of a cloud migration in enterprise by easing the DevOps collaboration taking in account the capabilities of each of the IT expert in the enterprise. This is done by providing a single platform where every expert can contribute and share it’s effort and feedback with others.</p>
+
+<p>ALIEN provides three main features:</p>
+
+<ul>
+  <li>Composable PaaS &amp; DevOps collaboration</li>
+  <li>Application lifecycle enablement</li>
+  <li>Cloud governance</li>
+</ul>
+
+<h1 id="collaboration">Collaboration</h1>
+
+<p>Collaboration in ALIEN for cloud is done by giving the ability to each expert to work on it’s field of expertise, and for other experts to benefits from his work and reuse it in a simple and declarative way. TOSCA standard is a great start point to enable such collaboration. ALIEN for Cloud add user roles management in order to increase the ability to easily collaborate on the platform.</p>
+
+<h1 id="composable-paas">Composable PaaS</h1>
+
+<h2 id="topology-definition-in-alien-for-cloud">Topology definition in ALIEN for cloud</h2>
+
+<p>The first aspect of ALIEN for cloud is related to the core of the cloud interoperability: defining an application topology that we can deploy on any cloud. It takes in account critical requirements for an enterprise:</p>
+
+<ul>
+  <li>reusability</li>
+  <li>extensibility</li>
+  <li>flexibility</li>
+  <li>consistency</li>
+  <li>evolvability</li>
+</ul>
+
+<h2 id="very-quick-introduction-to-tosca">(Very) Quick introduction to TOSCA</h2>
+
+<p>In the TOSCA model, an Application Topology is created by declaration of some components (nodes) instances (templates) based on some existing types. The types defines the meta-model of a component (properties, operations, capabilities and requirements) and it’s implementation artifacts.
+A TOSCA container can then deploy the declared topology on a cloud and orchestrated it.</p>
+
+<p>Collaboration in a TOSCA model is easy as someone that want’s to build an application topology can reuse components created by the experts. Typically an application architect will be able to reuse software and cloud components defined by the operational teams in the enterprise.</p>
+
+<h1 id="application-lifecycle-enablement">Application lifecycle enablement</h1>
+
+<p>Alien 4 Cloud allows users to define multiple versions and environments for an application, each environment has an associated version allowing you to move a version from a development environment to the production environment through all required environments in your lifecycle.</p>
+
+<h1 id="cloud-governance">Cloud governance</h1>
+
+<p>As ALIEN for cloud manages the topologies of applications as well as their deployments, it keeps many informations that will enable governance of your cloud, a better vision of your applications, their lifecycle, the ability of your projects to deliver fast etc.</p>
+
+<p>It enables features like</p>
+
+<ul>
+  <li>rationalisation of the SI</li>
+  <li>capacity planning</li>
+  <li>management of middleware support and expiration dates</li>
+  <li>etc.</li>
+</ul>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/2.1.0/index.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-2.1.0', 'documentation/2.1.0/index.markdown');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>
