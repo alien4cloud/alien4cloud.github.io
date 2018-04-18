@@ -12,7 +12,21 @@ The open source cloudify 4 orchestrator plugin allows you to deploy applications
 
 ## Configuration
 The configuration of the location is done while configuring the orchestrator, before or after activation.
-Normally there is nothing to do here, as the default provided configurations are good enough to have the location working.
+
+{% warning %}
+if you didn't patched the iaas credentials described (here)[#/documentation/2.1.0/orchestrators/cloudify4_driver/prerequisites_patches.html].
+You must set some of the locations properties.
+{% endwarning %}
+
+In addition to the base configuration that are DSL and imports you'll need to provide some informations such as:
+
+  - __management network__: The name of the network to which the manager is linked to.
+  - __security group name__: The default security group name to add to the agent's machines.
+  - __agentConfig/agent key path__: The path to the agent ssh key.
+  - __openstackConfig__: Properties to connect to Openstack's API.
+
+Exemple:
+[![Openstack location configuration][config_location_openstack]][config_location_openstack]
 
 ## Tosca mapped / location exposed types
 The Openstack location exposes some types to help you configure a deployment and map the native Tosca types. Theses nodes are exposed as `on demand resources` on the location management view.  
@@ -53,8 +67,5 @@ Scaling is now fully supported. Means we can scale a single `Compute`, or a `Com
 You can add a `alien.cloudify.openstack.nodes.AvailabilityZone` with the value of your availability zone on OpenStack. To use the non affitinity placement policy, at least two zones are necessery. After that, you can add your node (on the topology view) to the a same group, Alien will try to put this server on different zones during the deployment. When you redeploy an application with volume, Alien try to put all volumes attached to a server on the same zone, and, if a volume has already a zone, on the zone of this volume. The algorithm of placement policy equitably distributed the server on eatch zones.
 
 
-
-
-
-
 [pub_net_floatingIP]: ../../images/cloudify3_driver/pub_net_config.png  "public network config"
+[config_location_openstack]: ../../images/cloudify3_driver/config_location_openstack.png  "Openstack location configuration"

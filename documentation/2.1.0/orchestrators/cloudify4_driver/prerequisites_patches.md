@@ -29,6 +29,11 @@ sudo ~/safe_clean_patch.sh
 
 ### IaaS Credentials ###
 
+{% info %}
+Starting from 2.1.0, you can configure manager's resources directly from Alien4Cloud when using Openstack.
+Please refer to [this configuration page](#/documentation/2.1.0/orchestrators/cloudify4_driver/location_openstack.html)
+{% endinfo %}
+
 Cloudify has removed the iaas informations from the manager's context. Theorically, it now needs to be feeded in each the blueprints you want to deploy.  
 The Cloudify provider for Alien4Cloud do not yet support this new behavior so for now, you will need to configure your manager to set iaas informations into the context
 
