@@ -2,7 +2,7 @@
 layout: post
 title: TOSCA
 root: ../../
-categories: DOCUMENTATION
+categories: DOCUMENTATION-2.0.0
 parent: [concepts]
 node_name: concepts-tosca
 weight: 500
