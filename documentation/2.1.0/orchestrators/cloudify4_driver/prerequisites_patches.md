@@ -21,9 +21,9 @@ Cloudify now clean its artifacts in the /tmp folder after each executions but si
 To workaround any issues, make sure to apply the following patch:
 
 {% highlight bash %}
-sudo cp /opt/mgmtworker/env/lib/python2.7/site-packages/script_runner/tasks.py /opt/mgmtworker/env/lib/python2.7/site-packages/script_runner/tasks.py.default
-sudo curl -L https://raw.githubusercontent.com/alien4cloud/samples/master/org/alien4cloud/automation/cloudify/patches/patch_tasks/playbook/roles/create/files/tasks.py -o /opt/mgmtworker/env/lib/python2.7/site-packages/script_runner/tasks.py
-sudo rm -f /opt/mgmtworker/env/lib/python2.7/site-packages/script_runner/tasks.pyc
+curl -L https://raw.githubusercontent.com/alien4cloud/csar-public-library/develop/org/alien4cloud/cloudify/patches/patch_tasks/artifact/safe_clean_patch.sh -o ~/safe_clean_patch.sh
+sudo chmod +x ~/safe_clean_patch.sh
+sudo ~/safe_clean_patch.sh
 {% endhighlight %}
 
 
@@ -35,7 +35,7 @@ The Cloudify provider for Alien4Cloud do not yet support this new behavior so fo
 We provide a python script to help you configure your manager.
 
 {% highlight bash %}
-curl -LO https://raw.githubusercontent.com/alien4cloud/samples/2.1.0/org/alien4cloud/automation/cloudify/manager/v4/scripts/iaas/cfy_config_iaas.py
+curl -LO https://raw.githubusercontent.com/alien4cloud/csar-public-library/develop/org/alien4cloud/cloudify/manager/v4/scripts/iaas/cfy_config_iaas.py
 # sudo /opt/cfy/embedded/bin/python cfy_config_iaas.py -u USERNAME -p PASSWORD --ssl config -c ./iaas_config.yaml -i {aws,openstack,azure}
 # So for instance if your manager is installed on AWS:
 sudo /opt/cfy/embedded/bin/python cfy_config_iaas.py -u admin -p admin --ssl config -c ./iaas_config.yaml -i aws
