@@ -48,6 +48,19 @@ You must set some of the locations properties.</p>
 <p>Exemple:
 <a href="../../images/cloudify3_driver/config_location_openstack.png" title="Openstack location configuration"><img src="../../images/cloudify3_driver/config_location_openstack.png" alt="Openstack location configuration" title="Openstack location configuration" /></a></p>
 
+<div class="note warning">
+<p>Note that you must store your openstack password inside Cloudify’s vault. 
+To do so, you can connect to the Cloudify’s webui or use the cloudify cli.</p>
+
+<p>For instance:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">cfy secrets create -s myvalue mykey</code></pre></div>
+
+<p>The property <code>password secret key</code> in Alien4Cloud’s openstack location configuration must contain the key name of the Cloudify’s vault.</p>
+
+<p>For more details about <a href="http://docs.getcloudify.org/4.3.0/manager/using-secrets/">cloudify’s secret</a></p>
+</div>
+
 <h2 id="tosca-mapped--location-exposed-types">Tosca mapped / location exposed types</h2>
 <p>The Openstack location exposes some types to help you configure a deployment and map the native Tosca types. Theses nodes are exposed as <code>on demand resources</code> on the location management view.</p>
 
