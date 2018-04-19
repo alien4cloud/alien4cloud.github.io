@@ -28,6 +28,20 @@ In addition to the base configuration that are DSL and imports you'll need to pr
 Exemple:
 [![Openstack location configuration][config_location_openstack]][config_location_openstack]
 
+{% warning %}
+Note that you must store your openstack password inside Cloudify's vault. 
+To do so, you can connect to the Cloudify's webui or use the cloudify cli.
+
+For instance:
+{% highlight bash %}
+cfy secrets create -s myvalue mykey
+{% endhighlight %}
+
+The property `password secret key` in Alien4Cloud's openstack location configuration must contain the key name of the Cloudify's vault.  
+  
+For more details about [cloudify's secret](http://docs.getcloudify.org/4.3.0/manager/using-secrets/)
+{% endwarning %}
+
 ## Tosca mapped / location exposed types
 The Openstack location exposes some types to help you configure a deployment and map the native Tosca types. Theses nodes are exposed as `on demand resources` on the location management view.  
 
