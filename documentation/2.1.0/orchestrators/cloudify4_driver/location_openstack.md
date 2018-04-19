@@ -14,7 +14,7 @@ The open source cloudify 4 orchestrator plugin allows you to deploy applications
 The configuration of the location is done while configuring the orchestrator, before or after activation.
 
 {% warning %}
-if you didn't patched the iaas credentials described (here)[#/documentation/2.1.0/orchestrators/cloudify4_driver/prerequisites_patches.html].
+if you didn't patched the iaas credentials described [here](#/documentation/2.1.0/orchestrators/cloudify4_driver/prerequisites_patches.html).
 You must set some of the locations properties.
 {% endwarning %}
 
