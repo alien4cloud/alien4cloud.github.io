@@ -42,6 +42,10 @@ The property `password secret key` in Alien4Cloud's openstack location configura
 For more details about [cloudify's secret](http://docs.getcloudify.org/4.3.0/manager/using-secrets/)
 {% endwarning %}
 
+You also need to add the *iaas-property-modifier* at *post-node-match* phase.
+[![Openstack IaaS property modifier][iaas_property_modifier]][iaas_property_modifier]
+
+
 ## Tosca mapped / location exposed types
 The Openstack location exposes some types to help you configure a deployment and map the native Tosca types. Theses nodes are exposed as `on demand resources` on the location management view.  
 
@@ -83,3 +87,4 @@ You can add a `alien.cloudify.openstack.nodes.AvailabilityZone` with the value o
 
 [pub_net_floatingIP]: ../../images/cloudify3_driver/pub_net_config.png  "public network config"
 [config_location_openstack]: ../../images/cloudify3_driver/config_location_openstack.png  "Openstack location configuration"
+[iaas_property_modifier]: ../../images/cloudify4_driver/a4c-openstack-iaas-property-modifier.png  "Openstack IaaS property modifier"
