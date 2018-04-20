@@ -61,6 +61,9 @@ To do so, you can connect to the Cloudify’s webui or use the cloudify cli.</p>
 <p>For more details about <a href="http://docs.getcloudify.org/4.3.0/manager/using-secrets/">cloudify’s secret</a></p>
 </div>
 
+<p>You also need to add the <em>iaas-property-modifier</em> at <em>post-node-match</em> phase.
+<a href="../../images/cloudify4_driver/a4c-openstack-iaas-property-modifier.png" title="Openstack IaaS property modifier"><img src="../../images/cloudify4_driver/a4c-openstack-iaas-property-modifier.png" alt="Openstack IaaS property modifier" title="Openstack IaaS property modifier" /></a></p>
+
 <h2 id="tosca-mapped--location-exposed-types">Tosca mapped / location exposed types</h2>
 <p>The Openstack location exposes some types to help you configure a deployment and map the native Tosca types. Theses nodes are exposed as <code>on demand resources</code> on the location management view.</p>
 
