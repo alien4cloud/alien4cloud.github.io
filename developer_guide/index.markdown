@@ -67,10 +67,10 @@ We use [Lombok](https://projectlombok.org) in order to avoid writing getter and 
 
 ### Launching Alien4Cloud in dev mode
 
-Launch the REST API using maven
+Launch the backend of Alien4Cloud using maven
 
 {% highlight bash %}
-cd alien4cloud-rest-api
+cd alien4cloud-ui
 
 mvn spring-boot:run
 {% endhighlight %}
