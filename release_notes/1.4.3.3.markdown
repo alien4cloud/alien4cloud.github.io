@@ -1,0 +1,37 @@
+---
+layout: post
+title:  ALIEN for Cloud 1.4.3.3
+root: ../
+categories: RELEASE_NOTES
+parent: [release_note]
+node_name: 1.4.3.3
+weight: 9922
+exclude_from_search: true
+---
+
+
+
+
+<i class="fa fa-plus text-success"></i> New feature <i class="fa fa-level-up text-primary"></i> Improvement  <i class="fa fa-bug text-danger"></i> Bug <i class="fa fa-exclamation-triangle text-warning"></i> Breaking change
+
+
+### Alien 4 Cloud
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+  |  <i class="fa fa-bug text-danger"></i> | ALIEN-2804 | Fixed a UI issue that is not able to assign the group to the user when the number of groups is greater than 20.  |
+  |  <i class="fa fa-bug text-danger"></i> | ALIEN-2835 | Fix the problem that the maintenance mode does not work in HA  |
+  |  <i class="fa fa-bug text-danger"></i> | ALIEN-2842 | Fix the UI problem that groups are not displayed on the application user view  |
+  |  <i class="fa fa-bug text-danger"></i> | ALIEN-2877 | Fix the bad display on topology editor view when updating an existing version from snapshot to the version's modifier  |
+  |  <i class="fa fa-bug text-danger"></i> | ALIEN-2878 | Fix the UI problem that qualifiers version should be in order when creating or updating  |
+  
+
+### Cloudify 4 PaaS Provider
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|  
+  |  <i class="fa fa-bug text-danger"></i> | ALIEN-2872 | Fix the problem that A4C lost some deployment status when the primary cloudify manager crashes  |
+  
+
