@@ -10,7 +10,7 @@ weight: 1000
 
 Cloudify 3 is an opensource orchestrator backed by GigaSpaces that aims to support deployment on various different locations.
 
-This section gives a focus to Cloudify 3 orchestrator plugin for ALIEN, a plugin to manage deployment on various cloud using [Cloudify 3.x](http://getcloudify.org/ "cloudify").
+This section gives a focus to Cloudify 3 orchestrator plugin for ALIEN, a plugin to manage deployment on various cloud using [Cloudify 3.x](https://cloudify.co/ "cloudify").
 
 ## Alien 4 Cloud Cloudify 3 Support
 

@@ -9,7 +9,7 @@ weight: 20
 ---
 
 This section describes all the necessary ports for Alien4Cloud to work. Network traffic must be unrestricted on all of them for the involved servers.
-Note : Cloudify ports are only written here as an indication. If you have any doubt about Cloudify required ports, or are using an unmentioned version of Cloudify, please check [the cloudify documentation](http://getcloudify.org/guide).
+Note : Cloudify ports are only written here as an indication. If you have any doubt about Cloudify required ports, or are using an unmentioned version of Cloudify, please check [the cloudify documentation](https://cloudify.co/guide).
 
 {: .table .table-bordered}
 | Component - Port description                                       | Default port number/range   | Component Version      |

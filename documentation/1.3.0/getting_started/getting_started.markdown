@@ -17,7 +17,7 @@ This guide explains how to get started with Alien4Cloud and deploy your first ap
 # Prerequisites
 
 * Cloudify Manager 3.4.0:
-This getting started will leverage the cloudify 3 plugin and as such a running cloudify manager is required before moving forward. In order to install it please follow Cloudify documentation [to install the cloudify CLI](http://docs.getcloudify.org/3.4.0/installation/from-packages/) and [install a manager](http://getcloudify.org/downloads/install-cloudify-manager.html)
+This getting started will leverage the cloudify 3 plugin and as such a running cloudify manager is required before moving forward. In order to install it please follow Cloudify documentation [to install the cloudify CLI](http://docs.getcloudify.org/3.4.0/installation/from-packages/) and [install a manager](https://cloudify.co/downloads/install-cloudify-manager.html)
 
 * A machine with Linux or MacOS Operating System: Alien4Cloud can run on windows OS too but we recommend Unix based OS. Moreover the default package only includes sh script.
 

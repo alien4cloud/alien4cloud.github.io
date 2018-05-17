@@ -10,7 +10,7 @@ weight: 3000
 
 cloudify 4 is an opensource orchestrator backed by GigaSpaces that aims to support deployment on various different locations.
 
-This section gives a focus to cloudify 4 orchestrator plugin for ALIEN, a plugin to manage deployment on various cloud using [cloudify 4.x](http://getcloudify.org/ "cloudify").
+This section gives a focus to cloudify 4 orchestrator plugin for ALIEN, a plugin to manage deployment on various cloud using [cloudify 4.x](https://cloudify.co/ "cloudify").
 
 ## Alien 4 Cloud cloudify 4 Support
 
