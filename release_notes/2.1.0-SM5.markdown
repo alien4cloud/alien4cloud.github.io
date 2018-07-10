@@ -1,0 +1,55 @@
+---
+layout: post
+title:  ALIEN for Cloud 2.1.0-SM5
+root: ../
+categories: RELEASE_NOTES
+parent: [release_note]
+node_name: 2.1.0-SM5
+weight: 925
+exclude_from_search: true
+---
+
+
+
+
+<i class="fa fa-plus text-success"></i> New feature <i class="fa fa-level-up text-primary"></i> Improvement  <i class="fa fa-bug text-danger"></i> Bug <i class="fa fa-exclamation-triangle text-warning"></i> Breaking change
+
+
+### Cloudify 4 PaaS Provider
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+        |  <i class="fa fa-bug text-danger"></i> | ALIEN-2927 | Event polling is not resilient on CFY 4 orchestrator plugin  |
+
+
+
+### Alien 4 Cloud
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+  |  <i class="fa fa-plus text-success"></i> | ALIEN-2563 | Filter logs from node instances in runtime view  |
+  |  <i class="fa fa-plus text-success"></i> | ALIEN-2855 | Download logs from the log view  |
+  |  <i class="fa fa-plus text-success"></i> | ALIEN-2856 | Display list of execution workflow for a given deployment  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-2900 | Ability to duplicate resources in location on demand ressources  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2895 | When updating a CSAR, layout information is lost (Topology editor)  |  
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-2825 | Display deployment progress on the workflow view and filter logs by operation  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-2851 | Set the prefix language file and default language by configuration  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-2857 | Workflow execution status and progress bar in the information view  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-2901 | Alternate UI overlay and distribution package for project Artemis  |
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-2858 | Workflow post-processing: remove states for steps not concerned by operations or weaving  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-2926 | Worflow post processing: remove unnecessary connections  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-2930 | UI logs of modifiers collapsable and collapsed by default  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-2939 | Add an option to able archive overriding even if used in an active deployment  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-2940 | Modifiers order can be changed for a given location  |
+      |  <i class="fa fa-bug text-danger"></i> | ALIEN-2847 | Workflows are not updated at topology recovery  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2898 | Fix simplified view in workflow editor  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2928 | Can not use both Cfy & York orchestrator plugins at the same time  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2933 | Task list not available in Orchestrator deployments history view  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2934 | Application manager can't access deployment history  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2938 | Service attributes are not exposed correctly  |
