@@ -23,6 +23,11 @@ Alien4Cloud serves as a SP (Service Provider) and the authentication of users co
 
 ## How to configure
 
+{% warning %}
+<h5>Prerequistes</h5>
+Before configuring the IdP in A4C, just for testing, please create a new realm firstly and then create a new IdP as well as some users in this realm.
+{% endwarning %}
+
 To remind that Alien4Cloud serves as SP and Keycloak as IdP. So firstly, for A4C, we need to set up the configuration file of IdP which has been created in Keycloak. And then, we go to configure A4C to generate a configuration file of SP and then download it from **_http(s)://alien4cloud.host:alien4cloud.port/saml/metadata_** and import it on Keycloak.
 
 Here is the diagram showing the configuration process:
