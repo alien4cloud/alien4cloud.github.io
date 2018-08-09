@@ -18,8 +18,8 @@ Note that you can use LDAP for users and eventually role management. You can als
 {%endinfo%}
 
 {%info%}
-<h5>SAML integration</h5>
-If you use the premium version and wish To use SAML please check the documentation [here](#/documentation/2.1.0/admin_guide/saml.html).
+<h5>SAML integration with KeyCloak</h5>
+If you use the premium version and wish to use SAML please check the documentation [here](#/documentation/2.1.0/admin_guide/saml_with_keycloak.html).
 {%endinfo%}
 
 {%info%}

@@ -23,7 +23,7 @@ Alien4Cloud serves as a SP (Service Provider) and the authentication of users co
 
 ## How to configure
 
-To remind that Alien4Cloud serves as SP and Keycloak as IdP. So firstly, for A4C, we need to set up the configuration file of IdP which has been created in Keycloak. And then, we go to configure A4C to generate a configuration file of SP and then download it from _http(s)://alien4cloud.host:alien4cloud.port/saml/metadata_ and import it on Keycloak.
+To remind that Alien4Cloud serves as SP and Keycloak as IdP. So firstly, for A4C, we need to set up the configuration file of IdP which has been created in Keycloak. And then, we go to configure A4C to generate a configuration file of SP and then download it from **_http(s)://alien4cloud.host:alien4cloud.port/saml/metadata_** and import it on Keycloak.
 
 Here is the diagram showing the configuration process:
 
@@ -54,26 +54,26 @@ saml:
 
 | Parameters |Description | Mandatory|  Default value | Example  |
 | ------------- | ------------- | ----- | ----- | ----- |
-| saml:enabled | yes |Flag for enabling SAML | | true |
-| saml:maxAuthenticationAge | yes | Maximum life of an authentication in seconds | | 7200 |
-| saml:maxAssertionTime | yes | The duration fo validity of assertions processed during the signle sign-on process in seconds | | 3000
-| saml:logoutUrl | no | Allows to specify an url on which the user will be redirected after performing a logout from A4C when SAML is enabled | | http://alien4cloud.org
-| saml:proxy:host | no | TODO | | 193.56.47.20
-| saml:proxy:port | no | TODO | | 8080
-| saml:ssl:keystore | yes | Certificate configured in Keycloak server | | samlKeystore.jks
-| saml:ssl:defaultKey | yes | Alias of keystore | | apollo
-| saml:ssl:keystorepassword | yes | Password of keystore | | nalle123
-| saml:ssl:metadata:idp:url | **yes** if not setting file path to IdP metadata file; **no** otherwise | URL pointing to the IdP metadata file | | "https://idp.ssocircle.com/idp-meta.xml"
-| saml:ssl:metadata:idp:file | **yes** if not setting URL to IdP metadata file; **no** otherwise | Local file path to the IdP metadata file | | "/path/to/file.xml"
-| saml:ssl:metadata:sp:entityId | yes | Unique identifier of the service provider. | | "org:alien4cloud:sp"
-| saml:ssl:metadata:sp:entityBaseURL | no | Base URL to construct SAML endpoints from, needs to be a URL with protocol, server, port and context path. | "http://localhost:8088" |
-| saml:ssl:metadata:sp:requestSigned | no | Flag indicating whether this service signs authentication requests. | false |
-| saml:ssl:mapping:email | no | Mapping of user email inside SAML attribute assertion | false |
-| saml:ssl:mapping:firstname | no | Mapping of user firstname inside SAML attribute assertion | false |
-| saml:ssl:mapping:lastname | no | Mapping of user lastname inside SAML attribute assertion | false |
+| saml:enabled |Flag for enabling SAML | yes | | true |
+| saml:maxAuthenticationAge | Maximum life of an authentication in seconds | yes | | 7200 |
+| saml:maxAssertionTime | The duration fo validity of assertions processed during the signle sign-on process in seconds | yes | | 3000
+| saml:logoutUrl | Allows to specify an url on which the user will be redirected after performing a logout from A4C when SAML is enabled | no | | http://alien4cloud.org
+| saml:proxy:host | TODO | no | | 193.56.47.20
+| saml:proxy:port | TODO | no | | 8080
+| saml:ssl:keystore | Certificate configured in Keycloak server | yes | | samlKeystore.jks
+| saml:ssl:defaultKey | Alias of keystore | yes | apollo
+| saml:ssl:keystorepassword | Password of keystore | yes | | nalle123
+| saml:ssl:metadata:idp:url| URL pointing to the IdP metadata file |  **yes** if not setting file path to IdP metadata file; **no** otherwise  | | "https://idp.ssocircle.com/idp-meta.xml"
+| saml:ssl:metadata:idp:file| Local file path to the IdP metadata file |  **yes** if not setting URL to IdP metadata file; **no** otherwise | | "/path/to/file.xml"
+| saml:ssl:metadata:sp:entityId | Unique identifier of the service provider. | yes | | "org:alien4cloud:sp"
+| saml:ssl:metadata:sp:entityBaseURL | Base URL to construct SAML endpoints from, needs to be a URL with protocol, server, port and context path. | no | "http://localhost:8088" |
+| saml:ssl:metadata:sp:requestSigned | Flag indicating whether this service signs authentication requests. | no | false |
+| saml:ssl:mapping:email | Mapping of user email inside SAML attribute assertion | no | false |
+| saml:ssl:mapping:firstname | Mapping of user firstname inside SAML attribute assertion | no | false |
+| saml:ssl:mapping:lastname | Mapping of user lastname inside SAML attribute assertion | no | false |
 
 
 {% warning %}
 <h5>How to download SP metadata file</h5>
-Once alien4cloud is started you can retrieve A4C's SP metadata from http(s)://alien4cloud.host:alien4cloud.port/saml/metadata.
+Once alien4cloud is started you can retrieve A4C's SP metadata from _**http(s)://alien4cloud.host:alien4cloud.port/saml/metadata**_.
 {% endwarning %}
