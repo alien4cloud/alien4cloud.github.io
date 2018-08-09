@@ -1116,3 +1116,8 @@ and (max-width: 768px) {
   margin-top: 15px;
   margin-bottom: 5px;
 }
+
+/* Add border for table */
+td, th {
+  border: 1px solid grey
+}
