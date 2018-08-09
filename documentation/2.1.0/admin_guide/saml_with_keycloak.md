@@ -50,9 +50,9 @@ saml:
       entityId: "org:alien4cloud:sp"
 {% endhighlight %}
 
-**Table: definition of parameters**
+###Table: definition of parameters
 
-| Parameters |Description | Mandatory|  Default value | Example  |
+| Parameters | Description | Mandatory | Default value | Example |
 | ------------- | ------------- | ----- | ----- | ----- |
 | saml:enabled |Flag for enabling SAML | yes | | true |
 | saml:maxAuthenticationAge | Maximum life of an authentication in seconds | yes | | 7200 |
