@@ -1,11 +1,11 @@
 ---
 layout: post
-title:  Kubernetes policies
+title:  Policies
 root: ../../../../
 categories: DOCUMENTATION-2.1.0
-parent: [orchestrators]
+parent: [orchestrators, kubernetes]
 node_name: Kubernetes_policies
-weight: 1000
+weight: 3000
 ---
 
 The new Kubernetes integration comes along with a bunch of policies:

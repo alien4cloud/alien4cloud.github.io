@@ -3,7 +3,7 @@ layout: post
 title:  Node affinity label
 root: ../../../../
 categories: DOCUMENTATION-2.1.0
-parent: [orchestrators, Kubernetes_policies]
+parent: [orchestrators, kubernetes, Kubernetes_policies]
 node_name: node_affinity_label
 weight: 1000
 ---
