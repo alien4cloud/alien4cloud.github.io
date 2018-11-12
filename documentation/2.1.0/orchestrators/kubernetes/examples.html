@@ -355,6 +355,27 @@ nodecellar-nodecellar-app-service--1142367332   NodePort    10.152.183.219   &lt
 
 <p><img src="../../images/kubernetes_walkthrough/apacheBehindELBtest.png" alt="Topology" style="width: 700px; margin: 0 auto" /></p>
 
+<h2 id="a-simple-ubuntu-container-deployed-with-a-configmap">A simple Ubuntu container deployed with a configMap</h2>
+
+<p>ConfigMap is an important element inside a Pod. In fact, the properties in ConfigMap should be configured from the properties of component. In A4C, we are now able to make the configMap configurable for each Pod. In this example, we will deploy an Ubuntu container together with a configMap.</p>
+
+<p>We will use the topology <a href="https://github.com/alien4cloud/samples/tree/develop/org/alien4cloud/doc/kube/topology/09-simple-ubuntu-configmap">09-simple-ubuntu-configmap</a> to create a new application.
+In the editor of this application, the property <em>config_settings</em> is dedicated to the configuration of ConfigMap. The principle is to set up some parameters needed for creating the ConfigMap.
+<img src="../../images/kubernetes_walkthrough/09-simple-ubuntu-configmap.jpg" alt="Topology" /></p>
+
+<p>There are four parameters to configure:</p>
+
+<ul>
+  <li>mount_path: The path where the ConfigMap will be mounted.</li>
+  <li>mount_subPath: The subpath of the ConfigMap</li>
+  <li>input_prefix: The prefix used to point out the variables in the files found <em>config_path</em> which will be replaced with the concrete value before the creation of ConfigMap.</li>
+  <li>config_path: The path to the files found in the topology used to create the ConfigMap.</li>
+</ul>
+
+<p>In this example, we will create a ConfigMap from the file under the path <em>configFiles</em> whereas the ConfigMap will be mounted under <em>/config</em>.
+In the file <em>application.conf</em> under <em>configFiles</em>, the variable <strong>${CFG_IP}</strong> prefixed by <strong>CFG_</strong> is supposed to be replaced with the concrete ip address.</p>
+
+
         <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/2.1.0/orchestrators/kubernetes/examples.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
 	  </div>
     </div>
