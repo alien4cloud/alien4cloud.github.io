@@ -355,13 +355,13 @@ nodecellar-nodecellar-app-service--1142367332   NodePort    10.152.183.219   &lt
 
 <p><img src="../../images/kubernetes_walkthrough/apacheBehindELBtest.png" alt="Topology" style="width: 700px; margin: 0 auto" /></p>
 
-<h2 id="a-simple-ubuntu-container-deployed-with-a-configmap">A simple Ubuntu container deployed with a configMap</h2>
+<h2 id="a-simple-linux-container-deployed-with-a-configmap">A simple Linux container deployed with a configMap</h2>
 
-<p>ConfigMap is an important element inside a Pod. In fact, the properties in ConfigMap should be configured from the properties of component. In A4C, we are now able to make the configMap configurable for each Pod. In this example, we will deploy an Ubuntu container together with a configMap.</p>
+<p>ConfigMap is an important element inside a Pod. In fact, the properties in ConfigMap should be configured from the properties of component. In A4C, we are now able to make the configMap configurable for each Pod. In this example, we will deploy a linux container together with a configMap.</p>
 
-<p>We will use the topology <a href="https://github.com/alien4cloud/samples/tree/develop/org/alien4cloud/doc/kube/topology/09-simple-ubuntu-configmap">09-simple-ubuntu-configmap</a> to create a new application.
+<p>We will use the topology <a href="https://github.com/alien4cloud/samples/tree/develop/org/alien4cloud/doc/kube/topology/09-simple-alpine-configmap">09-simple-alpine-configmap</a> to create a new application.
 In the editor of this application, the property <em>config_settings</em> is dedicated to the configuration of ConfigMap. The principle is to set up some parameters needed for creating the ConfigMap.
-<img src="../../images/kubernetes_walkthrough/09-simple-ubuntu-configmap.jpg" alt="Topology" /></p>
+<img src="../../images/kubernetes_walkthrough/09-simple-alpine-configmap.jpg" alt="Topology" /></p>
 
 <p>There are four parameters to configure:</p>
 
@@ -373,8 +373,25 @@ In the editor of this application, the property <em>config_settings</em> is dedi
 </ul>
 
 <p>In this example, we will create a ConfigMap from the file under the path <em>configFiles</em> whereas the ConfigMap will be mounted under <em>/config</em>.
-In the file <em>application.conf</em> under <em>configFiles</em>, the variable <strong>${CFG_IP}</strong> prefixed by <strong>CFG_</strong> is supposed to be replaced with the concrete ip address.</p>
+In the file <em>application.conf</em> under <em>configFiles</em>, the variable <strong>${CFG_NAME}</strong> prefixed by <strong>CFG_</strong> is supposed to be replaced with the property named <strong>container_name</strong> of the container.</p>
 
+<h2 id="a-simple-apache-container-exposing-an-ingress-service">A simple Apache container exposing an ingress service</h2>
+
+<p>Ingress service is an API allowing external access and some other advanced features such as load balancing to a Pod. The new version of A4C is able to create an ingress service with a hostname with or without a secret. Here we will show you how to set up a Http ingress service simply with a host name.</p>
+
+<p>We will use the topology <a href="https://github.com/alien4cloud/samples/tree/develop/org/alien4cloud/doc/kube/topology/10-simple-apache-ingress">10-simple-apache-ingress</a> to walk through this example.</p>
+
+<p>Firstly, please go to <strong>Administration</strong> -&gt; <strong>Orchestrator</strong> -&gt; <em>Click on one of the orchestrator</em> -&gt; <strong>Location(s)</strong> -&gt; <strong>On demand resources</strong>. A type of resource <strong>org.alien4cloud.kubernetes.api.types.IngressService</strong> needed to be created in the level of location. Just find out the <strong>org.alien4cloud.kubernetes.api.types.IngressService</strong> and then drag and drop from right to left. And then we fill out the <strong>host</strong> with a hostname <strong>known-hostname.zone1</strong> which should be known in K8S.</p>
+
+<p><img src="../../images/kubernetes_walkthrough/10-simple-apache-ingress-resources.png" alt="Resources" /></p>
+
+<p>Secondly, in the level of TOSCA, the ingress service showed up in the form of capability, here named <strong>web_service</strong>, which will be replaced with a concrete resource configured in advance in the first step.</p>
+
+<p>Thirdly, there is only one step to be done before the deployment. Go to the <strong>matching</strong> tab, we need to select the concrete service, here named <strong>Mock K8S Ingress Service</strong> for the ingress service.</p>
+
+<p><img src="../../images/kubernetes_walkthrough/10-simple-apache-ingress-matching.png" alt="Resources" /></p>
+
+<p>Finally, we are able to kick off the deployment.</p>
 
         <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/2.1.0/orchestrators/kubernetes/examples.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
 	  </div>
