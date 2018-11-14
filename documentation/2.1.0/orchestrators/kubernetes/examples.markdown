@@ -327,3 +327,39 @@ During the deployment, matche the `Apache_http_endpoint_Service` node to this ne
 You can follow the link:
 
 ![Topology](../../images/kubernetes_walkthrough/apacheBehindELBtest.png){: style="width: 700px; margin: 0 auto"}
+
+## A simple Linux container deployed with a configMap
+
+ConfigMap is an important element inside a Pod. In fact, the properties in ConfigMap should be configured from the properties of component. In A4C, we are now able to make the configMap configurable for each Pod. In this example, we will deploy a linux container together with a configMap.
+
+We will use the topology [09-simple-alpine-configmap](https://github.com/alien4cloud/samples/tree/develop/org/alien4cloud/doc/kube/topology/09-simple-alpine-configmap) to create a new application.
+In the editor of this application, the property *config_settings* is dedicated to the configuration of ConfigMap. The principle is to set up some parameters needed for creating the ConfigMap.
+![Topology](../../images/kubernetes_walkthrough/09-simple-alpine-configmap.jpg)
+
+ There are four parameters to configure:
+
+ * mount_path: The path where the ConfigMap will be mounted.
+ * mount_subPath: The subpath of the ConfigMap
+ * input_prefix: The prefix used to point out the variables in the files found *config_path* which will be replaced with the concrete value before the creation of ConfigMap.
+ * config_path: The path to the files found in the topology used to create the ConfigMap.
+
+In this example, we will create a ConfigMap from the file under the path *configFiles* whereas the ConfigMap will be mounted under */config*.
+In the file *application.conf* under *configFiles*, the variable **${CFG_NAME}** prefixed by **CFG_** is supposed to be replaced with the property named **container_name** of the container.
+
+## A simple Apache container exposing an ingress service
+
+Ingress service is an API allowing external access and some other advanced features such as load balancing to a Pod. The new version of A4C is able to create an ingress service with a hostname with or without a secret. Here we will show you how to set up a Http ingress service simply with a host name.
+
+We will use the topology [10-simple-apache-ingress](https://github.com/alien4cloud/samples/tree/develop/org/alien4cloud/doc/kube/topology/10-simple-apache-ingress) to walk through this example.
+
+Firstly, please go to **Administration** -> **Orchestrator** -> *Click on one of the orchestrator* -> **Location(s)** -> **On demand resources**. A type of resource **org.alien4cloud.kubernetes.api.types.IngressService** needed to be created in the level of location. Just find out the **org.alien4cloud.kubernetes.api.types.IngressService** and then drag and drop from right to left. And then we fill out the **host** with a hostname **known-hostname.zone1** which should be known in K8S.
+
+![Resources](../../images/kubernetes_walkthrough/10-simple-apache-ingress-resources.png)
+
+Secondly, in the level of TOSCA, the ingress service showed up in the form of capability, here named **web_service**, which will be replaced with a concrete resource configured in advance in the first step.
+
+Thirdly, there is only one step to be done before the deployment. Go to the **matching** tab, we need to select the concrete service, here named **Mock K8S Ingress Service** for the ingress service.
+
+![Resources](../../images/kubernetes_walkthrough/10-simple-apache-ingress-matching.png)
+
+Finally, we are able to kick off the deployment.
