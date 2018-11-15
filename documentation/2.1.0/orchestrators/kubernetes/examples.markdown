@@ -344,7 +344,13 @@ In the editor of this application, the property *config_settings* is dedicated t
  * config_path: The path to the files found in the topology used to create the ConfigMap.
 
 In this example, we will create a ConfigMap from the file under the path *configFiles* whereas the ConfigMap will be mounted under */config*.
-In the file *application.conf* under *configFiles*, the variable **${CFG_NAME}** prefixed by **CFG_** is supposed to be replaced with the property named **container_name** of the container.
+
+In the file *application.conf* under *configFiles*, the variable **${NAME}** is supposed to be replaced with an input value named **${CFG_NAME}** under the *create* operation (please see the [type](https://github.com/alien4cloud/samples/blob/develop/org/alien4cloud/doc/kube/config-container/types.yml)) which fetches the property named **container_name**.
+
+When the deployment is finished, we can see the generated configmap in k8s. It turns out that the variable **${NAME}** is replaced with **alpine**.
+
+Except that, we are also able to deal with the starting command of docker container with the property **docker_run_cmd** and **docker_run_args**.
+![Topology](../../images/kubernetes_walkthrough/09-simple-alpine-configmap-docker_cmd.jpg)
 
 ## A simple Apache container exposing an ingress service
 
