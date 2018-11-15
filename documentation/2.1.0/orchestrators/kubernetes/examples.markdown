@@ -5,7 +5,7 @@ root: ../../../../
 categories: DOCUMENTATION-2.1.0
 parent: [orchestrators, kubernetes]
 node_name: examples
-weight: 4000
+weight: 5000
 ---
 
 ## Prerequisites
