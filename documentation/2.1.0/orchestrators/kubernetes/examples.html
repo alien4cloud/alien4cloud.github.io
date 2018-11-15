@@ -372,8 +372,14 @@ In the editor of this application, the property <em>config_settings</em> is dedi
   <li>config_path: The path to the files found in the topology used to create the ConfigMap.</li>
 </ul>
 
-<p>In this example, we will create a ConfigMap from the file under the path <em>configFiles</em> whereas the ConfigMap will be mounted under <em>/config</em>.
-In the file <em>application.conf</em> under <em>configFiles</em>, the variable <strong>${CFG_NAME}</strong> prefixed by <strong>CFG_</strong> is supposed to be replaced with the property named <strong>container_name</strong> of the container.</p>
+<p>In this example, we will create a ConfigMap from the file under the path <em>configFiles</em> whereas the ConfigMap will be mounted under <em>/config</em>.</p>
+
+<p>In the file <em>application.conf</em> under <em>configFiles</em>, the variable <strong>${NAME}</strong> is supposed to be replaced with an input value named <strong>${CFG_NAME}</strong> under the <em>create</em> operation (please see the <a href="https://github.com/alien4cloud/samples/blob/develop/org/alien4cloud/doc/kube/config-container/types.yml">type</a>) which fetches the property named <strong>container_name</strong>.</p>
+
+<p>When the deployment is finished, we can see the generated configmap in k8s. It turns out that the variable <strong>${NAME}</strong> is replaced with <strong>alpine</strong>.</p>
+
+<p>Except that, we are also able to deal with the starting command of docker container with the property <strong>docker_run_cmd</strong> and <strong>docker_run_args</strong>.
+<img src="../../images/kubernetes_walkthrough/09-simple-alpine-configmap-docker_cmd.jpg" alt="Topology" /></p>
 
 <h2 id="a-simple-apache-container-exposing-an-ingress-service">A simple Apache container exposing an ingress service</h2>
 
