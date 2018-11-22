@@ -1,0 +1,55 @@
+---
+layout: post
+title:  ALIEN for Cloud 2.1.0-SM7
+root: ../
+categories: RELEASE_NOTES
+parent: [release_note]
+node_name: 2.1.0-SM7
+weight: 9917
+exclude_from_search: true
+---
+
+
+
+
+<i class="fa fa-plus text-success"></i> New feature <i class="fa fa-level-up text-primary"></i> Improvement  <i class="fa fa-bug text-danger"></i> Bug <i class="fa fa-exclamation-triangle text-warning"></i> Breaking change
+
+
+### Alien 4 Cloud K8S plugin
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-2985 | Manage TLS Ingress  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-2989 | Manage K8S Secret Volumes  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-2990 | Add ability to define separate values for cpu_limit and mem_limit  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-2992 | Add ability to prefix all K8S names using an application metaproperty named K8S_PREFIX  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-2993 | Add ability to define lifecycle handler on containers (preStop & postStart)  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-3001 | Add ability to create multiport statically named services  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-3006 | Add ability do specifiy readinessProbe and livenessProbe to containers  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-3007 | Add ability to connect 2 containers in the same DU (without creating services)  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-3011 | Add nvidia GPU management in container resources  |
+        |  <i class="fa fa-bug text-danger"></i> | ALIEN-2977 | Deployment should fail if the K8S deployment is not availaible  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2978 | We shouldn't force the use of /bin/bash -c ... at container start  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2988 | Resources created in another namespace than default one are not delete correctly  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-2998 | For a container, cpu/memory requests/limits should be all optionnal  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-3010 | ConfigMaps are not created/deleted in the right namespace  |
+  
+
+
+### Alien 4 Cloud
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-2975 | Extend usage of meta-properties for components and services & use metaproperties in facet filters  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-2997 | Change lifecyle for Jobs so run workflow : add a submit operation, followed by run  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-2999 | Add a "Duplicate" button in services list  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-3002 | Add ability to define meta-properties on topologies  |
+        |  <i class="fa fa-bug text-danger"></i> | ALIEN-3000 | Error 500 when navigating into a current deployment page  |
+  
+
