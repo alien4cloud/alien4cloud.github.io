@@ -5,7 +5,7 @@ root: ../
 categories: RELEASE_NOTES
 parent: [release_note]
 node_name: 1.4.4
-weight: 924
+weight: 9920
 exclude_from_search: true
 ---
 
@@ -23,7 +23,7 @@ exclude_from_search: true
   | Type        | Id         | Description |
   |:------------|:-----------|:------------|
         |  <i class="fa fa-bug text-danger"></i> | ALIEN-2937 | A4C startup too long and not resilient if topology is incorrect  |
-  
+
 
 
 ### Alien 4 Cloud
@@ -38,5 +38,3 @@ exclude_from_search: true
     |  <i class="fa fa-bug text-danger"></i> | ALIEN-2923 | (SUPALIEN-1104) Pb avec un identifiant avec un point  |
     |  <i class="fa fa-bug text-danger"></i> | ALIEN-2936 | (SUPALIEN-1109) Le nom de l'application et d'un environnement déployé ne doit pas être modifiable post déploiement  |
     |  <i class="fa fa-bug text-danger"></i> | ALIEN-2937 | A4C startup too long and not resilient if topology is incorrect  |
-  
-
