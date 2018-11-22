@@ -5,7 +5,7 @@ root: ../
 categories: RELEASE_NOTES
 parent: [release_note]
 node_name: 1.4.3.5
-weight: 923
+weight: 9922
 exclude_from_search: true
 ---
 
@@ -23,5 +23,3 @@ exclude_from_search: true
   | Type        | Id         | Description |
   |:------------|:-----------|:------------|
         |  <i class="fa fa-bug text-danger"></i> | ALIEN-2961 | File descriptors remains open when creating topologie from template  |
-  
-
