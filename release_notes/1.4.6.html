@@ -7,8 +7,8 @@
 
 ga('create', 'UA-73216650-1', 'auto');
 ga('set', {
-  page: '/release_notes/1.4.5.html',
-  title: 'ALIEN for Cloud 1.4.5'
+  page: '/release_notes/1.4.6.html',
+  title: 'ALIEN for Cloud 1.4.6'
 });
 ga('send', 'pageview');
 
@@ -23,12 +23,12 @@ ga('send', 'pageview');
       <div id="content" class="col-sm-8 col-md-9">
     
         <div style="height: 50px;">
-          <h1 class="pull-left" style="margin-top: 0px;">ALIEN for Cloud 1.4.5</h1>
-          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/release_notes/1.4.5.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+          <h1 class="pull-left" style="margin-top: 0px;">ALIEN for Cloud 1.4.6</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/release_notes/1.4.6.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
         </div>
         <p><i class="fa fa-plus text-success"></i> New feature <i class="fa fa-level-up text-primary"></i> Improvement  <i class="fa fa-bug text-danger"></i> Bug <i class="fa fa-exclamation-triangle text-warning"></i> Breaking change</p>
 
-<h3 id="alien-4-cloud-premium">Alien 4 Cloud Premium</h3>
+<h3 id="cloudify-4-paas-provider">Cloudify 4 PaaS Provider</h3>
 
 <table class="table table-bordered">
   <thead>
@@ -41,8 +41,18 @@ ga('send', 'pageview');
   <tbody>
     <tr>
       <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
-      <td style="text-align: left">ALIEN-2974</td>
-      <td style="text-align: left">Issue in HA : when session is invalidated, the leader should remain the leader if it’s health is OK</td>
+      <td style="text-align: left">ALIEN-3012</td>
+      <td style="text-align: left">Log pollers are not stopped when orchestrator is disabled</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-3013</td>
+      <td style="text-align: left">Bad segregation of orchestrators</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-3015</td>
+      <td style="text-align: left">Backport event poller (no more need of log webapp)</td>
     </tr>
   </tbody>
 </table>
@@ -60,13 +70,18 @@ ga('send', 'pageview');
   <tbody>
     <tr>
       <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
-      <td style="text-align: left">ALIEN-2899</td>
-      <td style="text-align: left">Issue with ascii code caracters in output</td>
+      <td style="text-align: left">ALIEN-3012</td>
+      <td style="text-align: left">Log pollers are not stopped when orchestrator is disabled</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-3013</td>
+      <td style="text-align: left">Bad segregation of orchestrators</td>
     </tr>
   </tbody>
 </table>
 
-<h3 id="alien-4-cloud">Alien 4 Cloud</h3>
+<h3 id="cloudify-3-paas-provider">Cloudify 3 PaaS Provider</h3>
 
 <table class="table table-bordered">
   <thead>
@@ -79,23 +94,13 @@ ga('send', 'pageview');
   <tbody>
     <tr>
       <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
-      <td style="text-align: left">ALIEN-2704</td>
-      <td style="text-align: left">Issue when setting custom command input of type ‘list of string’ (Can not deserialize instance of java.lang.String out of START_ARRAY token)</td>
+      <td style="text-align: left">ALIEN-3012</td>
+      <td style="text-align: left">Log pollers are not stopped when orchestrator is disabled</td>
     </tr>
     <tr>
       <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
-      <td style="text-align: left">ALIEN-2929</td>
-      <td style="text-align: left">When going to application’s environment list, the view is not up to date (if changed elsewhere)</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
-      <td style="text-align: left">ALIEN-2931</td>
-      <td style="text-align: left">In YAML topology editor, changing the edited version doesn’t change the YAML editor content</td>
-    </tr>
-    <tr>
-      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
-      <td style="text-align: left">ALIEN-2961</td>
-      <td style="text-align: left">File descriptors remains open when creating topologie from template</td>
+      <td style="text-align: left">ALIEN-3013</td>
+      <td style="text-align: left">Bad segregation of orchestrators</td>
     </tr>
   </tbody>
 </table>
@@ -113,13 +118,24 @@ ga('send', 'pageview');
   <tbody>
     <tr>
       <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
-      <td style="text-align: left">ALIEN-2899</td>
-      <td style="text-align: left">Issue with ascii code caracters in output</td>
+      <td style="text-align: left">ALIEN-3012</td>
+      <td style="text-align: left">Log pollers are not stopped when orchestrator is disabled</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-3013</td>
+      <td style="text-align: left">Bad segregation of orchestrators</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-3015</td>
+      <td style="text-align: left">Backport event poller (no more need of log webapp)</td>
     </tr>
   </tbody>
 </table>
 
-        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/release_notes/1.4.5.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/release_notes/1.4.6.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
 	  </div>
     </div>
   </div>
@@ -136,7 +152,7 @@ if(hash && hash!== null && hash.match(/html$/)) {
 <script type="text/javascript" src="/js/post-layout.js"></script>
 <script>
 $(document).ready(function () {
-  makeSideBar('RELEASE_NOTES', 'release_notes/1.4.5.markdown');
+  makeSideBar('RELEASE_NOTES', 'release_notes/1.4.6.markdown');
 });
 </script>
 
