@@ -1,0 +1,38 @@
+---
+layout: post
+title:  ALIEN for Cloud 2.1.1
+root: ../
+categories: RELEASE_NOTES
+parent: [release_note]
+node_name: 2.1.1
+weight: 9916
+exclude_from_search: true
+---
+
+
+
+
+<i class="fa fa-plus text-success"></i> New feature <i class="fa fa-level-up text-primary"></i> Improvement  <i class="fa fa-bug text-danger"></i> Bug <i class="fa fa-exclamation-triangle text-warning"></i> Breaking change
+
+
+### Alien 4 Cloud
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-3039 | Add raw timestamp in logs (raw data form orchestrator)  |
+      
+
+
+### Yorc Paas Provider
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-3039 | Add raw timestamp in logs (raw data form orchestrator)  |
+      
+

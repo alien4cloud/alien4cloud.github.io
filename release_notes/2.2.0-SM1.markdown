@@ -1,0 +1,42 @@
+---
+layout: post
+title:  ALIEN for Cloud 2.2.0-SM1
+root: ../
+categories: RELEASE_NOTES
+parent: [release_note]
+node_name: 2.2.0-SM1
+weight: 9916
+exclude_from_search: true
+---
+
+
+
+
+<i class="fa fa-plus text-success"></i> New feature <i class="fa fa-level-up text-primary"></i> Improvement  <i class="fa fa-bug text-danger"></i> Bug <i class="fa fa-exclamation-triangle text-warning"></i> Breaking change
+
+
+### Alien 4 Cloud
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-3039 | Add raw timestamp in logs (raw data form orchestrator)  |
+        |  <i class="fa fa-bug text-danger"></i> | ALIEN-3034 | Noise between different environments events  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-3035 | Component info not accessible from catalog  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-3037 | Bad escaping of backslash in YAML scalar  |
+  
+
+
+### Yorc Paas Provider
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-3038 | First version of new Yorc plugin provider  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-3039 | Add raw timestamp in logs (raw data form orchestrator)  |
+      
+
