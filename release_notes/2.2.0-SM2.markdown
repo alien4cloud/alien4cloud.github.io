@@ -1,0 +1,46 @@
+---
+layout: post
+title:  ALIEN for Cloud 2.2.0-SM2
+root: ../
+categories: RELEASE_NOTES
+parent: [release_note]
+node_name: 2.2.0-SM2
+weight: 9915
+exclude_from_search: true
+---
+
+
+
+
+<i class="fa fa-plus text-success"></i> New feature <i class="fa fa-level-up text-primary"></i> Improvement  <i class="fa fa-bug text-danger"></i> Bug <i class="fa fa-exclamation-triangle text-warning"></i> Breaking change
+
+
+### Alien 4 Cloud
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-3052 | Add ability to properly configure an orchestrator plugin by injecting config earlier  |
+        |  <i class="fa fa-bug text-danger"></i> | ALIEN-3044 | Custom workflow operation standard interface use long name while standard workflows use short name  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-3046 | Cant not relogin to alien when maintenance mode is started  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-3050 | Copy inputs from existing environment is not more possible when creating a new one  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-3051 | Custom workflow can be relaunched while not finished  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-3054 | Special characters not supported in login or password  |
+  
+
+
+### Yorc Paas Provider
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-3021 | Add ability to execute custom workflows  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-3022 | Add ability to launch custom command  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-3023 | Add ability to configure the provider plugin in details  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-3052 | Add ability to properly configure an orchestrator plugin by injecting config earlier  |
+      
+
