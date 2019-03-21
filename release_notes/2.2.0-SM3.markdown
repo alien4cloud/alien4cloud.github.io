@@ -5,7 +5,7 @@ root: ../
 categories: RELEASE_NOTES
 parent: [release_note]
 node_name: 2.2.0-SM3
-weight: 9916
+weight: 9915
 exclude_from_search: true
 ---
 
@@ -24,7 +24,7 @@ exclude_from_search: true
   |:------------|:-----------|:------------|
         |  <i class="fa fa-bug text-danger"></i> | ALIEN-3056 | Description field with special characters in datatype not escaped  |
     |  <i class="fa fa-bug text-danger"></i> | ALIEN-3058 | After Yorc restart, orchetrator cannot be enabled in A4C UI  |
-  
+
 
 
 ### Yorc Paas Provider
@@ -36,5 +36,3 @@ exclude_from_search: true
   |:------------|:-----------|:------------|
       |  <i class="fa fa-level-up text-primary"></i> | ALIEN-3060 | Optimization requests number between Alien and Yorc  |
       |  <i class="fa fa-bug text-danger"></i> | ALIEN-3057 | Outputs in deployment from attributs do not display  |
-  
-
