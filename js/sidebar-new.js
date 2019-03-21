@@ -69952,7 +69952,7 @@ var node, children;
       node.name = "2.2.0-SM3";
       node.title = "ALIEN for Cloud 2.2.0-SM3";
       node.url = "release_notes/2.2.0-SM3.html";
-      node.weight =  9916;
+      node.weight =  9915;
       node.root = "../";
     
   
