@@ -5,7 +5,7 @@ root: ../
 categories: RELEASE_NOTES
 parent: [release_note]
 node_name: 2.2.0-SM4
-weight: 9916
+weight: 9908
 exclude_from_search: true
 ---
 
