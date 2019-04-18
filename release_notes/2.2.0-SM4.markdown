@@ -1,0 +1,43 @@
+---
+layout: post
+title:  ALIEN for Cloud 2.2.0-SM4
+root: ../
+categories: RELEASE_NOTES
+parent: [release_note]
+node_name: 2.2.0-SM4
+weight: 9916
+exclude_from_search: true
+---
+
+
+
+
+<i class="fa fa-plus text-success"></i> New feature <i class="fa fa-level-up text-primary"></i> Improvement  <i class="fa fa-bug text-danger"></i> Bug <i class="fa fa-exclamation-triangle text-warning"></i> Breaking change
+
+
+### Alien 4 Cloud
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-3078 | A deployed application should not be renamed, nor the deployment (option, false by default)  |
+      |  <i class="fa fa-bug text-danger"></i> | ALIEN-3061 | Empty list in a topology provokes an error when editing with YAML editor  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-3062 | Error 500 while setting input with empty default value  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-3063 | Invalid implementation artifact reference does not block CSAR import, displaying warning only   |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-3079 | Deployment status is wrongly modified when getting deployment state under particular conditions  |
+  
+
+
+### Yorc Paas Provider
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-3075 | Yorc Provider should be aware when a deployment has been deleted from Yorc  |
+      |  <i class="fa fa-bug text-danger"></i> | ALIEN-3076 | NPE at plugin init when Yorc deployment has no task  |
+  
+

@@ -9,7 +9,7 @@ categories-list: ["DOCUMENTATION", "DOCUMENTATION-1.3.0", "DOCUMENTATION-1.4.0",
 
 stable-version: "2.0.0"
 premium-stable-version: "2.0.0"
-last-version: "2.2.0-SM1"
+last-version: "2.2.0-SM3"
 last-snapshot: "2.2.0-SNAPSHOT"
 old-stables: ["1.4.6"]
 log_app_version: 1.4.6
