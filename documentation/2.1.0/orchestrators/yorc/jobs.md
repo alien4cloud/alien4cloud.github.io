@@ -1,10 +1,10 @@
 ---
 layout: post
-title:  Tosca Job Yorc implementation
+title:  Working with jobs
 root: ../../../../
 categories: DOCUMENTATION-2.1.0
 parent: [orchestrators, yorc]
-node_name: Tosca Job Yorc implementation
+node_name: Working with jobs
 weight: 4000
 ---
 
@@ -47,52 +47,47 @@ The complete list with detailed description can be found in the Alien4Cloud cata
 
 The TOSCA component must provide an implementation for the **tosca.interfaces.node.lifecycle.Runnable** interface.
 
-Example of a job component with a **submit** operation implementation using the **yorc.artifacts.Deployment.SlurmJobBatch**.
-
-```
-node_types:
-org.ystia.yorc.samples.job.simple.Component:  
-derived_from: yorc.nodes.slurm.Job tags:
-icon: /images/slurm.png interfaces: tosca.interfaces.node.lifecycle.Runnable: submit:
-implementation: file: bin/test.mpi type: yorc.artifacts.Deployment.SlurmJobBatch
-```
-
-
 Example of a job component. Here the **submit** operation definition provides the submission script **submit.sh**.
 
-```
+{% highlight yaml %}
 node_types:
-org.ystia.yorc.samples.job.simple.Component:  
-derived_from: yorc.nodes.slurm.Job
-description: Sample component to show how to submit jobs to slurm
-icon: /images/slurm.png artifacts:
-type: tosca.artifacts.File
-file: bin
-interfaces: tosca.interfaces.node.lifecycle.Runnable:
-submit: implementation:
-file: bin/submit.sh
-type: yorc.artifacts.Deployment.SlurmJobBatch
-```
+  org.ystia.yorc.samples.job.simple.Component:
+  derived_from: yorc.nodes.slurm.Job
+  tags:
+    icon: /images/slurm.png
+  artifacts:
+    - bin:
+      type: tosca.artifacts.File
+      file: bin
+  interfaces: tosca.interfaces.node.lifecycle.Runnable:
+    submit:
+      implementation:
+        file: bin/submit.sh
+        type: yorc.artifacts.Deployment.SlurmJobBatch
+{% endhighlight %}
 
 To run a Singularity job, users can provide in the component definition the docker image to be run by Singularity.
 
-```
-
+{% highlight yaml %}
 repositories:
-docker:  
-url: <https://hpda-docker-registry:5000/>
-type: a4c_ignore
+  docker:
+    url: <https://hpda-docker-registry:5000/>
+    type: a4c_ignore
 
 node_types:
-org.ystia.yorc.samples.job.singularity.Component:  
-derived_from: yorc.nodes.slurm.SingularityJob description: &gt; Sample component to show how to run a job via singularity run tags: icon: /images/singularity.png
-
-interfaces:  
-tosca.interfaces.node.lifecycle.Runnable:  
-submit:  
-implementation:  
-file: docker://godlovedc/lolcow:latest repository: docker type: yorc.artifacts.Deployment.SlurmJobImage
-```
+  org.ystia.yorc.samples.job.singularity.Component:
+    derived_from: yorc.nodes.slurm.SingularityJob
+    description: Sample component to show how to run a job via singularity run
+    tags:
+      icon: /images/singularity.png
+    interfaces:
+      tosca.interfaces.node.lifecycle.Runnable:
+        submit:
+          implementation:
+            file: docker://godlovedc/lolcow:latest
+            repository: docker
+            type: yorc.artifacts.Deployment.SlurmJobImage
+{% endhighlight %}
 
 ### Kubernetes
 
@@ -130,9 +125,9 @@ When your application contains Jobs (meaning node templates which implements the
 -   **run**: a workflow that submits and monitor jobs
 -   **cancel**: a workflow that cancels jobs
 
-> **warning**
->
-> The cancel workflow is a kind of temporary work around. It allows to cancel jobs but do not take care if the job is submitted or not. The recommended way to cancel a **run** workflow is to cancel the associated task in Yorc using either the CLI or the Rest API. This is temporary and we will provide soon a way to cancel workflows directly from Alien4Cloud.
+{%warning%}
+The cancel workflow is a kind of temporary work around. It allows to cancel jobs but do not take care if the job is submitted or not. The recommended way to cancel a **run** workflow is to cancel the associated task in Yorc using either the CLI or the Rest API. This is temporary and we will provide soon a way to cancel workflows directly from Alien4Cloud.
+{%endwarning%}
 
 The **run** workflow allows to orchestrate Jobs. That means that if for instance, **jobB** depends on **jobA** using a TOSCA **dependsOn** or **connectsTO** relationship then Alien4Cloud will generate a workflow that first submit and wait for the completion of **jobA** before submitting **jobB**.
 

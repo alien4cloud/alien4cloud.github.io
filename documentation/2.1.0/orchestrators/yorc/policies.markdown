@@ -1,14 +1,22 @@
 ---
 layout: post
-title:  Policies
+title:  Applying policies
 root: ../../../../
 categories: DOCUMENTATION-2.1.0
 parent: [orchestrators, yorc]
-node_name: Policies
+node_name: Applying policies
 weight: 3000
 ---
 
-## Applying a Server Group Anti-affinity placement policy on OpenStack
+Both monitoring policies (HTTP/TCP) and Affinity/Anti-Affinity OpenStack ServerGroup placement policies are natively available with Yorc Server.
+
+Let's see how we can apply these on apps:
+
+- [Server Group Anti-affinity placement policy on OpenStack](#applying-a-server-group-anti-affinity-placement-policy-on-openstack)
+- [TCP monitoring policy](#applying-tcp-monitoring-policy)
+- [HTTP monitoring policy](#applying-http-monitoring-policy-on-a-web-application)
+
+## Applying a Server Group Anti affinity placement policy on OpenStack
 
 Let's imagine the use case of a resilient application on OpenStack:
 
@@ -18,9 +26,9 @@ This can be done by applying **yorc.openstack.policies.ServerGroupAntiAffinity**
 
 Let's do it !
 
-### Configure location
+### Configure location policies
 
-After configuring your OpenStack location as described here &lt;location\_config\_openstack\_section&gt;, click on the ![policies button](../../../../images/2.1.0/yorc/policies-button.png) button, select **Catalog** and use the search to find the ServerGroupAntiAffinity as below.
+After configuring your OpenStack location as described previously click on the ![policies button](../../../../images/2.1.0/yorc/policies-button.png){: height="26px" .inline} button, select **Catalog** and use the search to find the ServerGroupAntiAffinity as below.
 
 ![Search serverGroup policy](../../../../images/2.1.0/yorc/search-servergroup-policy.png)
 
@@ -38,7 +46,7 @@ Now, your OpenStack location is configured with a Server Group anti-affinity pla
 
 You can apply a Server Group anti-affinity placement policy to your application topology by using an abstract policy ; this allows to deploy your application on OpenStack, as well as on GCP, if another specific placement policy is implemented for GCP too.
 
-Select your application and go to the **Topology Editor**. Click on the ![policies button](../../../../images/2.1.0/yorc/topology-policies-button.png) button on the vertical blue bar on the left. Click on the **+ Add policies** button, search the abstract policy node **AntiAffinity** (org.alien4cloud.policies.AntiAffinity) from alien-base-types and drag-and-drop it on the policies list of your topology.
+Select your application and go to the **Topology Editor**. Click on the ![policies button](../../../../images/2.1.0/yorc/topology-policies-button.png){: height="52px" .inline} button on the vertical blue bar on the left. Click on the **+ Add policies** button, search the abstract policy node **AntiAffinity** (org.alien4cloud.policies.AntiAffinity) from alien-base-types and drag-and-drop it on the policies list of your topology.
 
 Set the **level** property to **host**.
 
@@ -59,16 +67,15 @@ Deploy the application and enjoy !
 
 ## Applying TCP Monitoring policy
 
-
 The TCP Monitoring policy can be used for monitoring Compute instances liveness.
 
 To enable TCP monitoring, you need to configure the location by adding **yorc.policies.monitoring.TCPMonitoring** to the **Policies** resource list.
 
 Moreover, in the application topology, the Compute nodes need to have **yorc.policies.monitoring.TCPMonitoring** policy set and configured.
 
-### Configure location
+### Configure location policies
 
-After configuring your OpenStack location as described here &lt;location\_config\_openstack\_section&gt;, click on the ![policies button](../../../../images/2.1.0/yorc/policies-button.png) button, select **Catalog** and use the search to find the TCPMonitoring as below.
+After configuring your OpenStack location as described previously click on the ![policies button](../../../../images/2.1.0/yorc/policies-button.png){: height="26px" .inline} button, select **Catalog** and use the search to find the TCPMonitoring as below.
 
 ![Search TCP monitoring policy](../../../../images/2.1.0/yorc/search-tcpmonitoring-policy.png)
 
@@ -80,7 +87,7 @@ You must finally have this configuration:
 
 ### Edit application topology
 
-Select your application and go to the **Topology Editor**. Click on the ![policies button](../../../../images/2.1.0/yorc/topology-policies-button.png) button on the vertical blue bar on the left. Click on the **+ Add policies** button, search the policy node **TCPMonitoring** (yorc.policies.monitoring.TCPMonitoring) and drag-and-drop it on the policies list of your topology.
+Select your application and go to the **Topology Editor**. Click on the ![policies button](../../../../images/2.1.0/yorc/topology-policies-button.png){: height="52px" .inline} button on the vertical blue bar on the left. Click on the **+ Add policies** button, search the policy node **TCPMonitoring** (yorc.policies.monitoring.TCPMonitoring) and drag-and-drop it on the policies list of your topology.
 
 Then you can select the **Targets** of the policy, i.e in this case, the node name of the compute instances you want not to be monitored, which is **Compute**.
 
@@ -106,9 +113,9 @@ To enable HTTP monitoring, you need to configure the location by adding **yorc.p
 
 Moreover, the application topology, the web server nodes need to have **yorc.policies.monitoring.HTTPMonitoring** policy set and configured.
 
-### Configure location
+### Configure location policies
 
-After configuring your OpenStack location as described here &lt;location\_config\_openstack\_section&gt;, click on the ![policies button](../../../../images/2.1.0/yorc/policies-button.png) button, select **Catalog** and use the search to find the HTTPMonitoring as below.
+After configuring your OpenStack location as described previously, click on the ![policies button](../../../../images/2.1.0/yorc/policies-button.png){: height="52px" .inline} button, select **Catalog** and use the search to find the HTTPMonitoring as below.
 
 ![Search HTTP monitoring policy](../../../../images/2.1.0/yorc/search-httpmonitoring-policy.png)
 

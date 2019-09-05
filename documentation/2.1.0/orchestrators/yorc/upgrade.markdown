@@ -10,6 +10,6 @@ weight: 5000
 
 Upgrading Yorc engine is described in [a separated document](https://yorc.readthedocs.io/en/stable/upgrade.html).
 
-> **note**
->
-> A rolling upgrade without interruption feature is planned for future versions.
+{%info%}
+A rolling upgrade without interruption feature is planned for future versions.
+{%endinfo%}

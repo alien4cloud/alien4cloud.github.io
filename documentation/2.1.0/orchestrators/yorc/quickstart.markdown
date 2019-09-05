@@ -1,18 +1,16 @@
 ---
 layout: post
-title:  Quickstart
+title:  Quick Start: Deploy your first application
 root: ../../../../
 categories: DOCUMENTATION-2.1.0
 parent: [orchestrators, yorc]
-node_name: Quickstart
+node_name: Quick Start: Deploy your first application
 weight: 2000
 ---
 
 ## Import Samples
 
-Click on the ![components](../../../../images/2.1.0/yorc/components-btn.png) button in the navigation bar.
-
-Locate the **welcome-<version>-csar.zip** and **welcome-basic-<version>-topo.zip** in the yorc distribution and drop them **in this order** into the catalog's drop area.
+To get started, you can upload sample application from the [Forge](https://github.com/ystia/forge/tree/v2.0.0/org/ystia) and and deploy the Welcome application on one of the supported types of infrastructures as described below.
 
 Now we have the Welcome template ready to use, we can create an application based on it. To do this, go to the ![applications](../../../../images/2.1.0/yorc/application-btn.png) section. Click on the ![new application](../../../../images/2.1.0/yorc/new-application-btn.png) button and select the welcome-basic in the table at the bottom of the popup.
 

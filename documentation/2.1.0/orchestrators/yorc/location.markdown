@@ -1,26 +1,33 @@
 ---
 layout: post
-title:  Yorc Configuration
+title:  Configure a Yorc orchestrator and locations
 root: ../../../../
 categories: DOCUMENTATION-2.1.0
 parent: [orchestrators, yorc]
-node_name: yorc Configuration
+node_name: Configure a Yorc orchestrator and locations
 weight: 1000
 ---
 
-Now we must define an orchestrator and one or more locations (where we will actually deploy applications). In Alien4Cloud every location is managed by an orchestrator.
+Once Alien4cloud is installed with the yorc-provider plugin and the yorc server is running, we must define an orchestrator and one or more locations (where we will actually deploy applications). In Alien4Cloud every location is managed by an orchestrator.
 
-The Alien4Cloud Yorc Plugin installed in the previous section allows to create the Yorc orchestrator and locations.
+Several location types are available and they correspond to the infrastructure types supported by Yorc:
 
-Several location types are available ; they correspond to the infrastructure types supported by Yorc (OpenStack, AWS, Kubernetes, etc.). In order to deploy applications and run them on a given infrastructure, Yorc must be properly configured for that infrastructure (see "Infrastructure configuration" chapter in Yorc documentation).
+- [OpenStack](#configure-an-openstack-location)
+- [Slurm](#configure-a-slurm-location)
+- [Hosts Pool](#configure-a-hosts-pool-location)
+- [Google Cloud Platform](#configure-a-google-cloud-platform-location)
+- [Kubernetes](#configure-a-kubernetes-location)
+- [AWS](#configure-an-aws-location)
+
+In order to deploy applications and run them on a given infrastructure, Yorc must be properly configured for that infrastructure (see [Infrastructure configuration](https://yorc.readthedocs.io/en/stable/configuration.html#infrastructures-configuration) in Yorc documentation).
 
 Before creating the Yorc orchestrator, let's see how to define meta-properties that can be used to define some properties that are common to all the applications deployed in a location.
 
 ## Define Meta-properties
 
-To define meta-properties, go to ![administration](../../../../images/2.1.0/yorc/administration-btn.png) and in the ![orchestrator](../../../../images/2.1.0/yorc/meta-menu-btn.png) sub-menu.
+To define meta-properties, go to ![administration](../../../../images/2.1.0/yorc/administration-btn.png){: height="26px" .inline} and in the ![orchestrator](../../../../images/2.1.0/yorc/meta-menu-btn.png){: height="26px" .inline} sub-menu.
 
-Then you can create a new meta-property by clicking on ![new meta-property](../../../../images/2.1.0/yorc/new-meta-prop.png) and providing a name, a description and other information that characterize it.
+Then you can create a new meta-property by clicking on ![new meta-property](../../../../images/2.1.0/yorc/new-meta-prop.png){: height="26px" .inline} and providing a name, a description and other information that characterize it.
 
 In the image below, there are 2 meta-properties defined. They both have the K8S\_NAMESPACE **Name** and string **Type**. But they have different **Targets**. The **location** target specifies that the meta-property can be used to define a property for a location. In this particular case, it can be used to define a namespace for a Kubernetes location. The **application** target specifies that the meta-property can be used to specify a property having a value that applies to a particular application. A default value can be defined for meta-properties, but its not mandatory.
 
@@ -28,11 +35,11 @@ In the image below, there are 2 meta-properties defined. They both have the K8S\
 
 ## Configure a Yorc Orchestrator
 
-To create an orchestrator, go to ![administration](../../../../images/2.1.0/yorc/administration-btn.png)  and in the ![orchestrator](../../../../images/2.1.0/yorc/orchestrator-menu-btn.png) sub-menu. Create an orchestrator named **Yorc** with the following named plugin:
+To create an orchestrator, go to ![administration](../../../../images/2.1.0/yorc/administration-btn.png){: height="26px" .inline}  and in the ![orchestrator](../../../../images/2.1.0/yorc/orchestrator-menu-btn.png){: height="26px" .inline} sub-menu. Create an orchestrator named **Yorc** with the following named plugin:
 
 - Yorc Orchestrator Factory : 2.1.0
 
-At this moment your orchestrator is created but not enabled. Click on your orchestrator to see the information page, and then click on the configuration menu icon ![orchestrator configuration](../../../../images/2.1.0/yorc/orchestrator-config-btn.png).
+At this moment your orchestrator is created but not enabled. Click on your orchestrator to see the information page, and then click on the configuration menu icon ![orchestrator configuration](../../../../images/2.1.0/yorc/orchestrator-config-btn.png){: height="26px" .inline}.
 
 In the Driver configuration part, add the URL of your Yorc server (should respect the format: **http://yorc-ip:8800**) and return to the previous page to enable your orchestrator.
 
@@ -41,13 +48,15 @@ If Yorc is secured (ssl enabled), the yorc URL should use the **https** protocol
 - a client certificate that will be verified by Yorc
 - the PKCS \#8 encoded client private key.
 
-Once your orchestrator is created and enabled, go to the locations page by clicking on ![orchestrator location](../../../../images/2.1.0/yorc/orchestrator-location-btn.png)
+Once your orchestrator is created and enabled, go to the locations page by clicking on ![orchestrator location](../../../../images/2.1.0/yorc/orchestrator-location-btn.png){: height="26px" .inline}
 
-Create a new location clicking on ![new location](../../../../images/2.1.0/yorc/new-location.png) and provide a location name. Select **OpenStack** in the infrastructure type drop-down.
+## Configure an OpenStack Location
+
+Create a new location clicking on ![new location](../../../../images/2.1.0/yorc/new-location.png){: height="26px" .inline} and provide a location name. Select **OpenStack** in the infrastructure type drop-down.
 
 The details page of your location should appear.
 
-Go to ![on-demand resources](../../../../images/2.1.0/yorc/on-demand-ressource-tab.png) and add the following resources:
+Go to ![on-demand resources](../../../../images/2.1.0/yorc/on-demand-ressource-tab.png){: height="26px" .inline} and add the following resources:
 
 - yorc.nodes.openstack.PublicNetwork
 - yorc.nodes.openstack.Compute
@@ -66,13 +75,13 @@ Finally, in the **endpoint** capability of the Compute, open the **credentials**
 
 ## Configure a Slurm Location
 
-Go to the locations page by clicking on ![orchestrator location](../../../../images/2.1.0/yorc/orchestrator-location-btn.png)
+Go to the locations page by clicking on ![orchestrator location](../../../../images/2.1.0/yorc/orchestrator-location-btn.png){: height="26px" .inline}
 
-Create a new location clicking on ![new location](../../../../images/2.1.0/yorc/new-location.png) and provide a location name. Select **Slurm** in the infrastructure type drop-down.
+Create a new location clicking on ![new location](../../../../images/2.1.0/yorc/new-location.png){: height="26px" .inline} and provide a location name. Select **Slurm** in the infrastructure type drop-down.
 
 The details page of your location should appear.
 
-Go to ![on-demand resources](../../../../images/2.1.0/yorc/on-demand-ressource-tab.png) and add the following resource:
+Go to ![on-demand resources](../../../../images/2.1.0/yorc/on-demand-ressource-tab.png){: height="26px" .inline} and add the following resource:
 
 - yorc.nodes.slurm.Compute
 
@@ -90,15 +99,15 @@ You could define here as well either a password, provided as a **token** paramet
 
 If no password or private key is defined, the orchestrator will attempt to use a key **~/.ssh/yorc.pem** that should have been defined during your Yorc server setup.
 
-### Configure a Hosts Pool Location
+## Configure a Hosts Pool Location
 
-Go to the locations page by clicking on ![orchestrator location](../../../../images/2.1.0/yorc/orchestrator-location-btn.png)
+Go to the locations page by clicking on ![orchestrator location](../../../../images/2.1.0/yorc/orchestrator-location-btn.png){: height="26px" .inline}
 
-Create a new location clicking on ![new location](../../../../images/2.1.0/yorc/new-location.png) and provide a location name. Select **HostsPool** in the infrastructure type drop-down.
+Create a new location clicking on ![new location](../../../../images/2.1.0/yorc/new-location.png){: height="26px" .inline} and provide a location name. Select **HostsPool** in the infrastructure type drop-down.
 
 The details page of your location should appear.
 
-Go to ![on-demand resources](../../../../images/2.1.0/yorc/on-demand-ressource-tab.png) and add the following resource:
+Go to ![on-demand resources](../../../../images/2.1.0/yorc/on-demand-ressource-tab.png){: height="26px" .inline} and add the following resource:
 
 - yorc.nodes.hostspool.Compute
 
@@ -112,13 +121,13 @@ Credentials don't have to be defined here. For hosts in a Hosts Pool, credential
 
 ## Configure a Google Cloud Platform Location
 
-Go to the locations page by clicking on ![orchestrator location](../../../../images/2.1.0/yorc/orchestrator-location-btn.png)
+Go to the locations page by clicking on ![orchestrator location](../../../../images/2.1.0/yorc/orchestrator-location-btn.png){: height="26px" .inline}
 
-Create a new location clicking on ![new location](../../../../images/2.1.0/yorc/new-location.png) and provide a location name. Select **Google Cloud** in the infrastructure type drop-down.
+Create a new location clicking on ![new location](../../../../images/2.1.0/yorc/new-location.png){: height="26px" .inline} and provide a location name. Select **Google Cloud** in the infrastructure type drop-down.
 
 The details page of your location should appear.
 
-Go to ![on-demand resources](../../../../images/2.1.0/yorc/on-demand-ressource-tab.png) and add the following resource:
+Go to ![on-demand resources](../../../../images/2.1.0/yorc/on-demand-ressource-tab.png){: height="26px" .inline} and add the following resource:
 
 - yorc.nodes.google.Compute
 - yorc.nodes.google.PersistentDisk
@@ -158,15 +167,19 @@ The user you specify here must be defined, along with its associated public SSH 
 
 For example, assuming you have a private ssh key **./id_rsa** and a public ssh key **./id_rsa.pub**, you can first create a file containing a user name and the public key content:
 
-    echo  "user1:**cat id_rsa.pub**" > userkeys.txt
+{% highlight bash %}
+echo  "user1:**cat id_rsa.pub**" > userkeys.txt
+{% endhighlight %}
 
 Then define this user and public key at the project level, using Google Cloud CLI:
-
+{% highlight bash %}
     gcloud compute project-info add-metadata --metadata-from-file ssh-keys=userkeys.txt
+{% endhighlight %}
 
 Then, by default, all compute instances will inherit from this user/public key definition, the user will be created on the compute instance and you will be able to ssh on your compute instance running:
-
+{% highlight bash %}
     ssh -i ./id_rsa user1@<your instance external ip address>
+{% endhighlight %}
 
 For details on other optional Compute Instance properties, see [Compute Instance creation](https://cloud.google.com/sdk/gcloud/reference/compute/instances/create).
 
@@ -237,13 +250,13 @@ For details on other optional Private Network properties, see [VPC Creation](htt
 
 ## Configure an AWS Location
 
-Go to the locations page by clicking on ![orchestrator location](../../../../images/2.1.0/yorc/orchestrator-location-btn.png)
+Go to the locations page by clicking on ![orchestrator location](../../../../images/2.1.0/yorc/orchestrator-location-btn.png){: height="26px" .inline}
 
-Create a new location clicking on ![new location](../../../../images/2.1.0/yorc/new-location.png) and provide a location name. Select **AWS** in the infrastructure type drop-down.
+Create a new location clicking on ![new location](../../../../images/2.1.0/yorc/new-location.png){: height="26px" .inline} and provide a location name. Select **AWS** in the infrastructure type drop-down.
 
 The details page of your location should appear.
 
-Go to ![on-demand resources](../../../../images/2.1.0/yorc/on-demand-ressource-tab.png) and add the following resources:
+Go to ![on-demand resources](../../../../images/2.1.0/yorc/on-demand-ressource-tab.png){: height="26px" .inline} and add the following resources:
 
 - yorc.nodes.aws.PublicNetwork
 - yorc.nodes.aws.Compute
@@ -260,9 +273,10 @@ Edit **credentials** to provide a user name. This user will be used to connect t
 
 In order to deploy applications to a Kubernetes location, the Yorc orchestrator must be connected to a properly configured Yorc server (see "Infrastructure configuration" chapter in Yorc documentation ; the Yorc server must be able to connect to the Kubernetes cluster's master).
 
-Select **Yorc** orchestrator and go to the locations page by clicking on ![orchestrator location](../../../../images/2.1.0/yorc/orchestrator-location-btn.png). Create a location named **kubernetes** (or a name of your choice) and select **Kubernetes** on the infrastructure type drop-down. The details page of your location should appear.
+Select **Yorc** orchestrator and go to the locations page by clicking on ![orchestrator location](../../../../images/2.1.0/yorc/orchestrator-location-btn.png){: height="26px" .inline}.
+Create a location named **kubernetes** (or a name of your choice) and select **Kubernetes** on the infrastructure type drop-down. The details page of your location should appear.
 
-Go to ![on-demand resources](../../../../images/2.1.0/yorc/on-demand-ressource-tab.png) and search in the **Catalog** resources with type prefix **org.alien4cloud.kubernetes.api.types** (we'll use **k8s_api** for this prefix). You have to add the following resources:
+Go to ![on-demand resources](../../../../images/2.1.0/yorc/on-demand-ressource-tab.png){: height="26px" .inline} and search in the **Catalog** resources with type prefix **org.alien4cloud.kubernetes.api.types** (we'll use **k8s_api** for this prefix). You have to add the following resources:
 
 - **k8s_api.Deployment**
 - **k8s_api.Job**
@@ -270,7 +284,7 @@ Go to ![on-demand resources](../../../../images/2.1.0/yorc/on-demand-ressource-t
 - **k8s_api.Service**
 - **k8s_api.volume.*** \# the volume types needed by applications
 
-Go to ![topology modifier](../../../../images/2.1.0/yorc/topology-modifier-tab.png) view to check modifiers are uploaded to your location:
+Go to ![topology modifier](../../../../images/2.1.0/yorc/topology-modifier-tab.png){: height="26px" .inline} view to check modifiers are uploaded to your location:
 
 - **Kubernetes modifier** wi having **post location match** deployment phase
 - **Yorc modifier for kubernetes** having **post-node-match** deployment phase
