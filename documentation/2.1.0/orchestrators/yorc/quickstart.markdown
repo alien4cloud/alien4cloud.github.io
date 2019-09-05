@@ -26,7 +26,7 @@ To deploy this new application, go on the ![application deployment](../../../../
 
 - Select your location
 - Go to the Deploy tab
-- And click on ![deploy button](../../../../images/2.1.0/yorc/app-deploy-btn.png)
+- And click on ![deploy button](../../../../images/2.1.0/yorc/app-deploy-btn.png){: height="26px" .inline}
 
 ![Select a location](../../../../images/2.1.0/yorc/app-location.png)
 
