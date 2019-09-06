@@ -10,8 +10,9 @@ weight: 1000
 
 This section details configuration of supported orchestrators in alien 4 cloud.
 
-We currently officially support __Cloudify 3__, as well as __Cloudify 4__. and are working with Cloudsoft on the support of Apache Brooklyn.
+From the 2.1.0 version, we  currently officially support the __Yorc__ orchestrator.
 
+In 2.0.0, we previously supported __Cloudify 3__, as well as __Cloudify 4__. and are working with Cloudsoft on the support of Apache Brooklyn.
 
 In 1.4.0, we added experimental support of __Marathon__, a meta-framework for __Mesos__ which enables scheduling and orchestration of __Docker containers__.
 
