@@ -31,12 +31,22 @@ ga('send', 'pageview');
 <p>Several location types are available and they correspond to the infrastructure types supported by Yorc:</p>
 
 <ul>
-  <li><a href="#configure-an-openstack-location">OpenStack</a></li>
-  <li><a href="#configure-a-slurm-location">Slurm</a></li>
-  <li><a href="#configure-a-hosts-pool-location">Hosts Pool</a></li>
-  <li><a href="#configure-a-google-cloud-platform-location">Google Cloud Platform</a></li>
-  <li><a href="#configure-a-kubernetes-location">Kubernetes</a></li>
-  <li><a href="#configure-an-aws-location">AWS</a></li>
+  <li><a href="#define-meta-properties">Define Meta-properties</a></li>
+  <li><a href="#configure-a-yorc-orchestrator">Configure a Yorc Orchestrator</a></li>
+  <li><a href="#configure-an-openstack-location">Configure an OpenStack Location</a></li>
+  <li><a href="#configure-a-slurm-location">Configure a Slurm Location</a>
+    <ul>
+      <li><a href="#configure-slurm-location-to-handle-docker-workloads-with-singularity">Configure Slurm location to handle Docker workloads with singularity</a>
+        <ul>
+          <li><a href="#limit-resources-used-by-containers">Limit resources used by containers</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#configure-a-hosts-pool-location">Configure a Hosts Pool Location</a></li>
+  <li><a href="#configure-a-google-cloud-platform-location">Configure a Google Cloud Platform Location</a></li>
+  <li><a href="#configure-an-aws-location">Configure an AWS Location</a></li>
+  <li><a href="#configure-a-kubernetes-location">Configure a Kubernetes Location</a></li>
 </ul>
 
 <p>In order to deploy applications and run them on a given infrastructure, Yorc must be properly configured for that infrastructure (see <a href="https://yorc.readthedocs.io/en/stable/configuration.html#infrastructures-configuration">Infrastructure configuration</a> in Yorc documentation).</p>
@@ -125,6 +135,36 @@ ga('send', 'pageview');
 
 <p>If no password or private key is defined, the orchestrator will attempt to use a key <strong>~/.ssh/yorc.pem</strong> that should have been defined during your Yorc server setup.</p>
 
+<h3 id="configure-slurm-location-to-handle-docker-workloads-with-singularity">Configure Slurm location to handle Docker workloads with singularity</h3>
+
+<p>The Slurm location ships a Topology Modifier that allow to transform a Docker workload into a Singularity workload backed by a Slurm job.
+This is exactly the same as what we do with the <a href="#configure-a-kubernetes-location">Kubernetes Location</a> by transforming a Docker workload into a Kubernetes one.
+This allows to port an application modeled using generic Docker components on one or the other infrastructure.</p>
+
+<p>At the moment, the following restrictions apply:</p>
+
+<ul>
+  <li>Only Docker workloads of type Jobs are supported. That means that your DockerApplication should be hosted on a ContainerRuntime itself hosted on a ContainerJobUnit</li>
+  <li>You can add DockerExtVolume components to mount volumes into your container. Currently we only support volumes of type <code>yorc.nodes.slurm.HostToContainerVolume</code> that means that we expect to mount a path of the actual host that will run the container. In Slurm context it is generally a path from a distributed (such as NFS) or parallel (Lustre, GPFS) filesystem or a temporary directory.</li>
+  <li>Resources limitations are not handled in the same way than in Kubernetes (see bellow)</li>
+</ul>
+
+<p>Go to <img src="../../../../images/2.1.0/yorc/on-demand-ressource-tab.png" alt="on-demand resources" height="26px" class="inline" /> and add the following resource:</p>
+
+<ul>
+  <li>yorc.nodes.slurm.ContainerJobUnit</li>
+  <li>yorc.nodes.slurm.ContainerRuntime</li>
+  <li>yorc.nodes.slurm.HostToContainerVolume</li>
+</ul>
+
+<h4 id="limit-resources-used-by-containers">Limit resources used by containers</h4>
+
+<p>When backed to Docker Kubernetes uses a concept of CPU shares to limit containers CPU consumption.
+This context make no sense in Slurm context where resources are strongly isolated.
+So instead of relying on <code>cpu_share</code>, <code>cpu_share_limit</code>, <code>mem_share</code> and <code>mem_share_limit</code> of <code>DockerApplication</code>s we rely
+on the <code>ApplicationHost</code> capability of the <code>ContainerRuntime</code> hosting the <code>DockerApplication</code>. This capability has <code>num_cpus</code> and
+<code>mem_size</code> properties that are used to request a given number of cpus and amount of memory to Slurm.</p>
+
 <h2 id="configure-a-hosts-pool-location">Configure a Hosts Pool Location</h2>
 
 <p>Go to the locations page by clicking on <img src="../../../../images/2.1.0/yorc/orchestrator-location-btn.png" alt="orchestrator location" height="26px" class="inline" /></p>
@@ -169,7 +209,7 @@ ga('send', 'pageview');
 
 <p>Specify which image to use to initialize the boot disk, defining properties <strong>image_project</strong>, <strong>image_family</strong>, <strong>image</strong>.</p>
 
-<p>At least one of the tuples <strong>image_project/image_family</strong>, <strong>image_project/image</strong>, <strong>family</strong>, <strong>image</strong>, should be defined:<br />
+<p>At least one of the tuples <strong>image_project/image_family</strong>, <strong>image_project/image</strong>, <strong>family</strong>, <strong>image</strong>, should be defined:
 -   <strong>image_project</strong> is the project against which all image and image family references will be resolved. If not specified, and either image or image_family is provided, the current default project is used.
 -   <strong>image_family</strong> is the family of the image that the boot disk will be initialized with. When a family is specified instead of an image, the latest non-deprecated image associated with that family is used.
 -   <strong>image</strong> is the image from which to initialize the boot disk. If not specified, and an image family is specified, the latest non-deprecated image associated with that family is used.</p>
@@ -245,7 +285,7 @@ ga('send', 'pageview');
 
 <p>You can create custom or default subnet for new or existing network too as long as there is no CIDR range overlaps.</p>
 
-<p>For private network creation, You can specify subnets in three different ways:<br />
+<p>For private network creation, You can specify subnets in three different ways:
 -   by checking the checkbox <strong>auto_create_subnetworks</strong> : Google will create a subnet for each region automatically with predefined IP ranges.
 -   by setting <strong>cidr</strong> and <strong>cidr_region</strong> : a default subnet will be created with the specified IP CIDR range in the Google specified region.
 -   by adding custom subnets : you can add several subnets with more accurate properties as described below.</p>
@@ -315,14 +355,15 @@ ga('send', 'pageview');
 <p>Select <strong>Yorc</strong> orchestrator and go to the locations page by clicking on <img src="../../../../images/2.1.0/yorc/orchestrator-location-btn.png" alt="orchestrator location" height="26px" class="inline" />.
 Create a location named <strong>kubernetes</strong> (or a name of your choice) and select <strong>Kubernetes</strong> on the infrastructure type drop-down. The details page of your location should appear.</p>
 
-<p>Go to <img src="../../../../images/2.1.0/yorc/on-demand-ressource-tab.png" alt="on-demand resources" height="26px" class="inline" /> and search in the <strong>Catalog</strong> resources with type prefix <strong>org.alien4cloud.kubernetes.api.types</strong> (we’ll use <strong>k8s_api</strong> for this prefix). You have to add the following resources:</p>
+<p>Go to <img src="../../../../images/2.1.0/yorc/on-demand-ressource-tab.png" alt="on-demand resources" height="26px" class="inline" /> and search in the <strong>Catalog</strong> resources with type prefix <strong>org.alien4cloud.kubernetes.api.types</strong>. You have to add the following resources:</p>
 
 <ul>
-  <li><strong>k8s_api.Deployment</strong></li>
-  <li><strong>k8s_api.Job</strong></li>
-  <li><strong>k8s_api.Container</strong></li>
-  <li><strong>k8s_api.Service</strong></li>
-  <li><strong>k8s_api.volume.</strong>* # the volume types needed by applications</li>
+  <li><strong>org.alien4cloud.kubernetes.api.types.Deployment</strong></li>
+  <li><strong>org.alien4cloud.kubernetes.api.types.Job</strong></li>
+  <li><strong>org.alien4cloud.kubernetes.api.types.StatefulSet</strong></li>
+  <li><strong>org.alien4cloud.kubernetes.api.types.Container</strong></li>
+  <li><strong>org.alien4cloud.kubernetes.api.types.Service</strong></li>
+  <li><strong>org.alien4cloud.kubernetes.api.types.volume.</strong>* # the volume types needed by applications</li>
 </ul>
 
 <p>Go to <img src="../../../../images/2.1.0/yorc/topology-modifier-tab.png" alt="topology modifier" height="26px" class="inline" /> view to check modifiers are uploaded to your location:</p>
