@@ -1,0 +1,28 @@
+---
+layout: post
+title:  ALIEN for Cloud 3.0.0-M1
+root: ../
+categories: RELEASE_NOTES
+parent: [release_note]
+node_name: 3.0.0-M1
+weight: 9900
+exclude_from_search: true
+---
+
+
+
+
+<i class="fa fa-plus text-success"></i> New feature <i class="fa fa-level-up text-primary"></i> Improvement  <i class="fa fa-bug text-danger"></i> Bug <i class="fa fa-exclamation-triangle text-warning"></i> Breaking change
+
+
+### Alien 4 Cloud
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-3110 | A4C Elastic Search Upgrade to 6.6.2 version  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-3307 | Topology valididation while saving and display validity in editor  |
+    
+
