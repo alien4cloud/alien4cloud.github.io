@@ -5,11 +5,11 @@ redcarpet:
 highligter: pygments
 encoding: UTF-8
 
-categories-list: ["DOCUMENTATION", "DOCUMENTATION-1.3.0", "DOCUMENTATION-1.4.0", "DOCUMENTATION-2.0.0", "DOCUMENTATION-2.1.0","RELEASE_NOTES", "DEVELOPER_GUIDE", "ROADMAP"]
+categories-list: ["DOCUMENTATION", "DOCUMENTATION-1.3.0", "DOCUMENTATION-1.4.0", "DOCUMENTATION-2.0.0", "DOCUMENTATION-2.1.0", "DOCUMENTATION-2.2.0", "RELEASE_NOTES", "DEVELOPER_GUIDE", "ROADMAP"]
 
-stable-version: "2.0.0"
-premium-stable-version: "2.0.0"
-last-version: "2.2.0-SM3"
+stable-version: "2.1.1"
+premium-stable-version: "2.1.1"
+last-version: "2.2.0-SM10"
 last-snapshot: "2.2.0-SNAPSHOT"
 old-stables: ["1.4.6"]
 log_app_version: 1.4.6
