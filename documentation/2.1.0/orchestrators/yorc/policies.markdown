@@ -8,13 +8,18 @@ node_name: Applying policies
 weight: 3000
 ---
 
-Both monitoring policies (HTTP/TCP) and Affinity/Anti-Affinity OpenStack ServerGroup placement policies are natively available with Yorc Server.
+Yorc provides natively the following policies:
+
+- Monitoring policies (HTTP/TCP).
+- Affinity/Anti-Affinity OpenStack ServerGroup placement policies.
+- Round-robin and bin-packing Hosts Pool placement policies.
 
 Let's see how we can apply these on apps:
 
 - [Server Group Anti-affinity placement policy on OpenStack](#applying-a-server-group-anti-affinity-placement-policy-on-openstack)
 - [TCP monitoring policy](#applying-tcp-monitoring-policy)
 - [HTTP monitoring policy](#applying-http-monitoring-policy-on-a-web-application)
+- [Round-robin and bin-packing Hosts pool placement policies](#applying-hosts-pool-placement-policies)
 
 ## Applying a Server Group Anti affinity placement policy on OpenStack
 
@@ -162,3 +167,54 @@ Next, by running the **startWebServer** custom workflow, you restart the web ser
 ![Welcome component in started state](../../../../images/2.1.0/yorc/welcome-ok.png)
 
 The next step will be to fix this by a self-healing policy !
+
+
+## Applying Hosts Pool Placement Policies
+
+On a Hosts Pool location, you can provide hosts as Computes and specify if a host is shareable and so can be used by different applications or different Computes of the same application.
+
+Now, with placement policies applied on an application, you can define how to choose the good host candidate for your Compute.
+
+Two policies are available:
+
+- **yorc.policies.hostspool.BinPackingPlacement**
+- **yorc.policies.hostspool.RoundRobinPlacement**
+
+**BinPackingPlacement** is the default policy if nothing is specified: It means the host with already the most related allocations will be elect preferentially.
+
+On the contrary, the **round-robin placement** policy allows to choose preferentially the host with the least related allocations.
+
+### Configure location policies
+
+After configuring your HostsPool location as described previously click on the ![policies button](../../../../images/2.1.0/yorc/policies-button.png){: height="26px" .inline} button, select **Catalog** and use the search to find **policies.hostspool** as below.
+
+![Search hosts pool policies](../../../../images/2.1.0/yorc/search-hostspool-policy.png)
+
+Next, drag-and-drop the **BinPackingPlacement** and the **RoundRobinPlacement** policies in the **Policies** resources list of your HostsPool location.
+
+You must finally have this configuration:
+
+![Configure your hosts pool policies](../../../../images/2.1.0/yorc/hostspool-policy-resource.png)
+
+Now, your hosts pool location is configured with placement policies !
+
+
+### Edit application topology
+
+You can apply a Round-robin placement policy to your application topology by using an abstract policy: the **tosca.policies.Placement**.
+
+This allows to deploy your application on Hosts pool, as well as on GCP, if another specific placement policy is implemented for GCP too.
+
+Select your application and go to the **Topology Editor**. Click on the ![policies button](../../../../images/2.1.0/yorc/topology-policies-button.png){: height="52px" .inline} button on the vertical blue bar on the left. Click on the **+ Add policies** button, search the abstract policy node **Placement** (tosca.policies.Placement) and drag-and-drop it on the policies list of your topology.
+
+Then you can select the **Targets** of the placement policy, i.e in this case, the node name of the compute on which will be applied the placement policy.
+
+![Add placement policy to your application topology](../../../../images/2.1.0/yorc/placement-abstract-topology-editor.png)
+
+### Manage current deployment
+
+Once you choose the **hosts pool location** for deploying your application, in case of multiple hostspool placement policies, you have to choose the one you want during the **Policies Matching** step.
+
+![Select your policy during policies matching step](../../../../images/2.1.0/yorc/hostspool-policies-matching.png)
+
+That's it ! you can deploy your application: the Round-robin placement policy will be applied on the 2 instances of the Compute node.
