@@ -12,14 +12,14 @@ Yorc provides natively the following policies:
 
 - Monitoring policies (HTTP/TCP).
 - Affinity/Anti-Affinity OpenStack ServerGroup placement policies.
-- Round-robin and bin-packing Hosts Pool placement policies.
+- Weight-balanced and bin-packing Hosts Pool placement policies.
 
 Let's see how we can apply these on apps:
 
 - [Server Group Anti-affinity placement policy on OpenStack](#applying-a-server-group-anti-affinity-placement-policy-on-openstack)
 - [TCP monitoring policy](#applying-tcp-monitoring-policy)
 - [HTTP monitoring policy](#applying-http-monitoring-policy-on-a-web-application)
-- [Round-robin and bin-packing Hosts pool placement policies](#applying-hosts-pool-placement-policies)
+- [Weight-balanced and bin-packing Hosts pool placement policies](#applying-hosts-pool-placement-policies)
 
 ## Applying a Server Group Anti affinity placement policy on OpenStack
 
@@ -178,11 +178,13 @@ Now, with placement policies applied on an application, you can define how to ch
 Two policies are available:
 
 - **yorc.policies.hostspool.BinPackingPlacement**
-- **yorc.policies.hostspool.RoundRobinPlacement**
+- **yorc.policies.hostspool.WeightBalancedPlacement*
 
-**BinPackingPlacement** is the default policy if nothing is specified: It means the host with already the most related allocations will be elect preferentially.
+**BinPackingPlacement** is the default policy if nothing is specified.
 
-On the contrary, the **round-robin placement** policy allows to choose preferentially the host with the least related allocations.
+It means the host the more allocated will be elect preferentially, i.e a host that was already allocated to the greatest number of Computes.
+
+On the contrary, the **weight-balanced placement** policy allows to choose preferentially the host the less allocated in order to balance allocations between all shareable hosts.
 
 ### Configure location policies
 
@@ -190,7 +192,7 @@ After configuring your HostsPool location as described previously click on the !
 
 ![Search hosts pool policies](../../../../images/2.1.0/yorc/search-hostspool-policy.png)
 
-Next, drag-and-drop the **BinPackingPlacement** and the **RoundRobinPlacement** policies in the **Policies** resources list of your HostsPool location.
+Next, drag-and-drop the **BinPackingPlacement** and the **WeightBalancedPlacement** policies in the **Policies** resources list of your HostsPool location.
 
 You must finally have this configuration:
 
@@ -201,7 +203,7 @@ Now, your hosts pool location is configured with placement policies !
 
 ### Edit application topology
 
-You can apply a Round-robin placement policy to your application topology by using an abstract policy: the **tosca.policies.Placement**.
+You can apply a weight-balanced placement policy to your application topology by using an abstract policy: the **tosca.policies.Placement**.
 
 This allows to deploy your application on Hosts pool, as well as on GCP, if another specific placement policy is implemented for GCP too.
 
@@ -217,4 +219,4 @@ Once you choose the **hosts pool location** for deploying your application, in c
 
 ![Select your policy during policies matching step](../../../../images/2.1.0/yorc/hostspool-policies-matching.png)
 
-That's it ! you can deploy your application: the Round-robin placement policy will be applied on the 2 instances of the Compute node.
+That's it ! you can deploy your application: the weight-balanced placement policy will be applied on the 2 instances of the Compute node.
