@@ -338,7 +338,6 @@ on the <code>ApplicationHost</code> capability of the <code>ContainerRuntime</co
 <ul>
   <li>yorc.nodes.aws.PublicNetwork</li>
   <li>yorc.nodes.aws.Compute</li>
-  <li>yorc.nodes.aws.EBSVolume</li>
 </ul>
 
 <p>Click on the compute, the following details should appear:</p>
@@ -348,24 +347,6 @@ on the <code>ApplicationHost</code> capability of the <code>ContainerRuntime</co
 <p>Edit mandatory parameters AWS <strong>image_id</strong>, <strong>instance_type</strong>, <strong>security_groups</strong> and <strong>key_name</strong> to provide the name of a key pair already known from AWS.</p>
 
 <p>Edit <strong>credentials</strong> to provide a user name. This user will be used to connect to this on-demand compute resource once created, and to deploy applications on it (while user credentials used to create this on-demand resource are defined in the Yorc server configuration).</p>
-
-<p>Click on the <strong>EBSVolume</strong>, the following details should appear, with here several properties set as explained below:</p>
-
-<p><img src="../../../../images/2.1.0/yorc/aws-volume-on-demand.png" alt="EBSVolume configuration" /></p>
-
-<p>Set the mandatory parameter <strong>device</strong> to define the logical device name to expose to the instance (for example, /dev/sdh or xvdh). See <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html#available-ec2-device-names/">Available Device Names</a>.
-This can also be set by users during application creation.</p>
-
-<p>Set the mandatory parameter <strong>availability_zone</strong> to define the AWS zone where the volume will be. This availability zone must be the same as the ones of the Compute instances to which the disk will be attached.
-See <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html/">Regions, Availability Zones, and Local Zones</a> for more information.</p>
-
-<p>Set the mandatory parameter <strong>size</strong> to define the required size for volumes.</p>
-
-<p>If you want the volume to be deleted when the application referencing this one is undeployed, check the parameter <strong>deletable</strong>. By default, the volume is not deleted.</p>
-
-<p>If you want to refer to an existing volume, set the parameter <strong>volume_id</strong> with its Volume ID you find on AWS Console. This parameter allows comma-separated values of volumes names.</p>
-
-<p>For details on other optional EBSVolume properties, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-volume.html">Creating an Amazon EBS Volume</a>.</p>
 
 <h2 id="configure-a-kubernetes-location">Configure a Kubernetes Location</h2>
 
