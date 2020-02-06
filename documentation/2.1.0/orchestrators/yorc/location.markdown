@@ -290,7 +290,7 @@ Go to ![on-demand resources](../../../../images/2.1.0/yorc/on-demand-ressource-t
 
 - yorc.nodes.aws.PublicNetwork
 - yorc.nodes.aws.Compute
-- yorc.nodes.aws.EBSVolume
+
 
 Click on the compute, the following details should appear:
 
@@ -299,24 +299,6 @@ Click on the compute, the following details should appear:
 Edit mandatory parameters AWS **image_id**, **instance_type**, **security_groups** and **key_name** to provide the name of a key pair already known from AWS.
 
 Edit **credentials** to provide a user name. This user will be used to connect to this on-demand compute resource once created, and to deploy applications on it (while user credentials used to create this on-demand resource are defined in the Yorc server configuration).
-
-Click on the **EBSVolume**, the following details should appear, with here several properties set as explained below:
-
-![EBSVolume configuration](../../../../images/2.1.0/yorc/aws-volume-on-demand.png)
-
-Set the mandatory parameter **device** to define the logical device name to expose to the instance (for example, /dev/sdh or xvdh). See [Available Device Names](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html#available-ec2-device-names/).
-This can also be set by users during application creation.
-
-Set the mandatory parameter **availability_zone** to define the AWS zone where the volume will be. This availability zone must be the same as the ones of the Compute instances to which the disk will be attached.
-See [Regions, Availability Zones, and Local Zones](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html/) for more information.
-
-Set the mandatory parameter **size** to define the required size for volumes.
-
-If you want the volume to be deleted when the application referencing this one is undeployed, check the parameter **deletable**. By default, the volume is not deleted.
-
-If you want to refer to an existing volume, set the parameter **volume_id** with its Volume ID you find on AWS Console. This parameter allows comma-separated values of volumes names.
-
-For details on other optional EBSVolume properties, see [Creating an Amazon EBS Volume](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-volume.html).
 
 ## Configure a Kubernetes Location
 
