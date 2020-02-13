@@ -1,0 +1,129 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/2.2.0/orchestrators/cloudify4_driver/prerequisites_logs.html',
+  title: 'Deployment logs configuration'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Deployment logs configuration</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/2.2.0/orchestrators/cloudify4_driver/prerequisites_logs.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <h2 id="alien4cloud-143-and-above-deployment-logs-configuration">Alien4Cloud 1.4.3 and above: Deployment logs configuration</h2>
+<p>Prior to <code>alien4cloud 1.4.3</code>, the cloudify 4 orchestrator used to pull logs directly from cloudify event API. However, users noticed that, with a great deal of deployments and usages, some logs were lost and not getting back to alien4cloud.
+Starting from 1.4.3 to solve the issue, we changed the way we get logs from cloudify, by adding a tier web application <code>alien4cloud-cfy-logs</code>  as logs server for alien4cloud, and to be deployed on the Cloudify manager machine.</p>
+
+<h3 id="how-does-it-work">How does it work?</h3>
+<p><code>alien4cloud-cfy-logs</code> is a web application exposing several endpoints to manage deployments logs.</p>
+
+<ol>
+  <li>When an orchestrator (cloudify4) is created in alien4cloud, it will register itself to the logs server, and then start an active polling.</li>
+  <li>On the other hand, Cloudify, or more precisely its Logstash component, will push events on the logs server using a specific API endpoint.</li>
+  <li>The server saves logs on the filesystem for every saved orchestrator registration.</li>
+  <li>An orchestrator poll for logs, receive one, and then send an ACK to the log server</li>
+  <li>The server received the ACK, ant then deletes the acknowledged log file for that orchestrator</li>
+</ol>
+
+<div class="note info">
+<h5>HA concern</h5>
+<p>Everything should work on its own in HA mode. Just make sure to install and configure the logs server on every instance of the Cloudify cluster.</p>
+
+<p><a href="../../images/cloudify4_driver/a4c-logs-archi.png" title="alien4cloud-cfy-logs architecture"><img src="../../images/cloudify4_driver/a4c-logs-archi.png" alt="Connection configuration" title="alien4cloud-cfy-logs architecture" /></a></p>
+
+</div>
+
+<h3 id="install-and-configure">Install and configure</h3>
+<p>As stated above, the logs server application is to be installed on the Cloudify manager machine. You can download it <a href="https://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource&amp;g=alien4cloud&amp;a=alien4cloud-cfy-logs&amp;v=1.4.6&amp;p=zip" class="btn btn-success download-button navbar-btn">alien4cloud-cfy-logs</a>.</p>
+
+<div class="note warning">
+<p>For now, the Cloudify manager and the logs server should be installed using the same security mode. This means, if you bootstrapped a SSL secured manager (HTTPS), you <strong>MUST</strong> also install and configure the log application in SSL secured mode.</p>
+</div>
+
+<ol>
+  <li>Unzip the file in your prefered location. We will call it <code>$a4c_log_dir</code></li>
+  <li>The server configuration file is located at <code>$a4c_log_dir/config/alien4cloud-cfy-logs-config.yml</code>. The main property you would want to configure is <code>server.port</code></li>
+</ol>
+
+<div class="note info">
+<h5>SSL configuration</h5>
+<p>The logs server can be configured with SSL security, <a href="#/documentation/2.2.0/admin_guide/security_patch.html">similar config here</a>.</p>
+
+<p>However, the Logstash version used in Cloudify cannot push logs over HTTPS protocol. therefore, the log pushing endoint should and is the only one running un HTTP protocol when the log server is secured with SSL. Therefore, remember to configure the property <code>server.http.port</code>, for the HTTP protocol.</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">server</span><span class="p-Indicator">:</span>
+  <span class="c1">## HTTPS port</span>
+  <span class="l-Scalar-Plain">port</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">8443</span>
+  <span class="l-Scalar-Plain">ssl</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">enabled</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
+    <span class="l-Scalar-Plain">key-store</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">ssl/server-keystore.jks</span>
+    <span class="l-Scalar-Plain">key-store-password</span><span class="p-Indicator">:</span> <span class="err">*****</span>
+    <span class="l-Scalar-Plain">key-password</span><span class="p-Indicator">:</span> <span class="err">*****</span>
+ <span class="c1">## HTTP  port. Only if SSL is enabled</span>
+  <span class="l-Scalar-Plain">http</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">port</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">8200</span></code></pre></div>
+
+</div>
+<p>3- Update the configuration of Logstash:
+  * Edit the file <strong><em>/etc/logstash/conf.d/logstash.conf</em></strong>
+  * Find the <code>output</code> section, and add the following (replace <em>HTTP_PORT</em> with the value of: <code>server.http.port</code> if SSL enabled, <code>server.port</code> otherwise):</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">output <span class="o">{</span>
+    http <span class="o">{</span>
+      <span class="nv">http_method</span> <span class="o">=</span>&gt; <span class="s1">&#39;post&#39;</span>
+      <span class="nv">url</span> <span class="o">=</span>&gt; <span class="s1">&#39;http://localhost:&lt;HTTP_PORT&gt;/api/v1/logs&#39;</span>
+    <span class="o">}</span>
+    <span class="o">[</span>...<span class="o">]</span>
+  <span class="o">}</span></code></pre></div>
+
+<p>4-  Start the log server :</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">cd</span> <span class="nv">$a4c_log_dir</span>
+./alien4cloud-cfy-logs.sh</code></pre></div>
+
+<p>5-  Restart logstash service:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">sudo systemctl restart logstash.service</code></pre></div>
+
+<p>Your logs server is now running and fully able to communicate with both Cloudify and Alien4Cloud.</p>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/2.2.0/orchestrators/cloudify4_driver/prerequisites_logs.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-2.2.0', 'documentation/2.2.0/orchestrators/cloudify4_driver/prerequisites_logs.md');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

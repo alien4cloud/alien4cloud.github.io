@@ -1,0 +1,87 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/2.2.0/user_guide/topology_editor_substitution.html',
+  title: 'Substitution'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Substitution</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/2.2.0/user_guide/topology_editor_substitution.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        
+<hr style="margin-top:5px; margin-bottom:5px;" />
+<div class="row"><ul class="nav nav-pills" id="summarypanel"></ul></div>
+<hr style="margin-top:5px; margin-bottom:5px;" />
+
+<p>Topology substitution is a very powerful TOSCA concept that allows you to consider a full or partial topology as a single reusable type. For example you can model a very complex Hadoop cluster as a single reusable node thanks to substitution, so that other people can use a fine grained and tuned Hadoop installation without even knowing of all the complexity of the underlining system.</p>
+
+<h1 id="topology-substitution--composition">Topology substitution / composition</h1>
+
+<p>A topology template can be used in another template as a type. Topology substitution can make existing topology template re-useable. In order to do this, you must:</p>
+
+<ul>
+  <li>Create a type that is inherited from your topology template.</li>
+</ul>
+
+<p>For example, you have a topology template of an Apache server hosted on a compute as shown in this view. If you want to use this template as a type, you need to click <code>subsitution</code> panel, which is over the bottom-right corner in topology composer view.</p>
+
+<p><a href="../../images/user_guide/user_guide_apache_topology_template.png" target="_blank"><img src="../../images/user_guide/user_guide_apache_topology_template.png" alt="Apache topology template" /></a></p>
+
+<ul>
+  <li>Choose the capabilities/requirements you want to expose.</li>
+</ul>
+
+<p>After clicking <code>Subsitutions</code> panel, you can type <code>tosca.nodes.Root</code> in search bar in the panel. It will create empty <code>Capabilities</code> and <code>Requirements</code> fields. Then, you can select the components whose capabilities/requirements you want to expose. By clicking the <code>Expose</code> button next to capabilities/requirements element of the selected component, you can expose these capabilities/requirements, which will become the capabilities and requirements of the composed new type.</p>
+
+<p><a href="../../images/user_guide/user_guide_expose_capa_substitution.png" target="_blank"><img src="../../images/user_guide/user_guide_expose_capa_substitution.png" alt="Expose capabilities and requirements" /></a></p>
+
+<ul>
+  <li>Eventually define inputs and outputs that will become respectively properties and attributes for the created type.</li>
+</ul>
+
+<p>The inputs of your topology template will become properties of the composed type, and what you choose as outputs will be attributes of the new type.</p>
+
+<p>The created type is named like the template and is usable in another template or an application topology. It&#8217;s content will be wired at runtime stage.</p>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/2.2.0/user_guide/topology_editor_substitution.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-2.2.0', 'documentation/2.2.0/user_guide/topology_editor_substitution.md');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

@@ -1,0 +1,106 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/2.2.0/admin_guide/data_migration.html',
+  title: 'Migration'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Migration</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/2.2.0/admin_guide/data_migration.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        
+<hr style="margin-top:5px; margin-bottom:5px;" />
+<div class="row"><ul class="nav nav-pills" id="summarypanel"></ul></div>
+<hr style="margin-top:5px; margin-bottom:5px;" />
+
+<h1 id="before-anything-else">Before anything else</h1>
+
+<div class="note warning">
+<h5> Before migrating data, please make sure to backup your data first. </h5>
+<p><a href="#/documentation/2.2.0/admin_guide/backup_restore.html">How to backup Alien4Cloud</a></p>
+</div>
+
+<h2 id="warnings">Warnings</h2>
+
+<h3 id="compatibility">Compatibility</h3>
+<p>This guide can only used for migration from the <strong><code>2.1.1</code></strong> to <strong><code>2.2.0</code></strong>.</p>
+
+<h3 id="plugins-migration">Plugins migration</h3>
+<p>Please beware that if you have custom plugins imported in your alien4cloud instance, they will be discarded after migration. Therefore, you should re-upload them after the process is over.
+We do not guarantee the compatibility of those with the new Alien4cloud version.</p>
+
+<h3 id="orchestrators">Orchestrators</h3>
+<p>Orchestrators in alien4cloud are bound to orchestrator plugins. If you are using a custom orchestrator plugin, as stated above, it will discarded after the migration.</p>
+
+<h1 id="migrate-from-the-211-to-220">Migrate from the 2.1.1 to 2.2.0</h1>
+
+<p>The premium dist versions of Alien4Cloud 2.2.0 are packaged with the plugin alien4cloud-migration-plugin to perform an auto migration of datas contains in ES from the lasted 2.1.1 to 2.2.0 at the first boot.</p>
+
+<h2 id="standard-migration-procedure-">Standard migration procedure :</h2>
+
+<ul>
+  <li>stop Alien4Cloud process.</li>
+  <li>install the new log application on each Cloudify manager machine.<a href="#/documentation/2.2.0/orchestrators/cloudify4_driver/prerequisites_logs.html"> More informations.</a></li>
+  <li>replace the old folder of Alien4Cloud Premium by the new version of Alien4Cloud Premium</li>
+  <li>update the <strong>alien4Cloud-config.yaml</strong>.</li>
+  <li>start Alien4Cloud</li>
+</ul>
+
+<h2 id="migration-of-an-alien4cloud-ha">Migration of an Alien4Cloud HA</h2>
+
+<p>In case of the migration of an <a href="#/documentation/2.2.0/admin_guide/ha.html">Alien4Cloud HA</a>:</p>
+
+<ul>
+  <li>stop backup computes then the master.</li>
+  <li>install the new log application on each Cloudify manager machine.<a href="#/documentation/2.2.0/orchestrators/cloudify4_driver/prerequisites_logs.html"> More informations.</a></li>
+  <li>copied your old Alien4Cloud folder. It’s necessary for your rollback and you will help to fill the new file configuration of Alien4Cloud.</li>
+  <li>don’t touch the folder that is mounted to shared runtime, just replace the old folder of Alien4Cloud Premium by the new version of Alien4Cloud Premium.</li>
+  <li>update the <strong>alien4Cloud-config.yaml</strong> on each Alien4Cloud.</li>
+  <li>start the Alien4Cloud master and wait the end of migration.</li>
+  <li>start the backup computes.</li>
+</ul>
+
+<p>Note: migration plugin of Alien4Cloud checks that the migration is already done on the Alien4cloud master, so it’s normal if you notice that migration process is not launched on the backup computes.</p>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/2.2.0/admin_guide/data_migration.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-2.2.0', 'documentation/2.2.0/admin_guide/data_migration.md');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

@@ -1,0 +1,128 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/2.2.0/admin_guide/security_patch.html',
+  title: 'Alien Post-Deployment'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Alien Post-Deployment</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/2.2.0/admin_guide/security_patch.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <div class="note info">
+<h5>Premium feature</h5>
+<p>This section refers to a premium feature.</p>
+</div>
+<p>When deploying the post deployment web application, it is recommended to enable SSL to secure the communication with Alien4Cloud.
+For that to be done, you have to create a keystore, and eventually a truststore in case of mutual authentication (see <a href="#/documentation/2.2.0/admin_guide/certificates.html">Certificate Generation</a>) and configure the application with the proper SSL properties.</p>
+
+<h2 id="configure-the-post-deployment-web-application">Configure the post-deployment web application</h2>
+<p>The post-deployment web application is a Spring boot application, thus, there are some properties that needs to be set into the Java JVM running the application. Two cases:</p>
+
+<ul>
+  <li>you are using a configuration file <strong><em><code>alien4cloud-post-deployment-config.yml</code></em></strong>: then you should add the options under the in the <code>server</code> section</li>
+  <li>you are not using a configuration file: you should set your java command options.</li>
+</ul>
+
+<p>In case you only want the server to be authenticated before the clients, you need specify the location of the keystore, by adding the following options,</p>
+
+<div class="tabsection"><ul class="nav nav-tabs"></ul><div class="tab-content">
+<div class="tab-pane" title="YAML configuration">
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">server</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">port</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">8080</span> <span class="c1"># You might want to change the port to a normalize secured one</span>
+  <span class="p-Indicator">[</span><span class="nv">...</span><span class="p-Indicator">]</span>
+  <span class="l-Scalar-Plain">ssl</span><span class="p-Indicator">:</span>
+    <span class="c1"># Make sure to change the path to a good one</span>
+    <span class="l-Scalar-Plain">key-store</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;relative/path/to/keystore.jks&gt;</span>
+    <span class="l-Scalar-Plain">key-store-password</span><span class="p-Indicator">:</span> <span class="err">******</span>
+    <span class="l-Scalar-Plain">key-password</span><span class="p-Indicator">:</span> <span class="err">******</span></code></pre></div>
+
+<div class="note warning">
+<p>Note that if you do not want to perform mutual authentication between Alien4Cloud and the post deployment web application, you should skip this step.</p>
+</div>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">server</span><span class="p-Indicator">:</span>
+  <span class="p-Indicator">[</span><span class="nv">...</span><span class="p-Indicator">]</span>
+  <span class="l-Scalar-Plain">ssl</span><span class="p-Indicator">:</span>
+    <span class="p-Indicator">[</span><span class="nv">...</span><span class="p-Indicator">]</span>
+    <span class="c1"># Make sure to change the path to a good one</span>
+    <span class="l-Scalar-Plain">trust-store</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">relativepath/to/your/truststore/server-truststore.jks</span>
+    <span class="l-Scalar-Plain">trust-store-password</span><span class="p-Indicator">:</span> <span class="err">******</span>
+    <span class="c1"># to require client authentication</span>
+    <span class="l-Scalar-Plain">client-auth</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">need</span></code></pre></div>
+
+</div>
+
+<div class="tab-pane" title="JAVA options">
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">-Dserver.ssl.key-store<span class="o">=</span>path/to/your/server-keystore/server-keystore.jks
+-Dserver.ssl.key-store-password<span class="o">=</span>keyStore-password
+-Dserver.ssl.key-password<span class="o">=</span>key-password</code></pre></div>
+
+<div class="note warning">
+<p>Note that if you do not want to perform mutual authentication between Alien4Cloud and the post deployment web application, you should skip this step.</p>
+</div>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">-Dserver.ssl.trust-store<span class="o">=</span>path/to/your/truststore/server-truststore.jks
+-Dserver.ssl.trust-store-password<span class="o">=</span>trustStore-password
+// the following option is to require client authentication
+-Dserver.ssl.client-auth<span class="o">=</span>need</code></pre></div>
+
+</div>
+
+</div></div>
+
+<h2 id="configure-alien4cloud-ui--rest-api">Configure Alien4Cloud UI / Rest API</h2>
+<p>You have to modify the launch command to add the following java options, so that Alien4Cloud trust the certificate of the post deployment web application :</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">-Djavax.net.ssl.trustStore<span class="o">=</span>path/to/your/truststore/server-truststore.jks
+-Djavax.net.ssl.trustStorePassword<span class="o">=</span>trustStore-password</code></pre></div>
+
+<div class="note warning">
+<p>Note that if you do not want to perform mutual authentication between Alien4Cloud and the deployment web application, you should skip this step.</p>
+</div>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">-Djavax.net.ssl.keyStore<span class="o">=</span>path/to/your/client-keystore/client-keystore.jks
+-Djavax.net.ssl.keyStorePassword<span class="o">=</span>keyStore-password</code></pre></div>
+
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/2.2.0/admin_guide/security_patch.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-2.2.0', 'documentation/2.2.0/admin_guide/security_patch.md');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

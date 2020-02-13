@@ -1,0 +1,145 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/2.2.0/orchestrators/cloudify4_driver/ansible_support.html',
+  title: 'Ansible support'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Ansible support</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/2.2.0/orchestrators/cloudify4_driver/ansible_support.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <div class="note info">
+<h5>Premium feature</h5>
+<p>This section refers to a premium feature.</p>
+</div>
+
+<p>Ansible support for cloudify 4 orchestrator needs Ansible to be installed on the manager.</p>
+
+<p>You need to install version 2.0.1.0 of ansible:</p>
+
+<pre>
+sudo yum install python-cffi
+sudo yum install gcc
+sudo yum install python-devel
+sudo yum install openssl-devel
+sudo pip install ansible==2.0.1.0
+sudo pip install --upgrade setuptools
+</pre>
+
+<p>Change this config in ansible configuration file:</p>
+
+<pre>
+[defaults]
+callback_whitelist = tree
+</pre>
+
+<p>Or simply add a cfg file:</p>
+
+<pre>
+sudo bash -c "mkdir /etc/ansible &amp;&amp; echo '[defaults]' &gt; /etc/ansible/ansible.cfg &amp;&amp; echo 'callback_whitelist = tree' &gt;&gt; /etc/ansible/ansible.cfg"
+</pre>
+
+<p>For the moment we need to hack the tree plugin. Here is the patch:</p>
+
+<pre>
+@@ -19,6 +19,7 @@
+ __metaclass__ = type
+
+ import os
++import json
+
+ from ansible.plugins.callback import CallbackBase
+ from ansible.utils.path import makedirs_safe
+@@ -39,26 +40,28 @@
+     def __init__(self):
+         super(CallbackModule, self).__init__()
+
+-        self.tree = TREE_DIR
++        self.tree = os.environ['TREE_DIR']
+         if not self.tree:
+             self.tree = os.path.expanduser("~/.ansible/tree")
+             self._display.warning("The tree callback is defaulting to ~/.ansible/tree, as an invalid directory was provided: %s" % self.tree)
+
+-    def write_tree_file(self, hostname, buf):
++    def write_tree_file(self, hostname, name, buf):
+         ''' write something into treedir/hostname '''
+
+-        buf = to_bytes(buf)
++        buf = {'task_name': "{}".format(name), 'result': json.loads(buf)}
++        #buf = to_bytes(buf)
++        buf = json.dumps(buf)
+         try:
+             makedirs_safe(self.tree)
+             path = os.path.join(self.tree, hostname)
+-            with open(path, 'wb+') as fd:
+-                fd.write(buf)
++            with open(path, 'ab+') as fd:
++                fd.write("{}\n".format(buf))
+         except (OSError, IOError) as e:
+             self._display.warning("Unable to write to %s's file: %s" % (hostname, str(e)))
+
+     def result_to_tree(self, result):
+         if self.tree:
+-            self.write_tree_file(result._host.get_name(), self._dump_results(result._result))
++            self.write_tree_file(result._host.get_name(), result._task, self._dump_results(result._result))
+
+     def v2_runner_on_ok(self, result):
+         self.result_to_tree(result)
+</pre>
+
+<p>Paste this into a patch file, eg. tree.py.patch and patch the original file:</p>
+
+<pre>
+sudo yum install patch
+cp /usr/lib/python2.7/site-packages/ansible/plugins/callback/tree.py tree.py.back
+sudo patch /usr/lib/python2.7/site-packages/ansible/plugins/callback/tree.py tree.py.patch
+</pre>
+
+<p>You will need to install specific packages if you want to use some extra ansible modules. For example, in order to use ec2 module, you will need to install boto :</p>
+
+<pre>
+sudo pip install boto
+</pre>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/2.2.0/orchestrators/cloudify4_driver/ansible_support.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-2.2.0', 'documentation/2.2.0/orchestrators/cloudify4_driver/ansible_support.md');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

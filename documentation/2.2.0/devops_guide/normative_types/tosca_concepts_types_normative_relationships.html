@@ -1,0 +1,141 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/2.2.0/devops_guide/normative_types/tosca_concepts_types_normative_relationships.html',
+  title: 'Relationships'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Relationships</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/2.2.0/devops_guide/normative_types/tosca_concepts_types_normative_relationships.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <p class="lead">Normatives relationship types in TOSCA</p>
+<hr style="margin-top:5px; margin-bottom:5px;" />
+<div class="row"><ul class="nav nav-pills" id="summarypanel"></ul></div>
+<hr style="margin-top:5px; margin-bottom:5px;" />
+
+<h1 id="toscarelationshipsroot">tosca.relationships.Root</h1>
+
+<p>This is the default (root) TOSCA Relationship Type definition that all other TOSCA Relationship Types derive from.</p>
+
+<h2 id="definition">Definition</h2>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">tosca.relationships.Root</span><span class="p-Indicator">:</span>
+  <span class="c1"># The TOSCA root relationship type has no property mappings</span>
+  <span class="l-Scalar-Plain">interfaces</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">tosca.interfaces.relationship.Configure</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">documentation</span><span class="p-Indicator">:</span> <span class="p-Indicator">&gt;</span>
+        <span class="no">Default lifecycle for nodes in TOSCA.</span>
+      <span class="l-Scalar-Plain">operations</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">pre_configure_source</span><span class="p-Indicator">:</span>
+          <span class="l-Scalar-Plain">documentation</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Operation to pre-configure the source endpoint.</span>
+        <span class="l-Scalar-Plain">pre_configure_target</span><span class="p-Indicator">:</span>
+          <span class="l-Scalar-Plain">documentation</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Operation to pre-configure the target endpoint.</span>
+        <span class="l-Scalar-Plain">post_configure_source</span><span class="p-Indicator">:</span>
+          <span class="l-Scalar-Plain">documentation</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Operation to post-configure the source endpoint.</span>
+        <span class="l-Scalar-Plain">post_configure_target</span><span class="p-Indicator">:</span>
+          <span class="l-Scalar-Plain">documentation</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Operation to post-configure the target endpoint.</span>
+        <span class="l-Scalar-Plain">add_target</span><span class="p-Indicator">:</span>
+          <span class="l-Scalar-Plain">documentation</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Operation to add a target node.</span>
+        <span class="l-Scalar-Plain">remove_target</span><span class="p-Indicator">:</span>
+          <span class="l-Scalar-Plain">documentation</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Operation to remove a target node.</span></code></pre></div>
+
+<h1 id="toscarelationshipsdependson">tosca.relationships.DependsOn</h1>
+
+<p>This type represents a general dependency relationship between two nodes. Depends on impacts the TOSCA default lifecycle. A node that depends from a target node will be started after the target node has been actually started.</p>
+
+<h2 id="definition-1">Definition</h2>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">tosca.relationships.DependsOn</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">derived_from</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.relationships.Root</span>
+  <span class="l-Scalar-Plain">valid_target_types</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span> <span class="nv">tosca.capabilities.Root</span> <span class="p-Indicator">]</span></code></pre></div>
+
+<h1 id="toscarelationshipshostedon">tosca.relationships.HostedOn</h1>
+
+<p>This type represents a hosting relationship between two nodes.</p>
+
+<h2 id="definition-2">Definition</h2>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">tosca.relationships.HostedOn</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">derived_from</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.relationships.DependsOn</span>
+    <span class="l-Scalar-Plain">valid_target_types</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span> <span class="nv">tosca.capabilities.Container</span> <span class="p-Indicator">]</span></code></pre></div>
+
+<h1 id="toscarelationshipsconnectsto">tosca.relationships.ConnectsTo</h1>
+
+<p>This type represents a network connection relationship between two nodes.</p>
+
+<h2 id="definition-3">Definition</h2>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">tosca.relationships.ConnectsTo</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">derived_from</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.relationships.DependsOn</span>
+  <span class="l-Scalar-Plain">valid_target_types</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span> <span class="nv">tosca.capabilities.Endpoint</span> <span class="p-Indicator">]</span></code></pre></div>
+
+<h1 id="toscarelationshipsattachto">tosca.relationships.AttachTo</h1>
+
+<p>This type represents an attachment relationship between two nodes.  For example, an AttachTo relationship type would be used for attaching a storage node to a Compute node.</p>
+
+<h2 id="definition-4">Definition</h2>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">tosca.relationships.AttachTo</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">derived_from</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.relationships.Root</span>
+  <span class="l-Scalar-Plain">valid_target_types</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span> <span class="nv">tosca.capabilities.Attachement</span> <span class="p-Indicator">]</span>
+  <span class="l-Scalar-Plain">properties</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">location</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">string</span>
+      <span class="l-Scalar-Plain">constraints</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">min_length</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">1</span>
+    <span class="l-Scalar-Plain">device</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">string</span></code></pre></div>
+
+<h1 id="toscarelationshipsroutesto">tosca.relationships.RoutesTo</h1>
+
+<p>This type represents an intentional network routing between two Endpoints in different networks.</p>
+
+<h2 id="definition-5">Definition</h2>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">tosca.relationships.RoutesTo</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">derived_from</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.relationships.ConnectsTo</span>
+    <span class="l-Scalar-Plain">valid_target_types</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span> <span class="nv">tosca.capabilities.Endpoint</span> <span class="p-Indicator">]</span></code></pre></div>
+
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/2.2.0/devops_guide/normative_types/tosca_concepts_types_normative_relationships.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-2.2.0', 'documentation/2.2.0/devops_guide/normative_types/tosca_concepts_types_normative_relationships.markdown');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

@@ -1,0 +1,128 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/2.2.0/devops_guide/lamp_stack_tutorial/lamp_stack.html',
+  title: 'LAMP Stack Tutorial'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">LAMP Stack Tutorial</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/2.2.0/devops_guide/lamp_stack_tutorial/lamp_stack.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <p>This tutorial is based on the well known opensource stack <a href="http://fr.wikipedia.org/wiki/LAMP" target="_blank">LAMP</a> and aims at getting started with a “real application case”.</p>
+
+<p>We will see all steps to go through the stack component definition and have a runnable example.</p>
+
+<div class="note">
+<p>The components of the Wordpress stack are in version 2.2.0. This version was released after some tests, with success, on Ubuntu 12.04 and 14.04.</p>
+</div>
+
+<div class="note info">
+<p>Regarding TOSCA component definition we are using the WD03 version for this tutorial.</p>
+</div>
+
+<p>There is our full alien context to give a try to this tutorial :</p>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">A4C element</th>
+      <th style="text-align: left">Usage</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">TOSCA base types <strong>1.0.0-ALIEN11</strong></td>
+      <td style="text-align: left"><a href="https://github.com/alien4cloud/alien4cloud-extended-types" target="_blank">A4C WD03 tosca-notmative-types</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">A4C Release <strong>1.1</strong></td>
+      <td style="text-align: left"><a href="http://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource&amp;g=alien4cloud&amp;a=alien4cloud-dist&amp;v=1.1.0&amp;p=tar.gz&amp;c=dist" target="_blank">Alien4Cloud</a></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">A4C Cloudify3 Driver <strong>1.1</strong></td>
+      <td style="text-align: left"><a href="https://fastconnect.org/maven/service/local/artifact/maven/redirect?r=opensource&amp;g=alien4cloud&amp;a=alien4cloud-cloudify3-provider&amp;v=1.1.0&amp;p=zip" target="_blank">alien4cloud-cloudify3-provider 1.1</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="tosca-base-types">TOSCA base types</h1>
+
+<p>Basicly to build our full application (topology), we will have a set of basic components defined in TOSCA. This components are added in Alien at the first bootstrap.</p>
+
+<p>More details about <a href="#/documentation/1.0.0/devops_guide/normative_types/tosca_concepts_types_normative_nodes.html">normative types</a>.</p>
+
+<div class="note warning">
+<p>TOSCA definition is in constant evolution, so be sure you are using our fixed implementation given just above.</p>
+</div>
+
+<h1 id="our-components">Our components</h1>
+
+<p>We will define our components and other “relational” items to link those components. This is the main component list :</p>
+
+<ul>
+  <li><a href="http://en.wikipedia.org/wiki/Apache_HTTP_Server" target="_blank">APACHE HTTP Server</a> : http webserver to serve your website</li>
+  <li><a href="http://en.wikipedia.org/wiki/MySQL" target="_blank">MySQL</a> : relational database management system (RDBMS)</li>
+  <li><a href="http://en.wikipedia.org/wiki/PHP" target="_blank">PHP</a> : server-side language used to interact with the database working with your HTML files</li>
+</ul>
+
+<p>This is the basic stack for a LAMP environment and in A4C context we will add one more components :</p>
+
+<ul>
+  <li><a href="http://wordpress.org/" target="_blank">Wordpress</a> : this components will allow to  install the Wordpress CMS on the Apache HTTP Server. Wordpress also need a PHP and a Mysql database.</li>
+</ul>
+
+<h1 id="server-hosting">Server hosting</h1>
+
+<p>The <strong>L</strong> in LAMP stand for Linux, so for our tutorial we assume that we’re working with <a href="http://cdimage.ubuntu.com/netboot/14.04/" target="_blank">Ubuntu 14.04</a> distribution as server. You must have an
+image on your targeted cloud based on it.</p>
+
+<div class="note">
+<p>We assume that you have an image in your cloud based on Ubuntu 12.04 or 14.04.</p>
+</div>
+
+<h1 id="blockstorage">BlockStorage</h1>
+
+<p>To persist your data even after your application is undeployed, we will use this default component described in tosca base type 1.0.0-ALIEN11 and that allow us to have a volume created, mounted and attached to our server host. MySQL data will be stored on this volume.</p>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/2.2.0/devops_guide/lamp_stack_tutorial/lamp_stack.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-2.2.0', 'documentation/2.2.0/devops_guide/lamp_stack_tutorial/lamp_stack.markdown');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

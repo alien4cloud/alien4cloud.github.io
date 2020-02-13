@@ -1,0 +1,73 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/2.2.0/user_guide/application_creation.html',
+  title: 'Create a new application'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Create a new application</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/2.2.0/user_guide/application_creation.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <p>Creation of a new application requires the <em>APPLICATIONS_MANAGER</em> or <em>ADMIN</em> global rôle. Users with the right roles should see the <strong>New Application</strong> button <img src="../../images/2.2.0/user_guide/applications/new_app_button.png" alt="New Application" height="26px" class="inline" /></p>
+
+<p>Click on the <strong>New Application</strong> button opens a modal that prompt the user for some fields:</p>
+
+<p><img src="../../images/2.2.0/user_guide/applications/new_app_modal_scratch.png" alt="Create new application" /></p>
+
+<ul>
+  <li><strong>Name</strong>: This is the name of application as displayed in alien 4 cloud. It is required and should be meaningful for users. The name of an application must also be unique in alien 4 cloud. The name of an application can also be changed later when editing the application.</li>
+  <li><strong>Archive name (Id)</strong>: This is the unique identifier of the application In alien 4 cloud an application will have TOSCA topologies to describe what to deploy and how to deploy it. Every TOSCA topology has a matching TOSCA archive with an unique archive name and archive version. The id of an application in alien 4 cloud is also the name of the TOSCA archive. Note that this name must be unique.</li>
+  <li><strong>Description</strong>: Description is optional and will be displayed to users in the application list.</li>
+  <li><strong>Initialize topology from</strong>: When creating a new application alien 4 cloud will create a default Environment and a default Version. The default version will have an associated default Topology version. It is possible to create a new blank topology (scratch - screenshot above) or to look for an available topology template in the catalog (see screenshot below).</li>
+</ul>
+
+<p><img src="../../images/2.2.0/user_guide/applications/new_app_modal_template.png" alt="Create new application" /></p>
+
+<div class="note warning">
+<h5>Template and workspace limitation</h5>
+<p>It is not yet possible to create an application from a template that is not in the public global workspace. The reason is that once created to the application the topology should have visibility to all components used in this templates so basically in any dependent archive (that may also be restricted to the private workspace).
+We don’t yet support the request for promotions of the dependencies of a template that uses private archives and decided to disable the ability to create applications from private templates. This behavior will be improved in future versions.</p>
+</div>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/2.2.0/user_guide/application_creation.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-2.2.0', 'documentation/2.2.0/user_guide/application_creation.md');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

@@ -1,0 +1,97 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/2.2.0/user_guide/catalog_custom_resources.html',
+  title: 'Custom On-demand Resources Nodes'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Custom On-demand Resources Nodes</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/2.2.0/user_guide/catalog_custom_resources.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <p>Custom on-demand resources are resources provided by TOSCA catalog but instanciated and managed by the orchestrator.</p>
+
+<p>Usually, on-demand resources (computes, block storage, networks …) are provided by the orchestrator as types. They are defined in the locations as nodes to be matched with their abstract versions in topology templates. Only the orchestrator knows how to provide a compute on EC2, OpenStack and so on (depending on orchestrator capabilities) …</p>
+
+<p>Since 1.3.1, you can provide your own types as on-demand resources. This page will explain you how to build your own on demand custom resources types and use them as custom resource nodes in your topologies.</p>
+
+<p>A custom resource node is defined by the facts that:</p>
+
+<ul>
+  <li>it is not hosted on another node.</li>
+  <li>it’s type is not provided by the orchestrator.</li>
+</ul>
+
+<div class="note">
+<p>When a node that is identified as a custom resource node is encountered by the orchestrator, its scripts should be executed on the ‘manager’.
+This is the way the cloudify3 orchestrator manages custom resources.</p>
+</div>
+
+<p>You can find samples in the following CSARs:</p>
+
+<ul>
+  <li><a href="https://github.com/alien4cloud/samples/tree/master/aws-custom-resources">aws-custom-resources</a> : custom on-demand types that use AWS CLI to provision AWS resources (EC2 instance, MariaDB).</li>
+  <li><a href="https://github.com/alien4cloud/samples/tree/master/aws-ansible-custom-resources">aws-ansible-custom-resources</a> : custom on-demand resource that use Ansible to provision AWS resources.</li>
+</ul>
+
+<h2 id="on-demand-compute">On-demand compute</h2>
+
+<p>To be usable, a compute must expose it’s IP address as an attribute named ‘ip_address’.</p>
+
+<div class="note">
+<p>For the alien4cloud cloudify orchestrator plugin, an optional <em>agent_config</em> complex property can be used to specify:</p>
+
+<ul>
+  <li><em>install_method</em>: if an agent should be installed or not on the instance (remote, none).</li>
+  <li><em>user</em>: the username to use to connect to the instance (default is the one defined while bootstrapping).</li>
+  <li><em>key</em>: the path to the key (on the manager) to use to connect to the instance (default is the path to key defined while bootstrapping).</li>
+</ul>
+</div>
+
+<h2 id="known-limitations">Known limitations</h2>
+
+<ul>
+  <li>on-demand resources other than computes can’t be scaled</li>
+</ul>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/2.2.0/user_guide/catalog_custom_resources.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-2.2.0', 'documentation/2.2.0/user_guide/catalog_custom_resources.md');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

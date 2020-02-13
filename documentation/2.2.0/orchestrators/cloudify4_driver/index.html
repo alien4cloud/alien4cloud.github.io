@@ -1,0 +1,141 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/2.2.0/orchestrators/cloudify4_driver/index.html',
+  title: 'Cloudify 4'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Cloudify 4</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/2.2.0/orchestrators/cloudify4_driver/index.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <p>cloudify 4 is an opensource orchestrator backed by GigaSpaces that aims to support deployment on various different locations.</p>
+
+<p>This section gives a focus to cloudify 4 orchestrator plugin for ALIEN, a plugin to manage deployment on various cloud using <a href="https://cloudify.co/" title="cloudify">cloudify 4.x</a>.</p>
+
+<h2 id="alien-4-cloud-cloudify-4-support">Alien 4 Cloud cloudify 4 Support</h2>
+
+<p>The alien 4 cloud plugin for cloudify 4 exposes several nodes so that TOSCA templates can be deployed on cloudify 4 to various locations, such as <strong><em>Amazon</em></strong>, <strong><em>Openstack</em></strong>, etc… . This allows full portability of topologies (or blueprints) that you have designed.</p>
+
+<p>See <a href="../supported_locations.html">Supported locations</a> for more details.</p>
+
+<!-- The following tables shows the supported features of our plugin on the various clouds and how they are mapped to TOSCA.
+
+### OpenStack
+
+### Amazon
+
+## Policies support in cloudify 4 -->
+
+<p>cloudify 4 currently manages the deployment and un-deployment of blueprints and support the ability to trigger custom workflows that have been shipped within the blueprint at runtime.</p>
+
+<p>Out of the box cloudify 4.0 doesn’t support policies like auto-healing.</p>
+
+<h3 id="auto-healing">Auto-healing</h3>
+
+<p>As stated previously cloudify 4.3 doesn’t provide support for auto-healing of services. It provide a basic monitoring feature that we implement in the blueprint we generate from the TOSCA model. This basic monitoring is based on Machine status and not software status meaning that if one of the software in a blueprint crash it won’t be detected by the cloudify 4.</p>
+
+<p>We developed as part of Alien 4 Cloud the ability to generate a cron-based mecanism that check the monitoring data in order to trigger an auto-healing workflow. This implementation is quite naïve for now and is disabled by default on deployments but can be enabled per deployment through an orchestrator property.</p>
+
+<h3 id="scalability">Scalability</h3>
+
+<p>Scalability behavior is currently not deeply specified in TOSCA. When scaling a node, all nodes that are hosted_on the given node are scaled. Also, nodes that are connected or attached to it, this includes block-storage and floating ips.
+Since cloudify 3.4, scaling handling has been improved.
+However, refers to the table below to see IaaS limitations.</p>
+
+<div class="note info">
+<p>There is currently some missing details in the TOSCA specification on how relationships can be impacted in scaling scenarios and we are working with bot Cloudify and TOSCA to enhance the specification.</p>
+</div>
+
+<h4 id="iaas-limitations">IaaS limitations</h4>
+
+<p>Here is a table that shows the limitations about scaling per IaaS:</p>
+
+<!-- {: .table .table-bordered}
+|       |  OpenStack  | Amazon  | BYON  | Azure (***`Premium`***) | vSphere (***`Premium`***) |
+|:--------|:---------|:-------|:-------|:-------|:-------|
+| Single Compute  | OK  | OK  | OK  | OK  | OK
+| Compute + Network + Block Storage   | OK  | KO  | N/A   | KO  | KO  | -->
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>&nbsp;</th>
+      <th>OpenStack</th>
+      <th>Amazon</th>
+      <th>BYON</th>
+      <th>Azure (<em><code>Premium</code></em>)</th>
+      <th>vSphere (<em><code>Premium</code></em>)</th>
+    </tr>
+  </thead>
+  <tbody style="text-align: center;">
+    <tr>
+      <td>Single Compute</td>
+      <td><i class="text-success fa fa-check fa-2x"></i></td>
+      <td><i class="text-success fa fa-check fa-2x"></i></td>
+      <td><i class="text-success fa fa-check fa-2x"></i></td>
+      <td><i class="text-success fa fa-check fa-2x"></i></td>
+      <td><i class="text-success fa fa-check fa-2x"></i></td>
+    </tr>
+    <tr>
+      <td>Compute + Network + Block Storage</td>
+      <td><i class="text-success fa fa-check fa-2x"></i></td>
+      <td><i class="text-success fa fa-check fa-2x"></i></td>
+      <td>N/A</td>
+      <td><i class="text-success fa fa-check fa-2x"></i></td>
+      <td><i class="text-danger fa fa-remove fa-2x"></i></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="block-storage-recovery-limitation">Block storage recovery limitation</h3>
+
+<div class="note info">
+<p>Block storage recovery is the ability to reuse an already created block storage.</p>
+
+<p>Imagine you have a topology containing a compute with a block storage attached on it. You deploy the topology, the VM is started, the block storage is provisionned and attached to the VM, and then some process write data to the disk. If you don’t use a <code>DeletableBlockStorage</code>, this means that you want the data written to the disk to be persistent : if the topology is undeployed then deployed again, you want the block storage to be reused.</p>
+
+<p>To manage such feature, A4C will keep a trace of the volume ID and store it in the deployment topology. When the topology is deployed again, this volume id is used to find the volume in the the IaaS rather than provisoning another one.</p>
+</div>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/2.2.0/orchestrators/cloudify4_driver/index.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-2.2.0', 'documentation/2.2.0/orchestrators/cloudify4_driver/index.markdown');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

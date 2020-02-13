@@ -1,0 +1,103 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/2.2.0/concepts/deployment.html',
+  title: 'Deployment and portability'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Deployment and portability</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/2.2.0/concepts/deployment.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <p>The holy graal of your work in alien4cloud, deploying your target topology in any targeted infrastructure with the benefits of the TOSCA declarative model is of course the deployment of the target topology.</p>
+
+<p>In alien4cloud the deployment is done through the application environment. As an environment is associated with a version you will basically deploy the topology specified for the given version.</p>
+
+<p>However a topology in the editor may not contains enough information to be deployed, this is why the environment + version association will allow you to provide them.</p>
+
+<p><img src="../images/2.2.0/concepts/configuration_process.png" alt="Configuration process" /></p>
+
+<h2 id="topology-inputs">Topology inputs</h2>
+
+<p>The first element that one can specify per environment for same topology are inputs, basically any properties that are environment specific and that should not be configured by the user that make the topology but actually by the user that will deploy it.</p>
+
+<h2 id="location-choice">Location choice</h2>
+
+<p>As we have seen, the first concept of alien4cloud was orchestrators and Locations defined by the admin. As a responsible of a deployment you will have several locations available to you as configured by the admin, this may be all or a subset of alien4cloud’s available locations.</p>
+
+<p>For example for your deployment of a testing environment you may have the internal test OpenStack, Azure and Amazon available. While for your production you may have the internal VSphere and a set of physical machines (host-pool).</p>
+
+<p>Once you choosed the location you wish to use for your deployment you may proceed to the next phase: Node matching</p>
+
+<h2 id="node-matching">Node matching</h2>
+
+<p>In a portable topology some of the node specified will be abstract meaning there is no implementation associated with them and so there is no way to actually run them. The most obvious example of an abstract node is the <em>tosca.nodes.Compute</em> node that actually represents a machine (either virtual machine or physical machine).</p>
+
+<p>Alien4cloud will automatically try to find a best-match and associate a location provided implementation for every of your abstract nodes. For example a <em>tosca.nodes.Compute</em> node on an Amazon location that is provided by cloudify3 orchestrator will be matched against an <em>alien.cloudify.aws.nodes.Compute</em> that will add some imageId and flavorId properties (that the admin may have configured for you).</p>
+
+<p>Note that there may be two different kind of matched nodes for an abstract node in your topology:</p>
+
+<ul>
+  <li>On demand resources, that are provided by a given location.</li>
+  <li>Services, that are provided by the admin or other applications and accessible on the location you choosed.</li>
+</ul>
+
+<p><img src="../images/2.2.0/concepts/matching.png" alt="Matching" /></p>
+
+<h3 id="on-demand-resources">On demand resources</h3>
+
+<p>On demand resources are elements that will be created (or reserved in the special case of the host pool) for you dynamically when you deploy the application. They will also most of the time be released once the deployment is completed. They follow the same lifecycle as the deployment that is consuming them.</p>
+
+<p>The <em>tosca.nodes.Compute</em> matching to a VM is typically on an demand resource, you will create the VM when needed, i.e. when deploying your application and release it once completed.</p>
+
+<h3 id="services">Services</h3>
+
+<p>Services are running applications/components that may or may not be managed by alien4cloud and that provide some features required for other deployments. This may be a load-balancer service, a DNS service or a Data-Lake service that is reused by multiple applications working on it. The lifecycle and the ownership of the service is of course not the same as the lifecycle of the application that consume them.</p>
+
+<p>Still as a consumer you can match your abstract node on a service. And actually when you deploy an application you can turn it into a service so others may just consume it!</p>
+
+<h2 id="deployment">Deployment</h2>
+
+<p>Once all these configurations are done (it is faster than it may seem as matching is mostly automatic) you can just deploy your application and let alien4cloud do everything next.</p>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/2.2.0/concepts/deployment.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-2.2.0', 'documentation/2.2.0/concepts/deployment.md');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

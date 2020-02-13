@@ -26,7 +26,7 @@ ga('send', 'pageview');
           <h1 class="pull-left" style="margin-top: 0px;">Node affinity label</h1>
           <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/2.0.0/orchestrators/kubernetes/policies/node_affinity_label.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
         </div>
-        <p>This policy ensure that a pod will be deployed on a specific node matching some label criteria.</p>
+        <p>This policy ensure that a pod will be deployed on a specific node matching some label criteria.  </p>
 
 <p>The configuration is done in two part: Admin and Deployer.</p>
 
@@ -36,9 +36,9 @@ ga('send', 'pageview');
 
 <h2 id="admin-side-create-and-configure-the-on-demand-policy-resource">Admin side: Create and configure the on-demand policy resource</h2>
 
-<p>On the location, add a policy resource of type <code>org.alien4cloud.kubernetes.api.policies.NodeAffinityLabel</code>.</p>
+<p>On the location, add a policy resource of type <code>org.alien4cloud.kubernetes.api.policies.NodeAffinityLabel</code>.  </p>
 
-<p><img src="../../../images/2.0.0/user_guide/policies/add_k8s_nodeAffinity_policy.png" alt="location node affinity add" /></p>
+<p><img src="../../../images/2.0.0/user_guide/policies/add_k8s_nodeAffinity_policy.png" alt="location node affinity add" />   </p>
 
 <p>This policy is derived from <code>org.alien4cloud.policies.LabelPlacement</code>, and have two properties:</p>
 
@@ -49,7 +49,7 @@ ga('send', 'pageview');
         The value filled in this property will be the actual one in the final kubernetes blueprint.</li>
 </ul>
 
-<p><img src="../../../images/2.0.0/user_guide/policies/node_aff_matchExp_edit.png" alt="node affinity matchExpressions" /></p>
+<p><img src="../../../images/2.0.0/user_guide/policies/node_aff_matchExp_edit.png" alt="node affinity matchExpressions" />   </p>
 
 <p>The <strong><em>key</em></strong> sub-property refers to a label name in your kubernetes cluster. <strong><em>Values</em></strong> is a list of values elligible, according to the operator (<strong><em>In</em></strong> in this case).</p>
 
@@ -59,11 +59,11 @@ ga('send', 'pageview');
 
 <p>This example is the <a href="https://github.com/alien4cloud/samples/blob/master/org/alien4cloud/doc/kube/topology/02-simple-apache-affinity/tosca.yaml">02-simple-apache-affinity</a> topology:</p>
 
-<p><img src="../../../images/2.0.0/user_guide/topology_editor/policies/node_aff_matchExp_edit.png" alt="node affinity matchExpressions" /></p>
+<p><img src="../../../images/2.0.0/user_guide/topology_editor/policies/node_aff_matchExp_edit.png" alt="node affinity matchExpressions" />   </p>
 
 <p>Configure the deployment on the kubernetes location. Once the location selected, yu should see logs like this:</p>
 
-<p><img src="../../../images/2.0.0/user_guide/policies/nodeAff_config_ok.png" alt="node affinity matchExpressions" /></p>
+<p><img src="../../../images/2.0.0/user_guide/policies/nodeAff_config_ok.png" alt="node affinity matchExpressions" />   </p>
 
 <p>Deploy and see the Deployment is effectively deployed on the node selected based on the <em>matchExpressions</em> evaluation.</p>
 

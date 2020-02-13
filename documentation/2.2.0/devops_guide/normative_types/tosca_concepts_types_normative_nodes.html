@@ -1,0 +1,632 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/2.2.0/devops_guide/normative_types/tosca_concepts_types_normative_nodes.html',
+  title: 'Nodes'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Nodes</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/2.2.0/devops_guide/normative_types/tosca_concepts_types_normative_nodes.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <div class="note warning"><p>The nodes on this page follow the exact TOSCA normative types except the added tags section that we use in ALIEN to specify additional tags on a components. One of them being a specific tag that we use to package the icon that will be used in the UI for a given component.</p>
+</div>
+
+<p class="lead">Normatives node types in TOSCA</p>
+<hr style="margin-top:5px; margin-bottom:5px;" />
+<div class="row"><ul class="nav nav-pills" id="summarypanel"></ul></div>
+<hr style="margin-top:5px; margin-bottom:5px;" />
+
+<h1 id="toscanodesroot">tosca.nodes.Root</h1>
+
+<p>This is the Root TOSCA Node Type that other nodes extends from. This allows to have a consistent set of features for modeling and management (e.g., consistent definitions for requirements, capabilities and lifecycle interfaces).</p>
+
+<div class="note info"><p>All Node Type definitions SHOULD extends from the TOSCA Root Node Type. This allows your custom nodes to be included in the default lifecycle generation (based on the root node lifecycle interface).</p>
+</div>
+
+<h2 id="interfaces">Interfaces</h2>
+
+<p>The Root node uses the lifecycle interface. See more informations on normative types lifecycle.</p>
+
+<h2 id="definition">Definition</h2>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">node_types</span><span class="p-Indicator">:</span>
+
+    <span class="l-Scalar-Plain">tosca.nodes.Root</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">abstract</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
+    <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="p-Indicator">&gt;</span>
+      <span class="no">This is the default (root) TOSCA Node Type that all other TOSCA nodes should extends.</span>
+      <span class="no">This allows all TOSCA nodes to have a consistent set of features for modeling and management</span>
+      <span class="no">(e.g, consistent definitions for requirements, capabilities, and lifecycle interfaces).</span>
+    <span class="l-Scalar-Plain">tags</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">icon</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">/images/root.png</span>
+    <span class="l-Scalar-Plain">requirements</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">dependency</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.capabilities.Root</span>
+        <span class="l-Scalar-Plain">occurrences</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span><span class="nv">0</span><span class="p-Indicator">,</span> <span class="nv">unbounded</span><span class="p-Indicator">]</span>
+    <span class="l-Scalar-Plain">interfaces</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">lifecycle</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Default lifecycle for nodes in TOSCA.</span>
+        <span class="l-Scalar-Plain">operations</span><span class="p-Indicator">:</span>
+          <span class="l-Scalar-Plain">create</span><span class="p-Indicator">:</span>
+            <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Basic lifecycle create operation.</span>
+          <span class="l-Scalar-Plain">configure</span><span class="p-Indicator">:</span>
+            <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Basic lifecycle configure operation.</span>
+          <span class="l-Scalar-Plain">start</span><span class="p-Indicator">:</span>
+            <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Basic lifecycle start operation.</span>
+          <span class="l-Scalar-Plain">stop</span><span class="p-Indicator">:</span>
+            <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Basic lifecycle stop operation.</span>
+          <span class="l-Scalar-Plain">delete</span><span class="p-Indicator">:</span>
+            <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Basic lifecycle delete operation.</span></code></pre></div>
+
+<h1 id="toscanodescompute">tosca.nodes.Compute</h1>
+
+<p>Represents a real or virtual machine or ‘server’. Informations specified on the Compute node will be used to find the machine that fits the given requirements in the cloud available machines. If no sizing informations are specified the cloud’s provider default machine will be used.
+It is strongly recommended to specify the required cpus and memory at least.</p>
+
+<h2 id="properties">Properties</h2>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Name</th>
+      <th style="text-align: left">Required</th>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Constraints</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">num_cpus</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">integer</td>
+      <td style="text-align: left">&gt;= 1</td>
+      <td style="text-align: left">Number of (actual or virtual) CPUs associated with the Compute node.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">disk_size</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">integer</td>
+      <td style="text-align: left">&gt;=0</td>
+      <td style="text-align: left">Size of the loal disk, in Gigabytes (GB), available to applications running on the Compute node.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">mem_size</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">integer</td>
+      <td style="text-align: left">&gt;=0</td>
+      <td style="text-align: left">Size of memory, in Megabytes (MB), available to applications running on the Compute node.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">os_arch</td>
+      <td style="text-align: left">yes</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">none</td>
+      <td style="text-align: left">The host Operating System (OS) architecture. Example of valid values includes: x86_32, x86_64, etc.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">os_type</td>
+      <td style="text-align: left">yes</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">none</td>
+      <td style="text-align: left">The hots Operating System (OS) type. Example of valid values includes: linux, windows, aix, macos, etc.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">os_distribution</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">none</td>
+      <td style="text-align: left">The host Operating System (OS) distribution. Example of valid values includes: debian, fedora, rhel, and ubuntu</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">os_version</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">none </td>
+      <td style="text-align: left">The host Operating System (OS) version.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="attributes">Attributes</h2>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Name</th>
+      <th style="text-align: left">Required</th>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">ip_address</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">string </td>
+      <td style="text-align: left">The primary IP address assigned by the cloud provider that applications may use to access the Compute node.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="definition-1">Definition</h2>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">node_types</span><span class="p-Indicator">:</span>
+
+  <span class="l-Scalar-Plain">tosca.nodes.Compute</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">derived_from</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.nodes.Root</span>
+    <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="p-Indicator">&gt;</span>
+      <span class="no">Represents a real or virtual machine or ‘server’. Informations specified on the Compute</span>
+      <span class="no">node will be used to find the machine that fits the given requirements in the cloud</span>
+      <span class="no">available machines. If no sizing informations are specified the cloud’s provider default</span>
+      <span class="no">machine will be used. It is strongly recommended to specify the required cpus and memory</span>
+      <span class="no">at least.</span>
+    <span class="l-Scalar-Plain">properties</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">num_cpus</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">integer</span>
+        <span class="l-Scalar-Plain">constraints</span><span class="p-Indicator">:</span>
+          <span class="p-Indicator">-</span>  <span class="l-Scalar-Plain">greater_than</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">0</span>
+        <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Number of (actual or virtual) CPUs associated with the Compute node.</span>
+      <span class="l-Scalar-Plain">mem_size</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">integer</span>
+        <span class="l-Scalar-Plain">constraints</span><span class="p-Indicator">:</span>
+          <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">greater_than</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">0</span>
+        <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Size of memory, in Megabytes (MB), available to applications running on the Compute node.</span>
+      <span class="l-Scalar-Plain">disk_size</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">integer</span>
+        <span class="l-Scalar-Plain">constraints</span><span class="p-Indicator">:</span>
+          <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">greater_than</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">0</span>
+        <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Size of the local disk, in Gigabytes (GB), available to applications running on the Compute node.</span>
+      <span class="l-Scalar-Plain">os_arch</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">string</span>
+        <span class="l-Scalar-Plain">required</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
+        <span class="l-Scalar-Plain">constraints</span><span class="p-Indicator">:</span>
+          <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">valid_values</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span><span class="s">&quot;x86_32&quot;</span><span class="p-Indicator">,</span> <span class="s">&quot;x86_64&quot;</span><span class="p-Indicator">]</span>
+        <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">The host Operating System (OS) architecture.</span>
+      <span class="l-Scalar-Plain">os_type</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">string</span>
+        <span class="l-Scalar-Plain">required</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
+        <span class="l-Scalar-Plain">constraints</span><span class="p-Indicator">:</span>
+          <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">valid_values</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span><span class="s">&quot;linux&quot;</span><span class="p-Indicator">,</span> <span class="s">&quot;aix&quot;</span><span class="p-Indicator">,</span> <span class="s">&quot;mac</span><span class="nv"> </span><span class="s">os&quot;</span><span class="p-Indicator">,</span> <span class="s">&quot;windows&quot;</span><span class="p-Indicator">]</span>
+        <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">The host Operating System (OS) type.</span>
+      <span class="l-Scalar-Plain">os_distribution</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">string</span>
+        <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">The host Operating System (OS) distribution.</span>
+      <span class="l-Scalar-Plain">os_version</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">string</span>
+        <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">The host Operating System version.</span>
+    <span class="l-Scalar-Plain">attributes</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">ip_address</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">string</span>
+        <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="p-Indicator">&gt;</span>
+          <span class="no">The primary IP address assigned by the cloud provider that applications may use to access the Compute node.</span>
+          <span class="no">Note: This is used by the platform provider to convey the primary address used to access the compute node.  Future working drafts will address implementations that support floating or multiple IP addresses.</span>
+    <span class="l-Scalar-Plain">capabilities</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">host</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.capabilities.Container</span>
+        <span class="l-Scalar-Plain">properties</span><span class="p-Indicator">:</span>
+          <span class="l-Scalar-Plain">valid_node_types</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span><span class="nv">tosca.nodes.SoftwareComponent</span><span class="p-Indicator">]</span></code></pre></div>
+
+<h1 id="toscanodesblockstorage">tosca.nodes.BlockStorage</h1>
+
+<p>The TOSCA BlockStorage node currently represents a server-local block storage device (i.e., not shared) offering evenly sized blocks of data from which raw storage volumes can be created.</p>
+
+<h2 id="properties-1">Properties</h2>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Name</th>
+      <th style="text-align: left">Required</th>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Constraints</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">size</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">None</td>
+      <td style="text-align: left">The requested storage size in MegaBytes (MB).</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">volume_id</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">integer</td>
+      <td style="text-align: left">&gt;0</td>
+      <td style="text-align: left">ID of an existing volume (that is in the accessible scope of the requesting application).</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">snapshot_id</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">integer</td>
+      <td style="text-align: left">&gt;0</td>
+      <td style="text-align: left">Some identifier that represents an existing snapshot that should be used when creating the block storage (volume).</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="attributes-1">Attributes</h2>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Name</th>
+      <th style="text-align: left">Required</th>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Constraints</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">volume_id</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">integer</td>
+      <td style="text-align: left">&gt;0</td>
+      <td style="text-align: left">ID provided  by the orchestrator for newly created volumes.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="definition-2">Definition</h2>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">node_types</span><span class="p-Indicator">:</span>
+
+  <span class="l-Scalar-Plain">tosca.nodes.BlockStorage</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">derived_from</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.nodes.Root</span>
+    <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="p-Indicator">&gt;</span>
+      <span class="no">The TOSCA BlockStorage node currently represents a server-local block storage device (i.e., not shared)</span>
+      <span class="no">offering evenly sized blocks of data from which raw storage volumes can be created.</span>
+    <span class="l-Scalar-Plain">tags</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">icon</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">/images/volume.png</span>
+    <span class="l-Scalar-Plain">properties</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">size</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">integer</span>
+        <span class="l-Scalar-Plain">constraints</span><span class="p-Indicator">:</span>
+          <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">greater_than</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">0</span>
+        <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">The requested storage size in MegaBytes (MB).</span>
+      <span class="l-Scalar-Plain">volume_id</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">string</span>
+        <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">ID of an existing volume (that is in the accessible scope of the requesting application).</span>
+      <span class="l-Scalar-Plain">snapshot_id</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">string</span>
+        <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Some identifier that represents an existing snapshot that should be used when creating the block storage (volume).</span>
+    <span class="l-Scalar-Plain">attributes</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">volume_id</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">string</span>
+        <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">ID provided  by the orchestrator for newly created volumes.</span>
+    <span class="l-Scalar-Plain">requirements</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">attachment</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.capabilities.Attachment</span></code></pre></div>
+
+<h1 id="toscanodesobjectstorage">tosca.nodes.ObjectStorage</h1>
+
+<p>The TOSCA ObjectStorage node represents storage that provides the ability to store data as objects (or BLOBs of data) without consideration for the underlying filesystem or devices.</p>
+
+<h2 id="properties-2">Properties</h2>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Name</th>
+      <th style="text-align: left">Required</th>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Constraints</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">store_name</td>
+      <td style="text-align: left">yes</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">None</td>
+      <td style="text-align: left">The logical name of the object store (or container).</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">store_size</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">integer</td>
+      <td style="text-align: left">&gt;=0</td>
+      <td style="text-align: left">The requested initial storage size in Gigabytes (GB).</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">store_maxsize</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">integer</td>
+      <td style="text-align: left">&gt;=0</td>
+      <td style="text-align: left">The requested maximum storage size in Gigabytes (GB).</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="definition-3">Definition</h2>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">node_types</span><span class="p-Indicator">:</span>
+
+  <span class="l-Scalar-Plain">tosca.nodes.ObjectStorage</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">abstract</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
+    <span class="l-Scalar-Plain">derived_from</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.nodes.Root</span>
+    <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="p-Indicator">&gt;</span>
+      <span class="no">The TOSCA ObjectStorage node represents storage that provides the ability to store data as objects (or BLOBs of data)</span>
+      <span class="no">without consideration for the underlying filesystem or devices.</span>
+    <span class="l-Scalar-Plain">tags</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">icon</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">/images/objectstore.png</span>
+    <span class="l-Scalar-Plain">properties</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">store_name</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">string</span>
+        <span class="l-Scalar-Plain">required</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
+        <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">The logical name of the object store (or container).</span>
+      <span class="l-Scalar-Plain">store_size</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">integer</span>
+        <span class="l-Scalar-Plain">constraints</span><span class="p-Indicator">:</span>
+          <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">greater_or_equal</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">0</span>
+        <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">The requested initial storage size in Gigabytes.</span>
+      <span class="l-Scalar-Plain">store_maxsize</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">integer</span>
+        <span class="l-Scalar-Plain">constraints</span><span class="p-Indicator">:</span>
+          <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">greater_than</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">0</span>
+        <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">The requested maximum storage size in Gigabytes.</span></code></pre></div>
+
+<h1 id="toscanodessoftwarecomponent">tosca.nodes.SoftwareComponent</h1>
+
+<p>The TOSCA SoftwareComponent node represents a generic software component that can be managed and run by a TOSCA Compute Node Type.</p>
+
+<h2 id="properties-3">Properties</h2>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Name</th>
+      <th style="text-align: left">Required</th>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Constraints</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">version</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">version</td>
+      <td style="text-align: left">None</td>
+      <td style="text-align: left">The software component’s version.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="definition-4">Definition</h2>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">node_types</span><span class="p-Indicator">:</span>
+
+  <span class="l-Scalar-Plain">tosca.nodes.SoftwareComponent</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">abstract</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
+    <span class="l-Scalar-Plain">derived_from</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.nodes.Root</span>
+    <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="p-Indicator">&gt;</span>
+      <span class="no">The TOSCA SoftwareComponent Node Type represents a generic software component</span>
+      <span class="no">that can be managed and run by a TOSCA Compute Node Type.</span>
+    <span class="l-Scalar-Plain">requirements</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">host</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.nodes.Compute</span>
+        <span class="l-Scalar-Plain">relationship_type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.relationships.HostedOn</span>
+    <span class="l-Scalar-Plain">tags</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">icon</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">/images/software.png</span></code></pre></div>
+
+<h1 id="toscanodeswebserver">tosca.nodes.WebServer</h1>
+
+<p>The TOSCA WebServer Node Type represents an abstract software component or service that is capable of hosting and providing management operations for one or more WebApplication nodes.</p>
+
+<h2 id="definition-5">Definition</h2>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">node_types</span><span class="p-Indicator">:</span>
+
+  <span class="l-Scalar-Plain">tosca.nodes.WebServer</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">abstract</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
+    <span class="l-Scalar-Plain">derived_from</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.nodes.SoftwareComponent</span>
+    <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="p-Indicator">&gt;</span>
+      <span class="no">The TOSCA WebServer Node Type represents an abstract software component or service that is capable of hosting and providing management operations for one or more WebApplication nodes</span>
+    <span class="l-Scalar-Plain">capabilities</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">http_endpoint</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.capabilities.Endpoint</span>
+      <span class="l-Scalar-Plain">https_endpoint</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.capabilities.Endpoint</span>
+      <span class="l-Scalar-Plain">host</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.capabilities.Container</span>
+        <span class="l-Scalar-Plain">properties</span><span class="p-Indicator">:</span>
+          <span class="l-Scalar-Plain">valid_node_types</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span> <span class="nv">tosca.nodes.WebApplication</span> <span class="p-Indicator">]</span></code></pre></div>
+
+<h1 id="toscanodeswebapplication">tosca.nodes.WebApplication</h1>
+
+<p>The TOSCA WebApplication node represents a software application that can be managed and run by a TOSCA WebServer node.  Specific types of web applications such as Java, etc. could be derived from this type.</p>
+
+<h2 id="definition-6">Definition</h2>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">node_types</span><span class="p-Indicator">:</span>
+
+  <span class="l-Scalar-Plain">tosca.nodes.WebApplication</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">derived_from</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.nodes.Root</span>
+    <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="p-Indicator">&gt;</span>
+      <span class="no">The TOSCA WebApplication node represents a software application that can be managed and run by a TOSCA WebServer node.  Specific types of web applications such as Java, etc. could be derived from this type.</span>
+    <span class="l-Scalar-Plain">requirements</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">host</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.nodes.WebServer</span>
+        <span class="l-Scalar-Plain">relationship_type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.relationships.HostedOn</span></code></pre></div>
+
+<h1 id="toscanodesdbms">tosca.nodes.DBMS</h1>
+
+<p>The TOSCA DBMS node represents a typical relational, SQL Database Management System software component or service.</p>
+
+<h2 id="properties-4">Properties</h2>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Name</th>
+      <th style="text-align: left">Required</th>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Constraints</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">dbms_port</td>
+      <td style="text-align: left">yes</td>
+      <td style="text-align: left">integer</td>
+      <td style="text-align: left">None</td>
+      <td style="text-align: left">The port the DBMS service will listen to for data and requests.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">dbms_root_password</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">None</td>
+      <td style="text-align: left">The user account used for the DBMS administration.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="definition-7">Definition</h2>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">node_types</span><span class="p-Indicator">:</span>
+
+  <span class="l-Scalar-Plain">tosca.nodes.DBMS</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">abstract</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
+    <span class="l-Scalar-Plain">derived_from</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.nodes.SoftwareComponent</span>
+    <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="p-Indicator">&gt;</span>
+      <span class="no">The TOSCA DBMS node represents a typical relational, SQL Database Management System software component or service.</span>
+    <span class="l-Scalar-Plain">tags</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">icon</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">/images/relational_db.png</span>
+    <span class="l-Scalar-Plain">properties</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">dbms_root_password</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">string</span>
+        <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">the root password for the DBMS service.</span>
+      <span class="l-Scalar-Plain">dbms_port</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">integer</span>
+        <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">the port the DBMS service will listen to for data and requests</span>
+    <span class="l-Scalar-Plain">capabilities</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">host</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.capabilities.Container</span>
+        <span class="l-Scalar-Plain">properties</span><span class="p-Indicator">:</span>
+          <span class="l-Scalar-Plain">valid_node_types</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span><span class="nv">tosca.nodes.Database</span><span class="p-Indicator">]</span></code></pre></div>
+
+<h1 id="toscanodesdatabase">tosca.nodes.Database</h1>
+
+<p>Base type for the schema and content associated with a DBMS.
+The TOSCA Database node represents a logical database that can be managed and hosted by a TOSCA DBMS node.</p>
+
+<h2 id="properties-5">Properties</h2>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Name</th>
+      <th style="text-align: left">Required</th>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Constraints</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">db_user</td>
+      <td style="text-align: left">yes</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">None</td>
+      <td style="text-align: left">The special user account used for database administration.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">db_password</td>
+      <td style="text-align: left">yes</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">None</td>
+      <td style="text-align: left">The password associated with the user account provided in the ‘db_user’ property.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">db_port</td>
+      <td style="text-align: left">yes</td>
+      <td style="text-align: left">integer</td>
+      <td style="text-align: left">None</td>
+      <td style="text-align: left">The port the database service will use to listen for incoming data and requests.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">db_name</td>
+      <td style="text-align: left">yes</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">None</td>
+      <td style="text-align: left">The logical database name.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="definition-8">Definition</h2>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">node_types</span><span class="p-Indicator">:</span>
+
+  <span class="l-Scalar-Plain">tosca.nodes.Database</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">derived_from</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.nodes.Root</span>
+    <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="p-Indicator">&gt;</span>
+      <span class="no">Base type for the schema and content associated with a DBMS.</span>
+      <span class="no">The TOSCA Database node represents a logical database that can be managed and hosted by a TOSCA DBMS node.</span>
+    <span class="l-Scalar-Plain">tags</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">icon</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">/images/relational_db.png</span>
+    <span class="l-Scalar-Plain">properties</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">db_user</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">string</span>
+        <span class="l-Scalar-Plain">required</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
+        <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">The special user account used for database administration.</span>
+      <span class="l-Scalar-Plain">db_password</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">string</span>
+        <span class="l-Scalar-Plain">required</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
+        <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">The password associated with the user account provided in the ‘db_user’ property.</span>
+      <span class="l-Scalar-Plain">db_name</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">string</span>
+        <span class="l-Scalar-Plain">required</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
+        <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">The logical name of the database.</span></code></pre></div>
+
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/2.2.0/devops_guide/normative_types/tosca_concepts_types_normative_nodes.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-2.2.0', 'documentation/2.2.0/devops_guide/normative_types/tosca_concepts_types_normative_nodes.markdown');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

@@ -1,0 +1,112 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/2.2.0/admin_guide/supported_platforms.html',
+  title: 'Supported platforms'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Supported platforms</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/2.2.0/admin_guide/supported_platforms.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <h2 id="client">Client</h2>
+
+<p>Alien supports these different web browsers :</p>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Name</th>
+      <th style="text-align: left">Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><img src="../../images/admin_guide/browsers_logo_firefox.png" alt="Firefox" class="inline" /> <strong>Firefox</strong></td>
+      <td style="text-align: left">31 and higher</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><img src="../../images/admin_guide/browsers_logo_chrome.png" alt="Chrome" class="inline" /> <strong>Chrome</strong></td>
+      <td style="text-align: left">37 and higher</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="note warning">
+<p>Other browsers like <em>Safari</em> or the lasted <em>IE</em> version may work but <strong>are not automatically tested</strong>.</p>
+</div>
+
+<h2 id="server">Server</h2>
+
+<h3 id="java-virtual-machine">Java virtual machine</h3>
+
+<p>Alien 4 Cloud is written in java for the backend and requires a <strong>JVM 8</strong> or higher (Oracle or OpenJDK).</p>
+
+<h3 id="orchestrators-and-deployment-artefacts">Orchestrators and deployment artefacts</h3>
+
+<p>Cloudify 3.4 is alien 1.4.0 primary supported orchestrator. For pure docker users we also support Marathon as an orchestrator but due to marathon design it is not possible to support execution of classical TOSCA workflows on top of it.</p>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Orchestrators</th>
+      <th style="text-align: left">Deployment artefacts</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><em>Cloudify 3</em></td>
+      <td style="text-align: left"><strong>.bat</strong> (<em>alien.artifacts.BatchScript</em>), <strong>.sh</strong> (<em>tosca.artifacts.ShellScript</em>), Ansible playbooks, Docker images (via (Kubernetes)[#/documentation/2.2.0/orchestrators/cloudify4_driver/kubernetes.html] support since 1.3.1)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><em>Marathon</em></td>
+      <td style="text-align: left">Docker images</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="note info">
+<p>Some Alien users deployed also <strong>Puppet artifact</strong> through scripts.</p>
+</div>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/2.2.0/admin_guide/supported_platforms.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-2.2.0', 'documentation/2.2.0/admin_guide/supported_platforms.md');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

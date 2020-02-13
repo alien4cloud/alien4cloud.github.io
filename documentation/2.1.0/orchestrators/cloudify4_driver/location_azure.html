@@ -50,7 +50,7 @@ Note that for the azure location, some properties are required.</p>
 <a href="../../images/cloudify3_driver/config_location_azure.png" title="Azure location configuration"><img src="../../images/cloudify3_driver/config_location_azure.png" alt="Azure location configuration" title="Azure location configuration" /></a></p>
 
 <h2 id="tosca-mapped-types">Tosca mapped types</h2>
-<p>The Azure location exposes some types to help you configure a deployment and map the native Tosca types. Theses nodes are exposed as <code>on demand resources</code> the location management view.</p>
+<p>The Azure location exposes some types to help you configure a deployment and map the native Tosca types. Theses nodes are exposed as <code>on demand resources</code> the location management view.  </p>
 
 <h3 id="compute">Compute</h3>
 <p>The tosca type <code>tosca.nodes.Compute</code> is mapped to the azure nodes:</p>
@@ -92,7 +92,7 @@ This storage account will be deleted when undeploying the application.</p>
 <a href="../../images/cloudify3_driver/azure_resource_hardware_medium.png" title="Configure hardware profile"><img src="../../images/cloudify3_driver/azure_resource_hardware_medium.png" alt="Configure hardware profile" title="Configure hardware profile" /></a></p>
   </li>
   <li>
-    <p>Go to the On demand tab and click the auto_config button</p>
+    <p>Go to the On demand tab and click the auto_config button </p>
   </li>
   <li>
     <p>You should notice that the user property is mandatory. Let’s set a <code>ubuntu</code> user.
@@ -140,18 +140,18 @@ By default the manager will use a agent key defined during bootstrap. You can ov
 <p>The tosca type <code>tosca.nodes.BlockStorage</code> can be mapped as two types of volumes:</p>
 
 <h4 id="deletable-volumes">Deletable volumes</h4>
-<p>Exposed as the location type <code>alien.cloudify.azure.nodes.DeletableVolume</code>, this is a volume that will ALWAYS be DELETED when undeploying the application, leading therefore to the lost of all data stored on it.</p>
-<div class="note info">
+<p>Exposed as the location type <code>alien.cloudify.azure.nodes.DeletableVolume</code>, this is a volume that will ALWAYS be DELETED when undeploying the application, leading therefore to the lost of all data stored on it.
+&lt;div class="note info"&gt;</p>
 <p>If the property <code>storage_account_name</code> is not set. Alien4Cloud will create a temporary Storage Account to store the datadisk files.
 This storage account will be deleted when undeploying the application.</p>
-</div>
+<p>&lt;/div&gt;</p>
 
 <h4 id="reusable-volumes">Reusable volumes</h4>
-<p>Exposed as the location type <code>alien.cloudify.azure.nodes.Volume</code>, this is a volume that will not be deleted at the end of the application life-cycle. It can therefore, between two deployment of the same application on the same environment and location, be re-used and attached to a compute, rending accessible the data previously stored on it.</p>
-<div class="note info">
+<p>Exposed as the location type <code>alien.cloudify.azure.nodes.Volume</code>, this is a volume that will not be deleted at the end of the application life-cycle. It can therefore, between two deployment of the same application on the same environment and location, be re-used and attached to a compute, rending accessible the data previously stored on it.
+&lt;div class="note info"&gt;</p>
 <p>When using reusable volumes, the property <code>storage_account_name</code> is mandatory.
 The storage account won’t be deleted when undeploying the application and it will keep the datadisk file.</p>
-</div>
+<p>&lt;/div&gt;</p>
 
 <h2 id="scaling">Scaling</h2>
 <p>Scaling is now supported with Azure.<br />
@@ -169,7 +169,7 @@ When scaling a compute it will scale all resources linked to the compute (the Co
 For instance:</p>
 
 <ul>
-  <li>Scalable compute A has 2 Volumes in storage account S1.</li>
+  <li>Scalable compute A has 2 Volumes in storage account S1. </li>
   <li>Scalable compute B must be in a different storage account from S1.</li>
   <li>Scalable compute C can have its osdisk stored in storage account S3 and its volumes in different storage accounts S3’ and S3’’ as long as it is different than the ones used by compute A and B and their volumes.</li>
 </ul>

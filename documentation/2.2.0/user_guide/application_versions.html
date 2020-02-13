@@ -1,0 +1,155 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/2.2.0/user_guide/application_versions.html',
+  title: 'Manage versions'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Manage versions</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/2.2.0/user_guide/application_versions.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <p>Version numbers follows the maven convention i.e &lt; major &gt;.&lt; minor &gt;.&lt; incremental &gt;-&lt; qualifier &gt;. Every version that contains the string <code>-SNAPSHOT</code> is recognized as SNAPSHOT. This means that in alien4cloud, just like in maven a version as 1.0.0-SNAPSHOT-ALPHA or 1.0.0-ALPHA-SNAPSHOT is recognized as SNAPSHOT and can be modified. However, we recommend you to keep -SNAPSHOT at the end of the version string.</p>
+
+<p>When creating topology variants you will assign a qualifier to the variant. Alien 4 cloud will automatically add the variant qualifier as first qualifier in the variant version string. So if your version is 1.0.0-SNAPSHOT and your variant qualifier is DEV, the version number will be 1.0.0-DEV-SNAPSHOT, if the version number was 1.0.0-SNAPSHOT-ALPHA, the variant version number will be 1.0.0-DEV-SNAPSHOT-ALPHA etc.</p>
+
+<h1 id="configure-versions">Configure versions</h1>
+
+<p>When Alien4Cloud creates a default version, you will soon have to create new versions for your application. In Alien4Cloud, a version can have multiple different topologies that we call <strong>Topology Versions</strong>.</p>
+
+<p>To manage Versions and Topology versions, you must go to the application version management screen. To do so you must have the <em>APPLICATION_MANAGER</em> role for the application (not to be confused with the global <em>APPLICATIONS_MANAGER</em> role) or the global <em>ADMIN</em> role.</p>
+
+<p>From the application list screen click on the application for which you want to manage versions and then click on the <strong>version button</strong> <img src="../../images/2.2.0/user_guide/applications/versions_button.png" alt="Versions button" height="26px" class="inline" /> found in the application main page.</p>
+
+<p>This screen displays all the versions of the application (by default only a single 0.1.0-SNAPSHOT version is created) and for each version the list of it’s topology variants and their unique version number.</p>
+
+<p><img src="../../images/2.2.0/user_guide/applications/version_list.png" alt="Version list (default version)" /></p>
+
+<h2 id="create-new-version">Create new version</h2>
+
+<p>You can create a new version by clicking the <strong>New version</strong> button <img src="../../images/2.2.0/user_guide/applications/new_version_button.png" alt="New version" height="26px" class="inline" />. Once clicked the new version modal will open so you can configure the new version.</p>
+
+<ul>
+  <li><strong>Version number</strong>: This is the number of the new version to create. It must be unique for this application and must follow the maven (and TOSCA) version pattern.</li>
+  <li><strong>Description</strong>: Optional description for this version.</li>
+  <li><strong>Initialize topology from</strong>: When creating a new version alien 4 cloud allow you to initialize one or multiple topology versions for this application version. The default option is (<em>Previous version</em>).</li>
+</ul>
+
+<div class="tabsection"><ul class="nav nav-tabs"></ul><div class="tab-content">
+<div class="tab-pane" title="From previous version">
+<p><img src="../../images/2.2.0/user_guide/applications/new_version_modal_previous.png" alt="Create new version from previous" /></p>
+
+<p>This option allow you to duplicate all the topology versions from a previous application version for the new application version.</p>
+</div>
+
+<div class="tab-pane" title="From Topology template">
+<p><img src="../../images/2.2.0/user_guide/applications/new_version_modal_template.png" alt="Create new version from template" /></p>
+
+<p>When choosing the template creation, only a single application topology version will be created. The associated topology will be based on the selected template.</p>
+</div>
+
+<div class="tab-pane" title="From scratch">
+<p><img src="../../images/2.2.0/user_guide/applications/new_version_modal_scratch.png" alt="Create new version from scratch" /></p>
+
+<p>When choosed, only a single application topology version will be created. The associated topology will be empty.</p>
+</div>
+</div></div>
+
+<h2 id="update-version">Update version</h2>
+<p>The <em>description</em> field of a version can be updated anytime.
+However it is not the case for the version number. First of all, a <strong>released</strong> version number <strong>CANNOT BE UPDATED</strong>.   Therefore, make sure your version is a <em>SNAPSHOT</em> one before trying to update.
+The table below sumarize the cases when a version number update can be done:</p>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">State</th>
+      <th style="text-align: left">Description</th>
+      <th>Updatable</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Unused</td>
+      <td style="text-align: left">The version is not yet assigned to an environment</td>
+      <td>YES</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Assigned</td>
+      <td style="text-align: left">The version is assigned to an environment and maybe configured for a future deployment.</td>
+      <td>YES</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Deployed</td>
+      <td style="text-align: left">The version is assigned to a deployed environment</td>
+      <td>NO</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Exposed as Service</td>
+      <td style="text-align: left">The version is assigned to an environment (deployed or not), which is exposed as a service.</td>
+      <td>NO</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="delete-version">Delete version</h2>
+
+<p>Deletion of a version will remove all topology versions and associated topologies. It can be achieved through the <strong>trash button</strong> <img src="../../images/2.2.0/user_guide/applications/delete_button.png" alt="Delete version" height="26px" class="inline" /> on the same line as the version you want to delete.</p>
+
+<h2 id="create-new-topology-version">Create new topology version</h2>
+
+<p>You can create a new variant topology for an application version by clicking the <strong>plus button</strong> <img src="../../images/2.2.0/user_guide/applications/new_topo_version_button.png" alt="New topology version" height="26px" class="inline" /> on the same line as the version for which to create a topology version/variant. This opens the new topology version modal:</p>
+
+<p><img src="../../images/2.2.0/user_guide/applications/new_topology_version_previous.png" alt="Create new version from previous version" /></p>
+
+<ul>
+  <li><strong>Qualifier</strong>: Creation of a new topology version requires the configuration of a specific qualifier for this topology version/variant. The generated version number is displayed on the side of the qualifier field.</li>
+  <li><strong>Description</strong>: Optional description for this topology version/variant.</li>
+  <li><strong>Initialize topology from</strong>: When creating a new topology version alien 4 cloud allow you to initialize it’s associated topology. The default option (Previous version) allow you to initialize the topology from the one of a single topology version (either from the same version or another version of the application). Of course you can also choose to create the version from a template or from scratch.</li>
+</ul>
+
+<h2 id="delete-topology-version">Delete topology version</h2>
+
+<p>Deletion of a topology version will also delete it’s associated topologies. It can be achieved through the <strong>trash button</strong> <img src="../../images/2.2.0/user_guide/applications/delete_button.png" alt="Delete version" height="26px" class="inline" /> on the same line as the topology version you want to delete.</p>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/2.2.0/user_guide/application_versions.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-2.2.0', 'documentation/2.2.0/user_guide/application_versions.md');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

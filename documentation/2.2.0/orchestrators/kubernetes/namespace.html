@@ -1,0 +1,62 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/2.2.0/orchestrators/kubernetes/namespace.html',
+  title: 'Meta-properties in k8s'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Meta-properties in k8s</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/2.2.0/orchestrators/kubernetes/namespace.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <h2 id="overview">Overview</h2>
+
+<p>We are now able to easily manage the k8s namespace where the deployment of pods should be landed. In the context of Alien4Cloud, a location of orchestrator corresponds to a k8s namespace. Hence, we can set up the namespace via location. Please go to <strong>Administration</strong> -&gt; <strong>Orchestrators</strong> -&gt; <em>Select one of the orchestrators</em> -&gt; <strong>Location(s)</strong> -&gt; <strong>Meta-properties</strong></p>
+
+<p><img src="../../images/kubernetes_walkthrough/namespace.jpg" alt="Image1" /></p>
+
+<p>We can also give a prefix to a pod via setting up the <strong>K8S_PREFIX</strong> in the application such that all the resources related to this application will be prefixed by this meta-property.</p>
+
+<p><img src="../../images/kubernetes_walkthrough/k8s_prefix.jpg" alt="Image2" /></p>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/2.2.0/orchestrators/kubernetes/namespace.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-2.2.0', 'documentation/2.2.0/orchestrators/kubernetes/namespace.markdown');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

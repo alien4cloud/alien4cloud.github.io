@@ -1,0 +1,127 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/2.2.0/orchestrators/cloudify4_driver/prerequisites_patches.html',
+  title: 'Cloudify 4.1.1 patches'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Cloudify 4.1.1 patches</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/2.2.0/orchestrators/cloudify4_driver/prerequisites_patches.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <h2 id="patch-the-manager">Patch the manager</h2>
+
+<div class="note warning">
+<p>Some behaviors has changed between Cloudify 3.4 and Cloudify 4.x thus to make it still compatible with Alien4Cloud you need to apply the few following patches.</p>
+</div>
+
+<h3 id="safe-clean-patch">Safe Clean Patch</h3>
+
+<p>Cloudify now clean its artifacts in the /tmp folder after each executions but since Alien4Cloud did it already we have a conflict.
+To workaround any issues, make sure to apply the following patch:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">curl -L https://raw.githubusercontent.com/alien4cloud/csar-public-library/develop/org/alien4cloud/cloudify/patches/patch_tasks/artifact/safe_clean_patch.sh -o ~/safe_clean_patch.sh
+sudo chmod +x ~/safe_clean_patch.sh
+sudo ~/safe_clean_patch.sh</code></pre></div>
+
+<h3 id="iaas-credentials">IaaS Credentials</h3>
+
+<div class="note info">
+<p>Starting from 2.2.0, you can configure manager’s resources directly from Alien4Cloud when using Openstack.
+Please refer to <a href="#/documentation/2.2.0/orchestrators/cloudify4_driver/location_openstack.html">this configuration page</a></p>
+</div>
+
+<p>Cloudify has removed the iaas informations from the manager’s context. Theorically, it now needs to be feeded in each the blueprints you want to deploy.
+The Cloudify provider for Alien4Cloud do not yet support this new behavior so for now, you will need to configure your manager to set iaas informations into the context</p>
+
+<p>We provide a python script to help you configure your manager.</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">curl -LO https://raw.githubusercontent.com/alien4cloud/csar-public-library/develop/org/alien4cloud/cloudify/manager/v4/scripts/iaas/cfy_config_iaas.py
+<span class="c"># sudo /opt/cfy/embedded/bin/python cfy_config_iaas.py -u USERNAME -p PASSWORD --ssl config -c ./iaas_config.yaml -i {aws,openstack,azure}</span>
+<span class="c"># So for instance if your manager is installed on AWS:</span>
+sudo /opt/cfy/embedded/bin/python cfy_config_iaas.py -u admin -p admin --ssl config -c ./iaas_config.yaml -i aws</code></pre></div>
+
+<p>A configuration sample <code>iaas_config.yaml</code> for <strong><em>AWS</em></strong>:</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">aws_access_key</span><span class="p-Indicator">:</span> <span class="s">&#39;AWS_ACCESS_KEY&#39;</span>
+<span class="l-Scalar-Plain">aws_secret_key</span><span class="p-Indicator">:</span> <span class="s">&#39;AWS_SECRET_KEY&#39;</span>
+<span class="l-Scalar-Plain">aws_region</span><span class="p-Indicator">:</span> <span class="s">&#39;AWS_REGION&#39;</span>
+
+<span class="l-Scalar-Plain">agent_keypair_name</span><span class="p-Indicator">:</span> <span class="s">&#39;KEY_PAIR_NAME&#39;</span>
+<span class="l-Scalar-Plain">agent_security_group_id</span><span class="p-Indicator">:</span> <span class="s">&#39;DEFAULT_AGENT_SECGROUP_ID&#39;</span> <span class="c1"># The default sg that will be assigned to each computes that are provisionned by the manager</span>
+<span class="l-Scalar-Plain">agent_sh_user</span><span class="p-Indicator">:</span> <span class="s">&#39;DEFAULT_AGENT_SSH_USER&#39;</span>
+<span class="l-Scalar-Plain">agent_private_key_path</span><span class="p-Indicator">:</span> <span class="s">&#39;PATH_TO_AGENT_KEYFILE&#39;</span></code></pre></div>
+
+<p>A configuration sample <code>iaas_config.yaml</code> for <strong><em>OpenStack</em></strong>:</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">auth_url</span><span class="p-Indicator">:</span> <span class="s">&#39;OS_KEYSTONE_URL&#39;</span>
+<span class="l-Scalar-Plain">username</span><span class="p-Indicator">:</span> <span class="s">&#39;OS_USERNAME&#39;</span>
+<span class="l-Scalar-Plain">password</span><span class="p-Indicator">:</span> <span class="s">&#39;OS_PASSWORD&#39;</span>
+<span class="l-Scalar-Plain">region</span><span class="p-Indicator">:</span> <span class="s">&#39;OS_REGION&#39;</span>
+<span class="l-Scalar-Plain">tenant_name</span><span class="p-Indicator">:</span> <span class="s">&#39;OS_TENANT_NAME&#39;</span>
+
+<span class="l-Scalar-Plain">agent_sh_user</span><span class="p-Indicator">:</span> <span class="s">&#39;DEFAULT_AGENT_SSH_USER&#39;</span>
+<span class="l-Scalar-Plain">agent_private_key_path</span><span class="p-Indicator">:</span> <span class="s">&#39;PATH_TO_AGENT_KEYFILE&#39;</span>
+
+<span class="l-Scalar-Plain">resources</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">agents_keypair</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="s">&#39;AGENT_KEYPAIR_NAME&#39;</span>
+  <span class="l-Scalar-Plain">agents_security_group</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="s">&#39;DEFAULT_AGENT_SECGROUP_NAME&#39;</span> <span class="c1"># The default sg that will be assigned to each computes that are provisionned by the manager</span>
+  <span class="l-Scalar-Plain">int_network</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">id</span><span class="p-Indicator">:</span> <span class="s">&#39;MANAGER_NETWORK_ID&#39;</span>
+    <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="s">&#39;MANAGER_NETWORK_NAME&#39;</span></code></pre></div>
+
+<p>A configuration sample <code>iaas_config.yaml</code> for <strong><em>Azure</em></strong>:</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">subscription_id</span><span class="p-Indicator">:</span> <span class="s">&#39;YOUR_SUBSCRIPTION_ID&#39;</span>
+<span class="l-Scalar-Plain">tenant_id</span><span class="p-Indicator">:</span> <span class="s">&#39;YOUR_TENANT_ID&#39;</span>
+<span class="l-Scalar-Plain">client_id</span><span class="p-Indicator">:</span> <span class="s">&#39;YOUR_CLIENT_ID&#39;</span>
+<span class="l-Scalar-Plain">client_secret</span><span class="p-Indicator">:</span> <span class="s">&#39;YOUR_CLIENT_SECRET&#39;</span>
+<span class="l-Scalar-Plain">location</span><span class="p-Indicator">:</span> <span class="s">&#39;YOUR_LOCATION_VALUE&#39;</span>
+
+<span class="l-Scalar-Plain">agent_sh_user</span><span class="p-Indicator">:</span> <span class="s">&#39;DEFAULT_AGENT_SSH_USER&#39;</span>
+<span class="l-Scalar-Plain">agent_private_key_path</span><span class="p-Indicator">:</span> <span class="s">&#39;PATH_TO_AGENT_KEYFILE&#39;</span></code></pre></div>
+
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/2.2.0/orchestrators/cloudify4_driver/prerequisites_patches.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-2.2.0', 'documentation/2.2.0/orchestrators/cloudify4_driver/prerequisites_patches.md');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>
