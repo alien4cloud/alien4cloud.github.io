@@ -119,13 +119,13 @@ Here are, ordered by highest precedence, the different levels where variables ca
 
 <ul>
   <li>
-    <p><strong>Alien4Cloud context</strong> (<em>A4C_VAR</em>): Automatically injected by Alien4Cloud. These are, as  said above, application and environment data, as well as Tags and meta-data.  </p>
+    <p><strong>Alien4Cloud context</strong> (<em>A4C_VAR</em>): Automatically injected by Alien4Cloud. These are, as  said above, application and environment data, as well as Tags and meta-data.</p>
   </li>
   <li>
-    <p><strong>Environment</strong> (<em>ENV_VAR</em>): These variables will be global to a specific environment (Env_Dev, Env_Prod).  </p>
+    <p><strong>Environment</strong> (<em>ENV_VAR</em>): These variables will be global to a specific environment (Env_Dev, Env_Prod).</p>
   </li>
   <li>
-    <p><strong>Environment type</strong> (<em>ENV_TYPE_VAR</em>): These variables will be global to all environments of a specific type (DEVELOPMENT, PRODUCTION,&#8230;).  </p>
+    <p><strong>Environment type</strong> (<em>ENV_TYPE_VAR</em>): These variables will be global to all environments of a specific type (DEVELOPMENT, PRODUCTION,&#8230;).</p>
   </li>
   <li>
     <p><strong>Application</strong> (<em>APP_VAR</em>): These variables will be global to all versions and environments of the application.</p>
@@ -135,7 +135,7 @@ Here are, ordered by highest precedence, the different levels where variables ca
 <p>If a variable is defined on more than one level, its value will be resolved to the one provided on the highest level (!!! IF PROVIDED of course!!! This means a value set to null on the highest level will be overridden if provided with a non null value on another level.).<br />
 To put it clearly ( <strong><em>&#187;&#187;</em></strong>  ==&gt;  overrides ):</p>
 
-<p><code>A4C_VAR</code> <strong><em>&#187;&#187;</em></strong> <code>ENV_VAR</code> <strong><em>&#187;&#187;</em></strong> <code>ENV_TYPE_VAR</code> <strong><em>&#187;&#187;</em></strong> <code>APP_VAR</code>  </p>
+<p><code>A4C_VAR</code> <strong><em>&#187;&#187;</em></strong> <code>ENV_VAR</code> <strong><em>&#187;&#187;</em></strong> <code>ENV_TYPE_VAR</code> <strong><em>&#187;&#187;</em></strong> <code>APP_VAR</code></p>
 
 <h2 id="examples">Examples</h2>
 <p>The variables are stored and editable as YAML. Defining a variable is like to add an property into a YAML file:</p>
@@ -208,7 +208,7 @@ To put it clearly ( <strong><em>&#187;&#187;</em></strong>  ==&gt;  overrides ):
 <div class="note info">
 <h5>SpEL expression</h5>
 <p>SpEL expression can be a very powerful tool that would allow the user to perform many operation, for example, dynamically setting a value to a variable depending on a specific context. <br />
-You can find more about with SpEL:  </p>
+You can find more about with SpEL:</p>
 
 <ul>
   <li><a href="http://www.baeldung.com/spring-expression-language" target="_blank">http://www.baeldung.com/spring-expression-language</a></li>
@@ -228,7 +228,7 @@ You can find more about with SpEL:  </p>
 <h1 id="pre-configured-inputs">Pre-configured inputs</h1>
 
 <p>Previously we talked about variables. Variables are a convenient way to define reusable values. Those values can be used to configure inputs, defined in the topology.
-An input property has a name and a value. Alien4Cloud allows the topology designer to pre-configure values for some inputs, thus removing some of that burden from the deployer user.  </p>
+An input property has a name and a value. Alien4Cloud allows the topology designer to pre-configure values for some inputs, thus removing some of that burden from the deployer user.</p>
 
 <p>The pre-configured inputs are stored and editable as YAML, and there is only one file for the whole topology, and z configured value is the same for all environments.</p>
 

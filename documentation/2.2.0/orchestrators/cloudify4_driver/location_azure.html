@@ -140,18 +140,18 @@ By default the manager will use a agent key defined during bootstrap. You can ov
 <p>The tosca type <code>tosca.nodes.BlockStorage</code> can be mapped as two types of volumes:</p>
 
 <h4 id="deletable-volumes">Deletable volumes</h4>
-<p>Exposed as the location type <code>alien.cloudify.azure.nodes.DeletableVolume</code>, this is a volume that will ALWAYS be DELETED when undeploying the application, leading therefore to the lost of all data stored on it.
-&lt;div class="note info"&gt;</p>
+<p>Exposed as the location type <code>alien.cloudify.azure.nodes.DeletableVolume</code>, this is a volume that will ALWAYS be DELETED when undeploying the application, leading therefore to the lost of all data stored on it.</p>
+<div class="note info">
 <p>If the property <code>storage_account_name</code> is not set. Alien4Cloud will create a temporary Storage Account to store the datadisk files.
 This storage account will be deleted when undeploying the application.</p>
-<p>&lt;/div&gt;</p>
+</div>
 
 <h4 id="reusable-volumes">Reusable volumes</h4>
-<p>Exposed as the location type <code>alien.cloudify.azure.nodes.Volume</code>, this is a volume that will not be deleted at the end of the application life-cycle. It can therefore, between two deployment of the same application on the same environment and location, be re-used and attached to a compute, rending accessible the data previously stored on it.
-&lt;div class="note info"&gt;</p>
+<p>Exposed as the location type <code>alien.cloudify.azure.nodes.Volume</code>, this is a volume that will not be deleted at the end of the application life-cycle. It can therefore, between two deployment of the same application on the same environment and location, be re-used and attached to a compute, rending accessible the data previously stored on it.</p>
+<div class="note info">
 <p>When using reusable volumes, the property <code>storage_account_name</code> is mandatory.
 The storage account won’t be deleted when undeploying the application and it will keep the datadisk file.</p>
-<p>&lt;/div&gt;</p>
+</div>
 
 <h2 id="scaling">Scaling</h2>
 <p>Scaling is now supported with Azure.

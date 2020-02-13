@@ -56,7 +56,7 @@ To do so, you can connect to the Cloudify’s webui or use the cloudify cli.</p>
 
 <div class="highlight"><pre><code class="language-bash" data-lang="bash">cfy secrets create -s myvalue mykey</code></pre></div>
 
-<p>The property <code>password secret key</code> in Alien4Cloud’s openstack location configuration must contain the key name of the Cloudify’s vault.  </p>
+<p>The property <code>password secret key</code> in Alien4Cloud’s openstack location configuration must contain the key name of the Cloudify’s vault.</p>
 
 <p>For more details about <a href="http://docs.getcloudify.org/4.3.0/manager/using-secrets/">cloudify’s secret</a></p>
 </div>
@@ -65,7 +65,7 @@ To do so, you can connect to the Cloudify’s webui or use the cloudify cli.</p>
 <a href="../../images/cloudify4_driver/a4c-openstack-iaas-property-modifier.png" title="Openstack IaaS property modifier"><img src="../../images/cloudify4_driver/a4c-openstack-iaas-property-modifier.png" alt="Openstack IaaS property modifier" title="Openstack IaaS property modifier" /></a></p>
 
 <h2 id="tosca-mapped--location-exposed-types">Tosca mapped / location exposed types</h2>
-<p>The Openstack location exposes some types to help you configure a deployment and map the native Tosca types. Theses nodes are exposed as <code>on demand resources</code> on the location management view.  </p>
+<p>The Openstack location exposes some types to help you configure a deployment and map the native Tosca types. Theses nodes are exposed as <code>on demand resources</code> on the location management view.</p>
 
 <h3 id="compute">Compute</h3>
 <p>The tosca type <code>tosca.nodes.Compute</code> is mapped to the openstack nodes:</p>
@@ -87,10 +87,10 @@ Make sure to fill in the required property <em><code>floatingip</code></em>, by 
 <p><a href="../../images/cloudify3_driver/pub_net_config.png" title="public network config"><img src="../../images/cloudify3_driver/pub_net_config.png" alt="public network config" title="public network config" /></a></p>
 
 <h4 id="private-network">Private Network</h4>
-<p>The tosca type <code>tosca.nodes.Network</code> can also be mapped as a private network using a location node of type <code>alien.nodes.openstack.PrivateNetwork</code>.  </p>
+<p>The tosca type <code>tosca.nodes.Network</code> can also be mapped as a private network using a location node of type <code>alien.nodes.openstack.PrivateNetwork</code>.</p>
 
 <h3 id="volumes">Volumes</h3>
-<p>The tosca type <code>tosca.nodes.BlockStorage</code> can be mapped as two types of volumes:  </p>
+<p>The tosca type <code>tosca.nodes.BlockStorage</code> can be mapped as two types of volumes:</p>
 
 <h4 id="deletable-volumes">Deletable volumes</h4>
 <p>Exposed as the location type <code>alien.cloudify.openstack.nodes.DeletableVolume</code>, this is a volume that will ALWAYS be DELETED when undeploying the application, leading therefore to the lost of all data stored on it.</p>
