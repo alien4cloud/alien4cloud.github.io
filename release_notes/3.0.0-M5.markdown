@@ -1,0 +1,82 @@
+---
+layout: post
+title:  ALIEN for Cloud 3.0.0-M5
+root: ../
+categories: RELEASE_NOTES
+parent: [release_note]
+node_name: 3.0.0-M5
+weight: 9895
+exclude_from_search: true
+---
+
+
+
+
+<i class="fa fa-plus text-success"></i> New feature <i class="fa fa-level-up text-primary"></i> Improvement  <i class="fa fa-bug text-danger"></i> Bug <i class="fa fa-exclamation-triangle text-warning"></i> Breaking change
+
+
+### Alien 4 Cloud K8S plugin
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-3362 | K8S service deployment full URL display  |
+      
+
+
+### Alien 4 Cloud Kafka Logger
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-3454 | Add SSL fetched from keepass for Kafka configuration  |
+      
+
+
+### Alien 4 Cloud Spray
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-3384 | A4C Spray make you able to install a full A4C/Yorc stack with many options (SSL, HA ...)  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-3449 | Yorc primary / backup management using rsync for FS replication  |
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-3445 | Use journalctl for services logs  |
+    
+
+
+### Alien 4 Cloud
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-3350 | CSARS which are not TOSCA valid can be uploaded   |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-3452 | Datagouv / mls - getting meta securities datas in Kube types  |
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-3444 | Plugin Spark K8S : parameter file and kubeconfig file should not be written to /tmp folder  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-3455 | Datagouv / mls - new entity message structure import module  |
+      |  <i class="fa fa-bug text-danger"></i> | ALIEN-3416 | Wizard - deployment  status remains to initialisation  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-3434 | HA A4C Failover produce heapdump  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-3439 | Internal Error 500 at CSAR Import with transitive relations  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-3446 | Search on index User and Application is not working  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-3451 | Wiazrd Redirect URL return remains to Loading  |
+  
+
+
+### Yorc Paas Provider
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+        |  <i class="fa fa-bug text-danger"></i> | ALIEN-3440 | When detecting parsing errors in types or topologies, A4C Yorc plugin should not send deployment to Yorc  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-3456 | Undeployment failed of computes nodes with dependancies  |
+  
+
