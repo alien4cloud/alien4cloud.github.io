@@ -12,6 +12,8 @@ module DocUtils
         "Application Guide"
       elsif sectionPath == "getting_started"
         "Getting Started"
+      elsif sectionPath == "migration_guides"
+        "Migration Guides"
       elsif sectionPath == "release_notes"
         "Release Notes"
       elsif sectionPath == "developer_guide"

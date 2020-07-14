@@ -5,7 +5,7 @@ title:  Yorc from < 4.0.0-M8 to >= 4.0.0-M8
 root: ../
 categories: MIGRATION_GUIDES
 parent: [migration_guides]
-node_name: Yorc-4.0.0-M8
+node_name: Yorc.4.0.0.M8
 weight: 10000
 exclude_from_search: true
 ---
