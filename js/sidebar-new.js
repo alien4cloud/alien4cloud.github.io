@@ -93996,7 +93996,7 @@ var node, children;
         // try to find the node if exists already
         node = null;
         for (var i=0; i<children.length; i++) {
-          if(children[i].name === 'Yorc-4.0.0-M8') {
+          if(children[i].name === 'Yorc.4.0.0.M8') {
             node = children[i];
           }
         }
@@ -94009,9 +94009,9 @@ var node, children;
         }
       
 
-      node.name = "Yorc-4.0.0-M8";
+      node.name = "Yorc.4.0.0.M8";
       node.title = "Yorc from < 4.0.0-M8 to >= 4.0.0-M8";
-      node.url = "migration_guides/Yorc-4.0.0-M8.html";
+      node.url = "migration_guides/Yorc.4.0.0.M8.html";
       node.weight =  10000;
       node.root = "../";
     

@@ -715,8 +715,8 @@
 	},
 
 	{
-		"url": "/migration_guides/Yorc-4.0.0-M8.html", 
-		"section": "", 
+		"url": "/migration_guides/Yorc.4.0.0.M8.html", 
+		"section": "Migration Guides", 
 		"value": "Yorc from < 4.0.0-M8 to >= 4.0.0-M8",
 		"tokens": [ "Yorc","from","<","4.0.0M8","to",">=","4.0.0M8"]
 	},
@@ -4888,7 +4888,7 @@
 
 	{
 		"url": "/migration_guides/index.html", 
-		"section": "", 
+		"section": "Migration Guides", 
 		"value": "Migration Guides",
 		"tokens": [ "Migration","Guides"]
 	},

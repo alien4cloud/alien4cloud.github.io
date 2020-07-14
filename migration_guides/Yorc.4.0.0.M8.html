@@ -1,0 +1,141 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/migration_guides/Yorc.4.0.0.M8.html',
+  title: 'Yorc from < 4.0.0-M8 to >= 4.0.0-M8'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Yorc from < 4.0.0-M8 to >= 4.0.0-M8</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/migration_guides/Yorc.4.0.0.M8.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <p>Before version 4.0.0-M8, Yorc use long for events and logs IDs.
+Since version 4.0.0-M8, Yorc uses nano timestamp for events and logs IDs.
+A4C stores the last retrieved log/event indexes in 2 elasticsearch indexes.</p>
+
+<p>When migrating from Yorc v &lt; 4.0.0-M8 to Yorc v &gt; 4.0.0-M8, you need to delete documents in eventindex and logeventindex indexes. When starting, A4C will ask Yorc for the last index for both events and logs. Without this, A4C will retrieve a lot of past events and logs.</p>
+
+<p>The following script will help you to perform this operation, orchestrator per orchestrator :</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c">#!/bin/bash -e</span>
+
+<span class="k">function</span>  usage<span class="o">()</span> <span class="o">{</span>
+  <span class="nb">echo</span> <span class="s2">&quot;Usage:&quot;</span>
+  <span class="nb">echo</span> <span class="s2">&quot;  export ES_URL=&lt;addr&gt; &amp;&amp; ./$(basename $0) &lt;orchestratorName&gt;&quot;</span>
+  <span class="nb">echo</span> <span class="s2">&quot;  dry run : export ES_URL=&lt;addr&gt; &amp;&amp; ./$(basename $0) &lt;orchestratorName&gt; --dry&quot;</span>
+  <span class="nb">echo</span> <span class="s2">&quot;  SSL : export ES_URL=&lt;addr&gt; &amp;&amp; export ES_CA_CERT=~/.ssl/ca-cert.pem &amp;&amp; export ES_CLIENT_CERT=~/.ssl/client-cert.pem &amp;&amp; export ES_CLIENT_KEY=~/.ssl/client-key.pem &amp;&amp; ./$(basename $0) &lt;orchestratorName&gt;&quot;</span>
+  <span class="nb">exit </span>0
+<span class="o">}</span>
+
+<span class="k">if</span> <span class="o">[</span> <span class="nv">$# </span>-lt <span class="m">1</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+  usage
+<span class="k">fi</span>
+
+<span class="nv">ONAME</span><span class="o">=</span><span class="nv">$1</span>
+<span class="c"># --dry if you want to dry run (no delete)</span>
+<span class="nv">dry</span><span class="o">=</span><span class="nv">$2</span>
+
+<span class="c"># Curl Options</span>
+<span class="nv">OPTS</span><span class="o">=(</span>--progress-bar -f -H <span class="s1">&#39;Accept: application/json&#39;</span> -H <span class="s1">&#39;Content-Type: application/json&#39;</span><span class="o">)</span>
+<span class="k">if</span> <span class="o">[</span> -f <span class="s2">&quot;$ES_CA_CERT&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+  <span class="nv">OPTS</span><span class="o">=(</span><span class="s2">&quot;${OPTS[@]}&quot;</span> --cacert <span class="s2">&quot;$ES_CA_CERT&quot;</span><span class="o">)</span>
+<span class="k">fi</span>
+<span class="k">if</span> <span class="o">[</span> -f <span class="s2">&quot;$ES_CLIENT_CERT&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+  <span class="nv">OPTS</span><span class="o">=(</span><span class="s2">&quot;${OPTS[@]}&quot;</span> --cert <span class="s2">&quot;$ES_CLIENT_CERT&quot;</span><span class="o">)</span>
+<span class="k">fi</span>
+<span class="k">if</span> <span class="o">[</span> -f <span class="s2">&quot;$ES_CLIENT_KEY&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+  <span class="nv">OPTS</span><span class="o">=(</span><span class="s2">&quot;${OPTS[@]}&quot;</span> --key <span class="s2">&quot;$ES_CLIENT_KEY&quot;</span><span class="o">)</span>
+<span class="k">fi</span>
+
+<span class="nb">echo</span> <span class="s2">&quot;Will use following options with curl : ${OPTS[@]}&quot;</span>
+
+<span class="k">function</span> cleanIndex<span class="o">()</span> <span class="o">{</span>
+  <span class="nv">OID</span><span class="o">=</span><span class="nv">$1</span>
+  <span class="nv">IND</span><span class="o">=</span><span class="nv">$2</span>
+
+  <span class="nb">echo</span>
+<span class="nb">  echo</span> <span class="s2">&quot;Cleaning $OID in index $IND&quot;</span>
+
+  <span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;$dry&quot;</span> <span class="o">==</span> <span class="s2">&quot;--dry&quot;</span> <span class="o">]</span><span class="p">;</span>
+  <span class="k">then</span>
+    <span class="nb">echo</span> <span class="s2">&quot;Dry run, do nothing !&quot;</span>
+    <span class="k">return</span>
+  <span class="k">fi</span>
+
+  curl -XDELETE <span class="s2">&quot;${OPTS[@]}&quot;</span> <span class="s2">&quot;$ES_URL/$IND/_doc/$OID&quot;</span>
+  <span class="nb">echo</span>
+<span class="o">}</span>
+
+<span class="nv">OID</span><span class="o">=</span><span class="k">$(</span>envsubst <span class="s">&lt;&lt; EOF | curl -XPOST &quot;${OPTS[@]}&quot; $ES_URL/orchestrator/_search?size=1 -d @- | jq -r &#39;.hits.hits[0]._id&#39;</span>
+<span class="s">{</span>
+<span class="s">  &quot;query&quot;: {</span>
+<span class="s">    &quot;term&quot;: {</span>
+<span class="s">      &quot;name&quot;:&quot;$ONAME&quot;</span>
+<span class="s">    }</span>
+<span class="s">  }</span>
+<span class="s">}</span>
+<span class="s">EOF</span>
+<span class="k">)</span>
+
+<span class="k">if</span> <span class="o">[</span> -z <span class="s2">&quot;$OID&quot;</span> -o <span class="s2">&quot;$OID&quot;</span> <span class="o">=</span> <span class="s2">&quot;null&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+  <span class="nb">echo</span> <span class="s2">&quot;Orchestrator $ONAME is unknown&quot;</span>
+  <span class="nb">exit </span>1
+<span class="k">fi</span>
+
+<span class="nb">echo</span> <span class="s2">&quot;Orchestrator ID is $OID&quot;</span>
+
+cleanIndex <span class="nv">$OID</span> <span class="s2">&quot;eventindex&quot;</span>
+cleanIndex <span class="nv">$OID</span> <span class="s2">&quot;logeventindex&quot;</span></code></pre></div>
+
+<h3 id="migration-steps">Migration steps</h3>
+
+<ul>
+  <li>Stop A4C</li>
+  <li>Stop Yorc</li>
+  <li>Upgrade Yorc binary</li>
+  <li>Start Yorc (If you change the Yorc storage configuration, ensure the migration is terminated)</li>
+  <li>Run the script to delete the document in A4C indexes (orchestrator per orchestrator)</li>
+  <li>Start A4C</li>
+</ul>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/migration_guides/Yorc.4.0.0.M8.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('MIGRATION_GUIDES', 'migration_guides/Yorc.4.0.0.M8.markdown');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>
