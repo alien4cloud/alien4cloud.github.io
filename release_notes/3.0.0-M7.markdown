@@ -25,7 +25,8 @@ exclude_from_search: true
       |  <i class="fa fa-level-up text-primary"></i> | ALIEN-3480 | Display application ID in main application page  |
     |  <i class="fa fa-level-up text-primary"></i> | ALIEN-3481 | A home page for environment  |
     |  <i class="fa fa-level-up text-primary"></i> | ALIEN-3484 | Change default environment type and make it configurable  |
-    
+      |  <i class="fa fa-bug text-danger"></i> | ALIEN-3492 | Custom workflow not reserialized when edited in yml editor  |
+  
 
 
 ### Alien 4 Cloud Wizard
