@@ -319,6 +319,8 @@ Click on the compute, the following details should appear:
 
 Edit mandatory parameters AWS **image_id**, **instance_type**, **security_groups** and **key_name** to provide the name of a key pair already known from AWS.
 
+Edit **credentials** to provide a user name. This user will be used to connect to this on-demand compute resource once created, and to deploy applications on it (while user credentials used to create this on-demand resource are defined in the Yorc server configuration).
+
 Click on the **EBSVolume**, the following details should appear, with here several properties set as explained below:
 
 ![EBSVolume configuration](../../../../images/2.2.0/yorc/aws-volume-on-demand.png)
@@ -337,8 +339,31 @@ If you want to refer to an existing volume, set the parameter **volume_id** with
 
 For details on other optional EBSVolume properties, see [Creating an Amazon EBS Volume](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-volume.html).
 
+Click on the **Subnet**, the following details should appear, with here several properties set as explained below:  
 
-Edit **credentials** to provide a user name. This user will be used to connect to this on-demand compute resource once created, and to deploy applications on it (while user credentials used to create this on-demand resource are defined in the Yorc server configuration).
+!["Subnet configuration](../../../../images/2.2.0/yorc/aws-subnet-on-demand.png)  
+
+Set the mandatory parameter **vpc_id**, you can found it on the web AWS console
+A **cidr_block** must be associated, and it should not overlap with others subnet cidr
+The **availability_zone** or **availability_zone_id** aren't mandatory; if not set, AWS will choose one for you. If you have a preference, set one of these parameters
+**map_public_ip_on_launch** : if set to true, instances launched into the subnet should be assigned a public IP address. If your A4C instance is outside your AWS VPC, set it to true, else your instance won't be accesible, and the deployement will fail.  
+
+A new VPC can be created with the **yorc.nodes.aws.VPC** ressource.  
+
+!["Subnet creation inside VPC rsc](../../../../images/2.2.0/yorc/aws-VPC-on-demand.png)
+
+A **cidr_block** must be provided, there is no restriction, except it must be a valid to be ipv4 cidr
+
+You can create Subnets as nested components if you click on "Subnets" :
+
+!["Subnet creation inside VPC rsc](../../../../images/2.2.0/yorc/aws-VPC-subnet-on-demand.png)
+
+**map_public_ip_on_launch** : if set to true, instances launched into the subnet should be assigned a public IP address. If your A4C instance is outside your AWS VPC, set it to true, else your instance won't be accesible, so the deployement will fail.  
+Your can specify an **availability_zone** for each subnets.  
+
+Specifying subnets is not mandatory; because a VPC got a default subnet on AWS. 
+YORC will generate a default security group for the VPC. This group will allow all type of connection from the IP machine where A4C is currently running. An internet gateway and route table will be created to allow this too.  
+
 
 ## Configure a Kubernetes Location
 
