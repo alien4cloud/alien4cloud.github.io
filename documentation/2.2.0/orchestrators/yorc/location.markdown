@@ -362,7 +362,7 @@ You can create Subnets as nested components if you click on "Subnets" :
 Your can specify an **availability_zone** for each subnets.  
 
 Specifying subnets is not mandatory; because a VPC got a default subnet on AWS. 
-YORC will generate a default security group for the VPC. This group will allow all type of connection from the IP machine where A4C is currently running. An internet gateway and route table will be created to allow this too.  
+YORC will generate a default security group for the VPC. This group will allow TCP connection on port 22 to allow A4C to check that the deployment is successful. An internet gateway and route table will be created to allow this too.  
 
 
 ## Configure a Kubernetes Location
