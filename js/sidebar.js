@@ -91332,7 +91332,7 @@ var node, children;
       node.name = "3.0.0-M7";
       node.title = "ALIEN for Cloud 3.0.0-M7";
       node.url = "release_notes/3.0.0-M7.html";
-      node.weight =  9892;
+      node.weight =  9893;
       node.root = "../";
     
   
