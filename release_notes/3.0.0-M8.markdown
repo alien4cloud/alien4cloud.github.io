@@ -1,0 +1,94 @@
+---
+layout: post
+title:  ALIEN for Cloud 3.0.0-M8
+root: ../
+categories: RELEASE_NOTES
+parent: [release_note]
+node_name: 3.0.0-M8
+weight: 9892
+exclude_from_search: true
+---
+
+
+
+
+<i class="fa fa-plus text-success"></i> New feature <i class="fa fa-level-up text-primary"></i> Improvement  <i class="fa fa-bug text-danger"></i> Bug <i class="fa fa-exclamation-triangle text-warning"></i> Breaking change
+
+
+### Alien 4 Cloud K8S plugin
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-3473 | Less dependencies between services and deployments for fastest install workflows  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-3474 | Kubernetes Undeploy simplification when namespace is created in the deployment  |
+      |  <i class="fa fa-bug text-danger"></i> | ALIEN-3478 | Better management of url attribute in case of ClusterIP service  |
+  
+
+
+### Alien 4 Cloud Kafka Logger
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-3506 | Adding requestid key acknowledge message property  |
+    
+
+
+### Alien 4 Cloud Spray
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+        |  <i class="fa fa-bug text-danger"></i> | ALIEN-3495 | Refresh pip when installing Yorc dependencies to avoid "'platform_system' is not defined" error  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-3509 | rsync service stop let crontab launching rsync script  |
+  
+
+
+### Alien 4 Cloud
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-3447 | Add a REST endpoint to compile and validate TOSCA without uploading it into catalog  |
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-3475 | Display active deployment tab by default when active deployment exists  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-3496 | Orchestrators connexion locked by unavailable orchestrator instead of all  |
+      |  <i class="fa fa-bug text-danger"></i> | ALIEN-3487 | Progress bar are not representative of actual number of steps in workflow  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-3494 | Add of step in install workflow not run during deployment  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-3508 | Tabs Prepare next deployment and Manage Current deployment are both selected when deployment is in progress  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-3512 | Issue in runtime workflow rendering when nodes are renamed and with simplifier modifier  |
+  
+
+
+### Alien 4 Cloud Wizard
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-3497 | Disabling run button while run workflow executes  |
+      |  <i class="fa fa-bug text-danger"></i> | ALIEN-3450 | i18n for REDIRECTION_REQUIRED task  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-3487 | Progress bar are not representative of actual number of steps in workflow  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-3513 | Bug fix in wf monitoring and enhancements (better management of workflow events)   |
+  
+
+
+### Yorc Paas Provider
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-3503 | Stop consider timeout as deployment errors when deployment is sent to Yorc  |
+      
+
