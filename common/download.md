@@ -9,7 +9,7 @@ root: ../
 
 
   <div class="col-md-12">
-    <h2>Community edition</h2>
+    <h2>Alien4Cloud full distribution</h2>
     <br />
     <br />
     <a href="https://www.portaildulibre.fr/nexus/repository/opensource-releases/alien4cloud/alien4cloud-premium-dist/{{ site.last-version }}/alien4cloud-premium-dist-{{ site.last-version }}-dist.tar.gz" ><i class="fa fa-download"></i> Alien 4 Cloud latest sprint milestone ({{ site.last-version }})</a>
