@@ -6,6 +6,21 @@ root: ../
 
 <div class="container">
   <div class="row">
+
+
+  <div class="col-md-12">
+    <h2>Community edition</h2>
+    <br />
+    <br />
+    <a href="https://www.portaildulibre.fr/nexus/repository/opensource-releases/alien4cloud/alien4cloud-premium-dist/{{ site.last-version }}/alien4cloud-premium-dist-{{ site.last-version }}-dist.tar.gz" ><i class="fa fa-download"></i> Alien 4 Cloud latest sprint milestone ({{ site.last-version }})</a>
+    <br />
+    <a href="https://www.portaildulibre.fr/nexus/#browse/search=keyword%3Dalien4cloud:opensource-snapshots%3Aalien4cloud%3Aalien4cloud-premium-dist%3A{{ site.last-snapshot }}" ><i class="fa fa-download"></i> Alien 4 Cloud latest build</a>
+    <br />
+    <a href="https://www.portaildulibre.fr/nexus/repository/opensource-releases/alien4cloud/alien4cloud-premium-dist/{{ site.stable-version }}/alien4cloud-premium-dist-{{ site.stable-version }}-dist.tar.gz" class="btn btn-success btn-lg">Alien 4 Cloud {{ site.stable-version }}</a>
+    <br />
+  </div>
+
+  <!--
     <div class="col-md-6">
       <h2>Community edition</h2>
       <br />
@@ -49,6 +64,9 @@ root: ../
         <a href="mailto:sebastien.bergougnoux@atos.net" class="btn btn-primary btn-lg">Contact us </a>
       </p>
     </div>
+ -->
+
+
   </div>
 </div>
 
