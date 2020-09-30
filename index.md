@@ -13,7 +13,7 @@ root: ../
           <small>is an <a href="http://github.com/alien4cloud">open source</a> platform<br/> that makes application management on the cloud easy for enterprises<br/><br/></small>
         </p>
         <p class="home-buttons">
-          <a href="#/documentation/1.4.0/getting_started/new_getting_started.html" class="btn btn-primary btn-lg">Get Started</a>
+          <a href="#/documentation/3.0.0/getting_started/new_getting_started.html" class="btn btn-primary btn-lg">Get Started</a>
           <a href="/common/download.html" class="btn btn-success btn-lg">Download</a>
         </p>
       </div>
@@ -229,7 +229,7 @@ Application and environments 100% synced (deployment model always up to date)<br
     <div class="row">
       <div class="col-md-12 text-center">
         <p class="lead home-title">Need more information?</p>
-        <a href="mailto:sebastien.bergougnoux@atos.net" class="btn btn-primary btn-lg">Get in touch</a>
+        <a href="mailto:francois.chapuzot@atos.net" class="btn btn-primary btn-lg">Get in touch</a>
     </div>
   </div>
 </div>
