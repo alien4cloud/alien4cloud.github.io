@@ -25,8 +25,8 @@ You can push or pull only if you have saved the modifications on the topology.
 
 ## Push to a remote repository
 
-You can decide on which branch to push to. If non is defined, it will push to the master branch.
-In order not to store the credentials inside Alien4Cloud, it is requested when you want to perform the action to push.
+You can decide on which branch to push to. If none is defined, it will push to the master branch.
+To avoid storing the credentials inside Alien4Cloud, it is requested when you want to perform the action to push.
 
 {%warning%}
 <h5>Alien4Cloud don't support conflicts resolution right now</h5>
@@ -36,8 +36,8 @@ We will let you merge the changes into your choosen branch using your prefered t
 
 ## Pull from a remote repository
 
-You can decide on which branch to pull to. If non is defined, it will pull to the master branch.
-In order not to store the credentials inside Alien4Cloud, it is requested when you want to perform the action to pull.
+You can decide on which branch to pull to. If none is defined, it will pull to the master branch.
+To avoid storing the credentials inside Alien4Cloud, it is requested when you want to perform the action to pull.
 
 {%warning%}
 <h5>Alien4Cloud don't support conflicts resolution right now</h5>

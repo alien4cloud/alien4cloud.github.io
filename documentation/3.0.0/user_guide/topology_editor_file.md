@@ -24,7 +24,7 @@ You can also create an empty file, to be edited later on. First, enter the name 
 # Update the YAML of your topology
 
 Alien4cloud provides a view to see the YAML of your topology exists, useful to export the YAML.
-Since `1.3.0`,  you can directly edit your YAML to, for example, override an existing relationships or create a new capability type.
+You can directly edit your YAML to, for example, override an existing relationships or create a new capability type.
 Don't forget to save your change by clicking on the save button.
 
 [![YAML editor](../../images/3.0.0/user_guide/editor-yaml-view.png)](../../images/3.0.0/user_guide/editor-yaml-view.png)

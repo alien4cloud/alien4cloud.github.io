@@ -19,4 +19,4 @@ Be sure to save a valid topology if you want to deploy.
 
 
 The icon **Invalid topology** is also displayed in the topology editor
-[![topology editor warning](../../images/3.0.0/user_guide/topology_editor/topology_editor_validation_2.png)](../../images/3.0.0/user_guide/topology_editor/topology_editor_validation.png)
+[![topology editor warning](../../images/3.0.0/user_guide/topology_editor/topology_editor_validation_icon.png)](../../images/3.0.0/user_guide/topology_editor/topology_editor_validation_icon.png)

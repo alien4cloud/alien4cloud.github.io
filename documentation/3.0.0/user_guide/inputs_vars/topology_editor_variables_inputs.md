@@ -8,7 +8,7 @@ node_name: topology_editor_var_inputs
 weight: 170
 ---
 
-From version `3.0.0`, Alien 4 cloud provides a way to define a set of key/value data called variables, that can be used to configure a deployment on different environments.
+Alien 4 cloud provides a way to define a set of key/value data called variables, that can be used to configure a deployment on different environments.
 This section details what is the purpose of variables, how they work, and how a user can manage (define and reference) these on a deployment.
 
 #Goal
@@ -17,7 +17,7 @@ The purpose of the variables in alien4cloud is, in general to ease such tasks, b
 
 - Defining reusable informations for inputs,
 - Reducing the number of inputs the deployer need to manage,
-- Allowing the Architect (topology designer ) to specify, using variables, default values for inputs per deployent context
+- Allowing the Architect (topology designer ) to specify, using variables, default values for inputs per deployment context
 - Thus, making the topology usable in different environments without redefining/adapting all inputs. (assumption the number of variables to update/define will be lower than the number of inputs)
 
 Now, here are

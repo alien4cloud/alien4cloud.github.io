@@ -34,4 +34,4 @@ Any user with sufficient right will be able to accept or discard the request in 
 
 # Delete the workspace plugin
 
-Admin user's can remove the workspace plugin. However a bug can occur if some CSAR are in locate in user or application workspace during this suppresion. To avoid it, we recommed to move all CSAR to the global workspace before this operation.
+Admin users can remove the workspace plugin. However a bug can occur if some CSAR are used by a user or an application workspace during this suppression. To avoid it, we recommend to move all CSAR to the global workspace before this operation.

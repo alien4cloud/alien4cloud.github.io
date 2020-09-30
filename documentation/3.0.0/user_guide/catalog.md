@@ -21,7 +21,7 @@ TOSCA is at the heart of Alien 4 Cloud, and so is the TOSCA Catalog feature. TOS
 The goal of TOSCA is to let users provide building blocks called Types to define the desired topologies from a very abstract level to a very concrete level allowing the actual deployment of the topology. Any abstract element in a topology has to be replaced with concrete implementations in order to allow the TOSCA deployer to actually perform the deployment. Most of TOSCA implementations provides their own implementations for some of the nodes (like the normative ones defined within the standard).
 
 {%info%}
-For more informations on TOSCA and supported archive format please go [here](#/documentation/3.0.0/devops_guide/tosca_concepts.html).
+For more informations on TOSCA and supported archive format please go [here](#/documentation/3.0.0/devops_guide/dev_ops_guide.html).
 {%endinfo%}
 
 # TOSCA Catalog
@@ -73,9 +73,6 @@ The goal of workspaces is to provide catalog isolation so that users can upload 
 
 Workspaces are defined in a hierarchy, on top of the hierarchy is the global workspace which basically is the main catalog of components which is managed by users with roles COMPONENT_MANAGER (to add types) and/or ARCHITECT (to add topologies).
 
-{%note%}
-Before 1.3 version alien had only the global workspace and applications where not allowed to define types.
-{%endnote%}
 
 <div class="row">
   <div class="col-xs-12">

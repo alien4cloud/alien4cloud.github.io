@@ -102,4 +102,4 @@ To get more informations about the supported platforms, please refer to [this se
 
 # Features
 
-[![Alien features](../images/alien-features-1-1.png)](../images/alien-features-1-1.png)
+[![Alien features](../../images/3.0.0/alien-features-1-1.png)](../../images/3.0.0/alien-features-1-1.png)

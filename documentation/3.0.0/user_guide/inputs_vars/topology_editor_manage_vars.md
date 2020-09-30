@@ -17,11 +17,11 @@ You might want to check out the [concept behind variables](#/documentation/3.0.0
 
 Variables are key/value data that can be provided at different scopes of the application (application, environment, environments type). They are stored and editable as YAML files:
 
-- **Application variables (APP_VARs)** at `${directories.alien}/variables/app_[APP_ID].yml`
+- **Application variables (APP_VARs)** at `${directories.alien}/git/[APP_ID]/vars/app_variables.yml`
 
-- **Environment type variables (ENV_TYPE_VARs)** at `${directories.alien}/${csar_repository}/[APP_ID]/[TOPOLOGY_VERSION]/expanded/inputs/var_env_[ENV_TYPE].yml`
+- **Environment type variables (ENV_TYPE_VARs)** at `${directories.alien}/${csar_repository}/[APP_ID]/[TOPOLOGY_VERSION]/expanded/inputs/var_env_type_[ENV_TYPE].yml`
 
-- **Environment type variables (ENV_VARs)** at `${directories.alien}/${csar_repository}/[APP_ID]/[TOPOLOGY_VERSION]expanded/inputs/var_env_[ENV_ID].yml`
+- **Environment variables (ENV_VARs)** at `${directories.alien}/${csar_repository}/[APP_ID]/[TOPOLOGY_VERSION]expanded/inputs/var_env_[ENV_ID].yml`
 
 # Application variables
 Once on the application information view, click on `variables` button,

@@ -41,7 +41,7 @@ The name of such variables are ALWAYS prefixed with `a4c.`, and we call them ___
 | **a4c.environment.type** | The type of the environment being configured | ex: OTHER, DEVELOPMENT, PRODUCTION, etc.|
 | **a4c.environment.name** | The name of the environment being configured | ex: Dev_Env, Prod_Env|
 | **a4c.application.tags.[*****TAG_NAME*****]** | The value of the tag named "TAG_NAME" on the application| Alien4Cloud inject for all tags defined on the application |
-|**a4c.[*****META_DATA_NAME*****]** | The value of the Meta property named "META_DATA_NAME"| Remember Meta properties can be defined and apply on applications and locations. In this case, Alien4Cloud looks first for the Meta value on the application. If not found, then the value provided for the location on which de deployment id being configured we be injected|
+|**a4c.[*****META_DATA_NAME*****]** | The value of the Meta property named "META_DATA_NAME"| Remember Meta properties can be defined and apply on applications and locations. In this case, Alien4Cloud looks first for the Meta value on the application. If not found, the value provided for the location on which deployment is being configured will be injected|
 
 {%info%}
 <h5>TIPS</h5>
@@ -173,7 +173,7 @@ cpu_frequency: "1000 MHz"
 Previously we talked about variables. Variables are a convenient way to define reusable values. Those values can be used to configure inputs, defined in the topology.
 An input property has a name and a value. Alien4Cloud allows the topology designer to pre-configure values for some inputs, thus removing some of that burden from the deployer user.
 
-The pre-configured inputs are stored and editable as YAML, and there is only one file for the whole topology, and z configured value is the same for all environments.
+The pre-configured inputs are stored and editable as YAML. As there is only one file for the whole topology, the configured value will be the same for all environments.
 
 #Variables Vs Pre-configured inputs
 
