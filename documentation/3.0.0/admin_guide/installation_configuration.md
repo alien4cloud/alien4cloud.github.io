@@ -10,9 +10,9 @@ weight: 10
 
 {% summary %}{% endsummary %}
 
-{% info %}
-This section describe installation and configuration of Alien 4 Cloud for a production mode. If you whish to use Alien 4 Cloud for a demo or development mode please refer to the [getting started](#/documentation/3.0.0/getting_started/getting_started.html) guide.
-{% endinfo %}
+{% warning %}
+This section describe a deprecated manual installation and configuration of Alien 4 Cloud. We strongly recommend you to automate your installation using [A4C Spray](https://github.com/alien4cloud/alien4cloud-spray/tree/develop) project (or alternatively use [Yorc bootstrap](https://yorc.readthedocs.io/en/stable/bootstrap.html)).
+{% endwarning %}
 
 {%warning%}
 <h5>Supported platforms</h5>
@@ -86,12 +86,7 @@ by
 
 ## Specific appender for the deployment logs
 
-{% info %}
-<h5>Premium feature</h5>
-This section refers to a premium feature.
-{% endinfo %}
-
-Alien4Cloud premium offer the possibilty to see / search deployment logs from premium orchestrators.
+Alien4Cloud offer the possibilty to see / search deployment logs from orchestrators.
 Since Alien 1.4, a specific logger is used for this events.
 
 {% highlight bash %}

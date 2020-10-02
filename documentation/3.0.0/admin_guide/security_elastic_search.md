@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Elastic Search
+title: Elasticsearch
 categories: "DOCUMENTATION-3.0.0"
 root: ../../
 parent:
@@ -35,7 +35,7 @@ xpack.security.transport.http.key: {{hostkey_file_path}}
 xpack.security.transport.http.certificate: {{hostcert_file_path}}
 xpack.security.transport.http.certificate_authorities: ["{{ca_file_path}}"]
 
-xpack.security.authc.anonymous.roles: superuser 
+xpack.security.authc.anonymous.roles: superuser
 
 {% endhighlight %}
 * Perform the same operations for all your elasticsearch cluster nodes

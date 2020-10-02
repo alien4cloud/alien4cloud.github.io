@@ -18,6 +18,10 @@ see [security section](#/documentation/3.0.0/admin_guide/security.html).
 
 ALIEN 4 Cloud uses ElasticSearch as it's data store and indexing service. By default ALIEN 4 Cloud starts up an embedded ElasticSearch node. Of course when running in production it is recommended to use a remote cluster (ideally with high availability configured).
 
+{% warning %}
+This section describe deprecated manual ES settings. We strongly recommend you to automate your installation using [A4C Spray](https://github.com/alien4cloud/alien4cloud-spray/tree/develop) project that well manage all settings for the full A4C stack (including ES cluster settings).
+{% endwarning %}
+
 ## Common configuration
 
 Common configuration allows you to configure the name of the elasticsearch cluster (_clusterName_), as well as the _prefix_max_expansions_ (performance setting used for prefix queries).

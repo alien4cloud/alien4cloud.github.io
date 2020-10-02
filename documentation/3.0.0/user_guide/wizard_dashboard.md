@@ -13,7 +13,7 @@ weight: 1600
 
 # Applications list
 
-The screen shows you the list of applications you can access (basically any application you have a role assigned to). If you are a platform admin you can see all applications on the list. 
+The screen shows you the list of applications you can access (basically any application you have a role assigned to). If you are a platform admin you can see all applications on the list.
 
 ![Dashboard](../../images/3.0.0/user_guide/wizard/applicationwizard-dashboard-1.png)
 
@@ -43,5 +43,3 @@ The first workflow is displayed, run in the screen below
 It is possible to get the available workflows list by clicking on the button on the right of undeploy button
 
 ![Application worfklows list](../../images/3.0.0/user_guide/wizard/applicationwizard-dashboard-5.png)
-
-

@@ -30,12 +30,9 @@ Alien 4 Cloud is written in java for the backend and requires a **JVM 8** or hig
 
 ### Orchestrators and deployment artefacts
 
-Yorc 4.0.x is alien 3.0.0 primary supported orchestrator. 
+Yorc 4.0.x is alien 3.0.0 primary supported orchestrator.
 
 {: .table .table-bordered}
 | Orchestrators | Deployment artefacts |
 |:----------------|:----------------|
-| _Yorc 4_ | **yorc** (_software_), **.json** (_Configuration_files_), Ansible playbooks, ) |
-
-
-
+| _Yorc 4_ | **.sh** (_tosca.artifacts.ShellScript_), Ansible playbooks, Docker images (via Kubernetes) |

@@ -14,6 +14,5 @@ Note : Yorc ports are only written here as an indication. If you have any doubt 
 {: .table .table-bordered}
 | Component - Port description                                       | Default port number/range   | Component Version      |
 |--------------------------------------------------------------------|--------------------:|-----------------------:|
-| Alien4Cloud - standalone GUI port                                  |         8088        |     3.0.0              |
-| Alien Post-Deployment application                                  |   8089              |     3.0.0              |
-| Yorc                                 | 8800 |     4.0.x           |
+| Alien4Cloud - standalone GUI port                                  |         8088        |     3.0.X              |
+| Yorc                                                               |         8800        |     4.0.x              |

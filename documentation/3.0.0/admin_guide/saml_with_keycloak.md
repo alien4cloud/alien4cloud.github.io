@@ -8,11 +8,6 @@ node_name: saml_with_keycloak
 weight: 200
 ---
 
-{% info %}
-<h5>Premium feature</h5>
-This section refers to a premium feature.
-{% endinfo %}
-
 Alien4Cloud supports SAML authentication, this section describes the configuration for enabling SAML and how to integrate Keycloak.
 
 ## How does it work

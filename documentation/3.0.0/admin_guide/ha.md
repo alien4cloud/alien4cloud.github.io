@@ -10,11 +10,6 @@ weight: 800
 
 {% summary %}{% endsummary %}
 
-{% info %}
-<h5>Premium feature</h5>
-This section refers to a premium feature.
-{% endinfo %}
-
 When deploying A4C in a production environment, you may want to be sure it will be available 24/7, even in case of crashes. We provide a plugin that manages high availability for A4C using a primary/backup mode.
 
 {%warning%}
@@ -55,6 +50,10 @@ When the lock is acquired, this means the current instance is elected as the lea
 If the JVM or the machine crash (or event if an A4C instance can't reach ElasticSeach), the health check will fail, consul will disable the session, and the lock (if it is associated with this session) will be released. The primary will fall back in backup mode. Another instance will be elected.
 
 # Installation
+
+{% warning %}
+This section describe deprecated manual HA settings. We strongly recommend you to automate your installation using [A4C Spray](https://github.com/alien4cloud/alien4cloud-spray/tree/develop) project that well manage HA setups.
+{% endwarning %}
 
 ## Sample topology
 

@@ -21,11 +21,6 @@ The previous picture was taken during a Wordpress deployement, to deploy your ow
 
 #Logs
 
-{% info %}
-<h5>Premium feature</h5>
-This section refers to a premium feature.
-{% endinfo %}
-
 You can access to the logs view by a submenu of the runtime view. In this page you can see deployments logs in alien4cloud.
 
 ![Logs view](../../images/user_guide/application/log_view.png)

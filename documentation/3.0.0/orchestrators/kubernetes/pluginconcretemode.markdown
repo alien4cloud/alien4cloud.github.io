@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  Simplified modeling
+title:  K8S modeling
 root: ../../../../
 categories: DOCUMENTATION-3.0.0
 parent: [orchestrators, kubernetes]
@@ -37,4 +37,3 @@ The plugins offers the following features:
 ## Examples walkthrough
 
 All the samples bellow can be found in the [samples](https://github.com/alien4cloud/samples/tree/3.0.x/org/alien4cloud/doc/kube/kcontainers) repository https://github.com/alien4cloud/samples (folder org/alien4cloud/doc/kube)
-

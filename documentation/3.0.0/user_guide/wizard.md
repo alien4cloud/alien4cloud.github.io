@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Wizard 4 Cloud
+title: Wizard4Cloud
 root: ../../
 categories: "DOCUMENTATION-3.0.0"
 parent:
@@ -15,16 +15,16 @@ Wizard is an UI that provides a step by step screen sequencing for the deploymen
 
 # Run Wizard
 Wizard is installed with Alien4Cloud.
-It can be accessed on the menu on the right of the screen. 
+It can be accessed on the menu on the right of the screen.
 
 ![Access to wizard](../../images/3.0.0/user_guide/wizard/wizard_access.png)
 
-The following screen is displayed 
+The following screen is displayed
 ![Welcome page](../../images/3.0.0/user_guide/wizard/welcomepage.png)
 
 
 # Quick getting started
-The below instructions decribe the 3 functionnalities of the wizard 
+The below instructions decribe the 3 functionnalities of the wizard
 
 ## Create an application from topology template
 
@@ -41,5 +41,3 @@ The below instructions decribe the 3 functionnalities of the wizard
 ##Settings
 
 ![Personalization](../../images/3.0.0/user_guide/wizard/settings.png)
-
-

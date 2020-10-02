@@ -17,7 +17,7 @@ This guide explains how to get started with Alien4Cloud and deploy your first ap
 
 ## Prerequisites
 
-* __Operating system__:<i class="fa fa-linux"></i> Linux or <i class="fa fa-apple"></i> MacOS version 10.12 (we use a native library for docker communication that has been compiled on this version and we are aware of issues on earlier versions).
+* __Operating system__:<i class="fa fa-linux"></i> Linux or <i class="fa fa-apple"></i> MacOS.
 
 * __Ansible__  : >= 2.8.3
 
@@ -26,11 +26,11 @@ This guide explains how to get started with Alien4Cloud and deploy your first ap
 ## Install, launch and configure alien4cloud
 
 
-To bootstrap a fullStack of A4C with Yorc Orchestrator, there is the alien4Cloud spray available on [Alien4Cloud spray](https://github.com/alien4cloud/alien4cloud-spray).
-It is a set of Ansible scripts to install a full A4C stack including A4C, Yorc, Consul and so on.
+To bootstrap a full A4C stack (including Elasticsearch, Yorc, Consul ...), a set of Ansible playbooks are available in [Alien4Cloud Spray](https://github.com/alien4cloud/alien4cloud-spray/tree/develop) github project.
 
-
-
+{%info%}
+An alternative approach to setup a A4C/Yorc stack is to use [Yorc bootstrap](https://yorc.readthedocs.io/en/stable/bootstrap.html).
+{%endinfo%}
 
 # Let's play!
 
@@ -87,7 +87,7 @@ Now we have the Mock templates ready to use, we can create an application based 
 
 ![New application modal](../../images/3.0.0/getting_started/new_application_modal.png)
 
-Click on _create_ to create the application and be redirected to the application informations page. 
+Click on _create_ to create the application and be redirected to the application informations page.
 ![SimpleMock application](../../images/3.0.0/getting_started/application_detail.png)
 To see your application topology, click on ![application topology menu](../../images/3.0.0/getting_started/topology_sub_menu.png)
 Clicking on Edit button will take you to the topology editor.
@@ -97,7 +97,7 @@ Clicking on Edit button will take you to the topology editor.
 As you can see the topology is already complete. We will cover topology edition later on so, for now, let's prepare for deployment.
 
 # Setup and deploy your application
-Go back to application detail screen by clicking on the top left menu ![application navigation bar](../../images/3.0.0/getting_started/application_navbar.png){: height="26px" .inline} 
+Go back to application detail screen by clicking on the top left menu ![application navigation bar](../../images/3.0.0/getting_started/application_navbar.png){: height="26px" .inline}
 
 Click on ![application deployment](../../images/3.0.0/getting_started/application_deployment_menu.png){: height="26px" .inline} to configure your deployment:
 Click on Environment
@@ -111,7 +111,7 @@ Click on Location button :
 ![Location list display](../../images/3.0.0/getting_started/location_choice_2.png)
 ![Location selected](../../images/3.0.0/getting_started/location_choice_3.png)
 
-Node matching step is here again done automatically for you. 
+Node matching step is here again done automatically for you.
 So let's go to Review & Deploy button
 ![Deployment validation](../../images/3.0.0/getting_started/validation_deployment.png)
 

@@ -95,4 +95,4 @@ This can be done :
 This feature needs Yorc Premium distribution.
 {%endinfo%}
 
-Since 3.0.0, in addition to the update process, alien4cloud will, right after the update automatically trigger the __post_update__ and __pre_update__ workflows in case one is defined in the _original topology_ and in the _updated topology_. Note that while we decided to add this option in 3.0.0 version we also decided to apply to this option the same limitation that exist in Yorc meaning that, as no custom workflow can be updated with this orchestrator you won't be able also to update or add a post_update workflow in case it is not defined in the initial topology. However we will trigger the workflow only if it is still defined in the updated topology meaning that while you cannot change or add this behaviour you may decide to stop applying it.
+In addition to the update process, alien4cloud will, right after the update, automatically trigger the __pre_update__ and __post_update__ workflows in case one is defined respectively in the _original topology_ and in the _updated topology_ (by convention). 

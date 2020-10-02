@@ -11,21 +11,20 @@ published: true
 
 {%summary%}{%endsummary%}
 
-# Elastic Search Migration
-Alien4Cloud 3.0.0 includes the migration of its Elastic Search backend version from 1.7 to 6.6.2.
-Data migration guides are available on github
+### Opensource
+We no longer have a premium distribution for A4C : all previously premium components (plugins, distributions ...) have been opensourced.
 
+### Elastisearch upgrade
+Alien4Cloud now supports Elasticsearch version 6.6.2.
+Data migration guide is available on [Github](https://github.com/alien4cloud/alien4cloud-data-migration-scripts/tree/develop).
 
-# End of use of Cloudify as an Orchestrator
-This version does not support the use of Cloudidy as Orchestrator.
-The 3.0.0 version currently supports only Yorc Orchestrator.
+### Yorc Orchestrator integration
+This version no longer uses Cloudidy as Orchestrator.
+We have focused on strongly integrating with [Yorc](https://github.com/ystia/yorc) Orchestrator.
 
+### Wizard4Cloud
+This version includes a new simplified UI witch mainly provides a step by step application creation wizard.
+The [following guide](#/documentation/3.0.0/user_guide/wizard.html) describes all of this new UI's features.
 
-# UI  improvements
-This version includes a new UI used to simplify and restrict deployments.
-The following guide describes all of the new UI's functionalities.
-
-# Spray
-To bootstrap a fullStack of A4C with Yorc Orchestrator, there is the alien4Cloud spray available on [Alien4Cloud spray](https://github.com/alien4cloud/alien4cloud-spray/tree/develop).
-It is a set of Ansible scripts to install a full A4C stack including A4C, Yorc, Consul and so on.
-
+### A4C Spray
+To bootstrap a full A4C stack (including A4C, Yorc, Consul and so on ...), a set of Ansible scripts is available on [A4C Spray](https://github.com/alien4cloud/alien4cloud-spray/tree/develop) project.

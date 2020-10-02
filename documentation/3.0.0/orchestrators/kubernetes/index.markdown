@@ -14,12 +14,18 @@ Starting from 3.0.0 the way we manage Kubernetes integration has changed and is 
 
 Here, We will explain concepts, describe the kubernetes plugin, and try it using simple examples.
 
-## Kubernetes modelization - abstract mode
+## Portable modelization
+
+This legacy portable mode aim to let you design portable container topologies that can be transformed into concrete K8S topology (with willingness to target other kind of container schedulers ...).
+
 - A CSAR with dedicated Kubernetes abstract and concrete types and policies.
 - 2 topology modifiers that transform an abstract container based topology into something deployable onto a Kubernetes cluster.
 - policies’ modifiers
 
-## Kubernetes modelization - simplified mode
+## K8S modelization
+
+Portability often means limitations : regarding the fact that K8S became a standard _de facto_, we have decided to able you directly target K8S scheduler, leveraging all it's features.
+
 - The same CSAR with Kubernetes dedicated concrete types only
 - It can be only used with Kubernetes
 - 1 single topology modifier that transform container based topology into something deployable onto a Kubernetes cluster.
