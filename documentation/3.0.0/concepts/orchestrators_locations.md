@@ -48,6 +48,8 @@ Here a list of supported resources with Yorc:
 | OpenStack | linux | **.sh** (_tosca.artifacts.ShellScript_) |
 | AWS | linux | **.sh** (_tosca.artifacts.ShellScript_) |
 | Google Cloud | linux | **.sh** (_tosca.artifacts.ShellScript_) |
+| HPC | linux | **.sh** (_tosca.artifacts.ShellScript_) - use of Slurm |
+| Bare metal | linux | **.sh** (_tosca.artifacts.ShellScript_) - named HostPool |
 
 {%info%}
 Some Alien users deployed also **Puppet artifact** through Groovy script.

@@ -39,7 +39,7 @@ You'll need to setup modifiers on your location. On the location screen, in the 
 The phase define the deployment flow step where the modifier will act upon the topology. The **Kubernetes adapter modifier** will act at the `post-matched-node-setup` phase ie. just after the matched nodes are configured by the user.
 {% endinfo %}
 
-![Location modifiers](../../images/3.0.0/orchestrators/kubernetes/kubernetes_walkthrough/.png)
+![Location modifiers](../../images/3.0.0/orchestrators/kubernetes/adapter_modifier_configuration.png)
 
 The modifier will generate types that are ready to be deployed onto a Kubernetes cluster.
 

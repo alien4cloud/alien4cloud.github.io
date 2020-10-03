@@ -27,17 +27,21 @@ The following screen is displayed
 The below instructions decribe the 3 functionnalities of the wizard
 
 ## Create an application from topology template
+Guides throw the necessary steps in order to create a new application from a template.
 
 [Application creation](#/documentation/3.0.0/user_guide/wizard_application_wizard.html)
 
 ## DashBoard
+Lists all applications, view deployment status, logs, view meta datas, view application modules
 
 [Application list](#/documentation/3.0.0/user_guide/wizard_dashboard.html)
 
 ## Catalog
+Browses main properties of Components catalog available in the Full UI.
 
 [Components list](#/documentation/3.0.0/user_guide/wizard_catalog.html)
 
 ##Settings
+Setups few options about this application
 
-![Personalization](../../images/3.0.0/user_guide/wizard/settings.png)
+[Personalization](#/documentation/3.0.0/user_guide/wizard_settings.html)

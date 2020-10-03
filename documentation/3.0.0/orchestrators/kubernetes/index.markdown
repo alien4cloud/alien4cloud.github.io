@@ -32,4 +32,4 @@ Portability often means limitations : regarding the fact that K8S became a stand
 
 
 ## Spark modelization
-Deploying and running Spark jobs is now available with the plugin. Il can be realized only with the simplified modelization mode
+Deploying and running Spark jobs is now available with the plugin. Il can be realized only with the K8S modelization mode.

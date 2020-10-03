@@ -74,7 +74,7 @@ So basically, we can identify some intermediate phases, or rather states, betwee
 * __post-matched-node-setup__: Right after matched nodes are configured
 
 
-TODO: Flow diagram of deployment configuration
+**TODO**: Flow diagram of deployment configuration
 
 
 A modifier can be executed on one of the above phases. Thus a modifier plugged at _post-matched-policy-setup_ will be executed right after the properties of the matched policy template will be injected.

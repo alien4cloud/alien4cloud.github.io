@@ -78,7 +78,7 @@ The application can be deployed.
 The job spark can ba launching by execution the run workflow operation :
 ![Running spark job](../../images/3.0.0/orchestrators/kubernetes/spark_2.png)
 
-During the execution, if the property **debugOperation**  has been set, the spark-submit command can be displayed in the deployment logs :
+During the execution, if the property **debugOperation**  has been set, the spark-submit command can be displayed in the deployment logs.
 
 
 
