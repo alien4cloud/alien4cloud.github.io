@@ -93,28 +93,69 @@ When the deployment succeeds, the full service external URL is displayed
 ## EmptyDir Volumes
 
 Using the previous simple Apache Container modelization, we add in the `org.alien4cloud.kubernetes.api.types.KubeDeployment` an `org.alien4cloud.kubernetes.api.types.volume.EmptyDirVolumeSource`
+
 ![Deployment modelization](../../images/3.0.0/orchestrators/kubernetes/emptyDir.png)
 The emptyDir volume properties appear by clicking on the EmptyDirVolumeSource  node :
+
 ![emptyDir properties](../../images/3.0.0/orchestrators/kubernetes/emptyDir_2.png)
+
 - the property `container_path` has to be set to the target folder of the Apache container  
 
 To see more information by the use of an emptyDir, the [sample](https://github.com/alien4cloud/samples/tree/3.0.x/org/alien4cloud/doc/kube/kcontainers/10-Volume-EmptyDir) describes an emptyDir volume shared by 2 containers.
 
 ## HostPath Volume
+
 Using the previous simple Apache Container modelization, we add in the `org.alien4cloud.kubernetes.api.types.KubeDeployment` an `org.alien4cloud.kubernetes.api.types.volume.HostPathVolumeSource`
+
 ![Deployment modelization](../../images/3.0.0/orchestrators/kubernetes/Hostpath_1.png)
+
 The HostPath volume properties appear by clicking on the HostPathVolumeSource node :
+
 - Volume mount properties on the Kubernetes Cluster filesytem :
+
 ![Volume on the K8S cluster filesytem - properties](../../images/3.0.0/orchestrators/kubernetes/Hostpath_2.png)
+
 ![Volume on the K8S cluster filesytem - path](../../images/3.0.0/orchestrators/kubernetes/Hostpath_3.png)
+
 {% info %}
 It is a complex property, displayed in a modal window
 {% endinfo %}
 
 - Volume mount properties on the container :
+
 ![Volume on the container](../../images/3.0.0/orchestrators/kubernetes/Hostpath_4.png)
 
 To see more information by the use of a HostPath, the [sample](https://github.com/alien4cloud/samples/tree/3.0.x/org/alien4cloud/doc/kube/kcontainers/11-Volume-HostPath) describes an HostPath volume on an Apache container.
+
+## Secret Volume
+Using the previous simple Apache Container modelization, we add in the `org.alien4cloud.kubernetes.api.types.KubeDeployment` an `org.alien4cloud.kubernetes.api.types.volume.SecretSource`
+
+![Deployment modelization](../../images/3.0.0/orchestrators/kubernetes/Secret_1.png)
+
+- The Secret volume properties appear by clicking on the SecretSource node :
+
+![Secret volume properties](../../images/3.0.0/orchestrators/kubernetes/Secret_2.png)
+
+- Properties on container which hosts it
+
+![Secret volume properties](../../images/3.0.0/orchestrators/kubernetes/Secret_3.png)
+
+{% info %}
+It is a complex property, displayed in a modal window
+{% endinfo %}
+
+- Volume mount properties on the container :
+
+![Volume on the container](../../images/3.0.0/orchestrators/kubernetes/Secret_4.png)
+
+- Topology folder which containers files to be put in secret :
+
+![Volume on the container](../../images/3.0.0/orchestrators/kubernetes/Secret_5.png)
+
+![Volume on the container](../../images/3.0.0/orchestrators/kubernetes/Secret_6.png)
+
+To see more information by the use of a environment variables , the [sample](https://github.com/alien4cloud/samples/tree/3.0.x/org/alien4cloud/doc/kube/kcontainers/09-Volume-Secret)  describes a Secret volume on an Apache container.
+
 # Config Map
 
 Our exemple is based on the topology you can find  [here](https://github.com/alien4cloud/samples/blob/3.0.x/org/alien4cloud/doc/kube/kcontainers/03-Apache-cfg/topology/types.yml) (or use the **03-Apache-cfg** if you have imported the samples).
@@ -128,12 +169,17 @@ The configMap properties must be set to config_setting property.
 {% info %}
 It is a complex property, displayed in a modal window
 {% endinfo %}
+
 ![Config map properties](../../images/3.0.0/orchestrators/kubernetes/apache_configMap_2.png)
 
 The content of the config maps is set into the topology folder of specified `config_path`previously set (config in the example)
+
 ![Config map contents](../../images/3.0.0/orchestrators/kubernetes/apache_configMap_3.png)
+
 To set the variables in the configMap, $CONTENT in the exemple, it has to be specified in the Tosca modelization of the type `ApacheConfigMap` derived of `org.alien4cloud.kubernetes.api.types.KubeConfigurableContainer` in the interface block
+
 ![Config map variables](../../images/3.0.0/orchestrators/kubernetes/apache_configMap_4.png)
+
 CFG_ prefix is used for variable substitution (its value is set in `input_prefix` property in `config_setting` property
 
 To see more information by the use of a configMaps, the [sample](https://github.com/alien4cloud/samples/tree/3.0.x/org/alien4cloud/doc/kube/kcontainers/03-Apache-cfg)  fills a configMap file with a node property value on an Apache container.
@@ -144,8 +190,11 @@ Our exemple is based on the topology you can find  [here](https://github.com/ali
 {% info %}
 You can see that our node named **Apache02** derived of type `org.alien4cloud.kubernetes.api.types.KubeContainer` is  hosted on a `KubeDeployment`. Since a container can not be deployed without being hosted on a Pod in K8S, the modifier will create for you a `ContainerDeploymentUnit` for each 'orphan' container.
 {% endinfo %}
+
 ![Topology](../../images/3.0.0/orchestrators/kubernetes/apache_env_2.png)
+
 To set the environment variables, $CONTENT in this exemple, it has to be specified in the Tosca modelization of the type `Apache02` derived of `org.alien4cloud.kubernetes.api.types.KubeContainer` in the interface block
+
 ![Environnement variables specification](../../images/3.0.0/orchestrators/kubernetes/apache_env_1.png)
 
 To see more information by the use of a environment variables , the [sample](https://github.com/alien4cloud/samples/tree/3.0.x/org/alien4cloud/doc/kube/kcontainers/02-Apache-env)  describes the usage of container environment variable to configure it.
@@ -153,6 +202,6 @@ To see more information by the use of a environment variables , the [sample](htt
 
 # Scaling and autoscaling
 
-Scaling and autoscaling are working like in other abstract modeling.
+Scaling and autoscaling are working like in other Portable modeling.
 To see more information by the use of autoscaling , the [sample](https://github.com/alien4cloud/samples/tree/3.0.x/org/alien4cloud/doc/kube/kcontainers/24-autoscaling)  shows how to autoscale a pod using CPU as metric.
 

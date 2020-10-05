@@ -42,6 +42,42 @@ POST /rest/v1/csars
 
 * application/json
 
+
+### Check validity of a csar zip file.
+```
+POST /rest/v1/csars/check
+```
+
+#### Parameters
+
+{: .table .table-bordered}
+|Type|Name|Description|Required|Schema|Default|
+|----|----|----|----|----|----|
+|QueryParameter|workspace|workspace|false|string||
+|FormDataParameter|file|file|true|file||
+
+
+#### Responses
+
+{: .table .table-bordered}
+|HTTP Code|Description|Schema|
+|----|----|----|
+|200|OK|RestResponse«CsarCheckResult»|
+|0|KO|No content|
+|201|Created|No Content|
+|401|Unauthorized|No Content|
+|403|Forbidden|No Content|
+|404|Not Found|No Content|
+
+
+#### Consumes
+
+* multipart/form-data
+
+#### Produces
+
+* application/json
+
 ### Search for cloud service archives.
 ```
 POST /rest/v1/csars/search
