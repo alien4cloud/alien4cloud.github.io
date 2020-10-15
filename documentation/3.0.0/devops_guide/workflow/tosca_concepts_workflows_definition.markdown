@@ -19,10 +19,16 @@ You can imagine a workflow as an acyclic directed graph, steps are the graph's n
 {% highlight yaml %}
   workflows:
     <workflow_id>:
+      inputs:
+        <property_definitions>
       steps:
         <step_id>:
             ...
 {% endhighlight %}
+
+# Workflow Inputs
+
+**inputs** in worflow is an optional map of [property definitions](#/documentation/3.0.0/devops_guide/tosca_grammar/property_definition.html) that defines inputs for a given workflow. Input values will be asked to end-user when launching a workflow that requires inputs. An node [operation](#/documentation/3.0.0/devops_guide/tosca_grammar/operation_definition.html) can refer to a workflow input by using [get_input](/#/documentation/3.0.0/devops_guide/tosca_grammar/get_input.html) function for it's own input.
 
 # Step definition
 

@@ -23,6 +23,7 @@ A Topology Template contains the following element keynames:
 | substitution_mappings | no | Describe how this topology can be used as a type in another one. |
 | node_templates | yes | Defines a list of [Node template](#/documentation/3.0.0/devops_guide/tosca_grammar/node_template.html)s that model the components of an application or service’s topology within the Service Template. |
 | relationship_templates | no | Defines a list of Relationship Templates that are used to model the relationships (e.g., dependencies, links, etc.) between components (i.e., Node Templates) of an application or service’s topology within the Service Template. |
+| workflows | no | a map of [workflows](#/documentation/3.0.0/devops_guide/tosca_concepts_workflows.html) | 
 | outputs | no | This optional section allows for defining a set of output parameters provided to users of the template. For example, this can be used for exposing the URL for logging into a web application that has been set up during the instantiation of a template. |
 | groups | no | This is an optional section that contains grouping definition for node templates. |
 

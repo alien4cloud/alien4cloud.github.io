@@ -9,15 +9,21 @@ node_name: wizard
 weight: 1100
 ---
 
-Wizard is an UI that provides a step by step screen sequencing for the deployment of applications created from topology templates or existing applications.
-It provides  a simplified and intuitive UI for creating, deploying, undeploying  and deleting applications. 
+Wizard4Cloud is an UI that provides a step by step screen sequencing for the deployment of applications created from topology templates or existing applications.
+It provides  a simplified and intuitive UI for creating, deploying, undeploying  and deleting applications.
 Unlike the full App UI, the user no longer needs to navigate through multiple menus and tabs to create a topology from scratch or from template.
 
+{%info%}
+At this stage, Wizard4Cloud remains a beta feature and has few limitations:
+
+* We don't yet manage complex properties in properties forms (topology inputs, workflow inputs, meta-properties form).
+* Topology template version choice is not yet possible.
+{%endinfo%}
 
 {% summary %}{% endsummary %}
 
 # Run Wizard
-Wizard is installed with Alien4Cloud.
+Wizard is embedded in Alien4Cloud webapp.
 It can be accessed on the menu on the right of the screen.
 
 ![Access to wizard](../../images/3.0.0/user_guide/wizard/wizard_access.png)
@@ -54,5 +60,5 @@ Setups few options about this application such as language, theme, ...
 
 
 {%info%}
-For more informations on the wizard implementation, you have information on the git project [alien4cloud-wizard](https://github.com/alien4cloud/alien4cloud-wizard/tree/3.0.x/alien4cloud-wizard-ui).
+For more informations on the wizard implementation, you have information on the git project [alien4cloud-wizard](https://github.com/alien4cloud/alien4cloud-wizard/tree/3.0.x/alien4cloud-wizard-ui). Under the hood, The wizard part of this app is driven by a state machine. Have a look to [Application Wizard Module](https://github.com/alien4cloud/alien4cloud-wizard/blob/3.0.x/alien4cloud-wizard-ui/projects/wizard4cloud-ui/src/app/features/application-wizard/readme.md) readme for more details.
 {%endinfo%}
