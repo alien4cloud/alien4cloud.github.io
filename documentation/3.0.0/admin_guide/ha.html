@@ -1,0 +1,416 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/3.0.0/admin_guide/ha.html',
+  title: 'Alien High Availability'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Alien High Availability</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.0.0/admin_guide/ha.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        
+<hr style="margin-top:5px; margin-bottom:5px;" />
+<div class="row"><ul class="nav nav-pills" id="summarypanel"></ul></div>
+<hr style="margin-top:5px; margin-bottom:5px;" />
+
+<p>When deploying A4C in a production environment, you may want to be sure it will be available 24/7, even in case of crashes. We provide a plugin that manages high availability for A4C using a primary/backup mode.</p>
+
+<div class="note warning">
+<p>Note that this page focus only on A4C HA: we don’t consider HA for orchestrators components (managers …) in this page.</p>
+</div>
+
+<h1 id="architecture">Architecture</h1>
+
+<p>Our HA solution is based on a primary/backup mecanism: you’ll need to deploy several instances of A4C to ensure one will be available at a given time.</p>
+
+<p>The <em>alien4cloud-premium-ha</em> plugin leverages on <a href="https://www.consul.io">Consul</a> features:
+- Key/Value Storage: a distrubuted key/value is used to determine which A4C instance is the leader.
+- Failure Detection: Consul is in charge of checking the liveness of A4C instances.</p>
+
+<p>As a consequence, to use this plugin you will need a Consul server (but you’ll probably use a consul cluster !).</p>
+
+<p>Since A4C use ElasticSearch as a backend server, you’ll need to setup a remote server (instead of launching an embedded one), and you’ll probably prefer to setup an ElasticSearch cluster with replicated nodes.</p>
+
+<p>Since A4C use local file system to store stuffs (plugins, csars, images), you’ll need a distibuted (and eventually replicated, or at least backed up) file system.</p>
+
+<p>Finally, you’ll probably want to setup a reverse proxy behind your A4C instances to have a single entry point for the application.</p>
+
+<p>So the whole architecture could look like this:</p>
+
+<p><a href="../../images/admin_guide/ha-architecture.png"><img src="../../images/admin_guide/ha-architecture.png" alt="HA Architecture" /></a></p>
+
+<h2 id="how-a4c-works-in-ha-mode">How A4C works in HA mode</h2>
+
+<p>In a very first stage, A4C will start in backup mode, which is a limited mode, with only a ligthweight bootstrap context started:
+- Not all REST endpoints will be avalaible. Basically, only the health check endpoint will be available.
+- All plugins are disabled (for instance, orchestrator are not enabled, so no background threads will run).
+At this early stage, A4C is not usable.</p>
+
+<p>A4C will then open a session onto consul and try to acquire a lock onto a consul key. If the lock is already acquired (by another instance), it will still in this boostrap mode and will wait for changes on this key. A health check is associated with the sesssion, so consul will check for the liveness of this A4C instance.</p>
+
+<p>When the lock is acquired, this means the current instance is elected as the leader. The whole application context is started, all REST endpoint are available and all the stuffs are waked up. This A4C instance is then fully usable.</p>
+
+<p>If the JVM or the machine crash (or event if an A4C instance can’t reach ElasticSeach), the health check will fail, consul will disable the session, and the lock (if it is associated with this session) will be released. The primary will fall back in backup mode. Another instance will be elected.</p>
+
+<h1 id="installation">Installation</h1>
+
+<div class="note warning">
+<p>This section describe deprecated manual HA settings. We strongly recommend you to automate your installation using <a href="https://github.com/alien4cloud/alien4cloud-spray/tree/develop">A4C Spray</a> project that well manage HA setups.</p>
+</div>
+
+<h2 id="sample-topology">Sample topology</h2>
+
+<p>As part of our plugin, you’ll find TOSCA types and topology that can help you to setup such kind of architecure. You can use it as an example but keep in mind it is not intended to be production ready.</p>
+
+<p><a href="../../images/admin_guide/ha-topology.png"><img src="../../images/admin_guide/ha-topology.png" alt="HA Topology" /></a></p>
+
+<p>Few notes concerning this topology:</p>
+
+<ul>
+  <li>The <em>AlienCompute</em> which hosts A4C is scalable and you should have at least 2 instances. Can be scaled at runtime.</li>
+  <li>The <em>BackendCompute</em> which hosts ElasticSearch is scalable and you should have at least 2 instances. Can’t be scaled at runtime.</li>
+  <li>The <em>ConsulCompute</em> is scalable and a good number is 3 for the minimum instances count (for quorum requirements). Can be scaled at runtime.</li>
+  <li>We use a local Consul agent on each A4C host. This agent is integrated in the Consul cluster (and so knows all the members), so A4C just need to talk to this agent (and don’t have to manage fail over in case of crash of a member of the cluster servers).</li>
+  <li>We use a <a href="https://www.samba.org">Samba</a> server to manage a distributed file system. This is just an example, you can use whatever you want (NFS, sshfs …) since you can mount it as if it was a local file system.</li>
+  <li>We use <a href="https://www.nginx.com">NGINX</a> as a reverse proxy behind this primary/backup architecture.</li>
+  <li>We use <a href="https://www.hashicorp.com/blog/introducing-consul-template.html">Consul Template</a> to drive the NGINX reverse proxy. When something changes concerning the distributed lock in consul, the config of NGINX is changed and NGINX is restarted.</li>
+  <li>Only NGINX needs to be exposed with a public IP.</li>
+</ul>
+
+<p>Security considerations:</p>
+
+<ul>
+  <li>The gossip protocol (communication inside consul cluster) can be encrypted using a SHA key (provided in the topology).</li>
+  <li>Communication between consul clients (A4C and ConsulTemplate) and Consul agents can be securized using SSL.</li>
+  <li>NGINX can expose a HTTPS endpoint but redirect to a HTTP alien without SSL (if you trust your private network).</li>
+</ul>
+
+<p>Known limitations:</p>
+
+<ul>
+  <li>The samba server is not securized.</li>
+  <li>The ElasticSearch cluster can not be securized <em>in this topology</em>. But of course, you can use your own securized ES cluster.</li>
+  <li>We use a single CA certificate (provided in the topology) to generate all the keys used for SSL communications (HTTPS for NGINX, HTTPS for A4C, TLS for Consul).</li>
+</ul>
+
+<h2 id="manual-configuration">Manual configuration</h2>
+
+<p>If you wish to use custom scripts in order to perform the installation you can find here how we configure the consul server and consul template element to perform re-configuration of the ngnix component.</p>
+
+<h3 id="consul-server-configuration">Consul server configuration</h3>
+
+<p>The configuration is performed in the configure.sh script and is detailed here. In order to configure the consul server we decided to split the configuration in multiple files all placed in <strong>/etc/consul</strong>. Consul will look for json files in this directory and process them in order.</p>
+
+<p>The first file <strong>01_basic_config.json</strong> contains the generic configuration of our consul agent and is used both for clients and server agents. It has the following content</p>
+
+<div class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span>
+  <span class="nt">&quot;datacenter&quot;</span><span class="p">:</span> <span class="s2">&quot;a4c&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;data_dir&quot;</span><span class="p">:</span> <span class="s2">&quot;%CONSUL_DATA_DIR%&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;log_level&quot;</span><span class="p">:</span> <span class="s2">&quot;trace&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;node_name&quot;</span><span class="p">:</span> <span class="s2">&quot;%INSTANCE%&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;client_addr&quot;</span><span class="p">:</span> <span class="s2">&quot;0.0.0.0&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;bind_addr&quot;</span><span class="p">:</span> <span class="s2">&quot;%CONSUL_BIND_ADDRESS%&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;ports&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;http&quot;</span><span class="p">:</span> <span class="err">%CONSUL_API_PORT%</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></div>
+
+<p>Where
+* <strong>%CONSUL_DATA_DIR%</strong> should be replaced with the path to the directory you want consul to store data in.
+* <strong>%INSTANCE%</strong> should be replaced with a unique name for the node
+* <strong>%CONSUL_BIND_ADDRESS%</strong> should be replaced with the ip of the NIC used for communication with the other consul agents (server and clients)
+* <strong>%CONSUL_API_PORT%</strong> should be replaced with the port of the consul API (default should be 8500)</p>
+
+<p><strong>02_server_config.json</strong> contains the specific configuration for consul server nodes and has the following content:</p>
+
+<div class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span>
+  <span class="nt">&quot;server&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nt">&quot;bootstrap_expect&quot;</span> <span class="p">:</span> <span class="err">%INSTANCES_COUNT%</span>
+<span class="p">}</span></code></pre></div>
+
+<p>Where <strong>%INSTANCES_COUNT%</strong> should be the expected number of nodes in your consul server cluster (3 is a good number).</p>
+
+<p>In case you want to specify a key to encrypt gossip exchanges into consul cluster you can add the <strong>03_encrypt_config.json</strong> file with the following content:</p>
+
+<div class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span>
+  <span class="nt">&quot;encrypt&quot;</span><span class="p">:</span> <span class="s2">&quot;%ENCRYPT_KEY%&quot;</span>
+<span class="p">}</span></code></pre></div>
+
+<p>Where %ENCRYPT_KEY% should be replaced with the desired string.</p>
+
+<p>Finally to add SSL configuration to the API we add a <strong>04_server_secured_config.json</strong> file with the following content:</p>
+
+<div class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span>
+  <span class="nt">&quot;ports&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;dns&quot;</span> <span class="p">:</span> <span class="mi">-1</span><span class="p">,</span>
+    <span class="nt">&quot;http&quot;</span> <span class="p">:</span> <span class="mi">-1</span><span class="p">,</span>
+    <span class="nt">&quot;https&quot;</span><span class="p">:</span> <span class="mi">-1</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;key_file&quot;</span><span class="p">:</span> <span class="s2">&quot;/etc/consul/ssl/server-key.pem&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;cert_file&quot;</span><span class="p">:</span> <span class="s2">&quot;/etc/consul/ssl/server-cert.pem&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;ca_file&quot;</span><span class="p">:</span> <span class="s2">&quot;/etc/consul/ssl/ca.pem&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;verify_incoming&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nt">&quot;verify_outgoing&quot;</span><span class="p">:</span> <span class="kc">true</span>
+<span class="p">}</span></code></pre></div>
+
+<p>To start the server nodes you can use the following script:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c">#!/bin/bash -e</span>
+nohup sudo bash -c <span class="s1">&#39;consul agent -ui -config-dir /etc/consul &gt; /var/log/consul/consul.log 2&gt;&amp;1 &amp;&#39;</span> &gt;&gt; /dev/null 2&gt;<span class="p">&amp;</span><span class="m">1</span> <span class="p">&amp;</span>
+
+<span class="nb">echo</span> <span class="s2">&quot;Joining cluster by contacting following member ${CONSUL_SERVER_ADDRESS}&quot;</span>
+sudo consul join <span class="k">${</span><span class="nv">CONSUL_SERVER_ADDRESS</span><span class="k">}</span></code></pre></div>
+
+<p>With a CONSUL_SERVER_ADDRESS environment variable that contains the comma separated list of IP adresses of the members of the consul cluster.</p>
+
+<h3 id="consul-client-configuration">Consul client configuration</h3>
+
+<p>The client nodes of consul are required to be installed on the machines of the alien4cloud server as well as the machine that host the ngnix load balancer/reverse proxy. Both of the consul clients have the same configuration as a server node with the critical difference that it does not contains the <em>02_server_config.json</em> configuration file that is specific to the server configuration node. In addition, in our installation we rename the <em>04_server_secured_config.json</em> file to <em>04_client_secured_config.json</em> for better consistency in naming and should have the following content:</p>
+
+<div class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span>
+  <span class="nt">&quot;client_addr&quot;</span><span class="p">:</span> <span class="s2">&quot;127.0.0.1&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;ports&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;dns&quot;</span> <span class="p">:</span> <span class="mi">-1</span><span class="p">,</span>
+    <span class="nt">&quot;http&quot;</span> <span class="p">:</span> <span class="mi">-1</span><span class="p">,</span>
+    <span class="nt">&quot;https&quot;</span><span class="p">:</span> <span class="err">%CONSUL_API_PORT%</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;key_file&quot;</span><span class="p">:</span> <span class="s2">&quot;/etc/consul/ssl/client-key.pem&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;cert_file&quot;</span><span class="p">:</span> <span class="s2">&quot;/etc/consul/ssl/client-cert.pem&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;ca_file&quot;</span><span class="p">:</span> <span class="s2">&quot;/etc/consul/ssl/ca.pem&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;verify_outgoing&quot;</span><span class="p">:</span> <span class="kc">true</span>
+<span class="p">}</span></code></pre></div>
+
+<p>Where <strong>%CONSUL_API_PORT%</strong> should be replaced with the same port specified in the <strong>01_basic_config.json</strong> server files.</p>
+
+<p>To start the client nodes you can use the following script:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c">#!/bin/bash -e</span>
+nohup sudo bash -c <span class="s1">&#39;consul agent -config-dir /etc/consul &gt; /var/log/consul/consul.log 2&gt;&amp;1 &amp;&#39;</span> &gt;&gt; /dev/null 2&gt;<span class="p">&amp;</span><span class="m">1</span> <span class="p">&amp;</span>
+
+<span class="nb">echo</span> <span class="s2">&quot;Joining cluster by contacting following member ${CONSUL_SERVER_ADDRESS}&quot;</span>
+sudo consul join <span class="k">${</span><span class="nv">CONSUL_SERVER_ADDRESS</span><span class="k">}</span></code></pre></div>
+
+<p>With a CONSUL_SERVER_ADDRESS environment variable that contains the comma separated list of IP adresses of the members of the consul server cluster.</p>
+
+<h3 id="consul-template-configuration-for-automatic-ngnix-update">Consul template configuration for automatic ngnix update.</h3>
+
+<p>Consul template will be responsible for updating the ngnix configuration when the alien4cloud master node changes. In order to configure it we will create a <strong>/etc/consul_template/consul_template.conf</strong> file with the following content:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">consul</span> <span class="o">=</span> <span class="s2">&quot;127.0.0.1:%CONSUL_API_PORT%&quot;</span>
+
+template <span class="o">{</span>
+  <span class="nb">source</span>      <span class="o">=</span> <span class="s2">&quot;/etc/consul_template/nginx.conf.ctpl&quot;</span>
+  <span class="nv">destination</span> <span class="o">=</span> <span class="s2">&quot;/etc/nginx/sites-enabled/default&quot;</span>
+  <span class="nb">command</span> <span class="o">=</span> <span class="s2">&quot;sudo /etc/init.d/nginx reload&quot;</span>
+<span class="o">}</span>
+
+ssl <span class="o">{</span>
+  <span class="nv">enabled</span> <span class="o">=</span> %TLS_ENABLED%
+  <span class="nv">verify</span> <span class="o">=</span> <span class="nb">true</span>
+<span class="nb">  </span><span class="nv">cert</span> <span class="o">=</span> <span class="s2">&quot;/etc/consul_template/ssl/client-cert.pem&quot;</span>
+  <span class="nv">key</span> <span class="o">=</span> <span class="s2">&quot;/etc/consul_template/ssl/client-key.pem&quot;</span>
+  <span class="nv">ca_cert</span> <span class="o">=</span> <span class="s2">&quot;/etc/consul_template/ssl/ca.pem&quot;</span>
+<span class="o">}</span></code></pre></div>
+
+<p>Where %CONSUL_API_PORT% should be replaced with the actual port of the consul client agent running on the ngnix host. If you have enabled TLS please make sure that %TLS_ENABLED% is replaced by true (recommend setting).</p>
+
+<p>Finally add a template file <strong>/etc/consul_template/nginx.conf.ctpl</strong> so consul template can update the ngnix configuration with the following configuration (this configuration is for a secured alien4cloud server).</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="o">{{</span> <span class="k">if</span> key <span class="s2">&quot;service/a4c/leader&quot;</span> <span class="o">}}</span>
+server <span class="o">{</span>
+        listen %LISTEN_PORT% default ssl<span class="p">;</span>
+        server_name %SERVER_NAME%<span class="p">;</span>
+
+        ssl_session_cache shared:SSL:1m<span class="p">;</span>
+        ssl_session_timeout 10m<span class="p">;</span>
+        ssl_certificate /etc/nginx/ssl/server-cert.pem<span class="p">;</span>
+        ssl_certificate_key /etc/nginx/ssl/server-key.pem<span class="p">;</span>
+        ssl_verify_client off<span class="p">;</span>
+        ssl_protocols SSLv3 TLSv1 TLSv1.1 TLSv1.2<span class="p">;</span>
+        ssl_ciphers RC4:HIGH:!aNULL:!MD5<span class="p">;</span>
+        ssl_prefer_server_ciphers on<span class="p">;</span>
+
+        location / <span class="o">{</span>
+                proxy_pass https://<span class="o">{{</span>key <span class="s2">&quot;service/a4c/leader&quot;</span><span class="o">}}</span>/<span class="p">;</span>
+                proxy_ssl_session_reuse on<span class="p">;</span>
+                proxy_set_header                Host %SERVER_NAME%<span class="p">;</span>
+                proxy_pass_request_headers      on<span class="p">;</span>
+                <span class="c"># Force https</span>
+                proxy_redirect http:// https://<span class="p">;</span>
+        <span class="o">}</span>
+<span class="o">}</span>
+<span class="o">{{</span> <span class="k">else</span> <span class="o">}}</span>
+server <span class="o">{</span>
+        listen %LISTEN_PORT% default_server<span class="p">;</span>
+        listen <span class="o">[</span>::<span class="o">]</span>:%LISTEN_PORT% default_server <span class="nv">ipv6only</span><span class="o">=</span>on<span class="p">;</span>
+
+        ssl on<span class="p">;</span>
+        ssl_certificate /etc/nginx/ssl/server-cert.pem<span class="p">;</span>
+        ssl_certificate_key /etc/nginx/ssl/server-key.pem<span class="p">;</span>
+        ssl_session_cache shared:SSL:10m<span class="p">;</span>
+
+        root /usr/share/nginx/html<span class="p">;</span>
+        index index.html index.htm<span class="p">;</span>
+
+        server_name %SERVER_NAME%<span class="p">;</span>
+
+        location / <span class="o">{</span>
+                try_files <span class="nv">$uri</span> <span class="nv">$uri</span>/ <span class="o">=</span>404<span class="p">;</span>
+        <span class="o">}</span>
+<span class="o">}</span>
+<span class="o">{{</span> end <span class="o">}}</span></code></pre></div>
+
+<p>Where <strong>%LISTEN_PORT%</strong> should be replaced with the port on which you want to expose the ngnix server and <strong>%SERVER_NAME%</strong> should be replaced with the public ip address of the ngnix host.</p>
+
+<p>Finally you can start the consul template process using the following script (note that ngnix installation must be done prior to consul template installation):</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">nohup sudo bash -c <span class="s1">&#39;/var/lib/consul_template/consul-template -config /etc/consul_template/consul_template.conf &gt;&gt; /var/log/consul_template/consul_template.log 2&gt;&amp;1&#39;</span> &gt;&gt; /dev/null 2&gt;<span class="p">&amp;</span><span class="m">1</span> <span class="p">&amp;</span></code></pre></div>
+
+<h1 id="alien-configuration">Alien Configuration</h1>
+
+<p>We will detail here the different configuration items you can change in A4C config related to the usage of the HA plugin.</p>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Property Name</th>
+      <th style="text-align: left">Default value</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ha.ha_enabled</td>
+      <td style="text-align: left">false</td>
+      <td>If true, enable HA and use the following properties. If false, the following properties are ignored.</td>
+    </tr>
+    <tr>
+      <td>ha.consulAgentIp</td>
+      <td style="text-align: left">localhost</td>
+      <td>The ip address of the consul agent (server or client) to connect to.</td>
+    </tr>
+    <tr>
+      <td>ha.consulAgentPort</td>
+      <td style="text-align: left">8500</td>
+      <td>The port of the consul agent.</td>
+    </tr>
+    <tr>
+      <td>ha.instanceIp</td>
+      <td style="text-align: left"> </td>
+      <td>The IP address of the alien instance (used for health check, so this address should be visible from the consul agent, can be localhost if the agent is on the same machine).</td>
+    </tr>
+    <tr>
+      <td>ha.healthCheckPeriodInSecond</td>
+      <td style="text-align: left">5</td>
+      <td>The delai in seconds between each health check query done by the consul agent.</td>
+    </tr>
+    <tr>
+      <td>ha.consulSessionTTLInSecond</td>
+      <td style="text-align: left">60</td>
+      <td>The duration in seconds of the consul session. This session will be renewed before this delai expire.</td>
+    </tr>
+    <tr>
+      <td>ha.consulLockDelayInSecond</td>
+      <td style="text-align: left">0</td>
+      <td>The delai between the session invalidation and the lock release. 0 is a good value since we want a new leader to be elected if the primary crash.</td>
+    </tr>
+    <tr>
+      <td>ha.lockAcquisitionDelayInSecond</td>
+      <td style="text-align: left">20</td>
+      <td>In second, the delai before trying to acquire a lock when after a failure (when consul is not reachable for example.</td>
+    </tr>
+    <tr>
+      <td>ha.consul_tls_enabled</td>
+      <td style="text-align: left">false</td>
+      <td>When true, use https to talk to consul (and then, need for a keystore and a truststore to be configured).</td>
+    </tr>
+    <tr>
+      <td>ha.keyStorePath</td>
+      <td style="text-align: left"> </td>
+      <td>The key store for SSL connection to consul.</td>
+    </tr>
+    <tr>
+      <td>ha.keyStorePwd</td>
+      <td style="text-align: left"> </td>
+      <td>The password for keystore.</td>
+    </tr>
+    <tr>
+      <td>ha.trustStorePath</td>
+      <td style="text-align: left"> </td>
+      <td>The truststore for SSL connection to consul.</td>
+    </tr>
+    <tr>
+      <td>ha.trustStorePwd</td>
+      <td style="text-align: left"> </td>
+      <td>The password for truststore.</td>
+    </tr>
+    <tr>
+      <td>ha.serverProtocol</td>
+      <td style="text-align: left">http</td>
+      <td>The protocol where the alien instance can be contacted (use to build the health check url). Just set to ‘https’ if alien ssl is on.</td>
+    </tr>
+    <tr>
+      <td>ha.health_disk_space_threshold</td>
+      <td style="text-align: left">10 * 1024 * 1024 (10 Mo)</td>
+      <td>The health check endpoint will check the remaining disk space on the host of the A4C instance. Under this threshold, the health check will fail.</td>
+    </tr>
+    <tr>
+      <td>ha.consulQueryTimeoutInMin</td>
+      <td style="text-align: left">3</td>
+      <td>The HA plugin use this timeout when querying consul with blocking read.</td>
+    </tr>
+    <tr>
+      <td>ha.consulConnectTimeoutInMillis</td>
+      <td style="text-align: left">1000 * 30 (30 seconds)</td>
+      <td>TCP connection timeout when querying consul.</td>
+    </tr>
+    <tr>
+      <td>ha.consulReadTimeoutInMillis</td>
+      <td style="text-align: left">1000 * 60 * 5 (5 minutes)</td>
+      <td>TCP read timeout when querying consul.</td>
+    </tr>
+  </tbody>
+</table>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.0.0/admin_guide/ha.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-3.0.0', 'documentation/3.0.0/admin_guide/ha.md');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

@@ -82,13 +82,16 @@ function hideSearchResults() {
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Docs <i class="fa fa-caret-down"></i></a>
         <ul class="dropdown-menu" role="menu">
           <li>
-            <a href="#/documentation/2.1.0/index.html">2.1.0 - New version</a>
+            <a href="#/documentation/3.0.0/index.html">3.0.0</a>
+          </li>        
+          <li>
+            <a href="#/documentation/2.2.0/index.html">2.2.0</a>
           </li>
           <li>
-            <a href="#/documentation/2.2.0/index.html">2.2.0 - Development version</a>
+            <a href="#/documentation/2.1.0/index.html">2.1.0 - Deprecated</a>
           </li>
           <li>
-            <a href="#/documentation/2.0.0/index.html">2.0.0</a>
+            <a href="#/documentation/2.0.0/index.html">2.0.0 - Deprecated</a>
           </li>
           <li>
             <a href="#/documentation/1.4.0/index.html">1.4.0 - Deprecated</a>
@@ -115,20 +118,6 @@ function hideSearchResults() {
       </li>
       <li>
         <a href="/roadmap/index.html">Roadmap</a>
-      </li>
-      <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Resources <i class="fa fa-caret-down"></i></a>
-        <ul class="dropdown-menu" role="menu">
-          <li>
-            <a href="https://drive.google.com/file/d/0B-bJgbmOz4ipWGxlb05pSlJLZ0k/view?usp=sharing" target="_blank" >1.4.0 release announcement</a>
-          </li>
-          <li>
-            <a href="https://drive.google.com/file/d/0B-bJgbmOz4ipNlNfYkdsOUlocm8/view?usp=sharing" target="_blank" >Overview</a>
-          </li>
-        </ul>
-      </li>
-      <li>
-        <a href="https://alien4cloud-blog.com">Blog</a>
       </li>
       <li>
         <a href="/common/download.html">Download</a>
@@ -174,13 +163,8 @@ $('#git-icon').tooltip();
     reach the dates and features set mentioned below.
   </p>
   <p>
-    Premium features, support and certifications are available under a subscription, delivered by <a href="http://fastconnect.fr"
-      target="_blank">FastConnect</a>, a <a href="http://www.bull.com" target="_blank">Bull, Atos technologies</a> subsidiary.
-    Contact us for more details.
-  </p>
-  <p>
-    We deliver major releases every 4 month. Please note that we also deliver intermediate sprint releases in <a href="https://github.com/alien4cloud/alien4cloud"
-      target="_blank">Alien4Cloud GitHub repo</a>, every 3 weeks, in order to get feedback on features while still in development.
+    We deliver major milestone every month in <a href="https://github.com/alien4cloud/alien4cloud"
+      target="_blank">Alien4Cloud GitHub repo</a>, in order to get feedback on features while still in development.
   </p>
 
   <br/>
@@ -188,39 +172,51 @@ $('#git-icon').tooltip();
 
   <ul class="cbp_tmtimeline">
     <li>
-      <time class="cbp_tmtime" datetime="2016-10"><span>To be defined</span> <span>Future</span></time>
+      <time class="cbp_tmtime" datetime="2020-12"><span>Q1 2021</span> <span>Soon</span></time>
+      <div class="cbp_tmicon"><i class="fa fa-rocket"></i></div>
+      <div class="cbp_tmlabel">
+        <h4>Core</h4>
+        <ul>
+          <li>Multi-location deployment</li>
+          <li>Workflows Inputs/Outputs</li>
+        </ul>
+      </div>
+    </li>
+    <li>
+      <time class="cbp_tmtime" datetime="2020-12"><span>~ Q2 2021</span> <span>Near future</span></time>
+      <div class="cbp_tmicon"><i class="fa fa-rocket"></i></div>
+      <div class="cbp_tmlabel">
+        <h4>Core</h4>
+        <ul>
+          <li>Refactoring of authorisation management</li>
+          <li>Enhanced workspaces management</li>
+          <li>Workflows step on_failure suppport</li>
+        </ul>
+      </div>
+    </li>
+    <li>
+      <time class="cbp_tmtime" datetime="2025-10"><span>To be defined</span> <span>Future</span></time>
       <div class="cbp_tmicon"><i class="fa fa-rocket"></i></div>
       <div class="cbp_tmlabel">
         <h4>Core</h4>
         <ul>
           <li>TOSCA evolutions support</li>
           <li>Enhanced extensibility & pluggability</li>
-          <li>Quotas management</li>
-          <li>Multi locations 24x7 app-centric placement & runtime policies</li>
           <li>Blueprints Developer experience improvements</li>
+          <li>Components Tosca generator</li>
         </ul>
-        <h4>More orchestrators, infrastructures & artefacts coverage</h4>
-        <ul>
-          <li>Google Cloud</li>
-          <li>Docker swarm</li>
-          <li>Cloud Foundry integration</li>
-          <li>OpenShift integration</li>
-          <li>Docker schedulers integration improvements</li>
-        </ul>
-        <h4>Additional Premium features</h4>
+        <h4>Additional features</h4>
         <ul>
           <li>NFV/SDN capabilities</li>
           <li>Application Lifecycle Management features & Promotion workflow</li>
-          <li>Analytics and governance dashboards</li>
           <li>Simplified Self Service</li>
-          <li>Chargeback & billing platforms integration</li>
-          <li>Cloud brokering</li>
         </ul>
       </div>
     </li>
   </ul>
   If you want to propose other features and/or if you are willing to contribute, please <a href="/community/index.html">contact us</a>.
 </div>
+
     	</div>
       <div class="push"></div>
 	  </div>
@@ -231,17 +227,14 @@ $('#git-icon').tooltip();
 				<div class="col-m-footer-group col-sm-3">
 		        	<h5>About us</h5>
 		          	<ul>
-		          		<li><a data-category="Footer" href="http://fastconnect.fr">FastConnect</a></li>
-		          		<li><a data-category="Footer" href="http://bull.com">Bull</a></li>
 		          		<li><a data-category="Footer" href="http://atos.net">Atos</a></li>
-		          		<li><a data-category="Footer" href="mailto:sebastien.bergougnoux@atos.net">Contact us</a></li>
+		          		<li><a data-category="Footer" href="mailto:francois.chapuzot@atos.net">Contact us</a></li>
 		          	</ul>
 		        </div>
 		        <div class="col-m-footer-group col-sm-3">
 		        	<h5>Partners</h5>
 		          	<ul>
 									<li><a data-category="Footer" href="https://www.oasis-open.org">OASIS</a></li>
-		          		<li><a data-category="Footer" href="http://getcloudify.org">Cloudify</a></li>
 		          	</ul>
 		        </div>
 		        <div class="col-m-footer-group col-sm-3">
@@ -254,7 +247,6 @@ $('#git-icon').tooltip();
 		        <div class="col-m-footer-group col-sm-3">
 		        	<h5>Social networks</h5>
 		          	<ul>
-		          		<li><a data-category="Footer" href="https://twitter.com/alien4cloud">Twitter</a></li>
 		          		<li><a data-category="Footer" href="https://www.youtube.com/channel/UCfckmknFOcHrQ5pvdDyJGGg">Youtube</a></li>
 		          	</ul>
 		        </div>

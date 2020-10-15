@@ -1,0 +1,469 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/3.0.0/orchestrators/yorc/location.html',
+  title: 'Configure a Yorc orchestrator and locations'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Configure a Yorc orchestrator and locations</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.0.0/orchestrators/yorc/location.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <p>Once Alien4cloud is installed with the yorc-provider plugin and the yorc server is running, we must define an orchestrator and one or more locations (where we will actually deploy applications). In Alien4Cloud every location is managed by an orchestrator.</p>
+
+<p>Several location types are available and they correspond to the locations types supported by Yorc:</p>
+
+<ul>
+  <li><a href="#define-meta-properties">Define Meta-properties</a>
+    <ul>
+      <li><a href="#yorc-location-meta-property">Yorc Location Meta-Property</a></li>
+    </ul>
+  </li>
+  <li><a href="#configure-a-yorc-orchestrator">Configure a Yorc Orchestrator</a></li>
+  <li><a href="#configure-an-openstack-location">Configure an OpenStack Location</a></li>
+  <li><a href="#configure-a-slurm-location">Configure a Slurm Location</a>
+    <ul>
+      <li><a href="#configure-slurm-location-to-handle-docker-workloads-with-singularity">Configure Slurm location to handle Docker workloads with singularity</a>
+        <ul>
+          <li><a href="#limit-resources-used-by-containers">Limit resources used by containers</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#configure-a-hosts-pool-location">Configure a Hosts Pool Location</a></li>
+  <li><a href="#configure-a-google-cloud-platform-location">Configure a Google Cloud Platform Location</a></li>
+  <li><a href="#configure-an-aws-location">Configure an AWS Location</a></li>
+  <li><a href="#configure-a-kubernetes-location">Configure a Kubernetes Location</a></li>
+</ul>
+
+<p>In order to deploy applications and run them on a given location, Yorc must be properly configured for that infrastructure (see <a href="https://yorc.readthedocs.io/en/latest/configuration.html#locations-configuration">Locations configuration</a> in Yorc documentation).</p>
+
+<div class="note warning">
+<p>A location name in Alien4Cloud should correspond to a location name in Yorc. This allows to handle different locations of the same type.
+Another option is to define a meta-property on an Alien4Cloud location to specify the corresponding Yorc location name (see bellow).</p>
+</div>
+
+<p>Before creating the Yorc orchestrator, let’s see how to define meta-properties that can be used to define some properties that are common to all the applications deployed in a location.</p>
+
+<h2 id="define-meta-properties">Define Meta-properties</h2>
+
+<p>To define meta-properties, go to <img src="../../../../images/3.0.0/yorc/administration-btn.png" alt="administration" height="26px" class="inline" /> and in the <img src="../../../../images/3.0.0/yorc/meta-menu-btn.png" alt="orchestrator" height="26px" class="inline" /> sub-menu.</p>
+
+<p>Then you can create a new meta-property by clicking on <img src="../../../../images/3.0.0/yorc/new-meta-prop.png" alt="new meta-property" height="26px" class="inline" /> and providing a name, a description and other information that characterize it.</p>
+
+<p>In the image below, there are 2 meta-properties defined. They both have the K8S_NAMESPACE <strong>Name</strong> and string <strong>Type</strong>. But they have different <strong>Targets</strong>. The <strong>location</strong> target specifies that the meta-property can be used to define a property for a location. In this particular case, it can be used to define a namespace for a Kubernetes location. The <strong>application</strong> target specifies that the meta-property can be used to specify a property having a value that applies to a particular application. A default value can be defined for meta-properties, but its not mandatory.</p>
+
+<p><img src="../../../../images/3.0.0/yorc/meta-properties.png" alt="Meta-properties definition" /></p>
+
+<h3 id="yorc-location-meta-property">Yorc Location Meta-Property</h3>
+
+<p>You can define a meta-property on Alien4Cloud locations that will allow to override the location name for Yorc.
+This meta-property should have the following properties:</p>
+
+<ul>
+  <li><em>Name</em>: <strong>YORC_LOCATION</strong></li>
+  <li><em>Required</em>: <strong>No</strong></li>
+  <li><em>Include in filters</em>: <strong>Yes</strong></li>
+  <li><em>Target</em>: <strong>location</strong></li>
+  <li><em>Type</em>: <strong>string</strong></li>
+  <li><em>Password</em>: <strong>No</strong></li>
+  <li><em>Default</em>: Should be empty</li>
+</ul>
+
+<p>This meta-property will now appear in the meta-property tab of every location. If not empty the meta-property value will be used as location name for Yorc, otherwise the Alien4Cloud location name will be used as Yorc location name.</p>
+
+<h2 id="configure-a-yorc-orchestrator">Configure a Yorc Orchestrator</h2>
+
+<p>To create an orchestrator, go to <img src="../../../../images/3.0.0/yorc/administration-btn.png" alt="administration" height="26px" class="inline" />  and in the <img src="../../../../images/3.0.0/yorc/orchestrator-menu-btn.png" alt="orchestrator" height="26px" class="inline" /> sub-menu. Create an orchestrator named <strong>Yorc</strong> with the following named plugin:</p>
+
+<ul>
+  <li>Yorc Orchestrator : <version>.</version></li>
+</ul>
+
+<p>At this moment your orchestrator is created but not enabled. Click on your orchestrator to see the information page, and then click on the configuration menu icon <img src="../../../../images/3.0.0/yorc/orchestrator-config-btn.png" alt="orchestrator configuration" height="26px" class="inline" />.</p>
+
+<p>In the Driver configuration part, add the URL of your Yorc server (should respect the format: <strong>http://yorc-ip:8800</strong>) and return to the previous page to enable your orchestrator.</p>
+
+<p>If Yorc is secured (ssl enabled), the yorc URL should use the <strong>https</strong> protocol and you should provide as well (or else to connect in insecure mode, check <strong>insecureTLS</strong> and make sure Yorc is configured with <strong>ssl_verify</strong> set to false):</p>
+
+<ul>
+  <li>the trusted Certificate Authority used to sign Yorc server certificates</li>
+  <li>a client certificate that will be verified by Yorc</li>
+  <li>the PKCS #8 encoded client private key.</li>
+</ul>
+
+<p>Once your orchestrator is created and enabled, go to the locations page by clicking on <img src="../../../../images/3.0.0/yorc/orchestrator-location-btn.png" alt="orchestrator location" height="26px" class="inline" /></p>
+
+<h2 id="configure-an-openstack-location">Configure an OpenStack Location</h2>
+
+<p>Create a new location clicking on <img src="../../../../images/3.0.0/yorc/new-location.png" alt="new location" height="26px" class="inline" /> and provide a location name. Select <strong>OpenStack</strong> in the infrastructure type drop-down.</p>
+
+<p>The details page of your location should appear.</p>
+
+<p>Go to <img src="../../../../images/3.0.0/yorc/on-demand-ressource-tab.png" alt="on-demand resources" height="26px" class="inline" /> and add the following resources:</p>
+
+<ul>
+  <li>yorc.nodes.openstack.PublicNetwork</li>
+  <li>yorc.nodes.openstack.Compute</li>
+</ul>
+
+<p>Click on the network and set <strong>floating_network_name</strong> to the name of your OpenStack public network for the tenant where the Yorc instance is deployed.</p>
+
+<p><img src="../../../../images/3.0.0/yorc/orchestrator-loc-conf-net.png" alt="Network configuration" /></p>
+
+<p>Click on the compute and set the <strong>image</strong> to the id of your image in OpenStack (in order to use our samples in next sections, please use an Ubuntu 14.04+ or Centos 7.2+ image), the <strong>flavor</strong> to <strong>3</strong> (medium for a default OpenStack config).</p>
+
+<p>Set <strong>key_pair</strong> to the OpenStack keypair that correspond to the private key that you stored under <strong>~/.ssh/yorc.pem</strong> during your Yorc server setup.</p>
+
+<p>Finally, in the <strong>endpoint</strong> capability of the Compute, open the <strong>credentials</strong> complex type and set the <strong>user</strong> to a user available in your image (generally <strong>ubuntu</strong> for Ubuntu cloud images). This user will be used to connect to this on-demand compute resource once created, and to deploy applications on it (while the user used to create this on-demand resource is defined in the Yorc server configuration).</p>
+
+<p><img src="../../../../images/3.0.0/yorc/orchestrator-loc-conf-compute.png" alt="Compute Node configuration" /></p>
+
+<h2 id="configure-a-slurm-location">Configure a Slurm Location</h2>
+
+<p>Go to the locations page by clicking on <img src="../../../../images/3.0.0/yorc/orchestrator-location-btn.png" alt="orchestrator location" height="26px" class="inline" /></p>
+
+<p>Create a new location clicking on <img src="../../../../images/3.0.0/yorc/new-location.png" alt="new location" height="26px" class="inline" /> and provide a location name. Select <strong>Slurm</strong> in the infrastructure type drop-down.</p>
+
+<p>The details page of your location should appear.</p>
+
+<p>Go to <img src="../../../../images/3.0.0/yorc/on-demand-ressource-tab.png" alt="on-demand resources" height="26px" class="inline" /> and add the following resource:</p>
+
+<ul>
+  <li>yorc.nodes.slurm.Compute</li>
+</ul>
+
+<p>Click on the compute, the following details should appear and show the endpoint <strong>credentials</strong> must be edited:</p>
+
+<p><img src="../../../../images/3.0.0/yorc/slurm-compute.png" alt="Compute Node configuration" /></p>
+
+<p>Edit <strong>credentials</strong> and specify a user that will be used to connect to this on-demand compute resource once created, and to deploy applications on it (while the user used to create this on-demand resource is defined in the Yorc server configuration):</p>
+
+<p><img src="../../../../images/3.0.0/yorc/slurm-credentials.png" alt="Compute Node credentials" /></p>
+
+<p>You could define here as well either a password, provided as a <strong>token</strong> parameter value (<strong>token_type</strong> being set to <strong>password</strong>), or a private key by editing the <strong>keys</strong> parameter and adding a new key <strong>0</strong> with a value being the path to a private key, as below :</p>
+
+<p><img src="../../../../images/3.0.0/yorc/slurm-creds-key.png" alt="Compute Node credentials key" /></p>
+
+<p>If no password or private key is defined, the orchestrator will attempt to use a key <strong>~/.ssh/yorc.pem</strong> that should have been defined during your Yorc server setup.</p>
+
+<h3 id="configure-slurm-location-to-handle-docker-workloads-with-singularity">Configure Slurm location to handle Docker workloads with singularity</h3>
+
+<p>The Slurm location ships a Topology Modifier that allow to transform a Docker workload into a Singularity workload backed by a Slurm job.
+This is exactly the same as what we do with the <a href="#configure-a-kubernetes-location">Kubernetes Location</a> by transforming a Docker workload into a Kubernetes one.
+This allows to port an application modeled using generic Docker components on one or the other infrastructure.</p>
+
+<p>At the moment, the following restrictions apply:</p>
+
+<ul>
+  <li>Only Docker workloads of type Jobs are supported. That means that your DockerApplication should be hosted on a ContainerRuntime itself hosted on a ContainerJobUnit</li>
+  <li>You can add DockerExtVolume components to mount volumes into your container. Currently we only support volumes of type <code>yorc.nodes.slurm.HostToContainerVolume</code> that means that we expect to mount a path of the actual host that will run the container. In Slurm context it is generally a path from a distributed (such as NFS) or parallel (Lustre, GPFS) filesystem or a temporary directory.</li>
+  <li>Resources limitations are not handled in the same way than in Kubernetes (see bellow)</li>
+</ul>
+
+<p>Go to <img src="../../../../images/3.0.0/yorc/on-demand-ressource-tab.png" alt="on-demand resources" height="26px" class="inline" /> and add the following resource:</p>
+
+<ul>
+  <li>yorc.nodes.slurm.ContainerJobUnit</li>
+  <li>yorc.nodes.slurm.ContainerRuntime</li>
+  <li>yorc.nodes.slurm.HostToContainerVolume</li>
+</ul>
+
+<h4 id="limit-resources-used-by-containers">Limit resources used by containers</h4>
+
+<p>When backed to Docker Kubernetes uses a concept of CPU shares to limit containers CPU consumption.
+This context make no sense in Slurm context where resources are strongly isolated.
+So instead of relying on <code>cpu_share</code>, <code>cpu_share_limit</code>, <code>mem_share</code> and <code>mem_share_limit</code> of <code>DockerApplication</code>s we rely
+on the <code>ApplicationHost</code> capability of the <code>ContainerRuntime</code> hosting the <code>DockerApplication</code>. This capability has <code>num_cpus</code> and
+<code>mem_size</code> properties that are used to request a given number of cpus and amount of memory to Slurm.</p>
+
+<h2 id="configure-a-hosts-pool-location">Configure a Hosts Pool Location</h2>
+
+<p>Go to the locations page by clicking on <img src="../../../../images/3.0.0/yorc/orchestrator-location-btn.png" alt="orchestrator location" height="26px" class="inline" /></p>
+
+<p>Create a new location clicking on <img src="../../../../images/3.0.0/yorc/new-location.png" alt="new location" height="26px" class="inline" /> and provide a location name. Select <strong>HostsPool</strong> in the infrastructure type drop-down.</p>
+
+<p>The details page of your location should appear.</p>
+
+<p>Go to <img src="../../../../images/3.0.0/yorc/on-demand-ressource-tab.png" alt="on-demand resources" height="26px" class="inline" /> and add the following resource:</p>
+
+<ul>
+  <li>yorc.nodes.hostspool.Compute</li>
+</ul>
+
+<p>Click on the compute, the following details should appear:</p>
+
+<p><img src="../../../../images/3.0.0/yorc/hosts-pool-compute.png" alt="Compute Node configuration" /></p>
+
+<p>You can select the property <strong>shareable</strong> if you want to make this compute node shareable, so that different deployments could use this same resource.</p>
+
+<p>Credentials don’t have to be defined here. For hosts in a Hosts Pool, credentials are defined in the Yorc server configuration.</p>
+
+<h2 id="configure-a-google-cloud-platform-location">Configure a Google Cloud Platform Location</h2>
+
+<p>Go to the locations page by clicking on <img src="../../../../images/3.0.0/yorc/orchestrator-location-btn.png" alt="orchestrator location" height="26px" class="inline" /></p>
+
+<p>Create a new location clicking on <img src="../../../../images/3.0.0/yorc/new-location.png" alt="new location" height="26px" class="inline" /> and provide a location name. Select <strong>Google Cloud</strong> in the infrastructure type drop-down.</p>
+
+<p>The details page of your location should appear.</p>
+
+<p>Go to <img src="../../../../images/3.0.0/yorc/on-demand-ressource-tab.png" alt="on-demand resources" height="26px" class="inline" /> and add the following resource:</p>
+
+<ul>
+  <li>yorc.nodes.google.Compute</li>
+  <li>yorc.nodes.google.PersistentDisk</li>
+  <li>yorc.nodes.google.PrivateNetwork</li>
+</ul>
+
+<p>Click on the compute, the following details should appear, with here several properties set as explained below:</p>
+
+<p><img src="../../../../images/3.0.0/yorc/google-compute-on-demand.png" alt="Compute configuration" /></p>
+
+<p>Specify which image to use to initialize the boot disk, defining properties <strong>image_project</strong>, <strong>image_family</strong>, <strong>image</strong>.</p>
+
+<p>At least one of the tuples <strong>image_project/image_family</strong>, <strong>image_project/image</strong>, <strong>family</strong>, <strong>image</strong>, should be defined:</p>
+
+<ul>
+  <li><strong>image_project</strong> is the project against which all image and image family references will be resolved. If not specified, and either image or image_family is provided, the current default project is used.</li>
+  <li><strong>image_family</strong> is the family of the image that the boot disk will be initialized with. When a family is specified instead of an image, the latest non-deprecated image associated with that family is used.</li>
+  <li><strong>image</strong> is the image from which to initialize the boot disk. If not specified, and an image family is specified, the latest non-deprecated image associated with that family is used.</li>
+</ul>
+
+<p>See available public images described at <a href="https://cloud.google.com/compute/docs/images#os-compute-support/">Compute Engine Public Images</a>. For example, to use the latest CentOS 7 version, use <strong>image_project</strong> centos-cloud and <strong>image_family</strong> centos-7.</p>
+
+<p>Set the <strong>machine_type</strong> value according to your needs in CPU and memory (default n1-standard-1). See <a href="https://cloud.google.com/compute/docs/machine-types/">list of available machine types</a>.</p>
+
+<p>Set the mandatory parameter <strong>zone</strong> to define the zone on which the Compute Instance should be hosted. See <a href="https://cloud.google.com/compute/docs/regions-zones/">list of available regions and zones</a>.</p>
+
+<p>Edit <strong>credentials</strong> to provide a mandatory user name. This user will be used to connect to this on-demand compute resource once created, and to deploy applications on it.</p>
+
+<p><img src="../../../../images/3.0.0/yorc/google-credentials.png" alt="Compute Instance credentials" /></p>
+
+<p>You could define here as well a private key by editing the <strong>keys</strong> parameter and adding a new key <strong>0</strong> with a value being the path to a private key, as below :</p>
+
+<p><img src="../../../../images/3.0.0/yorc/google-creds-key.png" alt="Compute Instance credentials key" /></p>
+
+<p>If no private key is defined, the orchestrator will attempt to use a key <strong>~/.ssh/yorc.pem</strong> that should have been defined during your Yorc server setup.</p>
+
+<p>The user you specify here must be defined, along with its associated public SSH key, either at your Google Project level, or at this Compute Instance level. See Google documentation for :</p>
+
+<ul>
+  <li><a href="https://cloud.google.com/compute/docs/instances/adding-removing-ssh-keys#project-wide/">Project-wide public ssh keys</a></li>
+  <li><a href="https://cloud.google.com/compute/docs/instances/adding-removing-ssh-keys#instance-only/">Instance-level public SSH keys</a></li>
+</ul>
+
+<p>For example, assuming you have a private ssh key <strong>./id_rsa</strong> and a public ssh key <strong>./id_rsa.pub</strong>, you can first create a file containing a user name and the public key content:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">echo</span>  <span class="s2">&quot;user1:**cat id_rsa.pub**&quot;</span> &gt; userkeys.txt</code></pre></div>
+
+<p>Then define this user and public key at the project level, using Google Cloud CLI:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">gcloud compute project-info add-metadata --metadata-from-file ssh-keys<span class="o">=</span>userkeys.txt</code></pre></div>
+
+<p>Then, by default, all compute instances will inherit from this user/public key definition, the user will be created on the compute instance and you will be able to ssh on your compute instance running:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">ssh -i ./id_rsa user1@&lt;your instance external ip address&gt;</code></pre></div>
+
+<p>For details on other optional Compute Instance properties, see <a href="https://cloud.google.com/sdk/gcloud/reference/compute/instances/create">Compute Instance creation</a>.</p>
+
+<p>Click on the <strong>PublicNetwork</strong>, the following details should appear, with here several properties set as explained below:</p>
+
+<p><img src="../../../../images/3.0.0/yorc/google-public-network.png" alt="PublicNetwork configuration" /></p>
+
+<p>This node type inherits from <strong>tosca.nodes.Network</strong> and allows to substitute generic Network type. At post-matching step, this node will be replaced by <strong>yorc.nodes.google.Address</strong>. You can directly use this node type if you need to define specific Google Address properties.</p>
+
+<p>If you want to use any existing Google Static IP Addresses, you need to set the <strong>addresses</strong> parameter. It accepts a comma-separated list of addresses IPs.</p>
+
+<p>For details on other optional Address properties, see <a href="https://cloud.google.com/sdk/gcloud/reference/compute/addresses/create">Address Creation</a>.</p>
+
+<p>Click on the <strong>PersistentDisk</strong>, the following details should appear, with here several properties set as explained below:</p>
+
+<p><img src="../../../../images/3.0.0/yorc/google-disk-on-demand.png" alt="PersistentDisk configuration" /></p>
+
+<p>Set the mandatory parameter <strong>zone</strong> to define the zone on which the disk resides. In any case the disk must be on the same zone as the associated Compute instances. See <a href="https://cloud.google.com/compute/docs/regions-zones/">list of available regions and zones</a>.</p>
+
+<p>Set the mandatory parameter <strong>size</strong> to define the required size for persistent disks.</p>
+
+<p>If you want the disk to be deleted when the application referencing this disk is undeployed, check the parameter <strong>deletable</strong>. By default, the disk is not deleted.</p>
+
+<p>If you want to refer to an existing disk, set the mandatory parameter <strong>volume_id</strong> with its Google Reference Name. This parameter allows comma-separated values of disk names.</p>
+
+<p>If you want to attach the disk to a compute with a <strong>READ_ONLY</strong> mode, you need to set this property to the <strong>yorc.relationships.google.AttachesTo</strong> relationship between the disk and the compute.</p>
+
+<p>For details on other optional PersistentDisk properties, see <a href="https://cloud.google.com/sdk/gcloud/reference/compute/disks/create">Persistent Disk Creation</a>.</p>
+
+<p>Click on the <strong>PrivateNetwork</strong>, the following details should appear, with here several properties set as explained below:</p>
+
+<p><img src="../../../../images/3.0.0/yorc/google-vpc-on-demand.png" alt="PrivateNetwork configuration" /></p>
+
+<p>If you want to use an existing network, set the parameter <strong>network_name</strong>. Otherwise, let it blank.</p>
+
+<p>You can create custom or default subnet for new or existing network too as long as there is no CIDR range overlaps.</p>
+
+<p>For private network creation, You can specify subnets in three different ways:</p>
+
+<ul>
+  <li>by checking the checkbox <strong>auto_create_subnetworks</strong> : Google will create a subnet for each region automatically with predefined IP ranges.</li>
+  <li>by setting <strong>cidr</strong> and <strong>cidr_region</strong> : a default subnet will be created with the specified IP CIDR range in the Google specified region.</li>
+  <li>by adding custom subnets : you can add several subnets with more accurate properties as described below.</li>
+</ul>
+
+<p>You can as well use the auto-create mode and adding default and/or custom subnets as long as there is no CIDR range overlaps.</p>
+
+<p>Click on the <strong>custom_subnetworks</strong> edit icon to create several custom subnets:</p>
+
+<p><img src="../../../../images/3.0.0/yorc/google-vpc-subnet.png" alt="CustomSubnet configuration" /></p>
+
+<p>Set the mandatory parameters <strong>name</strong>, <strong>ip_cidr_range</strong> and <strong>region</strong> respectively to define the name of your custom subnet, its IP CIDR range and the Google region it owns. Note that subnet names must be unique in the Google project they owns.</p>
+
+<p>You can configure secondary IP ranges for VM instances contained in this sub-network with <strong>secondary_ip_ranges</strong> list.</p>
+
+<p>You can enable flow logging for this subnetwork by checking the checkbox <strong>enable_flow_logs</strong>.</p>
+
+<p>You can allow the VMs in this subnet to access Google services without assigned external IP addresses by checking the checkbox <strong>private_ip_google_access</strong>.</p>
+
+<p>For details on other optional Private Network properties, see <a href="https://cloud.google.com/sdk/gcloud/reference/compute/networks/create">VPC Creation</a>.</p>
+
+<ul>
+  <li>How-to connect a VM to a private subnet after creating the relationship between the VM and a PrivateNetwork ?
+    <ul>
+      <li>Explicitly by setting the subnet property of the Google network relationship <strong>yorc.relationships.google.Network</strong> with the required subnet name.</li>
+      <li>Implicitly with the default subnet if exists and in the same region than the VM or otherwise with the first matching subnet in the same region than the VM.</li>
+    </ul>
+  </li>
+  <li>
+    <p>Are any firewall rules created for my private network ?</p>
+
+    <p>Yes, the following default firewall rules are automatically created for each subnet:</p>
+
+    <ul>
+      <li>Ingress rules from any incoming source for ICMP protocol and RDP and SSH ports (TCP 3389 and TCP 22)</li>
+      <li>Ingress rules from any incoming subnet source for ICMP, TCP and UDP protocol on all port ranges (0-65535).</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="configure-an-aws-location">Configure an AWS Location</h2>
+
+<p>Go to the locations page by clicking on <img src="../../../../images/3.0.0/yorc/orchestrator-location-btn.png" alt="orchestrator location" height="26px" class="inline" /></p>
+
+<p>Create a new location clicking on <img src="../../../../images/3.0.0/yorc/new-location.png" alt="new location" height="26px" class="inline" /> and provide a location name. Select <strong>AWS</strong> in the infrastructure type drop-down.</p>
+
+<p>The details page of your location should appear.</p>
+
+<p>Go to <img src="../../../../images/3.0.0/yorc/on-demand-ressource-tab.png" alt="on-demand resources" height="26px" class="inline" /> and add the following resources:</p>
+
+<ul>
+  <li>yorc.nodes.aws.PublicNetwork</li>
+  <li>yorc.nodes.aws.Compute</li>
+  <li>yorc.nodes.aws.EBSVolume</li>
+</ul>
+
+<p>Click on the compute, the following details should appear:</p>
+
+<p><img src="../../../../images/3.0.0/yorc/aws-compute-on-demand.png" alt="Compute configuration" /></p>
+
+<p>Edit mandatory parameters AWS <strong>image_id</strong>, <strong>instance_type</strong>, <strong>security_groups</strong> and <strong>key_name</strong> to provide the name of a key pair already known from AWS.</p>
+
+<p>Click on the <strong>EBSVolume</strong>, the following details should appear, with here several properties set as explained below:</p>
+
+<p><img src="../../../../images/3.0.0/yorc/aws-volume-on-demand.png" alt="EBSVolume configuration" /></p>
+
+<p>Set the mandatory parameter <strong>device</strong> to define the logical device name to expose to the instance (for example, /dev/sdh or xvdh). See <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html#available-ec2-device-names/">Available Device Names</a>.
+This can also be set by users during application creation.</p>
+
+<p>Set the mandatory parameter <strong>availability_zone</strong> to define the AWS zone where the volume will be. This availability zone must be the same as the ones of the Compute instances to which the disk will be attached.
+See <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html/">Regions, Availability Zones, and Local Zones</a> for more information.</p>
+
+<p>Set the mandatory parameter <strong>size</strong> to define the required size for volumes.</p>
+
+<p>If you want the volume to be deleted when the application referencing this one is undeployed, check the parameter <strong>deletable</strong>. By default, the volume is not deleted.</p>
+
+<p>If you want to refer to an existing volume, set the parameter <strong>volume_id</strong> with its Volume ID you find on AWS Console. This parameter allows comma-separated values of volumes names.</p>
+
+<p>For details on other optional EBSVolume properties, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-volume.html">Creating an Amazon EBS Volume</a>.</p>
+
+<p>Edit <strong>credentials</strong> to provide a user name. This user will be used to connect to this on-demand compute resource once created, and to deploy applications on it (while user credentials used to create this on-demand resource are defined in the Yorc server configuration).</p>
+
+<h2 id="configure-a-kubernetes-location">Configure a Kubernetes Location</h2>
+
+<p>In order to deploy applications to a Kubernetes location, the Yorc orchestrator must be connected to a properly configured Yorc server (see “Infrastructure configuration” chapter in Yorc documentation ; the Yorc server must be able to connect to the Kubernetes cluster’s master).</p>
+
+<p>Select <strong>Yorc</strong> orchestrator and go to the locations page by clicking on <img src="../../../../images/3.0.0/yorc/orchestrator-location-btn.png" alt="orchestrator location" height="26px" class="inline" />.
+Create a location named <strong>kubernetes</strong> (or a name of your choice) and select <strong>Kubernetes</strong> on the infrastructure type drop-down. The details page of your location should appear.</p>
+
+<p>Go to <img src="../../../../images/3.0.0/yorc/on-demand-ressource-tab.png" alt="on-demand resources" height="26px" class="inline" /> and search in the <strong>Catalog</strong> resources with type prefix <strong>org.alien4cloud.kubernetes.api.types</strong>. You have to add the following resources:</p>
+
+<ul>
+  <li><strong>org.alien4cloud.kubernetes.api.types.Deployment</strong></li>
+  <li><strong>org.alien4cloud.kubernetes.api.types.Job</strong></li>
+  <li><strong>org.alien4cloud.kubernetes.api.types.StatefulSet</strong></li>
+  <li><strong>org.alien4cloud.kubernetes.api.types.Container</strong></li>
+  <li><strong>org.alien4cloud.kubernetes.api.types.Service</strong></li>
+  <li><strong>org.alien4cloud.kubernetes.api.types.volume.</strong>* # the volume types needed by applications</li>
+</ul>
+
+<p>Go to <img src="../../../../images/3.0.0/yorc/topology-modifier-tab.png" alt="topology modifier" height="26px" class="inline" /> view to check modifiers are uploaded to your location:</p>
+
+<ul>
+  <li><strong>Kubernetes modifier</strong> having <strong>post location match</strong> deployment phase</li>
+  <li><strong>Yorc modifier for kubernetes</strong> having <strong>post-node-match</strong> deployment phase</li>
+</ul>
+
+<p>If you defined a K8S_NAMESPACE meta-property (see here how to do so &lt;location_config_meta_props_section&gt;) with <strong>location</strong> target, you can use its value to specify the namespace in which the Kubernetes resources will be created when deploying applications to this location.</p>
+
+<p>In the image below, the user specifies that Kubernetes objects will belong to the namespace <strong>my_location_namespace</strong>.</p>
+
+<p><img src="../../../../images/3.0.0/yorc/location-meta-properties.png" alt="Namespace specification in the location" /></p>
+
+<p>Note that the user can choose to use a particular namespace for each application. In this case, the K8S_NAMESPACE meta-property with <strong>application</strong> target must be used like in the image below:</p>
+
+<p><img src="../../../../images/3.0.0/yorc/application-meta-properties.png" alt="Namespace specification in the application" /></p>
+
+<p>If both K8S_NAMESPACE meta-property with <strong>location</strong> target and K8S_NAMESPACE meta-property with <strong>application</strong> target have values set, then the one with <strong>location</strong> target has higher priority, so its value will be used to specify the Kubernets namespaces.</p>
+
+<p>In any case, the specified namespace must exist in the Kubernetes infrastructure.</p>
+
+<p>To simplify the deployment of application in test and development phase, we allow users not to define a specific namespace for its applications. In this case there is no need to define a K8S_NAMESPACE meta-property, and the Kuberneters objects will be created in a namespace specially created for each application. The namespace is deleted after the application is undeployed. The name of the created namespaces is constructed using the application name + the application’s environment name.</p>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.0.0/orchestrators/yorc/location.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-3.0.0', 'documentation/3.0.0/orchestrators/yorc/location.markdown');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

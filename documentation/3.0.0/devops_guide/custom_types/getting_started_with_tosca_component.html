@@ -1,0 +1,325 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/3.0.0/devops_guide/custom_types/getting_started_with_tosca_component.html',
+  title: 'Getting started with a TOSCA component'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Getting started with a TOSCA component</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.0.0/devops_guide/custom_types/getting_started_with_tosca_component.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <div class="note info">
+<p>In this section, we will detail our linux JDK component that can be found in our github:
+<a href="https://github.com/alien4cloud/samples/tree/master/org/alien4cloud/lang/java/jdk/linux" target="_blank">JDK</a></p>
+</div>
+
+<h1 id="cloud-service-archive-csar">Cloud Service Archive (CSAR)</h1>
+
+<p>A Cloud Service Archive (CSAR) is a folder or a zip file that contains types and templates definitions and any other files required for elements implementations.
+The structure of our JDK’s CSAR is the following:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">├── images
+│   ├── jdk.png
+├── scripts
+│   └── install_jdk.sh
+├── type.yml</code></pre></div>
+
+<ul>
+  <li><code>type.yml</code> is the TOSCA file which contains all the TOSCA definitions</li>
+  <li>The folders <code>/images</code> and <code>/scripts</code> contain files which are referenced by the <code>type.yml</code> file.</li>
+</ul>
+
+<div class="note info">
+<p>A TOSCA file can be written in XML or YAML.
+Here we choose to use YAML because this is the format recognized by Alien4Cloud.</p>
+</div>
+
+<div class="note">
+<p>More details about CSAR <a href="#/documentation/3.0.0/concepts/tosca.html">here</a></p>
+</div>
+
+<h1 id="structure-of-tosca-file">Structure of TOSCA file</h1>
+
+<p>The structure looks like the following:</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">tosca_definitions_version</span><span class="p-Indicator">:</span> <span class="c1"># Required TOSCA Definitions version string</span>
+<span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="c1"># Optional short description of the definitions inside the file</span>
+<span class="l-Scalar-Plain">metadata</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">template_name</span><span class="p-Indicator">:</span> <span class="c1"># Optional name of this service template</span>
+  <span class="l-Scalar-Plain">template_version</span><span class="p-Indicator">:</span> <span class="c1"># Optional version of this service template</span>
+  <span class="l-Scalar-Plain">template_author</span><span class="p-Indicator">:</span> <span class="c1"># Optional author of this service template</span>
+
+<span class="l-Scalar-Plain">imports</span><span class="p-Indicator">:</span>
+<span class="c1"># list of import statements for importing other definitions files</span>
+
+<span class="l-Scalar-Plain">node_types</span><span class="p-Indicator">:</span>
+<span class="c1"># list of node type definitions</span>
+
+<span class="l-Scalar-Plain">capability_types</span><span class="p-Indicator">:</span>
+<span class="c1"># list of capability type definitions</span>
+
+<span class="l-Scalar-Plain">relationship_types</span><span class="p-Indicator">:</span>
+<span class="c1"># list of relationship type definitions</span></code></pre></div>
+
+<div class="note">
+<p>More details on the TOSCA file definition <a href="#/documentation/3.0.0/devops_guide/tosca_grammar/definitions_document.html">here</a></p>
+</div>
+
+<h2 id="the-basic-part">The basic part</h2>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">tosca_definitions_version</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">alien_dsl_1_4_0</span>
+<span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">TOSCA simple profile with JDK.</span>
+<span class="l-Scalar-Plain">metadata</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">template_name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">org.alien4cloud.lang.java.jdk.linux</span>
+  <span class="l-Scalar-Plain">template_version</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">1.4.0-SNAPSHOT</span>
+  <span class="l-Scalar-Plain">template_author</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">alien4cloud</span>
+
+<span class="l-Scalar-Plain">imports</span><span class="p-Indicator">:</span>
+  <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">tosca-normative-types:1.0.0-ALIEN14</span>
+  <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">org.alien4cloud.lang.java.pub:1.4.0-SNAPSHOT</span></code></pre></div>
+
+<p>A little explanation:</p>
+
+<ul>
+  <li><code>alien_dsl_1_4_0</code> is the TOSCA version which Alien will use to parse the file.</li>
+  <li><code>tosca-normative-types:1.0.0-ALIEN14</code> means that our JDK component has a dependency to the TOSCA normative which is defined by another CSAR with the following value in its TOSCA file.</li>
+  <li><code>org.alien4cloud.lang.java.pub:1.4.0-SNAPSHOT</code> means that this JDK component has a dependency to the <a href="https://github.com/alien4cloud/samples/tree/master/org/alien4cloud/lang/java/pub">abstract JDK component</a></li>
+</ul>
+
+<div class="note warning">
+<p>Alien4Cloud comes with a default version of the normative types inside its catalog.
+Make sure that it matches the version you specify in your TOSCA file. Otherwise, you can import the needed version from our <a href="https://github.com/alien4cloud/tosca-normative-types">github</a></p>
+</div>
+
+<h2 id="main-part-nodetypes">Main part: node_types</h2>
+
+<p>The JDK component has one node type: <code>org.alien4cloud.lang.java.jdk.linux.nodes.OracleJDK</code> which derived from <code>tosca.nodes.SoftwareComponent</code>.</p>
+
+<ul>
+  <li><code>org.alien4cloud.lang.java.jdk.linux.nodes.OracleJDK</code> is the node which is responsible to install the JDK</li>
+  <li><code>tosca.nodes.SoftwareComponent</code> is an abstract node to be extended by softwares which require a JDK.</li>
+</ul>
+
+<h3 id="the-nodetype-structure">The node_type structure</h3>
+
+<p>Here a description of a <code>node_types</code> structure used by the <code>type.yml</code> file:</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">&lt;node_type_name&gt;</span><span class="p-Indicator">:</span>  <span class="c1"># Define the name of the node type</span>
+  <span class="l-Scalar-Plain">abstract</span><span class="p-Indicator">:</span> <span class="c1"># Optional boolean to specify it’s an abstract node</span>
+  <span class="l-Scalar-Plain">derived_from</span><span class="p-Indicator">:</span> <span class="c1"># Optional parent node type name the node derives from</span>
+  <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="c1"># Optional description</span>
+  <span class="l-Scalar-Plain">tags</span><span class="p-Indicator">:</span> <span class="c1"># Optional key/value map to assign your own metadata to the node</span>
+        <span class="c1"># A default “icon” key is recognize by Alien4Cloud to associate an image to the node</span>
+  <span class="l-Scalar-Plain">properties</span><span class="p-Indicator">:</span>
+    <span class="c1"># Optional list of property definitions</span>
+  <span class="l-Scalar-Plain">attributes</span><span class="p-Indicator">:</span>
+    <span class="c1"># Optional list of attribute definitions</span>
+  <span class="l-Scalar-Plain">requirements</span><span class="p-Indicator">:</span>
+    <span class="c1"># Optional sequenced list of requirement definitions</span>
+  <span class="l-Scalar-Plain">capabilities</span><span class="p-Indicator">:</span>
+    <span class="c1"># Optional list of capability definitions</span>
+  <span class="l-Scalar-Plain">interfaces</span><span class="p-Indicator">:</span>
+    <span class="c1"># Optional list of named interfaces</span></code></pre></div>
+
+<div class="note">
+<p>More details about node type definition <a href="#/documentation/3.0.0/devops_guide/tosca_grammar/node_type.html">here</a></p>
+</div>
+
+<h3 id="the-aliennodesjdk-nodetype-in-details">The alien.nodes.JDK node_type in details</h3>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">node_types</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">org.alien4cloud.lang.java.jdk.linux.nodes.OracleJDK</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">derived_from</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.nodes.SoftwareComponent</span>
+    <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Installation of Oracle Java Development Kit</span>
+    <span class="l-Scalar-Plain">metadata</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">icon</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">images/jdk.png</span>
+    <span class="l-Scalar-Plain">properties</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">java_url</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">string</span>
+        <span class="l-Scalar-Plain">required</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
+        <span class="l-Scalar-Plain">default</span><span class="p-Indicator">:</span> <span class="s">&quot;https://edelivery.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-8u131-linux-x64.tar.gz&quot;</span>
+      <span class="l-Scalar-Plain">java_home</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">string</span>
+        <span class="l-Scalar-Plain">required</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
+        <span class="l-Scalar-Plain">default</span><span class="p-Indicator">:</span> <span class="s">&quot;/opt/java&quot;</span>
+      <span class="l-Scalar-Plain">component_version</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">version</span>
+        <span class="l-Scalar-Plain">default</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">1.8.0-131-b11</span>
+    <span class="l-Scalar-Plain">attributes</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">java_version</span><span class="p-Indicator">:</span> <span class="p-Indicator">{</span> <span class="nv">get_operation_output</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span> <span class="nv">SELF</span><span class="p-Indicator">,</span> <span class="nv">Standard</span><span class="p-Indicator">,</span> <span class="nv">create</span><span class="p-Indicator">,</span> <span class="nv">JAVA_VERSION</span> <span class="p-Indicator">]</span> <span class="p-Indicator">}</span>
+      <span class="l-Scalar-Plain">java_message</span><span class="p-Indicator">:</span> <span class="p-Indicator">{</span> <span class="nv">concat</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span><span class="s">&quot;Java</span><span class="nv"> </span><span class="s">help:</span><span class="nv"> </span><span class="s">&quot;</span><span class="p-Indicator">,</span> <span class="nv">get_operation_output</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span> <span class="nv">SELF</span><span class="p-Indicator">,</span> <span class="nv">Standard</span><span class="p-Indicator">,</span> <span class="nv">create</span><span class="p-Indicator">,</span> <span class="nv">JAVA_HELP</span> <span class="p-Indicator">]]</span> <span class="p-Indicator">}</span>
+    <span class="l-Scalar-Plain">capabilities</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">jdk</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">org.alien4cloud.lang.java.pub.capabilities.JDK</span>
+        <span class="l-Scalar-Plain">occurrences</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span> <span class="nv">0</span><span class="p-Indicator">,</span> <span class="nv">UNBOUNDED</span> <span class="p-Indicator">]</span>
+    <span class="l-Scalar-Plain">interfaces</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">Standard</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">create</span><span class="p-Indicator">:</span>
+          <span class="l-Scalar-Plain">inputs</span><span class="p-Indicator">:</span>
+            <span class="l-Scalar-Plain">JAVA_URL</span><span class="p-Indicator">:</span> <span class="p-Indicator">{</span> <span class="nv">get_property</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span><span class="nv">SELF</span><span class="p-Indicator">,</span> <span class="nv">java_url</span><span class="p-Indicator">]</span> <span class="p-Indicator">}</span>
+            <span class="l-Scalar-Plain">JAVA_HOME</span><span class="p-Indicator">:</span> <span class="p-Indicator">{</span> <span class="nv">get_property</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span><span class="nv">SELF</span><span class="p-Indicator">,</span> <span class="nv">java_home</span><span class="p-Indicator">]</span> <span class="p-Indicator">}</span>
+          <span class="l-Scalar-Plain">implementation</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">scripts/install_jdk.sh</span></code></pre></div>
+
+<ul>
+  <li><code>derived_from: tosca.nodes.SoftwareComponent</code>
+The <code>org.alien4cloud.lang.java.jdk.linux.nodes.OracleJDK</code> node type is derived from the TOSCA native node <code>tosca.nodes.SoftwareComponent</code>, the root type created by TOSCA to define software components.</li>
+  <li><code>icon: images/jdk.png</code>
+The node will use the image which can be found at <code>images/jdk.png</code> inside the CSAR archive.</li>
+  <li><code>properties:</code>
+The node has 3 properties which will be used by the installation script.</li>
+  <li><code>attributes:</code>
+The node defines 2 attributes to be shown at runtime.</li>
+  <li><code>capabilities:</code>
+The node exposes a <code>jdk</code> capability to provide relationship of type <code>org.alien4cloud.lang.java.pub.capabilities.JDK</code> (defined in the <a href="https://github.com/alien4cloud/samples/blob/master/org/alien4cloud/lang/java/pub/types.yml">pub jdk CSAR</a>). It basically says that any nodes requiring an <code>org.alien4cloud.lang.java.pub.capabilities.JDK</code> type can be linked to this node.</li>
+  <li><code>interfaces:</code>
+Defines operations on the node.
+By default, every TOSCA node has an implicit lifecycle composed of several operations, i.e., <code>create</code>, <code>configure</code>, <code>start</code>, <code>stop</code> and <code>delete</code>. Here we only define the <code>create</code> operation which calls the <code>install_jdk.sh</code> script inside the CSAR archive.</li>
+</ul>
+
+<h3 id="the-installjdksh-script">The <code>install_jdk.sh</code> script</h3>
+
+<p>The script installs a jdk on a Linux machine given a tarball archive and a target folder on the machine.
+What is important to focus on is the inputs definition.</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">inputs:
+  JAVA_URL: <span class="o">{</span> get_property: <span class="o">[</span>SELF, java_url<span class="o">]</span> <span class="o">}</span>
+  JAVA_HOME: <span class="o">{</span> get_property: <span class="o">[</span>SELF, java_home<span class="o">]</span> <span class="o">}</span></code></pre></div>
+
+<p>So we have 2 inputs specified in the yaml file.
+The values are retrieved from the node’s properties using the builtin function <code>get_property</code>.
+The names <code>JAVA_URL</code> and <code>JAVA_HOME</code>, defined as key name of the inputs properties, are passed as variables environment before calling the <code>install_jdk.sh</code> script. Therefore, inputs inside the script are simply called as normal variables.</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">echo</span> <span class="s2">&quot;${currHostName}:${currFilename} Java url ${JAVA_URL}&quot;</span>
+<span class="nb">echo</span> <span class="s2">&quot;${currHostName}:${currFilename} Java home ${JAVA_HOME}&quot;</span></code></pre></div>
+
+<p>Another point to highlight is that it is a best practice to correctly handle errors and especially the exit code of your scripts thus the orchestrator leveraged by Alien4Cloud can correctly handle errors and notify that a node has failed.</p>
+
+<p>Here we can use a function to add an error message, but it is not mandatory.</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">error_exit <span class="o">()</span> <span class="o">{</span>
+  <span class="nb">echo</span> <span class="s2">&quot;${currHostName}:${currFilename} $2 : error code: $1&quot;</span>
+  <span class="nb">exit</span> <span class="nv">$1</span>
+<span class="o">}</span></code></pre></div>
+
+<h3 id="the-abstract-jdk-nodetype-in-details">The abstract JDK node_type in details</h3>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">org.alien4cloud.lang.java.pub.nodes.JavaSoftware</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">abstract</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
+    <span class="l-Scalar-Plain">derived_from</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.nodes.Root</span>
+    <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">The JavaSoftware node represents a generic software component that can be launch by Java.</span>
+    <span class="l-Scalar-Plain">metadata</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">icon</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">images/javabean.png</span>
+    <span class="l-Scalar-Plain">requirements</span><span class="p-Indicator">:</span>
+      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">java</span><span class="p-Indicator">:</span>
+          <span class="l-Scalar-Plain">capability</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">org.alien4cloud.lang.java.pub.capabilities.JDK</span>
+          <span class="l-Scalar-Plain">relationship</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">org.alien4cloud.lang.java.pub.relationships.JavaSoftwareHostedOnJDK</span>
+          <span class="l-Scalar-Plain">occurrences</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span><span class="nv">1</span><span class="p-Indicator">,</span> <span class="nv">1</span><span class="p-Indicator">]</span></code></pre></div>
+
+<ul>
+  <li><code>abstract: true</code>
+This node is an abstract one, meaning that other nodes can extend it in order to inherit all of its definitions.</li>
+  <li><code>requirements:</code>
+This node requires to be linked to a node which offers the <code>org.alien4cloud.lang.java.pub.capabilities.JDK</code> capability type with a relationship of type <code>org.alien4cloud.lang.java.pub.relationships.JavaSoftwareHostedOnJDK</code> (defined later in the file).</li>
+</ul>
+
+<h2 id="defining-capabilitytypes">Defining capability_types</h2>
+
+<p>Here is the structure of the <code>capability_type</code> used in the <a href="https://github.com/alien4cloud/samples/blob/master/org/alien4cloud/lang/java/pub/types.yml">type.yml</a> file:</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">capability_types</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">&lt;capability_type_name&gt;</span><span class="p-Indicator">:</span> <span class="c1"># The name of the capability type</span>
+    <span class="l-Scalar-Plain">derived_from</span><span class="p-Indicator">:</span> <span class="c1"># Optional parent Capability Type name the Capability Type derives from</span></code></pre></div>
+
+<p>The <a href="https://github.com/alien4cloud/samples/blob/master/org/alien4cloud/lang/java/pub/types.yml">type.yml</a> file defines a <code>org.alien4cloud.lang.java.pub.capabilities.JDK</code> type and it is derived from the <code>tosca.capabilities.Container</code> TOSCA normative type.</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">capability_types</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">org.alien4cloud.lang.java.pub.capabilities.JDK</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">derived_from</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.capabilities.Container</span></code></pre></div>
+
+<div class="note">
+<p>More details about the capability definition <a href="#/documentation/3.0.0/devops_guide/tosca_grammar/capability_definition.html">here</a></p>
+</div>
+
+<h2 id="defining-relationshiptypes">Defining relationship_types</h2>
+
+<p>Here the structure of the <code>relationship_type</code> used in the <a href="https://github.com/alien4cloud/samples/blob/master/org/alien4cloud/lang/java/pub/types.yml">type.yml</a> file:</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">&lt;relationship_type_name&gt;</span><span class="p-Indicator">:</span> <span class="c1"># The name of the relationship type</span>
+  <span class="l-Scalar-Plain">derived_from</span><span class="p-Indicator">:</span> <span class="c1"># Optional parent Relationship Type name the Relationship Type derives from</span>
+  <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="c1"># Optional description</span>
+  <span class="l-Scalar-Plain">valid_target_types</span><span class="p-Indicator">:</span> <span class="c1"># Required list of one or more valid target entities or entity types (i.e., a Node Types or Capability Types).</span></code></pre></div>
+
+<p>In the source file:</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">relationship_types</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">org.alien4cloud.lang.java.pub.relationships.JavaSoftwareHostedOnJDK</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">derived_from</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.relationships.HostedOn</span>
+    <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Relationship use to describe that the SoftwareComponent is hosted on the JDK.</span>
+    <span class="l-Scalar-Plain">valid_target_types</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span> <span class="nv">org.alien4cloud.lang.java.pub.capabilities.JDK</span> <span class="p-Indicator">]</span></code></pre></div>
+
+<ul>
+  <li><code>org.alien4cloud.lang.java.pub.relationships.JavaSoftwareHostedOnJDK</code> is the name of our relationship type.</li>
+  <li><code>derived_from: tosca.relationships.HostedOn</code>
+The relationship derives from the <code>tosca.relationships.HostedOn</code> TOSCA normative type.</li>
+  <li><code>valid_target_types: [ org.alien4cloud.lang.java.pub.capabilities.JDK ]</code>
+The target of the relationship must be of a node with an <code>org.alien4cloud.lang.java.pub.capabilities.JDK</code> type in its capabilities list.</li>
+</ul>
+
+<div class="note">
+<p>More details about the relationship type <a href="#/documentation/3.0.0/devops_guide/tosca_grammar/relationship_type.html">here</a></p>
+</div>
+
+<h1 id="next-steps">Next steps</h1>
+
+<ul>
+  <li>Going deeper to write TOSCA components
+    <ul>
+      <li><a href="#/documentation/3.0.0/devops_guide/lamp_stack_tutorial/lamp_stack.html">LAMP Stack Tutorial</a></li>
+      <li><a href="#/documentation/3.0.0/devops_guide/design_tutorial/tutorials.html">Create your own components</a></li>
+    </ul>
+  </li>
+  <li><a href="#/documentation/3.0.0/devops_guide/tosca_grammar/tosca_grammar.html">Going deeper with TOSCA</a></li>
+</ul>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.0.0/devops_guide/custom_types/getting_started_with_tosca_component.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-3.0.0', 'documentation/3.0.0/devops_guide/custom_types/getting_started_with_tosca_component.markdown');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

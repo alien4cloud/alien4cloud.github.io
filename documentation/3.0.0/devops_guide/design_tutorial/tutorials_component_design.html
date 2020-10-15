@@ -1,0 +1,269 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/3.0.0/devops_guide/design_tutorial/tutorials_component_design.html',
+  title: 'Component design'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Component design</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.0.0/devops_guide/design_tutorial/tutorials_component_design.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <p><strong>Target:</strong> Middleware experts, architects, operations teams.</p>
+
+<p><strong>Goal:</strong> Explain how to start with component design. In this tutorial, the component we will focus on is Tomcat Application Server.</p>
+
+<h1 id="define-the-node-type">Define the node type</h1>
+
+<p>A component in ALIEN is a tosca node type. Information on TOSCA and the grammar can be found on OASIS TC pages and in ALIEN documentation in the components section.
+This tutorial doesn’t focus on the grammar but on the methodology to define components.</p>
+
+<p>The first step to define the component is to define it’s id. In our case, we will define a ‘fastconnect.nodes.Tomcat’ node. This component will be abstract as we don’t plan to include an implementation for now (another member of the team may provide an implementation). More, while an implementation may not be compliant with any Operating System (Linux shell scripts that won’t run on windows) or PaaS (Cloudify specific scripts) etc. The abstract type allows to define an agnostic view of the middleware.</p>
+
+<div class="note info">
+<p>A same node may have different implementations, for example a Tomcat Node may have an implementation based on puppet and another based on chef, or even pure shell script.</p>
+
+<p>Definition of abstract types is also a good way also to provide separation of concern and to let an Architect define a middleware and let the implementation to the experts.</p>
+</div>
+
+<p>Second step when defining a node is to find from which parent type it should extends, it can be an existing type already uploaded in ALIEN or one of TOSCA <a href="#/documentation/3.0.0/devops_guide/normative_types/tosca_concepts_types_normative_nodes.html">normative type</a>. There is multiple reasons to extends from the normative types (or another type that itself extends from a normative type):</p>
+
+<ul>
+  <li>Workflow automatic generation is based on the fact that the node uses the default lifecycle interfaces that are defined on the normative types.</li>
+  <li>Using normative types is also a good way to leverage ALIEN 4 Cloud facet search (for example I will be able to filter on all <em>ApplicationServer</em> nodes).</li>
+  <li>Finally extending from normative types allows to bootstrap your node with some properties, capabilities and requirements. For example as our Tomcat extends from <em>tosca.nodes.SoftwareComponents</em> it will have
+    <ul>
+      <li>a version property that should be specified</li>
+      <li>a host requirement (as a software component must be installed on a compute node).</li>
+      <li>the default feature requirement and relationship that are used to established depends on relationships (to impact the lifecycle generation).</li>
+    </ul>
+  </li>
+</ul>
+
+<p>In the case of a Tomcat server the normative type that we should extends from is <em>tosca.nodes.ApplicationServer</em>. This node extends itself from <em>tosca.nodes.SoftwareComponents</em>.</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">fastconnect.nodes.Tomcat</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">abstract</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
+  <span class="l-Scalar-Plain">derived_from</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.nodes.ApplicationServer</span>
+  <span class="l-Scalar-Plain">documentation</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Tomcat application server is an application server that supports deployment of java web applications (war).</span></code></pre></div>
+
+<div class="note">
+<p>It is possible here to create another parent abstract type that supports any Java Application Server. This would allow for any Java Application Server to just extends from the node and leverage common properties, requirements and capabilties (Java requirement, War capability, Java arguments properties etc.).</p>
+
+<p>Extension is not mandatory as this will just allow to simplify the definition of multiple bean but will not impact the topology creation. In order to keep this tutorial simple we will just extend our Tomcat from the tosca.nodes.ApplicationServer node type.</p>
+</div>
+
+<h2 id="properties">Properties</h2>
+
+<p>The first property we want to define is the version of tomcat that this tomcat definition supports. Indeed all the tomcat versions doesn’t have the same capabilities, for example tomcat 7.x supports web-sockets while this is not supported in tomcat 5.x for example.</p>
+
+<p>Version property as stated earlier is already defined in SoftwareComponent, it is possible however to override it to add an additional constraint. In this example we want to describe a tomcat node for all versions 7 so we will redefine the version property (with the same version type) and add <a href="#/documentation/3.0.0/devops_guide/tosca_grammar/constraints.html">constraints</a>.</p>
+
+<p>Second property that we want to add in this tutorial is the java options to use to startup the Tomcat server. This will allow users to specify the java memory requirements and garbage collection settings.</p>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Name</th>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Required</th>
+      <th style="text-align: left">Default</th>
+      <th style="text-align: left">Constraints</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">version</td>
+      <td style="text-align: left">version</td>
+      <td style="text-align: left">true</td>
+      <td style="text-align: left">7</td>
+      <td style="text-align: left">Between 7 (inclusive) and 8 exclusive</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">java_ops</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">false</td>
+      <td style="text-align: left">None</td>
+      <td style="text-align: left">None</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">fastconnect.nodes.Tomcat</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">abstract</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
+  <span class="l-Scalar-Plain">derived_from</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.nodes.ApplicationServer</span>
+  <span class="l-Scalar-Plain">documentation</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Tomcat application server is an application server that supports deployment of java web applications (war).</span>
+  <span class="l-Scalar-Plain">properties</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">version</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">version</span>
+      <span class="l-Scalar-Plain">constraints</span><span class="p-Indicator">:</span>
+       <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">greater_or_equal</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">7</span>
+       <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">less_than</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">8</span>
+    <span class="l-Scalar-Plain">java_ops</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">string</span></code></pre></div>
+
+<p><em>Tomcat node with the version between [7 and 8)</em></p>
+
+<div class="note">
+<p>Of course we could add more properties to the tomcat node in order to allow configuration of other server related properties. In this tutorial we will just use the properties mentioned above.</p>
+
+<p>Note that as ALIEN supports the versioning of the archives it is easy to add properties later in a next version of the component.</p>
+</div>
+
+<h2 id="requirements">Requirements</h2>
+
+<p>Next important section to describe on the Tomcat type is the list of requirements. As Tomcat inherit from SoftwareComponent it has an inherited requirement over a Compute node (this requirement can be fulfilled in a topology by using an hosted_on relationship).
+The other requirement for a Tomcat node is to have a java installed. We will model this by adding a java requirement to the tomcat node.</p>
+
+<p>A requirements can express constraints on some of the target capability or node, properties. Here we reference a requirement on a Java Node and specify a constraint on the version of the java node.</p>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Name</th>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">occurrences</th>
+      <th style="text-align: left">Constraints</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">host</td>
+      <td style="text-align: left">tosca.nodes.Compute</td>
+      <td style="text-align: left">[1, 1] (default)</td>
+      <td style="text-align: left"> </td>
+      <td>Inherited from tosca.nodes.SoftwareComponent</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">java</td>
+      <td style="text-align: left">fastconnect.nodes.Java</td>
+      <td style="text-align: left">[1, 1] (default)</td>
+      <td style="text-align: left">Greater or equal than 7</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">fastconnect.nodes.Tomcat</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">abstract</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
+  <span class="l-Scalar-Plain">derived_from</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.nodes.ApplicationServer</span>
+  <span class="l-Scalar-Plain">documentation</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Tomcat application server is an application server that supports deployment of java web applications (war).</span>
+  <span class="l-Scalar-Plain">properties</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">version</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">version</span>
+      <span class="l-Scalar-Plain">constraints</span><span class="p-Indicator">:</span>
+       <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">greater_or_equal</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">7</span>
+       <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">less_than</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">8</span>
+    <span class="l-Scalar-Plain">java_ops</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">string</span>
+  <span class="l-Scalar-Plain">requirements</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">java</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">fastconnect.nodes.Java</span>
+      <span class="l-Scalar-Plain">constraints</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">version</span><span class="p-Indicator">:</span> <span class="p-Indicator">{</span> <span class="nv">greater_or_equal</span><span class="p-Indicator">:</span> <span class="nv">1.7</span> <span class="p-Indicator">}</span></code></pre></div>
+
+<div class="note">
+<p>Tomcat node inherit from the requirement on a hosting compute node that is defined by the SoftwareComponent TOSCA normative node. Here we define an abstract Tomcat node that doesn’t have any specific requirement for the compute node (os type etc.) so we don’t have to override the parent requirement. Of course it is possible to override a parent requirement to specify more advanced constraints.</p>
+</div>
+
+<h2 id="capabilities">Capabilities</h2>
+
+<p>Tomcat has multiple capabilities and the two main capabilities that we want to define in this tutorial are the ability to hort some War node(s) on top of Tomcat as well as it’s http endpoint.</p>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Name</th>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Occurences</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">http</td>
+      <td style="text-align: left">tosca.capabilities.Endpoint</td>
+      <td style="text-align: left">[0, unbounded] (default)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">war_host</td>
+      <td style="text-align: left">fastconnect.nodes.War</td>
+      <td style="text-align: left">[0, unbounded] (default)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>In case of the http capability we want to define the port of the tosca.capabilties.Endpoint to be actually the one define in the</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">fastconnect.nodes.Tomcat</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">abstract</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
+  <span class="l-Scalar-Plain">derived_from</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.nodes.ApplicationServer</span>
+  <span class="l-Scalar-Plain">documentation</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Tomcat application server is an application server that supports deployment of java web applications (war).</span>
+  <span class="l-Scalar-Plain">properties</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">version</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">version</span>
+      <span class="l-Scalar-Plain">constraints</span><span class="p-Indicator">:</span>
+       <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">greater_or_equal</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">7</span>
+       <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">less_than</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">8</span>
+    <span class="l-Scalar-Plain">java_ops</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">string</span>
+  <span class="l-Scalar-Plain">requirements</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">java</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">fastconnect.nodes.Java</span>
+      <span class="l-Scalar-Plain">constraints</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">version</span><span class="p-Indicator">:</span> <span class="p-Indicator">{</span> <span class="nv">greater_or_equal</span><span class="p-Indicator">:</span> <span class="nv">1.7</span> <span class="p-Indicator">}</span>
+  <span class="l-Scalar-Plain">capabilties</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">http</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.capabilities.Endpoint</span>
+      <span class="l-Scalar-Plain">properties</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">port</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">8080</span>
+    <span class="l-Scalar-Plain">war_host</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">fastconnect.capabilities.War</span></code></pre></div>
+
+<h1 id="conclusion">Conclusion</h1>
+
+<p>Following the tutorial you should be able to define your own types to be added in ALIEN repository. TOSCA’s requirement and capabilties mechanisms as well as constraint validations allows users to leverage your types so they can easily build topologies and minimize errors in configurations.</p>
+
+<p>The next step is to actually implement the type in order to have a type that can indeed be instantiated in a topology.</p>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.0.0/devops_guide/design_tutorial/tutorials_component_design.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-3.0.0', 'documentation/3.0.0/devops_guide/design_tutorial/tutorials_component_design.markdown');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

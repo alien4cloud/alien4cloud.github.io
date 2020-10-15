@@ -1,0 +1,217 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/3.0.0/devops_guide/tosca_grammar/node_type.html',
+  title: 'Node type'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Node type</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.0.0/devops_guide/tosca_grammar/node_type.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <p>A Node Type is a reusable entity that defines the type of one or more Node Templates. As such, a Node Type defines the structure of observable properties via a Properties Definition, the Requirements and Capabilities of the node as well as its supported interfaces.</p>
+
+<h2 id="keynames">Keynames</h2>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th style="text-align: left">Keyname</th>
+      <th style="text-align: left">Required</th>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Description</th>
+      <th style="text-align: left">tosca_definitions_version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">derived_from</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">An optional parent Node Type name the Node Type derives from.</td>
+      <td style="text-align: left">alien_dsl_1_3_0<br /> alien_dsl_1_2_0<br /> tosca_simple_yaml_1_0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">version <strong>(1)</strong></td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">version</td>
+      <td style="text-align: left">An optional version for the Entity Type definition.</td>
+      <td style="text-align: left">N.A.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">metadata <strong>(2)</strong></td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">map of string</td>
+      <td style="text-align: left">Defines a section used to declare additional metadata information.</td>
+      <td style="text-align: left">alien_dsl_1_3_0<br /> tosca_simple_yaml_1_0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">tags <strong>(2)</strong></td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">map of string</td>
+      <td style="text-align: left">Defines a section used to declare additional metadata information.</td>
+      <td style="text-align: left">alien_dsl_1_3_0<br /> alien_dsl_1_2_0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">description</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">An optional description for the Node Type.</td>
+      <td style="text-align: left">alien_dsl_1_3_0<br /> alien_dsl_1_2_0<br /> tosca_simple_yaml_1_0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">abstract <strong>(3)</strong></td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left">Optional flag to specify if a component is abstract and has no implementation. Defaults to false. </td>
+      <td style="text-align: left">alien_dsl_1_3_0<br /> alien_dsl_1_2_0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">attributes</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">map of <a href="#/documentation/3.0.0/devops_guide/tosca_grammar/attribute_definition.html">attribute definitions</a></td>
+      <td style="text-align: left">An optional list of attribute definitions for the Node Type.</td>
+      <td style="text-align: left">alien_dsl_1_3_0<br /> alien_dsl_1_2_0<br /> tosca_simple_yaml_1_0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">properties</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">map of <a href="#/documentation/3.0.0/devops_guide/tosca_grammar/property_definition.html">property definitions</a></td>
+      <td style="text-align: left">An optional list of property definitions for the Node Type.</td>
+      <td style="text-align: left">alien_dsl_1_3_0<br /> alien_dsl_1_2_0<br /> tosca_simple_yaml_1_0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">requirements</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">list of <a href="#/documentation/3.0.0/devops_guide/tosca_grammar/requirement_definition.html">requirement definitions</a></td>
+      <td style="text-align: left">An optional sequenced list of requirement definitions for the Node Type.</td>
+      <td style="text-align: left">alien_dsl_1_3_0<br /> alien_dsl_1_2_0<br /> tosca_simple_yaml_1_0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">capabilities</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">map of <a href="#/documentation/3.0.0/devops_guide/tosca_grammar/capability_definition.html">capability definitions</a></td>
+      <td style="text-align: left">An optional list of capability definitions for the Node Type.</td>
+      <td style="text-align: left">alien_dsl_1_3_0<br /> alien_dsl_1_2_0<br /> tosca_simple_yaml_1_0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">interfaces</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">map of <a href="#/documentation/3.0.0/devops_guide/tosca_grammar/interface_definition.html">interface definitions</a></td>
+      <td style="text-align: left">An optional list of named interfaces for the Node Type.</td>
+      <td style="text-align: left">alien_dsl_1_3_0<br /> alien_dsl_1_2_0<br /> tosca_simple_yaml_1_0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">artifacts</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">map of <a href="#/documentation/3.0.0/devops_guide/tosca_grammar/artifact_definition.html">artifact definitions</a></td>
+      <td style="text-align: left">An optional sequenced list of named artifact definitions for the Node Type.</td>
+      <td style="text-align: left">alien_dsl_1_3_0<br /> alien_dsl_1_2_0<br /> tosca_simple_yaml_1_0</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li><strong>(1)</strong> version at type level is defined in TOSCA but they are optional and there is no example on how it should be managed. We believe in alien4cloud that versions should be managed at the service template/archive level and dispatched to every elements defined in the service template/archive.</li>
+  <li><strong>(2)</strong> metadata appeared in TOSCA while alien4cloud already had tags supported, support for metadata keyword has been added in 1.3.1 version. note that if you specify both metadata and tags one may silently override the other (this should be avoided).</li>
+  <li><strong>(3)</strong> Abstract flag is specific to Alien 4 Cloud and is not part of TOSCA Simple Profile in YAML. In TOSCA nodes are considered as abstract as long as the create method of the node is not implemented.</li>
+</ul>
+
+<div class="note warning">
+<h5>Requirement definitions name</h5>
+<p>Requirement definitions on a node type is specified as a list because the ordering should define the order in which the relationships will be managed when building the workflow out of the declarative model.
+However TOSCA <em>does not authorize duplication</em> of the name of a requirement definition that must be unique for a given node type.</p>
+</div>
+
+<h2 id="grammar">Grammar</h2>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">&lt;node_type_name&gt;</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">derived_from</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;parent_node_type_name&gt;</span>
+  <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;node_type_description&gt;</span>
+  <span class="l-Scalar-Plain">properties</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">&lt;property_definitions&gt;</span>
+  <span class="l-Scalar-Plain">attributes</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">&lt;attribute_definitions&gt;</span>
+  <span class="l-Scalar-Plain">requirements</span><span class="p-Indicator">:</span>
+    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">&lt;requirement_definition_1&gt;</span>
+    <span class="l-Scalar-Plain">...</span>
+    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">&lt;requirement_definition_n&gt;</span>
+  <span class="l-Scalar-Plain">capabilities</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">&lt;capability_definitions&gt;</span>
+  <span class="l-Scalar-Plain">interfaces</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">&lt;interface_definitions&gt;</span>
+  <span class="l-Scalar-Plain">artifacts</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">&lt;artifact_definitions&gt;</span></code></pre></div>
+
+<p>See:</p>
+
+<ul>
+  <li><a href="#/documentation/3.0.0/devops_guide/tosca_grammar/property_definition.html">property_definitions</a></li>
+  <li><a href="#/documentation/3.0.0/devops_guide/tosca_grammar/attribute_definition.html">attribute definitions</a></li>
+  <li><a href="#/documentation/3.0.0/devops_guide/tosca_grammar/requirement_definition.html">requirement definitions</a></li>
+  <li><a href="#/documentation/3.0.0/devops_guide/tosca_grammar/capability_definition.html">capability definitions</a></li>
+  <li><a href="#/documentation/3.0.0/devops_guide/tosca_grammar/artifact_definition.html">artifact definitions</a></li>
+  <li><a href="#/documentation/3.0.0/devops_guide/tosca_grammar/interface_definition.html">interface definitions</a></li>
+</ul>
+
+<h2 id="example">Example</h2>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">my_company.my_types.my_app_node_type</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">derived_from</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.nodes.SoftwareComponent</span>
+  <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">My company’s custom applicaton</span>
+  <span class="l-Scalar-Plain">properties</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">my_app_password</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">string</span>
+      <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">application password</span>
+      <span class="l-Scalar-Plain">constraints</span><span class="p-Indicator">:</span>
+      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">min_length</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">6</span>
+      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">max_length</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">10</span>
+  <span class="l-Scalar-Plain">my_app_port</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">number</span>
+    <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">application port number</span>
+  <span class="l-Scalar-Plain">requirements</span><span class="p-Indicator">:</span>
+    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">host</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.nodes.Compute</span>
+  <span class="l-Scalar-Plain">interfaces</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span> <span class="nv">Standard</span> <span class="p-Indicator">]</span></code></pre></div>
+
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.0.0/devops_guide/tosca_grammar/node_type.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-3.0.0', 'documentation/3.0.0/devops_guide/tosca_grammar/node_type.md');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

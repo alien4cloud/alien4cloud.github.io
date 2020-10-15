@@ -1,0 +1,356 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/3.0.0/rest/controller_location-policy-resources-batch-security-controller.html',
+  title: 'Location policy resource security batch operations'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Location policy resource security batch operations</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.0.0/rest/controller_location-policy-resources-batch-security-controller.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <h3 id="update-applications-environments-and-environment-type-authorized-to-access-the-location-resource">Update applications, environments and environment type authorized to access the location resource</h3>
+<p><code>
+POST /rest/v1/orchestrators/{orchestratorId}/locations/{locationId}/policies/security/environmentsPerApplication
+</code></p>
+
+<h4 id="description">Description</h4>
+
+<p>Only user with ADMIN role can update authorized applications/environments for the location.</p>
+
+<h4 id="parameters">Parameters</h4>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>PathParameter</td>
+      <td>orchestratorId</td>
+      <td>orchestratorId</td>
+      <td>true</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>PathParameter</td>
+      <td>locationId</td>
+      <td>locationId</td>
+      <td>true</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>BodyParameter</td>
+      <td>request</td>
+      <td>request</td>
+      <td>true</td>
+      <td>ApplicationEnvironmentAuthorizationUpdateRequest</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="responses">Responses</h4>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>HTTP Code</th>
+      <th>Description</th>
+      <th>Schema</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>200</td>
+      <td>OK</td>
+      <td>RestResponse«Void»</td>
+    </tr>
+    <tr>
+      <td>201</td>
+      <td>Created</td>
+      <td>No Content</td>
+    </tr>
+    <tr>
+      <td>401</td>
+      <td>Unauthorized</td>
+      <td>No Content</td>
+    </tr>
+    <tr>
+      <td>403</td>
+      <td>Forbidden</td>
+      <td>No Content</td>
+    </tr>
+    <tr>
+      <td>404</td>
+      <td>Not Found</td>
+      <td>No Content</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="consumes">Consumes</h4>
+
+<ul>
+  <li>application/json</li>
+</ul>
+
+<h4 id="produces">Produces</h4>
+
+<ul>
+  <li>application/json</li>
+</ul>
+
+<h3 id="bulk-api-to-grantrevoke-permissions-for-multiple-groups-on-multiple-location-resources">Bulk api to grant/revoke permissions for multiple groups on multiple location resources.</h3>
+<p><code>
+POST /rest/v1/orchestrators/{orchestratorId}/locations/{locationId}/policies/security/groups
+</code></p>
+
+<h4 id="description-1">Description</h4>
+
+<p>Only user with ADMIN role can grant access to a group.</p>
+
+<h4 id="parameters-1">Parameters</h4>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>PathParameter</td>
+      <td>orchestratorId</td>
+      <td>orchestratorId</td>
+      <td>true</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>PathParameter</td>
+      <td>locationId</td>
+      <td>locationId</td>
+      <td>true</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>BodyParameter</td>
+      <td>request</td>
+      <td>request</td>
+      <td>true</td>
+      <td>SubjectsAuthorizationRequest</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="responses-1">Responses</h4>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>HTTP Code</th>
+      <th>Description</th>
+      <th>Schema</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>200</td>
+      <td>OK</td>
+      <td>RestResponse«Void»</td>
+    </tr>
+    <tr>
+      <td>201</td>
+      <td>Created</td>
+      <td>No Content</td>
+    </tr>
+    <tr>
+      <td>401</td>
+      <td>Unauthorized</td>
+      <td>No Content</td>
+    </tr>
+    <tr>
+      <td>403</td>
+      <td>Forbidden</td>
+      <td>No Content</td>
+    </tr>
+    <tr>
+      <td>404</td>
+      <td>Not Found</td>
+      <td>No Content</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="consumes-1">Consumes</h4>
+
+<ul>
+  <li>application/json</li>
+</ul>
+
+<h4 id="produces-1">Produces</h4>
+
+<ul>
+  <li>application/json</li>
+</ul>
+
+<h3 id="bulk-api-to-grantrevoke-permissions-to-multiple-users-on-multiple-location-resources">Bulk api to grant/revoke permissions to multiple users on multiple location resources.</h3>
+<p><code>
+POST /rest/v1/orchestrators/{orchestratorId}/locations/{locationId}/policies/security/users
+</code></p>
+
+<h4 id="description-2">Description</h4>
+
+<p>Only user with ADMIN role can grant access to another users.</p>
+
+<h4 id="parameters-2">Parameters</h4>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Schema</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>PathParameter</td>
+      <td>orchestratorId</td>
+      <td>orchestratorId</td>
+      <td>true</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>PathParameter</td>
+      <td>locationId</td>
+      <td>locationId</td>
+      <td>true</td>
+      <td>string</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>BodyParameter</td>
+      <td>request</td>
+      <td>request</td>
+      <td>true</td>
+      <td>SubjectsAuthorizationRequest</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="responses-2">Responses</h4>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>HTTP Code</th>
+      <th>Description</th>
+      <th>Schema</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>200</td>
+      <td>OK</td>
+      <td>RestResponse«Void»</td>
+    </tr>
+    <tr>
+      <td>201</td>
+      <td>Created</td>
+      <td>No Content</td>
+    </tr>
+    <tr>
+      <td>401</td>
+      <td>Unauthorized</td>
+      <td>No Content</td>
+    </tr>
+    <tr>
+      <td>403</td>
+      <td>Forbidden</td>
+      <td>No Content</td>
+    </tr>
+    <tr>
+      <td>404</td>
+      <td>Not Found</td>
+      <td>No Content</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="consumes-2">Consumes</h4>
+
+<ul>
+  <li>application/json</li>
+</ul>
+
+<h4 id="produces-2">Produces</h4>
+
+<ul>
+  <li>application/json</li>
+</ul>
+
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.0.0/rest/controller_location-policy-resources-batch-security-controller.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-3.0.0', 'documentation/3.0.0/rest/controller_location-policy-resources-batch-security-controller.md');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

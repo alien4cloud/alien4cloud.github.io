@@ -1,0 +1,89 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/3.0.0/concepts/roles.html',
+  title: 'Roles'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Roles</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.0.0/concepts/roles.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <p>Roles in Alien can be mapped to any user and a user can of course have any rôle and multiple ones on any resource, however we will explain here how we defined the roles and how they can map to an enterprise organization by giving to every people involved in IT creation and/or deployment and/or consumption the right focus, visibility and access to resources.</p>
+
+<p>In a standard IT organization we have identified several experts profile:</p>
+
+<p>Some people working at a cross business and applications level:</p>
+
+<ul>
+  <li><strong>Platform admin</strong> are responsible of setting up the clouds or deployment environments.</li>
+  <li><strong>Dev-Ops</strong> ensure that software can be easily deployed on platforms and follow the company best-practices. It is important to note that a single software may be composed of several elements that have to run on multiple machines. This is especially true when we want to ensure that the software will be able to support H.A. and scalability requirements.</li>
+  <li><strong>Software Architects</strong> are responsible to software architectures, they build application topologies and ensure that best-practices are followed by the various teams in the enterprise.</li>
+</ul>
+
+<p>And some working on dedicated application(s) and project(s)</p>
+
+<ul>
+  <li><strong>Project management team</strong> (product owner, scrum master etc.) is responsible for an application. they coordinates the teams interracting on the application, plan versions and releases, define the environment requirements etc.</li>
+  <li><strong>Developer(s)</strong> are responsible for building the application and creation of the next versions.</li>
+  <li><strong>Support Engineers</strong> want to be able to deploy any version currently used by clients (or business teams) to be able to reproduce issues, find workaround etc.</li>
+  <li><strong>Q.A. Engineers</strong> are responsible to test the up-comming release and make sure that it pass the quality standard of the enterprise and won’t create issues. Of course test automation is a critical aspect of their jobs and being able to deploy complex applications easily is a part of this automation.</li>
+  <li><strong>Production Ops</strong> are responsible for running the production of one or multiple project. They are the one responsible for everything that is related to a production environment, tuning, deployments, version upgrade, solving live issues etc.</li>
+  <li><strong>Users</strong>, well they use the application… What they want is to find an easy way to access their application and find resources they need.</li>
+</ul>
+
+<div class="note info">
+<p>Of course these profiles are not exclusive and a single person can handle or be expert in several profiles, for example it is quite common to have a Production Ops being also Dev-Ops.</p>
+
+</div>
+
+<p>Alien 4 Cloud intend to provide a platform that will help all these people to collaborate to build the enterprise IT in a flexible manner. So the question you all want to know is: How does we map this into Alien 4 Cloud ?</p>
+
+<ul>
+  <li><strong>ADMIN</strong> will be able to configure one or multiple deployments targets (<strong>clouds</strong>). And of course associate deployment roles to specific users.</li>
+  <li><strong>COMPONENTS_MANAGER</strong> will be able to define packages on how to install, configure, start and connect <strong>components</strong> (mapped as node types).</li>
+  <li><strong>ARCHITECTS</strong> will be able to define global <strong>topologies</strong> of applications by reusing building blocks (node types defined by components managers).</li>
+  <li><strong>APPLICATIONS_MANAGER</strong> will be able to define <strong>applications</strong> with it’s own topologies that can be linked to a global topology from architects and that can reuse components defined by the components managers. At the application level, several users will be able to collaborate.</li>
+</ul>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.0.0/concepts/roles.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-3.0.0', 'documentation/3.0.0/concepts/roles.md');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

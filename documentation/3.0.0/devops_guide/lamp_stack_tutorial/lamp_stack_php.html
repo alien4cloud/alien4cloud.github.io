@@ -1,0 +1,114 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/3.0.0/devops_guide/lamp_stack_tutorial/lamp_stack_php.html',
+  title: 'Component PHP'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Component PHP</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.0.0/devops_guide/lamp_stack_tutorial/lamp_stack_php.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <p>This component will install the PHP on the host server.</p>
+
+<p>Used version for this tutorial : <a href="https://github.com/alien4cloud/samples/tree/master/php" target="_blank">PHP</a></p>
+
+<div class="note">
+<p>This installation is based on Ubuntu distribution with apt-get command.</p>
+</div>
+
+<h1 id="definition">Definition</h1>
+
+<p>PHP is the programming language of the LAMP stack, it’s a server-side scripting. On this page, we just explain the recipe of this component. Below, the header of the php-type :</p>
+
+<div data-gist="https://gist.github.com/OresteVisari/a7858be0865af14f9830.js"></div>
+
+<h2 id="properties">Properties</h2>
+
+<p>The PHP recipe is not so complicated, it has only three properties. The first property is the version, like for Apache recipe, it’s just to be mentioned. The two other properties are booleans to install the PHP Apache 2 module or the PHP MySQL module.</p>
+
+<div data-gist="https://gist.github.com/OresteVisari/2137c78d2d9553e53b04.js"></div>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Property</th>
+      <th style="text-align: left">Usage</th>
+      <th style="text-align: left">Comment</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">version</td>
+      <td style="text-align: left">Mention the php version</td>
+      <td style="text-align: left">Constant version in our example (v5)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="lifecycle-and-related-scripts">Lifecycle and related scripts</h2>
+
+<div data-gist="https://gist.github.com/OresteVisari/6870bf82c86a694d9532.js"></div>
+
+<div class="note">
+<p>PHP inherite from the tosca base type <strong>tosca.nodes.SoftwareComponent</strong></p>
+</div>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Operation</th>
+      <th style="text-align: left">Usage</th>
+      <th style="text-align: left">Comment</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">create</td>
+      <td style="text-align: left">Executed script to install PHP on the Compute</td>
+      <td style="text-align: left">Through apt-get on ubuntu image</td>
+    </tr>
+  </tbody>
+</table>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.0.0/devops_guide/lamp_stack_tutorial/lamp_stack_php.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-3.0.0', 'documentation/3.0.0/devops_guide/lamp_stack_tutorial/lamp_stack_php.markdown');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

@@ -1,0 +1,107 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/3.0.0/admin_guide/security_ui_rest.html',
+  title: 'Alien UI / Rest API'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Alien UI / Rest API</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.0.0/admin_guide/security_ui_rest.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <h2 id="https">HTTPS</h2>
+
+<p>Alien4Cloud UI and Rest API is secured by credentials, client must perform login to authenticate himself.
+By default Alien 4 Cloud starts using http rather than https. Enabling SSL is however really simple. Just edit the <strong><em><code>alien4cloud-config.yml</code></em></strong> and replace:</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">server</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">port</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">8080</span></code></pre></div>
+
+<p>by</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">server</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">port</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">8443</span>
+  <span class="l-Scalar-Plain">ssl</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">key-store</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">keystore.jks</span>
+    <span class="l-Scalar-Plain">key-store-password</span><span class="p-Indicator">:</span> <span class="err">******</span>
+    <span class="l-Scalar-Plain">key-password</span><span class="p-Indicator">:</span> <span class="err">******</span></code></pre></div>
+
+<div class="note info">
+<p>More informations on SSL configuration can be found <a href="#/documentation/3.0.0/admin_guide/certificates.html">here</a>.</p>
+</div>
+
+<p>Make sure that you have your key store placed along-side the alien4cloud war file:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">├── alien4cloud.sh
+├── alien4cloud-ssl.sh
+├── alien4cloud-ui-<span class="o">{</span>version<span class="o">}</span>-standalone.war
+├── keystore.jks
+├── config/alien4cloud-config.yml
+├── config/elasticsearch.yml</code></pre></div>
+
+<h2 id="flags-secure-and-http-only">Flags secure and http-only</h2>
+
+<p>To enforce security, you can also prevent attack on cookie. To do this, in  <strong><em><code>alien4cloud-config.yml</code></em></strong>, replace:</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">server</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">port</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">8443</span>
+  <span class="l-Scalar-Plain">ssl</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">key-store</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">keystore.jks</span>
+    <span class="l-Scalar-Plain">key-store-password</span><span class="p-Indicator">:</span> <span class="err">******</span>
+    <span class="l-Scalar-Plain">key-password</span><span class="p-Indicator">:</span> <span class="err">******</span></code></pre></div>
+
+<p>by</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">server</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">port</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">8443</span>
+  <span class="l-Scalar-Plain">ssl</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">key-store</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">keystore.jks</span>
+    <span class="l-Scalar-Plain">key-store-password</span><span class="p-Indicator">:</span> <span class="err">******</span>
+    <span class="l-Scalar-Plain">key-password</span><span class="p-Indicator">:</span> <span class="err">******</span>
+  <span class="l-Scalar-Plain">session</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">cookie</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">http-only</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
+      <span class="l-Scalar-Plain">secure</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span></code></pre></div>
+
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.0.0/admin_guide/security_ui_rest.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-3.0.0', 'documentation/3.0.0/admin_guide/security_ui_rest.md');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>
