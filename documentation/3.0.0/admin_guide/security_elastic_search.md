@@ -29,11 +29,11 @@ xpack.security.transport.ssl.key: {{hostkey_file_path}}
 xpack.security.transport.ssl.certificate: {{hostcert_file_path}}
 xpack.security.transport.ssl.certificate_authorities: ["{{ca_file_path}}"]
 
-xpack.security.transport.http.enabled: true
-xpack.security.transport.http.verification_mode: certificate
-xpack.security.transport.http.key: {{hostkey_file_path}}
-xpack.security.transport.http.certificate: {{hostcert_file_path}}
-xpack.security.transport.http.certificate_authorities: ["{{ca_file_path}}"]
+xpack.security.http.ssl.enabled: true
+xpack.security.http.ssl.verification_mode: certificate
+xpack.security.http.ssl.key: {{hostkey_file_path}} 
+xpack.security.http.ssl.certificate: {{hostcert_file_path}}
+xpack.security.http.ssl.certificate_authorities: ["{{ca_file_path}}"]
 
 xpack.security.authc.anonymous.roles: superuser
 

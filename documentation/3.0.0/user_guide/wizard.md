@@ -17,7 +17,6 @@ Unlike the full App UI, the user no longer needs to navigate through multiple me
 At this stage, Wizard4Cloud remains a beta feature and has few limitations:
 
 * We don't yet manage complex properties in properties forms (topology inputs, workflow inputs, meta-properties form).
-* Topology template version choice is not yet possible.
 {%endinfo%}
 
 {% summary %}{% endsummary %}

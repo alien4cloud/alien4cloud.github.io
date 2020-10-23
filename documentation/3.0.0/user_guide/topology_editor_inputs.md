@@ -1,0 +1,83 @@
+---
+layout: post
+title: Setting inputs with editor
+root: ../../../
+categories: DOCUMENTATION-3.0.0
+parent: [user_guide, topology_editor]
+node_name: topology_editor_inputs
+weight: 160
+---
+{% summary %}{% endsummary %}
+
+
+#Inputs defined through Tosca grammar
+Inputs can be defined when designing the application topology. Generally, they are used to customize the deployment of the topology on different environments. The deployer should then, fill them up, according to some information such as the context, the environment type, the location, etc. You can have many of them, and it can sometimes be a burden for the deployer to fill them up, especially when they do not change that much between deployments and environments.
+
+
+Inputs are added by clicking in the arrow button on a node property, capability or relation.    ![Inputs / variables](../../images/3.0.0/user_guide/topology_editor/topology_editor_input1.png)
+It displays *get_input: <property>*  : ![Inputs / variables](../../images/3.0.0/user_guide/topology_editor/topology_editor_input2.png)
+The topology yaml editor displays the **get_input** syntax :
+
+{% highlight yaml %}
+topology_template:
+  inputs:
+    comment:
+      type: string
+      required: false
+      description: "A simple comment."
+  node_templates:
+    MiniBashMock:
+      type: org.alien4cloud.mock.bash.nodes.MiniBashMock
+      properties:
+        duration: 1
+        variation: 20
+        log_length: 2000
+        comment: { get_input: comment }
+{% endhighlight %}
+
+{%note%}
+When a node has a complex property, it is not possible to add with the UI a subproperty as an input.
+It can be done in the YAML editor with the **get_input**
+{% highlight yaml %}
+topology_template:
+  inputs:
+    inputComplex:
+      type: string
+      required: false
+      description: "A simple description."
+  node_templates:
+    BashMockComplex:
+      metadata:
+        a4c_edit_x: "-4"
+        a4c_edit_y: "-22"
+      type: org.alien4cloud.mock.bashComplex.nodes.BashMockComplex
+      properties:
+        complex_prop: 
+          nested: { get_input: inputComplex }
+        duration: 3
+        variation: 20
+        log_length: 2000
+{% endhighlight %}
+{%endnote%}
+
+#Impicit inputs defined with a hashtag
+
+Since version 3.0.0, it is possible to specify an implicit input with a hashtag like this **#{inputname}**
+It can be very useful when a node has a complex property for instance.
+If the input specified already exists, it will be used. If not, it will be dynamiquely creating  when preparing the deployment.
+
+It can be set in the editor : ![Inputs / variables](../../images/3.0.0/user_guide/topology_editor/topology_editor_input3.png)
+
+It is also possible to concat static and input datas directly in the property editor like this :
+![Inputs / variables](../../images/3.0.0/user_guide/topology_editor/topology_editor_input4.png)
+
+In this example **comment** is a predefined input but **paramnested** is not
+![Inputs / variables](../../images/3.0.0/user_guide/topology_editor/topology_editor_input5.png)
+
+In the deployment preparation, **paramnested** is automaticly displayed :
+![Inputs / variables](../../images/3.0.0/user_guide/topology_editor/topology_editor_input6.png)
+
+{%note%}
+Variables can be used in this case only if they are already defined.
+{%endnote%}
+
