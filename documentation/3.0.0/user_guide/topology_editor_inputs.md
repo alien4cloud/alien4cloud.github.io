@@ -14,8 +14,14 @@ weight: 160
 Inputs can be defined when designing the application topology. Generally, they are used to customize the deployment of the topology on different environments. The deployer should then, fill them up, according to some information such as the context, the environment type, the location, etc. You can have many of them, and it can sometimes be a burden for the deployer to fill them up, especially when they do not change that much between deployments and environments.
 
 
-Inputs are added by clicking in the arrow button on a node property, capability or relation.    ![Inputs / variables](../../images/3.0.0/user_guide/topology_editor/topology_editor_input1.png)
-It displays *get_input: <property>*  : ![Inputs / variables](../../images/3.0.0/user_guide/topology_editor/topology_editor_input2.png)
+Inputs are added by clicking in the arrow button on a node property, capability or relation.
+
+![Inputs / variables](../../images/3.0.0/user_guide/topology_editor/topology_editor_input1.png)
+
+It displays **get_input: comment**, where **comment** is the input name (by default, it is set to the node property name)
+
+![Inputs / variables](../../images/3.0.0/user_guide/topology_editor/topology_editor_input2.png)
+
 The topology yaml editor displays the **get_input** syntax :
 
 {% highlight yaml %}
@@ -38,6 +44,7 @@ topology_template:
 {%note%}
 When a node has a complex property, it is not possible to add with the UI a subproperty as an input.
 It can be done in the YAML editor with the **get_input**
+
 {% highlight yaml %}
 topology_template:
   inputs:
@@ -60,11 +67,11 @@ topology_template:
 {% endhighlight %}
 {%endnote%}
 
-#Impicit inputs defined with a hashtag
+#Implicit inputs defined with a hashtag
 
 Since version 3.0.0, it is possible to specify an implicit input with a hashtag like this **#{inputname}**
 It can be very useful when a node has a complex property for instance.
-If the input specified already exists, it will be used. If not, it will be dynamiquely creating  when preparing the deployment.
+If the input specified already exists, it will be used. If not, it will be dynamiquely created when preparing the deployment.
 
 It can be set in the editor : ![Inputs / variables](../../images/3.0.0/user_guide/topology_editor/topology_editor_input3.png)
 
@@ -78,6 +85,8 @@ In the deployment preparation, **paramnested** is automaticly displayed :
 ![Inputs / variables](../../images/3.0.0/user_guide/topology_editor/topology_editor_input6.png)
 
 {%note%}
+
 Variables can be used in this case only if they are already defined.
+
 {%endnote%}
 
