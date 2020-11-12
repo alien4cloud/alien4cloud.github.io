@@ -22,6 +22,14 @@ It displays **get_input: comment**, where **comment** is the input name (by defa
 
 ![Inputs / variables](../../images/3.0.0/user_guide/topology_editor/topology_editor_input2.png)
 
+
+The topology inputs can be displayed on the UI by clicking on the **Inputs** tab on the right :
+
+![Inputs / variables](../../images/3.0.0/user_guide/topology_editor/topology_editor_input7.png)
+
+It displays input name, type and constraints.
+The inputs can be there renamed or deleted.
+
 The topology yaml editor displays the **get_input** syntax :
 
 {% highlight yaml %}
@@ -67,6 +75,7 @@ topology_template:
 {% endhighlight %}
 {%endnote%}
 
+
 #Implicit inputs defined with a hashtag
 
 Since version 3.0.0, it is possible to specify an implicit input with a hashtag like this **#{inputname}**
@@ -86,7 +95,15 @@ In the deployment preparation, **paramnested** is automaticly displayed :
 
 {%note%}
 
+It can be applied to node properties, capabilities and relations.
+
 Variables can be used in this case only if they are already defined.
 
 {%endnote%}
+
+It is also possible to use [internal variables](#/documentation/3.0.0/user_guide/topology_editor_global_variables.html). defined in location or application with this syntax.
+For instance, an application metaproperty can be set on a node property with the syntax **#{app_meta_MYAPP_META1}.
+
+Subpart of complex inputs can be used in other properties as inputs.
+For instance, if a complex input, named **complex_prop** has a subproperty **description**, it can be used in an other node property with the syntax **#{complex_prop.description}**
 
