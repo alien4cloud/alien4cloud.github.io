@@ -205,3 +205,9 @@ To see more information by the use of a environment variables , the [sample](htt
 Scaling and autoscaling are working like in other Portable modeling.
 To see more information by the use of autoscaling , the [sample](https://github.com/alien4cloud/samples/tree/3.0.x/org/alien4cloud/doc/kube/kcontainers/24-autoscaling)  shows how to autoscale a pod using CPU as metric.
 
+# Debug mode
+
+It is possible to display in the deployment **Output properties** the json specification of the created Kubernetes components by setting in the A4C configuration file the parameter **alien4cloud-kubernetes-plugin.debugK8SSpec**  to **true**.
+
+![Deployment outputs debug mode](../../images/3.0.0/orchestrators/kubernetes/apache_simple_container_deployment_debug.png)
+

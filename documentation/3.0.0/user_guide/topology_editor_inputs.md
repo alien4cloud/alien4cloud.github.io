@@ -99,10 +99,14 @@ It can be applied to node properties, capabilities and relations.
 
 Variables can be used in this case only if they are already defined.
 
+It is possible to disable the implicit input mode if you wish to set properties without this mode. If **#{inputname}** is set in a node property, capability or relation property, it will be set to this value in the deployment.
+To disable, the parameter **features.auto_inputs** has to be set to **false**
+If this parameter is not set, the implicit input will be enabled by default, e.g. **features.auto_inputs** set to true.
+
 {%endnote%}
 
 It is also possible to use [internal variables](#/documentation/3.0.0/user_guide/topology_editor_global_variables.html). defined in location or application with this syntax.
-For instance, an application metaproperty can be set on a node property with the syntax **#{app_meta_MYAPP_META1}.
+For instance, an application metaproperty can be set on a node property with the syntax **#{app_meta_MYAPP_META1}**.
 
 Subpart of complex inputs can be used in other properties as inputs.
 For instance, if a complex input, named **complex_prop** has a subproperty **description**, it can be used in an other node property with the syntax **#{complex_prop.description}**

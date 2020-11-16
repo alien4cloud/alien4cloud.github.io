@@ -37,7 +37,10 @@ An org.alien4cloud.kubernetes.api.types.nodes.KubeCluster service has to be crea
 
 In the instance tab, the property "config" has to be set to the content of the K8S cluster config file.
 External files cannot be referenced to this content.
-```console
+
+**config** property content:
+
+{% highlight yaml %}
 apiVersion: v1
 clusters:
 - cluster:
@@ -57,7 +60,7 @@ users:
   user:
     client-certificate-data: <client certificate content>
     client-key-data: <client key content>
-```
+{% endhighlight %}
 
 This service has to be activated to the location to deploy onto the K8S cluster
 
