@@ -1,0 +1,124 @@
+---
+layout: post
+title:  ALIEN for Cloud 3.0.0
+root: ../
+categories: RELEASE_NOTES
+parent: [release_note]
+node_name: 3.0.0
+weight: 9891
+exclude_from_search: true
+---
+
+
+
+
+<i class="fa fa-plus text-success"></i> New feature <i class="fa fa-level-up text-primary"></i> Improvement  <i class="fa fa-bug text-danger"></i> Bug <i class="fa fa-exclamation-triangle text-warning"></i> Breaking change
+
+
+### Alien 4 Cloud K8S plugin
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-3479 | A particular kind of KubeService for which the ClusterIP service is exposed behind a reverse proxy.  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-3483 | Debug option to display on deployment outputs kubernetes commands  |
+      |  <i class="fa fa-bug text-danger"></i> | ALIEN-3519 | Kubernetes Volume Secret does not work  |
+  
+
+
+### Alien 4 Cloud Spray
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-3520 | Make ES port configurable  |
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-3510 | Ability to update modifiers in existing locations  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-3521 | Better synchronization log format  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-3528 | Ability to upgrade Yorc with data migration  |
+      |  <i class="fa fa-bug text-danger"></i> | ALIEN-3530 | Rsync must sync delete files or folders  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-3531 |  Rsync log rotate  |
+  
+
+
+### Alien 4 Cloud
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-2860 | Workflows inputs management  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-3516 | A new A4C plugin to manage interaction with nexus and IO   |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-3517 | Add ability to embed an independent webapp accessible from Wizard  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-3529 | New wizard add-on for inventory export plugin  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-3535 | Artemis Import Feature  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-3544 | Ability to use variables in complex types  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-3551 | Nested property of complex inputs can be used in properties input  |
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-3524 | Octal format management  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-3525 | Ability to use get_input in complex nested properties   |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-3534 | Make CSAR workspace promotion list async  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-3550 | Audit archive file name and CSAR name (CSAR upload)  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-3556 | Audit can be filtered by date  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-3557 | Running workflows should not be possible when purge is in progress  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-3560 | Default value for audit data TTL to 1 month  |
+      |  <i class="fa fa-bug text-danger"></i> | ALIEN-3403 | $issue.description  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-3514 | Plugin portal - SSL access to Consul is not well managed  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-3522 | Topology validation does not check mandatory fields in complex properties  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-3523 | Mandatory nested properties are not controlled in topology design  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-3527 | Import of Repo GIT with multiple branches only pulls first branch  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-3543 | Search execution with ID not working by REST API  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-3545 | Filter Policy abstract = True appears twice in Policy Catalog  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-3546 | Topology input values are not passed to Yorc in topologies  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-3552 | Search by date in deployment logs fails  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-3558 | In topology editor, dependency version replacement candidate list is bounded  |
+  
+
+
+### Alien 4 Cloud Wizard
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-2860 | Workflows inputs management  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-3517 | Add ability to embed an independent webapp accessible from Wizard  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-3549 | Add a "copy in clipboard" feature  |
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-3464 | Make topology versions choice possible  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-3476 | Stop retrieving deployment topology when not needed  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-3538 | Add ability to delete applications in dashboard  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-3561 | Wizard pagination in template list  |
+      |  <i class="fa fa-bug text-danger"></i> | ALIEN-3537 | Logout just redirects to standard UI when A4C is behind a reverse proxy  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-3541 | No pagination in components catalog  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-3542 | Topology meta-properties are not displayed in template selection form  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-3563 | Unavailable features/addons are clickable in wizard's home  |
+  
+
+
+### Yorc Paas Provider
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-2860 | Workflows inputs management  |
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-3557 | Running workflows should not be possible when purge is in progress  |
+      |  <i class="fa fa-bug text-danger"></i> | ALIEN-3546 | Topology input values are not passed to Yorc in topologies  |
+  
+
+
+### Workspaces plugin
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-3534 | Make CSAR workspace promotion list async  |
+    
+
