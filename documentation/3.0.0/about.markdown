@@ -91,8 +91,7 @@ Basically the question depends on your timeframe, on the features you are lookin
 
 * __2.2.0__ is now deprecated 
 
-* __3.0.0__ is not  released but you can use millestones production use. We have currently customers who are using our latest millestones.
-All new features are developed in 3.0.0 so you may get more by choosing to start working with this version(check our [roadmap](../../roadmap)).
+* __3.0.0__ is now released
 {%endinfo%}
 
 {%warning%}

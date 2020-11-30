@@ -93,6 +93,20 @@ Some actions are not allowed:
 - you can not remove delegate activity steps in standard workflows.
 - you can not add any activity for an abstract node.
 
+# Custom workflow executions
+
+Custom workflows can be launched in the UI in the Workflow menu of the deployment :
+
+[![*Workflow launchui-1](../../images/3.0.0/user_guide/applications/wf-launchui-1.png)](../../images/user_guide/application/wf-launchui-1.png){:target="_blank"}
+
+[![*Workflow launchui-2](../../images/3.0.0/user_guide/applications/wf-launchui-2.png)](../../images/user_guide/application/wf-launchui-2.png){:target="_blank"}
+
+Custom workflows can also be launched with API : /rest/v1/applications/{applicationId}/environments/{applicationEnvironmentId}/workflows/{workflowName}
+
+During an application deployment or undeployment, custom worflows cannot be launched. In the UI, **Launch** button is not clickable. If the API is called, it will returns an error (**Cannot start workflow while a deployment/undeployment is in progress**)
+Install and uninstall worflows cannot be launched as custom worflow in any case. **Launch** button is always unclickable. If the API is called, it will returns an error (**workflow install cannot be launched**)
+
+
 # Workflow limitations
 
 {%warning%}

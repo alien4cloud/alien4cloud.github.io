@@ -11,9 +11,9 @@ root: ../
   <div class="col-md-12">
     <h2>Alien4Cloud full distribution</h2>
     <br />
-    <br />
+    <!--br />
     <a href="https://www.portaildulibre.fr/nexus/repository/opensource-releases/alien4cloud/alien4cloud-premium-dist/{{ site.last-version }}/alien4cloud-premium-dist-{{ site.last-version }}-dist.tar.gz" ><i class="fa fa-download"></i> Alien 4 Cloud latest sprint milestone ({{ site.last-version }})</a>
-    <br />
+    <br /-->
     <a href="https://www.portaildulibre.fr/nexus/#browse/search=keyword%3Dalien4cloud:opensource-snapshots%3Aalien4cloud%3Aalien4cloud-premium-dist%3A{{ site.last-snapshot }}" target="_blank"><i class="fa fa-download"></i> Alien 4 Cloud latest build</a>
     <br />
     <a href="https://www.portaildulibre.fr/nexus/repository/opensource-releases/alien4cloud/alien4cloud-premium-dist/{{ site.stable-version }}/alien4cloud-premium-dist-{{ site.stable-version }}-dist.tar.gz"><i class="fa fa-download"></i> Alien 4 Cloud latest stable ({{ site.stable-version }})</a>
@@ -74,7 +74,7 @@ root: ../
   <div class="row">
     <div class="col-md-12 text-center download-header">
       <p class="home-buttons">
-        <a href="../#/documentation/{{ 3.0.0 }}/getting_started/new_getting_started.html" class="btn btn-primary btn-lg">Get Started</a>
+        <a href="../#/documentation/3.0.0/getting_started/new_getting_started.html" class="btn btn-primary btn-lg">Get Started</a>
       </p>
     </div>
   </div>
