@@ -1,0 +1,379 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/release_notes/3.0.0.html',
+  title: 'ALIEN for Cloud 3.0.0'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">ALIEN for Cloud 3.0.0</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/release_notes/3.0.0.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <p><i class="fa fa-plus text-success"></i> New feature <i class="fa fa-level-up text-primary"></i> Improvement  <i class="fa fa-bug text-danger"></i> Bug <i class="fa fa-exclamation-triangle text-warning"></i> Breaking change</p>
+
+<h3 id="alien-4-cloud-k8s-plugin">Alien 4 Cloud K8S plugin</h3>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Id</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
+      <td style="text-align: left">ALIEN-3479</td>
+      <td style="text-align: left">A particular kind of KubeService for which the ClusterIP service is exposed behind a reverse proxy.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
+      <td style="text-align: left">ALIEN-3483</td>
+      <td style="text-align: left">Debug option to display on deployment outputs kubernetes commands</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-3519</td>
+      <td style="text-align: left">Kubernetes Volume Secret does not work</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="alien-4-cloud-spray">Alien 4 Cloud Spray</h3>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Id</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-plus text-success"></i></td>
+      <td style="text-align: left">ALIEN-3520</td>
+      <td style="text-align: left">Make ES port configurable</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
+      <td style="text-align: left">ALIEN-3510</td>
+      <td style="text-align: left">Ability to update modifiers in existing locations</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
+      <td style="text-align: left">ALIEN-3521</td>
+      <td style="text-align: left">Better synchronization log format</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
+      <td style="text-align: left">ALIEN-3528</td>
+      <td style="text-align: left">Ability to upgrade Yorc with data migration</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-3530</td>
+      <td style="text-align: left">Rsync must sync delete files or folders</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-3531</td>
+      <td style="text-align: left">Rsync log rotate</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="alien-4-cloud">Alien 4 Cloud</h3>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Id</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-plus text-success"></i></td>
+      <td style="text-align: left">ALIEN-2860</td>
+      <td style="text-align: left">Workflows inputs management</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-plus text-success"></i></td>
+      <td style="text-align: left">ALIEN-3516</td>
+      <td style="text-align: left">A new A4C plugin to manage interaction with nexus and IO</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-plus text-success"></i></td>
+      <td style="text-align: left">ALIEN-3517</td>
+      <td style="text-align: left">Add ability to embed an independent webapp accessible from Wizard</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-plus text-success"></i></td>
+      <td style="text-align: left">ALIEN-3529</td>
+      <td style="text-align: left">New wizard add-on for inventory export plugin</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-plus text-success"></i></td>
+      <td style="text-align: left">ALIEN-3535</td>
+      <td style="text-align: left">Artemis Import Feature</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-plus text-success"></i></td>
+      <td style="text-align: left">ALIEN-3544</td>
+      <td style="text-align: left">Ability to use variables in complex types</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-plus text-success"></i></td>
+      <td style="text-align: left">ALIEN-3551</td>
+      <td style="text-align: left">Nested property of complex inputs can be used in properties input</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
+      <td style="text-align: left">ALIEN-3524</td>
+      <td style="text-align: left">Octal format management</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
+      <td style="text-align: left">ALIEN-3525</td>
+      <td style="text-align: left">Ability to use get_input in complex nested properties</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
+      <td style="text-align: left">ALIEN-3534</td>
+      <td style="text-align: left">Make CSAR workspace promotion list async</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
+      <td style="text-align: left">ALIEN-3550</td>
+      <td style="text-align: left">Audit archive file name and CSAR name (CSAR upload)</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
+      <td style="text-align: left">ALIEN-3556</td>
+      <td style="text-align: left">Audit can be filtered by date</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
+      <td style="text-align: left">ALIEN-3557</td>
+      <td style="text-align: left">Running workflows should not be possible when purge is in progress</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
+      <td style="text-align: left">ALIEN-3560</td>
+      <td style="text-align: left">Default value for audit data TTL to 1 month</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-3403</td>
+      <td style="text-align: left">$issue.description</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-3514</td>
+      <td style="text-align: left">Plugin portal - SSL access to Consul is not well managed</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-3522</td>
+      <td style="text-align: left">Topology validation does not check mandatory fields in complex properties</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-3523</td>
+      <td style="text-align: left">Mandatory nested properties are not controlled in topology design</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-3527</td>
+      <td style="text-align: left">Import of Repo GIT with multiple branches only pulls first branch</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-3543</td>
+      <td style="text-align: left">Search execution with ID not working by REST API</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-3545</td>
+      <td style="text-align: left">Filter Policy abstract = True appears twice in Policy Catalog</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-3546</td>
+      <td style="text-align: left">Topology input values are not passed to Yorc in topologies</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-3552</td>
+      <td style="text-align: left">Search by date in deployment logs fails</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-3558</td>
+      <td style="text-align: left">In topology editor, dependency version replacement candidate list is bounded</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="alien-4-cloud-wizard">Alien 4 Cloud Wizard</h3>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Id</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-plus text-success"></i></td>
+      <td style="text-align: left">ALIEN-2860</td>
+      <td style="text-align: left">Workflows inputs management</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-plus text-success"></i></td>
+      <td style="text-align: left">ALIEN-3517</td>
+      <td style="text-align: left">Add ability to embed an independent webapp accessible from Wizard</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-plus text-success"></i></td>
+      <td style="text-align: left">ALIEN-3549</td>
+      <td style="text-align: left">Add a “copy in clipboard” feature</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
+      <td style="text-align: left">ALIEN-3464</td>
+      <td style="text-align: left">Make topology versions choice possible</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
+      <td style="text-align: left">ALIEN-3476</td>
+      <td style="text-align: left">Stop retrieving deployment topology when not needed</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
+      <td style="text-align: left">ALIEN-3538</td>
+      <td style="text-align: left">Add ability to delete applications in dashboard</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
+      <td style="text-align: left">ALIEN-3561</td>
+      <td style="text-align: left">Wizard pagination in template list</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-3537</td>
+      <td style="text-align: left">Logout just redirects to standard UI when A4C is behind a reverse proxy</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-3541</td>
+      <td style="text-align: left">No pagination in components catalog</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-3542</td>
+      <td style="text-align: left">Topology meta-properties are not displayed in template selection form</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-3563</td>
+      <td style="text-align: left">Unavailable features/addons are clickable in wizard’s home</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="yorc-paas-provider">Yorc Paas Provider</h3>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Id</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-plus text-success"></i></td>
+      <td style="text-align: left">ALIEN-2860</td>
+      <td style="text-align: left">Workflows inputs management</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
+      <td style="text-align: left">ALIEN-3557</td>
+      <td style="text-align: left">Running workflows should not be possible when purge is in progress</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-3546</td>
+      <td style="text-align: left">Topology input values are not passed to Yorc in topologies</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="workspaces-plugin">Workspaces plugin</h3>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Id</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
+      <td style="text-align: left">ALIEN-3534</td>
+      <td style="text-align: left">Make CSAR workspace promotion list async</td>
+    </tr>
+  </tbody>
+</table>
+
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/release_notes/3.0.0.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('RELEASE_NOTES', 'release_notes/3.0.0.markdown');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

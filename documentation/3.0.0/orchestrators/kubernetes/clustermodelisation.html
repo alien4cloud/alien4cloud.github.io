@@ -62,28 +62,29 @@ However if you want to deploy a basic Kubernetes cluster you can use our TOSCA t
 <img src="../../images/3.0.0/orchestrators/kubernetes/kubecluster_1.png" alt="KubeCluster" /></p>
 
 <p>In the instance tab, the property “config” has to be set to the content of the K8S cluster config file.
-External files cannot be referenced to this content.
-<code>console
-apiVersion: v1
-clusters:
-- cluster:
-    certificate-authority-data: &lt;content of certificate authority&gt;
-    server: &lt;URL of K8S cluster&gt;
-  name: kubernetes
-contexts:
-- context:
-    cluster: &lt;cluster name&gt;
-    user: &lt;kubernetes client user&gt;
-  name: &lt;cluster name&gt;
-current-context: &lt;current context&gt;
-kind: Config
-preferences: {}
-users:
-- name: &lt;kubernetes client user&gt;
-  user:
-    client-certificate-data: &lt;client certificate content&gt;
-    client-key-data: &lt;client key content&gt;
-</code></p>
+External files cannot be referenced to this content.</p>
+
+<p><strong>config</strong> property content:</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">apiVersion</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">v1</span>
+<span class="l-Scalar-Plain">clusters</span><span class="p-Indicator">:</span>
+<span class="p-Indicator">-</span> <span class="l-Scalar-Plain">cluster</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">certificate-authority-data</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;content of certificate authority&gt;</span>
+    <span class="l-Scalar-Plain">server</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;URL of K8S cluster&gt;</span>
+  <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">kubernetes</span>
+<span class="l-Scalar-Plain">contexts</span><span class="p-Indicator">:</span>
+<span class="p-Indicator">-</span> <span class="l-Scalar-Plain">context</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">cluster</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;cluster name&gt;</span>
+    <span class="l-Scalar-Plain">user</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;kubernetes client user&gt;</span>
+  <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;cluster name&gt;</span>
+<span class="l-Scalar-Plain">current-context</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;current context&gt;</span>
+<span class="l-Scalar-Plain">kind</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Config</span>
+<span class="l-Scalar-Plain">preferences</span><span class="p-Indicator">:</span> <span class="p-Indicator">{}</span>
+<span class="l-Scalar-Plain">users</span><span class="p-Indicator">:</span>
+<span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;kubernetes client user&gt;</span>
+  <span class="l-Scalar-Plain">user</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">client-certificate-data</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;client certificate content&gt;</span>
+    <span class="l-Scalar-Plain">client-key-data</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;client key content&gt;</span></code></pre></div>
 
 <p>This service has to be activated to the location to deploy onto the K8S cluster</p>
 

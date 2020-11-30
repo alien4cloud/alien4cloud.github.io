@@ -34,30 +34,68 @@ ga('send', 'pageview');
 <p>On this runtime submenu view <code>Application &gt; Runtime</code>, you can have the detailed deployment
 progress.</p>
 
-<p><img src="../../images/user_guide/user_guide_topology_template_runtime.png" alt="Wordpress url" /></p>
+<p><img src="../../images/3.0.0/user_guide/user_guide_topology_template_runtime.png" alt="Petclinc url" /></p>
 
 <div class="note info">
-<p>The previous picture was taken during a Wordpress deployement, to deploy your own Wordpress, please refer to <a href="#/documentation/3.0.0/getting_started/getting_started.html">this section</a>.</p>
+<p>The previous picture was taken during a Petclinc deployement, to deploy your own Petclinc, please refer to <a href="#/documentation/3.0.0/orchestrators/yorc/quickstart.html">this section</a>.</p>
 </div>
 
 <h1 id="logs">Logs</h1>
 
 <p>You can access to the logs view by a submenu of the runtime view. In this page you can see deployments logs in alien4cloud.</p>
 
-<p><img src="../../images/user_guide/application/log_view.png" alt="Logs view" /></p>
+<p><img src="../../images/3.0.0/user_guide/log_view.png" alt="Logs view" /></p>
 
 <p><br />
-<strong>(1)</strong> You can search for logs, and filter them by date. Some facets are also available to search specific logs:</p>
+You can search for logs, and filter them by date. Some facets are also available to search specific logs:</p>
 
-<p><img src="../../images/user_guide/application/log_view_filters.png" alt="Logs view" /></p>
+<p><img src="../../images/3.0.0/user_guide/log_view_filters.png" alt="Logs view" /></p>
 
 <p><br />
-<strong>(2)</strong> You can dynamically tails the lasted logs</p>
+You can dynamically tails the lasted logs</p>
 
 <p><br />
 To add or remove the log information in the table, click on the cogs button of its first line. A modal will appear and you will choose your columns.</p>
 
 <p><img src="../../images/user_guide/application/log_modal.png" alt="Logs modal" /></p>
+
+<h1 id="deployment-workflow">Deployment workflow</h1>
+
+<p>You can access to the workflow view by a submenu of the workflow view. In this page you can see deployment steps diagramm :</p>
+
+<p><img src="../../images/3.0.0/user_guide/workflow_view.png" alt="Workflow view" /></p>
+
+<h1 id="execution">Execution</h1>
+
+<p>You can access to the Execution view by a submenu of the Execution view. In this page you can see deployment steps list :</p>
+
+<p><img src="../../images/3.0.0/user_guide/execution_view_1.png" alt="Execution view" /></p>
+
+<p>You can access to the log step by clicking on the log icon.</p>
+
+<p><img src="../../images/3.0.0/user_guide/execution_view_2.png" alt="Step Execution view" /></p>
+
+<h1 id="custom-workflows-inputs">Custom workflows inputs</h1>
+
+<p>Since version 3.0.0, it is possible to specify custom workflow inputs.
+These inputs can only be defined in topology YAML editor.</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">customWorkflowSample</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">inputs</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">comment</span><span class="p-Indicator">:</span>
+          <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">string</span>
+          <span class="l-Scalar-Plain">required</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
+          <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="s">&quot;Just</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">string&quot;</span>
+        <span class="l-Scalar-Plain">data</span><span class="p-Indicator">:</span>
+          <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">string</span>
+          <span class="l-Scalar-Plain">required</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
+          <span class="l-Scalar-Plain">constraints</span><span class="p-Indicator">:</span>
+          <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">min_length</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">5</span>
+          <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="s">&quot;A</span><span class="nv"> </span><span class="s">string</span><span class="nv"> </span><span class="s">with</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">length</span><span class="nv"> </span><span class="s">&gt;=</span><span class="nv"> </span><span class="s">5&quot;</span></code></pre></div>
+
+<p>You can set the inputs in the custom workflow view details</p>
+
+<p><img src="../../images/3.0.0/user_guide/custom_workflow_inputs.png" alt="Custom workflow view" /></p>
 
 <h1 id="scaling">Scaling</h1>
 

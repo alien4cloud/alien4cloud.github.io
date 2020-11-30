@@ -128,6 +128,19 @@ These state changes are mainly used as bound when some relationship are added in
   <li>you can not add any activity for an abstract node.</li>
 </ul>
 
+<h1 id="custom-workflow-executions">Custom workflow executions</h1>
+
+<p>Custom workflows can be launched in the UI in the Workflow menu of the deployment :</p>
+
+<p><a href="../../images/user_guide/application/wf-launchui-1.png" target="_blank"><img src="../../images/3.0.0/user_guide/applications/wf-launchui-1.png" alt="*Workflow launchui-1" /></a></p>
+
+<p><a href="../../images/user_guide/application/wf-launchui-2.png" target="_blank"><img src="../../images/3.0.0/user_guide/applications/wf-launchui-2.png" alt="*Workflow launchui-2" /></a></p>
+
+<p>Custom workflows can also be launched with API : /rest/v1/applications/{applicationId}/environments/{applicationEnvironmentId}/workflows/{workflowName}</p>
+
+<p>During an application deployment or undeployment, custom worflows cannot be launched. In the UI, <strong>Launch</strong> button is not clickable. If the API is called, it will returns an error (<strong>Cannot start workflow while a deployment/undeployment is in progress</strong>)
+Install and uninstall worflows cannot be launched as custom worflow in any case. <strong>Launch</strong> button is always unclickable. If the API is called, it will returns an error (<strong>workflow install cannot be launched</strong>)</p>
+
 <h1 id="workflow-limitations">Workflow limitations</h1>
 
 <div class="note warning">
