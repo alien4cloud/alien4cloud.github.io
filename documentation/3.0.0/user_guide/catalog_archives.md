@@ -84,6 +84,13 @@ The following image shows the upload of an archive with an error :
 When deploying on some cloud technologies alien4cloud uses some node template names in the name of the generated ressources (VMs, BlockStorage etc.). Some cloud APIs do not manage special characters as dashes or underscore. In addition some people like to set the hostname based on the name of the node template. Therefore and while this is authorized in TOSCA alien4cloud prevent naming the node template with such characters.
 
 If a node template name contains some special character (is: not an alphanumeric character from the basic Latin alphabet and the underscore) we will automatically replace these characters.
+
+
+When a CSAR has a SNAPSHOT version (e.g 2.2.0-SNAPSHOT for instance) , and it is used in deployed applications, it can be updated through git import or upload if the parameter **features.archive_indexer_lock_used_archive** is set to false
+
+When a CSAR has a release version (e.g 2.2.0 for instance), it can be only be updated through git import or upload if the parameter **features. archive_indexer_accept_upgrade_release** is set to true (default to false)
+
+
 {%endnote%}
 
 # Archives list

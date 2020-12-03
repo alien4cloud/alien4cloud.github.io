@@ -21,7 +21,7 @@ The previous picture was taken during a Petclinc deployement, to deploy your own
 
 #Logs
 
-You can access to the logs view by a submenu of the runtime view. In this page you can see deployments logs in alien4cloud.
+You can access to the logs view by a submenu of the **Logs** view. In this page you can see deployments logs in alien4cloud.
 
 ![Logs view](../../images/3.0.0/user_guide/log_view.png)
 
@@ -40,13 +40,13 @@ To add or remove the log information in the table, click on the cogs button of i
 
 #Deployment workflow
 
-You can access to the workflow view by a submenu of the workflow view. In this page you can see deployment steps diagramm :
+You can access to the workflow view by a submenu of the **Workflow** view. In this page you can see deployment steps diagramm :
 
 ![Workflow view](../../images/3.0.0/user_guide/workflow_view.png)
 
 #Execution
 
-You can access to the Execution view by a submenu of the Execution view. In this page you can see deployment steps list :
+You can access to the Execution view by a submenu of the **Execution** view. In this page you can see deployment steps list :
 
 ![Execution view](../../images/3.0.0/user_guide/execution_view_1.png)
 
