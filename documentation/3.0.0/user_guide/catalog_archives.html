@@ -104,6 +104,11 @@ The choice here should be focused on usability and merge perspective. The devops
 <p>When deploying on some cloud technologies alien4cloud uses some node template names in the name of the generated ressources (VMs, BlockStorage etc.). Some cloud APIs do not manage special characters as dashes or underscore. In addition some people like to set the hostname based on the name of the node template. Therefore and while this is authorized in TOSCA alien4cloud prevent naming the node template with such characters.</p>
 
 <p>If a node template name contains some special character (is: not an alphanumeric character from the basic Latin alphabet and the underscore) we will automatically replace these characters.</p>
+
+<p>When a CSAR has a SNAPSHOT version (e.g 2.2.0-SNAPSHOT for instance) , and it is used in deployed applications, it can be updated through git import or upload if the parameter <strong>features.archive_indexer_lock_used_archive</strong> is set to false</p>
+
+<p>When a CSAR has a release version (e.g 2.2.0 for instance), it can be only be updated through git import or upload if the parameter <strong>features. archive_indexer_accept_upgrade_release</strong> is set to true (default to false)</p>
+
 </div>
 
 <h1 id="archives-list">Archives list</h1>
