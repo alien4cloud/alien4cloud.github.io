@@ -11,11 +11,18 @@ published: true
 
 {%summary%}{%endsummary%}
 
-### Yorc Orchestrator integration
-This version  now supports compatibility with Yorc new synchronous purge API (since Yorc 4.1.0 version)
-It has no compatibility with previous Yorc versions from 4.1.0.
-Note that older Alien4Cloud versions are available with Yorc version 4.1.0 and later versions.
 
-### A4C Spray
+# A4C Spray
  It is now possible to upgrade Yorc with data migration.
+ Some corrections or optimzations are also realized.
+  
+# Workflow schedule using rule based policies
+ This new feature provided a new plugin **alien4cloud-rms-scheduler-plugin**. It enables  to define runtime schedule policies in topologies.
+ 
+# Kubernetes webhook implementation
+ Webhook implementation is now available on this version thanks to a new plugin **alien4cloud-k8s-webhook**. It validates and enrich Kubernetes resources creation within a pod.
+ 
+# Spark 3 jobs running with Kubernetes support
+Spark 3 is now available with this version.
+
  

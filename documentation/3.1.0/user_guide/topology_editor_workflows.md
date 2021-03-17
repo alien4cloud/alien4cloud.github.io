@@ -93,6 +93,7 @@ Some actions are not allowed:
 - you can not remove delegate activity steps in standard workflows.
 - you can not add any activity for an abstract node.
 
+
 # Custom workflows executions
 
 Custom workflows can be launched in the UI in the Workflow menu of the deployment :
