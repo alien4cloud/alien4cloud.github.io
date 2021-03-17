@@ -12,8 +12,8 @@ published: true
 {%summary%}{%endsummary%}
 
 # Yorc Orchestrator integration
-This version  now supports compatibility with Yorc new synchronous purge API (since Yorc 4.1.0 version)
-It has no compatibility with previous Yorc versions from 4.1.0.
+This version  now supports compatibility with Yorc new synchronous purge API (since Yorc 4.1.0 version).
+It has no compatibility with  Yorc versions older than 4.1.0
 Note that older Alien4Cloud versions are available with Yorc version 4.1.0 and later versions.
   
 # Tosca worflows with steps on failure support is now available
@@ -22,4 +22,4 @@ Note that older Alien4Cloud versions are available with Yorc version 4.1.0 and l
  
 # JDK upgrade
  Alien4Cloud is now running with  JDK15.
- Alien4Cloud now supports Elasticsearch version 6.8.1. It can still run with 6.6.2 version but is using a 6.8.1 client.
+ Alien4Cloud now supports Elasticsearch version 6.8.13. It can still run with 6.6.2 version but is using a 6.8.13 client.
