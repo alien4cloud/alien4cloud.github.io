@@ -77,3 +77,25 @@ This auto-update does not perform any model update. If your plugin model has cha
 We don't support hot-plugin updates currently. This is a choice we made as unloading a plugin may cause interruption of some active processing from the plugin (including ongoing deployment/un-deployment).
 This behavior will however be improved in next versions and plugins will be responsible of their shutdown management before a plugin is disabled.
 {% endwarning %}
+
+# Plugin list
+
+This table lists the currenty supported and used plugins :
+
+
+{: .table .table-striped }
+| Plugin| Description|  Since version| 
+|:---------|:------------|:---------|
+| [alien-maven-repository-plugin](https://github.com/alien4cloud/alien4cloud-premium-repository-plugins/) | Maven Artifact Resolver Plugin| 1.3.0 | 
+| [alien-git-repository-plugin](https://github.com/alien4cloud/alien4cloud-premium-repository-plugins/) | Git Artifact Resolver Plugin| 1.3.0 | 
+| [alien-http-repository-plugin](https://github.com/alien4cloud/alien4cloud-repository-plugins) | HTTP Artifact Resolver Plugin| 1.3.0 | 
+| [alien4cloud-premium-workspace](https://github.com/alien4cloud/alien4cloud-premium-repository-plugins) | Alien 4 Cloud Premium Workspaces| 1.3.0. |
+| [alien-vault-plugin](https://github.com/alien4cloud/alien4cloud-vault-plugin) | Integration to HashiCorp Vault|  2.0.0 | 
+| [alien4cloud-workflow-scheduler-plugin](https://github.com/alien4cloud/alien4cloud-workflow-scheduler) | Scheduler topology processing plugin using cron executions on Orchestrator| 2.1.0 | 
+| [alien4cloud-yorc-provider](https://github.com/alien4cloud/alien4cloud-yorc-provider) | Yorc Orchestrator Provider, manages interactions with a running Yorc instance.| 2.2.0 |
+| [alien4cloud-kubernetes-plugin](https://github.com/alien4cloud/alien4cloud-kubernetes-plugin) | Allows transformation of a TOSCA generic topology into a specific kubernetes topology. It contains support for topology and policies modification.| 2.2.0 | 
+| [alien4cloud-k8s-spark-jobs](https://github.com/alien4cloud/alien4cloud-k8s-spark-jobs)| Features Spark job modelization for running into Kubernetes cluster | 3.0.0|
+| [alien4cloud-kafka-listener](https://github.com/alien4cloud/alien4cloud-kafka-listener)| Subscribes to Kafka Messages. Features application workflow launches, service creation, git repositories pull| 3.0.0 |
+| [alien4cloud-k8s-webhook](https://github.com/alien4cloud/alien4cloud-k8s-webhook) | Allows Kubernetes resources to enriched or validated thanks using the webhook mechanism| 3.1.0 |
+| [alien4cloud-rms-scheduler-plugin](https://github.com/alien4cloud/alien4cloud-rms-scheduler-plugin) | A rule based scheduler embedding drools.| 3.1.0 |
+
