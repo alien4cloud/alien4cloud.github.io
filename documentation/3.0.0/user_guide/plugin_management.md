@@ -78,7 +78,7 @@ We don't support hot-plugin updates currently. This is a choice we made as unloa
 This behavior will however be improved in next versions and plugins will be responsible of their shutdown management before a plugin is disabled.
 {% endwarning %}
 
-# Plugin list
+# Plugins list
 
 This table lists the currenty supported and used plugins :
 
@@ -96,3 +96,11 @@ This table lists the currenty supported and used plugins :
 | [alien4cloud-kubernetes-plugin](https://github.com/alien4cloud/alien4cloud-kubernetes-plugin) | Allows transformation of a TOSCA generic topology into a specific kubernetes topology. It contains support for topology and policies modification.| 2.2.0 | 
 | [alien4cloud-k8s-spark-jobs](https://github.com/alien4cloud/alien4cloud-k8s-spark-jobs)| Features Spark job modelization for running into Kubernetes cluster | 3.0.0|
 | [alien4cloud-kafka-listener](https://github.com/alien4cloud/alien4cloud-kafka-listener)| Subscribes to Kafka Messages. Features application workflow launches, service creation, git repositories pull| 3.0.0 |
+
+These 2 sample plugins illustrate how can be plugins can be used and written  :
+
+{: .table .table-striped }
+| Plugin| Description|  Since version| 
+|:---------|:------------|:---------|
+| [sample-topology-validator-plugin](https://github.com/alien4cloud/sample-topology-validator-plugin) | A sample plugin that checks topology nodes name (minimum length and pattern) | 2.2.0 | 
+| [alien-git-repository-plugin](https://github.com/alien4cloud/alien4cloud-plugin-sample) | Set of modules that illustrate how to write plugin with backend and UI, wizard addon, topology modifier:| 1.3.0 | 
