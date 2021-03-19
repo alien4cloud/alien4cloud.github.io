@@ -105,4 +105,4 @@ These 2 sample plugins illustrate how can be plugins can be used and written  :
 | Plugin| Description|  Since version| 
 |:---------|:------------|:---------|
 | [sample-topology-validator-plugin](https://github.com/alien4cloud/sample-topology-validator-plugin) | A sample plugin that checks topology nodes name (minimum length and pattern) | 2.2.0 | 
-| [alien-git-repository-plugin](https://github.com/alien4cloud/alien4cloud-plugin-sample) | Set of modules that illustrate how to write plugin with backend and UI, wizard addon, topology modifier:| 1.3.0 | 
+| [alien4cloud-plugin-sample](https://github.com/alien4cloud/alien4cloud-plugin-sample) | Set of modules that illustrate how to write plugin with backend and UI, wizard addon, topology modifier:| 1.3.0 | 
