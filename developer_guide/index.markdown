@@ -112,12 +112,30 @@ ALIEN has been designed to be easily extended and integrated with other systems.
 Plugins are really opened and you can have access to any core feature from your plugin allowing very powerfull operations through plugins. It is possible to create backend oriented plugins (Java/Spring based), UI plugins (AngularJS) or plugins with both backend and ui components. You can find more informations on plugins in the sub-section of the developer guide.
 
 ### Existing plugins
-* [Cloudify3 plugin](https://github.com/alien4cloud/alien4cloud-cloudify3-provider): This is an orchestrator plugin that aims to provide the ability to deploy your applications using the opensource cloudify3 orchestration technology.
-* [Security Group plugin](https://github.com/alien4cloud/alien4cloud-security-group-plugin): This is a topology modifier that will automatically add security groups based on component endpoints of the topology.
-* [Vault plugin](https://github.com/alien4cloud/alien4cloud-vault-plugin): This is a plugin integrating Vault into Alien4Cloud.
-* [Repository plugin](https://github.com/alien4cloud/alien4cloud-repository-plugins): This is a plugin allowing to deal with the HTTP csar repository.
-* [Marathon plugin](https://github.com/alien4cloud/alien4cloud-marathon-plugin): A plugin to integrate Marathon as an orchestrator for Alien4cloud. It features deployment of complex Docker containers topologies on a Mesos/Marathon cluster using MarathonLB and MesosDNS for service discovery.
-* [Kubernetes plugin](https://github.com/alien4cloud/alien4cloud-kubernetes-plugin): A plugin that allows transformation of a TOSCA generic topology into a specific kubernetes topology.
+
+{: .table .table-striped }
+| Plugin| Description|  Since version| 
+|:---------|:------------|:---------|
+| [alien-maven-repository-plugin](https://github.com/alien4cloud/alien4cloud-premium-repository-plugins/) | Maven Artifact Resolver Plugin| 1.3.0 | 
+| [alien-git-repository-plugin](https://github.com/alien4cloud/alien4cloud-premium-repository-plugins/) | Git Artifact Resolver Plugin| 1.3.0 | 
+| [alien-http-repository-plugin](https://github.com/alien4cloud/alien4cloud-repository-plugins) | HTTP Artifact Resolver Plugin| 1.3.0 | 
+| [alien4cloud-premium-workspace](https://github.com/alien4cloud/alien4cloud-premium-repository-plugins) | Alien 4 Cloud Premium Workspaces| 1.3.0. |
+| [alien-vault-plugin](https://github.com/alien4cloud/alien4cloud-vault-plugin) | Integration to HashiCorp Vault|  2.0.0 | 
+| [alien4cloud-workflow-scheduler-plugin](https://github.com/alien4cloud/alien4cloud-workflow-scheduler) | Scheduler topology processing plugin using cron executions on Orchestrator| 2.1.0 | 
+| [alien4cloud-yorc-provider](https://github.com/alien4cloud/alien4cloud-yorc-provider) | Yorc Orchestrator Provider, manages interactions with a running Yorc instance.| 2.2.0 |
+| [alien4cloud-kubernetes-plugin](https://github.com/alien4cloud/alien4cloud-kubernetes-plugin) | Allows transformation of a TOSCA generic topology into a specific kubernetes topology. It contains support for topology and policies modification.| 2.2.0 | 
+| [alien4cloud-k8s-spark-jobs](https://github.com/alien4cloud/alien4cloud-k8s-spark-jobs)| Features Spark job modelization for running into Kubernetes cluster | 3.0.0|
+| [alien4cloud-kafka-listener](https://github.com/alien4cloud/alien4cloud-kafka-listener)| Subscribes to Kafka Messages. Features application workflow launches, service creation, git repositories pull| 3.0.0 |
+| [alien4cloud-k8s-webhook](https://github.com/alien4cloud/alien4cloud-k8s-webhook) | Allows Kubernetes resources to enriched or validated thanks using the webhook mechanism| 3.1.0 |
+| [alien4cloud-rms-scheduler-plugin](https://github.com/alien4cloud/alien4cloud-rms-scheduler-plugin) | A rule based scheduler embedding drools.| 3.1.0 |
+
+These 2 sample plugins illustrate how plugins can be used and implemented  :
+
+{: .table .table-striped }
+| Plugin| Description|  Since version| 
+|:---------|:------------|:---------|
+| [sample-topology-validator-plugin](https://github.com/alien4cloud/sample-topology-validator-plugin) | A sample plugin that checks topology nodes name (minimum length and pattern) | 2.2.0 | 
+| [alien4cloud-plugin-sample](https://github.com/alien4cloud/alien4cloud-plugin-sample) | Set of modules that illustrate how to write plugin with backend and UI, wizard addon, topology modifier:| 1.3.0 | 
 
 
 # Integrating with Alien 4 Cloud via API

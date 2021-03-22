@@ -99,7 +99,7 @@ This table lists the currenty supported and used plugins :
 | [alien4cloud-k8s-webhook](https://github.com/alien4cloud/alien4cloud-k8s-webhook) | Allows Kubernetes resources to enriched or validated thanks using the webhook mechanism| 3.1.0 |
 | [alien4cloud-rms-scheduler-plugin](https://github.com/alien4cloud/alien4cloud-rms-scheduler-plugin) | A rule based scheduler embedding drools.| 3.1.0 |
 
-These 2 sample plugins illustrate how can be plugins can be used and written  :
+These 2 sample plugins illustrate how plugins can be used and implemented  :
 
 {: .table .table-striped }
 | Plugin| Description|  Since version| 

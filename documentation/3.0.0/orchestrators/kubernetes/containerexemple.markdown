@@ -23,9 +23,9 @@ To deploy onto Kubernetes cluster through ALIEN, you will need:
   - the kubernetes plugin
   - the http repository plugin (the samples use an http repository)
   - the following archives imported from GIT:
-    - https://github.com/alien4cloud/tosca-normative-types.git branch **3.0.0-M6**
-    - https://github.com/alien4cloud/alien4cloud-extended-types.git branch **3.0.0-M6** folder **alien-base-types**
-    - https://github.com/alien4cloud/docker-tosca-types.git **3.0.0-M6** folder **docker-types**
+    - https://github.com/alien4cloud/tosca-normative-types.git branch **3.0.0-SNAPSHOT**
+    - https://github.com/alien4cloud/alien4cloud-extended-types.git branch **3.0.0-SNAPSHOT** folder **alien-base-types**
+    - https://github.com/alien4cloud/docker-tosca-types.git **3.0.0-SNAPSHOT** folder **docker-types**
 
 
 ## Topology modifiers
@@ -63,7 +63,7 @@ For volumes, you can add the followings resources :
 
 
 # A simple Apache container
-Our first trivial topology help us validate our setup : a single Apache container. You can find it [here](https://github.com/alien4cloud/samples/tree/3.0.x/org/alien4cloud/doc/kube/kcontainers/01-Apache/topology/types.yml) (or use the **01-Apache** if you have imported the samples).
+Our first trivial topology help us validate our setup : a single Apache container. You can find it [here](https://github.com/alien4cloud/samples/tree/3.0.0-SNAPSHOT/org/alien4cloud/doc/kube/kcontainers/01-Apache/topology/types.yml) (or use the **01-Apache** if you have imported the samples).
 
 ![Topology](../../images/3.0.0/orchestrators/kubernetes/apache_simple_container.png)
 
@@ -101,7 +101,7 @@ The emptyDir volume properties appear by clicking on the EmptyDirVolumeSource  n
 
 - the property `container_path` has to be set to the target folder of the Apache container  
 
-To see more information by the use of an emptyDir, the [sample](https://github.com/alien4cloud/samples/tree/3.0.x/org/alien4cloud/doc/kube/kcontainers/10-Volume-EmptyDir) describes an emptyDir volume shared by 2 containers.
+To see more information by the use of an emptyDir, the [sample](https://github.com/alien4cloud/samples/tree/3.0.0-SNAPSHOT/org/alien4cloud/doc/kube/kcontainers/10-Volume-EmptyDir) describes an emptyDir volume shared by 2 containers.
 
 ## HostPath Volume
 
@@ -125,7 +125,7 @@ It is a complex property, displayed in a modal window
 
 ![Volume on the container](../../images/3.0.0/orchestrators/kubernetes/Hostpath_4.png)
 
-To see more information by the use of a HostPath, the [sample](https://github.com/alien4cloud/samples/tree/3.0.x/org/alien4cloud/doc/kube/kcontainers/11-Volume-HostPath) describes an HostPath volume on an Apache container.
+To see more information by the use of a HostPath, the [sample](https://github.com/alien4cloud/samples/tree/3.0.0-SNAPSHOT/org/alien4cloud/doc/kube/kcontainers/11-Volume-HostPath) describes an HostPath volume on an Apache container.
 
 ## Secret Volume
 Using the previous simple Apache Container modelization, we add in the `org.alien4cloud.kubernetes.api.types.KubeDeployment` an `org.alien4cloud.kubernetes.api.types.volume.SecretSource`
@@ -154,11 +154,11 @@ It is a complex property, displayed in a modal window
 
 ![Volume on the container](../../images/3.0.0/orchestrators/kubernetes/Secret_6.png)
 
-To see more information by the use of a environment variables , the [sample](https://github.com/alien4cloud/samples/tree/3.0.x/org/alien4cloud/doc/kube/kcontainers/09-Volume-Secret)  describes a Secret volume on an Apache container.
+To see more information by the use of a environment variables , the [sample](https://github.com/alien4cloud/samples/tree/3.0.0-SNAPSHOT/org/alien4cloud/doc/kube/kcontainers/09-Volume-Secret)  describes a Secret volume on an Apache container.
 
 # Config Map
 
-Our exemple is based on the topology you can find  [here](https://github.com/alien4cloud/samples/blob/3.0.x/org/alien4cloud/doc/kube/kcontainers/03-Apache-cfg/topology/types.yml) (or use the **03-Apache-cfg** if you have imported the samples).
+Our exemple is based on the topology you can find  [here](https://github.com/alien4cloud/samples/blob/3.0.0-SNAPSHOT/org/alien4cloud/doc/kube/kcontainers/03-Apache-cfg/topology/types.yml) (or use the **03-Apache-cfg** if you have imported the samples).
 {% info %}
 You can see that our node named **ApacheConfigmap03** derived of type `org.alien4cloud.kubernetes.api.types.KubeConfigurableContainer` is  hosted on a `KubeDeployment`. Since a container can not be deployed without being hosted on a Pod in K8S, the modifier will create for you a `ContainerDeploymentUnit` for each 'orphan' container.
 {% endinfo %}
@@ -182,11 +182,11 @@ To set the variables in the configMap, $CONTENT in the exemple, it has to be spe
 
 CFG_ prefix is used for variable substitution (its value is set in `input_prefix` property in `config_setting` property
 
-To see more information by the use of a configMaps, the [sample](https://github.com/alien4cloud/samples/tree/3.0.x/org/alien4cloud/doc/kube/kcontainers/03-Apache-cfg)  fills a configMap file with a node property value on an Apache container.
+To see more information by the use of a configMaps, the [sample](https://github.com/alien4cloud/samples/tree/3.0.0-SNAPSHOT/org/alien4cloud/doc/kube/kcontainers/03-Apache-cfg)  fills a configMap file with a node property value on an Apache container.
 
 
 # Environnement variables
-Our exemple is based on the topology you can find  [here](https://github.com/alien4cloud/samples/blob/3.0.x/org/alien4cloud/doc/kube/kcontainers/02-Apache-env/types/types.yml) (or use the **02-Apache-env** if you have imported the samples).
+Our exemple is based on the topology you can find  [here](https://github.com/alien4cloud/samples/blob/3.0.0-SNAPSHOT/org/alien4cloud/doc/kube/kcontainers/02-Apache-env/types/types.yml) (or use the **02-Apache-env** if you have imported the samples).
 {% info %}
 You can see that our node named **Apache02** derived of type `org.alien4cloud.kubernetes.api.types.KubeContainer` is  hosted on a `KubeDeployment`. Since a container can not be deployed without being hosted on a Pod in K8S, the modifier will create for you a `ContainerDeploymentUnit` for each 'orphan' container.
 {% endinfo %}
@@ -197,13 +197,13 @@ To set the environment variables, $CONTENT in this exemple, it has to be specifi
 
 ![Environnement variables specification](../../images/3.0.0/orchestrators/kubernetes/apache_env_1.png)
 
-To see more information by the use of a environment variables , the [sample](https://github.com/alien4cloud/samples/tree/3.0.x/org/alien4cloud/doc/kube/kcontainers/02-Apache-env)  describes the usage of container environment variable to configure it.
+To see more information by the use of a environment variables , the [sample](https://github.com/alien4cloud/samples/tree/3.0.0-SNAPSHOT/org/alien4cloud/doc/kube/kcontainers/02-Apache-env)  describes the usage of container environment variable to configure it.
 
 
 # Scaling and autoscaling
 
 Scaling and autoscaling are working like in other Portable modeling.
-To see more information by the use of autoscaling , the [sample](https://github.com/alien4cloud/samples/tree/3.0.x/org/alien4cloud/doc/kube/kcontainers/24-autoscaling)  shows how to autoscale a pod using CPU as metric.
+To see more information by the use of autoscaling , the [sample](https://github.com/alien4cloud/samples/tree/3.0.0-SNAPSHOT/org/alien4cloud/doc/kube/kcontainers/24-autoscaling)  shows how to autoscale a pod using CPU as metric.
 
 # Debug mode
 
