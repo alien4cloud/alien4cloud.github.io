@@ -22,16 +22,16 @@ To deploy onto Kubernetes cluster through ALIEN, you will need:
   - the kubernetes plugin
   - the http repository plugin (the samples use an http repository)
   - the following archives imported from GIT:
-    - https://github.com/alien4cloud/tosca-normative-types.git branch **3.0.0-M6**
-    - https://github.com/alien4cloud/alien4cloud-extended-types.git branch **3.0.0-M6** folder **alien-base-types**
-    - https://github.com/alien4cloud/docker-tosca-types.git **3.0.0-M6** folder **docker-types**
+    - https://github.com/alien4cloud/tosca-normative-types.git branch **3.0.x**
+    - https://github.com/alien4cloud/alien4cloud-extended-types.git branch **3.0.x** folder **alien-base-types**
+    - https://github.com/alien4cloud/docker-tosca-types.git **3.0.x** folder **docker-types**
 - A runnable distribution of Spark 2.3 or above.
   - more information about Spark running on Kubernetes can be found [here](https://spark.apache.org/docs/latest/running-on-kubernetes.html)
 - It is necessary to create in  the namepace where Spark jobs will be run the following assets : 
   - serviceaccount
   - role
   - rolebinding
-The scripts to execute are available [here](https://github.com/alien4cloud/alien4cloud-k8s-spark-jobs/tree/3.0.0-M6/src/main/resources/k8s)
+The scripts to execute are available [here](https://github.com/alien4cloud/alien4cloud-k8s-spark-jobs/tree/3.0.x/src/main/resources/k8s)
 
 ## Topology modifiers
 

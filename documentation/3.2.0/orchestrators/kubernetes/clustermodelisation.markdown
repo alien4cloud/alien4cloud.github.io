@@ -22,9 +22,9 @@ To deploy onto Kubernetes cluster through ALIEN, you will need:
   - the kubernetes plugin
   - the http repository plugin (the samples use an http repository)
   - the following archives imported from GIT:
-    - https://github.com/alien4cloud/tosca-normative-types.git branch **3.0.0-SM6**
-    - https://github.com/alien4cloud/alien4cloud-extended-types.git branch **3.0.0-SM6** folder **alien-base-types**
-    - https://github.com/alien4cloud/docker-tosca-types.git **3.0.0-SM6** folder **docker-types**
+    - https://github.com/alien4cloud/tosca-normative-types.git branch **3.0.0-SNAPSHOT**
+    - https://github.com/alien4cloud/alien4cloud-extended-types.git branch **3.0.0-SNAPSHOT** folder **alien-base-types**
+    - https://github.com/alien4cloud/docker-tosca-types.git **3.0.0-SNAPSHOT** folder **docker-types**
 
 ## Location configuration
 

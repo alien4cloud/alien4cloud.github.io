@@ -97,7 +97,7 @@ This table lists the currenty supported and used plugins :
 | [alien4cloud-k8s-spark-jobs](https://github.com/alien4cloud/alien4cloud-k8s-spark-jobs)| Features Spark job modelization for running into Kubernetes cluster | 3.0.0|
 | [alien4cloud-kafka-listener](https://github.com/alien4cloud/alien4cloud-kafka-listener)| Subscribes to Kafka Messages. Features application workflow launches, service creation, git repositories pull| 3.0.0 |
 
-These 2 sample plugins illustrate how can be plugins can be used and written  :
+These 2 sample plugins illustrate how plugins can be used and implemented  :
 
 {: .table .table-striped }
 | Plugin| Description|  Since version| 
