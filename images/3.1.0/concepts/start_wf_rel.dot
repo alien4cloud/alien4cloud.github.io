@@ -1,0 +1,5 @@
+digraph relationship_start_workflow {
+  target_starting -> target_start -> target_started -> source_starting -> source_start -> source_started;
+  source_started -> relationship_add_source;
+  source_started -> relationship_add_target;
+}
