@@ -1,0 +1,68 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/3.1.0/concepts/concepts.html',
+  title: 'Concepts'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Concepts</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.1.0/concepts/concepts.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <p>Alien 4 Cloud is a DevOps tool that allows people in the enterprise to collaborate in order to provide self-service deployment of complex applications taking in account the different experts through a role based portal.</p>
+
+<p>Alien 4 Cloud want to provide self-service no only for users but also for development teams that want to build and deploy complex applications and leverage cloud resources to deploy their environments in minutes.</p>
+
+<p>In order to provide enterprise self-service portal, alien 4 cloud leverages the following concept:</p>
+
+<ul>
+  <li><strong>Location</strong>: Deployment target (cloud, set of physical machines or virtual machines)</li>
+  <li><strong>Components</strong>: Software components to deploy</li>
+  <li><strong>Topologies</strong>: Description of multiple software components assembled together (to build an application).</li>
+  <li><strong>Applications</strong>: Actual applications to deploy with <em>environments</em> and <em>versions</em> each of them being associated with a topology.</li>
+  <li><strong>TOSCA</strong>: An emerging standard to describe service components and their relationships</li>
+</ul>
+
+<p>On top of these notions Alien 4 Cloud provide a comprehensive set of <strong>roles</strong> that can be mapped in flexible manners to the people and structure of an enterprise IT department.</p>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.1.0/concepts/concepts.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-3.1.0', 'documentation/3.1.0/concepts/concepts.md');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

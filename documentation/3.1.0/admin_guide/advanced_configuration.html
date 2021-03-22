@@ -1,0 +1,213 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/3.1.0/admin_guide/advanced_configuration.html',
+  title: 'Advanced configuration'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Advanced configuration</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.1.0/admin_guide/advanced_configuration.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        
+<hr style="margin-top:5px; margin-bottom:5px;" />
+<div class="row"><ul class="nav nav-pills" id="summarypanel"></ul></div>
+<hr style="margin-top:5px; margin-bottom:5px;" />
+
+<h1 id="using-ssl">Using SSL</h1>
+
+<p>see <a href="#/documentation/3.0.0/admin_guide/security.html">security section</a>.</p>
+
+<h1 id="elastic-search-configuration">Elastic Search configuration</h1>
+
+<p>ALIEN 4 Cloud uses ElasticSearch as it’s data store and indexing service. By default ALIEN 4 Cloud starts up an embedded ElasticSearch node. Of course when running in production it is recommended to use a remote cluster (ideally with high availability configured).</p>
+
+<div class="note warning">
+<p>This section describe deprecated manual ES settings. We strongly recommend you to automate your installation using <a href="https://github.com/alien4cloud/alien4cloud-spray/tree/develop">A4C Spray</a> project that well manage all settings for the full A4C stack (including ES cluster settings).</p>
+</div>
+
+<h2 id="common-configuration">Common configuration</h2>
+
+<p>Common configuration allows you to configure the name of the elasticsearch cluster (<em>clusterName</em>), as well as the <em>prefix_max_expansions</em> (performance setting used for prefix queries).</p>
+
+<div class="note">
+<p>We recommend that you don’t change the default <em>prefix_max_expansions</em> value.</p>
+</div>
+
+<p>If you wish to change one of the parameters, you should open the <strong><em><code>alien4cloud-config.yml</code></em></strong> file and go to the elasticSearch configuration section.</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">elasticSearch</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">clusterName</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">escluster</span>
+  <span class="l-Scalar-Plain">local</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">false</span>
+  <span class="l-Scalar-Plain">client</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">false</span>
+  <span class="l-Scalar-Plain">resetData</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">false</span>
+  <span class="l-Scalar-Plain">prefix_max_expansions</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">10</span></code></pre></div>
+
+<div class="note info">
+<p>local and resetData should be left to false.</p>
+</div>
+
+<h2 id="configure-the-embedded-elastic-search">Configure the embedded Elastic Search</h2>
+
+<p>The embedded Elastic Search configuration <em><code>elasticsearch.yml</code></em> is a native elastic search configuration and you can find plenty of information on <a href="http://www.elasticsearch.org">elastic search website</a> on how you can configure it.</p>
+
+<p>However the main element you may wish to configure is elastic search storage directories:</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">path</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">data</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">${user.home}/.alien/elasticsearch/data</span>
+  <span class="l-Scalar-Plain">work</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">${user.home}/.alien/elasticsearch/work</span>
+  <span class="l-Scalar-Plain">logs</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">${user.home}/.alien/elasticsearch/logs</span></code></pre></div>
+
+<h2 id="configure-a-remote-elastic-search-using-a-standalone-transport-client">Configure a remote Elastic Search (using a standalone transport client)</h2>
+
+<p>In this mode, we use a simple standalone client that can be in another network as long as the cluster can be reachable.</p>
+
+<ul>
+  <li>In <em><code>alien4cloud-config.yml</code></em> file, edit the elasticSearch section and set ‘client’ and ‘transportClient’ to true, and indicate the cluster host and port:</li>
+</ul>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">elasticSearch</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">clusterName</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">escluster</span>
+  <span class="l-Scalar-Plain">local</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">false</span>
+  <span class="l-Scalar-Plain">client</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
+  <span class="l-Scalar-Plain">transportClient</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
+  <span class="c1"># a comma separated list of host:port couples</span>
+  <span class="l-Scalar-Plain">hosts</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">129.185.67.112:9300</span>
+  <span class="l-Scalar-Plain">resetData</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">false</span>
+  <span class="l-Scalar-Plain">prefix_max_expansions</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">10</span></code></pre></div>
+
+<ul>
+  <li>The alien4cloud parameter <strong>elasticSearch.clusterName</strong> must have the same value  as the parameter <strong>cluster.name</strong> in elasticSearch configuration file.</li>
+</ul>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">cluster.name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">escluster</span></code></pre></div>
+
+<h2 id="configure-a-remote-elastic-search-with-replication">Configure a remote Elastic Search with replication</h2>
+
+<p>In this mode, the Elastic Search cluster has more than one node (cluster with replication).
+Assuming we have a cluster of two nodes:</p>
+
+<ul>
+  <li>In the <em><code>alien4cloud-config.yml</code></em> file, edit the elasticSearch section and add all hosts in your cluster.</li>
+</ul>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="c1"># a comma separated list of host:port couples</span>
+<span class="l-Scalar-Plain">hosts</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;host_1_ip&gt;:&lt;port_1&gt;,&lt;host_2_ip&gt;:&lt;port_2&gt;</span></code></pre></div>
+
+<ul>
+  <li>In the <em><code>alien4cloud-config.yml</code></em> make sure to set the proper number of replicas and the hosts in the cluster .
+Assuming we are on the <em>host_1</em> Configuration:</li>
+</ul>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="c1"># Set the number of shards:</span>
+<span class="l-Scalar-Plain">elasticSearch.shard_count</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">3</span>
+<span class="c1"># Set the number of replicas:</span>
+<span class="l-Scalar-Plain">elasticSearch.replica_count</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">1</span></code></pre></div>
+
+<h1 id="directories-configuration">Directories configuration</h1>
+
+<p>ALIEN 4 Cloud store various files on the hard drive. Cloud Service archives, Artifacts overriden in the topologies, plugins archives etc. Directories can be configured in the <em><code>alien4cloud-config.yml</code></em> file.</p>
+
+<p>By default, ALIEN 4 Cloud stores data in the user home directory in a .alien folder.</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="c1"># Configuration of Alien 4 Cloud&#39;s CSAR repository, temporary folder and upload settings.</span>
+<span class="l-Scalar-Plain">directories</span><span class="p-Indicator">:</span>
+  <span class="c1"># Alien 4 cloud main directory (other directories are relative path to this one)</span>
+  <span class="l-Scalar-Plain">alien</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">${user.home}/.alien</span>
+  <span class="c1"># directory in which alien 4 cloud stores Cloud Service Archives</span>
+  <span class="l-Scalar-Plain">csar_repository</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">csar</span>
+  <span class="c1"># directory in which alien 4 cloud stores uploaded artifacts (war etc.).</span>
+  <span class="l-Scalar-Plain">artifact_repository</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">artifacts</span>
+  <span class="c1"># temporary directory for alien 4 cloud</span>
+  <span class="l-Scalar-Plain">upload_temp</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">upload</span>
+  <span class="c1"># directory in which alien 4 cloud unzips loaded plugins.</span>
+  <span class="l-Scalar-Plain">plugins</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">plugins</span></code></pre></div>
+
+<h1 id="admin-user-initialization">Admin user initialization</h1>
+
+<p>In case there is no admin user in it’s repository, ALIEN 4 Cloud can automatically create a user with ADMIN rights. The user name and password are configured in the <em><code>alien4cloud-config.yml</code></em> file. Of course if an ADMIN user already exists in ALIEN then no user is created and this section is ignored.</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="c1"># Configuration of default admin ensurer, if true it creates a default admin user if no admin can be found in the system.</span>
+<span class="l-Scalar-Plain">users</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">admin</span><span class="p-Indicator">:</span>
+    <span class="c1"># Alien 4 cloud checks that an admin user is defined at the application launch.</span>
+    <span class="l-Scalar-Plain">ensure</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
+    <span class="l-Scalar-Plain">username</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">admin</span>
+    <span class="l-Scalar-Plain">password</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">admin</span>
+    <span class="l-Scalar-Plain">email</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">admin@mycompany.com</span></code></pre></div>
+
+<h1 id="ldap-configuration">LDAP configuration</h1>
+
+<p>See specific <a href="#/documentation/3.0.0/admin_guide/ldap.html">sub-section</a>.</p>
+
+<h1 id="component-search-boost">Component search boost</h1>
+
+<p>ALIEN 4 Cloud is managing a custom way to rank components when searching for them. In order to compute the boost for a component we get the number of topologies that uses the component and multiply it by the <em>usage</em> factor. Then, if a component is the latest version we add a fixed <em>version</em> boost, finally if a component is marked as default for at least one of it’s capability, we add another <em>default</em> fixed boost.</p>
+
+<p>In order to change the default weights you can edit the following configuration:</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="c1"># configure the boost factors for tosca elements in the search, elements with the highest boost factor appears first in search results</span>
+<span class="c1"># the total boost factor for a component is the sum of the following boost factors.</span>
+<span class="l-Scalar-Plain">components.search.boost</span><span class="p-Indicator">:</span>
+  <span class="c1"># boost components that are used in topologies by (number of active topologies that uses the component * usage)</span>
+  <span class="l-Scalar-Plain">usage</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">1</span>
+  <span class="c1"># components that exist in latest version get a boost factor regarding other components. Note that this factor should be very high as every component</span>
+  <span class="c1"># with latest version will be boosted.</span>
+  <span class="l-Scalar-Plain">version</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">1000</span>
+  <span class="c1"># components that are configured as default for at least 1 capability get the following a boost factor.</span>
+  <span class="l-Scalar-Plain">default</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">10</span></code></pre></div>
+
+<h1 id="jvms-tunning">JVMs tunning</h1>
+
+<p>You might want to tune up your JVMs for a better performance in production.  Here are some tested JVM options that we recommend to you. Please, make sure to customize the different paths in the examples below according to your installation.</p>
+
+<h2 id="elasticsearch-jvm">ElasticSearch JVM</h2>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">-Xms2g -Xmx2g -Djava.awt.headless<span class="o">=</span><span class="nb">true</span> -XX:+UseParNewGC -XX:+UseConcMarkSweepGC -XX:CMSInitiatingOccupancyFraction<span class="o">=</span><span class="m">75</span> -XX:+UseCMSInitiatingOccupancyOnly -XX:+HeapDumpOnOutOfMemoryError -XX:+DisableExplicitGC -Dfile.encoding<span class="o">=</span>UTF-8 -XX:+PrintGCDateStamps -XX:ThreadStackSize<span class="o">=</span>256k -XX:+ScavengeBeforeFullGC -XX:+CMSScavengeBeforeRemark</code></pre></div>
+
+<h2 id="alien4cloud-jvm">Alien4Cloud JVM</h2>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">-server -showversion -XX:+AggressiveOpts -Xmx2g -Xms2g -XX:MaxPermSize<span class="o">=</span>512m -XX:+HeapDumpOnOutOfMemoryError -XX:+UseParNewGC -XX:+UseConcMarkSweepGC -XX:CMSInitiatingOccupancyFraction<span class="o">=</span><span class="m">75</span> -XX:+UseCMSInitiatingOccupancyOnly -XX:+ScavengeBeforeFullGC -XX:+CMSScavengeBeforeRemark -XX:+DisableExplicitGC</code></pre></div>
+
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.1.0/admin_guide/advanced_configuration.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-3.1.0', 'documentation/3.1.0/admin_guide/advanced_configuration.markdown');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

@@ -1,0 +1,180 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/3.2.0/devops_guide/workflow/tosca_concepts_workflows_definition.html',
+  title: 'Workflow definition'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Workflow definition</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.2.0/devops_guide/workflow/tosca_concepts_workflows_definition.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <h1 id="workflow">Workflow</h1>
+
+<p>A topology can contains workflows section with multiple workflows identified by its <strong>workflow_id</strong>.
+A workflow is a collection of steps with dependencies between them.
+You can imagine a workflow as an acyclic directed graph, steps are the graph’s nodes and dependencies between them are the graph’s edges.</p>
+
+<h3 id="grammar">Grammar</h3>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">workflows</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">&lt;workflow_id&gt;</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">inputs</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">&lt;property_definitions&gt;</span>
+      <span class="l-Scalar-Plain">steps</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">&lt;step_id&gt;</span><span class="p-Indicator">:</span>
+            <span class="l-Scalar-Plain">...</span></code></pre></div>
+
+<h1 id="workflow-inputs">Workflow Inputs</h1>
+
+<p><strong>inputs</strong> in worflow is an optional map of <a href="#/documentation/3.0.0/devops_guide/tosca_grammar/property_definition.html">property definitions</a> that defines inputs for a given workflow. Input values will be asked to end-user when launching a workflow that requires inputs. An node <a href="#/documentation/3.0.0/devops_guide/tosca_grammar/operation_definition.html">operation</a> can refer to a workflow input by using <a href="/#/documentation/3.0.0/devops_guide/tosca_grammar/get_input.html">get_input</a> function for it’s own input.</p>
+
+<h1 id="step-definition">Step definition</h1>
+
+<p>A step can be related to a node or a relationship of the topology and may contains one or multiple activities.
+Each activity describes the action that will be done on the node or the relationship.</p>
+
+<h3 id="node-step-grammar">Node step grammar</h3>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">workflows</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">install</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">steps</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">...</span>
+        <span class="l-Scalar-Plain">&lt;step_id&gt;</span><span class="p-Indicator">:</span>
+          <span class="l-Scalar-Plain">target</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;node_id&gt;</span>
+          <span class="l-Scalar-Plain">activities</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;activities_list&gt;</span>
+          <span class="l-Scalar-Plain">on_success</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;following_steps&gt;</span>
+      <span class="l-Scalar-Plain">...</span></code></pre></div>
+
+<div class="note info">
+<ul>
+  <li><strong>step_id</strong>: identification of the step inside the workflow</li>
+  <li><strong>node_id</strong>: the node’s id which the step concerns</li>
+  <li><strong>activities_list</strong>: list of activities that will be executed by the step</li>
+  <li><strong>on_success</strong>: list of steps that depends on this step (executed after this step)</li>
+</ul>
+</div>
+
+<h3 id="relationship-step-grammar">Relationship step grammar</h3>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">workflows</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">install</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">steps</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">...</span>
+        <span class="l-Scalar-Plain">&lt;step_id&gt;</span><span class="p-Indicator">:</span>
+          <span class="l-Scalar-Plain">target</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;source_id&gt;</span>
+          <span class="l-Scalar-Plain">target_relationship</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;relationship_id&gt;</span>
+          <span class="l-Scalar-Plain">operation_host</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;host&gt;</span>
+          <span class="l-Scalar-Plain">activities</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;activities_list&gt;</span>
+          <span class="l-Scalar-Plain">on_success</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;following_steps&gt;</span>
+      <span class="l-Scalar-Plain">...</span></code></pre></div>
+
+<div class="note info">
+<ul>
+  <li><strong>step_id</strong>: identification of the step inside the workflow</li>
+  <li><strong>source_id</strong>: the source’s id of the relationship</li>
+  <li><strong>relationship_id</strong>: the relationship’s id</li>
+  <li><strong>host</strong>: SOURCE or TARGET, to know if the step will be executed on the source or on the target</li>
+  <li><strong>activities_list</strong>: list of activities that will be executed by the step</li>
+  <li><strong>on_success</strong>: list of steps that depends on this step (executed after this step)</li>
+</ul>
+</div>
+
+<h1 id="activity-definition">Activity definition</h1>
+
+<p>An activity is an action related to a node or a relationship. There are three types of activities:</p>
+
+<ul>
+  <li><strong>delegate</strong>: the execution of this activity is managed by the tosca orchestrator (cloud resources provisioning …)</li>
+  <li><strong>call_operation</strong>: execute a node or a relationship’s operation</li>
+  <li><strong>set_state</strong>: set the state of a node (created, started, stopped …), usually before and after an operation on a node, its state is changed.</li>
+  <li><strong>inline</strong>: execute another workflow inside the current workflow as an activity (Cloudify orchestrator does not support this functionality)</li>
+</ul>
+
+<h3 id="activity-grammar">Activity grammar</h3>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">workflows</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">install</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">steps</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">my_compute_step</span><span class="p-Indicator">:</span>
+          <span class="l-Scalar-Plain">target</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">my_compute</span>
+          <span class="l-Scalar-Plain">activities</span><span class="p-Indicator">:</span>
+            <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">delegate</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;delegated_workflow_name&gt;</span>
+          <span class="l-Scalar-Plain">on-success</span><span class="p-Indicator">:</span>
+            <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">my_relationship_step</span>
+        <span class="l-Scalar-Plain">my_relationship_step</span><span class="p-Indicator">:</span>
+          <span class="l-Scalar-Plain">target</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">my_node</span>
+          <span class="l-Scalar-Plain">target_relationship</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">my_node_hosted_on_my_compute</span>
+          <span class="l-Scalar-Plain">operation_host</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">SOURCE</span>
+          <span class="l-Scalar-Plain">activities</span><span class="p-Indicator">:</span>
+            <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">call_operation</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;interface_name&gt;.&lt;operation_name&gt;</span>
+          <span class="l-Scalar-Plain">on-success</span><span class="p-Indicator">:</span>
+            <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">my_node_step</span>
+        <span class="l-Scalar-Plain">my_node_step</span><span class="p-Indicator">:</span>
+          <span class="l-Scalar-Plain">target</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">my_node</span>
+          <span class="l-Scalar-Plain">activities</span><span class="p-Indicator">:</span>
+            <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">call_operation</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;interface_name&gt;.&lt;operation_name&gt;</span>
+          <span class="l-Scalar-Plain">on-success</span><span class="p-Indicator">:</span>
+            <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">my_node_set_state_step</span>
+        <span class="l-Scalar-Plain">my_node_set_state_step</span><span class="p-Indicator">:</span>
+          <span class="l-Scalar-Plain">target</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">my_node</span>
+          <span class="l-Scalar-Plain">activities</span><span class="p-Indicator">:</span>
+            <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">set_state</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;new_state&gt;</span>
+          <span class="l-Scalar-Plain">on-success</span><span class="p-Indicator">:</span>
+            <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">my_inline_step</span>
+        <span class="l-Scalar-Plain">my_inline_step</span><span class="p-Indicator">:</span>
+          <span class="l-Scalar-Plain">target</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">my_compute</span>
+          <span class="l-Scalar-Plain">activities</span><span class="p-Indicator">:</span>
+            <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">inline</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;inline_workflow&gt;</span></code></pre></div>
+
+<div class="note info">
+<ul>
+  <li><strong>delegated_workflow_name</strong>: the name of the workflow, which is delegated and will be executed by the tosca orchestrator</li>
+  <li><strong>interface_name</strong>: the name of the interface (Configure for relationship step, Standard for node step)</li>
+  <li><strong>operation_name</strong>: the name of the operation (start, stop, pre_configure_source …)</li>
+  <li><strong>new_state</strong>: the new state of the node</li>
+  <li><strong>inline_workflow</strong>: the workflow that will be inlined inside this workflow</li>
+</ul>
+</div>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.2.0/devops_guide/workflow/tosca_concepts_workflows_definition.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-3.2.0', 'documentation/3.2.0/devops_guide/workflow/tosca_concepts_workflows_definition.markdown');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

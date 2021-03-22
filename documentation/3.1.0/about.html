@@ -1,0 +1,160 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/3.1.0/about.html',
+  title: '3.1.0 About'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">3.1.0 About</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.1.0/about.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <p>Alien4Cloud means Application LIfecycle ENablement for Cloud. It is a project started by FastConnect in order to help enterprises adopting the cloud for their new or even existing applications in an Open way meaning with Open-Source model and standardization support in mind.</p>
+
+<hr style="margin-top:5px; margin-bottom:5px;" />
+<div class="row"><ul class="nav nav-pills" id="summarypanel"></ul></div>
+<hr style="margin-top:5px; margin-bottom:5px;" />
+
+<h1 id="why">Why</h1>
+<p>Cloud Computing is becoming prime development and deployment model for a number of applications.</p>
+
+<p>New applications being developed want to benefit from the agility and sometimes cost reduction implied by usage of Cloud technologies.
+Existing applications want to benefit as well from this model to be able to allow development and operations teams, managing the applications, to accelerate new features or maintenance pace.</p>
+
+<p>This requires to implement agility principles and leverage proper tools, not only in development, but as well on the deployment phase along all the application lifecycle.
+As well agility is reached when proper collaboration between Dev and Ops teams, and their business sponsor, is achieved.</p>
+
+<p>Even if a large number of solutions exist in the Cloud ecosystem, the ecosystem is not consolidated.
+Architectures, APIs, technologies and infrastructures are still evolving a lot.
+It leaves a lot of choice to the one willing to develop and deploy applications in the Cloud, but very often, the will to reach agility creates a lock-in to the choosen provider at some level : SaaS, PaaS or IaaS.</p>
+
+<p>Knowing the investment term in the Applications from development to deployment (usually several years), and the legacy, it is important to protect the investment in the Application lifecycle, from moving parts, at any level possible.</p>
+
+<h1 id="what">What</h1>
+<p>
+<div class="note info">
+<h5>Alien4Cloud aims at addressing some of these problems by providing the following capabilities :</h5>
+<ul>
+  <li>Ease the design and portability of Applications by leveraging TOSCA (an emerging standard driven by OASIS foundation)</li>
+  <li>Isolate the application evolution from deployment technologies and infrastructures, allowing to integrate with any deployment layer and infrastructure</li>
+  <li>Accelerate Application Infrastructure Design and improve reusability by providing a Components and Blueprints catalog</li>
+  <li>Ease collaboration between Development and Deployment teams across the Application lifecycle in creating the Components and Blueprints to fill the catalog</li>
+  <li>Integrate with existing Enterprise systems (Dev and Ops) through REST API and pluggable strategies</li>
+</ul>
+</div>
+</p>
+
+<p>Check <a href="../../roadmap">current roadmap</a> for details on where we are and where we go.</p>
+
+<h1 id="standard-support">Standard support</h1>
+<p>Alien4Cloud supports <a href="https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=tosca" target="_blank">OASIS TOSCA</a> an emerging standard addressing applications portability in the cloud.</p>
+
+<p>We believe that applications cloud enablement should be done in an open way, free of any lock-in.
+No lock-in meaning that the application should freely move from one environment to the other with smallest effort possible. Therefore, it needs to abstract itself from the underlying infrastructure technical adherence, and define its infrastructure requirements and architecture, independently from each Cloud Provider’s Infrastructure Catalog.
+If not done, even if, technical compability between vendors could exist in theory (yet to be confirmed by reality), Infrastructure Catalog alignment between providers is very unlikely to happen as each provider is focusing in delivering best value to its customers and does not spend time aligning with others, especially when they may be competitors.
+As an analogy, can you easily compare your Telecom providers offerings ?
+We bet that the same will happen with Cloud providers, and it has already started.</p>
+
+<p>TOSCA enables the expression of Application Requirements on the Infrastructure and its QOS/SLA, in an open way, opening the door to optimized placement of Applications in the Cloud Infrastructures based on customer choice at its heart.</p>
+
+<p>We know about Infrastructure As Code, with TOSCA, we enter in to the era of “Application Requirements as Code” easing Application lifecycle management across several Cloud infrastructures.</p>
+
+<p>By increasing service and application portability in a vendor-neutral ecosystem, TOSCA will enable :</p>
+
+<ul>
+  <li>
+    <p>Portable deployment to any compliant cloud</p>
+  </li>
+  <li>
+    <p>Smoother migration of existing applications to the cloud</p>
+  </li>
+  <li>
+    <p>Flexible bursting (consumer choice)</p>
+  </li>
+  <li>
+    <p>Dynamic, multi-cloud provider applications</p>
+  </li>
+</ul>
+
+<h1 id="open-source">Open-Source</h1>
+<p>We decided to build Alien4Cloud and give it to the community in order to allow  Application Requirements modelling in a TOSCA format, in a collaborative way, between all participants involved in Application Infrastructure Requirements definition.</p>
+
+<p>It is provided with an <a href="http://www.apache.org/licenses/LICENSE-2.0.html" target="_blank">Apache 2 license</a> in order to favour contributions from external teams or individuals.
+Please check our <a href="#/developer_guide/index.html">Contribute</a> page to see how you can help.</p>
+
+<h1 id="what-it-is-not">What it is not</h1>
+<p>Alien4Cloud focuses on Design, Collaboration, Application Lifecycle Management and later Governance, but leverages other existing open source projects that help orchestrating cloud applications and which focus on runtime aspects.</p>
+
+<div class="note warning">
+<h5>Alien4Cloud does not aim to provide applications deployment runtime.</h5>
+</div>
+
+<p>We believe that there are already a number of viable options there (some of them not being TOSCA compliant, btw) and we want to integrate more than replace.
+We do it in an open way through <a href="../developer_guide/plugin.html" target="_blank">plug-in approach</a> to allow you to leverage your best tools or skills.</p>
+
+<h1 id="status">Status</h1>
+
+<div class="note info">
+<h5>Which version to choose ?</h5>
+<p>Basically the question depends on your timeframe, on the features you are looking from and on the support level you need.</p>
+
+<ul>
+  <li>
+    <p><strong>2.2.0</strong> is now deprecated</p>
+  </li>
+  <li>
+    <p><strong>3.0.0</strong> is now released</p>
+  </li>
+</ul>
+</div>
+
+<div class="note warning">
+<h5>Supported platforms</h5>
+<p>To get more informations about the supported platforms, please refer to <a href="#/documentation/3.0.0/admin_guide/supported_platforms.html">this section</a>.</p>
+</div>
+
+<h1 id="features">Features</h1>
+
+<p><a href="../../images/3.1.0/alien-features-1-1.png"><img src="../../images/3.1.0/alien-features-1-1.png" alt="Alien features" /></a></p>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.1.0/about.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-3.1.0', 'documentation/3.1.0/about.markdown');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

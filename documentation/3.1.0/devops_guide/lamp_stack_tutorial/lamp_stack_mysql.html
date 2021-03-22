@@ -1,0 +1,174 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/3.1.0/devops_guide/lamp_stack_tutorial/lamp_stack_mysql.html',
+  title: 'Component MySQL'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Component MySQL</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.1.0/devops_guide/lamp_stack_tutorial/lamp_stack_mysql.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <p>This component will install the MySQL RDBMS on the host server.</p>
+
+<p>Used version for this tutorial : <a href="https://github.com/alien4cloud/samples/tree/master/mysql" target="_blank">MySQL</a></p>
+
+<div class="note">
+<p>This installation is based on Ubuntu distribution with apt-get command.</p>
+</div>
+
+<h1 id="definition">Definition</h1>
+
+<p>Let’s describe important parts of this full <a href="https://github.com/alien4cloud/samples/blob/master/mysql/definition/mysql-types.yml" target="_blank">MySQL definition</a> description.</p>
+
+<h2 id="namming--description">Namming / description</h2>
+
+<p>The node name is important since it’s unique. We follow this template in A4C recipe development : <strong>[organisation].nodes.Name</strong></p>
+
+<div data-gist="https://gist.github.com/OresteVisari/71722e4e98dfd501606b.js"></div>
+
+<ul>
+  <li><strong>tosca_simple_yaml_1_0_0_wd03</strong> : version of tosca used in the definition, let it as is it for the moment</li>
+  <li>Our node name / id : <strong>alien.nodes.Mysql</strong></li>
+  <li>The parent : <strong>tosca.nodes.Database</strong></li>
+</ul>
+
+<div class="note">
+<p>It’s a good practice to inherit from a base type to create your own component when it’s possible. Here <strong>tosca.nodes.Database</strong>.</p>
+</div>
+
+<h2 id="properties">Properties</h2>
+
+<p>All properties required or optional to use the component.</p>
+
+<div data-gist="https://gist.github.com/OresteVisari/c99550fb9b4e54eb38b1.js"></div>
+
+<p>MySQL proper properties :</p>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Property</th>
+      <th style="text-align: left">Usage</th>
+      <th style="text-align: left">Comment</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">port</td>
+      <td style="text-align: left">port number injected in the MySQL installation</td>
+      <td style="text-align: left">Default : <strong>3306</strong></td>
+    </tr>
+    <tr>
+      <td style="text-align: left">storage_path</td>
+      <td style="text-align: left">path where the blockstorage is mounted in the compute</td>
+      <td style="text-align: left">Constant value with the Cloudify Driver version we use in this tutorial. All blockstorage attached to a compute will have this mounted volume.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">bind_address</td>
+      <td style="text-align: left">Allow remote access to your server</td>
+      <td style="text-align: left">Default : <strong>true</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Properties inherited from its parent : <em>tosca.nodes.Database</em></p>
+
+<p>Here we are overriding those properties from parent component and we describe a database with a user we want to create at initialization.</p>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Property</th>
+      <th style="text-align: left">Usage</th>
+      <th style="text-align: left">Comment</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">db_name</td>
+      <td style="text-align: left">Database name we want to create</td>
+      <td style="text-align: left"><em>wordpress</em> to match to our final application case</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">db_user</td>
+      <td style="text-align: left">Name of the user who will have rights on this database</td>
+      <td style="text-align: left">This user will have all privileges on this dedicated database</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">db_password</td>
+      <td style="text-align: left">Password for this user</td>
+      <td style="text-align: left">…</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="lifecycle-and-related-scripts">Lifecycle and related scripts</h2>
+
+<div data-gist="https://gist.github.com/OresteVisari/521640547934b1f8ee39.js"></div>
+
+<p>The real script you will run during you different component life steps. Two main steps here in <em>operations</em> bloc :</p>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Operation</th>
+      <th style="text-align: left">Usage</th>
+      <th style="text-align: left">Comment</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">create</td>
+      <td style="text-align: left">Executed script to install MySQL on the server</td>
+      <td style="text-align: left">Through apt-get on you ubuntu image</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">start</td>
+      <td style="text-align: left">Executed script to configure MySQL to use a specific storage path (the blockstorage)</td>
+      <td style="text-align: left">Configured and started with specific ubuntu hints (rights concerns)</td>
+    </tr>
+  </tbody>
+</table>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.1.0/devops_guide/lamp_stack_tutorial/lamp_stack_mysql.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-3.1.0', 'documentation/3.1.0/devops_guide/lamp_stack_tutorial/lamp_stack_mysql.markdown');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

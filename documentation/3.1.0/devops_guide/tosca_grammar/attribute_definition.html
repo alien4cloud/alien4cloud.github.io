@@ -1,0 +1,135 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/3.1.0/devops_guide/tosca_grammar/attribute_definition.html',
+  title: 'Attribute definition'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Attribute definition</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.1.0/devops_guide/tosca_grammar/attribute_definition.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <p>An attribute definition defines a named, typed value that can be associated with an entity defined in this specification (e.g., a Node Type or Relationship Type).  Specifically, it is used to expose a value that is set by the orchestrator after the entity has been instantiated (as part of an instance model).  Typically, this value can be retrieved via a function from the instance model and used as inputs to other entities or implementation artifacts.</p>
+
+<h2 id="keynames">Keynames</h2>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th style="text-align: left">Keyname</th>
+      <th style="text-align: left">Required</th>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Description</th>
+      <th style="text-align: left">tosca_definitions_version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">type <strong>(1)</strong></td>
+      <td style="text-align: left">yes</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">The required data type for the attribute.</td>
+      <td style="text-align: left">alien_dsl_1_3_0<br /> alien_dsl_1_2_0<br /> tosca_simple_yaml_1_0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">description</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">The optional description for the attribute.</td>
+      <td style="text-align: left">alien_dsl_1_3_0<br /> alien_dsl_1_2_0<br /> tosca_simple_yaml_1_0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">default</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">N.A.</td>
+      <td style="text-align: left">An optional key that may provide a value to be used as a default if not provided by another means. This value SHALL be type compatible with the type declared by the attribute definition’s type keyname.</td>
+      <td style="text-align: left">alien_dsl_1_3_0<br /> alien_dsl_1_2_0<br /> tosca_simple_yaml_1_0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">status <strong>(2)</strong></td>
+      <td style="text-align: left">no (default supported)</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">The optional status of the attribute relative to the specification or implementation.  See supported status values defined under the <a href="#/documentation/3.0.0/devops_guide/tosca_grammar/property_definition.html">property definition</a> section.</td>
+      <td style="text-align: left">N.A.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">entry_schema <strong>(1)</strong></td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">The optional key that is used to declare the name of the Datatype definition for entries of set types such as the TOSCA list or map.</td>
+      <td style="text-align: left">N.A.</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li><strong>(1)</strong> Alien 4 cloud currently support primitive types only on an attribute. Entry schema is therefore not supported as it is used only to specify the type of entries for the complex list and map types.</li>
+  <li><strong>(2)</strong> Status has been added in the latest versions of the specification and is not yet supported in alien4cloud. Table below details the supported values as defined in the TOSCA specification.</li>
+</ul>
+
+<h2 id="grammar">Grammar</h2>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">&lt;attribute_name&gt;</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;attribute_type&gt;</span>
+  <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;attribute_description&gt;</span>
+  <span class="l-Scalar-Plain">default</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;attribute_default_value&gt;</span></code></pre></div>
+
+<h2 id="example">Example</h2>
+
+<p>The following example shows how to define a node type with attributes:</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">node_types</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">fastconnect.nodes.AttributeSample</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">attributes</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">property_1</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">string</span>
+      <span class="l-Scalar-Plain">property_2</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">string</span>
+        <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">this is the second attribute of the node</span>
+        <span class="l-Scalar-Plain">default</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">This is the default value of the attribute</span>
+      <span class="l-Scalar-Plain">property_3</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">integer</span>
+        <span class="l-Scalar-Plain">default</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">45</span></code></pre></div>
+
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.1.0/devops_guide/tosca_grammar/attribute_definition.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-3.1.0', 'documentation/3.1.0/devops_guide/tosca_grammar/attribute_definition.md');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

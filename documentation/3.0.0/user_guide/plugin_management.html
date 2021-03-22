@@ -99,6 +99,96 @@ In previous version of alien4cloud a migration tool was provided to ensure plugi
 This behavior will however be improved in next versions and plugins will be responsible of their shutdown management before a plugin is disabled.</p>
 </div>
 
+<h1 id="plugins-list">Plugins list</h1>
+
+<p>This table lists the currenty supported and used plugins :</p>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th style="text-align: left">Plugin</th>
+      <th style="text-align: left">Description</th>
+      <th style="text-align: left">Since version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><a href="https://github.com/alien4cloud/alien4cloud-premium-repository-plugins/">alien-maven-repository-plugin</a></td>
+      <td style="text-align: left">Maven Artifact Resolver Plugin</td>
+      <td style="text-align: left">1.3.0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="https://github.com/alien4cloud/alien4cloud-premium-repository-plugins/">alien-git-repository-plugin</a></td>
+      <td style="text-align: left">Git Artifact Resolver Plugin</td>
+      <td style="text-align: left">1.3.0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="https://github.com/alien4cloud/alien4cloud-repository-plugins">alien-http-repository-plugin</a></td>
+      <td style="text-align: left">HTTP Artifact Resolver Plugin</td>
+      <td style="text-align: left">1.3.0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="https://github.com/alien4cloud/alien4cloud-premium-repository-plugins">alien4cloud-premium-workspace</a></td>
+      <td style="text-align: left">Alien 4 Cloud Premium Workspaces</td>
+      <td style="text-align: left">1.3.0.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="https://github.com/alien4cloud/alien4cloud-vault-plugin">alien-vault-plugin</a></td>
+      <td style="text-align: left">Integration to HashiCorp Vault</td>
+      <td style="text-align: left">2.0.0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="https://github.com/alien4cloud/alien4cloud-workflow-scheduler">alien4cloud-workflow-scheduler-plugin</a></td>
+      <td style="text-align: left">Scheduler topology processing plugin using cron executions on Orchestrator</td>
+      <td style="text-align: left">2.1.0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="https://github.com/alien4cloud/alien4cloud-yorc-provider">alien4cloud-yorc-provider</a></td>
+      <td style="text-align: left">Yorc Orchestrator Provider, manages interactions with a running Yorc instance.</td>
+      <td style="text-align: left">2.2.0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="https://github.com/alien4cloud/alien4cloud-kubernetes-plugin">alien4cloud-kubernetes-plugin</a></td>
+      <td style="text-align: left">Allows transformation of a TOSCA generic topology into a specific kubernetes topology. It contains support for topology and policies modification.</td>
+      <td style="text-align: left">2.2.0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="https://github.com/alien4cloud/alien4cloud-k8s-spark-jobs">alien4cloud-k8s-spark-jobs</a></td>
+      <td style="text-align: left">Features Spark job modelization for running into Kubernetes cluster</td>
+      <td style="text-align: left">3.0.0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="https://github.com/alien4cloud/alien4cloud-kafka-listener">alien4cloud-kafka-listener</a></td>
+      <td style="text-align: left">Subscribes to Kafka Messages. Features application workflow launches, service creation, git repositories pull</td>
+      <td style="text-align: left">3.0.0</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>These 2 sample plugins illustrate how plugins can be used and implemented  :</p>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th style="text-align: left">Plugin</th>
+      <th style="text-align: left">Description</th>
+      <th style="text-align: left">Since version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><a href="https://github.com/alien4cloud/sample-topology-validator-plugin">sample-topology-validator-plugin</a></td>
+      <td style="text-align: left">A sample plugin that checks topology nodes name (minimum length and pattern)</td>
+      <td style="text-align: left">2.2.0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="https://github.com/alien4cloud/alien4cloud-plugin-sample">alien4cloud-plugin-sample</a></td>
+      <td style="text-align: left">Set of modules that illustrate how to write plugin with backend and UI, wizard addon, topology modifier:</td>
+      <td style="text-align: left">1.3.0</td>
+    </tr>
+  </tbody>
+</table>
+
         <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.0.0/user_guide/plugin_management.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
 	  </div>
     </div>

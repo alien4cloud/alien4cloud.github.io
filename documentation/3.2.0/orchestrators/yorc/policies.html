@@ -1,0 +1,281 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/3.2.0/orchestrators/yorc/policies.html',
+  title: 'Applying policies'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Applying policies</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.2.0/orchestrators/yorc/policies.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <p>Yorc provides natively the following policies:</p>
+
+<ul>
+  <li>Monitoring policies (HTTP/TCP).</li>
+  <li>Affinity/Anti-Affinity OpenStack ServerGroup placement policies.</li>
+  <li>Weight-balanced and bin-packing Hosts Pool placement policies.</li>
+</ul>
+
+<p>Let’s see how we can apply these on apps:</p>
+
+<ul>
+  <li><a href="#applying-a-server-group-anti-affinity-placement-policy-on-openstack">Server Group Anti-affinity placement policy on OpenStack</a></li>
+  <li><a href="#applying-tcp-monitoring-policy">TCP monitoring policy</a></li>
+  <li><a href="#applying-http-monitoring-policy-on-a-web-application">HTTP monitoring policy</a></li>
+  <li><a href="#applying-hosts-pool-placement-policies">Weight-balanced and bin-packing Hosts pool placement policies</a></li>
+</ul>
+
+<h2 id="applying-a-server-group-anti-affinity-placement-policy-on-openstack">Applying a Server Group Anti affinity placement policy on OpenStack</h2>
+
+<p>Let’s imagine the use case of a resilient application on OpenStack:</p>
+
+<p>This application is scalable but to enhance HA, you want each app instance located in a different physical machine. So, if a breakdown occurs on one specific host, it doesn’t touch all app instances but only one.</p>
+
+<p>This can be done by applying <strong>yorc.openstack.policies.ServerGroupAntiAffinity</strong> on OpenStack.</p>
+
+<p>Let’s do it !</p>
+
+<h3 id="configure-location-policies">Configure location policies</h3>
+
+<p>After configuring your OpenStack location as described previously click on the <img src="../../../../images/3.2.0/yorc/policies-button.png" alt="policies button" height="26px" class="inline" /> button, select <strong>Catalog</strong> and use the search to find the ServerGroupAntiAffinity as below.</p>
+
+<p><img src="../../../../images/3.2.0/yorc/search-servergroup-policy.png" alt="Search serverGroup policy" /></p>
+
+<p>Next, drag-and-drop the policy in the <strong>Policies</strong> resources list of your OpenStack location. Rename the resource, for example <strong>ServerGroupAntiAffinity</strong>. Set the <strong>level</strong> property to <strong>host</strong> as it’s a policy placement of <strong>host</strong> type by opposition to <strong>zone</strong> or <strong>region</strong> placement.</p>
+
+<p>You can set the strict property to false (by default, this is set to true) if you accept that your deployment will be successful even if some instances are co-located. Take care this is only possible if your OpenStack environment support Compute service API 2.15 or above.</p>
+
+<p>You must finally have this configuration:</p>
+
+<p><img src="../../../../images/3.2.0/yorc/servergroup-policy-resource.png" alt="Configure your serverGroup policy" /></p>
+
+<p>Now, your OpenStack location is configured with a Server Group anti-affinity placement policy.</p>
+
+<h3 id="edit-application-topology">Edit application topology</h3>
+
+<p>You can apply a Server Group anti-affinity placement policy to your application topology by using an abstract policy ; this allows to deploy your application on OpenStack, as well as on GCP, if another specific placement policy is implemented for GCP too.</p>
+
+<p>Select your application and go to the <strong>Topology Editor</strong>. Click on the <img src="../../../../images/3.2.0/yorc/topology-policies-button.png" alt="policies button" height="52px" class="inline" /> button on the vertical blue bar on the right. Click on the <strong>+ Add policies</strong> button, search the abstract policy node <strong>AntiAffinity</strong> (org.alien4cloud.policies.AntiAffinity) from alien-base-types and drag-and-drop it on the policies list of your topology.</p>
+
+<p>Set the <strong>level</strong> property to <strong>host</strong>.</p>
+
+<p>Then you can select the <strong>Targets</strong> of the placement policy, i.e in this case, the node name of the compute instances you want not to be located on the same host.</p>
+
+<p>Valid targets for applying <strong>ServerGroupAntiAffinity</strong> are:</p>
+
+<ul>
+  <li>One scalable compute node template (having tosca.nodes.Compute type) with at least two as max instances number.</li>
+  <li>At least two different compute node templates, not necessarily scalable.</li>
+</ul>
+
+<p><img src="../../../../images/3.2.0/yorc/placement-topology-editor.png" alt="Add abstract anti-affinity policy to your topology application" /></p>
+
+<p>That’s it ! You just have to check the correct policy matching after choosing the Openstack location as the <strong>ServerGroupAntiAffinity</strong> derives from <strong>org.alien4cloud.policies.Affinity</strong></p>
+
+<p>Deploy the application and enjoy !</p>
+
+<p><img src="../../../../images/3.2.0/yorc/policy-matching.png" alt="Policy matching before deploying application" /></p>
+
+<h2 id="applying-tcp-monitoring-policy">Applying TCP Monitoring policy</h2>
+
+<p>The TCP Monitoring policy can be used for monitoring Compute instances liveness.</p>
+
+<p>To enable TCP monitoring, you need to configure the location by adding <strong>yorc.policies.monitoring.TCPMonitoring</strong> to the <strong>Policies</strong> resource list.</p>
+
+<p>Moreover, in the application topology, the Compute nodes need to have <strong>yorc.policies.monitoring.TCPMonitoring</strong> policy set and configured.</p>
+
+<h3 id="configure-location-policies-1">Configure location policies</h3>
+
+<p>After configuring your OpenStack location as described previously click on the <img src="../../../../images/3.2.0/yorc/policies-button.png" alt="policies button" height="26px" class="inline" /> button, select <strong>Catalog</strong> and use the search to find the TCPMonitoring as below.</p>
+
+<p><img src="../../../../images/3.2.0/yorc/search-tcpmonitoring-policy.png" alt="Search TCP monitoring policy" /></p>
+
+<p>Next, drag-and-drop the policy in the <strong>Policies</strong> resources list of your location. Rename the resource, for example <strong>TCPMonitoring</strong>.</p>
+
+<p>You must finally have this configuration:</p>
+
+<p><img src="../../../../images/3.2.0/yorc/tcpmonitoring-policy-resource.png" alt="Configure your TCP monitoring policy" /></p>
+
+<h3 id="edit-application-topology-1">Edit application topology</h3>
+
+<p>Select your application and go to the <strong>Topology Editor</strong>. Click on the <img src="../../../../images/3.2.0/yorc/topology-policies-button.png" alt="policies button" height="52px" class="inline" /> button on the vertical blue bar on the right. Click on the <strong>+ Add policies</strong> button, search the policy node <strong>TCPMonitoring</strong> (yorc.policies.monitoring.TCPMonitoring) and drag-and-drop it on the policies list of your topology.</p>
+
+<p>Then you can select the <strong>Targets</strong> of the policy, i.e in this case, the node name of the compute instances you want not to be monitored, which is <strong>Compute</strong>.</p>
+
+<p><img src="../../../../images/3.2.0/yorc/tcpmonitoring-topology-editor.png" alt="Add TCP monitoring policy to your application topology" /></p>
+
+<p>Deploy your application and check in the runtime view the logs concerning the node <strong>Compute</strong>. You should find a message like this:</p>
+
+<blockquote>
+  <p><strong>[2019-04-09 15:15:31] [] [Compute] Monitoring Check is back to normal for node (Compute-0)</strong></p>
+</blockquote>
+
+<p>In case the node goes down, you should find a message like this:</p>
+
+<blockquote>
+  <p><strong>[2019-04-09 15:26:31] [] [Compute] Monitoring Check returned a failure for node (Compute-0)</strong></p>
+</blockquote>
+
+<p>In case the node comes back, you should find the message:</p>
+
+<blockquote>
+  <p><strong>[2019-04-09 15:28:31] [] [Compute] Monitoring Check is back to normal for node (Compute-0)</strong></p>
+</blockquote>
+
+<h2 id="applying-http-monitoring-policy-on-a-web-application">Applying HTTP Monitoring policy on a web application</h2>
+
+<p>The HTTP Monitoring policy can be used by a web application in order to be informed when the web server is down.</p>
+
+<p>To enable HTTP monitoring, you need to configure the location by adding <strong>yorc.policies.monitoring.HTTPMonitoring</strong> policy on any location.</p>
+
+<p>Moreover, the application topology, the web server nodes need to have <strong>yorc.policies.monitoring.HTTPMonitoring</strong> policy set and configured.</p>
+
+<h3 id="configure-location-policies-2">Configure location policies</h3>
+
+<p>After configuring your OpenStack location as described previously, click on the <img src="../../../../images/3.2.0/yorc/policies-button.png" alt="policies button" height="52px" class="inline" /> button, select <strong>Catalog</strong> and use the search to find the HTTPMonitoring as below.</p>
+
+<p><img src="../../../../images/3.2.0/yorc/search-httpmonitoring-policy.png" alt="Search HTTP monitoring policy" /></p>
+
+<p>Next, drag-and-drop the policy in the <strong>Policies</strong> resources list of your location. Rename the resource, for example <strong>HTTPMonitoring</strong>.</p>
+
+<p>You must finally have this configuration:</p>
+
+<p><img src="../../../../images/3.2.0/yorc/httpmonitoring-policy-resource.png" alt="Configure your HTTP monitoring policy" /></p>
+
+<h3 id="edit-application-topology-2">Edit application topology</h3>
+
+<p>Let’s deploy the <strong>Welcome Application</strong> as seen before here &lt;welcome_app_section&gt; and let’s configure our HTTP monitoring policy.</p>
+
+<p>Select your application and go to the <strong>Topology Editor</strong>.</p>
+
+<p>Click on the <img src="../../../../images/3.2.0/yorc/topology-policies-button.png" alt="policies button" /> button on the vertical blue bar on the right.</p>
+
+<p>Click on the <strong>+ Add policies</strong> button, search the policy node <strong>httpMonitoring</strong> (yorc.policies.monitoring.HTTPMonitoring) from yorc-types and drag-and-drop it on the policies list of your topology.</p>
+
+<p>A valid <strong>target</strong> type for applying <strong>yorc.policies.monitoring.HTTPMonitoring</strong> is <strong>tosca.nodes.SoftwareComponent</strong>.</p>
+
+<p>Next, you just need to add the <strong>Welcome</strong> node template as target of the policy and set the policy properties as below:</p>
+
+<p>The <strong>scheme</strong> property allows to select http or https protocol.</p>
+
+<p>The <strong>port</strong> property allows to set the port of your web application you want to monitor.</p>
+
+<p>The <strong>path</strong> and <strong>http_headers</strong> properties allows to specify an URL path and HTTP headers to use for sending request to the web application.</p>
+
+<p>The <strong>time_interval</strong> property let you define how often the application must be checked.</p>
+
+<p><img src="../../../../images/3.2.0/yorc/configure-http-monitoring-policy.png" alt="Configure HTTP Monitoring policy" /></p>
+
+<p>Once the application is deployed, you can simulate the <strong>Welcome</strong> web server failure by running the <strong>KillWebServer</strong> custom workflow and depending the time_interval you specified, you can rapidly (or not…) observe the Welcome node in Error State in the runtime view and the following log:</p>
+
+<blockquote>
+  <p><strong>[2019-04-09 15:15:31] [] [Welcome] Monitoring Check returned a failure for node (Welcome-0)</strong></p>
+</blockquote>
+
+<p><img src="../../../../images/3.2.0/yorc/welcome-error.png" alt="Welcome component in stopped state" /></p>
+
+<p>Next, by running the <strong>startWebServer</strong> custom workflow, you restart the web server and can observe the <strong>Welcome</strong> node is backed to normal:</p>
+
+<blockquote>
+  <p><strong>[2019-04-10 11:12:24] [] [Welcome] Monitoring Check is back to normal for node (Welcome-0)</strong></p>
+</blockquote>
+
+<p><img src="../../../../images/3.2.0/yorc/welcome-ok.png" alt="Welcome component in started state" /></p>
+
+<p>The next step will be to fix this by a self-healing policy !</p>
+
+<h2 id="applying-hosts-pool-placement-policies">Applying Hosts Pool Placement Policies</h2>
+
+<p>On a Hosts Pool location, you can provide hosts as Computes and specify if a host is shareable and so can be used by different applications or different Computes of the same application.</p>
+
+<p>Now, with placement policies applied on an application, you can define how to choose the good host candidate for your Compute.</p>
+
+<p>Two policies are available:</p>
+
+<ul>
+  <li><strong>yorc.policies.hostspool.BinPackingPlacement</strong></li>
+  <li><strong>yorc.policies.hostspool.WeightBalancedPlacement</strong></li>
+</ul>
+
+<p><strong>BinPackingPlacement</strong> is the default policy if nothing is specified.</p>
+
+<p>It means the host the more allocated will be elect preferentially, i.e a host that was already allocated to the greatest number of Computes.</p>
+
+<p>On the contrary, the <strong>weight-balanced placement</strong> policy allows to choose preferentially the host the less allocated in order to balance allocations between all shareable hosts.</p>
+
+<h3 id="configure-location-policies-3">Configure location policies</h3>
+
+<p>After configuring your HostsPool location as described previously click on the <img src="../../../../images/3.2.0/yorc/policies-button.png" alt="policies button" height="26px" class="inline" /> button, select <strong>Catalog</strong> and use the search to find <strong>policies.hostspool</strong> as below.</p>
+
+<p><img src="../../../../images/3.2.0/yorc/search-hostspool-policy.png" alt="Search hosts pool policies" /></p>
+
+<p>Next, drag-and-drop the <strong>BinPackingPlacement</strong> and the <strong>WeightBalancedPlacement</strong> policies in the <strong>Policies</strong> resources list of your HostsPool location.</p>
+
+<p>You must finally have this configuration:</p>
+
+<p><img src="../../../../images/3.2.0/yorc/hostspool-policy-resource.png" alt="Configure your hosts pool policies" /></p>
+
+<p>Now, your hosts pool location is configured with placement policies !</p>
+
+<h3 id="edit-application-topology-3">Edit application topology</h3>
+
+<p>You can apply a weight-balanced placement policy to your application topology by using an abstract policy: the <strong>tosca.policies.Placement</strong>.</p>
+
+<p>This allows to deploy your application on Hosts pool, as well as on GCP, if another specific placement policy is implemented for GCP too.</p>
+
+<p>Select your application and go to the <strong>Topology Editor</strong>. Click on the <img src="../../../../images/3.2.0/yorc/topology-policies-button.png" alt="policies button" height="52px" class="inline" /> button on the vertical blue bar on the right. Click on the <strong>+ Add policies</strong> button, search the abstract policy node <strong>Placement</strong> (tosca.policies.Placement) and drag-and-drop it on the policies list of your topology.</p>
+
+<p>Then you can select the <strong>Targets</strong> of the placement policy, i.e in this case, the node name of the compute on which will be applied the placement policy.</p>
+
+<p><img src="../../../../images/3.2.0/yorc/placement-abstract-topology-editor.png" alt="Add placement policy to your application topology" /></p>
+
+<h3 id="manage-current-deployment">Manage current deployment</h3>
+
+<p>Once you choose the <strong>hosts pool location</strong> for deploying your application, in case of multiple hostspool placement policies, you have to choose the one you want during the <strong>Policies Matching</strong> step.</p>
+
+<p><img src="../../../../images/3.2.0/yorc/hostspool-policies-matching.png" alt="Select your policy during policies matching step" /></p>
+
+<p>That’s it ! you can deploy your application: the weight-balanced placement policy will be applied on the 2 instances of the Compute node.</p>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.2.0/orchestrators/yorc/policies.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-3.2.0', 'documentation/3.2.0/orchestrators/yorc/policies.markdown');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

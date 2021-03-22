@@ -1,0 +1,185 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/3.1.0/devops_guide/tosca_grammar/constraints.html',
+  title: 'Constraint clause'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Constraint clause</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.1.0/devops_guide/tosca_grammar/constraints.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <p>A constraint clause defines an operation along with one or more compatible values that can be used to define a constraint on a property’s or parameter’s allowed values.</p>
+
+<h2 id="available-constraints">Available constraints</h2>
+
+<p>The following is the list of recognized operators (keynames) when defining constraint clauses:</p>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th style="text-align: left">Operator</th>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Value type</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">equal</td>
+      <td style="text-align: left">scalar</td>
+      <td style="text-align: left">all</td>
+      <td style="text-align: left">Constrains a property or parameter to a value equal to (‘=’) the value declared.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">greater_than</td>
+      <td style="text-align: left">scalar</td>
+      <td style="text-align: left">comparable</td>
+      <td style="text-align: left">Constrains a property or parameter to a value greater than (‘&gt;’) the value declared.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">greater_or_equal</td>
+      <td style="text-align: left">scalar</td>
+      <td style="text-align: left">comparable</td>
+      <td style="text-align: left">Constrains a property or parameter to a value greater than or equal to (‘&gt;=’) the value declared.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">less_than</td>
+      <td style="text-align: left">scalar</td>
+      <td style="text-align: left">comparable</td>
+      <td style="text-align: left">Constrains a property or parameter to a value less than (‘&lt;’) the value declared.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">less_or_equal</td>
+      <td style="text-align: left">scalar</td>
+      <td style="text-align: left">comparable</td>
+      <td style="text-align: left">Constrains a property or parameter to a value less than or equal to (‘&lt;=’) the value declared.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">in_range</td>
+      <td style="text-align: left">dual scalar</td>
+      <td style="text-align: left">comparable</td>
+      <td style="text-align: left">Constrains a property or parameter to a value in range of (inclusive) the two values declared.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">valid_values</td>
+      <td style="text-align: left">list</td>
+      <td style="text-align: left">all</td>
+      <td style="text-align: left">Constrains a property or parameter to a value that is in the list of declared values.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">length</td>
+      <td style="text-align: left">scalar</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Constrains the property or parameter to a value of a given length.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">min_length</td>
+      <td style="text-align: left">scalar     </td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Constrains the property or parameter to a value to a minimum length.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">max_length</td>
+      <td style="text-align: left">scalar</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Constrains the property or parameter to a value to a maximum length.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">pattern</td>
+      <td style="text-align: left">regex</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Constrains the property or parameter to a value that is allowed by the provided regular expression.</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="note info">
+<p>The value type comparable refers to integer, float , timestamp and version types, while all refers to any type allowed in the TOSCA simple profile in YAML.</p>
+</div>
+
+<div class="note info">
+<p>Regular expression language in Alien 4 Cloud (not specified in TOSCA currently) is Java regex.</p>
+</div>
+
+<h2 id="grammar">Grammar</h2>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="c1"># Scalar grammar</span>
+<span class="l-Scalar-Plain">&lt;operator&gt;</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;scalar_value&gt;</span>
+
+<span class="c1"># Dual scalar grammar</span>
+<span class="l-Scalar-Plain">&lt;operator&gt;</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span> <span class="nv">&lt;scalar_value_1&gt;</span><span class="p-Indicator">,</span> <span class="nv">&lt;scalar_value_2&gt;</span> <span class="p-Indicator">]</span>
+
+<span class="c1"># List grammar</span>
+<span class="l-Scalar-Plain">&lt;operator&gt;</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span> <span class="nv">&lt;value_1&gt;</span><span class="p-Indicator">,</span> <span class="nv">&lt;value_2&gt;</span><span class="p-Indicator">,</span> <span class="nv">...</span><span class="p-Indicator">,</span> <span class="nv">&lt;value_n&gt;</span> <span class="p-Indicator">]</span>
+
+<span class="c1"># Regular expression (regex) grammar</span>
+<span class="l-Scalar-Plain">pattern</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;regular_expression_value&gt;</span></code></pre></div>
+
+<h2 id="example">Example</h2>
+
+<p>The following example shows how to define a node type with constraints on properties:</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">node_types</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">fastconnect.nodes.ConstraintSample</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">properties</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">property_1</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">string</span>
+        <span class="l-Scalar-Plain">constraints</span><span class="p-Indicator">:</span>
+          <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">length</span> <span class="p-Indicator">:</span> <span class="l-Scalar-Plain">6</span>
+      <span class="l-Scalar-Plain">property_2</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">string</span>
+        <span class="l-Scalar-Plain">constraints</span><span class="p-Indicator">:</span>
+          <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">min_length</span> <span class="p-Indicator">:</span> <span class="l-Scalar-Plain">4</span>
+          <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">max_length</span> <span class="p-Indicator">:</span> <span class="l-Scalar-Plain">8</span>
+      <span class="l-Scalar-Plain">property_3</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">integer</span>
+        <span class="l-Scalar-Plain">constraints</span><span class="p-Indicator">:</span>
+          <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">in_range</span> <span class="p-Indicator">:</span> <span class="p-Indicator">[</span> <span class="nv">2</span><span class="p-Indicator">,</span> <span class="nv">10</span><span class="p-Indicator">]</span>
+      <span class="l-Scalar-Plain">property_4</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">integer</span>
+        <span class="l-Scalar-Plain">constraints</span><span class="p-Indicator">:</span>
+          <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">valid_values</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span> <span class="nv">2</span><span class="p-Indicator">,</span> <span class="nv">4</span><span class="p-Indicator">,</span> <span class="nv">6</span><span class="p-Indicator">,</span> <span class="nv">8</span><span class="p-Indicator">,</span> <span class="nv">16</span><span class="p-Indicator">,</span> <span class="nv">24</span><span class="p-Indicator">,</span> <span class="nv">32</span><span class="p-Indicator">]</span></code></pre></div>
+
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.1.0/devops_guide/tosca_grammar/constraints.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-3.1.0', 'documentation/3.1.0/devops_guide/tosca_grammar/constraints.md');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

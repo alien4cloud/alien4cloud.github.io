@@ -1,0 +1,65 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/3.2.0/orchestrators/yorc/index.html',
+  title: 'Yorc'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Yorc</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.2.0/orchestrators/yorc/index.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <h2 id="overview">Overview</h2>
+
+<p>The <a href="https://yorc.readthedocs.io/en/latest/index.html"><strong>Y</strong>stia <strong>Orc</strong>hestrator</a> provides applications lifecycle management over hybrid infrastructures​:</p>
+
+<ul>
+  <li>Infrastructure as a Service (Google Cloud, AWS, OpenStack, Hosts Pool)​</li>
+  <li>Container as a Service (Kubernetes)​</li>
+  <li>High Performance Computing (Slurm)</li>
+  <li>Applications and Components are written in TOSCA (Topology and Orchestration Specification for Cloud Applications), an OASIS consortium standard language to describe a topology of cloud based web services, their components and relationships, portable across infrastructures.</li>
+</ul>
+
+<p>A4C 3.0.X comes with a provider plugin that manages interactions with a running Yorc instance.</p>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.2.0/orchestrators/yorc/index.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-3.2.0', 'documentation/3.2.0/orchestrators/yorc/index.markdown');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

@@ -1,0 +1,187 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/3.1.0/concepts/modifiers.html',
+  title: 'Modifiers'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Modifiers</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.1.0/concepts/modifiers.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <h1 id="need">Need</h1>
+
+<p>A portable topology is designed to be deployable on any location the user wants to. In alien4cloud, it has to go through a number of configuration steps to be ready for deployment. These steps includes:</p>
+
+<ul>
+  <li>Providing inputs</li>
+  <li>Choosing the location</li>
+  <li>node and eventually policies matching according to what is provided by the location (on-demande resources and policies)</li>
+  <li>the deployment triggering itself.</li>
+</ul>
+
+<p>That is for the most common cases.</p>
+
+<p>However, there might be some cases when we need additional specific processing on the topology for it to be ready for deployment on a particular location, or simply, we want the application / topology deployed to behaves differently on certain point depending on the location on which it is deployed.</p>
+
+<p>A concrete example is policies handling. Handling and implementing an affinity or auto-scaling policy on Amazon EC2 is different to the same on Kubernetes.</p>
+
+<h1 id="topology-modifiers">topology modifiers</h1>
+
+<p>The concept of <code>topology modifiers</code> (commonly called <em>modifiers</em>) is to address the above need.</p>
+
+<p>A modifier is a piece of code, which takes a topology as input, perform some processing and, at the end of the day, returns the modified topology.
+The processing possibilities of the topology are really wide. The modifier can do almost everything it wants to:</p>
+
+<ul>
+  <li>Adding nodes (for examples monitoring agents on all computes)</li>
+  <li>Changing the types of the nodes (e.g: changing a container unit to a plain Kubernetes node)</li>
+  <li>Adding properties to nodes,</li>
+  <li>etc.</li>
+</ul>
+
+<p>For now in alien4cloud, there are two types of modifiers:</p>
+
+<ul>
+  <li>Location modifiers: associated to a location</li>
+  <li>policy modifier: associated to a policy.</li>
+</ul>
+
+<p>Either way, the modifier is to be plugged (call and executed) some were in the deployment configuration flow.</p>
+
+<h1 id="deployment-configuration-flow">Deployment configuration flow</h1>
+
+<p>As stated above, the main steps / phases of the deployment configuration are inputs providing, location Choosing, node matching and deployment triggering.</p>
+
+<p>So basically, we can identify some intermediate phases, or rather states, between them:</p>
+
+<ul>
+  <li>
+    <p><strong>pre-location-match</strong>: Just before the location matching is performed</p>
+  </li>
+  <li>
+    <p><strong>post-location-match</strong>: Right after the location matching is performed</p>
+  </li>
+  <li>
+    <p><strong>pre-inject-input</strong>: Just before the inputs are injected</p>
+  </li>
+  <li>
+    <p><strong>post-inject-input</strong>: Right after input injection</p>
+  </li>
+  <li>
+    <p><strong>pre-policy-match</strong>: Just before policy matching is performed</p>
+  </li>
+  <li>
+    <p><strong>post-policy-match</strong>: Right after the policy matching is performed</p>
+  </li>
+  <li>
+    <p><strong>pre-matched-policy-setup</strong>: Just before matched policies are configured (properties edition)</p>
+  </li>
+  <li>
+    <p><strong>post-matched-policy-setup</strong>: Right after matched policies are configured</p>
+  </li>
+  <li>
+    <p><strong>pre-node-match</strong>: Just before node matching is performed</p>
+  </li>
+  <li>
+    <p><strong>post-node-match</strong>: Right after node matching is performed</p>
+  </li>
+  <li>
+    <p><strong>pre-matched-node-setup</strong>: Just before matched nodes are configured (node and capabilities properties edition)</p>
+  </li>
+  <li>
+    <p><strong>post-matched-node-setup</strong>: Right after matched nodes are configured</p>
+  </li>
+</ul>
+
+<p><strong>TODO</strong>: Flow diagram of deployment configuration</p>
+
+<p>A modifier can be executed on one of the above phases. Thus a modifier plugged at <em>post-matched-policy-setup</em> will be executed right after the properties of the matched policy template will be injected.</p>
+
+<h1 id="implementation-and-packaging">Implementation and packaging</h1>
+
+<p>Defining a modifier results into providing an implementation of the interface <a href="https://github.com/alien4cloud/alien4cloud/blob/3.0.0-RC1/alien4cloud-core/src/main/java/org/alien4cloud/alm/deployment/configuration/flow/ITopologyModifier.java">org.alien4cloud.alm.deployment.configuration.flow.ITopologyModifier.java</a></p>
+
+<p>As for the packaging, it is done as a <a href="/#/developer_guide/plugin.html">plugin</a>.
+The modifier bean should be accessible in the plugin context once this one is loaded.</p>
+
+<h2 id="location-modifier">Location modifier</h2>
+<p>For location modifiers, make sure to expose the component via the <strong>component_descriptors</strong> of the plugin.yml file.</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">component_descriptors</span><span class="p-Indicator">:</span>
+  <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">bean_name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">kubernetes-modifier</span>
+    <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Kubernetes modifier.</span>
+    <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="p-Indicator">&gt;</span>
+      <span class="no">Topology modifier that transform a generic topology into a Kubernetes topology.</span>
+      <span class="no">Insert this modifier to post-location-match phase. Note that you MUST also insert the kubernetes-final-modifier to your location.</span></code></pre></div>
+
+<p>You then have to link it to a location, and specify the execution phase you want:</p>
+
+<p><img src="../../images/kubernetes_walkthrough/location_modifiers.png" alt="Location modifiers" /></p>
+
+<h2 id="policy-modifier">Policy modifier</h2>
+<p>For policies modifiers, it is a bit tricky (we will improve that as we go).
+The concrete policy type (on-demand policy template) is shipped in alien4cloud either via a plugin archive, or via a simple common archive. Either way, you must add to the policy type a specific metadata tag <code>a4c_policy_impl</code> to express which modifier is linked to it, and on which deployment phase it should be injected:</p>
+
+<p><strong><em><code>pluginId:pluginBean:phase</code></em></strong> where:</p>
+
+<ul>
+  <li><strong>pluginId</strong>: the id of the plugin in which the modifier is packaged</li>
+  <li><strong>pluginBean</strong>: The name of the modifier bean in the plugin context</li>
+  <li><strong>phase</strong>: The deployment phase on which the modifier is injected</li>
+</ul>
+
+<p>for example the kubernetes AntiAffinity policy:</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">policy_types</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">org.alien4cloud.kubernetes.api.policies.AntiAffinityLabel</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">derived_from</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">org.alien4cloud.policies.AntiAffinity</span>
+    <span class="l-Scalar-Plain">metadata</span><span class="p-Indicator">:</span>
+      <span class="c1"># pluginId: alien4cloud-kubernetes-plugin</span>
+      <span class="c1"># pluginBean: kubernetes-anti-affinity-modifier</span>
+      <span class="c1"># phase: post-node-match</span>
+      <span class="l-Scalar-Plain">a4c_policy_impl</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">alien4cloud-kubernetes-plugin:kubernetes-anti-affinity-modifier:post-node-match</span></code></pre></div>
+
+<p>When an abstract policy is matched against this concrete one, alien4cloud will look into that tag to see if a modifier has been specify. If so, it will load it from the related plugin and inject it in the proper flow phase.</p>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.1.0/concepts/modifiers.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-3.1.0', 'documentation/3.1.0/concepts/modifiers.md');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

@@ -1,0 +1,425 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/3.1.0/orchestrators/kubernetes/examples.html',
+  title: 'Examples'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Examples</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.1.0/orchestrators/kubernetes/examples.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <h2 id="prerequisites">Prerequisites</h2>
+
+<div class="note info">
+<p>In this page, we will use AWS features so you will need a Kubernetes cluster integrated with a AWS account.
+However if you want to deploy a basic Kubernetes cluster you can use our TOSCA types based on kubeadm which can be found <a href="https://github.com/alien4cloud/csar-public-library/tree/develop/org/alien4cloud/kubernetes/kubeadm">here</a></p>
+</div>
+
+<p>To deploy onto Kubernetes cluster through ALIEN, you will need:</p>
+
+<ul>
+  <li>A Kubernetes cluster deployed on AWS with AWS extensions (ability to provision EBS) with at least 2 nodes</li>
+  <li>A Yorc orchestrator:
+    <ul>
+      <li>the binary <a href="https://kubernetes.io/docs/tasks/tools/install-kubectl/">kubectl</a> must be installed on the manager.</li>
+      <li>the K8S cluster config file must be placed in <code>/etc/kubernetes/admin.conf</code>.</li>
+      <li>the K8S cluster API must be reachable from the manager.</li>
+    </ul>
+  </li>
+  <li>An alien with:
+    <ul>
+      <li>a valid orchestrator linked to the CFY manager with an AWS location.</li>
+      <li>the kubernetes plugin</li>
+      <li>the http repository plugin (the samples use an http repository)</li>
+      <li>the following archives imported from GIT:
+        <ul>
+          <li>https://github.com/alien4cloud/tosca-normative-types.git branch <strong>3.0.0-SNAPSHOT</strong></li>
+          <li>https://github.com/alien4cloud/alien4cloud-extended-types.git branch <strong>3.0.0-SNAPSHOT</strong> folder <strong>alien-base-types</strong></li>
+          <li>https://github.com/alien4cloud/docker-tosca-types.git <strong>3.0.0-SNAPSHOT</strong> folder <strong>docker-types</strong></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="location-configuration">Location configuration</h2>
+
+<p>You’ll need to setup a location in order to be able to deploy onto a K8S cluster. Let’s create an AWS location on a Yorc orchestrator.</p>
+
+<h3 id="topology-modifiers">Topology modifiers</h3>
+
+<p>You’ll need to setup modifiers on your location. On the location screen, in the <strong>Topology Modifier</strong> tab:</p>
+
+<ul>
+  <li>add a <strong>Kubernetes modifier</strong> at the phase <code>post-location-match</code></li>
+  <li>add a <strong>Kubernetes spec generator modifier</strong> at the phase <code>post-matched-node-setup</code></li>
+</ul>
+
+<div class="note info">
+<p>The phase define the deployment flow step where the modifier will act upon the topology. The <strong>Kubernetes modifier</strong> will act at the <code>post-location-match</code> phase, ie. just after you have selected the location during deployment. The <strong>Kubernetes spec generator modifier</strong> will act at the <code>post-matched-node-setup</code> phase ie. just after the matched nodes are configured by the user.</p>
+</div>
+
+<p><img src="../../images/kubernetes_walkthrough/location_modifiers.png" alt="Location modifiers" /></p>
+
+<p>The fisrt modifier will transform your abstract components (deployment units, containers) into kubernetes abstract nodes (deployment, services …). The second one will generate types that are ready to be deployed onto a Kubernetes cluster.</p>
+
+<h3 id="on-demand-resources">On demand resources</h3>
+
+<p>You will need to setup some Kubernetes On demand resources on the location. You will find them in the catalog (search for ‘kube’) :</p>
+
+<ul>
+  <li><code>org.alien4cloud.kubernetes.api.types.Container</code> : it will be used to match and optionally configure Kubernetes containers.</li>
+  <li><code>org.alien4cloud.kubernetes.api.types.Deployment</code> : it will be used to match and optionally configure Kubernetes deployments (AKA Pods).</li>
+  <li><code>org.alien4cloud.kubernetes.api.types.Service</code> : it will be used to match and optionally configure Kubernetes services (used to connect containers and to expose endpoint).</li>
+</ul>
+
+<p>For volumes, you can add the followings resources :</p>
+
+<ul>
+  <li><code>org.alien4cloud.kubernetes.api.types.volume.AWSElasticBlockStoreVolumeSource</code></li>
+  <li><code>org.alien4cloud.kubernetes.api.types.volume.EmptyDirVolumeSource</code></li>
+  <li><code>org.alien4cloud.kubernetes.api.types.volume.HostPathVolumeSource</code></li>
+  <li><code>org.alien4cloud.kubernetes.api.types.volume.PersistentVolumeClaimSource</code></li>
+</ul>
+
+<p>We will explain these different kind of K8S volumes implementations.</p>
+
+<h3 id="policies">Policies</h3>
+
+<p>In the location tab <strong>Policies</strong>, you can add the following policies provided by the Kubernetes plugin (you will find them in the catalog):</p>
+
+<ul>
+  <li><code>org.alien4cloud.kubernetes.api.policies.AntiAffinityLabel</code></li>
+  <li><code>org.alien4cloud.kubernetes.api.policies.AutoscalingPolicy</code></li>
+  <li><code>org.alien4cloud.kubernetes.api.policies.NodeAffinityLabel</code></li>
+</ul>
+
+<p><img src="../../images/kubernetes_walkthrough/location-policies.png" alt="Location policies" /></p>
+
+<h1 id="examples-walkthrough">Examples walkthrough</h1>
+
+<p>All the samples bellow can be found in the <a href="https://github.com/alien4cloud/samples/tree/master/org/alien4cloud/doc/kube">samples</a> repository https://github.com/alien4cloud/samples (folder org/alien4cloud/doc/kube)</p>
+
+<h2 id="a-simple-apache-container">A simple Apache container</h2>
+
+<p>Our first trivial topology help us validate our setup : a single Apache container. You can find it <a href="https://github.com/alien4cloud/samples/tree/master/org/alien4cloud/doc/kube/topology/01-simple-apache">here</a> (or use the <strong>01-simple-apache</strong> if you have imported the samples).</p>
+
+<p><img src="../../images/kubernetes_walkthrough/topo-01-simple-apache.png" alt="Topology" style="width: 200px; margin: 0 auto" /></p>
+
+<div class="note info">
+<p>You can see that our node named <strong>Container</strong> of type <code>org.alien4cloud.extended.container.types.ContainerRuntime</code> is not hosted on a <code>ContainerDeploymentUnit</code>. Since a container can not be deployed without being hosted on a Pod in K8S, the modifier will create for you a <code>ContainerDeploymentUnit</code> for each ‘orphan’ container.</p>
+</div>
+
+<p>Deploy it using the location you have setup. The topology transformed by the first modifier will contain abstract kubernetes nodes that will be auto matched with the concrete on demand resource you have setup before.</p>
+
+<p>At kubernetes level few things will be started:</p>
+
+<ul>
+  <li>a kubernetes deployment containing your container.</li>
+  <li>a service of type NodePort, exposing the apache endpoint.</li>
+</ul>
+
+<div class="note info">
+<p>For each endpoint found in the topology, the topology modifier will create a service of type NodePort. This allow others containers to connect to underlying endpoint and eventually to connect to the endpoint from outside the cluster.</p>
+</div>
+
+<div class="note warning">
+<p>For the moment, we don’t expose automatically endpoint to the outside. We only use services of type <a href="https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport">NodePort</a> that open a port on the hosting node. You’ll have to change your security rules if you want to access your endpoint from outside.</p>
+
+<p>Find the service on the Kubernetes dashboard and open the yaml.
+<br />
+<img src="../../images/kubernetes_walkthrough/k8s-service-find.png" alt="Services" />
+<br />
+Find the <strong>nodePort</strong> value.</p>
+
+<p><img src="../../images/kubernetes_walkthrough/k8s-service-nodePort.png" alt="ServiceNodePort" /></p>
+
+<p>Open this port on all the nodes of your cluster if you want to access to your endpoint (use a dedicated security group that is associated to all your cluster nodes).</p>
+</div>
+
+<p>You can test your apache using one of the cluster node public IP and the nodePort exposed by your service.
+<br />
+<img src="../../images/kubernetes_walkthrough/working-apache.png" alt="ServiceNodePort" style="width: 400px; margin: 0 auto" /></p>
+
+<div class="note info">
+<p>When a endpoint is exposed by a service, it is joinable through one of the cluster node external IP.</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="o">[</span>ec2-user@ip-172-31-42-102 ~<span class="o">]</span><span class="nv">$ </span>kubectl --kubeconfig<span class="o">=</span>/etc/kubernetes/admin.conf get nodes
+NAME                                          STATUS    ROLES     AGE       VERSION
+ip-172-31-34-200.eu-west-1.compute.internal   Ready     &lt;none&gt;    6d        v1.8.4
+<span class="o">[</span>ec2-user@ip-172-31-42-102 ~<span class="o">]</span><span class="nv">$ </span>kubectl --kubeconfig<span class="o">=</span>/etc/kubernetes/admin.conf get node ip-172-31-34-200.eu-west-1.compute.internal -o<span class="o">=</span>json <span class="p">|</span> grep -C <span class="m">1</span> ExternalIP
+                <span class="s2">&quot;address&quot;</span>: <span class="s2">&quot;52.31.250.27&quot;</span>,
+                <span class="s2">&quot;type&quot;</span>: <span class="s2">&quot;ExternalIP&quot;</span>
+            <span class="o">}</span>,</code></pre></div>
+
+</div>
+
+<h3 id="add-the-node-label-affinity-policy">Add the node label affinity policy</h3>
+
+<p>For this example, we’ll use the <a href="https://github.com/alien4cloud/samples/blob/master/org/alien4cloud/doc/kube/topology/02-simple-apache-affinity/tosca.yaml">02-simple-apache-affinity</a> topology.</p>
+
+<p><img src="../../images/kubernetes_walkthrough/02-simple-apache-affinity-topology.png" alt="Topology" style="width: 200px; margin: 0 auto" /></p>
+
+<p>We now want to specify the node onto our pod will be deployed. For that we’ll use a placement policy (<code>tosca.policies.Placement</code>).</p>
+
+<p>You must tag get an existing tag for a given node of your Kube cluster (the tag will be used by the concrete Kube policy).</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="o">[</span>ec2-user@ip-172-31-42-102 xdeWork<span class="o">]</span><span class="nv">$ </span>kubectl --kubeconfig<span class="o">=</span>/etc/kubernetes/admin.conf get nodes
+NAME                                          STATUS    ROLES     AGE       VERSION
+ip-172-31-34-200.eu-west-1.compute.internal   Ready     &lt;none&gt;    6d        v1.8.4
+<span class="o">[</span>ec2-user@ip-172-31-42-102 xdeWork<span class="o">]</span><span class="nv">$ </span>kubectl --kubeconfig<span class="o">=</span>/etc/kubernetes/admin.conf label nodes ip-172-31-34-200.eu-west-1.compute.internal <span class="nv">Mylabel</span><span class="o">=</span>MyLabelValue1
+node <span class="s2">&quot;ip-172-31-34-200.eu-west-1.compute.internal&quot;</span> labeled</code></pre></div>
+
+<p>At deployment stage, ensure the topology policy match the location policy of type <code>org.alien4cloud.kubernetes.api.policies.NodeAffinityLabel</code>. Edit the policy property <strong>matchExpressions</strong> in order to have :</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">key</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Mylabel</span>
+<span class="l-Scalar-Plain">operator</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">In</span>
+<span class="l-Scalar-Plain">values</span><span class="p-Indicator">:</span>
+  <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">MyLabelValue1</span></code></pre></div>
+
+<p>Deploy and ensure the Deployment is effectively deployed on the chosen node. To be sure it wasn’t due to chance, undeploy, change the tag value, deploy again and check again !</p>
+
+<h3 id="attach-a-hostpath-volume">Attach a hostpath volume</h3>
+
+<p>For this example, we’ll use the <a href="https://github.com/alien4cloud/samples/tree/master/org/alien4cloud/doc/kube/topology/03-simple-apache-hostPath/tosca.yaml">03-simple-apache-hostPath</a> topology.</p>
+
+<p><img src="../../images/kubernetes_walkthrough/topologie-03-simple-apache-hostPath.png" alt="Topology" style="width: 200px; margin: 0 auto" /></p>
+
+<p>In this topology we have added a volume to the deployment unit.
+We’ll match it to a <a href="https://kubernetes.io/docs/concepts/storage/volumes/#hostpath">hostPath</a> volume. With this kind of volume, we can mount a given directory of the hosting node as a volume for the container. In our example, we will mount the <code>/var/log</code> volume at the <code>/usr/local/apache2/htdocs</code> mount point on the container. By this way we’ll be able to display our logs through our webserver ! It’s not very usefull and not very secured IRL but just simple and fun in this boarding context ;)</p>
+
+<p>Deploy the topology, and at matching stage, choose the resource of type <code>org.alien4cloud.kubernetes.api.types.volume.HostPathVolumeSource</code> for the node named ‘Volume’. Set the property <code>spec.path</code> to <code>/var/log</code> and deploy.</p>
+
+<p>Find the port exposed by the nodes :</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">ubuntu@ip-172-31-19-47:~<span class="nv">$ </span>kubectl get services
+NAME                                       TYPE        CLUSTER-IP       EXTERNAL-IP   PORT<span class="o">(</span>S<span class="o">)</span>        AGE
+apache-http-endpoint-service--1667037327   NodePort    10.152.183.176   &lt;none&gt;        80:31455/TCP   17m
+default-http-backend                       ClusterIP   10.152.183.167   &lt;none&gt;        80/TCP         3d
+kubernetes                                 ClusterIP   10.152.183.1     &lt;none&gt;        443/TCP        3d
+ubuntu@ip-172-31-19-47:~<span class="nv">$ </span>kubectl get service apache-http-endpoint-service--1667037327 -o<span class="o">=</span><span class="nv">jsonpath</span><span class="o">={</span>.spec.ports<span class="o">[</span>0<span class="o">]</span>.nodePort<span class="o">}</span> <span class="o">&amp;&amp;</span> <span class="nb">echo</span>
+31455</code></pre></div>
+
+<p>The port is 31455. Change security group and test the endpoint.
+<br /></p>
+
+<p><img src="../../images/kubernetes_walkthrough/ApacheHostPathTest.png" alt="ServiceNodePort" style="width: 600px; margin: 0 auto" /></p>
+
+<h3 id="attach-an-emptydir-volume">Attach an emptyDir volume</h3>
+
+<p>For this example, we’ll use the <a href="https://github.com/alien4cloud/samples/tree/master/org/alien4cloud/doc/kube/topology/04-simple-apache-emptyDir/tosca.yaml">04-simple-apache-emptyDir</a> topology.</p>
+
+<p>In this example, we’ll see how we can share a same volume between 2 containers in the same pod.</p>
+
+<p><img src="../../images/kubernetes_walkthrough/topologie-04-simple-apache-emptyDir.png" alt="Topology" style="width: 200px; margin: 0 auto" /></p>
+
+<p>The volume is attached to the 2 container:</p>
+
+<ul>
+  <li>mounted at <code>/usr/local/apache2/htdocs</code> for the Apache container.</li>
+  <li>mounted at <code>/tmp/emptyDir</code> for the sidecar container.</li>
+</ul>
+
+<p>This time, we’ll match the volume to an <a href="https://kubernetes.io/docs/concepts/storage/volumes/#emptydir">emptyDir</a> volume (on demand resource of type <code>org.alien4cloud.kubernetes.api.types.volume.EmptyDirVolumeSource</code>).</p>
+
+<p>The SidecarContainer is a busybox that just just echo ‘Hello World’ into a file (see the <strong>docker_run_cmd</strong> property of the <strong>BusyboxBash</strong> container node) . Since the same directory is mount by the apache at <code>/usr/local/apache2/htdocs</code>, this index.html become the welcome page of our fabulous website !
+<br /></p>
+
+<p><img src="../../images/kubernetes_walkthrough/workingApacheEmptyDir.png" alt="ServiceNodePort" style="width: 600px; margin: 0 auto" /></p>
+
+<h2 id="a-nodecellar-connecting-to-a-mongo">A Nodecellar connecting to a Mongo</h2>
+
+<p>For this example, we’ll use the <a href="https://github.com/alien4cloud/samples/tree/master/org/alien4cloud/doc/kube/topology/05-nodecellar-mongo/tosca.yaml">05-nodecellar-mongo</a> topology.</p>
+
+<p>In this example, we’ll connect 2 containers: the Nodecellar will connect to a Mongo database. The modifier will create a service in front of the Mongo container so it can be accessed using a <a href="https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services---service-types">clusterIp</a>, wherever it is deployed on the cluster.</p>
+
+<p><img src="../../images/kubernetes_walkthrough/05-nodecellar-mongo-topology.png" alt="Topology" style="width: 500px; margin: 0 auto" /></p>
+
+<p>Find the port of the Nodecellar service:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="o">[</span>ec2-user@ip-172-31-42-102 ~<span class="o">]</span><span class="nv">$ </span>kubectl --kubeconfig<span class="o">=</span>/etc/kubernetes/admin.conf get services
+NAME                                            TYPE        CLUSTER-IP       EXTERNAL-IP   PORT<span class="o">(</span>S<span class="o">)</span>           AGE
+default-http-backend                            ClusterIP   10.152.183.167   &lt;none&gt;        80/TCP            6d
+kubernetes                                      ClusterIP   10.152.183.1     &lt;none&gt;        443/TCP           6d
+mongo-mongo-db-service--601356641               NodePort    10.152.183.158   &lt;none&gt;        27017:31992/TCP   5m
+nodecellar-nodecellar-app-service--1210144207   NodePort    10.152.183.153   &lt;none&gt;        3000:32353/TCP    4m</code></pre></div>
+
+<p>Here, the port was <strong>32353</strong>.</p>
+
+<p><img src="../../images/kubernetes_walkthrough/06-nodecellar-mongo-antiaffinity-test.png" alt="Test" style="width: 600px; margin: 0 auto" /></p>
+
+<p>To ensure the Nocellar is actually connected to the Mongo, start browsing the cellar.</p>
+
+<h3 id="manually-scale-the-nodecellar">Manually scale the Nodecellar</h3>
+
+<p>To manually scale the application frontend, go to the runtime view and click to the <strong>CellarDeployment_Resource</strong> node and use the <code>org.alien4cloud.management.ClusterControl.scale</code> operation.</p>
+
+<p><img src="../../images/kubernetes_walkthrough/05-nodecellar-mongo-manuallyscale.png" alt="Test" /></p>
+
+<h3 id="add-the-anti-affinity-policy">Add the anti-affinity policy</h3>
+
+<p>For this example, we’ll use the <a href="https://github.com/alien4cloud/samples/tree/master/org/alien4cloud/doc/kube/topology/06-nodecellar-mongo-antiaffinity/tosca.yaml">05-nodecellar-mongo</a> topology.</p>
+
+<p>In this topology we want to avoid the Nodecellar and the Mongo deployments to be collocated (deployed on the same cluster node). For that we use an <code>org.alien4cloud.policies.AntiAffinity</code> that targets these two nodes.</p>
+
+<p><img src="../../images/kubernetes_walkthrough/06-nodecellar-mongo-antiaffinity-topology.png" alt="Topology" style="width: 500px; margin: 0 auto" /></p>
+
+<p>At the deployment setup, during the matching phase, ensure the policy is matched using <code>org.alien4cloud.kubernetes.api.policies.AntiAffinityLabel</code>. The K8S modifier will generate the rigth config to make sure both deployments are not deployed on the same node (expecting you have at least 2 nodes in your cluster).</p>
+
+<h3 id="add-the-auto-scaling-policy">Add the auto scaling policy</h3>
+
+<p>For this example, we’ll use the <a href="https://github.com/alien4cloud/samples/tree/master/org/alien4cloud/doc/kube/topology/07-nodecellar-mongo-autoscalling/tosca.yaml">07-nodecellar-mongo-autoscalling</a> topology.</p>
+
+<p>In this topology we have added a policy of type <code>tosca.policies.Scaling</code>. At rutime, we want the front end server (the Nodecallar) to be scaled if the CPU utilization is greater than 10%.</p>
+
+<p><img src="../../images/kubernetes_walkthrough/07-nodecellar-mongo-autoscalling-topology.png" alt="Topology" style="width: 500px; margin: 0 auto" /></p>
+
+<p>During mathcing phase, ensure the <strong>AutoScale</strong> policy is matched to the location policy of type <code>org.alien4cloud.kubernetes.api.policies.AutoscalingPolicy</code> and setup this one to make sure that it’s properties are:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">minReplicas: 1
+maxReplicas: 4
+metrics:
+  - <span class="nb">type</span>: Resource
+    resource:
+      name: cpu
+      targetAverageUtilization: 10</code></pre></div>
+
+<p>Generate load on the server (use JMeter for example) and ensure the frontend pod is actually scalled.</p>
+
+<p>Inspired from <a href="https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/">K8S doc</a> you can try this (replace nodeIp:nodePort by the correct values):</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>kubectl run -i --tty load-generator --image<span class="o">=</span>busybox /bin/sh
+
+Hit enter <span class="k">for</span> <span class="nb">command </span>prompt
+
+<span class="nv">$ </span><span class="k">while</span> <span class="nb">true</span><span class="p">;</span> <span class="k">do</span> wget -q -O- http://nodeIp:nodePort<span class="p">;</span> <span class="k">done</span></code></pre></div>
+
+<div class="note info">
+<p>Since the wget will be done from inside the cluster (on a container hosted on the cluster), we are able to target the cluster IP and the port 3000 of the service (the one defined in the Nodecellar container).</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="o">[</span>ec2-user@ip-172-31-42-102 ~<span class="o">]</span><span class="nv">$ </span>kubectl --kubeconfig<span class="o">=</span>/etc/kubernetes/admin.conf get services
+NAME                                            TYPE        CLUSTER-IP       EXTERNAL-IP   PORT<span class="o">(</span>S<span class="o">)</span>           AGE
+default-http-backend                            ClusterIP   10.152.183.167   &lt;none&gt;        80/TCP            6d
+kubernetes                                      ClusterIP   10.152.183.1     &lt;none&gt;        443/TCP           6d
+mongo-mongo-db-service--1451478299              NodePort    10.152.183.174   &lt;none&gt;        27017:31239/TCP   11m
+nodecellar-nodecellar-app-service--1142367332   NodePort    10.152.183.219   &lt;none&gt;        3000:30966/TCP    10m</code></pre></div>
+
+<p>In this example, from inside the cluster, we are able to target the url <strong>http://10.152.183.219:3000</strong></p>
+</div>
+
+<p>When the Pod has been scaled, stop the load generator and wait for minutes, the Autoscaler will scale down to 1 instance.</p>
+
+<h2 id="a-nodecellar-container-connecting-to-a-mongo-db-deployed-on-a-vm-hybrid-topology">A Nodecellar container connecting to a Mongo DB deployed on a VM (hybrid topology)</h2>
+
+<p>For this example, we’ll use the <a href="https://github.com/alien4cloud/samples/tree/master/org/alien4cloud/doc/kube/topology/08-nodecellar-mongo-hybrid">08-nodecellar-mongo-hybrid</a> topology.</p>
+
+<p>In this example, we’ll connect a container to an external service: the Nodecellar will connect to a Mongo database that is deployed onto a classical VM (a container/VM hybrid topology). The modifier will create a <a href="https://kubernetes.io/docs/concepts/services-networking/service/#services-without-selectors">selector less service</a> in front of the Mongo.</p>
+
+<p><img src="../../images/kubernetes_walkthrough/08-nodecellar-mongo-hybrid-topology.png" alt="Topology" style="width: 500px; margin: 0 auto" /></p>
+
+<h2 id="a-simple-apache-container-behind-a-aws-elastic-load-balancer">A simple Apache container behind a AWS Elastic Load Balancer</h2>
+
+<p>In this example, we’ll use a new kind of <a href="https://kubernetes.io/docs/concepts/services-networking/service/#type-loadbalancer">LoadBalancer</a> service to expose our apache web server : our apache endpoint we be exposed by an AWS ELB.</p>
+
+<p>To deploy this example, you’ll need a K8S cluster configured for AWS.</p>
+
+<p>We’ll reuse the  <a href="https://github.com/alien4cloud/samples/tree/master/org/alien4cloud/doc/kube/topology/01-simple-apache">simple apache container topology</a> (or use the <strong>01-simple-apache</strong> if you have imported the samples).</p>
+
+<p><img src="../../images/kubernetes_walkthrough/topo-01-simple-apache.png" alt="Topology" style="width: 200px; margin: 0 auto" /></p>
+
+<p>In your location, you must add a new on-demand resource of type <code>org.alien4cloud.kubernetes.api.types.Service</code> with the property <code>spec.service_type</code> set to <code>LoadBalancer</code>.</p>
+
+<p>During the deployment, matche the <code>Apache_http_endpoint_Service</code> node to this new service and deploy. After the deployment success, you’ll find the link to the external endpoint in the service list:</p>
+
+<p><img src="../../images/kubernetes_walkthrough/apacheBehindELBexternalEndpoint.png" alt="Topology" style="width: 700px; margin: 0 auto" /></p>
+
+<p>You can follow the link:</p>
+
+<p><img src="../../images/kubernetes_walkthrough/apacheBehindELBtest.png" alt="Topology" style="width: 700px; margin: 0 auto" /></p>
+
+<h2 id="a-simple-linux-container-deployed-with-a-configmap">A simple Linux container deployed with a configMap</h2>
+
+<p>ConfigMap is an important element inside a Pod. In fact, the properties in ConfigMap should be configured from the properties of component. In A4C, we are now able to make the configMap configurable for each Pod. In this example, we will deploy a linux container together with a configMap.</p>
+
+<p>We will use the topology <a href="https://github.com/alien4cloud/samples/tree/develop/org/alien4cloud/doc/kube/topology/09-simple-alpine-configmap">09-simple-alpine-configmap</a> to create a new application.
+In the editor of this application, the property <em>config_settings</em> is dedicated to the configuration of ConfigMap. The principle is to set up some parameters needed for creating the ConfigMap.
+<img src="../../images/kubernetes_walkthrough/09-simple-alpine-configmap.jpg" alt="Topology" /></p>
+
+<p>There are four parameters to configure:</p>
+
+<ul>
+  <li>mount_path: The path where the ConfigMap will be mounted.</li>
+  <li>mount_subPath: The subpath of the ConfigMap</li>
+  <li>input_prefix: The prefix used to point out the variables in the files found <em>config_path</em> which will be replaced with the concrete value before the creation of ConfigMap.</li>
+  <li>config_path: The path to the files found in the topology used to create the ConfigMap.</li>
+</ul>
+
+<p>In this example, we will create a ConfigMap from the file under the path <em>configFiles</em> whereas the ConfigMap will be mounted under <em>/config</em>.</p>
+
+<p>In the file <em>application.conf</em> under <em>configFiles</em>, the variable <strong>${NAME}</strong> is supposed to be replaced with an input value named <strong>${CFG_NAME}</strong> under the <em>create</em> operation (please see the <a href="https://github.com/alien4cloud/samples/blob/develop/org/alien4cloud/doc/kube/config-container/types.yml">type</a>) which fetches the property named <strong>container_name</strong>.</p>
+
+<p>When the deployment is finished, we can see the generated configmap in k8s. It turns out that the variable <strong>${NAME}</strong> is replaced with <strong>alpine</strong>.</p>
+
+<p>Except that, we are also able to deal with the starting command of docker container with the property <strong>docker_run_cmd</strong> and <strong>docker_run_args</strong>.
+<img src="../../images/kubernetes_walkthrough/09-simple-alpine-configmap-docker_cmd.jpg" alt="Topology" /></p>
+
+<h2 id="a-simple-apache-container-exposing-an-ingress-service">A simple Apache container exposing an ingress service</h2>
+
+<p>Ingress service is an API allowing external access and some other advanced features such as load balancing to a Pod. The new version of A4C is able to create an ingress service with a hostname with or without a secret. Here we will show you how to set up a Http ingress service simply with a host name.</p>
+
+<p>We will use the topology <a href="https://github.com/alien4cloud/samples/tree/develop/org/alien4cloud/doc/kube/topology/10-simple-apache-ingress">10-simple-apache-ingress</a> to walk through this example.</p>
+
+<p>Firstly, please go to <strong>Administration</strong> -&gt; <strong>Orchestrator</strong> -&gt; <em>Click on one of the orchestrator</em> -&gt; <strong>Location(s)</strong> -&gt; <strong>On demand resources</strong>. A type of resource <strong>org.alien4cloud.kubernetes.api.types.IngressService</strong> needed to be created in the level of location. Just find out the <strong>org.alien4cloud.kubernetes.api.types.IngressService</strong> and then drag and drop from right to left. And then we fill out the <strong>host</strong> with a hostname <strong>known-hostname.zone1</strong> which should be known in K8S.</p>
+
+<p><img src="../../images/kubernetes_walkthrough/10-simple-apache-ingress-resources.png" alt="Resources" /></p>
+
+<p>Secondly, in the level of TOSCA, the ingress service showed up in the form of capability, here named <strong>web_service</strong>, which will be replaced with a concrete resource configured in advance in the first step.</p>
+
+<p>Thirdly, there is only one step to be done before the deployment. Go to the <strong>matching</strong> tab, we need to select the concrete service, here named <strong>Mock K8S Ingress Service</strong> for the ingress service.</p>
+
+<p><img src="../../images/kubernetes_walkthrough/10-simple-apache-ingress-matching.png" alt="Resources" /></p>
+
+<p>Finally, we are able to kick off the deployment.</p>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.1.0/orchestrators/kubernetes/examples.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-3.1.0', 'documentation/3.1.0/orchestrators/kubernetes/examples.markdown');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

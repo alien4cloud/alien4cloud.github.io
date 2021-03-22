@@ -1,0 +1,146 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/3.1.0/orchestrators/kubernetes/sparkexample.html',
+  title: 'Spark'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Spark</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.1.0/orchestrators/kubernetes/sparkexample.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        
+<hr style="margin-top:5px; margin-bottom:5px;" />
+<div class="row"><ul class="nav nav-pills" id="summarypanel"></ul></div>
+<hr style="margin-top:5px; margin-bottom:5px;" />
+
+<h1 id="prerequisites">Prerequisites</h1>
+
+<div class="note info">
+<p>In this page, we will use AWS features so you will need a Kubernetes cluster integrated with a AWS account.
+However if you want to deploy a basic Kubernetes cluster you can use our TOSCA types based on kubeadm which can be found <a href="https://github.com/alien4cloud/csar-public-library/tree/develop/org/alien4cloud/kubernetes/kubeadm">here</a></p>
+</div>
+
+<p>To deploy onto Kubernetes cluster through ALIEN, you will need:</p>
+
+<ul>
+  <li>A Kubernetes cluster deployed on AWS with AWS extensions (ability to provision EBS) with at least 2 nodes</li>
+  <li>An alien with:
+    <ul>
+      <li>the kubernetes plugin</li>
+      <li>the http repository plugin (the samples use an http repository)</li>
+      <li>the following archives imported from GIT:
+        <ul>
+          <li>https://github.com/alien4cloud/tosca-normative-types.git branch <strong>3.0.0-SNAPSHOT</strong></li>
+          <li>https://github.com/alien4cloud/alien4cloud-extended-types.git branch <strong>3.0.0-SNAPSHOT</strong> folder <strong>alien-base-types</strong></li>
+          <li>https://github.com/alien4cloud/docker-tosca-types.git <strong>3.0.0-SNAPSHOT</strong> folder <strong>docker-types</strong></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>A runnable distribution of Spark 2.3 or above.
+    <ul>
+      <li>more information about Spark running on Kubernetes can be found <a href="https://spark.apache.org/docs/latest/running-on-kubernetes.html">here</a></li>
+    </ul>
+  </li>
+  <li>It is necessary to create in  the namepace where Spark jobs will be run the following assets :
+    <ul>
+      <li>serviceaccount</li>
+      <li>role</li>
+      <li>rolebinding
+The scripts to execute are available <a href="https://github.com/alien4cloud/alien4cloud-k8s-spark-jobs/tree/3.0.0-SNAPSHOT/src/main/resources/k8s">here</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="topology-modifiers">Topology modifiers</h2>
+
+<p>You&#8217;ll need to setup modifiers on your location. On the location screen, in the <strong>Topology Modifier</strong> tab:</p>
+
+<ul>
+  <li>add a <strong>k8s-spark-jobs-modifier</strong> at the phase <code>post-matched-node-setup</code> after the <strong>kubernetes-adapter-modifier</strong></li>
+</ul>
+
+<p>The modifier will generate types that are ready to be deployed and run onto a Kubernetes cluster.</p>
+
+<h2 id="on-demand-resources">On demand resources</h2>
+
+<p>You will need to setup some Kubernetes On demand resources on the location. You will find them in the catalog (search for &#8216;kube&#8217;) :</p>
+
+<ul>
+  <li><code>org.alien4cloud.k8s.spark.jobs.PythonSparkJob</code> : it will be used to match and optionally configure and run Python Spark jobs.</li>
+  <li><code>org.alien4cloud.k8s.spark.jobs.JavaSparkJob</code> : it will be used to match and optionally configure and run Java Spark jobs.</li>
+</ul>
+
+<p>For volumes, you can add the followings resources :</p>
+
+<ul>
+  <li><code>org.alien4cloud.kubernetes.api.types.volume.AWSElasticBlockStoreVolumeSource</code></li>
+  <li><code>org.alien4cloud.kubernetes.api.types.volume.EmptyDirVolumeSource</code></li>
+  <li><code>org.alien4cloud.kubernetes.api.types.volume.HostPathVolumeSource</code></li>
+  <li><code>org.alien4cloud.kubernetes.api.types.volume.PersistentVolumeClaimSource</code></li>
+</ul>
+
+<p>We will explain these different kind of K8S volumes implementations.</p>
+
+<h1 id="a-simple-pi-spark-job">A simple Pi Spark job</h1>
+
+<p>Creation of a topology with 2 nodes :
+- KubeCluster
+- <strong>org.alien4cloud.k8s.spark.jobs.PythonSparkJob</strong></p>
+
+<p><img src="../../images/3.1.0/orchestrators/kubernetes/spark_1.png" alt="Topology" /></p>
+
+<p>The following properties need to set:
+- pythonVersion : usually set to 3
+- containerName : url of a container spark.
+- debugOperation : boolean. It can be selected to see debug operations</p>
+
+<p>The application can be deployed.
+The job spark can ba launching by execution the run workflow operation :
+<img src="../../images/3.1.0/orchestrators/kubernetes/spark_2.png" alt="Running spark job" /></p>
+
+<p>During the execution, if the property <strong>debugOperation</strong>  has been set, the spark-submit command can be displayed in the deployment logs.</p>
+
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.1.0/orchestrators/kubernetes/sparkexample.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-3.1.0', 'documentation/3.1.0/orchestrators/kubernetes/sparkexample.markdown');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

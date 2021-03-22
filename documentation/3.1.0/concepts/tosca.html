@@ -1,0 +1,102 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/3.1.0/concepts/tosca.html',
+  title: 'TOSCA'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">TOSCA</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.1.0/concepts/tosca.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <p>TOSCA specification allows users to specify a cloud application’s topology by defining a set of nodes that are connected to other using relationships.</p>
+
+<p>The goal of the TOSCA specification is to focus on a good meta-definition of cloud applications and their components and focus on the following goals:</p>
+
+<ul>
+  <li>Reusability of components</li>
+  <li>Interoperability of TOSCA archive through the different TOSCA containers</li>
+</ul>
+
+<p>In order to manage reusability of components and defined recipes, TOSCA allows definition of NodeTypes that specify the available components and eventually their implementation (for example a Java NodeType and the script implementation to install it on a virtual server). The defined NodeTypes can then be reused when a developer or application architect want to define the topology of a cloud application.</p>
+
+<h1 id="tosca-simple-profile-in-yaml">TOSCA Simple Profile in YAML</h1>
+
+<p>TOSCA Simple profile in YAML allows definition of TOSCA elements in a YAML format rather than XML. The YAML format is simpler to write and offers some shorter ways to define a TOSCA definition.</p>
+
+<h1 id="tosca-in-alien-4-cloud">TOSCA in Alien 4 Cloud</h1>
+
+<p>In Alien 4 Cloud, TOSCA can be used to define both Types (catalog elements) and Applications topologies (Templates). Alien 4 Cloud tools, like the topology editor, allow you to create Application topologies that can be exported to Tosca Templates.</p>
+
+<div class="note">
+<p>Alien 4 Cloud supports a slightly modified version of TOSCA Simple Profile in YAML in order to add features that are specific to the Alien 4 Cloud context. However we are able to load pure TOSCA compliant templates and also export topologies as pure TOSCA templates.</p>
+</div>
+
+<div class="note warning">
+<p>The export feature will be available in the next release.</p>
+</div>
+
+<h1 id="cloud-service-archive">Cloud Service Archive</h1>
+
+<p>Every elements in TOSCA must be contained into a Cloud Service Archive (CSAR). A Cloud Service Archive is a folder or a zip file that contains types and templates definitions and any other files required for elements implementations.</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">├── my-definition-file.yml
+├── images
+│   ├── component-icon.png
+│   └── ...
+├── scripts
+│   └── install.sh
+├── lib
+│   └── tosca-normative-types.yml</code></pre></div>
+
+<p>The entry point for the Cloud Service Archive are the definitions files placed at the root of the Archive. Basically this is any .yaml or .yml file that can be found at the Archive root.</p>
+
+<div class="note info">
+<p>To create your own CSAR, please refer to <a href="#/documentation/3.0.0/devops_guide/tosca_concepts_types_custom.html">this section</a>.</p>
+</div>
+
+<div class="note warning">
+<p>Alien 4 Cloud currently supports only a single service definitions file at the root level. This definition file can however reference other definitions files within the archive through the imports feature.</p>
+</div>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.1.0/concepts/tosca.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-3.1.0', 'documentation/3.1.0/concepts/tosca.md');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

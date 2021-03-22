@@ -1,0 +1,184 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/3.1.0/devops_guide/normative_types/tosca_concepts_types_normative_capabilities.html',
+  title: 'Capabilities'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Capabilities</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.1.0/devops_guide/normative_types/tosca_concepts_types_normative_capabilities.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <p class="lead">Normatives capability types in TOSCA</p>
+<hr style="margin-top:5px; margin-bottom:5px;" />
+<div class="row"><ul class="nav nav-pills" id="summarypanel"></ul></div>
+<hr style="margin-top:5px; margin-bottom:5px;" />
+
+<h1 id="toscacapabilitiesroot">tosca.capabilities.Root</h1>
+
+<p>This is the default (root) TOSCA Capability Type definition that all other TOSCA Capability Types derive from.</p>
+
+<h2 id="definition">Definition</h2>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">capability_types</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">tosca.capabilities.Root</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="p-Indicator">&gt;</span>
+      <span class="no">This is the default (root) TOSCA Capability Type definition that all other TOSCA Capability Types derive from.</span></code></pre></div>
+
+<h1 id="toscacapabilitiescontainer">tosca.capabilities.Container</h1>
+
+<p>The Container capability, when included on a Node Type or Template definition, indicates that the node can act as a container for (or a host for) one or more other declared Node Types.</p>
+
+<h2 id="properties">Properties</h2>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Name</th>
+      <th style="text-align: left">Required</th>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Constraints</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">valid_node_types</td>
+      <td style="text-align: left">true</td>
+      <td style="text-align: left">string[]</td>
+      <td style="text-align: left">A list of one or more names of Node Types that are supported as containees that declare the Container type as a Capability.</td>
+      <td style="text-align: left"> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="definition-1">Definition</h2>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">tosca.capabilities.Container</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">derived_from</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.capabilities.Root</span>
+    <span class="l-Scalar-Plain">properties</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">valid_node_types</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">string[]</span>
+        <span class="l-Scalar-Plain">required</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
+        <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Array of node types that are valid node types to be contained.</span>
+    <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="p-Indicator">&gt;</span>
+      <span class="no">A list of one or more names of Node Types that are supported as containees that declare the Container type as a Capability.</span></code></pre></div>
+
+<h1 id="toscacapabilitiesendpoint">tosca.capabilities.Endpoint</h1>
+
+<p>This is the default TOSCA type that should be used or extended to define a network endpoint capability.</p>
+
+<h2 id="properties-1">Properties</h2>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Name</th>
+      <th style="text-align: left">Required</th>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Constraints</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">protocol</td>
+      <td style="text-align: left">yes</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">None</td>
+      <td style="text-align: left">The name of the protocol (i.e., the protocol prefix) that the endpoint accepts. Examples: http, https, tcp, udp, etc.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">port</td>
+      <td style="text-align: left">yes</td>
+      <td style="text-align: left">integer</td>
+      <td style="text-align: left">greater_or_equal:1 <br /> less_or_equal:65535</td>
+      <td style="text-align: left">The port of the endpoint.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">secure</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">boolean</td>
+      <td style="text-align: left">default = false</td>
+      <td style="text-align: left">Indicates if the endpoint is a secure endpoint.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="definition-2">Definition</h2>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">tosca.capabilities.Endpoint</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">derived_from</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.capabilities.Feature</span>
+  <span class="l-Scalar-Plain">properties</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">protocol</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">string</span>
+      <span class="l-Scalar-Plain">default</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">http</span>
+    <span class="l-Scalar-Plain">port</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">integer</span>
+      <span class="l-Scalar-Plain">constraints</span><span class="p-Indicator">:</span>
+        <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">greater_or_equal</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">1</span>
+        <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">less_or_equal</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">65535</span>
+    <span class="l-Scalar-Plain">secure</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">boolean</span>
+      <span class="l-Scalar-Plain">default</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">false</span></code></pre></div>
+
+<h1 id="toscacapabilitiesdatabaseendpoint">tosca.capabilities.DatabaseEndpoint</h1>
+
+<p>This is the default TOSCA type that should be used or extended to define a specialized database endpoint capability.</p>
+
+<h2 id="definition-3">Definition</h2>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">tosca.capabilities.DatabaseEndpoint</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">derived_from</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.capabilities.Endpoint</span></code></pre></div>
+
+<h1 id="toscacapabilitiesattachment">tosca.capabilities.Attachment</h1>
+
+<p>This is the default TOSCA type that should be used or extended to define a block storage capability.</p>
+
+<h2 id="definition-4">Definition</h2>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">tosca.capabilities.Attachment</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">derived_from</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.capabilities.Root</span></code></pre></div>
+
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.1.0/devops_guide/normative_types/tosca_concepts_types_normative_capabilities.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-3.1.0', 'documentation/3.1.0/devops_guide/normative_types/tosca_concepts_types_normative_capabilities.markdown');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

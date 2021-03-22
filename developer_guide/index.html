@@ -119,14 +119,102 @@ grunt serve</code></pre></div>
 <p>Plugins are really opened and you can have access to any core feature from your plugin allowing very powerfull operations through plugins. It is possible to create backend oriented plugins (Java/Spring based), UI plugins (AngularJS) or plugins with both backend and ui components. You can find more informations on plugins in the sub-section of the developer guide.</p>
 
 <h3 id="existing-plugins">Existing plugins</h3>
-<ul>
-  <li><a href="https://github.com/alien4cloud/alien4cloud-cloudify3-provider">Cloudify3 plugin</a>: This is an orchestrator plugin that aims to provide the ability to deploy your applications using the opensource cloudify3 orchestration technology.</li>
-  <li><a href="https://github.com/alien4cloud/alien4cloud-security-group-plugin">Security Group plugin</a>: This is a topology modifier that will automatically add security groups based on component endpoints of the topology.</li>
-  <li><a href="https://github.com/alien4cloud/alien4cloud-vault-plugin">Vault plugin</a>: This is a plugin integrating Vault into Alien4Cloud.</li>
-  <li><a href="https://github.com/alien4cloud/alien4cloud-repository-plugins">Repository plugin</a>: This is a plugin allowing to deal with the HTTP csar repository.</li>
-  <li><a href="https://github.com/alien4cloud/alien4cloud-marathon-plugin">Marathon plugin</a>: A plugin to integrate Marathon as an orchestrator for Alien4cloud. It features deployment of complex Docker containers topologies on a Mesos/Marathon cluster using MarathonLB and MesosDNS for service discovery.</li>
-  <li><a href="https://github.com/alien4cloud/alien4cloud-kubernetes-plugin">Kubernetes plugin</a>: A plugin that allows transformation of a TOSCA generic topology into a specific kubernetes topology.</li>
-</ul>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th style="text-align: left">Plugin</th>
+      <th style="text-align: left">Description</th>
+      <th style="text-align: left">Since version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><a href="https://github.com/alien4cloud/alien4cloud-premium-repository-plugins/">alien-maven-repository-plugin</a></td>
+      <td style="text-align: left">Maven Artifact Resolver Plugin</td>
+      <td style="text-align: left">1.3.0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="https://github.com/alien4cloud/alien4cloud-premium-repository-plugins/">alien-git-repository-plugin</a></td>
+      <td style="text-align: left">Git Artifact Resolver Plugin</td>
+      <td style="text-align: left">1.3.0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="https://github.com/alien4cloud/alien4cloud-repository-plugins">alien-http-repository-plugin</a></td>
+      <td style="text-align: left">HTTP Artifact Resolver Plugin</td>
+      <td style="text-align: left">1.3.0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="https://github.com/alien4cloud/alien4cloud-premium-repository-plugins">alien4cloud-premium-workspace</a></td>
+      <td style="text-align: left">Alien 4 Cloud Premium Workspaces</td>
+      <td style="text-align: left">1.3.0.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="https://github.com/alien4cloud/alien4cloud-vault-plugin">alien-vault-plugin</a></td>
+      <td style="text-align: left">Integration to HashiCorp Vault</td>
+      <td style="text-align: left">2.0.0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="https://github.com/alien4cloud/alien4cloud-workflow-scheduler">alien4cloud-workflow-scheduler-plugin</a></td>
+      <td style="text-align: left">Scheduler topology processing plugin using cron executions on Orchestrator</td>
+      <td style="text-align: left">2.1.0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="https://github.com/alien4cloud/alien4cloud-yorc-provider">alien4cloud-yorc-provider</a></td>
+      <td style="text-align: left">Yorc Orchestrator Provider, manages interactions with a running Yorc instance.</td>
+      <td style="text-align: left">2.2.0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="https://github.com/alien4cloud/alien4cloud-kubernetes-plugin">alien4cloud-kubernetes-plugin</a></td>
+      <td style="text-align: left">Allows transformation of a TOSCA generic topology into a specific kubernetes topology. It contains support for topology and policies modification.</td>
+      <td style="text-align: left">2.2.0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="https://github.com/alien4cloud/alien4cloud-k8s-spark-jobs">alien4cloud-k8s-spark-jobs</a></td>
+      <td style="text-align: left">Features Spark job modelization for running into Kubernetes cluster</td>
+      <td style="text-align: left">3.0.0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="https://github.com/alien4cloud/alien4cloud-kafka-listener">alien4cloud-kafka-listener</a></td>
+      <td style="text-align: left">Subscribes to Kafka Messages. Features application workflow launches, service creation, git repositories pull</td>
+      <td style="text-align: left">3.0.0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="https://github.com/alien4cloud/alien4cloud-k8s-webhook">alien4cloud-k8s-webhook</a></td>
+      <td style="text-align: left">Allows Kubernetes resources to enriched or validated thanks using the webhook mechanism</td>
+      <td style="text-align: left">3.1.0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="https://github.com/alien4cloud/alien4cloud-rms-scheduler-plugin">alien4cloud-rms-scheduler-plugin</a></td>
+      <td style="text-align: left">A rule based scheduler embedding drools.</td>
+      <td style="text-align: left">3.1.0</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>These 2 sample plugins illustrate how plugins can be used and implemented  :</p>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th style="text-align: left">Plugin</th>
+      <th style="text-align: left">Description</th>
+      <th style="text-align: left">Since version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><a href="https://github.com/alien4cloud/sample-topology-validator-plugin">sample-topology-validator-plugin</a></td>
+      <td style="text-align: left">A sample plugin that checks topology nodes name (minimum length and pattern)</td>
+      <td style="text-align: left">2.2.0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="https://github.com/alien4cloud/alien4cloud-plugin-sample">alien4cloud-plugin-sample</a></td>
+      <td style="text-align: left">Set of modules that illustrate how to write plugin with backend and UI, wizard addon, topology modifier:</td>
+      <td style="text-align: left">1.3.0</td>
+    </tr>
+  </tbody>
+</table>
 
 <h1 id="integrating-with-alien-4-cloud-via-api">Integrating with Alien 4 Cloud via API</h1>
 

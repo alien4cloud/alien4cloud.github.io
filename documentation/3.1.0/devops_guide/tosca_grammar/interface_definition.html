@@ -1,0 +1,114 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/3.1.0/devops_guide/tosca_grammar/interface_definition.html',
+  title: 'Interface definition'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Interface definition</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.1.0/devops_guide/tosca_grammar/interface_definition.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <p>An interface definition defines a named interface that can be associated with a Node or Relationship types and templates.</p>
+
+<h2 id="keynames">Keynames</h2>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th style="text-align: left">Keyname</th>
+      <th style="text-align: left">Required</th>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Description</th>
+      <th style="text-align: left">tosca_definitions_version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">description <strong>(1)</strong></td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">An optional description for the interface.</td>
+      <td style="text-align: left">alien_dsl_1_3_0<br /> alien_dsl_1_2_0<br /> tosca_simple_yaml_1_0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">inputs</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">The optional list of input parameter definitions, common to all underling operations</td>
+      <td style="text-align: left">alien_dsl_1_4_0</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li><strong>(1)</strong> TOSCA 1.0.0 does not specifies description for interface definition but this sounds more like a miss. Therefore our tosca_simple_yaml_1_0 support includes support for description keyword.</li>
+</ul>
+
+<h2 id="grammar">Grammar</h2>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">&lt;interface_definition_name&gt;</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">inputs</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">&lt;parameter_definitions&gt;</span>
+  <span class="l-Scalar-Plain">&lt;operation_definition_1&gt;</span>
+  <span class="l-Scalar-Plain">...</span>
+  <span class="l-Scalar-Plain">&lt;operation_definition_n&gt;</span></code></pre></div>
+
+<h2 id="example">Example</h2>
+
+<p>The following example shows how to define a node type with operation:</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">node_types</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">fastconnect.nodes.OperationSample</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">interfaces</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">Standard</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">desciption</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Normative interface that defines a node standard lifecycle.</span>
+        <span class="l-Scalar-Plain">create</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">/scripts/install.sh</span>
+        <span class="l-Scalar-Plain">configure</span><span class="p-Indicator">:</span>
+          <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">This is the configuration description.</span>
+          <span class="l-Scalar-Plain">implementation</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">/scripts/setup.sh</span>
+          <span class="l-Scalar-Plain">inputs</span><span class="p-Indicator">:</span>
+            <span class="l-Scalar-Plain">value_input</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">4</span></code></pre></div>
+
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.1.0/devops_guide/tosca_grammar/interface_definition.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-3.1.0', 'documentation/3.1.0/devops_guide/tosca_grammar/interface_definition.md');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

@@ -1,0 +1,79 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/3.2.0/orchestrators/kubernetes/tosca_types.html',
+  title: 'TOSCA types'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">TOSCA types</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.2.0/orchestrators/kubernetes/tosca_types.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <h2 id="whats-new-in-tosca-types">What’s new in TOSCA types</h2>
+
+<p>Our base types for container based topology design has evolved to take into account the specifications of container schedulers (Kubernetes, AWS EC2 …).</p>
+
+<p>Container images still being described with the abstract type <code>tosca.nodes.Container.Application.DockerContainer</code>. You can consider it as a wrapper for the docker image. It handles the capabilities and requirements related to the application it runs.</p>
+
+<p>A new type has been introduced: a <code>org.alien4cloud.extended.container.types.ContainerRuntime</code> represents the container itself, independently of the image the container will host. A <code>ContainerRuntime</code> hosts one and only one <code>DockerContainer</code>.</p>
+
+<p>Another type has been introduced: a <code>org.alien4cloud.extended.container.types.ContainerDeploymentUnit</code> is a unit that will group several containers and deploy them as a single unit. It can host sow have <code>ContainerDeploymentUnit</code> that can host several <code>ContainerRuntime</code>s and volumes. A <code>ContainerRuntime</code> hosts one single containerized application (A node of a type that extends <code>tosca.nodes.Container.Application.DockerContainer</code> and that offers capabilities and specify it’s requirements).</p>
+
+<p>In the example below, we have 1 deployment unit (node CDU) that host 2 container runtime (the two CRs) and 1 volume. Each container runtime host its containrized application (Apache and Mongod)</p>
+
+<p><img src="../../images/kubernetes_walkthrough/containers_types_sample_topology.png" alt="Container sample topology" style="width: 200px; margin: 0 auto" /></p>
+
+<p>Note that all these types are abstract (except the container images). They will be replaced by the Kubernetes modifier at deployment setup.</p>
+
+<div class="note info">
+<p>A modifier is a piece of code that can transform a topology before you deploy it. It can be associated to a location or to a policy. It is generally embedded into a plugin.
+A <strong>Topology modifier</strong> can add nodes, transform nodes … It will be executed at the deployment stage you configure: after location matching, after location resource matching …
+A <strong>Policy modifier</strong> is associated with a concrete policy and will be executed when you match a policy during the deployment setup. It also can add or modify nodes to make the policy work.</p>
+</div>
+<p>everal <code>ContainerRuntime</code>s but also volumes. When using Kubernetes, it will become a <a href="https://kubernetes.io/docs/concepts/workloads/pods/pod-overview/">Pod</a> (or a <a href="https://kubernetes.io/docs/concepts/workloads/controllers/deployment/">Deployment</a>).</p>
+
+<p>So we now have <code>ContainerDeploymentUnit</code> that can host several <code>ContainerRuntime</code>s and volumes. A <code>ContainerRuntime</code> hosts one single containerized application (A node of a type that extends <code>tosca.nodes.Container.Application.DockerContainer</code> and that offers capabilities and specify it’s requirements).</p>
+
+<p>In the example below, we have 1 deployment unit (node CDU) that host 2 container runtime (the two CRs) and 1 volume. Each container runtime host its containerized application (Apache and Mongod)</p>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.2.0/orchestrators/kubernetes/tosca_types.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-3.2.0', 'documentation/3.2.0/orchestrators/kubernetes/tosca_types.markdown');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

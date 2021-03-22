@@ -1,0 +1,232 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/3.1.0/admin_guide/saml_with_keycloak.html',
+  title: 'SAML integration with Keycloak'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">SAML integration with Keycloak</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.1.0/admin_guide/saml_with_keycloak.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <p>Alien4Cloud supports SAML authentication, this section describes the configuration for enabling SAML and how to integrate Keycloak.</p>
+
+<h2 id="how-does-it-work">How does it work</h2>
+
+<p>Alien4Cloud serves as a SP (Service Provider) and the authentication of users could be delegated to an existing IdP (Identity Provider). Keycloak is an open-source tool managing the SP and IdP and providing the SSO (Single-Sign-On). The diagram below shows a high-level intuition of how A4C interacts with Keycloak when an user tries to login A4C.</p>
+
+<p><img src="../images/3.1.0/admin_guide/authentication_process.png" alt="Authentication process" /></p>
+
+<h2 id="how-to-configure">How to configure</h2>
+
+<div class="note warning">
+<h5>Prerequistes</h5>
+<p>Before configuring the IdP in A4C, just for testing, please create a new realm firstly and then create a new IdP as well as some users in this realm.</p>
+</div>
+
+<p>To remind that Alien4Cloud serves as SP and Keycloak as IdP. So firstly, for A4C, we need to set up the configuration file of IdP which has been created in Keycloak. And then, we go to configure A4C to generate a configuration file of SP and then download it from <strong><em>http(s)://alien4cloud.host:alien4cloud.port/saml/metadata</em></strong> and import it on Keycloak.</p>
+
+<p>Here is the diagram showing the configuration process:</p>
+
+<p><img src="../images/3.1.0/admin_guide/configuration_process.png" alt="Configuration process" /></p>
+
+<p>SAML configuration can be done by updating the A4C configuration file located in  <em>config/alien4cloud-config.yml</em>.</p>
+
+<p>Here is an example:</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">saml</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">enabled</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
+  <span class="l-Scalar-Plain">maxAuthenticationAge</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">7200</span>
+  <span class="l-Scalar-Plain">maxAssertionTime</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">3000</span>
+  <span class="l-Scalar-Plain">logoutUrl</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">http://alien4cloud.org</span>
+  <span class="l-Scalar-Plain">ssl</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">keystore</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">samlKeystore.jks</span>
+    <span class="l-Scalar-Plain">defaultKey</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">apollo</span>
+    <span class="l-Scalar-Plain">keystorepassword</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">nalle123</span>
+  <span class="l-Scalar-Plain">metadata</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">idp</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">url</span><span class="p-Indicator">:</span> <span class="s">&quot;https://idp.ssocircle.com/idp-meta.xml&quot;</span>
+    <span class="l-Scalar-Plain">sp</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">entityId</span><span class="p-Indicator">:</span> <span class="s">&quot;org:alien4cloud:sp&quot;</span></code></pre></div>
+
+<h3 id="table-definition-of-parameters">Table: definition of parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parameters</th>
+      <th>Description</th>
+      <th>Mandatory</th>
+      <th>Default value</th>
+      <th>Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>saml:enabled</td>
+      <td>Flag for enabling SAML</td>
+      <td>yes</td>
+      <td> </td>
+      <td>true</td>
+    </tr>
+    <tr>
+      <td>saml:maxAuthenticationAge</td>
+      <td>Maximum life of an authentication in seconds</td>
+      <td>yes</td>
+      <td> </td>
+      <td>7200</td>
+    </tr>
+    <tr>
+      <td>saml:maxAssertionTime</td>
+      <td>The duration fo validity of assertions processed during the signle sign-on process in seconds</td>
+      <td>yes</td>
+      <td> </td>
+      <td>3000</td>
+    </tr>
+    <tr>
+      <td>saml:logoutUrl</td>
+      <td>Allows to specify an url on which the user will be redirected after performing a logout from A4C when SAML is enabled</td>
+      <td>no</td>
+      <td> </td>
+      <td>http://alien4cloud.org</td>
+    </tr>
+    <tr>
+      <td>saml:proxy:host</td>
+      <td>TODO</td>
+      <td>no</td>
+      <td> </td>
+      <td>193.56.47.20</td>
+    </tr>
+    <tr>
+      <td>saml:proxy:port</td>
+      <td>TODO</td>
+      <td>no</td>
+      <td> </td>
+      <td>8080</td>
+    </tr>
+    <tr>
+      <td>saml:ssl:keystore</td>
+      <td>Certificate configured in Keycloak server</td>
+      <td>yes</td>
+      <td> </td>
+      <td>samlKeystore.jks</td>
+    </tr>
+    <tr>
+      <td>saml:ssl:defaultKey</td>
+      <td>Alias of keystore</td>
+      <td>yes</td>
+      <td>apollo</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>saml:ssl:keystorepassword</td>
+      <td>Password of keystore</td>
+      <td>yes</td>
+      <td> </td>
+      <td>nalle123</td>
+    </tr>
+    <tr>
+      <td>saml:ssl:metadata:idp:url</td>
+      <td>URL pointing to the IdP metadata file</td>
+      <td><strong>yes</strong> if not setting file path to IdP metadata file; <strong>no</strong> otherwise</td>
+      <td> </td>
+      <td>“https://idp.ssocircle.com/idp-meta.xml”</td>
+    </tr>
+    <tr>
+      <td>saml:ssl:metadata:idp:file</td>
+      <td>Local file path to the IdP metadata file</td>
+      <td><strong>yes</strong> if not setting URL to IdP metadata file; <strong>no</strong> otherwise</td>
+      <td> </td>
+      <td>“/path/to/file.xml”</td>
+    </tr>
+    <tr>
+      <td>saml:ssl:metadata:sp:entityId</td>
+      <td>Unique identifier of the service provider.</td>
+      <td>yes</td>
+      <td> </td>
+      <td>“org:alien4cloud:sp”</td>
+    </tr>
+    <tr>
+      <td>saml:ssl:metadata:sp:entityBaseURL</td>
+      <td>Base URL to construct SAML endpoints from, needs to be a URL with protocol, server, port and context path.</td>
+      <td>no</td>
+      <td>“http://localhost:8088”</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>saml:ssl:metadata:sp:requestSigned</td>
+      <td>Flag indicating whether this service signs authentication requests.</td>
+      <td>no</td>
+      <td>false</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>saml:ssl:mapping:email</td>
+      <td>Mapping of user email inside SAML attribute assertion</td>
+      <td>no</td>
+      <td>false</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>saml:ssl:mapping:firstname</td>
+      <td>Mapping of user firstname inside SAML attribute assertion</td>
+      <td>no</td>
+      <td>false</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>saml:ssl:mapping:lastname</td>
+      <td>Mapping of user lastname inside SAML attribute assertion</td>
+      <td>no</td>
+      <td>false</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="note warning">
+<h5>How to download SP metadata file</h5>
+<p>Once alien4cloud is started you can retrieve A4C’s SP metadata from <em><strong>http(s)://alien4cloud.host:alien4cloud.port/saml/metadata</strong></em>.</p>
+</div>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.1.0/admin_guide/saml_with_keycloak.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-3.1.0', 'documentation/3.1.0/admin_guide/saml_with_keycloak.md');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

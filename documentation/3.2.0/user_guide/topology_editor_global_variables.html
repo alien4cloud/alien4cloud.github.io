@@ -1,0 +1,126 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/3.2.0/user_guide/topology_editor_global_variables.html',
+  title: 'Contextual/Global variables'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Contextual/Global variables</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.2.0/user_guide/topology_editor_global_variables.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <p>Alien 4 cloud provide a very convenient system that allows to reference contextual (application/location) variables in a topology through the usage of TOSCA input functions. This section details how you can reference this variables in the topology and how they work.</p>
+
+<h1 id="advanced-inputs">Advanced inputs</h1>
+
+<p>This section describe how you can use internal variables defined in <strong>location</strong> or <strong>application</strong>. Those parameters
+could be used as inputs for node template’s or capabilities’ properties.</p>
+
+<p>Our target for this feature is to allow internal prefixes to target meta-properties over different elements :</p>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Targeted element</th>
+      <th style="text-align: left">Internal prefix</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><em>location</em></td>
+      <td style="text-align: left"><code>loc_meta_</code></td>
+      <td style="text-align: left">Targets <em>meta-properties</em> defined on a location</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><em>application</em></td>
+      <td style="text-align: left"><code>app_meta_</code> , <code>app_tags_</code></td>
+      <td style="text-align: left">Targets <em>meta-properties</em> or <em>tags</em> defined on an application</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="define-a-property-as-an-internal-input">Define a property as an internal input</h2>
+
+<p>When you define a topology, you may want to define some node properties as inputs. An input is
+by default a value required to the user in order complete the topology and deploy.</p>
+
+<p><img src="../../images/user_guide/user_guide_topology_template_properties.png" alt="Compute properties" /><br /></p>
+
+<p>You can define any property as input and then set its value in the deployment page or indicate
+that the input is bound to an internal variable defined on a <em>location</em> or the <em>application</em> for example.The name syntax of an internal input is:</p>
+
+<p><code>&lt;INTERNAL_PREFIX&gt;&lt;TARGET_PROPERTY&gt;</code></p>
+
+<p>where <em>TARGET_PROPERTY</em> can be a tag’s or a meta property’s name.</p>
+
+<p>For example, let’s say that we want to use one of the meta properties defined on our application : <strong>target_client</strong>
+First, we set the wanted property as an input. This will leads to the creation of a new input named after the property’s name.
+Then we have to rename the created input following the above syntax, and using the application meta prefix: <code>app_meta_</code><strong>target_client</strong></p>
+
+<p><img src="../../images/user_guide/user_guide_topology_template_properties_input.png" alt="Properties input on application metaproperties" /><br /></p>
+
+<p>If you have some tags or meta-properties defined on your location, same syntax :</p>
+
+<ul>
+  <li><code>loc_meta_</code><strong>MYAPP_META1</strong></li>
+  <li><code>loc_meta_</code><strong>MYAPP_META2</strong></li>
+  <li><code>app_tags_</code><strong>MYAPP_TAG1</strong></li>
+  <li><code>app_tags_</code><strong>MYAPP_TAG2</strong></li>
+</ul>
+
+<div class="note warning">
+<h5>Meta property naming</h5>
+<p><strong>Note :</strong> avoid dot <code>.</code> character in you meta-property name (e.g. my.meta.1)</p>
+<h5>Missing values</h5>
+<p>We have two possible cases regarding an input and the targeted meta-property :</p>
+
+<ul>
+  <li><strong>requirted</strong> property : if the provided value doesn’t exist as input the property will stay marked as <strong>missing</strong> and the topology not deployable</li>
+  <li><strong>optional</strong> property : if the provided value doesn’t exist you will have a <code>warning</code> but the deployment will still be possible</li>
+</ul>
+</div>
+
+<p>In fact, the deployment steps will help you handle <em>warnings</em> and <em>tasks</em> for a good deployment setup.</p>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.2.0/user_guide/topology_editor_global_variables.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-3.2.0', 'documentation/3.2.0/user_guide/topology_editor_global_variables.md');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

@@ -1,0 +1,335 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/release_notes/3.1.0.html',
+  title: 'ALIEN for Cloud 3.1.0'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">ALIEN for Cloud 3.1.0</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/release_notes/3.1.0.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <p><i class="fa fa-plus text-success"></i> New feature <i class="fa fa-level-up text-primary"></i> Improvement  <i class="fa fa-bug text-danger"></i> Bug <i class="fa fa-exclamation-triangle text-warning"></i> Breaking change</p>
+
+<h3 id="alien-4-cloud-nexus-inventory-plugin">Alien 4 Cloud Nexus Inventory Plugin</h3>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Id</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
+      <td style="text-align: left">ALIEN-3628</td>
+      <td style="text-align: left">Plugin nexus - increase maximum poll frequence</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
+      <td style="text-align: left">ALIEN-3630</td>
+      <td style="text-align: left">UI Import - adding submission date in the import list</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="alien-4-cloud-datagouv-plugin">Alien 4 Cloud Datagouv Plugin</h3>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Id</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
+      <td style="text-align: left">ALIEN-3572</td>
+      <td style="text-align: left">Datagouv / mls - qualifiedName mapping changes</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
+      <td style="text-align: left">ALIEN-3573</td>
+      <td style="text-align: left">Full UI Display SMD Errors in Datagouv_MLS</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
+      <td style="text-align: left">ALIEN-3574</td>
+      <td style="text-align: left">Datagouv / mls - variable management substitution in services</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="alien-4-cloud-k8s-plugin">Alien 4 Cloud K8S plugin</h3>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Id</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
+      <td style="text-align: left">ALIEN-3583</td>
+      <td style="text-align: left">Kubernetes services creation with mutiple ports</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-3554</td>
+      <td style="text-align: left">Error management Couldn’t process a4c_kubernetes-adapter-modifier</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-3564</td>
+      <td style="text-align: left">plugin K8S - initContainer Tosca model is not correct</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-3595</td>
+      <td style="text-align: left">plugin K8S Service K8S multi port and topology import / YAML edition</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="alien-4-cloud-k8s-spark-job">Alien 4 Cloud K8S Spark Job</h3>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Id</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-plus text-success"></i></td>
+      <td style="text-align: left">ALIEN-3578</td>
+      <td style="text-align: left">Deploying and running Spark 3.0.0 jobs on Kubernetes</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-3588</td>
+      <td style="text-align: left">Adding label on JavaSparkJob type provokes error when preparing deployment</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="alien-4-cloud-portal-plugin">Alien 4 Cloud Portal Plugin</h3>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Id</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
+      <td style="text-align: left">ALIEN-3596</td>
+      <td style="text-align: left">Plugin portal implementations updates</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="alien-4-cloud-kafka-logger">Alien 4 Cloud Kafka Logger</h3>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Id</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
+      <td style="text-align: left">ALIEN-3625</td>
+      <td style="text-align: left">Plugin kafkalistener one error in pull git should acknowledge a KO status</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
+      <td style="text-align: left">ALIEN-3627</td>
+      <td style="text-align: left">Plugin kafkalistener - import repo GIT - delete existing branch - create new branch</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
+      <td style="text-align: left">ALIEN-3632</td>
+      <td style="text-align: left">Plugin kafkalistener - add message output-topic</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="alien-4-cloud-spray">Alien 4 Cloud Spray</h3>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Id</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
+      <td style="text-align: left">ALIEN-3581</td>
+      <td style="text-align: left">Spray - installing python3 in yorc dependancies</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-3567</td>
+      <td style="text-align: left">Spray - upgrade regular expression for A4C war incorrect for releases</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-3568</td>
+      <td style="text-align: left">NGINX Yorc Front Yorc does not work with a single VM Yorc configured in hosts</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="alien-4-cloud">Alien 4 Cloud</h3>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Id</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-plus text-success"></i></td>
+      <td style="text-align: left">ALIEN-3009</td>
+      <td style="text-align: left">Cancel job spark from A4C UI</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-plus text-success"></i></td>
+      <td style="text-align: left">ALIEN-3575</td>
+      <td style="text-align: left">Service creation by Kafka message subscription</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
+      <td style="text-align: left">ALIEN-3571</td>
+      <td style="text-align: left">Topology valididy display update in edit mode without saving</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
+      <td style="text-align: left">ALIEN-3608</td>
+      <td style="text-align: left">Lower Log level VariableModifier</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
+      <td style="text-align: left">ALIEN-3626</td>
+      <td style="text-align: left">Pull GIT - trace log when errors in pull</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-level-up text-primary"></i></td>
+      <td style="text-align: left">ALIEN-3629</td>
+      <td style="text-align: left">Ability to define location policy resource that act as template</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-3562</td>
+      <td style="text-align: left">Audit when accessing to 50 lines view, thurther filter displays nothing</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-3636</td>
+      <td style="text-align: left">Some service attribute inputs can block next service editing for a type</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="alien-4-cloud-rms-scheduler-plugin">Alien 4 Cloud RMS Scheduler Plugin</h3>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Id</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-plus text-success"></i></td>
+      <td style="text-align: left">ALIEN-3601</td>
+      <td style="text-align: left">New plugin to schedule workflow runs using rule based policies</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="alien-4-cloud-supervision-plugin">Alien 4 Cloud Supervision Plugin</h3>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Id</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><i class="fa fa-bug text-danger"></i></td>
+      <td style="text-align: left">ALIEN-3607</td>
+      <td style="text-align: left">Plugin supervision - job running and final kafka message</td>
+    </tr>
+  </tbody>
+</table>
+
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/release_notes/3.1.0.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('RELEASE_NOTES', 'release_notes/3.1.0.markdown');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>
