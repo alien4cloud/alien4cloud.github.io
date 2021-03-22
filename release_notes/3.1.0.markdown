@@ -1,0 +1,144 @@
+---
+layout: post
+title:  ALIEN for Cloud 3.1.0
+root: ../
+categories: RELEASE_NOTES
+parent: [release_note]
+node_name: 3.1.0
+weight: 9890
+exclude_from_search: true
+---
+
+
+
+
+<i class="fa fa-plus text-success"></i> New feature <i class="fa fa-level-up text-primary"></i> Improvement  <i class="fa fa-bug text-danger"></i> Bug <i class="fa fa-exclamation-triangle text-warning"></i> Breaking change
+
+
+### Alien 4 Cloud Nexus Inventory Plugin
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-3628 | Plugin nexus - increase maximum poll frequence  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-3630 | UI Import - adding submission date in the import list  |
+    
+
+
+### Alien 4 Cloud Datagouv Plugin
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-3572 | Datagouv / mls - qualifiedName mapping changes  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-3573 | Full UI Display SMD Errors in Datagouv_MLS  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-3574 | Datagouv / mls - variable management substitution in services  |
+    
+
+
+### Alien 4 Cloud K8S plugin
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-3583 | Kubernetes services creation with mutiple ports  |
+      |  <i class="fa fa-bug text-danger"></i> | ALIEN-3554 | Error management Couldn't process a4c_kubernetes-adapter-modifier  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-3564 | plugin K8S - initContainer Tosca model is not correct  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-3595 | plugin K8S Service K8S multi port and topology import / YAML edition  |
+  
+
+
+### Alien 4 Cloud K8S Spark Job
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-3578 | Deploying and running Spark 3.0.0 jobs on Kubernetes  |
+        |  <i class="fa fa-bug text-danger"></i> | ALIEN-3588 | Adding label on JavaSparkJob type provokes error when preparing deployment  |
+  
+
+
+### Alien 4 Cloud Portal Plugin
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-3596 | Plugin portal implementations updates  |
+    
+
+
+### Alien 4 Cloud Kafka Logger
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-3625 | Plugin kafkalistener one error in pull git should acknowledge a KO status  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-3627 | Plugin kafkalistener - import repo GIT - delete existing branch - create new branch  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-3632 | Plugin kafkalistener - add message output-topic   |
+    
+
+
+### Alien 4 Cloud Spray
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-3581 | Spray - installing python3 in yorc dependancies  |
+      |  <i class="fa fa-bug text-danger"></i> | ALIEN-3567 | Spray - upgrade regular expression for A4C war incorrect for releases   |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-3568 | NGINX Yorc Front Yorc does not work with a single VM Yorc configured in hosts  |
+  
+
+
+### Alien 4 Cloud
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-3009 | Cancel job spark from A4C UI  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-3575 | Service creation by Kafka message subscription  |
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-3571 | Topology valididy display update in edit mode without saving  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-3608 | Lower Log level VariableModifier  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-3626 | Pull GIT - trace log when errors in pull   |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-3629 | Ability to define location policy resource that act as template  |
+      |  <i class="fa fa-bug text-danger"></i> | ALIEN-3562 | Audit when accessing to 50 lines view, thurther filter displays nothing  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-3636 | Some service attribute inputs can block next service editing for a type  |
+  
+
+
+### Alien 4 Cloud RMS Scheduler Plugin
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-3601 | New plugin to schedule workflow runs using rule based policies  |
+      
+
+
+### Alien 4 Cloud Supervision Plugin
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+        |  <i class="fa fa-bug text-danger"></i> | ALIEN-3607 | Plugin supervision - job running and final kafka message  |
+  
+
