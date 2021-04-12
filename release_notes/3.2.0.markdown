@@ -1,0 +1,73 @@
+---
+layout: post
+title:  ALIEN for Cloud 3.2.0
+root: ../
+categories: RELEASE_NOTES
+parent: [release_note]
+node_name: 3.2.0
+weight: 9889
+exclude_from_search: true
+---
+
+
+
+
+<i class="fa fa-plus text-success"></i> New feature <i class="fa fa-level-up text-primary"></i> Improvement  <i class="fa fa-bug text-danger"></i> Bug <i class="fa fa-exclamation-triangle text-warning"></i> Breaking change
+
+
+### Alien 4 Cloud Kafka Listener
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+        |  <i class="fa fa-bug text-danger"></i> | ALIEN-3644 | Kafka listener is not loaded when configured orchestrator is not created  |
+  
+
+
+### Alien 4 Cloud Spray
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-3637 | Adding data dir parameter instead of native inventory_dir for retrieving resources  |
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-3638 | Multi location creation while setting up A4C  |
+    
+
+
+### Alien 4 Cloud
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-3459 | Step on_failure Workflow implementation  |
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-3553 | Upgrade to JDK15  |
+    
+
+
+### Yorc Paas Provider
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-3576 | A4C Yorc plugin compatibility with Yorc new synchronous purge API  |
+      
+
+
+### Alien 4 Cloud K8S Webhook Plugin
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-3640 | I can prioritize pods creation and eviction  |
+      
+
