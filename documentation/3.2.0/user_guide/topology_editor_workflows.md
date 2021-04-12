@@ -97,7 +97,16 @@ Since version 3.2.0, designing worflows with steps on failure is now available :
 
 [![*Workflow step on failure](../../images/3.2.0/user_guide/applications/wf-steponfailure-1.png)](../../images/user_guide/application/wf-steponfailure-1.png){:target="_blank"}
 
-**More documentation will be available soon. **
+
+To create a **step on failure** link between steps, you have to select the 2 nodes and select **On Failure From Selection** or **On Failure To Selection**.
+
+[![*Workflow step on failure](../../images/3.2.0/user_guide/applications/wf-steponfailure-2.png)](../../images/user_guide/application/wf-steponfailure-2.png){:target="_blank"}
+
+
+When workflow is running and has a fail step, next step on failure modelised is run.
+
+[![*Workflow step on failure](../../images/3.2.0/user_guide/applications/wf-steponfailure-3.png)](../../images/user_guide/application/wf-steponfailure-3.png){:target="_blank"}
+
 
 # Custom workflows executions
 
@@ -111,6 +120,7 @@ Custom workflows can also be launched with API : /rest/v1/applications/{applicat
 
 During an application deployment or undeployment, custom worflows cannot be launched. In the UI, **Launch** button is not clickable. If the API is called, it will return an error (**Cannot start workflow while a deployment/undeployment is in progress**)
 Install and uninstall worflows cannot be launched as custom worflow in any case. **Launch** button is always unclickable. If the API is called, it will return an error (**workflow install cannot be launched**)
+
 
 
 # Workflow limitations
