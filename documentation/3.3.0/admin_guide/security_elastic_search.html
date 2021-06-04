@@ -1,0 +1,121 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/3.3.0/admin_guide/security_elastic_search.html',
+  title: 'Elasticsearch'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Elasticsearch</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.3.0/admin_guide/security_elastic_search.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <h3 id="prerequisite">Prerequisite</h3>
+
+<p>Generate certificates for your elasticsearch cluster (see <a href="#/documentation/3.0.0/admin_guide/certificates.html">Certificate Generation</a>), and download premium distribution of Alien4Cloud</p>
+
+<h3 id="configuration-of-elasticsearch-nodes">Configuration of elasticsearch nodes</h3>
+
+<ul>
+  <li>Download elasticsearch 6.6.2 <a href="https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.6.2.tar.gz">here</a>, and install it at $ELASTIC_SEARCH_HOME</li>
+  <li>Copy your certificates to $ELASTIC_SEARCH_HOME/config</li>
+  <li>Modify $ELASTIC_SEARCH_HOME/config/elasticsearch.yml :</li>
+</ul>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">xpack.security.transport.ssl.enabled</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
+<span class="l-Scalar-Plain">xpack.security.transport.ssl.verification_mode</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">certificate</span>
+<span class="l-Scalar-Plain">xpack.security.transport.ssl.key</span><span class="p-Indicator">:</span> 
+<span class="l-Scalar-Plain">xpack.security.transport.ssl.certificate</span><span class="p-Indicator">:</span> 
+<span class="l-Scalar-Plain">xpack.security.transport.ssl.certificate_authorities</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span><span class="s">&quot;&quot;</span><span class="p-Indicator">]</span>
+
+<span class="l-Scalar-Plain">xpack.security.http.ssl.enabled</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
+<span class="l-Scalar-Plain">xpack.security.http.ssl.verification_mode</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">certificate</span>
+<span class="l-Scalar-Plain">xpack.security.http.ssl.key</span><span class="p-Indicator">:</span>  
+<span class="l-Scalar-Plain">xpack.security.http.ssl.certificate</span><span class="p-Indicator">:</span> 
+<span class="l-Scalar-Plain">xpack.security.http.ssl.certificate_authorities</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span><span class="s">&quot;&quot;</span><span class="p-Indicator">]</span>
+
+<span class="l-Scalar-Plain">xpack.security.authc.anonymous.roles</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">superuser</span></code></pre></div>
+
+<ul>
+  <li>Perform the same operations for all your elasticsearch cluster nodes</li>
+  <li>Start your elasticsearch cluster</li>
+</ul>
+
+<h3 id="configuration-of-alien">Configuration of Alien</h3>
+
+<ul>
+  <li>In $ALIEN_HOME/config/alien4cloud-config.yml, configure Alien as an elasticsearch transport client:</li>
+</ul>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">elasticSearch</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">clusterName</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">my-cluster</span>
+  <span class="l-Scalar-Plain">local</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">false</span>
+  <span class="l-Scalar-Plain">client</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
+  <span class="l-Scalar-Plain">prefix_max_expansions</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">10</span>
+  <span class="l-Scalar-Plain">transportClient</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
+  <span class="l-Scalar-Plain">resetData</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">false</span>
+  <span class="c1"># a comma separated list of host:port couples</span>
+  <span class="l-Scalar-Plain">hosts</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">10.67.79.4:9300,10.67.79.5:9300</span></code></pre></div>
+
+<ul>
+  <li>Modify the configuration of searchguard in $ALIEN_HOME/config/alien4cloud-config.yml :</li>
+</ul>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">searchguard</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">ssl</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">transport</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">enabled</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
+      <span class="l-Scalar-Plain">keystore_filepath</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;keystore file&gt;</span>
+      <span class="l-Scalar-Plain">keystore_password</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;password&gt;</span>
+      <span class="l-Scalar-Plain">truststore_filepath</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;truststore file&gt;</span>
+      <span class="l-Scalar-Plain">truststore_password</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;password&gt;</span></code></pre></div>
+
+<ul>
+  <li>SSL is only available with a remote Elastic Search.</li>
+  <li>Start Alien, if index is created then your configuration is correct and working !</li>
+</ul>
+
+<h3 id="using-alien4cloud-spray-to-secure-elastic-search">Using alien4cloud-spray to secure Elastic Search</h3>
+<p>The alien4Cloud spray available on <a href="https://github.com/alien4cloud/alien4cloud-spray">Alien4Cloud spray</a> gives scripts to generate CA, hosts keys and certificates
+<strong>elasticsearch_tls</strong> parameter in the <a href="https://github.com/alien4cloud/alien4cloud-spray/blob/develop/inputs.yml">alien4cloud-spray configuration file </a> must be set to true, generated certificates have to be put in <strong>certificates_path</strong> (parameter of the same configuration file)</p>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.3.0/admin_guide/security_elastic_search.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-3.0.0', 'documentation/3.3.0/admin_guide/security_elastic_search.md');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

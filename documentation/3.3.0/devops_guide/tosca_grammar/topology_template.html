@@ -1,0 +1,394 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/3.3.0/devops_guide/tosca_grammar/topology_template.html',
+  title: 'Topology template'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Topology template</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.3.0/devops_guide/tosca_grammar/topology_template.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <p>This section defines the topology template of a cloud application. The main ingredients of the Topology Template are node templates representing components of the application.</p>
+
+<h2 id="keynames">Keynames</h2>
+
+<p>A Topology Template contains the following element keynames:</p>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th style="text-align: left">Keyname</th>
+      <th style="text-align: left">Required</th>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">description</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Declares a description for this Service Template and its contents.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">inputs</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">Defines a set of global input parameters passed to the template when its instantiated. This provides a means for template authors to provide points of variability to users of the template in order to customize each instance within certain constraints.</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">input_artifacts</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">Define artifacts as inputs.</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">substitution_mappings</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">Describe how this topology can be used as a type in another one.</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">node_templates</td>
+      <td style="text-align: left">yes</td>
+      <td style="text-align: left">Defines a list of <a href="#/documentation/3.0.0/devops_guide/tosca_grammar/node_template.html">Node template</a>s that model the components of an application or service’s topology within the Service Template.</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">relationship_templates</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">Defines a list of Relationship Templates that are used to model the relationships (e.g., dependencies, links, etc.) between components (i.e., Node Templates) of an application or service’s topology within the Service Template.</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">workflows</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">a map of <a href="#/documentation/3.0.0/devops_guide/tosca_concepts_workflows.html">workflows</a></td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">outputs</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">This optional section allows for defining a set of output parameters provided to users of the template. For example, this can be used for exposing the URL for logging into a web application that has been set up during the instantiation of a template.</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">groups</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">This is an optional section that contains grouping definition for node templates.</td>
+      <td style="text-align: left"> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="grammar">Grammar</h2>
+
+<p>The overall structure of a TOSCA Topology Template and its top-level key collations using the TOSCA Simple Profile is shown below:</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">topology_template</span>
+
+  <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">a description of the topology template</span>
+
+  <span class="l-Scalar-Plain">inputs</span><span class="p-Indicator">:</span>
+    <span class="c1"># list of global input parameters</span>
+
+  <span class="l-Scalar-Plain">input_artifacts</span><span class="p-Indicator">:</span>
+    <span class="c1"># map of artifacts defined as inputs (non TOSCA)</span>
+
+  <span class="l-Scalar-Plain">substitution_mappings</span><span class="p-Indicator">:</span>
+    <span class="c1"># define substitution mapping</span>
+
+  <span class="l-Scalar-Plain">node_templates</span><span class="p-Indicator">:</span>
+    <span class="c1"># list of node templates</span>
+
+  <span class="l-Scalar-Plain">relationship_templates</span><span class="p-Indicator">:</span>
+    <span class="c1"># list of relationship templates</span>
+
+  <span class="l-Scalar-Plain">groups</span><span class="p-Indicator">:</span>
+    <span class="c1"># list of groups defined in service template</span>
+
+  <span class="l-Scalar-Plain">outputs</span><span class="p-Indicator">:</span>
+    <span class="c1"># list of output parameters</span></code></pre></div>
+
+<h3 id="description">description</h3>
+<p>This optional element provides a means to include single or multiline descriptions within a TOSCA Simple Profile template as a scalar string value.</p>
+
+<h3 id="inputs">inputs</h3>
+
+<p>This optional element provides a means to define parameters, their allowed values via constraints and default values within a TOSCA Simple Profile template.</p>
+
+<p>This section defines template-level input parameter section.</p>
+
+<ul>
+  <li>Inputs here would ideally be mapped to BoundaryDefinitions in TOSCA v1.0.</li>
+  <li>Treat input parameters as fixed global variables (not settable within template)</li>
+  <li>If not in input take default (nodes use default)</li>
+</ul>
+
+<h4 id="grammar-1">Grammar</h4>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">inputs</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">&lt;property_definition_1&gt;</span>
+  <span class="l-Scalar-Plain">...</span>
+  <span class="l-Scalar-Plain">&lt;property_definition_n&gt;</span></code></pre></div>
+
+<h4 id="examples">Examples</h4>
+<p>Simple example without any constraints:</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">inputs</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">fooName</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">string</span>
+    <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Simple string typed property definition with no constraints.</span>
+    <span class="l-Scalar-Plain">default</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">bar</span></code></pre></div>
+
+<p>Example with constraints:</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">inputs</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">SiteName</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">string</span>
+    <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">string typed property definition with constraints</span>
+    <span class="l-Scalar-Plain">default</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">My Site</span>
+    <span class="l-Scalar-Plain">constraints</span><span class="p-Indicator">:</span>
+      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">min_length</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">9</span></code></pre></div>
+
+<div class="note">
+<p>The parameters (properties) that are listed as part of the inputs block could be mapped to PropertyMappings provided as part of BoundaryDefinitions as described by the TOSCA v1.0 specification.</p>
+</div>
+
+<h3 id="inputartifacts">input_artifacts</h3>
+
+<p>This section defines template-level input artifacts. Such artifacts can be shared by several nodes. Their content is defined at deployment time.</p>
+
+<div class="note warning">
+<p>The section <em>input_artifacts</em> and the function <em>get_input_artifact</em> are not yet defined in TOSCA.</p>
+</div>
+
+<h4 id="examples-1">Examples</h4>
+
+<p>In this example, an input artifact is defined and shared by two different nodes:</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">topology_template</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">input_artifacts</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">my_war_file</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">alien.artifacts.WarFile</span>
+  <span class="l-Scalar-Plain">node_templates</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">War1</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">alien.nodes.cloudify.War</span>
+      <span class="l-Scalar-Plain">artifacts</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">war_file</span><span class="p-Indicator">:</span>
+          <span class="l-Scalar-Plain">implementation</span><span class="p-Indicator">:</span> <span class="p-Indicator">{</span> <span class="nv">get_input_artifact</span><span class="p-Indicator">:</span> <span class="nv">my_war_file</span> <span class="p-Indicator">}</span>
+          <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">alien.artifacts.WarFile</span>
+    <span class="l-Scalar-Plain">War2</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">alien.nodes.cloudify.War</span>
+      <span class="l-Scalar-Plain">artifacts</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">war_file</span><span class="p-Indicator">:</span>
+          <span class="l-Scalar-Plain">implementation</span><span class="p-Indicator">:</span> <span class="p-Indicator">{</span> <span class="nv">get_input_artifact</span><span class="p-Indicator">:</span> <span class="nv">my_war_file</span> <span class="p-Indicator">}</span>
+          <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">alien.artifacts.WarFile</span></code></pre></div>
+
+<h3 id="substitutionmappings">substitution_mappings</h3>
+
+<p>Substitution allows you to compose topologies by combining templates.
+To be usable in another topology, you must define what a topology template will expose:</p>
+
+<ul>
+  <li>capabilities</li>
+  <li>requirements</li>
+  <li>properties</li>
+  <li>attributes</li>
+</ul>
+
+<h4 id="examples-2">Examples</h4>
+
+<p>In the example below, the topology template define 2 nodes. It’s exposed as a <em>tosca.nodes.Root</em> (this means that the created type will inherit <em>tosca.nodes.Root</em>).</p>
+
+<p>It will have:</p>
+
+<ul>
+  <li>a capability named ‘host’ that will be wired to the capability ‘host’ of the node ‘Mysql’.</li>
+  <li>a requirement named ‘network’ that will be wired to the requirement ‘network’ of the node ‘Compute’</li>
+</ul>
+
+<p>Since inputs and outputs are defined for this template, it will also have:</p>
+
+<ul>
+  <li>a property named ‘db_port’</li>
+  <li>an attribute named ‘Mysql_database_endpoint_port’</li>
+</ul>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">topology_template</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">inputs</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">db_port</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">integer</span>
+      <span class="l-Scalar-Plain">required</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
+      <span class="l-Scalar-Plain">default</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">3306</span>
+      <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">The port on which the underlying database service will listen to data.</span>
+  <span class="l-Scalar-Plain">substitution_mappings</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">node_type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.nodes.Root</span>
+    <span class="l-Scalar-Plain">capabilities</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">host</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span> <span class="nv">Mysql</span><span class="p-Indicator">,</span> <span class="nv">host</span> <span class="p-Indicator">]</span>
+    <span class="l-Scalar-Plain">requirements</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">network</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span> <span class="nv">Compute</span><span class="p-Indicator">,</span> <span class="nv">network</span> <span class="p-Indicator">]</span>
+  <span class="l-Scalar-Plain">node_templates</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">Mysql</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">alien.nodes.Mysql</span>
+      <span class="l-Scalar-Plain">properties</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">db_port</span><span class="p-Indicator">:</span> <span class="p-Indicator">{</span> <span class="nv">get_input</span><span class="p-Indicator">:</span> <span class="nv">db_port</span> <span class="p-Indicator">}</span>
+      <span class="l-Scalar-Plain">requirements</span><span class="p-Indicator">:</span>
+      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">host</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">node</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Compute</span>
+        <span class="l-Scalar-Plain">capability</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.capabilities.Container</span>
+        <span class="l-Scalar-Plain">relationship</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.relationships.HostedOn</span>
+    <span class="l-Scalar-Plain">Compute</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.nodes.Compute</span>
+  <span class="l-Scalar-Plain">outputs</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">Mysql_database_endpoint_port</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">value</span><span class="p-Indicator">:</span> <span class="p-Indicator">{</span> <span class="nv">get_property</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span> <span class="nv">Mysql</span><span class="p-Indicator">,</span> <span class="nv">database_endpoint</span><span class="p-Indicator">,</span> <span class="nv">port</span> <span class="p-Indicator">]</span> <span class="p-Indicator">}</span></code></pre></div>
+
+<h3 id="nodetemplates">node_templates</h3>
+
+<p>This element lists the Node Templates that describe the (software) components that are used to compose cloud applications.</p>
+
+<div class="note warning">
+<p>If a node template name contains some special character (is: not an alphanumeric character from the basic Latin alphabet and the underscore) we will replace this caractere by an underscore.</p>
+</div>
+
+<h4 id="grammar-2">Grammar</h4>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">node_templates</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">&lt;node_template_defn_1&gt;</span>
+  <span class="l-Scalar-Plain">...</span>
+  <span class="l-Scalar-Plain">&lt;node_template_defn_n&gt;</span></code></pre></div>
+
+<h4 id="example">Example</h4>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">node_templates</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">my_webapp_node_template</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">WebApplication</span>
+
+  <span class="l-Scalar-Plain">my_database_node_template</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Database</span></code></pre></div>
+
+<div class="note">
+<p>The node templates listed as part of the node_templates block can be mapped to the list of NodeTemplate definitions provided as part of TopologyTemplate of a ServiceTemplate as described by the TOSCA v1.0 specification.</p>
+</div>
+
+<p>see:</p>
+
+<ul>
+  <li><a href="#/documentation/3.0.0/devops_guide/tosca_grammar/node_template.html">Node template</a></li>
+</ul>
+
+<h3 id="relationshiptemplates">relationship_templates</h3>
+
+<div class="note warning">
+<p>Not yet supported In Alien 4 Cloud</p>
+</div>
+
+<h3 id="groups">groups</h3>
+
+<p>The group construct is a composition element used to group one or more node templates within a TOSCA Service Template. It is mainly used to apply a <a href="#/documentation/3.0.0/devops_guide/tosca_grammar/policy.html">Policy</a> onto a group of nodes.</p>
+
+<h4 id="grammar-3">Grammar</h4>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">groups</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">&lt;group_name_A&gt;</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">members</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span> <span class="nv">node1</span><span class="p-Indicator">,</span> <span class="nv">... nodeN</span> <span class="p-Indicator">]</span>
+    <span class="l-Scalar-Plain">policies</span><span class="p-Indicator">:</span>
+      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">&lt;policy_defn_A_1&gt;</span>
+      <span class="l-Scalar-Plain">...</span>
+      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">&lt;policy_defn_A_n&gt;</span>
+
+  <span class="l-Scalar-Plain">&lt;group_name_B&gt;</span>
+    <span class="l-Scalar-Plain">members</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span> <span class="nv">node1</span><span class="p-Indicator">,</span> <span class="nv">... nodeN</span> <span class="p-Indicator">]</span>
+      <span class="l-Scalar-Plain">policies</span><span class="p-Indicator">:</span>
+        <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">&lt;policy_defn_B_1&gt;</span>
+        <span class="l-Scalar-Plain">...</span>
+        <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">&lt;policy_defn_B_n&gt;</span></code></pre></div>
+
+<h4 id="example-1">Example</h4>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">node_templates</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">server1</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.nodes.Compute</span>
+    <span class="c1"># more details ...</span>
+
+  <span class="l-Scalar-Plain">server2</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.nodes.Compute</span>
+    <span class="c1"># more details ...</span>
+
+  <span class="l-Scalar-Plain">server3</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.nodes.Compute</span>
+    <span class="c1"># more details ...</span>
+
+<span class="l-Scalar-Plain">groups</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">server_group_1</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">members</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span> <span class="nv">server1</span><span class="p-Indicator">,</span> <span class="nv">server2</span> <span class="p-Indicator">]</span>
+    <span class="l-Scalar-Plain">policies</span><span class="p-Indicator">:</span>
+      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">my_scaling_ha_policy</span>
+        <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.policy.ha</span></code></pre></div>
+
+<p>see:</p>
+
+<ul>
+  <li><a href="#/documentation/3.0.0/devops_guide/tosca_grammar/policy.html">Policy</a></li>
+</ul>
+
+<h3 id="outputs">outputs</h3>
+
+<p>This optional element provides a means to define the output parameters that are available from a TOSCA Simple Profile service template.</p>
+
+<h4 id="grammar-4">Grammar</h4>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">outputs</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">&lt;property_definitions&gt;</span></code></pre></div>
+
+<h4 id="example-2">Example</h4>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">outputs</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">server_ip</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">The IP address of the provisioned server.</span>
+    <span class="l-Scalar-Plain">value</span><span class="p-Indicator">:</span> <span class="p-Indicator">{</span> <span class="nv">get_attribute</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span> <span class="nv">my_server</span><span class="p-Indicator">,</span> <span class="nv">ip_address</span> <span class="p-Indicator">]</span> <span class="p-Indicator">}</span></code></pre></div>
+
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.3.0/devops_guide/tosca_grammar/topology_template.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-3.3.0', 'documentation/3.3.0/devops_guide/tosca_grammar/topology_template.md');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

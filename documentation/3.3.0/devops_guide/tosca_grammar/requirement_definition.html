@@ -1,0 +1,143 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/3.3.0/devops_guide/tosca_grammar/requirement_definition.html',
+  title: 'Requirement definition'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Requirement definition</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.3.0/devops_guide/tosca_grammar/requirement_definition.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <p>A requirement definition allows specification of a requirement that a node need to fulfill to be instanciated.</p>
+
+<div class="note warning">
+<h5>alien_dsl_1_2_0 and older versions</h5>
+<p>Requirement definition syntax in TOSCA has been quite volatile in the working draft of version 1.0.0 of the specification. alien_dsl_1_2_0 and previous supported tosca_definitions_version in alien4cloud used a different syntax and while requirement definition was supported it is not mentioned here. You should look at the migration guide for more information.</p>
+</div>
+
+<h2 id="keynames">Keynames</h2>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th style="text-align: left">Keyname</th>
+      <th style="text-align: left">Required</th>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Description</th>
+      <th style="text-align: left">tosca_definitions_version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">capability</td>
+      <td style="text-align: left">yes</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">The required reserved keyname used that can be used to provide the name of a valid Capability Type  that can fulfill the requirement.</td>
+      <td style="text-align: left">alien_dsl_1_3_0<br /> tosca_simple_yaml_1_0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">description <strong>(1)</strong></td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">The optional description of the Requirement definition.</td>
+      <td style="text-align: left">alien_dsl_1_3_0<br /> tosca_simple_yaml_1_0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">node</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">The optional reserved keyname used to provide the name of a valid Node Type that contains the capability definition that can be used to fulfill the requirement.</td>
+      <td style="text-align: left">alien_dsl_1_3_0<br /> tosca_simple_yaml_1_0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">node_filter <strong>(2)</strong></td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left"><a href="#/documentation/3.0.0/devops_guide/tosca_grammar/tosca_ref_node_filter.html">Node filter</a></td>
+      <td style="text-align: left">The optional filter definition that defines a type-compatible target node that can fulfill the requirement.</td>
+      <td style="text-align: left">alien_dsl_1_3_0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">relationship</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">The optional reserved keyname used to provide the name of a valid Relationship Type to construct when fulfilling the requirement.</td>
+      <td style="text-align: left">alien_dsl_1_3_0<br /> tosca_simple_yaml_1_0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">occurrences</td>
+      <td style="text-align: left">no (defaults to [1,1])</td>
+      <td style="text-align: left">range of integer</td>
+      <td style="text-align: left">Lower boundary by which a requirement MUST be matched. Valid values are any positive number, 0 meaning that the requirement is optional. Defaults to 1. and Upper boundary by which a requirement MUST be matched for Node Templates. Valid values are any positive number or <em>unbounded</em> string that means that there is no upper limit. Defaults to 1.</td>
+      <td style="text-align: left">alien_dsl_1_3_0<br /> tosca_simple_yaml_1_0</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li><strong>(1)</strong> Description keyname is missing in TOSCA specification but it sounds more like a miss than an intend and we decided to include it also in our tosca_simple_yaml_1_0 support.</li>
+  <li><strong>(2)</strong> Node filter in TOSCA specification is used only to specify dangling requirements. Basically on a node template you can use a node filter on a requirement assignment to specify to the orchestrator that it should connect the node template to any suitable instance of node that he can provide.</li>
+</ul>
+
+<h2 id="grammar">Grammar</h2>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="c1"># using type</span>
+<span class="l-Scalar-Plain">&lt;requirement_name&gt;</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">capability</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;capability_type_name&gt;</span>
+  <span class="l-Scalar-Plain">node</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;node_type_name&gt;</span>
+  <span class="l-Scalar-Plain">relationship</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;relationship_type_name&gt;</span>
+  <span class="l-Scalar-Plain">occurrences</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span> <span class="nv">&lt;min_occurrences&gt;</span><span class="p-Indicator">,</span> <span class="nv">&lt;max_occurrences&gt;</span> <span class="p-Indicator">]</span></code></pre></div>
+
+<h2 id="example">Example</h2>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">node_types</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">fastconnect.nodes.RequirementSample</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">requirements</span><span class="p-Indicator">:</span>
+      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">host</span><span class="p-Indicator">:</span>
+          <span class="l-Scalar-Plain">capability</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.capabilities.Container</span>
+          <span class="l-Scalar-Plain">node</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.nodes.Compute</span>
+          <span class="l-Scalar-Plain">relationship</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.relationships.HostedOn</span>
+          <span class="l-Scalar-Plain">occurrences</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span><span class="nv">0</span><span class="p-Indicator">,</span> <span class="nv">unbounded</span><span class="p-Indicator">]</span></code></pre></div>
+
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.3.0/devops_guide/tosca_grammar/requirement_definition.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-3.3.0', 'documentation/3.3.0/devops_guide/tosca_grammar/requirement_definition.md');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

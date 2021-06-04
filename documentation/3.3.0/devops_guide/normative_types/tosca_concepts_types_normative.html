@@ -1,0 +1,62 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/3.3.0/devops_guide/normative_types/tosca_concepts_types_normative.html',
+  title: 'Normative Types'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Normative Types</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.3.0/devops_guide/normative_types/tosca_concepts_types_normative.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <p>TOSCA Specification defines some basic root types (TOSCA Normative types). There is default types for the Infrastructure and for the appliction.</p>
+
+<p>Most of the application components however are not part of normative types but should extends from the TOSCA root types. This allows the container to leverage the default nodes lifecycle in order to automate Plan creation.</p>
+
+<p>If you add some custom nodes that doesn’t extends from the Normative types, the container will not be able to include them in an auto-generated plan, every application that uses such types will require a custom defined plan. Even if it is possible to do so this is not recommended.</p>
+
+<h2 id="normative-lifecycle">Normative Lifecycle</h2>
+
+<p>TOSCA Normative types defines the root nodes and default lifecycle to ease writing and using TOSCA for real applications. The default lifecycle can be extended and improved through the creation of custom plans but should fit most usages.</p>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.3.0/devops_guide/normative_types/tosca_concepts_types_normative.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-3.3.0', 'documentation/3.3.0/devops_guide/normative_types/tosca_concepts_types_normative.markdown');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>
