@@ -1,0 +1,117 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/3.3.0/orchestrators/kubernetes/clustermodelisation.html',
+  title: 'Kubernetes Cluster parameter'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Kubernetes Cluster parameter</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.3.0/orchestrators/kubernetes/clustermodelisation.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <h2 id="prerequisites">Prerequisites</h2>
+
+<div class="note info">
+<p>In this page, we will use AWS features so you will need a Kubernetes cluster integrated with a AWS account.
+However if you want to deploy a basic Kubernetes cluster you can use our TOSCA types based on kubeadm which can be found <a href="https://github.com/alien4cloud/csar-public-library/tree/develop/org/alien4cloud/kubernetes/kubeadm">here</a></p>
+</div>
+
+<p>To deploy onto Kubernetes cluster through ALIEN, you will need:</p>
+
+<ul>
+  <li>A Kubernetes cluster deployed on AWS with AWS extensions (ability to provision EBS) with at least 2 nodes</li>
+  <li>An alien with:
+    <ul>
+      <li>the kubernetes plugin</li>
+      <li>the http repository plugin (the samples use an http repository)</li>
+      <li>the following archives imported from GIT:
+        <ul>
+          <li>https://github.com/alien4cloud/tosca-normative-types.git branch <strong>3.0.0-SNAPSHOT</strong></li>
+          <li>https://github.com/alien4cloud/alien4cloud-extended-types.git branch <strong>3.0.0-SNAPSHOT</strong> folder <strong>alien-base-types</strong></li>
+          <li>https://github.com/alien4cloud/docker-tosca-types.git <strong>3.0.0-SNAPSHOT</strong> folder <strong>docker-types</strong></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="location-configuration">Location configuration</h2>
+
+<p>You’ll need to setup a location in order to be able to deploy onto a K8S cluster. Let’s create an AWS location on a Yorc orchestrator</p>
+
+<h2 id="client-kubernetes-configuration">Client Kubernetes configuration</h2>
+
+<p>An org.alien4cloud.kubernetes.api.types.nodes.KubeCluster service has to be created to refrence the K8S cluster config file
+<img src="../../images/3.3.0/orchestrators/kubernetes/kubecluster_1.png" alt="KubeCluster" /></p>
+
+<p>In the instance tab, the property “config” has to be set to the content of the K8S cluster config file.
+External files cannot be referenced to this content.</p>
+
+<p><strong>config</strong> property content:</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">apiVersion</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">v1</span>
+<span class="l-Scalar-Plain">clusters</span><span class="p-Indicator">:</span>
+<span class="p-Indicator">-</span> <span class="l-Scalar-Plain">cluster</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">certificate-authority-data</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;content of certificate authority&gt;</span>
+    <span class="l-Scalar-Plain">server</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;URL of K8S cluster&gt;</span>
+  <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">kubernetes</span>
+<span class="l-Scalar-Plain">contexts</span><span class="p-Indicator">:</span>
+<span class="p-Indicator">-</span> <span class="l-Scalar-Plain">context</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">cluster</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;cluster name&gt;</span>
+    <span class="l-Scalar-Plain">user</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;kubernetes client user&gt;</span>
+  <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;cluster name&gt;</span>
+<span class="l-Scalar-Plain">current-context</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;current context&gt;</span>
+<span class="l-Scalar-Plain">kind</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Config</span>
+<span class="l-Scalar-Plain">preferences</span><span class="p-Indicator">:</span> <span class="p-Indicator">{}</span>
+<span class="l-Scalar-Plain">users</span><span class="p-Indicator">:</span>
+<span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;kubernetes client user&gt;</span>
+  <span class="l-Scalar-Plain">user</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">client-certificate-data</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;client certificate content&gt;</span>
+    <span class="l-Scalar-Plain">client-key-data</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;client key content&gt;</span></code></pre></div>
+
+<p>This service has to be activated to the location to deploy onto the K8S cluster</p>
+
+<p>The property node_address is not mandatory. It is used to built the URL of a Kubernetes service when there are services to created. It the external addresse of one of the Kubernetes cluster node</p>
+
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.3.0/orchestrators/kubernetes/clustermodelisation.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-3.3.0', 'documentation/3.3.0/orchestrators/kubernetes/clustermodelisation.markdown');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

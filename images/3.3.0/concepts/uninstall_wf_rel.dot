@@ -1,0 +1,6 @@
+digraph relationship_uninstall_workflow {
+  target_stopping -> target_stop -> target_stopped -> target_deleting -> target_delete -> target_deleted;
+  relationship_remove_target -> source_stopping -> source_stop -> source_stopped -> source_deleting -> source_delete -> source_deleted;
+  relationship_remove_source -> source_stopping;
+  source_deleted -> target_stopping;
+}

@@ -1,0 +1,106 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/3.3.0/user_guide/topology_editor_dependencies.html',
+  title: 'Dependencies'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Dependencies</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.3.0/user_guide/topology_editor_dependencies.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        
+<hr style="margin-top:5px; margin-bottom:5px;" />
+<div class="row"><ul class="nav nav-pills" id="summarypanel"></ul></div>
+<hr style="margin-top:5px; margin-bottom:5px;" />
+
+<p>Using <code>imports</code> keyword, importing an archive into a TOSCA definition allows usage of all types defined in the archive as if they were defined in the current document. These archives are called <strong>dependencies</strong>. An imported archive can itself have some imports declared: these will be the <strong>transitive dependencies</strong>.</p>
+
+<p>Alien 4 Cloud&#8217;s editor supports manual definition and simple auto-resolving of dependencies within a topology.</p>
+
+<h2 id="adding-a-type-to-a-topology">Adding a type to a topology</h2>
+
+<p>When you drag and drop a component from the catalog into the editor canvas, Alien4Cloud automatically adds the component&#8217;s archive into the topology&#8217;s dependency set.  When several versions of the same dependency archive are available in the catalog, you can choose between versions by clicking on the button below the archive&#8217;s name.</p>
+
+<p><a href="../../images/3.3.0/user_guide/topology_editor/dragndrop_dependency.png"><img src="../../images/3.3.0/user_guide/topology_editor/dragndrop_dependency.png" alt="Choose dependency when adding a node" /></a></p>
+
+<p>The same behavior applies when defining relationships between nodes, as shown below.</p>
+
+<p><a href="../../images/3.3.0/user_guide/topology_editor/relationship_dependency.png"><img src="../../images/3.3.0/user_guide/topology_editor/relationship_dependency.png" alt="Choose dependency when adding a relationship" /></a></p>
+
+<h3 id="conflicts-auto-resolving">Conflicts auto-resolving</h3>
+
+<div class="note info">
+<p>It is not possible to use multiple versions of an archive in a topology. To prevent conflicts, when adding a node template (resp. a relationship) from an archive that is already used in a different version in the topology, Alien4Cloud will automatically resolve to importing the latest version of the archive between those two. This behavior also applies recursively to transitive dependencies. Note that the auto-resolving may cause transitive dependency conflicts, as detailed below.</p>
+</div>
+
+<h2 id="the-dependencies-panel">The dependencies panel</h2>
+
+<p>To display a table of a topology&#8217;s dependencies, unfold the <strong>dependencies panel</strong> from the right vertical bar. Each archive used in the topology as a dependency is shown as well as their versions.</p>
+
+<h3 id="manually-changing-a-dependency-version">Manually changing a dependency version</h3>
+
+<p>You can change an archive version by clicking the change version button. Alien4Cloud will automatically launch the necessary recovery operations. If there are missing types in the new version that could affect the topology, then the change is not acknowledged and an error is raised.
+If needed, transitive dependencies may also be updated to match the newer version.</p>
+
+<p><a href="../../images/3.3.0/user_guide/topology_editor/dependencies_change.png"><img src="../../images/3.3.0/user_guide/topology_editor/dependencies_change.png" alt="Manual changing of a dependency version" /></a></p>
+
+<h3 id="transitive-dependency-conflicts">Transitive dependency conflicts</h3>
+
+<p>Transitive dependency conflicts occur when two or more direct dependencies of the topology depend on the same transitive dependency, but with different versions. If so, conflicts are listed in the dependency panel. The topology should theoretically be deployable, but types compatibility is not guaranteed. You may resolve conflicts by manually changing dependency versions.</p>
+
+<p><a href="../../images/3.3.0/user_guide/topology_editor/dependency_conflict.png"><img src="../../images/3.3.0/user_guide/topology_editor/dependency_conflict.png" alt="Transitive dependency conflict between jdk-type and tosca-normative-types" /></a></p>
+
+<p>In the example above, the topology is composed of two node templates:</p>
+
+<ul>
+  <li>a tosca.nodes.Compute from the archive <code>tosca-normative-types:1.0.0-ALIEN12</code></li>
+  <li>an alien.nodes.JDK from the archive <code>jdk-type:1.0.0-SNAPSHOT</code>.</li>
+</ul>
+
+<p>The dependencies of the topology are therefore <code>tosca-normative-types:1.0.0-ALIEN12</code> and <code>jdk-type:1.0.0-SNAPSHOT</code>.
+However, the <code>jdk-type:1.0.0-SNAPSHOT</code> depends also on <code>tosca-normative-types</code>, but in version <strong>1.0.0-SNAPSHOT</strong>.</p>
+
+<p>This causes a conflict, which is resolved by using the <strong>1.0.0-ALIEN12</strong> version.</p>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.3.0/user_guide/topology_editor_dependencies.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-3.3.0', 'documentation/3.3.0/user_guide/topology_editor_dependencies.md');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

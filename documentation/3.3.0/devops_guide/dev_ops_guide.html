@@ -1,0 +1,107 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/3.3.0/devops_guide/dev_ops_guide.html',
+  title: 'TOSCA usage guide'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">TOSCA usage guide</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.3.0/devops_guide/dev_ops_guide.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        
+<hr style="margin-top:5px; margin-bottom:5px;" />
+<div class="row"><ul class="nav nav-pills" id="summarypanel"></ul></div>
+<hr style="margin-top:5px; margin-bottom:5px;" />
+
+<p>This section contains reference to the TOSCA Simple profile in YAML specification as it is now supported in Alien. TOSCA is a standard specification that allow dev_ops and architects to define reusable components and topologies that can be easily ported across clouds and orchestrators.</p>
+
+<p>Alien 4 Cloud is designed so you can easily add your own components and leverage your existing scripts, puppet or chef recipes, using the TOSCA YAML based DSL.</p>
+
+<h1 id="tosca">TOSCA</h1>
+
+<p>Alien 4 Cloud is compliant with OASIS&#8217;s TOSCA standard to model it&#8217;s different components (nodes, relationships, capabilities and requirements).</p>
+
+<p>In order to define components in TOSCA you can use the XML or YAML profile (TOSCA Simple Profile). We recommend using the simple profile and thus this documentation describe only the way to configure elements using the simple profile.</p>
+
+<div class="note warning">
+<h5>Tosca support in ALien 4 Cloud 3.0.0</h5>
+<p>Alien 4 Cloud only supports TOSCA Simple Profile in YAML, XML version is discontinuated and not supported by OASIS TOSCA TC and people still using it should migrate.</p>
+
+<p>Alien 4 Cloud3.0.0 is very close to TOSCA 1.0.0 but still has a few differences.</p>
+
+<p>Note that Simple Profile 1.0 specification will soon be released as a TOSCA standard however the standard test-suites have not been written yet.</p>
+</div>
+
+<h1 id="known-differences">Known differences</h1>
+
+<p>This section details the differences between TOSCA Simple Profile and Alien 4 Cloud 3.0.0 dsl:</p>
+
+<ul>
+  <li><strong>imports</strong>: alien4cloud imports are based on archive name and version rather than url or relative paths. We think that this is a better way to reference artifacts and to increase portability. Most of great tools support this kind of referencing (maven, bower, node etc.). Note that we plan to support TOSCA notation in the future but keep extended support of version notation (hopefully change the standard to include it).</li>
+  <li><strong>get_artifact</strong>: We don&#8217;t support get_artifact function in alien4cloud currently but rather provide an environment variable with the name of the artifact that provide the local path of the file.</li>
+  <li><strong>valid_source_types</strong> is not supported in a capability as we don&#8217;t think that this is a good practice as it limit the ability to create a new node that could connect to multiple services (there is no multiple inheritance but multiple requirements/capabilites). In addition this doesn&#8217;t bring real value except saving 2 yaml lines to create a new capability.</li>
+  <li><strong>attach_to</strong> relationships direction has changed in TOSCA from the working draft to latest release and we still support the previous version basically BlockStorage is the source and Compute the target which actually sounds to make more sense to us. We plan to support parsing/export to TOSCA by reverting the relation at parsing time.</li>
+  <li><strong>range type</strong> alien4cloud currently don&#8217;t support the range type primitive.</li>
+  <li><strong>attributes on capabilites</strong> are not yet parsed in alien4cloud.</li>
+  <li><strong>data types on attributes</strong> is not yet supported</li>
+  <li><strong>network</strong> we don&#8217;t support yet the TOSCA network types but have a simplified support for network definitions.</li>
+  <li><strong>group_types</strong> we don&#8217;t support group types as they can define operation but the impact of their operations on the workflow is not defined. Note that there is actually no group interface in TOSCA. We have a group support on node templates but this is currently used to assign policies (like H.A.).</li>
+  <li><strong>policy_types</strong> While some policies are supported in alien4cloud they are supported through group and are not flexible. Note that before the TOSCA Simple profile 1.1 version policies where experimental as the definition syntax has quite changed.</li>
+  <li><strong>interface_types</strong> TOSCA Simple Profile working draft had no interface_types and the interfaces where defined directly on the node types or relationship types. Alien 4 Cloud is compliant with the working drafts that provide simpler notation.</li>
+  <li><strong>implementation artifacts type</strong> Alien 4 Cloud currently relies on file extensions to automatically find the type of an implementation artifact which is very efficient in the simple definition notation. TOSCA however allow users to specify explicitly the artifact type.</li>
+  <li><strong>metadata</strong> Metadata was added in the late versions of the specification. Alien4Cloud currently supports tags which is similar to metadata but applies to the nodes types also. We are planning to work with the TOSCA TC to allow metadata on types and templates.</li>
+</ul>
+
+<h1 id="declarative-workflow-differences">Declarative workflow differences</h1>
+
+<p>Declarative workflow generation is the main difference between the TOSCA Simple Profile and Alien 4 Cloud.</p>
+
+<h1 id="dsl-extentions">DSL extentions</h1>
+
+<ul>
+  <li><strong>tags</strong> As stated we don&#8217;t support metadata but provide support for tags element which is similar but applies to all type elements.</li>
+  <li><strong>workflow</strong> Alien 4 Cloud support the definition of imperative workflows. TOSCA Simple Profile 1.0 doesn&#8217;t provide support for imperative workflows but we have pushed this into the 1.1 specification. Note that we however don&#8217;t support the 1.1 workflow specification that has just been defined and allow some more advanced options than the version we currently support.</li>
+</ul>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.3.0/devops_guide/dev_ops_guide.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-3.3.0', 'documentation/3.3.0/devops_guide/dev_ops_guide.markdown');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

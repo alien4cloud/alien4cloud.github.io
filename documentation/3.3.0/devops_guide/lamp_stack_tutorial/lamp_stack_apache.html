@@ -1,0 +1,137 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/3.3.0/devops_guide/lamp_stack_tutorial/lamp_stack_apache.html',
+  title: 'Component Apache HTTP'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Component Apache HTTP</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.3.0/devops_guide/lamp_stack_tutorial/lamp_stack_apache.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <p>Apache HTTP server is a free software of the Apache software Foundation, created in 1995. Apache is the most popular web server on Internet and the web server of LAMP bundle.</p>
+
+<p>Used version for this tutorial : <a href="https://github.com/alien4cloud/samples/tree/master/apache" target="_blank">Apache HTTP Server</a></p>
+
+<div class="note">
+<p>This installation is based on Ubuntu distribution with apt-get command.</p>
+</div>
+
+<h1 id="definition">Definition</h1>
+
+<p>In the definitions folder, we need to write the TOSCA description of our component. It’s also a YAML file use to describe your component. The first line is the TOSCA definition version of the file. The second is a text description of the component. The tags icon is optional.</p>
+
+<h2 id="namming--description">Namming / description</h2>
+
+<div data-gist="https://gist.github.com/OresteVisari/fadc6e7504c804922f8d.js"></div>
+
+<p>TOSCA assumes the existence of a normative base type set. The TOSCA type of <strong>Apache</strong> is the <em>tosca.nodes.WebServer</em>.</p>
+
+<h2 id="properties">Properties</h2>
+
+<p>The <strong>Apache</strong> recipe has only two properties :</p>
+
+<div data-gist="https://gist.github.com/OresteVisari/050034534980988a21e1.js"></div>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Property</th>
+      <th style="text-align: left">Usage</th>
+      <th style="text-align: left">Comment</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">version</td>
+      <td style="text-align: left">Mention the Apache HTTP Server version</td>
+      <td style="text-align: left">Constant version in our example (v2.4).</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">port</td>
+      <td style="text-align: left">Port where to expose the Apache HTTP service</td>
+      <td style="text-align: left">The default port is : <strong>80</strong>. You can change it of course without using an already used one.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">document_root</td>
+      <td style="text-align: left">The Root Directory of apache2</td>
+      <td style="text-align: left">The default value is : <strong>/var/www</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="lifecycle-and-related-scripts">Lifecycle and related scripts</h2>
+
+<p>In the interfaces we defined the script used to create the node. In our case we just use the create operation, see the documentation to see all possible operations. In the artifact, we define the folder that contains the script. As we are using Groovy artifact, we defined this artifact at the end of file.</p>
+
+<div data-gist="https://gist.github.com/OresteVisari/34eac7137dbcf5a60c05.js"></div>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Operation</th>
+      <th style="text-align: left">Usage</th>
+      <th style="text-align: left">Comment</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">create</td>
+      <td style="text-align: left">Executed script to install your apache http server on the Compute</td>
+      <td style="text-align: left">Through apt-get on ubuntu image</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">start</td>
+      <td style="text-align: left">Start apache2</td>
+      <td style="text-align: left">Restart apache2 if it’s already launched</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Optional</strong> : To test this <em>Apache</em> recipe, you could create a simple Topology with a <strong>Compute</strong> and an <strong>Apache</strong> :</p>
+
+<p><a href="../../images/developer_guide/small-apache-topology.png"><img src="../../images/developer_guide/small-apache-topology.png" alt="Simple Apache Topology" /></a></p>
+
+<p>With a well configured <a href="#/documentation/3.0.0/orchestrators/cloudify4_driver/install_config.html">PaaS Provider</a>, you will have an Apache HTTP Server deployed on a server and ready to use.</p>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.3.0/devops_guide/lamp_stack_tutorial/lamp_stack_apache.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-3.3.0', 'documentation/3.3.0/devops_guide/lamp_stack_tutorial/lamp_stack_apache.markdown');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

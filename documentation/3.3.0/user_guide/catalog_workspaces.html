@@ -1,0 +1,79 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/3.3.0/user_guide/catalog_workspaces.html',
+  title: 'Workspaces'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Workspaces</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.3.0/user_guide/catalog_workspaces.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <h2 id="adding-an-archive-to-a-specific-workspace">Adding an archive to a specific workspace</h2>
+
+<p>As usual, a user can upload an archive into Alien. If the user doesn’t have the permision to manage many workspaces, the types (or a topology) will be add to the user’s workspace.
+If the user has authorization to manage some workspaces, he can select one of this workspaces as target workspace for the upload.</p>
+
+<p><a href="../../images/3.3.0/user_guide/catalog/workspace/workspace-target-upload.png"><img src="../../images/3.3.0/user_guide/catalog/workspace/workspace-target-upload.png" alt="Upload target" /></a></p>
+
+<h2 id="workspace-relocation">Workspace relocation</h2>
+
+<p>If a user with sufficient authorization to manage a workspace (COMPONENT_MANAGER for all types ; ARCHITECT for all topologies ; APPLICATION_MANAGER or DEVOPS for an application) want to change the workspace of an archive for wich he as authorization, he can directly change the workspace of this archive in the catalog. Indeed, a dropdown is available to select the workspace of any archive. An archive cannot be relocate in workspace with less visibility (ie: from the global workspace to a user workspace) if the archive is a dependency for an archive placed in a workspace without visibility on the target workspace.</p>
+
+<p><a href="../../images/3.3.0/user_guide/catalog/workspace/workspace-csar-view.png"><img src="../../images/3.3.0/user_guide/catalog/workspace/workspace-csar-view.png" alt="Upload target" /></a></p>
+
+<h2 id="workspace-promotion">Workspace promotion</h2>
+
+<p>If a user, who can’t manage the desire target workspace, want to promote one of this archive to another workspace, he need to make a promotion request in the workspace view. A modal will appear and, if the promotion has some impacts, display this impacts.</p>
+
+<p><a href="../../images/3.3.0/user_guide/catalog/workspace/request-promotion.png"><img src="../../images/3.3.0/user_guide/catalog/workspace/request-promotion.png" alt="Request promotion" style="margin: 0 auto" /></a></p>
+
+<p>Any user with sufficient right will be able to accept or discard the request in the promotion management view.</p>
+
+<p><a href="../../images/3.3.0/user_guide/catalog/workspace/promotion-management.png"><img src="../../images/3.3.0/user_guide/catalog/workspace/promotion-management.png" alt="Promotion management" /></a></p>
+
+<h1 id="delete-the-workspace-plugin">Delete the workspace plugin</h1>
+
+<p>Admin users can remove the workspace plugin. However a bug can occur if some CSAR are used by a user or an application workspace during this suppression. To avoid it, we recommend to move all CSAR to the global workspace before this operation.</p>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.3.0/user_guide/catalog_workspaces.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-3.3.0', 'documentation/3.3.0/user_guide/catalog_workspaces.md');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

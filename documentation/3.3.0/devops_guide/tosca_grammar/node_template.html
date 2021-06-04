@@ -1,0 +1,287 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/3.3.0/devops_guide/tosca_grammar/node_template.html',
+  title: 'Node template'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Node template</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.3.0/devops_guide/tosca_grammar/node_template.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <p>A Node Template specifies the occurrence of a manageable software component as part of an application’s topology model which is defined in a TOSCA Service Template.  A Node template is an instance of a specified Node Type and can provide customized properties, constraints or operations which override the defaults provided by its Node Type and its implementations.</p>
+
+<div class="note warning">
+<p>If a node template name contains some special character (is: not an alphanumeric character from the basic Latin alphabet and the underscore) we will replace this caractere by an underscore.</p>
+</div>
+
+<h2 id="keynames">Keynames</h2>
+
+<p>The following is the list of recognized keynames recognized for a TOSCA Node Template definition and parsed by Alien4Cloud:</p>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th style="text-align: left">Keyname</th>
+      <th style="text-align: left">Required</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">type</td>
+      <td style="text-align: left">yes</td>
+      <td style="text-align: left">The required name of the Node Type the Node Template is based upon.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">requirements</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">An optional sequenced list of requirement definitions for the Node Template.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">properties</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">An optional list of property values for the node template.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">capabilities</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">An optional map of capabilities for the node template.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">interfaces</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">An optional list of named <a href="#/documentation/3.0.0/devops_guide/tosca_grammar/interface_definition.html">interface definitions</a> that override those coming from type.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="grammar">Grammar</h2>
+
+<p>The overall structure of a TOSCA Node Template and its top-level key collations using the TOSCA Simple Profile is shown below:</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">&lt;node_template_name&gt;</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;node_type_name&gt;</span>
+  <span class="l-Scalar-Plain">properties</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">&lt;property_definitions&gt;</span>
+  <span class="l-Scalar-Plain">requirements</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">&lt;requirement_definitions&gt;</span>
+  <span class="l-Scalar-Plain">capabilities</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">&lt;capability_definitions&gt;</span>
+  <span class="l-Scalar-Plain">interfaces</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">&lt;interface_definitions&gt;</span></code></pre></div>
+
+<h3 id="type">type</h3>
+
+<p>Represents the name of the Node Type the Node Template is based upon. This Node Type must be found in the archive itself or in the declared dependencies of the service template.</p>
+
+<h3 id="requirements">requirements</h3>
+
+<p>To define relationships between node templates, you can describe the requirements that points to targets’ capability.
+Named requirement definitions have one of the following grammars:</p>
+
+<h4 id="short-notation-node-only">short notation (node only)</h4>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">&lt;requirement_name&gt;</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;template_name&gt;</span></code></pre></div>
+
+<p>When using this short notation:</p>
+
+<ul>
+  <li>the <requirement_name> must match to the name of the requirement in the type definition.</requirement_name></li>
+  <li>the <template_name> points to another node template in the topology template (relationship target).</template_name></li>
+  <li>the type of the node template target must have a capability named like the requirement.</li>
+</ul>
+
+<p>Here is an example :</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">topology_template</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">node_templates</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">compute</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.nodes.Compute</span>
+    <span class="l-Scalar-Plain">apache</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">alien.nodes.Apache</span>
+      <span class="l-Scalar-Plain">requirements</span><span class="p-Indicator">:</span>
+        <span class="c1"># the alien.nodes.Apache type defines a requirement named &#39;host&#39;</span>
+        <span class="c1"># the tosca.nodes.Compute type defines a capability named &#39;host&#39;</span>
+        <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">host</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">compute</span></code></pre></div>
+
+<h4 id="short-notation-with-relationship-or-capability">short notation (with relationship or capability)</h4>
+
+<p>In some situations, the short notation is not enough, for example when the capability name doesn’t match the requirement name (in this case, you must specify the capability type), or when you want to define relationship properties values.</p>
+
+<p>The following grammar would be used if either a relationship or capability is needed to describe the requirement:</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">&lt;requirement_name&gt;</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">node</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;template_name&gt;</span>
+  <span class="l-Scalar-Plain">capability</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;capability_type&gt;</span>
+  <span class="l-Scalar-Plain">relationship</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;relationship_type&gt;</span></code></pre></div>
+
+<p>In such notation the keywords are:</p>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th style="text-align: left">Keyname</th>
+      <th style="text-align: left">Required</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">node</td>
+      <td style="text-align: left">yes</td>
+      <td style="text-align: left">The relationship target node template name.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">capability</td>
+      <td style="text-align: left">yes</td>
+      <td style="text-align: left">The type of the target node type capability that should be used to build the relationship.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">relationship</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">Optionally, the name of the relationship type that should be used to build the relationship (if not defined in the requirement definition or must be specified).</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">properties</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">An optional list of property values for the relationship (non TOSCA).</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">interfaces</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">An optional list of named <a href="#/documentation/3.0.0/devops_guide/tosca_grammar/interface_definition.html">interface definitions</a> that override those coming from relationship type.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>In the following example, the relationship type is found in the requirement ‘database’ of the type alien.nodes.Wordpress. The capability is found by the specified type ‘alien.capabilities.MysqlDatabase’ :</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">node_templates</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">wordpress</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">alien.nodes.Wordpress</span>
+    <span class="l-Scalar-Plain">requirements</span><span class="p-Indicator">:</span>
+      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">host</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">apache</span>
+      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">database</span><span class="p-Indicator">:</span>
+          <span class="l-Scalar-Plain">node</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">mysql</span>
+          <span class="l-Scalar-Plain">capability</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">alien.capabilities.MysqlDatabase</span>
+      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">php</span><span class="p-Indicator">:</span>
+          <span class="l-Scalar-Plain">node</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">php</span>
+          <span class="l-Scalar-Plain">capability</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">alien.capabilities.PHPModule</span></code></pre></div>
+
+<p>In the following example, the relationship is specified:</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">node_templates</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">compute</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.nodes.Compute</span>
+    <span class="l-Scalar-Plain">requirements</span><span class="p-Indicator">:</span>
+      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">network</span><span class="p-Indicator">:</span>
+          <span class="l-Scalar-Plain">node</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">network</span>
+          <span class="l-Scalar-Plain">capability</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.capabilities.Connectivity</span>
+          <span class="l-Scalar-Plain">relationship</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.relationships.Network</span>
+  <span class="l-Scalar-Plain">network</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.nodes.Network</span></code></pre></div>
+
+<h3 id="properties">properties</h3>
+
+<p>The property values can either be:</p>
+
+<ul>
+  <li>a scalar value</li>
+  <li>a function: a reference to an input</li>
+</ul>
+
+<p>In the following example, 2 properties are defined for the node ‘compute1’ (1 referencing an input, and the other defined using a scalar value):</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">topology_template</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">inputs</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">os_type</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">string</span>
+      <span class="l-Scalar-Plain">constraints</span><span class="p-Indicator">:</span>
+        <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">valid_values</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span><span class="s">&quot;linux&quot;</span><span class="p-Indicator">,</span> <span class="s">&quot;aix&quot;</span><span class="p-Indicator">,</span> <span class="s">&quot;mac</span><span class="nv"> </span><span class="s">os&quot;</span><span class="p-Indicator">,</span> <span class="s">&quot;windows&quot;</span><span class="p-Indicator">]</span>
+      <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">The host Operating System (OS) type.</span>
+  <span class="l-Scalar-Plain">node_templates</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">compute1</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.nodes.Compute</span>
+      <span class="l-Scalar-Plain">properties</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">os_type</span><span class="p-Indicator">:</span> <span class="p-Indicator">{</span> <span class="nv">get_input</span><span class="p-Indicator">:</span> <span class="nv">os_type</span> <span class="p-Indicator">}</span>
+        <span class="l-Scalar-Plain">mem_size</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">1024</span></code></pre></div>
+
+<h3 id="capabilities">capabilities</h3>
+
+<p>In the following example, we define the value of the property ‘port’ for the capability named ‘database_endpoint’ of the node ‘mysql_database’:</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">topology_template</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">node_templates</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">mysql_database</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.nodes.Database</span>
+      <span class="l-Scalar-Plain">capabilities</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">database_endpoint</span><span class="p-Indicator">:</span>
+          <span class="l-Scalar-Plain">properties</span><span class="p-Indicator">:</span>
+            <span class="l-Scalar-Plain">port</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">3306</span></code></pre></div>
+
+<p>Note that the property value can also be a <em>get_input</em> function:</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">topology_template</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">inputs</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">mysql_port</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">string</span>
+  <span class="l-Scalar-Plain">node_templates</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">mysql_database</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.nodes.Database</span>
+      <span class="l-Scalar-Plain">capabilities</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">database_endpoint</span><span class="p-Indicator">:</span>
+          <span class="l-Scalar-Plain">properties</span><span class="p-Indicator">:</span>
+            <span class="l-Scalar-Plain">port</span><span class="p-Indicator">:</span> <span class="p-Indicator">{</span> <span class="nv">get_input</span><span class="p-Indicator">:</span> <span class="nv">mysql_port</span> <span class="p-Indicator">}</span></code></pre></div>
+
+<h3 id="interfaces">interfaces</h3>
+
+<p>You are allowed to:</p>
+
+<ul>
+  <li>override an interface defined in the type and override a given operation.</li>
+  <li>override an interface defined in the type by adding a new operation.</li>
+  <li>add a new interface to the node template.</li>
+</ul>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.3.0/devops_guide/tosca_grammar/node_template.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-3.3.0', 'documentation/3.3.0/devops_guide/tosca_grammar/node_template.md');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

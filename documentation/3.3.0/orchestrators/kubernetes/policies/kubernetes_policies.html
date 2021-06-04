@@ -1,0 +1,123 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/3.3.0/orchestrators/kubernetes/policies/kubernetes_policies.html',
+  title: 'Policies'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Policies</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.3.0/orchestrators/kubernetes/policies/kubernetes_policies.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <p>The new Kubernetes integration comes along with a bunch of policies:</p>
+
+<ul>
+  <li><strong>NodeAffinityLabel</strong>: this policy can be used to ensure a pod will be deployed on a specific node.</li>
+  <li><strong>AntiAffinityLabel</strong>: this policy will help you ensure some given pods are not colocated (for example if you want some pods not to be deployed on the same <a href="https://kubernetes.io/docs/concepts/architecture/nodes/">node</a>).</li>
+  <li><strong>AutoscalingPolicy</strong>: this policy will create an <a href="https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/">Horizontal Pod Autoscaler</a>.</li>
+</ul>
+
+<p>More are still to come.</p>
+
+<p>This part of the documentation aims to go through the supported kubernetes policies, explaining how they should be configured and used.</p>
+
+<p>For this documentation, we will be working on Amazon Cloud (AWS EC2), but you can still follow with your prefered location.</p>
+
+<h1 id="prerequisites">Prerequisites</h1>
+
+<p>In the next sections, we will assume the <em>Yorc Orchestrator and a location</em> is configured as below.
+This part should be done by the user bearing the <strong>Administrator</strong> role.</p>
+
+<h2 id="plugins">Plugins</h2>
+
+<p>The following plugins are required:</p>
+
+<ul>
+  <li><strong>Yorc Orchestrator</strong> (<em>alien-yorc-orchestrator</em>)</li>
+  <li><strong>kubernetes topology processing plugin</strong> (<em>alien4cloud-kubernetes-plugin</em>)</li>
+</ul>
+
+<h2 id="orchestrator-and-location">Orchestrator and location</h2>
+
+<p>Create an orchestrator using the <strong><em>Yorc Orchestrator</em></strong> plugin. Configure it according to your running Yorc and enable it. Then create a location of your chosen type (We will use Amazon for this tutorial).</p>
+
+<p>See  <a href="#/documentation/3.0.0/orchestrators/kubernetes/kubernetes_walkthrough.html">Kubernetes walkthrough, Prerequisites section</a> for setting up your Yorc orchestrator and the kubernetes cluster.</p>
+
+<p>If not familiar to Yorc, see more about <a href="#/documentation/3.0.0/orchestrators/yorc/index.html">Yorc orchestrator and locations here</a>.</p>
+
+<h2 id="on-demand-resources">On demand resources</h2>
+<p>Add the following resources to your location:</p>
+
+<ul>
+  <li><code>org.alien4cloud.kubernetes.api.types.Container</code></li>
+  <li><code>org.alien4cloud.kubernetes.api.types.Deployment</code></li>
+  <li><code>org.alien4cloud.kubernetes.api.types.Service</code></li>
+</ul>
+
+<p><img src="../../../images/3.3.0/user_guide/policies/prereq_config_ondemand_resources.png" alt="Preq on-demand resources" /></p>
+
+<p>No particular configuration on these resources is required for this tutorial.</p>
+
+<h2 id="topology-modifiers">Topology modifiers</h2>
+<p>We need to link some modifiers to the location. Make sure when doing so to specify the proper deployment phase:</p>
+
+<ul>
+  <li><strong>kubernetes modifier</strong> (<em>kubernetes-modifier</em>)
+    <ul>
+      <li><strong>Deployment phase</strong>: <em>post-location-match</em></li>
+    </ul>
+  </li>
+  <li><strong>Kubernetes spec generator modifier</strong> (<em>kubernetes-final-modifier</em>)
+    <ul>
+      <li><strong>Deployment phase</strong>: <em>post-matched-node-setup</em></li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="../../../images/kubernetes_walkthrough/location_modifiers.png" alt="Location modifiers" /></p>
+
+<h1 id="security-and-authorization">Security and authorization</h1>
+<p>Make sure the authorization are set properly for the user to be able to deploy on this location and use all the resources created.
+See <a href="#/documentation/3.0.0/user_guide/location_autorization.html">Location / resources autorization</a>.</p>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.3.0/orchestrators/kubernetes/policies/kubernetes_policies.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-3.3.0', 'documentation/3.3.0/orchestrators/kubernetes/policies/kubernetes_policies.markdown');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>
