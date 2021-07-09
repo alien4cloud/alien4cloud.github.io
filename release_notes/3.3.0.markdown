@@ -1,0 +1,97 @@
+---
+layout: post
+title:  ALIEN for Cloud 3.3.0
+root: ../
+categories: RELEASE_NOTES
+parent: [release_note]
+node_name: 3.3.0
+weight: 9888
+exclude_from_search: true
+---
+
+
+
+
+<i class="fa fa-plus text-success"></i> New feature <i class="fa fa-level-up text-primary"></i> Improvement  <i class="fa fa-bug text-danger"></i> Bug <i class="fa fa-exclamation-triangle text-warning"></i> Breaking change
+
+
+### Alien 4 Cloud Kafka Listener
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-3654 | New action checkserviceexists that checks service existence  |
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-3653 | Aaction createservice - meta properties creation management  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-3669 | Plugin kafkalistener - action createservice - service should not be created if name, version, nodeType are not set  |
+    
+
+
+### Alien 4 Cloud K8S plugin
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+        |  <i class="fa fa-bug text-danger"></i> | ALIEN-3670 | Plugin K8S - worfklow install - autoscaling creation step must be run after namespace creation step  |
+  
+
+
+### Alien 4 Cloud Spray
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-3657 | Parameter to install ansible (yorc dependancy ) with yum or pip  |
+        |  <i class="fa fa-bug text-danger"></i> | ALIEN-3656 | Spray - installation is not reentrant when there is a nginx front and HA  |
+  
+
+
+### Alien 4 Cloud Network policies
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-3648 | Network policy  - new features  |
+    
+
+
+### Alien 4 Cloud
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+        |  <i class="fa fa-bug text-danger"></i> | ALIEN-3667 | Double REST calls in application deployments tab management  |
+  
+
+
+### Alien 4 Cloud RMS Scheduler Plugin
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-3660 | First implementation of a Zabbix & Prometus poller  |
+      
+
+
+### Alien 4 Cloud K8S Webhook Plugin
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+        |  <i class="fa fa-bug text-danger"></i> | ALIEN-3649 | webhook \d character is seen as an escape character  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-3666 | Webhook modifier removes variables SERVICE_IP_LOOKUP*  |
+  
+
