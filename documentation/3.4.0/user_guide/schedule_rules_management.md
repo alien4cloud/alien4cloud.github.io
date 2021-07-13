@@ -10,7 +10,7 @@ weight: 450
 
 {%summary%}{%endsummary%}
 
-Since version 3.4.0, a basic DSL editor is featured for advanced parameters of the plugin **RMS Scheduler plugin**
+Since version 3.4.0, a basic DSL editor is provided to set advanced parameters of the **RMS Scheduler** plugin.
 
 # DSL
 
@@ -21,20 +21,5 @@ A basic builtin DSL is provided by the plugin, but you can add your own DSL defi
 For example, if you have a sensor that injects a metric named "Load_Average" in the rule engine, you can already use the builtin DSL to add condition to your policy :
 
 
-{% highlight yaml %}
-Last known metric "Load_Average" is < 10
-Maybe you want to define more specific condition, for example :
-
-The load average of the system is less than 10
-You should define the following DSL in order to make the rule engine parse this statement :
-
-[when]less than=<
-[when]The load average of the system is {operator} {metric_value}=
-Number( doubleValue {operator} {metric_value} ) from accumulate
-(
-    MetricEvent(label == "Load_Average", $value : doubleValue) over window:length(1),
-    average($value)
-)
-{% endhighlight %}
 
 ![Scheduler rule 2](../../images/3.4.0/user_guide/admin_scheduler_rules2.png)

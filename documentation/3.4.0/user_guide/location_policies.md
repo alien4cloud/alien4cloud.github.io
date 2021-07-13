@@ -17,22 +17,22 @@ weight: 51
 
 # Location policies
 
-Policies can be defined in the policy tab
+Policies can be defined from the policy tab
 
 ![policies 1](../../images/3.4.0/user_guide/location_policies_1.png)
 
-They can be selected by drag en drop on the left menu.
+They can be selected by a drag and drop on the left tab.
 
 
 # RMS scheduled policies
 
 RMSScheduleWorkflowPolicy policies can be added by search in the **catalog** tab
 
-The plugin  **alien4cloud-rms-scheduler-plugin** must be available and enabled to select it.
+The RMSScheduleWorkflowPolicy policies can be selected when the plugin alien4cloud-rms-scheduler-plugin is available and enabled.
 
 ![policies 2](../../images/3.4.0/user_guide/location_policies_2.png)
 
-In order to be able to set different values from the resource at the deployment preparation step, the template mode must be enabled.
+The template mode should be activated to be able to modify the default values while preparing the deployment.
 
 ![policies 3](../../images/3.4.0/user_guide/location_policies_3.png)
 

@@ -11,7 +11,7 @@ weight: 195
 {% summary %}{% endsummary %}
 
   
-On the policy view, the ![Add policies](../../images/3.4.0/user_guide/policy_btn.png){: .inline} allows you to browse policy catalog.
+From the policy view, the ![Add policies](../../images/3.4.0/user_guide/policy_btn.png){: .inline} allows you to browse policy catalog.
 Scheduler policy can be found by entering **RMS** inside the search box : 
 
 ![policy RMSScheduleWorkflowPolicy](../../images/3.4.0/user_guide/policy_catalog_1.png){: .inline} 
@@ -20,7 +20,7 @@ Scheduler policy can be found by entering **RMS** inside the search box :
 - A runtime policy RMSScheduleWorkflowPolicy is defined in the embedded csar.
 - This policy features a schedule time window. Inside this time window, the workflow can be launched when its conditions are met.
 Conditions are expressed using a DSL that admin can enrich.
-- The workflow will be launched when the defined conditions are met. 
+- The workflow will be launched when the time criteria and the conditions (if any) are both satisfied. 
 - Conditions are initially defined by the administrator and can be modified by the user when preparing the deployment
 
 
@@ -36,11 +36,11 @@ Interaction criterias for launching workflow with monitoring tools Zabbix and Pr
 
 ![policy update RMSScheduleWorkflowPolicy4](../../images/3.4.0/user_guide/policy_deploy_4.png) 
 
-A pop up is displayed by cliking on **Conditions**
+A pop up is displayed by clicking on **Conditions**
 ![policy update RMSScheduleWorkflowPolicy5](../../images/3.4.0/user_guide/policy_deploy_5.png) 
 
 
-In this example below,  the average used cpu for a server is proposed as minimum value with suggestion mechanism.
+In this example below, several conditions are automatically proposed about the cpu use with the last known metric collected from the monitoring.
 ![policy update RMSScheduleWorkflowPolicy6](../../images/3.4.0/user_guide/policy_deploy_6.png) 
 
 
