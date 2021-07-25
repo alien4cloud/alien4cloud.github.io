@@ -79,6 +79,28 @@ You can set the inputs in the custom workflow view details
 
 ![Custom workflow view](../../images/3.4.0/user_guide/custom_workflow_inputs.png)
 
+
+# Resume failed workflows
+
+With A4C 3.4.0 next release, with Yorc 4.2.0, it will be possible to resubmit a workflow on erreur from the failed steps.
+In the full UI, a **Resume** is displayed when a workflow fails :
+
+![Info view 1 ](../../images/3.4.0/user_guide/resubmit_workflow_1.png)
+
+For instance, this deployment workflow fails on error step, **start** step
+
+![Info view 2 ](../../images/3.4.0/user_guide/resubmit_workflow_2.png)
+
+When clicking **Resume** button workflow will be resubmit from the failed step, **start** as we can see in the Execution view : 
+
+![Info view 3 ](../../images/3.4.0/user_guide/resubmit_workflow_3.png)
+
+
+{%info%}
+This feature is only available on specific snapshots of Alien4Cloud and Yorc.
+For alien4cloud, the branch features/ALIEN-3705-wf-resume for the reposiorries [alien4cloud](https://github.com/alien4cloud/alien4cloud/tree/features/ALIEN-3705-wf-resume)  and [Yorc plugin provider](https://github.com/alien4cloud/alien4cloud-yorc-provider/tree/features/ALIEN-3705-wf-resume)
+{%endinfo%}
+
 #Scaling
 
 ***TODO*** how to scale
