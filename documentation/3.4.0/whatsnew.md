@@ -13,7 +13,7 @@ published: true
 
 
 {%info%}
-Alien4cloud 3.4.0 is not released yet. New features are available on latest build in [Download page](#/common/download.html).
+Alien4cloud 3.4.0 is not released yet. New features are available on latest build in [Download page](/common/download.html).
 {%endinfo%}
 
 # Ability to define suggestions by plugins
