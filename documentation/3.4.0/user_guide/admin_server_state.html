@@ -1,0 +1,62 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/3.4.0/user_guide/admin_server_state.html',
+  title: 'Server state'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Server state</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.4.0/user_guide/admin_server_state.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <p>The server state page allows to an admin to get metrics on the current state of the alien4cloud server.</p>
+
+<p>In addition to metrics visualizations (as garbage collection statistics and API response metrics) this page is also where an admin can enable alien4cloud maintenance mode.</p>
+
+<p>Maintenance mode allows to block the REST API of alien4cloud to avoid any user operations to be triggered. Note that some internal process within the server may still be active like event fetching from orchestrators etc.</p>
+
+<p>Switching maintenance mode allows to display a maintenance state page to your users with the progress and messages that you may want to dispatch to them on the current state of the server maintenance.</p>
+
+<p><img src="../../images/3.4.0/user_guide/admin_server_state.png" alt="Server state" /></p>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.4.0/user_guide/admin_server_state.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-3.4.0', 'documentation/3.4.0/user_guide/admin_server_state.md');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

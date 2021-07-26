@@ -1,0 +1,225 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/3.4.0/user_guide/plugin_management.html',
+  title: 'Plugin(s) management'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Plugin(s) management</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.4.0/user_guide/plugin_management.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        
+<hr style="margin-top:5px; margin-bottom:5px;" />
+<div class="row"><ul class="nav nav-pills" id="summarypanel"></ul></div>
+<hr style="margin-top:5px; margin-bottom:5px;" />
+
+<p>Plugins allows to provide some additional functionalities to Alien 4 Cloud. Users can create different type of plugins (or plugins with multiple features):</p>
+
+<ul>
+  <li><strong>Orchestrator plugins</strong> allows to provide additional orchestrators support to alien 4 cloud to use some other technologies to deploy TOSCA or Specific topologies.</li>
+  <li><strong>Location matching plugins</strong> allows to override the basic location matching logic provided within Alien 4 Cloud. Only a single Location Matching plugin can be defined in Alien 4 Cloud currently. If more than one location matching plugin is enabled in Alien then one will be picked up randomly.</li>
+  <li><strong>Node matching plugins</strong> allows to override the basic TOSCA node matching logic within Alien 4 Cloud.</li>
+  <li><strong>Generic extension plugins</strong> can provide additional UI screens and REST Services allowing any kind of extension to alien 4 cloud and even to override some of the alien UI components (it is not possible to override native rest services).</li>
+</ul>
+
+<div class="note info">
+<p>If you want to create new plugins for Alien 4 Cloud please refer to the <a href="#/developer_guide/index.html">developer guide</a>.</p>
+</div>
+
+<h1 id="installing-plugin-in-alien-4-cloud">Installing plugin in Alien 4 Cloud</h1>
+
+<div class="tabsection"><ul class="nav nav-tabs"></ul><div class="tab-content">
+<div class="tab-pane" title="Drag and Drop enabled">
+<p><em>Drag</em> you archive file &gt; <em>Drop</em> it on the <strong>dash dotted</strong> area</p>
+
+<p><img src="../../images/3.4.0/user_guide/admin/plugin_management.png" alt="Upload an archive file with D&amp;D" /></p>
+</div>
+<div class="tab-pane" title="Drag and Drop disabled">
+<p>Click on <em>[Upload plugin]</em> &gt; <em>Select</em> your archive (The file is automatically uploaded)</p>
+
+<p><img src="../../images/user_guide/upload-plugin-wihout-drag-and-drop.png" alt="Upload an archive file without D&amp;D" /></p>
+</div>
+</div></div>
+
+<div class="note warning">
+<p>After installing, removing, disabling or enabling a plugin that provides UI components user must refresh it’s browser page in order to reload plugin’s javascript code that may have changed.
+This is especially true when removing or disabling a plugin as the rest services used by the plugin’s UI won’t be available anymore eventually causing unexpected 500 errors.</p>
+</div>
+
+<h1 id="plugin-configuration">Plugin configuration</h1>
+
+<p>Some plugins may requires specific configuration that is global to the plugin. In case a plugin can be configured you will see the following icon : <img src="../../images/3.4.0/user_guide/admin/plugin_global_configuration.png" alt="configure plugin" class="inline" /></p>
+
+<h2 id="advanced-plugins-configurations">Advanced plugins configurations</h2>
+
+<p>The configuration detailed in the previous section is global for the plugin. Some plugins may requires some specific configurations that you can find at other places in the application. Your should refer to the plugin specific documentation to know more about it.</p>
+
+<p>For example, PaaS providers plugins actually are able to manage multiple instances of orchestrators, the specific configuration for each instance is managed at the cloud level.</p>
+
+<h1 id="plugin-update">Plugin update</h1>
+
+<p>Due to historical management of orchestrator plugins alien4cloud allowed, before 1.3.1, multiple versions of the same plugin to be concurrently loaded and enabled.</p>
+
+<p>Starting from version 1.3.1 this behavior is not allowed anymore and a single version of a given plugin can exists at a given point of time. This avoid a lot of potential conflicts especially on the UI side.
+In previous version of alien4cloud a migration tool was provided to ensure plugin version update, starting from 1.3.1 plugins will be automatically updated when the alien4cloud server restarts based on plugins existing in the initialization folder.</p>
+
+<p>Update process:
+ - Stop your alien4cloud server
+ - Remove old plugin(s) archive(s) from the /init/plugins folder and add new one(s)
+ - Restart alien4cloud</p>
+
+<p>Alien 4 cloud on startup will automatically update the plugins versions inside alien4cloud and load the new plugin version.</p>
+
+<div class="note warning">
+<h5>Model update</h5>
+<p>This auto-update does not perform any model update. If your plugin model has changed you should either provide a migration tool to update data or have a built-in migration process upon plugin initialization.</p>
+</div>
+
+<div class="note warning">
+<h5>Hot update</h5>
+<p>We don’t support hot-plugin updates currently. This is a choice we made as unloading a plugin may cause interruption of some active processing from the plugin (including ongoing deployment/un-deployment).
+This behavior will however be improved in next versions and plugins will be responsible of their shutdown management before a plugin is disabled.</p>
+</div>
+
+<h1 id="plugins-list">Plugins list</h1>
+
+<p>This table lists the currenty supported and used plugins :</p>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th style="text-align: left">Plugin</th>
+      <th style="text-align: left">Description</th>
+      <th style="text-align: left">Since version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><a href="https://github.com/alien4cloud/alien4cloud-premium-repository-plugins/">alien-maven-repository-plugin</a></td>
+      <td style="text-align: left">Maven Artifact Resolver Plugin</td>
+      <td style="text-align: left">1.3.0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="https://github.com/alien4cloud/alien4cloud-premium-repository-plugins/">alien-git-repository-plugin</a></td>
+      <td style="text-align: left">Git Artifact Resolver Plugin</td>
+      <td style="text-align: left">1.3.0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="https://github.com/alien4cloud/alien4cloud-repository-plugins">alien-http-repository-plugin</a></td>
+      <td style="text-align: left">HTTP Artifact Resolver Plugin</td>
+      <td style="text-align: left">1.3.0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="https://github.com/alien4cloud/alien4cloud-premium-repository-plugins">alien4cloud-premium-workspace</a></td>
+      <td style="text-align: left">Alien 4 Cloud Premium Workspaces</td>
+      <td style="text-align: left">1.3.0.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="https://github.com/alien4cloud/alien4cloud-vault-plugin">alien-vault-plugin</a></td>
+      <td style="text-align: left">Integration to HashiCorp Vault</td>
+      <td style="text-align: left">2.0.0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="https://github.com/alien4cloud/alien4cloud-workflow-scheduler">alien4cloud-workflow-scheduler-plugin</a></td>
+      <td style="text-align: left">Scheduler topology processing plugin using cron executions on Orchestrator</td>
+      <td style="text-align: left">2.1.0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="https://github.com/alien4cloud/alien4cloud-yorc-provider">alien4cloud-yorc-provider</a></td>
+      <td style="text-align: left">Yorc Orchestrator Provider, manages interactions with a running Yorc instance.</td>
+      <td style="text-align: left">2.2.0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="https://github.com/alien4cloud/alien4cloud-kubernetes-plugin">alien4cloud-kubernetes-plugin</a></td>
+      <td style="text-align: left">Allows transformation of a TOSCA generic topology into a specific kubernetes topology. It contains support for topology and policies modification.</td>
+      <td style="text-align: left">2.2.0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="https://github.com/alien4cloud/alien4cloud-k8s-spark-jobs">alien4cloud-k8s-spark-jobs</a></td>
+      <td style="text-align: left">Features Spark job modelization for running into Kubernetes cluster</td>
+      <td style="text-align: left">3.0.0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="https://github.com/alien4cloud/alien4cloud-kafka-listener">alien4cloud-kafka-listener</a></td>
+      <td style="text-align: left">Subscribes to Kafka Messages. Features application workflow launches, service creation, git repositories pull</td>
+      <td style="text-align: left">3.0.0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="https://github.com/alien4cloud/alien4cloud-k8s-webhook">alien4cloud-k8s-webhook</a></td>
+      <td style="text-align: left">Allows Kubernetes resources to enriched or validated thanks using the webhook mechanism</td>
+      <td style="text-align: left">3.1.0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="https://github.com/alien4cloud/alien4cloud-rms-scheduler-plugin">alien4cloud-rms-scheduler-plugin</a></td>
+      <td style="text-align: left">A rule based scheduler embedding drools.</td>
+      <td style="text-align: left">3.1.0</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>These 2 sample plugins illustrate how plugins can be used and implemented  :</p>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th style="text-align: left">Plugin</th>
+      <th style="text-align: left">Description</th>
+      <th style="text-align: left">Since version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><a href="https://github.com/alien4cloud/sample-topology-validator-plugin">sample-topology-validator-plugin</a></td>
+      <td style="text-align: left">A sample plugin that checks topology nodes name (minimum length and pattern)</td>
+      <td style="text-align: left">2.2.0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><a href="https://github.com/alien4cloud/alien4cloud-plugin-sample">alien4cloud-plugin-sample</a></td>
+      <td style="text-align: left">Set of modules that illustrate how to write plugin with backend and UI, wizard addon, topology modifier:</td>
+      <td style="text-align: left">1.3.0</td>
+    </tr>
+  </tbody>
+</table>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.4.0/user_guide/plugin_management.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-3.4.0', 'documentation/3.4.0/user_guide/plugin_management.md');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

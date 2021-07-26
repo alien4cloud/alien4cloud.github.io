@@ -1,0 +1,102 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/3.4.0/concepts/applications.html',
+  title: 'Applications'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Applications</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.4.0/concepts/applications.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <p>Alien 4 Cloud aims at managing application lifecycle and their related deployments. Applications in Alien 4 Cloud are visible only by users that have some roles within the application.</p>
+
+<p>The application in Alien 4 Cloud is the entity that people are going to deploy. Every application can have one or more versions and one or more environments.</p>
+
+<p><img src="../images/3.4.0/concepts/application_relations.png" alt="Application concepts" /></p>
+
+<h1 id="version">Version</h1>
+
+<p>A version of an application answer the question what do we want to deploy. Every application version defines the actual service that a given version of an application is going to deliver.</p>
+
+<p>A version represents a given state for the application topology. As we explained already a topology contains versioned informations for all components required to deploy the application meaning that a defined version of an application can be moved from a cloud to another with guaranty on the deployment content and insurance that the same components will be deployed.</p>
+
+<p>That said you may sometimes need the ability to define one or multiple topologies for a given versions in order to suit some of your environment constraints:
+ - For example you may want to use in development a topology version that would use hsql as a database implementation while node while in production you will use a topology with an Oracle database (that requires licenses and so on).
+Of course every topology version for a given application version should provide the same service, differences between these topologies being mostly technical.</p>
+
+<p>And for sure in an ideal world you would have a single topology version that you will deploy on every environment changing only some deployment configurations like scaling parameters for example.</p>
+
+<div class="note info">
+<h5>Snapshot and release</h5>
+<p>When you create an application, Alien 4 Cloud creates a default version <em>0.1.0-SNAPSHOT</em>. The qualifier <em>SNAPSHOT</em> is really important and means somehow <em>In development</em>. Indeed Alien 4 Cloud will prevent any modification of an application topology that is not a <em>SNAPSHOT</em> version.</p>
+
+<p>When you are ready to release a version just rename it and remove the <em>SNAPSHOT</em> qualifier (for example rename <em>0.1.0-SNAPSHOT</em> to <em>0.1.0</em>). Alien will then consider the version as released and it will not be possible to update the version. If you want to change the topology you will have to create a new version for your application (based on the previous version if you like).</p>
+</div>
+
+<h1 id="environments">Environments</h1>
+
+<p>An environment represents a deployment target for an application. Every environment may be owned and deployed by different team. That way you can offer the ability for your development, uat, and production team to efficiently work together.</p>
+
+<p>Application environment is also a key feature to design your application lifecycle across the different environments and, eventually, clouds. For example you can design one or more development environments for your developers (on EC2 for example), and the pre-production and production environments on your own OpenStack(s). You can then move a version from an environment to another by switching the version on the environments and re-deploying it.</p>
+
+<p>Like for application version, a default application environment named “Environment” is created when you create your application. This new environment is configured to target the default created version but without any associated cloud. You can specify the cloud in the environment management page or in the deployment page. You can also add a type to your environment and write a description.</p>
+
+<p>Every environment have a topology version associated that defines the next version that will be deployed to this environment, the same topology version may be associated to one or multiple environments or to none of them.</p>
+
+<h1 id="application-lifecycle-management-specific-configurations-and-deployment">Application lifecycle management, specific configurations and deployment.</h1>
+
+<p>In summary, the combination of version and environment concepts offers the ability of manage the lifecycle of your application.</p>
+
+<p>The combination of an environment and a version have a specific deployment configuration. This configuration consist of multiple elements:</p>
+
+<ul>
+  <li><strong>Location matching configuration</strong>: This is the selection of the deployment target for this environment/version (Like Amazon EC2, my internal cloud, my set of VMs etc.)</li>
+  <li><strong>Node matching configuration</strong>: When a topology contains abstract nodes they can be replaced before deployment by a concrete implementation, this is really the key element for topology portability across clouds. For example if I selected Amazon as my deployment location in the first step I will be able to select all matching Amazon Images and Flavor association to replace my Compute node. On an existing machine cluster I will match the Compute node against some available machines in the pool. On container based deployment target I will target a container image to deploy my Compute node etc.
+ Node matching can replace some abstract nodes with either ‘on demande resources’ or ‘services’ which are already running elements that are available for me to consume.</li>
+  <li><strong>Inputs configuration</strong>: A topology may define some input properties and input artifacts that you can configure for this environment/version deployment association.</li>
+</ul>
+
+<p>Finally once all theses elements are configured you can perform a deployment.</p>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.4.0/concepts/applications.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-3.4.0', 'documentation/3.4.0/concepts/applications.md');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

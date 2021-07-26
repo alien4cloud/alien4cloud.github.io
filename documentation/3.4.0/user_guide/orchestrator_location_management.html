@@ -1,0 +1,229 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/3.4.0/user_guide/orchestrator_location_management.html',
+  title: 'Orchestrator(s) and location(s) management'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Orchestrator(s) and location(s) management</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.4.0/user_guide/orchestrator_location_management.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        
+<hr style="margin-top:5px; margin-bottom:5px;" />
+<div class="row"><ul class="nav nav-pills" id="summarypanel"></ul></div>
+<hr style="margin-top:5px; margin-bottom:5px;" />
+
+<div class="note info">
+<p>To understand the orchestrator and location concepts, please refer to <a href="#/documentation/3.0.0/concepts/orchestrators_locations.html">this section</a>.</p>
+</div>
+
+<h1 id="requirements">Requirements</h1>
+
+<p>Alien 4 cloud is not responsible for actual deployment orchestration but rather interact with existing orchestration technologies. In order to define an orchestrator and a location, you must configure plugins that will be used to actually perform deployment(s) on the defined location using the created orchestrator.</p>
+
+<p>In order to configure a set of Orchestrator/locations, you must have installed an orchestrator plugin first see <a href="#/documentation/3.0.0/user_guide/plugin_management.html">plugin management</a>.</p>
+
+<div class="note info">
+<h5>Supported orchestrators</h5>
+<p>We are currently supporting the opensource orchestrator Yorc.</p>
+</div>
+
+<h1 id="orchestrators-management">Orchestrators management</h1>
+
+<h2 id="orchestrator-creation">Orchestrator creation</h2>
+
+<p>Once you have installed a plugin, the admin can go on the orchestrator page and configure one. Remember that you can use the Alien 4 Cloud contextual help in order to be guided directly within the application. To create an orchestrator, just go in the <em>orchestrator list</em> page and click on the <em>New orchestrator</em> button.</p>
+
+<p><img src="../../images/3.4.0/user_guide/admin/orchestrators/new_orchestrator.png" alt="Create orchestrator" /></p>
+
+<h2 id="orchestrator-configuration">Orchestrator configuration</h2>
+
+<p>To configure an orchestrator, select it in the <em>orchestrator list</em> page and go to <em>configuration</em> side menu.</p>
+
+<p><img src="../../images/3.4.0/user_guide/admin/orchestrators/orchestrator_global_configuration.png" alt="Orchestrator conf" /></p>
+
+<h3 id="naming-policy">Naming policy</h3>
+
+<p>On every orchestrator, you can configure a naming policy that Alien 4 Cloud will use when deploying an application. The naming policy will be used to identify the deployment on the cloud’s orchestrator.</p>
+
+<div class="note info">
+<p>Most of the orchestrators will leverage this naming policy to name the resources used at the IaaS level also.</p>
+</div>
+
+<p>To compose your own application naming policy, you can use the following entities and properties :</p>
+
+<ul>
+  <li><strong>environment</strong> : the environment linked to the deployment
+    <ul>
+      <li><em>id</em></li>
+      <li><em>name</em></li>
+      <li><em>description</em></li>
+      <li><em>environmentType</em> : <code>OTHER, DEVELOPMENT, INTEGRATION_TESTS, USER_ACCEPTANCE_TESTS, PRE_PRODUCTION, PRODUCTION</code></li>
+    </ul>
+  </li>
+  <li><strong>application</strong> : deployed application
+    <ul>
+      <li><em>id</em></li>
+      <li><em>name</em></li>
+      <li><em>creationDate</em></li>
+      <li><em>lastUpdateDate</em></li>
+    </ul>
+  </li>
+  <li><strong>metaProperties</strong><em>[‘PROPERTY_NAME’]</em> : meta-properties defined on the application</li>
+  <li><strong>time</strong> : current date at format <code>yyyyMMddHHmm</code></li>
+</ul>
+
+<p>The default naming policy setting for any orchestrator is : <code>environment.name + application.name</code></p>
+
+<div class="note warning">
+<h5>Deployment name unicity </h5>
+<p>The deployment name must be unique at a given time, the orchestrator administrator is responsible for choosing a pattern that should be unique or some application(s) may not be deployed (if a deployment with the same name is already running).
+Note that we guaranty that an application’s name is unique across all applications and that an environment name is unique for a given application.
+However, when generating the application paaSId (final application name on the PaaS), all <code>space</code> character will be replaced by an <code>_</code>. Therefore and as an example, if your naming policy involves the application name, you can not deploy simultaneously two applications named “<strong>Test App</strong>” and “<strong>Test_App</strong>” with the same orchestrator, as the generated paaSId will be in conflict.</p>
+</div>
+
+<p>The main pattern to define a naming policy is to use <code>+</code> to concat different properties or text, for examples :</p>
+
+<ul>
+  <li><code>environment.name + application.name + time</code></li>
+  <li><code>application.id + environment.environmentType + '-US_ZONE'</code></li>
+  <li><code>time + '__' + application.creationDate</code></li>
+  <li><code>'MY_APP' + '-WORDPRESS-' + time</code></li>
+  <li><code>metaProperties['PROPERTY_NAME'] + '-' + time</code></li>
+</ul>
+
+<div class="note warning">
+<h5>Empty meta properties</h5>
+<p>Any empty property used in the naming policy expression will cause a deployment failure.</p>
+</div>
+
+<div class="note info">
+<p><strong>Advanced use</strong> : the policy expression is based on <a href="http://docs.spring.io/spring/docs/current/spring-framework-reference/html/expressions.html" target="_blank">SpEL</a> (<em>Spring Expression Language</em>) and you could use its capabilities if you are familiar with it.
+<strong>Note</strong> : do not use the <code>#</code></p>
+</div>
+
+<h2 id="enabling-the-orchestrator">Enabling the orchestrator</h2>
+
+<p>Once properly configured, you should enable the orchestrator, by hitting the <strong><em>enable</em></strong> button on the <strong>information</strong> screen of the selected orchestration.</p>
+
+<p><img src="../../images/3.4.0/user_guide/admin/orchestrators/orchestrator_enable.png" alt="Enable - disable  orchestrator" /></p>
+
+<h1 id="locations-management">Locations management</h1>
+
+<p>After Configuring the orchestrator, you have to create one or more location, depending on whether your orchestrator allows it.
+Note that you cannot access the location management steps on a disabled orchestrator.</p>
+
+<h2 id="location-creation">Location creation</h2>
+
+<p>To create a location, first go to the location the <em>orchestrator list</em> page, by clicking on the side menu represented by a cloud, and then click on the <em>New location</em> button, and fill in the form.</p>
+
+<p><img src="../../images/3.4.0/user_guide/admin/orchestrators/new_location.png" alt="Create location" /></p>
+
+<h2 id="location-configuration">Location configuration</h2>
+
+<p>Once created you must configure the location. It requires several steps:</p>
+
+<ul>
+  <li>Configure cloud resources used for resources matching at deployment time.</li>
+  <li>Configure the meta properties of the orchestrator (that depends of the chosen one).</li>
+  <li>Configure the security access to the location</li>
+</ul>
+
+<h2 id="configure-location-resources">Configure location resources</h2>
+
+<h3 id="configuration-resources-tab">Configuration resources tab</h3>
+
+<p>In this step you need to configure the resources types exposed by location. These resources will help to configure or generate those which will be used in matching on deployment configuration.</p>
+
+<p><img src="../../images/3.4.0/user_guide/admin/orchestrators/location_resources_configuration.png" alt="Location resources configuration" /></p>
+
+<h3 id="on-demand-resources-tab">On demand resources tab</h3>
+
+<p>On demand resources are the exact resources used for matching nodes within the topology before deploying, such as Computes, networks and volumes.
+They may a combination of one or more configuration resources. (Example, the on demand resource <em>Compute</em>).</p>
+
+<p><img src="../../images/3.4.0/user_guide/admin/orchestrators/location_on_demand_resource.png" alt="Location on demand resources" /></p>
+
+<p>To add more resource templates, you can simply drag and drop resources types from the panel on the right.</p>
+
+<div class="note info">
+<h5> Auto configuration</h5>
+<p>If the location exposes a way to automatically generate on-demand resources, you can hit the “auto-config” button to auto-generate them.</p>
+</div>
+
+<h3 id="adding-custom-on-demand-resources-from-the-tosca-catalog">Adding custom on-demand resources from the TOSCA catalog</h3>
+
+<p>You can also create Custom on demand resource templates using any type from the catalog - provided that it is not abstract. This allows you to match abstract nodes in a topology to concrete custom resources, defined within your orchestrator location, exactly the same way you are used to with on-demand resources provided by the orchestrator. To do so, simply drag and drop resource types from the catalog panel.</p>
+
+<div class="note warning">
+<p>At this point, we assume that you know what you are doing when creating custom resources. If not, please make sure you go through our <a href="#/documentation/3.0.0/user_guide/catalog_custom_resources.html">documentation on this feature</a>. Alien has no way to verify if custom resource templates created in the location are compatible with your orchestrator.</p>
+</div>
+
+<h3 id="meta-properties">Meta properties</h3>
+
+<p>This feature allows you to define <strong>meta-properties</strong> on your location and then use them in your
+topology as an internal variable defined by your administrator.</p>
+
+<div class="note warning">
+<p>At this stage, we assume you know how to create meta-properties targeting location, application or environment.</p>
+</div>
+
+<p>In the meta-properties tab, you should be able to set a value
+for any location targeted meta-property. Fill the desired values in order to use it later as in
+<strong>get_input</strong> for a property.</p>
+
+<div class="note info">
+<p>Regarding your meta-property definition, you can add constraint on it. Thus, you
+must see constraint violation error if any in this location meta-properties form.</p>
+</div>
+
+<h3 id="security">Security</h3>
+
+<p>To manage the authorizations on location, please refer to <a href="#/documentation/3.0.0/user_guide/location_autorization.html">this page</a>.</p>
+
+<h3 id="secret">Secret</h3>
+
+<p>To associate a secret provider (such as HashiCorp Vault) to the location, please refer to <a href="#/documentation/3.0.0/user_guide/location_secret.html">this page</a>.</p>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.4.0/user_guide/orchestrator_location_management.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-3.4.0', 'documentation/3.4.0/user_guide/orchestrator_location_management.md');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

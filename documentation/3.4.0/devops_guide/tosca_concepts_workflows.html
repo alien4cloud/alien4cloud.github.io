@@ -1,0 +1,82 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/3.4.0/devops_guide/tosca_concepts_workflows.html',
+  title: 'Workflows'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Workflows</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.4.0/devops_guide/tosca_concepts_workflows.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <p>TOSCA Specification defines the notion of <em>Plans</em>. Plans are basically workflows that the tosca orchestrator will be able to leverage to administrate the defined tosca application.</p>
+
+<p>The specification defines two default basic workflows (plans):</p>
+
+<ul>
+  <li><strong>install</strong>: Used to deploy a topology.</li>
+  <li><strong>uninstall</strong>: Used to tear down a topology.</li>
+</ul>
+
+<p>Alien4Cloud defines 2 additional default workflows:</p>
+
+<ul>
+  <li><strong>stop</strong>: Used in conjunction with the <strong>start</strong> workflow to stop all components a topology (for maintenance purpose for example).</li>
+  <li><strong>start</strong>: Used in conjunction with the <strong>stop</strong> workflow to start all components of a topology.</li>
+</ul>
+
+<div class="note info">
+<p>In order to ease TOSCA usage the normative types specification include default lifecycle operations on node types and relationship types that can be used in order to automatically generate workflows (plans).
+This is why in most of the case, users don’t need to define workflow, except specific needs for custom workflow (backup, restore, update workflow …) or in some really rare cases custom default workflows (install, uninstall, start, stop).</p>
+</div>
+
+<div class="note warning">
+<p>Breaking changes for workflow in the 3.0.0 version (alien_dsl_2.0.0):</p>
+
+<ul>
+  <li>Custom workflow not supported anymore in older dsl versions than alien_dsl_2.0.0, all existing topologies will see their workflow section replaced with default workflows by migration tool.</li>
+  <li>In alien_dsl_1_4_0 and older, the default workflow is generated differently for different types of relationships (HostedOn is different to other types), in alien_dsl_2.0.0, every relationship behaves exactly like HostedOn. The workflow is a lots more flattened, no more concurrent creations between the source and the target of a relationship. Please see <a href="#workflow/tosca_concepts_workflows_default.html">Workflow generation</a>.</li>
+</ul>
+</div>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.4.0/devops_guide/tosca_concepts_workflows.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-3.4.0', 'documentation/3.4.0/devops_guide/tosca_concepts_workflows.markdown');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

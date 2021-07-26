@@ -1,0 +1,197 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/3.4.0/getting_started/new_getting_started.html',
+  title: 'Getting started'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Getting started</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.4.0/getting_started/new_getting_started.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <p>This guide explains how to get started with Alien4Cloud and deploy your first application. The goal of this guide is not to provide an extensive cover of all the functionalities.</p>
+
+<hr style="margin-top:5px; margin-bottom:5px;" />
+<div class="row"><ul class="nav nav-pills" id="summarypanel"></ul></div>
+<hr style="margin-top:5px; margin-bottom:5px;" />
+
+<h1 id="install-launch-and-configure-alien4cloud">Install, launch and configure alien4cloud</h1>
+
+<h2 id="prerequisites">Prerequisites</h2>
+
+<ul>
+  <li>
+    <p><strong>Operating system</strong>:<i class="fa fa-linux"></i> Linux or <i class="fa fa-apple"></i> MacOS.</p>
+  </li>
+  <li>
+    <p><strong>Ansible</strong>  : &gt;= 2.8.3</p>
+  </li>
+  <li>
+    <p><strong>Browser</strong>: A supported web browser (check versions <a href="/#/documentation/3.0.0/admin_guide/supported_platforms.html">here</a>).</p>
+  </li>
+</ul>
+
+<h2 id="install-launch-and-configure-alien4cloud-1">Install, launch and configure alien4cloud</h2>
+
+<p>To bootstrap a full A4C stack (including Elasticsearch, Yorc, Consul …), a set of Ansible playbooks are available in <a href="https://github.com/alien4cloud/alien4cloud-spray/tree/develop">Alien4Cloud Spray</a> github project.</p>
+
+<div class="note info">
+<p>An alternative approach to setup a A4C/Yorc stack is to use <a href="https://yorc.readthedocs.io/en/stable/bootstrap.html">Yorc bootstrap</a>.</p>
+</div>
+
+<h1 id="lets-play">Let’s play!</h1>
+
+<p>Follow the <a href="https://github.com/alien4cloud/alien4cloud-spray/blob/develop/readme.md">Alien4Cloud Spray user guide</a></p>
+
+<p>Login into the application using the default user, if using the default parameters :</p>
+
+<ul>
+  <li>user: <strong>admin</strong></li>
+  <li>password: <strong>admin</strong></li>
+</ul>
+
+<div class="note">
+<p>The admin user is granted will all rights on the platform. This getting started will perform all operations using the admin user. Of course if you want to setup an Alien4Cloud for production usage and multi-users and role management you should probably refer to <a href="#/documentation/3.0.0/admin_guide/advanced_configuration.html">advanced configurations and installation</a> of Alien4Cloud as well as user guide for <a href="#/documentation/3.0.0/user_guide/user_management.html">user management</a>.</p>
+</div>
+
+<h1 id="import-components-in-alien4cloud">Import components in Alien4Cloud</h1>
+
+<p>Find those types on github: <a href="https://github.com/alien4cloud/samples" target="_blank">https://github.com/alien4cloud/samples</a></p>
+
+<ul>
+  <li><strong><a href="https://github.com/alien4cloud/samples/tree/3.0.x/org/alien4cloud/mock" target="_blank">mock</a></strong> : set of mocks used for checking full stack is available and understand main princips</li>
+  <li><strong><a href="https://github.com/alien4cloud/samples/tree/3.0.x/org/alien4cloud/doc/kube/kcontainers" target="_blank">Kubernetes</a></strong> : set of differents assets for deploying containers, services, volumes on a Kubernetes clister</li>
+</ul>
+
+<p>The quickest way to import all of these archives is the <strong>Git integration</strong> feature in Alien4Cloud.</p>
+
+<p>Click on <img src="../../images/3.4.0/getting_started/catalog.png" alt="Go to admin" height="26px" class="inline" /> button in the navigation bar. Then click side bar sub-menu <img src="../../images/3.4.0/getting_started/manage_archives.png" alt="Go to Manage Archives" height="26px" class="inline" /> and <img src="../../images/3.4.0/getting_started/git_import.png" alt="Go to Git" height="26px" class="inline" />.
+Now add a new Git location: <img src="../../images/3.4.0/getting_started/git_location_new.png" alt="new-git-location" height="26px" class="inline" />.</p>
+
+<p>Fill the modal like the example below with the followings:</p>
+
+<ul>
+  <li><strong>Repository Url</strong>:    https://github.com/alien4cloud/samples.git</li>
+  <li><strong>Branch or Tag</strong>  / <strong>Archive’s folder</strong>
+    <ul>
+      <li>3.0.x / org/alien4cloud/mock</li>
+      <li>3.0.x / org/alien4cloud/doc/kube/kcontainers</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="../../images/3.4.0/getting_started/git_configuration.png" alt="git configuration" style="width: 600px; margin: 0 auto" /></p>
+
+<p>Now, click on <img src="../../images/3.4.0/getting_started/import.png" alt="import button" height="26px" class="inline" /> to pull all components from git and upload them into the Alien4Cloud catalog.</p>
+
+<p>Wait for the import success bar to show and continue:</p>
+
+<p><img src="../../images/3.4.0/getting_started/import_success.png" alt="Import success" /></p>
+
+<div class="note warning">
+<p>Some warnings will be thrown if you specify an other branch or tag. We release some version of Samples, according to our implementation of TOSCA. If you take the wrong Sample, the required normative types can be missing.</p>
+</div>
+
+<h1 id="create-a-tinymock-application">Create a TinyMock application</h1>
+
+<p>Now we have the Mock templates ready to use, we can create an application based on it. To do this, go to <img src="../../images/3.4.0/getting_started/applications_menu.png" alt="application menu" height="26px" class="inline" /> section. Click on <img src="../../images/3.4.0/getting_started/new_application.png" alt="new application btn" height="26px" class="inline" />. In the new application modal fill the name with ‘SimpleMock’, click on Topology Template button and select the <code>1TinyMock</code> in the <strong>topology template</strong> list.</p>
+
+<p><img src="../../images/3.4.0/getting_started/new_application_modal.png" alt="New application modal" /></p>
+
+<p>Click on <em>create</em> to create the application and be redirected to the application informations page.
+<img src="../../images/3.4.0/getting_started/application_detail.png" alt="SimpleMock application" />
+To see your application topology, click on <img src="../../images/3.4.0/getting_started/topology_sub_menu.png" alt="application topology menu" />
+Clicking on Edit button will take you to the topology editor.</p>
+
+<p><img src="../../images/3.4.0/getting_started/topology_editor.png" alt="SimpleMock Topology" /></p>
+
+<p>As you can see the topology is already complete. We will cover topology edition later on so, for now, let’s prepare for deployment.</p>
+
+<h1 id="setup-and-deploy-your-application">Setup and deploy your application</h1>
+<p>Go back to application detail screen by clicking on the top left menu <img src="../../images/3.4.0/getting_started/application_navbar.png" alt="application navigation bar" height="26px" class="inline" /></p>
+
+<p>Click on <img src="../../images/3.4.0/getting_started/application_deployment_menu.png" alt="application deployment" height="26px" class="inline" /> to configure your deployment:
+Click on Environment</p>
+
+<p>There are no inputs in this topology
+<img src="../../images/3.4.0/getting_started/application_deployment_home.png" alt="Application Deployment Home page" />
+Click on Tab “Prepare Next Deployment”
+<img src="../../images/3.4.0/getting_started/location_choice_1.png" alt="Location choice" />
+A blue button Location is displayed :
+Click on Location button :
+<img src="../../images/3.4.0/getting_started/location_choice_2.png" alt="Location list display" />
+<img src="../../images/3.4.0/getting_started/location_choice_3.png" alt="Location selected" /></p>
+
+<p>Node matching step is here again done automatically for you.
+So let’s go to Review &amp; Deploy button
+<img src="../../images/3.4.0/getting_started/validation_deployment.png" alt="Deployment validation" /></p>
+
+<p>Deployment is ready to be launched : click on Deploy button.</p>
+
+<p><img src="../../images/3.4.0/getting_started/deployment_inprogress.png" alt="Deployment in progress" />
+<img src="../../images/3.4.0/getting_started/deployment_succeeded.png" alt="Deployment succeeded" /></p>
+
+<p>The sucess of deployment ensures you have a full stack A4C / Yorc available.</p>
+
+<h1 id="shut-down-alien4cloud">Shut down alien4cloud</h1>
+
+<p>You can still play with alien4cloud of course as there is plenty to discover ;). But when you want to shut it down just launch the following command:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">systemctl stop a4c</code></pre></div>
+
+<p>In order to launch it again no need to launch the starting command of a4c service if the VM has been restarted.</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">systemctl start a4c</code></pre></div>
+
+<p>In order to restart, you can use the command :</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">systemctl restart a4c</code></pre></div>
+
+<h1 id="done">Done!!!</h1>
+<p>That is it! You should now be a little bit familiar with Alien4cloud interface. But there is more under the skin!</p>
+
+<p>For more, take a look on the <a href="#/documentation/3.0.0/user_guide/user_guide.html">user guide</a>.</p>
+
+<p>If you want to understand a bit more about the concepts developed in Alien4cloud, <a href="#/documentation/3.0.0/concepts/concepts.html">here you go</a>, and you might want to check out for the <a href="#/documentation/3.0.0/devops_guide/dev_ops_guide.html">TOSCA usage guide</a> too.</p>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.4.0/getting_started/new_getting_started.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-3.4.0', 'documentation/3.4.0/getting_started/new_getting_started.markdown');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

@@ -1,0 +1,93 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/3.4.0/user_guide/topology_editor_schedule.html',
+  title: 'Scheduler policy'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Scheduler policy</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.4.0/user_guide/topology_editor_schedule.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        
+<hr style="margin-top:5px; margin-bottom:5px;" />
+<div class="row"><ul class="nav nav-pills" id="summarypanel"></ul></div>
+<hr style="margin-top:5px; margin-bottom:5px;" />
+
+<p>From the policy view, the <img src="../../images/3.4.0/user_guide/policy_btn.png" alt="Add policies" class="inline" /> allows you to browse policy catalog.
+Scheduler policy can be found by entering <strong>RMS</strong> inside the search box :</p>
+
+<p><img src="../../images/3.4.0/user_guide/policy_catalog_1.png" alt="policy RMSScheduleWorkflowPolicy" class="inline" /></p>
+
+<ul>
+  <li>A runtime policy RMSScheduleWorkflowPolicy is defined in the embedded csar.</li>
+  <li>This policy features a schedule time window. Inside this time window, the workflow can be launched when its conditions are met.
+Conditions are expressed using a DSL that admin can enrich.</li>
+  <li>The workflow will be launched when the time criteria and the conditions (if any) are both satisfied.</li>
+  <li>Conditions are initially defined by the administrator and can be modified by the user when preparing the deployment</li>
+</ul>
+
+<p><img src="../../images/3.4.0/user_guide/policy_deploy_1.png" alt="policy update RMSScheduleWorkflowPolicy" /></p>
+
+<p>Since version 3.4.0, some values are proposed for helping the administrator :
+<img src="../../images/3.4.0/user_guide/policy_deploy_2.png" alt="policy update RMSScheduleWorkflowPolicy2" /></p>
+
+<p>It is also available in the Wizard UI
+<img src="../../images/3.4.0/user_guide/policy_deploy_3.png" alt="policy update RMSScheduleWorkflowPolicy3" /></p>
+
+<p>Interaction criterias for launching workflow with monitoring tools Zabbix and Prometheus is now possible in <strong>Conditions</strong> parameter</p>
+
+<p><img src="../../images/3.4.0/user_guide/policy_deploy_4.png" alt="policy update RMSScheduleWorkflowPolicy4" /></p>
+
+<p>A pop up is displayed by clicking on <strong>Conditions</strong>
+<img src="../../images/3.4.0/user_guide/policy_deploy_5.png" alt="policy update RMSScheduleWorkflowPolicy5" /></p>
+
+<p>In this example below, several conditions are automatically proposed about the cpu use with the last known metric collected from the monitoring.
+<img src="../../images/3.4.0/user_guide/policy_deploy_6.png" alt="policy update RMSScheduleWorkflowPolicy6" /></p>
+
+<ul>
+  <li>More information is available at <a href="https://github.com/alien4cloud/alien4cloud-rms-scheduler-plugin">RMS Scheduler plugin</a> project.</li>
+</ul>
+
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.4.0/user_guide/topology_editor_schedule.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-3.4.0', 'documentation/3.4.0/user_guide/topology_editor_schedule.md');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

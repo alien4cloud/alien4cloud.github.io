@@ -1,0 +1,146 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/3.4.0/user_guide/admin_artifact_repositories.html',
+  title: 'Artifact repositories'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Artifact repositories</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.4.0/user_guide/admin_artifact_repositories.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        
+<hr style="margin-top:5px; margin-bottom:5px;" />
+<div class="row"><ul class="nav nav-pills" id="summarypanel"></ul></div>
+<hr style="margin-top:5px; margin-bottom:5px;" />
+
+<h1 id="how-the-repositories-are-managed">How the repositories are managed</h1>
+
+<p>When you upload a CSARs with a repository inside, Alien try to fetch the artifact from the remote repository. If this type is not supported or if
+the artifact is not available (wrong URL or wrong credential), an error is thrown during the parsing. In a CSAR, you can reference a repository by this URL.</p>
+
+<p>In the Administration view you can define new artifacts repository by clicking on <strong>Artifacts repositories</strong> . This configuration offers you the ability to add credentials to your artifact resolver (which is in charge to fetch your remote artifact).
+By storing repositories artifact configuration (repository URL and credentials) into Alien4Cloud database this allow you to create a CSARs without hard-coding repositories password multiple times. Alien4Cloud will be able to retrieve the password using the repository URL.
+But bear in mind the passwords are stored in plain text and can be seen by anyone accessing Alien4Cloud database.</p>
+
+<div class="note warning">
+<h5>Tosca support</h5>
+<p>To use repositories in your CSARs use <a href="#/documentation/3.0.0/devops_guide/dev_ops_guide.html">tosca definitions version</a> <strong>alien_dsl_1_3_0</strong> or greater.</p>
+</div>
+
+<p>In the artifacts repositories view, you need to click on the button to create a new repository.</p>
+
+<p><img src="../../images/3.4.0/user_guide/admin/repository/administration_artifacts_repositories.png" alt="components repository view" />
+<img src="../../images/3.4.0/user_guide/admin/repository/new_repository.png" alt="new repository" /></p>
+
+<h2 id="http">Http</h2>
+
+<p><strong>HTTP</strong> plugin resolver is the only one opensource plugin repository. The concat of the repository URL and the artifact file attribute should be the complete path to your file.</p>
+
+<p>Example :</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">repositories</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">fastconnect</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">url</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">https://fastconnect.org/maven/service/local/repositories/opensource/content</span>
+    <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">http</span>
+
+<span class="p-Indicator">[</span><span class="nv">...</span><span class="p-Indicator">]</span>
+
+<span class="l-Scalar-Plain">node_types</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">alien.nodes.Example</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">artifacts</span><span class="p-Indicator">:</span>
+    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">http_artifact</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">file</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">alien4cloud/alien4cloud-cloudify3-provider/1.4.0-SM2/alien4cloud-cloudify3-provider-1.4.0-SM2.zip</span>
+        <span class="l-Scalar-Plain">repository</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">fastconnect</span>
+        <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.artifacts.File</span></code></pre></div>
+
+<h1 id="repositories-specific-to-the-premium-version">Repositories specific to the premium version</h1>
+
+<p>Two repositories plugins are premium : <strong>git</strong> and <strong>maven</strong>. All repositories plugins are package in the Alien 4 cloud premium dist.</p>
+
+<h2 id="git">Git</h2>
+
+<p>In git, the reference of an artifact is this path inside the git project. If your repo as a new commit between two deployments, Alien will redownload your artifact. To refer to your artifact file, use the following syntax : <code>&lt;branch or tag&gt;:&lt;file path&gt;</code>. If you don&#8217;t specific a branch or a tag, the default branch &#8216;master&#8217; will be used.</p>
+
+<p>Example :</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">repositories</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">aliengithub</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">url</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">https://github.com/alien4cloud/samples.git</span>
+    <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">git</span>
+
+<span class="p-Indicator">[</span><span class="nv">...</span><span class="p-Indicator">]</span>
+
+<span class="l-Scalar-Plain">node_types</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">alien.nodes.Example</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">artifacts</span><span class="p-Indicator">:</span>
+    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">git_artifact</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">file</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">master:demo-repository/artifacts/settings.properties</span>
+        <span class="l-Scalar-Plain">repository</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">aliengithub</span>
+        <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.artifacts.File</span></code></pre></div>
+
+<h2 id="maven">Maven</h2>
+
+<p>In maven, you need to use the following syntax to refer to your artifact file : <code>&lt;group&gt;:&lt;artifact&gt;:&lt;version&gt;:&lt;classifier&gt;@&lt;extension&gt;</code>.</p>
+
+<p>If your maven artifact as no SNAPSHOT maven classifier, Alien 4 cloud will download your file the first time and only this time. Conversely, if your artifact as a SNAPSHOT classifier and has changed between two deployments, Alien will redownload your artifact.</p>
+
+<p>Example :</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">repositories</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">fastconnect_nexus</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">url</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">https://fastconnect.org/maven/content/repositories/opensource</span>
+    <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">maven</span>
+
+<span class="p-Indicator">[</span><span class="nv">...</span><span class="p-Indicator">]</span>
+
+<span class="l-Scalar-Plain">node_types</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">alien.nodes.Example</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">artifacts</span><span class="p-Indicator">:</span>
+    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">maven_artifact</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">file</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">alien4cloud:alien4cloud-cloudify3-provider:1.2.0@zip</span>
+        <span class="l-Scalar-Plain">repository</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">fastconnect_nexus</span>
+        <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.artifacts.File</span></code></pre></div>
+
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.4.0/user_guide/admin_artifact_repositories.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-3.4.0', 'documentation/3.4.0/user_guide/admin_artifact_repositories.md');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

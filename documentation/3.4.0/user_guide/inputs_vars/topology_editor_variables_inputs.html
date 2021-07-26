@@ -1,0 +1,80 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/3.4.0/user_guide/inputs_vars/topology_editor_variables_inputs.html',
+  title: 'Variables and pre-configured inputs'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Variables and pre-configured inputs</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.4.0/user_guide/inputs_vars/topology_editor_variables_inputs.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <p>Alien 4 cloud provides a way to define a set of key/value data called variables, that can be used to configure a deployment on different environments.
+This section details what is the purpose of variables, how they work, and how a user can manage (define and reference) these on a deployment.</p>
+
+<h1 id="goal">Goal</h1>
+<p>Inputs can be defined when designing the application topology. Generally, they are used to customize the deployment of the topology on different environments. The deployer should then, fill them up, according to some information such as the context, the environment type, the location, etc. You can have many of them, and it can sometimes be a burden for the deployer to fill them up, especially when they do not change that much between deployments and environments.
+The purpose of the variables in alien4cloud is, in general to ease such tasks, but more:</p>
+
+<ul>
+  <li>Defining reusable informations for inputs,</li>
+  <li>Reducing the number of inputs the deployer need to manage,</li>
+  <li>Allowing the Architect (topology designer ) to specify, using variables, default values for inputs per deployment context</li>
+  <li>Thus, making the topology usable in different environments without redefining/adapting all inputs. (assumption the number of variables to update/define will be lower than the number of inputs)</li>
+</ul>
+
+<p>Now, here are</p>
+
+<ul>
+  <li>
+    <p><a href="#/documentation/3.0.0/user_guide/inputs_vars/topology_editor_var_inputs_concept.html">how it works</a></p>
+  </li>
+  <li>
+    <p><a href="#/documentation/3.0.0/user_guide/inputs_vars/topology_editor_manage_vars.html">how to manage variables</a>.</p>
+  </li>
+  <li>
+    <p><a href="#/documentation/3.0.0/user_guide/inputs_vars/topology_editor_preconf_inputs.html">how to pre-configure inputs</a>.</p>
+  </li>
+</ul>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.4.0/user_guide/inputs_vars/topology_editor_variables_inputs.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-3.4.0', 'documentation/3.4.0/user_guide/inputs_vars/topology_editor_variables_inputs.md');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>
