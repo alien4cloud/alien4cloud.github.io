@@ -12,9 +12,6 @@ published: true
 {%summary%}{%endsummary%}
 
 
-{%info%}
-Alien4cloud 3.4.0 is not released yet. New features are available on latest build in [Download page](/common/download.html).
-{%endinfo%}
 
 # Ability to define suggestions by plugins
 It is now possible to inject suggestions to help end-user when typing values in A4C UI with a plugin.
@@ -30,7 +27,7 @@ It is also possible to set plugin paramaters to interact with monitoring tools P
 
 # A4C Spray
 Spray is now available fto deploy **alien4cloud** on Kubernetes engine.
-Docker image with versions 3.2.0 and 3.3.0 are available on [Alien4cloud dockerHub](https://hub.docker.com/r/alien4cloud/alien4cloud)
+Docker image with versions 3.2.0, 3.3.0 and 3.4.0 are available on [Alien4cloud dockerHub](https://hub.docker.com/r/alien4cloud/alien4cloud)
 The set of Ansible scripts is available on [A4C Spray - k8s ](https://github.com/alien4cloud/alien4cloud-spray/tree/features/ALIEN-3663-install-on-k8s) project.
 
 # Failed workflow resubmit feature
