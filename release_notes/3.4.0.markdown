@@ -1,0 +1,123 @@
+---
+layout: post
+title:  ALIEN for Cloud 3.4.0
+root: ../
+categories: RELEASE_NOTES
+parent: [release_note]
+node_name: 3.4.0
+weight: 9887
+exclude_from_search: true
+---
+
+
+
+
+<i class="fa fa-plus text-success"></i> New feature <i class="fa fa-level-up text-primary"></i> Improvement  <i class="fa fa-bug text-danger"></i> Bug <i class="fa fa-exclamation-triangle text-warning"></i> Breaking change
+
+
+### Alien 4 Cloud Samples
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-3676 | A sample plugin to illustrate suggestion plugins  |
+      
+
+
+### Alien 4 Cloud K8S plugin
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-3712 | defaultMode configMap configuration feature  |
+    
+
+
+### Alien 4 Cloud Portal Plugin
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-3738 | $issue.description  |
+    
+
+
+### Alien 4 Cloud Spray
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-3739 | Spray - statefulset management / modifiers update  |
+      |  <i class="fa fa-bug text-danger"></i> | ALIEN-3735 | Repo pull git fails sometimes  |
+  
+
+
+### Alien 4 Cloud
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-3671 | Option to enable / disable "Prepare next deployment" tab during deployment or undeployment   |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-3672 | Listen on window resize in application variables editor in order to fill height  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-3673 | Large property values can be edited in a popup window  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-3675 | Ability to define suggestions by plugins  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-3705 | Resume failed workflows  from error steps  |
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-3690 | Sort version (descending) in component catalog  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-3720 | Add ability to deactivate Wizard addons by configuration  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-3732 | Workflows on error can be resumed from any previous step by API call  |
+      |  <i class="fa fa-bug text-danger"></i> | ALIEN-3691 | Versions dropdown menu hidden in topology editor component catalog  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-3714 | Dependency is dropped when removing policy  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-3716 | Some plugins are not unloaded during HA transition  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-3717 | Dates and intervals are not translated  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-3734 | Importing topology CSAR with node with suggestion as input made suggestion not work  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-3743 | JS libraires are not cached in wizard  |
+  
+
+
+### Alien 4 Cloud Wizard
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-3677 | Wizard can manage complex and contextual suggestions  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-3678 | Wizard can manage lists in property edition  |
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-3679 | Wizard can manage policy matching and setting  |
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-3723 | Sort order wizard Import  |
+      |  <i class="fa fa-bug text-danger"></i> | ALIEN-3694 | Wizard automatic redirect does not work  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-3737 | When application metaproperties are deleted, application are not displayed in wizard  |
+  
+
+
+### Alien 4 Cloud RMS Scheduler Plugin
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-3715 | RMS rules monitors screen   |
+      
+
+
+### Alien 4 Cloud K8S Webhook Plugin
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+        |  <i class="fa fa-bug text-danger"></i> | ALIEN-3708 | Webhook modifier removes variables containing SERVICE_IP_LOOKUP  |
+  
+
