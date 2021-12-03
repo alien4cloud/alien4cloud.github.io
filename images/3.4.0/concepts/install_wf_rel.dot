@@ -1,0 +1,11 @@
+digraph relationship_install_workflow {
+  target_initial -> target_creating -> target_create -> target_created -> target_configuring;
+  target_configured -> target_starting -> target_start -> target_started;
+  source_initial -> source_creating -> source_create -> source_created -> source_configuring;
+  source_configured -> source_starting -> source_start -> source_started;
+  target_configuring -> relationship_pre_configure_target -> target_configure -> relationship_post_configure_target -> target_configured;
+  source_configuring -> relationship_pre_configure_source -> source_configure -> relationship_post_configure_source -> source_configured;
+  source_started -> relationship_add_source;
+  source_started -> relationship_add_target;
+  target_started -> source_initial;
+}

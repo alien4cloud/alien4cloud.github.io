@@ -1,0 +1,148 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/3.4.0/user_guide/application_deployment.html',
+  title: 'Deploy an environment'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Deploy an environment</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.4.0/user_guide/application_deployment.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        
+<hr style="margin-top:5px; margin-bottom:5px;" />
+<div class="row"><ul class="nav nav-pills" id="summarypanel"></ul></div>
+<hr style="margin-top:5px; margin-bottom:5px;" />
+
+<p>In alien4cloud you can actually deploy an environment of an application, in order to prepare and trigger your deployment. Firstly choose your environment in the application details page.</p>
+
+<p>Before deploying your environment you have to configure the deployment, and alien4cloud will lead the user into comprehensive sequential steps in order to achieve it.</p>
+
+<p>Each step performs a validation of the deployment topology, and errors details are eventually displayed on the right screen. Note that you can not go to the next step as long as the current one is still not valid.</p>
+
+<h1 id="inputs">Inputs</h1>
+
+<p><code>Inputs</code> is an efficient way to configure environment specific properties that may be shared by a single topology, or to let the user(s) who is responsible for deployment configure some of the deployment properties without having to deal with the complexity of the topology editor and all of its components.</p>
+
+<p>There is two types of inputs:</p>
+
+<ul>
+  <li><strong>Properties</strong>: For example the designer may choose to let the deployer configure Number of CPUs, JAVA VM heap etc.</li>
+  <li><strong>Artifacts</strong>: For example a license file, initial data file, configuration file for a software etc.</li>
+</ul>
+
+<p>Inputs may be optional or required, if any required input is not defined, and alien4cloud will display a <code>todo list</code> and prevent the user going to the next configuration step.</p>
+
+<p>Inputs may be a secret that will be retrieved later at deployment time by clicking on <img src="../../images/3.4.0/user_guide/topology_editor/secret_property _button.png" alt="Go to admin" class="inline" />.</p>
+
+<p><img src="../../images/3.4.0/user_guide/applications/deployment/user_guide_deployment_setup_inputs.png" alt="Deployment inputs" /></p>
+
+<p>Once all required inputs are defined, the <em>location selection</em> step is unlocked.</p>
+
+<h1 id="location-selection">Location selection</h1>
+
+<p>Location selection allows the deployment user to select where he wants to actually deploy the application. Alien4cloud will display to the user a list of locations that are authorized for the user to deploy on. The alien4cloud <strong>ADMIN</strong> is responsible for configuration of the locations and for granting access to them.</p>
+
+<p>Note that the access may be configured per user or per application/ application environment meaning that, as a user, you may see some locations available for some of your environments and not for some others. If you feel that a location you need to deploy your application is missing, you should ask for permissions to your alien4cloud admin.</p>
+
+<p>You can select among the displayed location, the one on which you would like to deploy.
+The proposed locations are determined by matching every existing location against the topology, done by a matcher plugin.</p>
+
+<p><img src="../../images/3.4.0/user_guide/applications/deployment/user_guide_deployment_setup.png" alt="Configure your deployment" /></p>
+
+<p>For now, note that if no matching plugin is configured by the administrator, a default matcher is used, checking the following:</p>
+
+<ul>
+  <li><strong>Supported artifacts</strong>: The orchestrator managing a location can support all the artifacts contains in your topology (nodes and relationships implementations scripts)</li>
+  <li><strong>Authorizations</strong>: The current user / application / environment have sufficient rights to deploy on the location</li>
+</ul>
+
+<h1 id="node-substitution">Node substitution</h1>
+
+<p>Next step is to substitute some abstract nodes from your topology with resources provided by the selected location.
+In the meantime, you can edit some properties if you need to.</p>
+
+<p><img src="../../images/3.4.0/user_guide/applications/deployment/user_guide_deployment_setup_substitution.png" alt="Node substitution" /></p>
+
+<h1 id="deploy">Deploy</h1>
+<p>This is the last step. If the orchestrator defined some deployment properties, here is the place to fill them up.
+You can also decide (if possible) if you want to expose your deployment as a service. (<a href="#/documentation/3.0.0/concepts/services.html">More about services here&#8230;</a>)</p>
+
+<p><img src="../../images/3.4.0/user_guide/applications/deployment/deployment_deploy.png" alt="deploy" /></p>
+
+<p>A final validation is made, taking into account everything that has been configured up until now, and eventually errors are displayed.</p>
+
+<p>If your topology is valid and ready for deployment, you can hit the deploy button to proceed.</p>
+
+<p>You can now follow the deployment progress on the <a href="#/documentation/3.0.0/user_guide/application_runtime.html">runtime view</a>.</p>
+
+<h2 id="secret-management">Secret management</h2>
+
+<p>If a secret provider (such as HashiCorp Vault) is associated with the location of the environment, the deployer will be asked to enter the credentials to access to the secret vault.</p>
+
+<p>The credentials will be checked and used by Alien4Cloud and the underlying orchestrator to resolve secrets declared in your deployment (inputs, properties etc &#8230;).</p>
+
+<p>If your deployment does not need to access to a secret vault, you can click on Skip but then the deployment will fail if a secret is found in the deployment.</p>
+
+<p><img src="../../images/3.4.0/user_guide/applications/deployment/credential_modal.png" alt="credential_modal" /></p>
+
+<h1 id="update">Update</h1>
+
+<p>Once an application has been successfully deployed, you can upgrade it by hitting the <img src="../../images/user_guide/application/deployment/update_btn.png" alt="Deployment update" height="26px" class="inline" /> button.
+Upgrading a deployment means <strong>adding/removing/changing nodes and/or relationships</strong> in a <strong>deployed topology</strong>.</p>
+
+<p>This can be done :</p>
+
+<ul>
+  <li><strong>On the same location</strong>: Only if the currently selected location is the same on which the deployment has been made</li>
+  <li><strong>In an incremental development mode</strong>: your application has been deployed, you add / remove some nodes in your topology, then you can update the deployment in order to deploy your changes.</li>
+  <li><strong>Between versions</strong>: you have already deployed a <strong>V1</strong> of your application in production. You have worked on a <strong>V2</strong> and have successfully tested it. You want to push the delta in production environment, you can use the upgrade feature to deploy the V2 in your production environment (instead of undeploying V1 then deploying V2).</li>
+</ul>
+
+<div class="note info">
+<p>This feature needs Yorc Premium distribution.</p>
+</div>
+
+<p>In addition to the update process, alien4cloud will, right after the update, automatically trigger the <strong>pre_update</strong> and <strong>post_update</strong> workflows in case one is defined respectively in the <em>original topology</em> and in the <em>updated topology</em> (by convention).</p>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.4.0/user_guide/application_deployment.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-3.4.0', 'documentation/3.4.0/user_guide/application_deployment.md');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

@@ -1,0 +1,123 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/3.4.0/orchestrators/kubernetes/webhookexample.html',
+  title: 'Webhook'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Webhook</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.4.0/orchestrators/kubernetes/webhookexample.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        
+<hr style="margin-top:5px; margin-bottom:5px;" />
+<div class="row"><ul class="nav nav-pills" id="summarypanel"></ul></div>
+<hr style="margin-top:5px; margin-bottom:5px;" />
+
+<h1 id="prerequisites">Prerequisites</h1>
+
+<div class="note info">
+<p>In this page, we will use AWS features so you will need a Kubernetes cluster integrated with a AWS account.
+However if you want to deploy a basic Kubernetes cluster you can use our TOSCA types based on kubeadm which can be found <a href="https://github.com/alien4cloud/csar-public-library/tree/develop/org/alien4cloud/kubernetes/kubeadm">here</a></p>
+</div>
+
+<p>To deploy onto Kubernetes cluster through ALIEN, you will need:</p>
+
+<ul>
+  <li>A Kubernetes cluster deployed on AWS with AWS extensions (ability to provision EBS) with at least 2 nodes</li>
+  <li>An alien with:
+    <ul>
+      <li>the kubernetes plugin with <strong>kubernetes-adapter-modifier</strong> set to the location</li>
+      <li>the alien4cloud-k8s-spark-jobs plugin withe <strong>k8s-spark-jobs-modifier</strong> set to location, a runnable distribution of Spark 2.3 or above if you want to use spark jobs</li>
+      <li>the http repository plugin (the samples use an http repository)</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="topology-modifiers">Topology modifiers</h2>
+
+<p>You’ll need to setup modifiers on your location. On the location screen, in the <strong>Topology Modifier</strong> tab:</p>
+
+<ul>
+  <li>add a <strong>webhook-generator</strong> modifier at the phase <code>post-matched-node-setup</code> after the <strong>k8s-spark-jobs-modifier</strong> if you use spark, after <strong>kubernetes-adapter-modifier</strong> if you are not using Spark on Kubernetes.</li>
+  <li>add a <strong>runner-accesscontrol-generator</strong> modifier at the phase <code>post-matched-node-setup</code> after the <strong>k8s-spark-jobs-modifier</strong>.</li>
+  <li>add a <strong>pseudoresource-cleaner</strong> modifier at the phase <code>post-matched-node-setup</code> after the ** 	yorc-wf-simplifier-modifier**.</li>
+</ul>
+
+<p>The modifiers will generate webhook on the Kubernetes cluster.</p>
+
+<h2 id="pseudo-resources-design">Pseudo resources design</h2>
+
+<p>When applying <strong>PseudoResourcePolicy</strong> policy on a <strong>KubeDeployment</strong> node, there will no created Kubernetes deployment when the application is installed.</p>
+
+<p>It can be used for launching pods from a pod. It will not be created at the A4C application deployment.</p>
+
+<p>Just setup the policy <strong>PseudoResourcePolicy</strong> on the nodes you don’t want to deployed by A4C but from inner pods of the application.</p>
+
+<p><img src="../../images/3.4.0/orchestrators/kubernetes/webhook_1.png" alt="Topology" /></p>
+
+<h1 id="resource-and-priority-assignement">Resource and priority assignement</h1>
+
+<p>When specifying a <strong>KubeNamespace</strong> node type in the topology, Kubernetes priorityClass and resources requests and limits (CPU, RAM) can be deleted or let</p>
+
+<p><img src="../../images/3.4.0/orchestrators/kubernetes/webhook_2.png" alt="Topology" /></p>
+
+<p>The priorityClass must be specified in the alien4cloud configuration file in the webhook plugin configuration :
+<code>
+webhook:
+  prioritesk8s:
+    location1: priority1
+    location2: priority2
+  removeResources: true
+</code></p>
+
+<p>For exemple, vhen deploying an application to the location <strong>location1</strong>, the deployed will be assigned to priorityClass <strong>priority1</strong>.</p>
+
+<p>The priorityClass <strong>priority1</strong> must be predefined on the Kubernetes cluster.</p>
+
+<p>When specifying requests and limits resources, they can be deleted if the location has a meta property <strong>Bac à sable</strong> set to <strong>true</strong> if the <strong>removeResources</strong> parameter is set to true to alien4cloud configuration file .</p>
+
+<p>It can be useful if you want to priorize Kubernetes resources deployed. For instance, you can define a production location and a test location.</p>
+
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.4.0/orchestrators/kubernetes/webhookexample.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-3.4.0', 'documentation/3.4.0/orchestrators/kubernetes/webhookexample.markdown');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

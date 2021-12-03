@@ -1,0 +1,79 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/3.4.0/whatsnew.html',
+  title: 'New in 3.4.0'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">New in 3.4.0</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.4.0/whatsnew.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        
+<hr style="margin-top:5px; margin-bottom:5px;" />
+<div class="row"><ul class="nav nav-pills" id="summarypanel"></ul></div>
+<hr style="margin-top:5px; margin-bottom:5px;" />
+
+<div class="note info">
+<p>Alien4cloud 3.4.0 is not released yet. New features are available on latest build in <a href="/common/download.html">Download page</a>.</p>
+</div>
+
+<h1 id="ability-to-define-suggestions-by-plugins">Ability to define suggestions by plugins</h1>
+<p>It is now possible to inject suggestions to help end-user when typing values in A4C UI with a plugin.
+It can be used in <strong>topology edition</strong>, in deployment preparation, &#8230;
+The <a href="https://github.com/alien4cloud/alien4cloud-plugin-sample/tree/3.0.x/alien4cloud-plugin-sample-suggestions">git plugin sample project</a> illustrates the way it can be done.</p>
+
+<h1 id="ability-to-define-scheduler-parameters-at-deployment-preparation">Ability to define Scheduler parameters at deployment preparation</h1>
+<p>Runtime schedule policies can be now set in deployment preparation phase in Full UI and wizard.
+Sample suggestions for cron expressions at deployment preparation phase are set.
+It is also possible to set plugin paramaters to interact with monitoring tools Prometheus and Zabbix.</p>
+
+<h1 id="a4c-spray">A4C Spray</h1>
+<p>Spray is now available fto deploy <strong>alien4cloud</strong> on Kubernetes engine.
+Docker image with versions 3.2.0 and 3.3.0 are available on <a href="https://hub.docker.com/r/alien4cloud/alien4cloud">Alien4cloud dockerHub</a>
+The set of Ansible scripts is available on <a href="https://github.com/alien4cloud/alien4cloud-spray/tree/features/ALIEN-3663-install-on-k8s">A4C Spray - k8s </a> project.</p>
+
+<h1 id="failed-workflow-resubmit-feature">Failed workflow resubmit feature</h1>
+<p>With Yorc 4.2.0 (release is not available yet), it is now possible to resubmit workflows on error from the steps that failed.</p>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.4.0/whatsnew.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-3.4.0', 'documentation/3.4.0/whatsnew.md');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

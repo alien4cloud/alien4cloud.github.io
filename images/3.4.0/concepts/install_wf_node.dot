@@ -1,0 +1,3 @@
+digraph node_install_workflow {
+  initial -> creating -> create -> created -> configuring -> configure -> configured -> starting -> start -> started;
+}

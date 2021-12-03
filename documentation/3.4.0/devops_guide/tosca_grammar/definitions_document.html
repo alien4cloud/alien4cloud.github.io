@@ -1,0 +1,492 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/3.4.0/devops_guide/tosca_grammar/definitions_document.html',
+  title: 'Definitions document'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Definitions document</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.4.0/devops_guide/tosca_grammar/definitions_document.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <p>The root element of a definition file is called the Service Template.</p>
+
+<p>A TOSCA Definitions YAML document contains element definitions of building blocks (types) for cloud application, or complete models of cloud applications (templates).</p>
+
+<p>This section describes the top-level structural elements (i.e., YAML keys) which are allowed to appear in a TOSCA Definitions YAML document.</p>
+
+<h2 id="keynames">Keynames</h2>
+
+<p>A TOSCA Definitions file contains the following element keynames:</p>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th style="text-align: left">Keyname</th>
+      <th style="text-align: left">Required</th>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Description</th>
+      <th style="text-align: left">tosca_definitions_version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">tosca_definitions_version</td>
+      <td style="text-align: left"><b>yes</b></td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Defines the version of the TOSCA Simple Profile specification the template (grammar) complies with <strong>(1)</strong>.<br />Recommended version is <strong>alien_dsl_2_0_0</strong></td>
+      <td style="text-align: left">alien_dsl_2_0_0<br /> alien_dsl_1_4_0<br /> alien_dsl_1_3_0<br /> alien_dsl_1_2_0<br /> tosca_simple_yaml_1_0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"> metadata</td>
+      <td style="text-align: left"><strong>yes(2)</strong></td>
+      <td style="text-align: left">map of string</td>
+      <td style="text-align: left">Defines a section used to declare additional metadata information.<br /> When using tosca_simple_yaml_1_0 in alien4cloud the metadata section must be defined and must defined the template_name, and template_version recognized metadata. </td>
+      <td style="text-align: left">alien_dsl_2_0_0<br /> alien_dsl_1_4_0<br /> alien_dsl_1_3_0, tosca_simple_yaml_1_0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">template_name</td>
+      <td style="text-align: left"><strong>yes(2)</strong></td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Declares the name of the template.</td>
+      <td style="text-align: left">alien_dsl_2_0_0<br /> alien_dsl_1_4_0<br /> alien_dsl_1_3_0<br /> alien_dsl_1_2_0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">template_version</td>
+      <td style="text-align: left"><strong>yes(2)</strong></td>
+      <td style="text-align: left">version</td>
+      <td style="text-align: left">Declares the version string for the template.</td>
+      <td style="text-align: left">alien_dsl_2_0_0<br /> alien_dsl_1_4_0<br /> alien_dsl_1_3_0<br /> alien_dsl_1_2_0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">template_author</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Declares the author(s) of the template.</td>
+      <td style="text-align: left">alien_dsl_2_0_0<br /> alien_dsl_1_4_0<br /> alien_dsl_1_3_0<br /> alien_dsl_1_2_0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">description</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">string</td>
+      <td style="text-align: left">Declares a description for this Service Template and its contents.</td>
+      <td style="text-align: left">alien_dsl_2_0_0<br /> alien_dsl_1_4_0<br /> alien_dsl_1_3_0<br /> alien_dsl_1_2_0<br /> tosca_simple_yaml_1_0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">dsl_definitions</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">map of yaml macros</td>
+      <td style="text-align: left">Declares optional DSL-specific definitions and conventions. For example, in YAML, this allows defining reusable YAML macros (i.e., YAML alias anchors) for use throughout the TOSCA Service Template.</td>
+      <td style="text-align: left">alien_dsl_2_0_0<br /> alien_dsl_1_4_0<br /> alien_dsl_1_3_0<br /> alien_dsl_1_2_0<br /> tosca_simple_yaml_1_0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">repositories</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">map of <a href="#/documentation/3.0.0/devops_guide/tosca_grammar/repository_definition.html">repository definitions</a></td>
+      <td style="text-align: left">Declares the list of external repositories which contain artifacts that are referenced in the service template along with their addresses and necessary credential information used to connect to them in order to retrieve the artifacts.</td>
+      <td style="text-align: left">alien_dsl_2_0_0<br /> alien_dsl_1_4_0<br /> alien_dsl_1_3_0<br /> tosca_simple_yaml_1_0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">imports</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">list of import strings__(3)__</td>
+      <td style="text-align: left">Declares import statements external TOSCA Definitions documents (files).</td>
+      <td style="text-align: left">alien_dsl_1_3_0<br /> alien_dsl_1_2_0<br /> tosca_simple_yaml_1_0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">artifact_types</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">map of <a href="#/documentation/3.0.0/devops_guide/tosca_grammar/artifact_type.html">artifact types</a></td>
+      <td style="text-align: left">This section contains an optional list of artifact type definitions for use in service templates.</td>
+      <td style="text-align: left">alien_dsl_2_0_0<br /> alien_dsl_1_4_0<br /> alien_dsl_1_3_0<br /> alien_dsl_1_2_0<br /> tosca_simple_yaml_1_0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">data_types</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">map of <a href="#/documentation/3.0.0/devops_guide/tosca_grammar/data_type.html">data types</a></td>
+      <td style="text-align: left">Declares a list of optional TOSCA Data Type definitions.</td>
+      <td style="text-align: left">alien_dsl_2_0_0<br /> alien_dsl_1_4_0<br /> alien_dsl_1_3_0<br /> alien_dsl_1_2_0<br /> tosca_simple_yaml_1_0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">capability_types</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">map of <a href="#/documentation/3.0.0/devops_guide/tosca_grammar/capability_type.html">capability types</a></td>
+      <td style="text-align: left">This section contains an optional list of capability type definitions for use in service templates.</td>
+      <td style="text-align: left">alien_dsl_2_0_0<br /> alien_dsl_1_4_0<br /> alien_dsl_1_3_0<br /> alien_dsl_1_2_0<br /> tosca_simple_yaml_1_0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">interface_types</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">list of interface type</td>
+      <td style="text-align: left">Interface types is not supported in alien4cloud. Interfaces are defined directly on the node and relationship types as it was in previous draft of TOSCA specification</td>
+      <td style="text-align: left">N.A.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">relationship_types</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">list of <a href="#/documentation/3.0.0/devops_guide/tosca_grammar/relationship_type.html">relationship types</a></td>
+      <td style="text-align: left">This section contains a set of relationship type definitions for use in service templates.</td>
+      <td style="text-align: left">alien_dsl_2_0_0<br /> alien_dsl_1_4_0<br /> alien_dsl_1_3_0<br /> alien_dsl_1_2_0<br /> tosca_simple_yaml_1_0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">node_types</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">list of <a href="#/documentation/3.0.0/devops_guide/tosca_grammar/node_type.html">node types</a></td>
+      <td style="text-align: left">This section contains a set of node type definitions for use in service templates.</td>
+      <td style="text-align: left">alien_dsl_2_0_0<br /> alien_dsl_1_4_0<br /> alien_dsl_1_3_0<br /> alien_dsl_1_2_0<br /> tosca_simple_yaml_1_0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">group_types</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">list of group types</td>
+      <td style="text-align: left">Group types are not yet supported in alien4cloud. They actually are not well documented in TOSCA and while we do support grouping inside alien4cloud there is no types associated with them</td>
+      <td style="text-align: left">N.A.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">policy_types</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left">list of policy types</td>
+      <td style="text-align: left">Policy types are not yet supported in alien4cloud. All elements of policies are not fully defined in TOSCA and while we do support some policies in alien4cloud they are not exposed as TOSCA types and it is not possible yet to add them in a dynamic way.</td>
+      <td style="text-align: left">N.A.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">topology_template</td>
+      <td style="text-align: left">no</td>
+      <td style="text-align: left"><a href="#/documentation/3.0.0/devops_guide/tosca_grammar/topology_template.html">Topology template definition</a></td>
+      <td style="text-align: left">Defines the topology template of an application or service, consisting of node templates that represent the application’s or service’s components, as well as relationship templates representing relations between the components.</td>
+      <td style="text-align: left">alien_dsl_2_0_0<br /> alien_dsl_1_4_0<br /> alien_dsl_1_3_0<br /> alien_dsl_1_2_0<br /> tosca_simple_yaml_1_0</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="note">
+<ul>
+  <li><strong>(1)</strong> When the tosca_definitions_version is set to tosca_simple_yaml_1_0 an automatic direct import of the TOSCA normative types version 1.0.0 is added to the service template. Alien 4 Cloud is not currently packaged with version 1.0.0 of the normative types as there are still some minor differences with alien’s supported types. If you wish to use the tosca_simple_yaml_1_0 make sure that you upload the types first.</li>
+  <li><strong>(2)</strong> In Alien 4 Cloud the template name and versions are required as we supports versioning of the templates and indexing of elements in a catalog. In TOSCA specification they are optional.
+To specify versions using tosca_simple_yaml_1_0 definition version you must define the template_name and template_version in the metadata section. Using metadata is compliant with tosca specification and will be the future way to define this in alien4cloud. 3.0.0 version has a bug preventing the support of this definition in alien_dsl_1_3_0 which is fixed in 1.3.1.
+In alien_dsl_1_3_0<br /> alien_dsl_1_2_0<br /> alien_dsl_1_1_0 it is possible to define the template_name and template_version directly at the root of the definition document.</li>
+  <li><strong>(3)</strong> Alien 4 cloud currently supports an import syntax based on template names and versions. We believe it is a better way to reference dependencies but this is not yet acknowledge by TOSCA. On the other hand we don’t yet support relative or url based imports.</li>
+</ul>
+</div>
+
+<h2 id="grammar">Grammar</h2>
+
+<p>The overall structure of a TOSCA Service Template and its top-level key collations using the TOSCA Simple Profile is shown below:</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">tosca_definitions_version</span><span class="p-Indicator">:</span> <span class="c1"># Required TOSCA Definitions version string</span>
+
+<span class="c1"># Specific to alien_dsl_1_3_0 since 1.3.1 and tosca_simple_yaml_1_0</span>
+<span class="l-Scalar-Plain">metadata</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">template_name</span><span class="p-Indicator">:</span>             <span class="c1"># Optional name of this service template</span>
+  <span class="l-Scalar-Plain">template_author</span><span class="p-Indicator">:</span>           <span class="c1"># Optional author of this service template</span>
+  <span class="l-Scalar-Plain">template_version</span><span class="p-Indicator">:</span>          <span class="c1"># Optional version of this service template</span>
+
+<span class="c1"># Specific to alien_dsl_1_3_0 and alien_dsl_1_2_0</span>
+<span class="l-Scalar-Plain">template_name</span><span class="p-Indicator">:</span>             <span class="c1"># Optional name of this service template</span>
+<span class="l-Scalar-Plain">template_author</span><span class="p-Indicator">:</span>           <span class="c1"># Optional author of this service template</span>
+<span class="l-Scalar-Plain">template_version</span><span class="p-Indicator">:</span>          <span class="c1"># Optional version of this service template</span>
+
+<span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">A short description of the definitions inside the file.</span>
+
+<span class="l-Scalar-Plain">dsl_definitions</span><span class="p-Indicator">:</span>
+  <span class="c1"># map of YAML alias anchors (or macros)</span>
+
+<span class="l-Scalar-Plain">repositories</span><span class="p-Indicator">:</span>
+  <span class="c1"># map of repositories</span>
+
+<span class="l-Scalar-Plain">imports</span><span class="p-Indicator">:</span>
+  <span class="c1"># list of import statements for importing other definitions files</span>
+
+<span class="l-Scalar-Plain">artifact_types</span><span class="p-Indicator">:</span>
+  <span class="c1"># list of artifact type definitions</span>
+
+<span class="l-Scalar-Plain">data_types</span><span class="p-Indicator">:</span>
+  <span class="c1"># list of data type definitions</span>
+
+<span class="l-Scalar-Plain">capability_types</span><span class="p-Indicator">:</span>
+  <span class="c1"># list of capability type definitions</span>
+
+<span class="l-Scalar-Plain">relationship_types</span><span class="p-Indicator">:</span>
+  <span class="c1"># list of relationship type definitions</span>
+
+<span class="l-Scalar-Plain">node_types</span><span class="p-Indicator">:</span>
+  <span class="c1"># list of node type definitions</span>
+
+<span class="l-Scalar-Plain">topology_template</span><span class="p-Indicator">:</span>
+  <span class="c1"># Topology template definition</span></code></pre></div>
+
+<h3 id="toscadefinitionsversion">tosca_definitions_version</h3>
+
+<p>This required element provides a means to include a reference to the TOSCA Simple Profile specification within the TOSCA Definitions YAML file.  It is an indicator for the version of the TOSCA grammar that should be used to parse the remainder of the document.</p>
+
+<h4 id="keyword">Keyword</h4>
+<p>tosca_definitions_version</p>
+
+<h4 id="grammar-1">Grammar</h4>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">tosca_definitions_version</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;tosca_simple_profile_version&gt;</span></code></pre></div>
+
+<h4 id="examples">Examples:</h4>
+
+<p>Alien 4 cloud TOSCA Simple Profile version 1.3.1 specification using the defined namespace alias:</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">tosca_definitions_version</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">alien_dsl_1_3_0</span></code></pre></div>
+
+<p>TOSCA Simple Profile version 1.0 specification using the defined namespace alias:</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">tosca_definitions_version</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca_simple_yaml_1_0_0</span></code></pre></div>
+
+<p>TOSCA Simple Profile version 1.0 specification using the fully defined (target) namespace:</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">tosca_definitions_version</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">http://docs.oasis-open.org/tosca/simple/1.0</span></code></pre></div>
+
+<h3 id="metadata">metadata</h3>
+
+<p>Meta data section allows to declare additional metadata information including the template name, version and author.</p>
+
+<div class="note warning">
+<p>Before 1.3.1 metadata section is not supported in alien_dsl_1_3_0 and you should use the template_name, template_version and template_author at the root level of the definition document.</p>
+</div>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">metadata</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">template_name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;name string&gt;</span>
+  <span class="l-Scalar-Plain">template_version</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;version&gt;</span></code></pre></div>
+
+<h4 id="templatename">template_name</h4>
+
+<p>This optional element declares the optional name of service template as a single-line string value.</p>
+
+<h5 id="keyword-1">Keyword</h5>
+<p>template_name</p>
+
+<h5 id="grammar-2">Grammar</h5>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">template_name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;name string&gt;</span></code></pre></div>
+
+<h5 id="example">Example</h5>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">template_name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">My service template</span></code></pre></div>
+
+<h5 id="notes">Notes</h5>
+<ul>
+  <li>Some service templates are designed to be referenced and reused by other service templates.  Therefore, in these cases, the template_name value SHOULD be designed to be used as a unique identifier through the use of namespacing techniques.</li>
+</ul>
+
+<h4 id="templateauthor">template_author</h4>
+
+<p>This optional element declares the optional author(s) of the service template as a single-line string value.</p>
+
+<h5 id="keyword-2">Keyword</h5>
+<p>template_author
+##### Grammar</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">template_author</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;author string&gt;</span></code></pre></div>
+
+<h5 id="example-1">Example</h5>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">template_author</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">My service template</span></code></pre></div>
+
+<h5 id="templateversion">template_version</h5>
+<p>This element declares the optional version of the service template as a single-line string value.</p>
+
+<h5 id="grammar-3">Grammar</h5>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">template_version</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;version&gt;</span></code></pre></div>
+
+<h5 id="example-2">Example</h5>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">template_version</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">2.0.17</span></code></pre></div>
+
+<div class="note">
+<p>Some service templates are designed to be referenced and reused by other service templates and have a lifecycle of their own.  Therefore, in these cases, a template_version value SHOULD be included and used in conjunction with a unique template_name value to enable lifecycle management of the service template and its contents.</p>
+</div>
+
+<h3 id="description">description</h3>
+<p>This optional element provides a means to include single or multiline descriptions within a TOSCA Simple Profile template as a scalar string value.</p>
+
+<h3 id="imports">imports</h3>
+<p>This optional element provides a way to import a block sequence of one or more TOSCA Definitions documents.  TOSCA Definitions documents can contain reusable TOSCA type definitions (e.g., Node Types, Relationship Types, Artifact Types, etc.) defined by other authors.  This mechanism provides an effective way for companies and organizations to define normative types and/or describe their software applications for reuse in other TOSCA Service Templates.</p>
+
+<div class="note info">
+<p>In Alien 4 Cloud you can import libraries from the repository instead of having to package every required elements within your archives. This also allows a better management of versioning and dependencies.
+In order to support this scenario the import element supports an additional non-normative definition.
+We also do not support relative imports or url based imports in the current version of alien4cloud.</p>
+</div>
+
+<h4 id="grammar-4">Grammar</h4>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">imports</span><span class="p-Indicator">:</span>
+   <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">&lt;tosca_definitions_file_1&gt;</span>
+   <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">...</span>
+   <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">&lt;tosca_definitions_file_n&gt;</span></code></pre></div>
+
+<div class="note info">
+<p>Alien 4 Cloud specific grammar for catalog imports based on Definitions template names and versions.</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">imports</span><span class="p-Indicator">:</span>
+   <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">&lt;tosca_template_name_1&gt;:&lt;tosca_template_version_1&gt;</span>
+   <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">...</span>
+   <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">&lt;tosca_template_name_n&gt;:&lt;tosca_template_version_n&gt;</span></code></pre></div>
+
+</div>
+
+<h4 id="example-3">Example</h4>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="c1"># An example import of definitions files from a location relative to the</span>
+<span class="c1"># file location of the service template declaring the import.</span>
+<span class="c1"># Note that this notation is not yet supported by alien4cloud.</span>
+<span class="l-Scalar-Plain">imports</span><span class="p-Indicator">:</span>
+  <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">relative_path/my_defns/my_typesdefs_1.yaml</span>
+  <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">...</span>
+  <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">relative_path/my_defns/my_typesdefs_n.yaml</span></code></pre></div>
+
+<div class="note info">
+<p>Alien 4 Cloud specific.</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">imports</span><span class="p-Indicator">:</span>
+   <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">&lt;tosca-normative-types&gt;:&lt;1.1.0&gt;</span>
+   <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">...</span>
+   <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">&lt;apache-server&gt;:&lt;2.0.3&gt;</span></code></pre></div>
+
+</div>
+
+<h3 id="dsldefinitions">dsl_definitions</h3>
+<p>This optional element provides a section to define macros. A macro can be reused elsewhere by referencing it.</p>
+
+<h4 id="example-4">Example</h4>
+
+<p>In the following example, we define a ‘macro’ named ‘my_compute_node_props’ which defines a property ‘os_type’ and it’s value. It is used for the both nodes compute1 and compute2.</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">dsl_definitions</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">my_compute_node_props</span><span class="p-Indicator">:</span> <span class="nl">&amp;my_compute_node_props</span>
+    <span class="l-Scalar-Plain">os_type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">linux</span>
+<span class="l-Scalar-Plain">topology_template</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">node_templates</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">compute1</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.nodes.Compute</span>
+        <span class="l-Scalar-Plain">properties</span><span class="p-Indicator">:</span> <span class="nv">*my_compute_node_props</span>
+    <span class="l-Scalar-Plain">compute2</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.nodes.Compute</span>
+      <span class="l-Scalar-Plain">properties</span><span class="p-Indicator">:</span> <span class="nv">*my_compute_node_props</span></code></pre></div>
+
+<h3 id="capabilitytypes">capability_types</h3>
+<p>This element lists the Capability Types that provide the reusable type definitions that can be used to describe features Node Templates or Node Types can declare they support.</p>
+
+<h4 id="grammar-5">Grammar</h4>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">capability_types</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">&lt;capability_type_defn_1&gt;</span>
+  <span class="l-Scalar-Plain">...</span>
+  <span class="l-Scalar-Plain">&lt;capability type_defn_n&gt;</span></code></pre></div>
+
+<h4 id="example-5">Example</h4>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">capability_types</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">mycompany.mytypes.myCustomEndpoint</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">derived_from</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.capabilities.Endpoint</span>
+    <span class="l-Scalar-Plain">properties</span><span class="p-Indicator">:</span>
+      <span class="c1"># more details ...</span>
+
+  <span class="l-Scalar-Plain">mycompany.mytypes.myCustomFeature</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">derived_from</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.capabilites.Feature</span>
+    <span class="l-Scalar-Plain">properties</span><span class="p-Indicator">:</span>
+      <span class="c1"># more details ...</span></code></pre></div>
+
+<h3 id="relationshiptypes">relationship_types</h3>
+
+<p>This element lists the Relationship Types that provide the reusable type definitions that can be used to describe dependent relationships between Node Templates or Node Types.</p>
+
+<h4 id="grammar-6">Grammar</h4>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">relationship_types</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">&lt;relationship_type_defn_1&gt;</span>
+  <span class="l-Scalar-Plain">...</span>
+  <span class="l-Scalar-Plain">&lt;relationship type_defn_n&gt;</span></code></pre></div>
+
+<h4 id="example-6">Example</h4>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">relationship_types</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">mycompany.mytypes.myCustomClientServerType</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">derived_from</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.relationships.HostedOn</span>
+    <span class="l-Scalar-Plain">properties</span><span class="p-Indicator">:</span>
+      <span class="c1"># more details ...</span>
+
+  <span class="l-Scalar-Plain">mycompany.mytypes.myCustomConnectionType</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">derived_from</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.relationships.ConnectsTo</span>
+    <span class="l-Scalar-Plain">properties</span><span class="p-Indicator">:</span>
+      <span class="c1"># more details ...</span></code></pre></div>
+
+<h3 id="nodetypes">node_types</h3>
+<p>This element lists the Node Types that provide the reusable type definitions for software components that Node Templates can be based upon.</p>
+
+<h4 id="grammar-7">Grammar</h4>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">node_types</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">&lt;node_types_defn_1&gt;</span>
+  <span class="l-Scalar-Plain">...</span>
+  <span class="l-Scalar-Plain">&lt;node_type_defn_n&gt;</span></code></pre></div>
+
+<h4 id="example-7">Example</h4>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">node_types</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">my_webapp_node_type</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">derived_from</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">WebApplication</span>
+    <span class="l-Scalar-Plain">properties</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">my_port</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">integer</span>
+
+  <span class="l-Scalar-Plain">my_database_node_type</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">derived_from</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Database</span>
+    <span class="l-Scalar-Plain">capabilities</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">mytypes.myfeatures.transactSQL</span></code></pre></div>
+
+<div class="note">
+<p>The node types listed as part of the node_types block can be mapped to the list of NodeType definitions as described by the TOSCA v1.0 specification.</p>
+</div>
+
+<h3 id="topologytemplate">topology_template</h3>
+
+<p>see:
+- <a href="#/documentation/3.0.0/devops_guide/tosca_grammar/topology_template.html">Topology template</a></p>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.4.0/devops_guide/tosca_grammar/definitions_document.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-3.4.0', 'documentation/3.4.0/devops_guide/tosca_grammar/definitions_document.md');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

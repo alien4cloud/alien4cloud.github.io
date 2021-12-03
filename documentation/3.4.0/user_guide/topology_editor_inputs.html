@@ -1,0 +1,152 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/3.4.0/user_guide/topology_editor_inputs.html',
+  title: 'Setting inputs with editor'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Setting inputs with editor</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.4.0/user_guide/topology_editor_inputs.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        
+<hr style="margin-top:5px; margin-bottom:5px;" />
+<div class="row"><ul class="nav nav-pills" id="summarypanel"></ul></div>
+<hr style="margin-top:5px; margin-bottom:5px;" />
+
+<h1 id="inputs-defined-through-tosca-grammar">Inputs defined through Tosca grammar</h1>
+<p>Inputs can be defined when designing the application topology. Generally, they are used to customize the deployment of the topology on different environments. The deployer should then, fill them up, according to some information such as the context, the environment type, the location, etc. You can have many of them, and it can sometimes be a burden for the deployer to fill them up, especially when they do not change that much between deployments and environments.</p>
+
+<p>Inputs are added by clicking in the arrow button on a node property, capability or relation.</p>
+
+<p><img src="../../images/3.4.0/user_guide/topology_editor/topology_editor_input1.png" alt="Inputs / variables" /></p>
+
+<p>It displays <strong>get_input: comment</strong>, where <strong>comment</strong> is the input name (by default, it is set to the node property name)</p>
+
+<p><img src="../../images/3.4.0/user_guide/topology_editor/topology_editor_input2.png" alt="Inputs / variables" /></p>
+
+<p>The topology inputs can be displayed on the UI by clicking on the <strong>Inputs</strong> tab on the right :</p>
+
+<p><img src="../../images/3.4.0/user_guide/topology_editor/topology_editor_input7.png" alt="Inputs / variables" /></p>
+
+<p>It displays input name, type and constraints.
+The inputs can be there renamed or deleted.</p>
+
+<p>The topology yaml editor displays the <strong>get_input</strong> syntax :</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">topology_template</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">inputs</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">comment</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">string</span>
+      <span class="l-Scalar-Plain">required</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">false</span>
+      <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="s">&quot;A</span><span class="nv"> </span><span class="s">simple</span><span class="nv"> </span><span class="s">comment.&quot;</span>
+  <span class="l-Scalar-Plain">node_templates</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">MiniBashMock</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">org.alien4cloud.mock.bash.nodes.MiniBashMock</span>
+      <span class="l-Scalar-Plain">properties</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">duration</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">1</span>
+        <span class="l-Scalar-Plain">variation</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">20</span>
+        <span class="l-Scalar-Plain">log_length</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">2000</span>
+        <span class="l-Scalar-Plain">comment</span><span class="p-Indicator">:</span> <span class="p-Indicator">{</span> <span class="nv">get_input</span><span class="p-Indicator">:</span> <span class="nv">comment</span> <span class="p-Indicator">}</span></code></pre></div>
+
+<div class="note">
+<p>When a node has a complex property, it is not possible to add with the UI a subproperty as an input.
+It can be done in the YAML editor with the <strong>get_input</strong></p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">topology_template</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">inputs</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">inputComplex</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">string</span>
+      <span class="l-Scalar-Plain">required</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">false</span>
+      <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="s">&quot;A</span><span class="nv"> </span><span class="s">simple</span><span class="nv"> </span><span class="s">description.&quot;</span>
+  <span class="l-Scalar-Plain">node_templates</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">BashMockComplex</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">metadata</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">a4c_edit_x</span><span class="p-Indicator">:</span> <span class="s">&quot;-4&quot;</span>
+        <span class="l-Scalar-Plain">a4c_edit_y</span><span class="p-Indicator">:</span> <span class="s">&quot;-22&quot;</span>
+      <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">org.alien4cloud.mock.bashComplex.nodes.BashMockComplex</span>
+      <span class="l-Scalar-Plain">properties</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">complex_prop</span><span class="p-Indicator">:</span> 
+          <span class="l-Scalar-Plain">nested</span><span class="p-Indicator">:</span> <span class="p-Indicator">{</span> <span class="nv">get_input</span><span class="p-Indicator">:</span> <span class="nv">inputComplex</span> <span class="p-Indicator">}</span>
+        <span class="l-Scalar-Plain">duration</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">3</span>
+        <span class="l-Scalar-Plain">variation</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">20</span>
+        <span class="l-Scalar-Plain">log_length</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">2000</span></code></pre></div>
+
+</div>
+
+<h1 id="implicit-inputs-defined-with-a-hashtag">Implicit inputs defined with a hashtag</h1>
+
+<p>Since version 3.0.0, it is possible to specify an implicit input with a hashtag like this <strong>#{inputname}</strong>
+It can be very useful when a node has a complex property for instance.
+If the input specified already exists, it will be used. If not, it will be dynamiquely created when preparing the deployment.</p>
+
+<p>It can be set in the editor : <img src="../../images/3.4.0/user_guide/topology_editor/topology_editor_input3.png" alt="Inputs / variables" /></p>
+
+<p>It is also possible to concat static and input datas directly in the property editor like this :
+<img src="../../images/3.4.0/user_guide/topology_editor/topology_editor_input4.png" alt="Inputs / variables" /></p>
+
+<p>In this example <strong>comment</strong> is a predefined input but <strong>paramnested</strong> is not
+<img src="../../images/3.4.0/user_guide/topology_editor/topology_editor_input5.png" alt="Inputs / variables" /></p>
+
+<p>In the deployment preparation, <strong>paramnested</strong> is automaticly displayed :
+<img src="../../images/3.4.0/user_guide/topology_editor/topology_editor_input6.png" alt="Inputs / variables" /></p>
+
+<div class="note">
+<p>It can be applied to node properties, capabilities and relations.</p>
+
+<p>Variables can be used in this case only if they are already defined.</p>
+
+<p>It is possible to disable the implicit input mode if you wish to set properties without this mode. If <strong>#{inputname}</strong> is set in a node property, capability or relation property, it will be set to this value in the deployment.
+To disable, the parameter <strong>features.auto_inputs</strong> has to be set to <strong>false</strong>
+If this parameter is not set, the implicit input will be enabled by default, e.g. <strong>features.auto_inputs</strong> set to true.</p>
+
+</div>
+
+<p>It is also possible to use <a href="#/documentation/3.0.0/user_guide/topology_editor_global_variables.html">internal variables</a>. defined in location or application with this syntax.
+For instance, an application metaproperty can be set on a node property with the syntax <strong>#{app_meta_MYAPP_META1}</strong>.</p>
+
+<p>Subpart of complex inputs can be used in other properties as inputs.
+For instance, if a complex input, named <strong>complex_prop</strong> has a subproperty <strong>description</strong>, it can be used in an other node property with the syntax <strong>#{complex_prop.description}</strong></p>
+
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.4.0/user_guide/topology_editor_inputs.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-3.4.0', 'documentation/3.4.0/user_guide/topology_editor_inputs.md');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

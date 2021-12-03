@@ -1,0 +1,101 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/3.4.0/orchestrators/yorc/quickstart.html',
+  title: 'Quick Start - Deploy your first application'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Quick Start - Deploy your first application</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.4.0/orchestrators/yorc/quickstart.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <h2 id="import-samples">Import Samples</h2>
+
+<p>To get started, you can upload sample application from the <a href="https://github.com/alien4cloud/samples">Samples</a> and deploy the Petclinic application on one of the supported types of infrastructures as described below.</p>
+
+<p>Now we have the Petclinic template ready to use, we can create an application based on it. To do this, go to the <img src="../../../../images/3.4.0/yorc/application-btn.png" alt="applications" height="26px" class="inline" /> section. Click on the <img src="../../../../images/3.4.0/yorc/new-application-btn.png" alt="new application" height="26px" class="inline" /> button and select the <strong>PetclinicTemplate</strong> in the table at the bottom of the popup.</p>
+
+<p><img src="../../../../images/3.4.0/yorc/new-welcome-app.png" alt="Create Application" /></p>
+
+<p>The application creation should redirect you on the application details page.</p>
+
+<p><img src="../../../../images/3.4.0/yorc/welcome-app-topo.png" alt="Welcome Application topology" /></p>
+
+<h2 id="setup-and-deploy-your-application">Setup and deploy your application</h2>
+
+<p>To deploy this new application, go on Environment page</p>
+
+<ul>
+  <li>Select your location</li>
+  <li>Go to the Deploy tab</li>
+  <li>And click on <img src="../../../../images/3.4.0/yorc/app-deploy-btn.png" alt="deploy button" height="26px" class="inline" /></li>
+</ul>
+
+<p><img src="../../../../images/3.4.0/yorc/app-location.png" alt="Select a location" /></p>
+
+<blockquote>
+  <p><strong>note</strong></p>
+
+  <p>To understand all configuration available for the deployment page, please refer to the
+<a href="/#/documentation/3.0.0/user_guide/application_management.html">Alien4Cloud application management section</a> .</p>
+
+</blockquote>
+
+<h2 id="check-that-your-application-is-up-and-running">Check that your application is up and running</h2>
+
+<p>On the deployment info view, you can have the detailed deployment status and the output properties.</p>
+
+<p><img src="../../../../images/3.4.0/yorc/app-info-deployment.png" alt="Application Deployment info" /></p>
+
+<p>The attribute <strong>local_application_url</strong> displays the Petclinic url
+Click on this links and checks application is successfully deployed.</p>
+
+<p>On the <strong>Runtime view</strong>, you can see node details deployment status with their different properties such as the private and public IP adresses of Computes.
+<img src="../../../../images/3.4.0/yorc/app-runtime-view.png" alt="Application runtime view" /></p>
+
+<h2 id="next-steps-define-your-own-components">Next Steps: Define your own components</h2>
+
+<p>Please refer to <a href="#/documentation/3.0.0/devops_guide/dev_ops_guide.html">the Alien4Cloud dev guide</a> to write your own components.</p>
+
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.4.0/orchestrators/yorc/quickstart.markdown"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-3.4.0', 'documentation/3.4.0/orchestrators/yorc/quickstart.markdown');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

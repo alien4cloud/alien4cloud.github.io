@@ -1,0 +1,88 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/3.4.0/user_guide/topology_editor_git_integration.html',
+  title: 'Git integration'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Git integration</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.4.0/user_guide/topology_editor_git_integration.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <p>When you create a new topology or application, Alien4Cloud also create a related local git repository.
+It allows users to benefit from the git history for every modifications that occurs on the topology and it also enable users to push to or to pull from a remote repository.</p>
+
+<p><img src="../../images/3.4.0/user_guide/topology_editor/git_buttons.png" alt="Git buttons" /><br /></p>
+
+<h2 id="define-your-remote-git-repository">Define your remote git repository</h2>
+
+<p><img src="../../images/3.4.0/user_guide/topology_editor/git_config.png" alt="Git remote" /><br /></p>
+
+<p>You will have to configure the remote git URL before being able to push or pull.</p>
+
+<div class="note info">
+<p>You can push or pull only if you have saved the modifications on the topology.</p>
+</div>
+
+<h2 id="push-to-a-remote-repository">Push to a remote repository</h2>
+
+<p>You can decide on which branch to push to. If none is defined, it will push to the master branch.
+To avoid storing the credentials inside Alien4Cloud, it is requested when you want to perform the action to push.</p>
+
+<div class="note warning">
+<h5>Alien4Cloud don't support conflicts resolution right now</h5>
+<p>When having a conflict, Alien4Cloud will push the commits into a new branch (<code>alien-conflicts-*</code>) and re-branch to the current.
+We will let you merge the changes into your choosen branch using your prefered tool.</p>
+</div>
+
+<h2 id="pull-from-a-remote-repository">Pull from a remote repository</h2>
+
+<p>You can decide on which branch to pull to. If none is defined, it will pull to the master branch.
+To avoid storing the credentials inside Alien4Cloud, it is requested when you want to perform the action to pull.</p>
+
+<div class="note warning">
+<h5>Alien4Cloud don't support conflicts resolution right now</h5>
+<p>When having a conflict, you will have to merge using your prefered tool before continuing the edition.</p>
+</div>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.4.0/user_guide/topology_editor_git_integration.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-3.4.0', 'documentation/3.4.0/user_guide/topology_editor_git_integration.md');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>
