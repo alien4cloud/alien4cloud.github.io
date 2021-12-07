@@ -6679,6 +6679,13 @@
 	},
 
 	{
+		"url": "/developer_guide/index.html", 
+		"section": "Developer Guide", 
+		"value": "Developer Guide",
+		"tokens": [ "Developer","Guide"]
+	},
+
+	{
 		"url": "/documentation/1.3.0/index.html", 
 		"section": "Documentation", 
 		"value": "ALIEN 4 Cloud - 1.3.0 - Documentation",
@@ -6886,13 +6893,6 @@
 		"section": "Documentation", 
 		"value": "Yorc",
 		"tokens": [ "Yorc"]
-	},
-
-	{
-		"url": "/developer_guide/index.html", 
-		"section": "Developer Guide", 
-		"value": "Developer Guide",
-		"tokens": [ "Developer","Guide"]
 	},
 
 	{
@@ -9794,6 +9794,13 @@
 	},
 
 	{
+		"url": "/developer_guide/plugin.html", 
+		"section": "Developer Guide", 
+		"value": "Plugins",
+		"tokens": [ "Plugins"]
+	},
+
+	{
 		"url": "/documentation/2.1.0/orchestrators/kubernetes/plugin.html", 
 		"section": "Documentation", 
 		"value": "Kubernetes plugin",
@@ -9840,13 +9847,6 @@
 		"section": "Documentation", 
 		"value": "Portable modeling",
 		"tokens": [ "Portable","modeling"]
-	},
-
-	{
-		"url": "/developer_guide/plugin.html", 
-		"section": "Developer Guide", 
-		"value": "Plugins",
-		"tokens": [ "Plugins"]
 	},
 
 	{

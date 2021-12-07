@@ -117,12 +117,14 @@ In the full UI, a <strong>Resume</strong> is displayed when a workflow fails :</
 For alien4cloud, the branch features/ALIEN-3705-wf-resume for the reposiorries <a href="https://github.com/alien4cloud/alien4cloud/tree/features/ALIEN-3705-wf-resume">alien4cloud</a>  and <a href="https://github.com/alien4cloud/alien4cloud-yorc-provider/tree/features/ALIEN-3705-wf-resume">Yorc plugin provider</a></p>
 </div>
 
-<h1 id="scaling">Scaling</h1>
+<h1 id="prepare-next-deployment-tab-display">Prepare next deployment tab display</h1>
 
-<p><strong><em>TODO</em></strong> how to scale</p>
+<ul>
+  <li>The <strong>Prepare Next Deployment tab</strong> is disabled when an application deployment or undeployment is in progress.</li>
+  <li>Since 3.4.0 version, an option is available in A4C configuration file : option <code>features.client.lockNextDeploymentTabs</code> has to be set to <code>false</code> to get this tab enabled during an application deployement or undeployment.</li>
+  <li>It is set to true if it is not set in the A4C configuration file.</li>
+</ul>
 
-<h1 id="launching-operations">Launching operations</h1>
-<p><strong><em>TODO</em></strong> how to trigger an operation execution</p>
 
         <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.4.0/user_guide/application_runtime.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
 	  </div>
