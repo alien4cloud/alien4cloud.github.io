@@ -101,9 +101,10 @@ This feature is only available on specific snapshots of Alien4Cloud and Yorc.
 For alien4cloud, the branch features/ALIEN-3705-wf-resume for the reposiorries [alien4cloud](https://github.com/alien4cloud/alien4cloud/tree/features/ALIEN-3705-wf-resume)  and [Yorc plugin provider](https://github.com/alien4cloud/alien4cloud-yorc-provider/tree/features/ALIEN-3705-wf-resume)
 {%endinfo%}
 
-#Scaling
+# Prepare next deployment tab display
 
-***TODO*** how to scale
+- The **Prepare Next Deployment tab** is disabled when an application deployment or undeployment is in progress.
+- Since 3.4.0 version, an option is available in A4C configuration file : option `features.client.lockNextDeploymentTabs` has to be set to `false` to get this tab enabled during an application deployement or undeployment.
+- It is set to true if it is not set in the A4C configuration file.
 
-# Launching operations
-***TODO*** how to trigger an operation execution
+

@@ -74,7 +74,7 @@ root: ../
   <div class="row">
     <div class="col-md-12 text-center download-header">
       <p class="home-buttons">
-        <a href="../#/documentation/3.1.0/getting_started/new_getting_started.html" class="btn btn-primary btn-lg">Get Started</a>
+        <a href="../#/documentation/3.4.0/getting_started/new_getting_started.html" class="btn btn-primary btn-lg">Get Started</a>
       </p>
     </div>
   </div>
