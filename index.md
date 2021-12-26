@@ -13,7 +13,7 @@ root: ../
           <small>is an <a href="http://github.com/alien4cloud">open source</a> platform<br/> that makes application management on the cloud easy for enterprises<br/><br/></small>
         </p>
         <p class="home-buttons">
-          <a href="#/documentation/3.4.0/getting_started/new_getting_started.html" class="btn btn-primary btn-lg">Get Started</a>
+          <a href="#/documentation/3.5.0/getting_started/new_getting_started.html" class="btn btn-primary btn-lg">Get Started</a>
           <a href="/common/download.html" class="btn btn-success btn-lg">Download</a>
         </p>
       </div>
