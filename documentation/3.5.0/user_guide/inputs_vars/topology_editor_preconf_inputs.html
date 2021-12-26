@@ -1,0 +1,121 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/3.5.0/user_guide/inputs_vars/topology_editor_preconf_inputs.html',
+  title: 'Pre-configure inputs'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Pre-configure inputs</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.5.0/user_guide/inputs_vars/topology_editor_preconf_inputs.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        
+<hr style="margin-top:5px; margin-bottom:5px;" />
+<div class="row"><ul class="nav nav-pills" id="summarypanel"></ul></div>
+<hr style="margin-top:5px; margin-bottom:5px;" />
+
+<p>Here we will see how to <strong>pre-configure inputs</strong> in Alien4Cloud UI.
+You might want to check out the <a href="#/documentation/3.0.0/user_guide/inputs_vars/topology_editor_var_inputs_concept.html">concept behind variables</a> first, and also <a href="#/documentation/3.0.0/user_guide/inputs_vars/topology_editor_manage_vars.html">how to manage variables</a>.</p>
+
+<h1 id="categories-of-inputs">Categories of inputs</h1>
+
+<p>In Alien4cloud, inputs are now divided in two categories:</p>
+
+<ul>
+  <li>
+    <p><strong>Deployer inputs</strong>: Inputs provided just before the deployment. In the UI, we call them <code>Input Properties</code></p>
+  </li>
+  <li>
+    <p><strong>Predefined inputs</strong>: Inputs provided thanks to inputs mapping files. In the UI we call them <code>Preconfigured input properties</code></p>
+  </li>
+</ul>
+
+<p>In the deployment configuration flow, an input that had a value set by the topology designer is a Preconfigured input, and the value cannot be changed. If not, it is a Deployer input, and its values has to be set by the deployer on this phase.</p>
+
+<p>Pre-configured inputs are stored and editable as YAML file at <code>${directories.alien}/${csar_repository}/[APP_ID]/[TOPOLOGY_VERSION]/expanded/inputs/inputs.yml</code></p>
+
+<h1 id="pre-configure-an-input">Pre-configure an input</h1>
+
+<p>When you click on the <strong>inputs and Variables</strong> button <img src="../../images/3.4.0/user_guide/topology_editor/inputs_vars_button.png" alt="Inputs / variables" height="26px" class="inline" />, the <strong>inputs</strong> tab allows you to manage <strong>ALL</strong> the inputs properties defined in the topology.</p>
+
+<p>Let assume we have set two properties &#8220;num_cpu&#8221; and &#8220;disk_share&#8221; as input in the topology editor. The inputs view will display all of them, allowing you to preconfigure them, or not!</p>
+
+<p><img src="../../images/3.4.0/user_guide/topology_editor/editor_inputs.png" alt="editor inputs" /></p>
+
+<p>Here are displayed the couples <em>input name / value (expression)</em>. When no value is set, the input is displayed as <em>deployer input</em>.</p>
+
+<p>Click on <img src="../../images/3.4.0/user_guide/topology_editor/editor_inputs_edit.png" alt="editor inputs edit" height="26px" class="inline" /> button to set or edit the expression associated to an input.
+As you can see, the modal has two tabs: Value and Expression.</p>
+
+<h2 id="value">Value</h2>
+
+<p>Remember we said inputs are typed? Well, on the <strong>Value</strong> tab, you can set a value for this input, using the common property editor you find in the topology editor or anywhere else in Alien4cloud when it comes to edit a property.</p>
+
+<p><img src="../../images/3.4.0/user_guide/topology_editor/editor_input_edit_value_modal.png" alt="editor_input_edit_value_modal" /></p>
+
+<h2 id="expression">Expression</h2>
+
+<p>On another hand, the <strong>Expression</strong> tab let you use anything allowed to set the value of the input. This could be:</p>
+
+<ul>
+  <li>a yaml representation of the input value (integer, string, list, object, etc.)</li>
+  <li>a String referencing one or more variables</li>
+  <li>a SpEL expression</li>
+</ul>
+
+<p>For example, we want to use the variable <em>env_var</em> to pre-configure a value for the input <em>disk_share</em></p>
+
+<p><img src="../../images/3.4.0/user_guide/topology_editor/editor_inputs_expression_modal.png" alt="editor_inputs_expression_modal" /></p>
+
+<p>Hit &#8220;save&#8221; when finish to validate the change.</p>
+
+<p><img src="../../images/3.4.0/user_guide/topology_editor/editor_inputs_var_clickable.png" alt="editor_inputs_var_clickable" /></p>
+
+<p>As you can see, the variable referenced in <strong>disk_share</strong> expression is displayed as a link. A click will open the variable value modal.</p>
+
+<div class="note warning">
+<h5>Save the topology</h5>
+<p>Editing an input expression is an operation like adding a node or editing a node property in the topology. Thus, do not forget to save the topology if you want to validate your changes.</p>
+</div>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.5.0/user_guide/inputs_vars/topology_editor_preconf_inputs.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-3.5.0', 'documentation/3.5.0/user_guide/inputs_vars/topology_editor_preconf_inputs.md');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

@@ -1,0 +1,186 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/3.5.0/orchestrators/yorc/jobs.html',
+  title: 'Working with jobs'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Working with jobs</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.5.0/orchestrators/yorc/jobs.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <h2 id="whats-a-job">What’s a Job?</h2>
+
+<p>By opposite to a service which is a long running application, a Job is an application that runs to completion.</p>
+
+<p>TOSCA life-cycle (install -&gt; configure  -&gt; start ……. then finally stop  -&gt; delete) was designed to handle services. There is no concept of Jobs life-cycle within normative TOSCA.
+But, as per our experience in HPC and emerging container scheduling within Container as a Service solutions like Kubernetes, we are convinced that supporting Job scheduling is fundamental for any orchestration solution.</p>
+
+<p>So we decided in collaboration with the Alien4Cloud team to extend TOSCA to support Jobs!</p>
+
+<h2 id="extending-tosca-to-support-jobs">Extending TOSCA to support Jobs</h2>
+
+<p>First was the life-cycle! In TOSCA the core concept is the life-cycle. So, based on our experience we defined a life-cycle for Jobs.</p>
+
+<p><img src="../../../../images/3.4.0/yorc/JobsRunLifeCycle.png" alt="Jobs Life Cycle" /></p>
+
+<p>Translated in TOSCA, we defined a new interface <strong>tosca.interfaces.node.lifecycle.Runnable</strong> this interface defines three operations:</p>
+
+<ul>
+  <li><strong>submit</strong>: Submit is this operation that <em>submits</em> a job to a Job Scheduler, generally at the end of the <strong>submit</strong> we got a <strong>job identifier</strong></li>
+  <li><strong>run</strong>: Run is an asynchronous operation that will be called periodically to check the <strong>job status</strong>.</li>
+  <li><strong>cancel</strong>: Cancel allows to <em>cancel</em> a <strong>submitted job</strong>.</li>
+</ul>
+
+<h2 id="supported-jobs-schedulers">Supported Jobs Schedulers</h2>
+
+<h3 id="slurm">Slurm</h3>
+
+<p>Slurm is an HPC scheduler. Unsurprisingly, it was our first builtin support for Jobs scheduling. Our Slurm support allows to run single jobs made of several jobs. Moreover, Yorc supports the execution of jobs as Singularity jobs. Several TOSCA types are available for each of these use cases.</p>
+
+<p>Let’s see how to define in a TOSCA component to run a Slurm job.</p>
+
+<p>You have to define a node type derived from <strong>yorc.nodes.slurm.Job</strong> type. Different node properties are available in order to configure your Slurm job component. For example :</p>
+
+<ul>
+  <li><strong>credentials</strong> property can be used to provide user credentials for slurm (used to connect to the slurm client node)</li>
+  <li><strong>name</strong> property can be used to provide a job name</li>
+  <li><strong>account</strong> property can be used to charge resources used by this job to specified account.</li>
+</ul>
+
+<p>The complete list with detailed description can be found in the Alien4Cloud catalog ; search for <strong>Job</strong> component having <strong>yorc.nodes.slurm.Job</strong> type, after having created a Slurm location for your Yorc orchestrator.</p>
+
+<p>The TOSCA component must provide an implementation for the <strong>tosca.interfaces.node.lifecycle.Runnable</strong> interface.</p>
+
+<p>Example of a job component. Here the <strong>submit</strong> operation definition provides the submission script <strong>submit.sh</strong>.</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">node_types</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">org.ystia.yorc.samples.job.simple.Component</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">derived_from</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">yorc.nodes.slurm.Job</span>
+  <span class="l-Scalar-Plain">tags</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">icon</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">/images/slurm.png</span>
+  <span class="l-Scalar-Plain">artifacts</span><span class="p-Indicator">:</span>
+    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">bin</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.artifacts.File</span>
+      <span class="l-Scalar-Plain">file</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">bin</span>
+  <span class="l-Scalar-Plain">interfaces</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.interfaces.node.lifecycle.Runnable</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">submit</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">implementation</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">file</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">bin/submit.sh</span>
+        <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">yorc.artifacts.Deployment.SlurmJobBatch</span></code></pre></div>
+
+<p>To run a Singularity job, users can provide in the component definition the docker image to be run by Singularity.</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">repositories</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">docker</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">url</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">&lt;https://hpda-docker-registry:5000/&gt;</span>
+    <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">a4c_ignore</span>
+
+<span class="l-Scalar-Plain">node_types</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">org.ystia.yorc.samples.job.singularity.Component</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">derived_from</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">yorc.nodes.slurm.SingularityJob</span>
+    <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Sample component to show how to run a job via singularity run</span>
+    <span class="l-Scalar-Plain">tags</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">icon</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">/images/singularity.png</span>
+    <span class="l-Scalar-Plain">interfaces</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">tosca.interfaces.node.lifecycle.Runnable</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">submit</span><span class="p-Indicator">:</span>
+          <span class="l-Scalar-Plain">implementation</span><span class="p-Indicator">:</span>
+            <span class="l-Scalar-Plain">file</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">docker://godlovedc/lolcow:latest</span>
+            <span class="l-Scalar-Plain">repository</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">docker</span>
+            <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">yorc.artifacts.Deployment.SlurmJobImage</span></code></pre></div>
+
+<h3 id="kubernetes">Kubernetes</h3>
+
+<p>Over the years Kubernetes became the de-facto standard of Containers As A Service (CaaS).</p>
+
+<p>Kubernetes has a special builtin <em>Controller</em> for jobs called <em>Jobs - Run to Completion</em>.</p>
+
+<h3 id="the-one-you-want">The one you want!</h3>
+
+<p>Yorc also support Jobs defined in pure-TOSCA. That means that you are able to write using YAML and Python, Shell or Ansible scripts your own interaction with any scheduler.</p>
+
+<p>All you need to do is to provide implementation for at least the <strong>submit</strong> operation of the job life-cycle. If you do not provide implementation for the <strong>run</strong> operation, your job will run in <em>fire and forget</em> mode, you will not be able to get information about its completion. Similarly, if you do not provide an implementation for the <strong>cancel</strong> operation then your Job will simply not being cancellable.</p>
+
+<p>To allow Yorc to manage your job properly some conventions:</p>
+
+<ul>
+  <li>at the end of the <strong>submit</strong> operation you should export a fact or environment variable named <strong>TOSCA_JOB_ID</strong> containing the <strong>submitted job identifier</strong>.</li>
+  <li>Yorc automatically injects this <strong>TOSCA_JOB_ID</strong> as an input of the <strong>run</strong> and <strong>cancel</strong> operations.</li>
+  <li>
+    <p>The <strong>run</strong> operation should be designed to be <strong>non-blocking</strong> and <strong>called several times</strong>. Its primary role is to check the job status. It should export a fact or environment variable named <strong>TOSCA_JOB_STATUS</strong> containing one of the following values:</p>
+
+    <ul>
+      <li><strong>COMPLETED</strong>: meaning that the job is done successfully.</li>
+      <li><strong>FAILED</strong>: meaning that the job is done but in error.</li>
+      <li><strong>RUNNING</strong>: meaning that the job is still running.</li>
+      <li><strong>QUEUED</strong>: meaning that the job is submitted but didn’t started yet.</li>
+    </ul>
+
+    <p>Internally <strong>RUNNING</strong> and <strong>QUEUED</strong> statuses are handled the same way by Yorc that will recall the <strong>run</strong> operation after a delay to refresh the status.</p>
+  </li>
+  <li>The <strong>run</strong> operation can also be used to retrieve logs or perform some cleanup after the job completion.</li>
+</ul>
+
+<p>You can find an example of a pure-TOSCA implementation of jobs in the official <em>CSARs public library</em> with an implementation of a <a href="https://github.com/alien4cloud/csar-public-library/tree/develop/org/alien4cloud/spark/job-linux-sh">Spark Job</a></p>
+
+<h2 id="specific-workflows-for-jobs">Specific workflows for Jobs</h2>
+
+<p>When your application contains Jobs (meaning node templates which implements the <strong>tosca.interfaces.node.lifecycle.Runnable</strong> interface) then Alien4Cloud will automatically generate two workflows:</p>
+
+<ul>
+  <li><strong>run</strong>: a workflow that submits and monitor jobs</li>
+  <li><strong>cancel</strong>: a workflow that cancels jobs</li>
+</ul>
+
+<div class="note warning">
+<p>The cancel workflow is a kind of temporary work around. It allows to cancel jobs but do not take care if the job is submitted or not. The recommended way to cancel a <strong>run</strong> workflow is to cancel the associated task in Yorc using either the CLI or the Rest API. This is temporary and we will provide soon a way to cancel workflows directly from Alien4Cloud.</p>
+</div>
+
+<p>The <strong>run</strong> workflow allows to orchestrate Jobs. That means that if for instance, <strong>jobB</strong> depends on <strong>jobA</strong> using a TOSCA <strong>dependsOn</strong> or <strong>connectsTO</strong> relationship then Alien4Cloud will generate a workflow that first submit and wait for the completion of <strong>jobA</strong> before submitting <strong>jobB</strong>.</p>
+
+<h2 id="jobs-cancellation">Jobs cancellation</h2>
+
+<p>The proper way to cancel Jobs that were submitted by a TOSCA workflow is to cancel the associated Yorc Task/Execution of this workflow. This way Yorc will automatically call <strong>cancel</strong> operations for nodes that implement it and which have successfully executed their <strong>submit</strong> operation. Currently those automatic cancellation steps do not appear in Alien4Cloud. We will work soon on making them visible.</p>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.5.0/orchestrators/yorc/jobs.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-3.5.0', 'documentation/3.5.0/orchestrators/yorc/jobs.md');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

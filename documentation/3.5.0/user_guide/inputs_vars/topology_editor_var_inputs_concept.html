@@ -1,0 +1,288 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/3.5.0/user_guide/inputs_vars/topology_editor_var_inputs_concept.html',
+  title: 'Concept'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Concept</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.5.0/user_guide/inputs_vars/topology_editor_var_inputs_concept.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        
+<hr style="margin-top:5px; margin-bottom:5px;" />
+<div class="row"><ul class="nav nav-pills" id="summarypanel"></ul></div>
+<hr style="margin-top:5px; margin-bottom:5px;" />
+
+<p>Here we will go through the <strong><em>variables</em></strong> and <strong><em>pre-configured inputs</em></strong>.</p>
+
+<h1 id="variables">Variables</h1>
+
+<h2 id="what-is-a-variable-">What is a variable ?</h2>
+<p>A variable is key/value data.
+Its value can be or is made from the following:</p>
+
+<ul>
+  <li>
+    <p><strong>Static primitive value</strong>: Integer, string, boolean (i.e: 10, &#8220;my string&#8221;, true)</p>
+  </li>
+  <li>
+    <p><strong>Another variable</strong>: A variable value can just be a reference to another variable</p>
+  </li>
+  <li>
+    <p><a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#expressions"><strong>SpEL expression</strong></a>: SpEL expression can help accessing some objects automatically provided in the deployment configuration process. We will talk about that further in this documentation.</p>
+  </li>
+  <li>
+    <p><strong>A concatenation of anything above</strong>:  In that case the resulting value will be a String.</p>
+  </li>
+  <li>
+    <p><strong>Static complex value</strong>: A variable value can be a list or map of items. The item can also be built using variables.</p>
+  </li>
+</ul>
+
+<h2 id="alien4cloud-provided-variables">Alien4Cloud provided variables</h2>
+<p>Some variables are automatically injected by Alien4Cloud in the deployment configuration steps.
+The name of such variables are ALWAYS prefixed with <code>a4c.</code>, and we call them <strong><em>A4C_VAR</em></strong>.</p>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Name</th>
+      <th style="text-align: left">Value</th>
+      <th style="text-align: left">Comment</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><strong>a4c.application</strong></td>
+      <td style="text-align: left">The Java object (alien4cloud.model.application.Application) representing the application.</td>
+      <td style="text-align: left">You can access properties of this only via SpEL expression</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>a4c.application.id</strong></td>
+      <td style="text-align: left">The ID of the application</td>
+      <td style="text-align: left">ex: WordpressApp</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>a4c.application.name</strong></td>
+      <td style="text-align: left">The name of the application</td>
+      <td style="text-align: left">ex: Wordpress App</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>a4c.environment.type</strong></td>
+      <td style="text-align: left">The type of the environment being configured</td>
+      <td style="text-align: left">ex: OTHER, DEVELOPMENT, PRODUCTION, etc.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>a4c.environment.name</strong></td>
+      <td style="text-align: left">The name of the environment being configured</td>
+      <td style="text-align: left">ex: Dev_Env, Prod_Env</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>a4c.application.tags.[</strong><strong><em>TAG_NAME</em></strong><strong>]</strong></td>
+      <td style="text-align: left">The value of the tag named &#8220;TAG_NAME&#8221; on the application</td>
+      <td style="text-align: left">Alien4Cloud inject for all tags defined on the application</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><strong>a4c.[</strong><strong><em>META_DATA_NAME</em></strong><strong>]</strong></td>
+      <td style="text-align: left">The value of the Meta property named &#8220;META_DATA_NAME&#8221;</td>
+      <td style="text-align: left">Remember Meta properties can be defined and apply on applications and locations. In this case, Alien4Cloud looks first for the Meta value on the application. If not found, the value provided for the location on which deployment is being configured will be injected</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="note info">
+<h5>TIPS</h5>
+<p>Would you like more variables to be automatically provided by Alien4Cloud? Let us know which ones</p>
+</div>
+
+<h2 id="levels-hierarchy">Levels hierarchy</h2>
+<p>A variable can be defined at (or come from) different levels in Alien4Cloud.
+Here are, ordered by highest precedence, the different levels where variables can be provided:</p>
+
+<ul>
+  <li>
+    <p><strong>Alien4Cloud context</strong> (<em>A4C_VAR</em>): Automatically injected by Alien4Cloud. These are, as  said above, application and environment data, as well as Tags and meta-data.</p>
+  </li>
+  <li>
+    <p><strong>Environment</strong> (<em>ENV_VAR</em>): These variables will be global to a specific environment (Env_Dev, Env_Prod).</p>
+  </li>
+  <li>
+    <p><strong>Environment type</strong> (<em>ENV_TYPE_VAR</em>): These variables will be global to all environments of a specific type (DEVELOPMENT, PRODUCTION,&#8230;).</p>
+  </li>
+  <li>
+    <p><strong>Application</strong> (<em>APP_VAR</em>): These variables will be global to all versions and environments of the application.</p>
+  </li>
+</ul>
+
+<p>If a variable is defined on more than one level, its value will be resolved to the one provided on the highest level (!!! IF PROVIDED of course!!! This means a value set to null on the highest level will be overridden if provided with a non null value on another level.).
+To put it clearly ( <strong><em>&#187;&#187;</em></strong>  ==&gt;  overrides ):</p>
+
+<p><code>A4C_VAR</code> <strong><em>&#187;&#187;</em></strong> <code>ENV_VAR</code> <strong><em>&#187;&#187;</em></strong> <code>ENV_TYPE_VAR</code> <strong><em>&#187;&#187;</em></strong> <code>APP_VAR</code></p>
+
+<h2 id="examples">Examples</h2>
+<p>The variables are stored and editable as YAML. Defining a variable is like to add an property into a YAML file:</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">my_variable_name</span><span class="p-Indicator">:</span> <span class="s">&quot;my</span><span class="nv"> </span><span class="s">variable</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">type</span><span class="nv"> </span><span class="s">text</span><span class="nv"> </span><span class="s">value&quot;</span>
+<span class="l-Scalar-Plain">my_int_var</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">10</span>
+<span class="l-Scalar-Plain">my_float_var</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">3.14</span></code></pre></div>
+
+<p>Complex variables are also supported:</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">complex_var</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">subfield1</span><span class="p-Indicator">:</span> <span class="s">&quot;my</span><span class="nv"> </span><span class="s">variable</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">type</span><span class="nv"> </span><span class="s">text</span><span class="nv"> </span><span class="s">value&quot;</span>
+    <span class="l-Scalar-Plain">subfield2</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">subsubfield</span> <span class="p-Indicator">:</span> <span class="l-Scalar-Plain">10</span></code></pre></div>
+
+<p>as well as list:</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">list_var</span><span class="p-Indicator">:</span>
+  <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">value1</span>
+  <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">value2</span></code></pre></div>
+
+<p>A variable can be built referencing other variables:</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="c1">###########</span>
+ <span class="c1">## referencing simple var</span>
+ <span class="c1">###########</span>
+<span class="l-Scalar-Plain">my_variable_name</span><span class="p-Indicator">:</span> <span class="s">&quot;my</span><span class="nv"> </span><span class="s">variable</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">type</span><span class="nv"> </span><span class="s">text</span><span class="nv"> </span><span class="s">value&quot;</span>
+<span class="l-Scalar-Plain">my_int_var</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">10</span>
+
+<span class="l-Scalar-Plain">complex_var</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">subfield1</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">${my_variable_name)</span>
+
+ <span class="c1">###########</span>
+ <span class="c1">## concatenation of multiple vars</span>
+ <span class="c1">###########</span>
+<span class="-Error"> </span><span class="l-Scalar-Plain">concat_var</span><span class="p-Indicator">:</span> <span class="s">&quot;/tmp/${my_variable_name}/anotherone/${my_int_var}&quot;</span>
+
+ <span class="c1">###########</span>
+ <span class="c1">## referencing complex var</span>
+ <span class="c1">###########</span>
+ <span class="l-Scalar-Plain">my_subfield_var</span><span class="p-Indicator">:</span>
+     <span class="l-Scalar-Plain">subsubfield1</span> <span class="p-Indicator">:</span> <span class="s">&quot;toto&quot;</span>
+     <span class="l-Scalar-Plain">subsubfield2</span> <span class="p-Indicator">:</span> <span class="s">&quot;tata&quot;</span>
+
+ <span class="l-Scalar-Plain">complex_var</span><span class="p-Indicator">:</span>
+     <span class="l-Scalar-Plain">subfield1</span><span class="p-Indicator">:</span> <span class="s">&quot;sub1&quot;</span>
+     <span class="l-Scalar-Plain">subfield2</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">${my_subfield_var}</span>
+
+ <span class="c1">### will be resolved as:</span>
+ <span class="c1"># complex_var:</span>
+ <span class="c1">#   subfield1: &quot;sub1&quot;</span>
+ <span class="c1">#   subfield2:</span>
+ <span class="c1">#     subsubfield1 : &quot;toto&quot;</span>
+ <span class="c1">#     subsubfield2 : &quot;tata&quot;</span>
+
+ <span class="c1">####</span>
+ <span class="c1">## referencing a specific field of a complex variable</span>
+ <span class="l-Scalar-Plain">my_var_2</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">${my_subfield_var.subsubfield1}</span></code></pre></div>
+
+<p>A variable can be built using SpEL expression:</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">current_env</span><span class="p-Indicator">:</span> <span class="s">&quot;DEV&quot;</span>
+<span class="l-Scalar-Plain">true_if_prod_var</span><span class="p-Indicator">:</span> <span class="s">&quot;#{</span><span class="nv"> </span><span class="s">&#39;PROD&#39;</span><span class="nv"> </span><span class="s">==</span><span class="nv"> </span><span class="s">#current_env</span><span class="nv"> </span><span class="s">}&quot;</span>
+<span class="l-Scalar-Plain">security_mode</span><span class="p-Indicator">:</span> <span class="s">&quot;#{&#39;PROD&#39;</span><span class="nv"> </span><span class="s">==</span><span class="nv"> </span><span class="s">#current_env</span><span class="nv"> </span><span class="s">?</span><span class="nv"> </span><span class="s">&#39;2FA&#39;</span><span class="nv"> </span><span class="s">:</span><span class="nv"> </span><span class="s">&#39;none&#39;</span><span class="nv"> </span><span class="s">}&quot;</span></code></pre></div>
+
+<div class="note warning">
+<h5>SpEL expression must be quoted otherwise it will be processed as a comment</h5>
+</div>
+
+<div class="note info">
+<h5>SpEL expression</h5>
+<p>SpEL expression can be a very powerful tool that would allow the user to perform many operation, for example, dynamically setting a value to a variable depending on a specific context. <br />
+You can find more about with SpEL:</p>
+
+<ul>
+  <li><a href="http://www.baeldung.com/spring-expression-language" target="_blank">http://www.baeldung.com/spring-expression-language</a></li>
+  <li><a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/html/expressions.html" target="_blank">https://docs.spring.io/spring/docs/current/spring-framework-reference/html/expressions.html</a></li>
+</ul>
+</div>
+
+<p>Variables referencing others, with default values:</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">num_cpus</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">${my_missing_var:66}</span></code></pre></div>
+
+<p>Variables with units:</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">disk_size</span><span class="p-Indicator">:</span> <span class="s">&quot;555</span><span class="nv"> </span><span class="s">MIB&quot;</span>
+<span class="l-Scalar-Plain">cpu_frequency</span><span class="p-Indicator">:</span> <span class="s">&quot;1000</span><span class="nv"> </span><span class="s">MHz&quot;</span></code></pre></div>
+
+<h1 id="pre-configured-inputs">Pre-configured inputs</h1>
+
+<p>Previously we talked about variables. Variables are a convenient way to define reusable values. Those values can be used to configure inputs, defined in the topology.
+An input property has a name and a value. Alien4Cloud allows the topology designer to pre-configure values for some inputs, thus removing some of that burden from the deployer user.</p>
+
+<p>The pre-configured inputs are stored and editable as YAML. As there is only one file for the whole topology, the configured value will be the same for all environments.</p>
+
+<h1 id="variables-vs-pre-configured-inputs">Variables Vs Pre-configured inputs</h1>
+
+<p>Managing pre-configured inputs is slightly the same as variables. Differences being:</p>
+
+<ul>
+  <li>An input value cannot reference another input, variables can.</li>
+</ul>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="c1">#######</span>
+ <span class="c1">## inputs mapping file</span>
+
+ <span class="c1">#Given</span>
+<span class="l-Scalar-Plain">one_input</span><span class="p-Indicator">:</span> <span class="s">&quot;an</span><span class="nv"> </span><span class="s">input&quot;</span>
+
+<span class="l-Scalar-Plain">another_input</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">${one_input}</span>             <span class="c1">## won&#39;t work</span>
+<span class="l-Scalar-Plain">another_input</span><span class="p-Indicator">:</span> <span class="s">&quot;toto/${one_input}&quot;</span>      <span class="c1">##won&#39;t work</span>
+
+<span class="l-Scalar-Plain">another_input</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">${one_var}</span>               <span class="c1">## Works fine as one_var is a variable and not an input</span></code></pre></div>
+
+<ul>
+  <li>
+    <p>Inputs are typed, variables ARE NOT. Inputs are converted into the corresponding type and constraints are checked.</p>
+  </li>
+  <li>
+    <p>Variables are overridable, inputs ARE NOT (since they are not defined on multiple levels)</p>
+  </li>
+</ul>
+
+<p>Now that we&#8217;ve been through the concept, let&#8217;s see <a href="#/documentation/3.0.0/user_guide/inputs_vars/topology_editor_manage_vars.html">how to manage variables inputs using Alien4Cloud GUI</a>.</p>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.5.0/user_guide/inputs_vars/topology_editor_var_inputs_concept.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-3.5.0', 'documentation/3.5.0/user_guide/inputs_vars/topology_editor_var_inputs_concept.md');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

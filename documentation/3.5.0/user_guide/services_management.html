@@ -1,0 +1,295 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/3.5.0/user_guide/services_management.html',
+  title: 'Services management'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Services management</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.5.0/user_guide/services_management.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        
+<hr style="margin-top:5px; margin-bottom:5px;" />
+<div class="row"><ul class="nav nav-pills" id="summarypanel"></ul></div>
+<hr style="margin-top:5px; margin-bottom:5px;" />
+
+<p>Services in alien4cloud design any already running resource (databases, application providing an API etc.) that can be used by the applications through matching of abstract nodes (just like on demand resources).</p>
+
+<p>The fundamental difference between service and on-demand resource is the ownership of the resource lifecycle. While on-demand resources lifecycle is managed by the consuming application, services are elements external to the application but yet consumed by the application.</p>
+
+<p>For example you may have an on-demand database, which will be created when you deploy the application and (eventually) deleted when the application will be un-deployed.</p>
+
+<p>When using a service you expect someone else to start the service (either externally to alien4cloud or through an alien deployment) and just consume it. In any case you will not be the owner of the service lifecycle.</p>
+
+<h1 id="referencing-external-services-in-alien4cloud">Referencing external services in alien4cloud</h1>
+
+<p>The first method to define a service in alien4cloud is to declare manually a service. In order to do this, click on <em>[Administration]</em> &gt; <em>Service</em></p>
+
+<p><img src="../../images/3.4.0/user_guide/admin/services/service_list.png" alt="service_list" /></p>
+
+<p>Let’s say you have a Mongodb database that you want to expose to other applications, you can drag the component <code>MongoSingle</code> and drop it on the demarcated zone on the left to create the service Mongo.</p>
+
+<p><img src="../../images/3.4.0/user_guide/admin/services/create_external_service.png" alt="create_external_service" /></p>
+
+<p>After the creation, the service appears on the left hand side list and can be configured.</p>
+
+<p><img src="../../images/3.4.0/user_guide/admin/services/service_list_with_external_mongo.png" alt="service_list_with_external_mongo" /></p>
+
+<h2 id="service-details">Service details</h2>
+<p>Click on the service to see its details. Here the status does not have much sense, a service in enabled state cannot be modified and deleted (it will make more sense with a service exposed by a deployment as Alien4Cloud knows the state of the service).</p>
+
+<p><img src="../../images/3.4.0/user_guide/admin/services/service_detail.png" alt="service_detail" /></p>
+
+<h2 id="instance-informations">Instance informations</h2>
+<p>The instance tab gives you access to properties and attributes of your service. The properties and attributes values, that you enter here, can be used later by consumer of the service to establish the connection with the service. In the example, the property <code>ip_address</code> of the external Mongo DB has been given.</p>
+
+<div class="note info">
+<h5>IP Address</h5>
+<p>When a service is not managed by A4C you need to define manually how to access the service (i.e. the IP address)</p>
+</div>
+
+<h3 id="capabilities-attributes">Capabilities attributes</h3>
+
+<p>Capabilities attributes are very important as they will provide for infos on how to use / connect to the service.</p>
+
+<p>To do that, you need to add an attribute on the service node type level following the naming convention:</p>
+
+<p><code>capabilities.YOUR_CAPABILITY_NAME.ATTRIBUTE_KEY</code>.</p>
+
+<p>For example in our case of Mongo service, we would define the capability <code>service_api</code> attribute <code>ip_address</code> like this:</p>
+
+<p><img src="../../images/3.4.0/user_guide/service/user_attributes.png" alt="defining_capabilities_attributes_for_service" /></p>
+
+<h2 id="enable-service-on-locations">Enable service on locations</h2>
+<p>The location tab allows to authorize service access to locations. It means only application deployed on the authorized locations can have access to the service.</p>
+
+<p><img src="../../images/3.4.0/user_guide/service/service_location.png" alt="service_location" /></p>
+
+<h2 id="security">Security</h2>
+<p>The security tab allows to authorize service access to application / environments / environment types / user or group. Only authorized entity can use the service on deployment.</p>
+
+<p><img src="../../images/3.4.0/user_guide/service/service_security.png" alt="service_security" /></p>
+
+<p>Once the service has been properly defined, authorization has been properly configured. You can begin to consume it with your application. As you can see, the example use the abstract type <code>AbstractMongod</code> which is the base type that was used to define the service.</p>
+
+<p><img src="../../images/3.4.0/user_guide/service/service_consumption.png" alt="service_consumption" /></p>
+
+<p>On matching screen, your AbstractMongod will be matched to the service that has been defined lately</p>
+
+<p><img src="../../images/3.4.0/user_guide/admin/services/service_matching.png" alt="service_matching" /></p>
+
+<h1 id="turning-deployments-into-services">Turning deployments into services</h1>
+
+<p>Turning deployments into services is usually done by the deployment manager of the application environment.</p>
+
+<p>Service definition within Alien4Cloud uses substitution in order to expose properties, requirements or capabilities.
+The first thing you need to do is to define your service topology, and a substitution for it</p>
+
+<p><img src="../../images/3.4.0/user_guide/admin/services/service_topology.png" alt="service_topology" /></p>
+
+<p>Once the service topology is done, you can set up an environment to be deployed on your chosen location.
+Before deploying, you can choose to expose your deployment as a service in the <em>Service management</em> section</p>
+
+<p><img src="../../images/3.4.0/user_guide/admin/services/service_exposition.png" alt="service_exposition" /></p>
+
+<p>As an admin, the service exposed will be displayed automatically in the service list <em>[Administration]</em> &gt; <em>Service</em></p>
+
+<p><img src="../../images/3.4.0/user_guide/admin/services/service_list_with_exposed_mongo.png" alt="service_list_with_exposed_mongo" /></p>
+
+<p>Once the service is exposed, access to the service, the matching can be configured in the same manner as an external service.
+However, note that the exosed services are automatically available on the location selected for the deployment once deployed.</p>
+
+<h1 id="limitations">Limitations</h1>
+
+<h3 id="multiple-capabilities-exposure">multiple capabilities exposure</h3>
+
+<p>On a topology, a service can expose multiple capabilities, but only 1 can be used. Otherwise, relationship operations won’t be called properly.
+More precisely, asume we have the following node types:</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">nodes types</span><span class="p-Indicator">:</span>
+  <span class="c1"># abstract type, on which the service will be based</span>
+  <span class="l-Scalar-Plain">org.alien4cloud.nodes.AS</span>
+    <span class="l-Scalar-Plain">abstract</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
+    <span class="l-Scalar-Plain">capabilities</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">ACapa</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">org.alien4cloud.capabilities.ACapa</span>
+      <span class="l-Scalar-Plain">BCapa</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">org.alien4cloud.capabilities.BCapa</span>
+
+  <span class="l-Scalar-Plain">org.alien4cloud.nodes.A</span>
+    <span class="l-Scalar-Plain">requirements</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">AReq</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">org.alien4cloud.capabilities.ACapa</span>
+
+  <span class="l-Scalar-Plain">org.alien4cloud.nodes.B</span>
+    <span class="l-Scalar-Plain">requirements</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">BReq</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">org.alien4cloud.capabilities.BCapa</span></code></pre></div>
+
+<blockquote>
+  <p><strong>wont work</strong>: One node AS, connect both A and B to AS</p>
+</blockquote>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="c1">#topology</span>
+<span class="l-Scalar-Plain">node_templates</span><span class="p-Indicator">:</span>
+ <span class="c1"># one abstract node template, will be matched to a service on deployment config</span>
+  <span class="l-Scalar-Plain">AS</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">org.alien4cloud.service.AS</span>
+  <span class="l-Scalar-Plain">A</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">org.alien4cloud.nodes.A</span>
+    <span class="l-Scalar-Plain">requirements</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">AReq</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">node</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">AS</span> <span class="c1"># connect A to AS</span>
+        <span class="l-Scalar-Plain">capability</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">org.alien4cloud.capabilities.ACapa</span>
+  <span class="l-Scalar-Plain">B</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">org.alien4cloud.nodes.B</span>
+    <span class="l-Scalar-Plain">requirements</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">BReq</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">node</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">AS</span> <span class="c1"># also connect B to AS</span>
+        <span class="l-Scalar-Plain">capability</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">org.alien4cloud.capabilities.BCapa</span></code></pre></div>
+
+<blockquote>
+  <p><strong>Workaround</strong>: Two nodes of type AS, connect each A and B to different node templates of type AS.
+Match the two AS type nodetemplates to the same service on deployment</p>
+</blockquote>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="c1">#topology</span>
+<span class="l-Scalar-Plain">node_templates</span><span class="p-Indicator">:</span>
+ <span class="c1"># TWO abstract nodes templates, each will be matched to the SAME service on deployment config</span>
+  <span class="l-Scalar-Plain">AS1</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">org.alien4cloud.service.AS</span>
+  <span class="l-Scalar-Plain">AS2</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">org.alien4cloud.service.AS</span>
+  <span class="l-Scalar-Plain">A</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">org.alien4cloud.nodes.A</span>
+    <span class="l-Scalar-Plain">requirements</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">AReq</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">node</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">AS1</span>     <span class="c1"># connect A to AS1</span>
+        <span class="l-Scalar-Plain">capability</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">org.alien4cloud.capabilities.ACapa</span>
+  <span class="l-Scalar-Plain">B</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">org.alien4cloud.nodes.B</span>
+    <span class="l-Scalar-Plain">requirements</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">BReq</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">node</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">AS2</span>     <span class="c1"># connect B to AS2</span>
+        <span class="l-Scalar-Plain">capability</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">org.alien4cloud.capabilities.BCapa</span></code></pre></div>
+
+<h3 id="scalability-and-services">Scalability and services</h3>
+<p>Services substitution does not yet supports the exposure of multiple instances. Output properties cannot reference properties of scaled instances.</p>
+
+<h3 id="services-properties">Services properties</h3>
+<p>Input properties are used both for topology input and deployment inputs.
+Users <strong>SHOULD</strong> handle <strong>connection to services</strong> using <strong>capabilities properties/attributes</strong> and eventually <strong>node attributes</strong>.
+They <strong>SHOULD NOT</strong> use  <strong>node properties</strong> for that purpose.</p>
+
+<div class="note warning">
+<h5>Services from snapshot versions</h5>
+<p>While creation of services out of snapshot types is possible, it is not recommended for two reasons:</p>
+
+<ul>
+  <li>We believe it is not a good practice to interact with other teams based on unstable / unreleased features.</li>
+  <li>Alien4cloud may not handle node type updates correctly and such usage is done at your own risks.</li>
+</ul>
+</div>
+
+<h1 id="example">Example</h1>
+
+<p>The MongoDB service example in the two sections above <a href="https://github.com/alien4cloud/samples/tree/master/mongo">can be found here</a>. It comes with a topology template <em>mongod-type</em> that defines a simple topology containing a MongoDB hosted on a Compute. This template is exposed as a type named <em>mongod-type</em> using substitution exposition.</p>
+
+<p>The node cellar application, which consumes the service, <a href="https://github.com/alien4cloud/samples/tree/master/topology-nodecellar-service">can be found here</a>. In the topology template <em>Nodecellar-ClientService</em>, the abstract node <em>alien.nodes.AbstractMongod</em> was matched to the MongoDB service.</p>
+
+<h1 id="advanced">Advanced</h1>
+
+<h2 id="relationship-and-service">Relationship and service</h2>
+
+<p>When a relationship is involving a service, think “half relationship”, one half relationship is managing the source side, and the other one the target side.</p>
+
+<p>Services are running resources managed by third parties, as such only the third party is authorized to manage the service settings.
+In order to protect the integrity of: services, service consumers and service providers, we cannot let everybody alters a service and vice versa.
+Only operations defined by the owner can be executed on it.</p>
+
+<p>For example: a service consumer is not allowed to execute operations on the service side.</p>
+
+<p>In Tosca, the source of the relatonship is responsible to define operations executed on both side (source and target), this is a problem when a service is involved.
+The solution chosen by A4C is to:</p>
+
+<ul>
+  <li>let the administrator configures the source with one relationship that holds all the operations impacting the source and another one for the target with operations that will impact the target.</li>
+  <li>not execute any operations impacting a side we don’t manage</li>
+</ul>
+
+<p>When a service is involved, a relationship should be seen as a half relationship.
+One part of the relationship is defined by the consumer and the other part by the provider. At runtime the 2 relationships are merged into 1.</p>
+
+<h2 id="how-to-define-relationships-on-the-service-side">How to define relationships on the service side</h2>
+
+<p>Depending if the service is a consumer or a provider you will need to add a <em>half</em> relationship on a service capability or a service requirement.</p>
+
+<p>In the case of the MongoDB service described above we need to add the relationship to the <em>“database_endpoint”</em> capability.</p>
+
+<p>Let’s say we’d like to run a script everytime a new consumer is added.
+For that we need to create a relationship dedicated to the service side:</p>
+
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">tosca_definitions_version</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">alien_dsl_1_3_0</span>
+<span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">A relationship definition for the service side</span>
+<span class="l-Scalar-Plain">template_name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">mongo_db_relaitonship_service_side</span>
+<span class="l-Scalar-Plain">template_version</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">0.1.0-SNAPSHOT</span>
+<span class="l-Scalar-Plain">template_author</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">admin</span>
+
+<span class="l-Scalar-Plain">imports</span><span class="p-Indicator">:</span>
+  <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">tosca-normative-types:1.0.0-ALIEN12</span>
+
+<span class="l-Scalar-Plain">relationship_types</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">org.alien4cloud.relationships.NodejsConnectToMongoServiceSide</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">derived_from</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.relationships.ConnectsTo</span>
+        <span class="l-Scalar-Plain">description</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Relationship use to define operations run on the mongo side</span>
+        <span class="l-Scalar-Plain">interfaces</span><span class="p-Indicator">:</span>
+          <span class="l-Scalar-Plain">Configure</span><span class="p-Indicator">:</span>
+              <span class="l-Scalar-Plain">add_source</span><span class="p-Indicator">:</span>
+                  <span class="l-Scalar-Plain">implementation</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">scripts/when_new_source.sh</span></code></pre></div>
+
+<p>And upload this yaml as we would do if it was a component.</p>
+
+<p>Then attach the NodejsConnectToMongoServiceSide to the service capability <em>“database_endpoint”</em>:</p>
+
+<p><img src="../../images/3.4.0/user_guide/service/service_mongodb_relationship.png" alt="service_list" /></p>
+
+<p>And that’s it.</p>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.5.0/user_guide/services_management.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-3.5.0', 'documentation/3.5.0/user_guide/services_management.md');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

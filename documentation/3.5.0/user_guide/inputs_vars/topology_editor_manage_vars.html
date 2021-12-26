@@ -1,0 +1,135 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/3.5.0/user_guide/inputs_vars/topology_editor_manage_vars.html',
+  title: 'Manage variables'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Manage variables</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.5.0/user_guide/inputs_vars/topology_editor_manage_vars.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        
+<hr style="margin-top:5px; margin-bottom:5px;" />
+<div class="row"><ul class="nav nav-pills" id="summarypanel"></ul></div>
+<hr style="margin-top:5px; margin-bottom:5px;" />
+
+<p>Here we will go through the <strong><em>variables</em></strong> management and usage in Alien4Cloud.
+You might want to check out the <a href="#/documentation/3.0.0/user_guide/inputs_vars/topology_editor_var_inputs_concept.html">concept behind variables</a> first.</p>
+
+<h1 id="scopes">Scopes</h1>
+
+<p>Variables are key/value data that can be provided at different scopes of the application (application, environment, environments type). They are stored and editable as YAML files:</p>
+
+<ul>
+  <li>
+    <p><strong>Application variables (APP_VARs)</strong> at <code>${directories.alien}/git/[APP_ID]/vars/app_variables.yml</code></p>
+  </li>
+  <li>
+    <p><strong>Environment type variables (ENV_TYPE_VARs)</strong> at <code>${directories.alien}/${csar_repository}/[APP_ID]/[TOPOLOGY_VERSION]/expanded/inputs/var_env_type_[ENV_TYPE].yml</code></p>
+  </li>
+  <li>
+    <p><strong>Environment variables (ENV_VARs)</strong> at <code>${directories.alien}/${csar_repository}/[APP_ID]/[TOPOLOGY_VERSION]expanded/inputs/var_env_[ENV_ID].yml</code></p>
+  </li>
+</ul>
+
+<h1 id="application-variables">Application variables</h1>
+<p>Once on the application information view, click on <code>variables</code> button,
+<img src="../../images/3.4.0/user_guide/topology_editor/app_vars.png" alt="App var button" /></p>
+
+<p>You will have an editor where you can fill in your APP_VARs in yaml format</p>
+
+<p><img src="../../images/3.4.0/user_guide/topology_editor/app_vars_editor.png" alt="App var editor" /></p>
+
+<p>Don&#8217;t forget to hit the <img src="../../images/3.4.0/user_guide/topology_editor/var_modal_save_btn.png" alt="var_modal_edit" height="26px" class="inline" /> button.</p>
+
+<h1 id="topology-variables">Topology variables</h1>
+
+<p>Topology variables are environment and environment type variables. They are editable via the <strong>inputs and Variables</strong> button <img src="../../images/3.4.0/user_guide/topology_editor/inputs_vars_button.png" alt="Inputs / variables" height="26px" class="inline" /> in the editor. Once clicked, will be displayed a tab menu with: inputs and variables.</p>
+
+<p><img src="../../images/3.4.0/user_guide/topology_editor/editor_variables.png" alt="editor variables" /></p>
+
+<p>The variables listed here are the ones having a value set in at least one scope (application, environment or environment type).
+Click on a variable to see where it is defined, and edit it if possible.</p>
+
+<p><img src="../../images/3.4.0/user_guide/topology_editor/var_modal.png" alt="variables modal" /></p>
+
+<p>Let&#8217;s call that modal the <code>variable value modal</code>.
+On the left, are the different scopes of variables.
+The right side is the place to view and edit the value set to a variable in scope.</p>
+
+<p>If a value is set, then the scope name will appear green, otherwise it means the variable is not defined.
+Either way, a click on a scope item will display the value (or undefined) on the right panel, and you can edit it by clicking on the <img src="../../images/3.4.0/user_guide/topology_editor/var_modal_edit_btn.png" alt="var_modal_edit" height="26px" class="inline" /> button (this button allows you to toggle edit mode on / off):</p>
+
+<p><img src="../../images/3.4.0/user_guide/topology_editor/var_modal_edit_mode.png" alt="variables modal edit mode" /></p>
+
+<p>The editor is a Yaml editor. Do not forget to hit the <img src="../../images/3.4.0/user_guide/topology_editor/var_modal_save_btn.png" alt="var_modal_edit" height="26px" class="inline" /> button if you&#8217;ve modify the value, before selecting another scope, otherwise the changes will be lost.</p>
+
+<div class="note info">
+<p>As you can notice, application variables can not be edited on this view. They are only in read-only mode</p>
+</div>
+
+<div class="note warning">
+<h5>Save the topology</h5>
+<p>Editing a variable is an operation like adding a node or editing a node property in the topology. Thus, do not forget to save the topology if you want to validate your changes.</p>
+</div>
+
+<h3 id="adding-a-variable">Adding a variable</h3>
+
+<p><strong>Adding a variable</strong> means setting a value for that variable name in a scope.</p>
+
+<p>As said before, variables displayed in this view are only the ones having a values in at least one scope. The filter bar allows you to refine the list by entering the name of the variable you would like to view.
+when you type in a name, and press enter, the variable valu modal will be displayed. Two cases scenario:</p>
+
+<ul>
+  <li>
+    <p>the variable is <strong>already defined</strong> somewhere: In that case, it is like you&#8217;ve clicked on the variable name in the list.</p>
+  </li>
+  <li>
+    <p>the variable is <strong>not defined</strong> anywhere: In that case, setting its value in a scope will lead to the creation of that variable, and you will be able to view it in the list.</p>
+  </li>
+</ul>
+
+<p>Now that the variable value is edited, you might want to use it to <a href="#/documentation/3.0.0/user_guide/inputs_vars/topology_editor_preconf_inputs.html">pre-configure an input</a>.</p>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.5.0/user_guide/inputs_vars/topology_editor_manage_vars.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-3.5.0', 'documentation/3.5.0/user_guide/inputs_vars/topology_editor_manage_vars.md');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

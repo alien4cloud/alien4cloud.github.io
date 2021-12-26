@@ -1,0 +1,100 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/3.5.0/devops_guide/tosca_grammar/function_definition.html',
+  title: 'Function definition'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Function definition</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.5.0/devops_guide/tosca_grammar/function_definition.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <p>Work in progress, details the functions that can be applied to properties and function input parameters.</p>
+
+<p>A function definition defines a named function to evaluate at runtime, and that can be used as property, attribute or input parameter. It is used to  dynamically retrieve a value from property definition defined on an entity.</p>
+
+<h2 id="reserved-function-keywords">Reserved function keywords</h2>
+<p>The following keywords may be used in some  TOSCA function in place of a TOSCA Node or Relationship Template name. They will be interpreted when evaluation the function at runtime.</p>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th style="text-align: left">Keyword</th>
+      <th style="text-align: left">Valid context</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">SELF</td>
+      <td style="text-align: left">Node Template or Relationship Template</td>
+      <td style="text-align: left">Node or Relationship Template instance that contains the function at the time the function is evaluated.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">SOURCE</td>
+      <td style="text-align: left">Relationship Template only</td>
+      <td style="text-align: left">Node Template instance that  is at the source end of the relationship that contains the referencing function.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">TARGET</td>
+      <td style="text-align: left">Relationship Template only</td>
+      <td style="text-align: left">Node Template instance that  is at the target end of the relationship that contains the referencing function.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">HOST</td>
+      <td style="text-align: left">Node Template only</td>
+      <td style="text-align: left">Node that “hosts” the node using this reference (i.e., as identified by its HostedOn relationship).</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Supported functions in Alien4Cloud are:</p>
+
+<ul>
+  <li><a href="#/documentation/3.0.0/devops_guide/tosca_grammar/get_property_definition.html">get_property</a></li>
+  <li><a href="#/documentation/3.0.0/devops_guide/tosca_grammar/get_attribute_definition.html">get_attribute</a></li>
+  <li><a href="#/documentation/3.0.0/devops_guide/tosca_grammar/get_operation_output_definition.html">get_operation_output</a></li>
+  <li><a href="#/documentation/3.0.0/devops_guide/tosca_grammar/concat_definition.html">concat</a></li>
+</ul>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.5.0/devops_guide/tosca_grammar/function_definition.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-3.5.0', 'documentation/3.5.0/devops_guide/tosca_grammar/function_definition.md');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

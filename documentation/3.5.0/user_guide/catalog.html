@@ -1,0 +1,146 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/3.5.0/user_guide/catalog.html',
+  title: 'Catalog'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Catalog</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.5.0/user_guide/catalog.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        
+<hr style="margin-top:5px; margin-bottom:5px;" />
+<div class="row"><ul class="nav nav-pills" id="summarypanel"></ul></div>
+<hr style="margin-top:5px; margin-bottom:5px;" />
+
+<div class="note">
+<p>TOSCA types are referred as components in alien4cloud. High level concepts are detailed in <a href="#/documentation/3.0.0/concepts/components.html">this section</a>.</p>
+</div>
+
+<h1 id="introduction">Introduction</h1>
+
+<p>TOSCA is at the heart of Alien 4 Cloud, and so is the TOSCA Catalog feature. TOSCA is an open standard from OASIS that allows to define components for cloud deployments in a reusable and eventually agnostic fashion.</p>
+
+<p>The goal of TOSCA is to let users provide building blocks called Types to define the desired topologies from a very abstract level to a very concrete level allowing the actual deployment of the topology. Any abstract element in a topology has to be replaced with concrete implementations in order to allow the TOSCA deployer to actually perform the deployment. Most of TOSCA implementations provides their own implementations for some of the nodes (like the normative ones defined within the standard).</p>
+
+<div class="note info">
+<p>For more informations on TOSCA and supported archive format please go <a href="#/documentation/3.0.0/devops_guide/dev_ops_guide.html">here</a>.</p>
+</div>
+
+<h1 id="tosca-catalog">TOSCA Catalog</h1>
+
+<p>Alien 4 Cloud TOSCA Catalog is an index of components/elements defined in a TOSCA archive. Among these elements we find two main categories Types (reusable building blocks) and Topologies (Composition and definition of the building blocks to define what a user want&#8217;s to deploy).</p>
+
+<p>When adding or creating a TOSCA archive in Alien 4 Cloud the archive is automatically store on a File System but also indexed to provide browsing and search features in your various archives and truly making them reusable for all the people working on the alien instance!</p>
+
+<div class="note info">
+<h5>Accessing the catalog</h5>
+<p>Every user with the role COMPONENT_BROWSER can actually browse the global catalog both to look types or topology templates.</p>
+</div>
+
+<p><a href="../../images/user_guide/catalog_archive_content.png"><img src="../../images/user_guide/catalog_archive_content.png" alt="Tosca archive and indexing in alien" /></a></p>
+
+<h3 id="archive-meta-data">Archive meta-data</h3>
+
+<p>In addition to the types and topology in an archive we also index an object that represents the archive and it&#8217;s meta-data. This is referenced in alien as the CSAR (for Cloud Service ARchive).</p>
+
+<h3 id="tosca-types">TOSCA Types</h3>
+
+<p>The first element indexed in alien 4 cloud are the TOSCA Types. Amongst them we find some high level types used to ease reusability when creating other types:</p>
+
+<ul>
+  <li>Artifact types</li>
+  <li>Capability types</li>
+  <li>Data types</li>
+  <li>Interface types</li>
+</ul>
+
+<p>And some types that can actually get instanciated in a topology:</p>
+
+<ul>
+  <li>Node types (the main building blocks)</li>
+  <li>Relationship types (elements that can define how relations between nodes can actually be implemented)</li>
+</ul>
+
+<h3 id="topologies">Topologies</h3>
+
+<p>Topologies are the second element indexed in alien 4 cloud.</p>
+
+<div class="note info">
+<p>While a TOSCA archive may contains multiple types a single topology can be defined in an archive. The id of a topology in alien4cloud is the same id of the enclosing archive Id.</p>
+</div>
+
+<h1 id="workspaces">Workspaces</h1>
+
+<p>The goal of workspaces is to provide catalog isolation so that users can upload specific types without sharing them in the global catalog. Thanks to workspaces an application can define not only topologies but also types in their backing archive and benefits from all the indexing features without sharing specific types across the organization or other applications.</p>
+
+<h2 id="workspace-hierarchy">Workspace hierarchy</h2>
+
+<p>Workspaces are defined in a hierarchy, on top of the hierarchy is the global workspace which basically is the main catalog of components which is managed by users with roles COMPONENT_MANAGER (to add types) and/or ARCHITECT (to add topologies).</p>
+
+<div class="row">
+  <div class="col-xs-12">
+    <div class="btn-primary">Global workspace</div>
+  </div>
+</div>
+<div class="row" style="margin-top: 4px;">
+  <div class="col-xs-3"><div class="btn-info">App 1 workspace</div></div>
+  <div class="col-xs-3"><div class="btn-info">App 2 workspace</div></div>
+  <div class="col-xs-3"><div class="btn-info">App 3 workspace</div></div>
+  <div class="col-xs-3">...</div>
+</div>
+
+<h2 id="constraints-on-workspaces">Constraints on workspaces</h2>
+
+<p>While workspaces provide isolation between the different sub-workspaces there are constraints that alien4cloud enforce for consistency reasons.</p>
+
+<ul>
+  <li>An archive with the same name and version can not exist in multiple workspaces. Indeed we don&#8217;t want to allow a same name and version to have different content. If the same content has to be shared between multiple entities then it should lie in an upper workspace so ownership and updates potential is clear.</li>
+  <li>An archive in an upper workspace is available for read (COMPONENT_BROWSER) to every child workspace.</li>
+  <li>Only COMPONENT_MANAGER (for types) and ARCHITECT (for topologies) can change an archive in the global workspace.</li>
+  <li>Any user with role APPLICATION_MANAGER or DEVOPS can change types and topologies in the application (theses users have the COMPONENT_MANAGER and ARCHITECT roles on the application workspace). Every user registered with a role on the application can have read (COMPONENT_BROWSER) access to the application archive content.</li>
+</ul>
+
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.5.0/user_guide/catalog.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-3.5.0', 'documentation/3.5.0/user_guide/catalog.md');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

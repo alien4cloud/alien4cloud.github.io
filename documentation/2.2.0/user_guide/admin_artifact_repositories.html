@@ -54,70 +54,9 @@ But bear in mind the passwords are stored in plain text and can be seen by anyon
 
 <p><strong>HTTP</strong> plugin resolver is the only one opensource plugin repository. The concat of the repository URL and the artifact file attribute should be the complete path to your file.</p>
 
-<p>Example :</p>
-
-<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">repositories</span><span class="p-Indicator">:</span>
-  <span class="l-Scalar-Plain">fastconnect</span><span class="p-Indicator">:</span>
-    <span class="l-Scalar-Plain">url</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">https://fastconnect.org/maven/service/local/repositories/opensource/content</span>
-    <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">http</span>
-
-<span class="p-Indicator">[</span><span class="nv">...</span><span class="p-Indicator">]</span>
-
-<span class="l-Scalar-Plain">node_types</span><span class="p-Indicator">:</span>
-  <span class="l-Scalar-Plain">alien.nodes.Example</span><span class="p-Indicator">:</span>
-    <span class="l-Scalar-Plain">artifacts</span><span class="p-Indicator">:</span>
-    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">http_artifact</span><span class="p-Indicator">:</span>
-        <span class="l-Scalar-Plain">file</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">alien4cloud/alien4cloud-cloudify3-provider/1.4.0-SM2/alien4cloud-cloudify3-provider-1.4.0-SM2.zip</span>
-        <span class="l-Scalar-Plain">repository</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">fastconnect</span>
-        <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.artifacts.File</span></code></pre></div>
-
-<h1 id="repositories-specific-to-the-premium-version">Repositories specific to the premium version</h1>
-
-<p>Two repositories plugins are premium : <strong>git</strong> and <strong>maven</strong>. All repositories plugins are package in the Alien 4 cloud premium dist.</p>
-
 <h2 id="git">Git</h2>
 
 <p>In git, the reference of an artifact is this path inside the git project. If your repo as a new commit between two deployments, Alien will redownload your artifact. To refer to your artifact file, use the following syntax : <code>&lt;branch or tag&gt;:&lt;file path&gt;</code>. If you don&#8217;t specific a branch or a tag, the default branch &#8216;master&#8217; will be used.</p>
-
-<p>Example :</p>
-
-<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">repositories</span><span class="p-Indicator">:</span>
-  <span class="l-Scalar-Plain">aliengithub</span><span class="p-Indicator">:</span>
-    <span class="l-Scalar-Plain">url</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">https://github.com/alien4cloud/samples.git</span>
-    <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">git</span>
-
-<span class="p-Indicator">[</span><span class="nv">...</span><span class="p-Indicator">]</span>
-
-<span class="l-Scalar-Plain">node_types</span><span class="p-Indicator">:</span>
-  <span class="l-Scalar-Plain">alien.nodes.Example</span><span class="p-Indicator">:</span>
-    <span class="l-Scalar-Plain">artifacts</span><span class="p-Indicator">:</span>
-    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">git_artifact</span><span class="p-Indicator">:</span>
-        <span class="l-Scalar-Plain">file</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">master:demo-repository/artifacts/settings.properties</span>
-        <span class="l-Scalar-Plain">repository</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">aliengithub</span>
-        <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.artifacts.File</span></code></pre></div>
-
-<h2 id="maven">Maven</h2>
-
-<p>In maven, you need to use the following syntax to refer to your artifact file : <code>&lt;group&gt;:&lt;artifact&gt;:&lt;version&gt;:&lt;classifier&gt;@&lt;extension&gt;</code>.</p>
-
-<p>If your maven artifact as no SNAPSHOT maven classifier, Alien 4 cloud will download your file the first time and only this time. Conversely, if your artifact as a SNAPSHOT classifier and has changed between two deployments, Alien will redownload your artifact.</p>
-
-<p>Example :</p>
-
-<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">repositories</span><span class="p-Indicator">:</span>
-  <span class="l-Scalar-Plain">fastconnect_nexus</span><span class="p-Indicator">:</span>
-    <span class="l-Scalar-Plain">url</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">https://fastconnect.org/maven/content/repositories/opensource</span>
-    <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">maven</span>
-
-<span class="p-Indicator">[</span><span class="nv">...</span><span class="p-Indicator">]</span>
-
-<span class="l-Scalar-Plain">node_types</span><span class="p-Indicator">:</span>
-  <span class="l-Scalar-Plain">alien.nodes.Example</span><span class="p-Indicator">:</span>
-    <span class="l-Scalar-Plain">artifacts</span><span class="p-Indicator">:</span>
-    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">maven_artifact</span><span class="p-Indicator">:</span>
-        <span class="l-Scalar-Plain">file</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">alien4cloud:alien4cloud-cloudify3-provider:1.2.0@zip</span>
-        <span class="l-Scalar-Plain">repository</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">fastconnect_nexus</span>
-        <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">tosca.artifacts.File</span></code></pre></div>
 
 
         <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/2.2.0/user_guide/admin_artifact_repositories.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>

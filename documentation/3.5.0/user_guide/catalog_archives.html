@@ -1,0 +1,161 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/3.5.0/user_guide/catalog_archives.html',
+  title: 'Archives (csar)'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Archives (csar)</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.5.0/user_guide/catalog_archives.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        
+<hr style="margin-top:5px; margin-bottom:5px;" />
+<div class="row"><ul class="nav nav-pills" id="summarypanel"></ul></div>
+<hr style="margin-top:5px; margin-bottom:5px;" />
+
+<p>The Manage archives tab of the catalog allows to list, add and remove TOSCA archives. Archive content is indexed and accessible through the various types and topology browsing tabs.</p>
+
+<h1 id="adding-archives">Adding archives</h1>
+
+<p>Alien 4 cloud allows to add archives from an archive zip file (csar) upload, through a git import, or by creating a new empty archive in alien4cloud. The topology editor can then be used to create a topology template in this archive.</p>
+
+<p>If you have archive management right, either through COMPONENTS_MANAGER role (add archives with tosca types) or ARCHITECT (add archives with topologies) or both you will see the following archive management pane in the UI:</p>
+
+<p><img src="../../images/3.4.0/user_guide/catalog/archives/add_pane.png" alt="Add pane" /></p>
+
+<div class="tabsection"><ul class="nav nav-tabs"></ul><div class="tab-content">
+<div class="tab-pane" title="Create new archive">
+<p>You can create a new empty archive thanks to the <img src="../../images/3.4.0/user_guide/catalog/archives/new_archive_button.png" alt="New archive" height="22px" class="inline" /> button.</p>
+
+<p>If the archive creation is successfull, a4c will automatically open the archive editor on an empty topology.</p>
+</div>
+<div class="tab-pane" title="Drag and Drop archive file">
+<p>In order to upload an archive file, just drag and drop the archive from your file browser to the <strong>dash dotted</strong> upload zone.</p>
+
+<p><img src="../../images/3.4.0/user_guide/catalog/archives/drag_drop_upload.png" alt="Drag and drop upload" /></p>
+
+<p>Before uploading an archive, on the premium edition, you can select the workspace in which to index the archive and it’s content. In order to do so just select the desired workspace in the list. Note that this list contains only the workspaces on which the user has write access. If the user has a single workspace with write access then no list is displayed.</p>
+
+<p><img src="../../images/3.4.0/user_guide/catalog/archives/workspace_selection.png" alt="Workspace selection" /></p>
+
+<div class="note info">
+<h5>Premium feature</h5>
+<p>Workspaces selection is a premium feature, Opensource only supports managing archives in the global workspace.</p>
+</div>
+
+</div>
+<div class="tab-pane" title="Import archive(s) from a Git repository">
+<p>Click on <img src="../../images/3.4.0/user_guide/catalog/archives/git_import_button.png" alt="Git import" height="22px" class="inline" /> in order to access the git repositories management screen. From this screen users can register git repositories in alien4cloud and trigger import of the git repository content to alien4cloud.</p>
+
+<p>In order to register a new git repository click on <img src="../../images/3.4.0/user_guide/catalog/archives/new_git_location_button.png" alt="Git location" height="22px" class="inline" />. Then fill the information on the modal as specified below.</p>
+
+<p><img src="../../images/3.4.0/user_guide/catalog/archives/new_git_location_modal.png" alt="New git location modal" style="width: 600px; margin: 0 auto" /></p>
+
+<ul>
+  <li><strong>Repository URL</strong>: This is the url of your git repository, for example https://github.com/alien4cloud/samples.git. Note that we support only http(s) urls.</li>
+  <li><strong>Credentials</strong>: The username and password that alien4cloud will use to connect to the github repository.</li>
+  <li><strong>On branch</strong> / <strong>Archive(s) to import</strong>: List of branches/sub-folders association to locate the TOSCA archive(s) to import from the git repository. The sub-folders is optional and by default alien will locate all archives within the git repository.</li>
+  <li><strong>Save the repository locally</strong>: If false alien4cloud will keep the repository content local, if not the git import process will fetch the repository, process the import in alien4cloud and then remove the local clone of the git repository. If true the repository local clone will not be removed from alien server. Default is false.</li>
+</ul>
+
+<div class="note">
+<p>Alien4cloud is very flexible on the structure of your git repositories and how you keep archives within. We ourself decided to keep multiple archives within the single samples repository.
+This choice is a really specific choice as we tag the samples branch not following the versions of the archives but to the version of alien the samples support.
+You may also store multiple archives within a single git repository when all archives are sharing the same version and are packaged together. Note that in that case you have the choice of having a single archive or multiple ones.
+The choice here should be focused on usability and merge perspective. The devops guide section contains more information on possible choices and example on how and why you should go for one of them.</p>
+</div>
+
+<p>Once imported you can see the new created git location in the list:</p>
+
+<p><img src="../../images/3.4.0/user_guide/catalog/archives/git_location_list.png" alt="Trigger an archive from a location" /></p>
+
+<p>Click on <img src="../../images/3.4.0/user_guide/catalog/archives/git_import_btn.png" alt="Git location" class="inline" /> to trigger the import process. Once completed the import result is displayed with it’s state, and eventual errors, warning or info messages.</p>
+
+<p><img src="../../images/3.4.0/user_guide/catalog/archives/git_import_result.png" alt="Result of an import" /></p>
+</div>
+</div></div>
+
+<h2 id="upload-issues">Upload issues</h2>
+
+<p>Alien 4 Cloud performs validation of your archive agains the TOSCA specification.</p>
+
+<p>The following image shows the upload of an archive with an error :
+<img src="../../images/3.4.0/user_guide/catalog/archives/csar-upload-errors.png" alt="Upload an archive with error" /></p>
+
+<div class="note">
+<p>When deploying on some cloud technologies alien4cloud uses some node template names in the name of the generated ressources (VMs, BlockStorage etc.). Some cloud APIs do not manage special characters as dashes or underscore. In addition some people like to set the hostname based on the name of the node template. Therefore and while this is authorized in TOSCA alien4cloud prevent naming the node template with such characters.</p>
+
+<p>If a node template name contains some special character (is: not an alphanumeric character from the basic Latin alphabet and the underscore) we will automatically replace these characters.</p>
+
+<p>When a CSAR has a SNAPSHOT version (e.g 2.2.0-SNAPSHOT for instance) , and it is used in deployed applications, it can be updated through git import or upload if the parameter <strong>features.archive_indexer_lock_used_archive</strong> is set to false</p>
+
+<p>When a CSAR has a release version (e.g 2.2.0 for instance), it can be only be updated through git import or upload if the parameter <strong>features. archive_indexer_accept_upgrade_release</strong> is set to true (default to false)</p>
+
+</div>
+
+<h1 id="archives-list">Archives list</h1>
+
+<p>The archive list is displayed to all users, workspace management and archive deletion buttons are visible only to users with the right roles (see adding archives section).</p>
+
+<p><img src="../../images/3.4.0/user_guide/catalog/archives/archive_list.png" alt="Archive list" /></p>
+
+<p>You can see a few information from the archive list screen as:</p>
+
+<ul>
+  <li>the name and version of the archive (a name and version couple is unique in alien4cloud)</li>
+  <li>the source of the archive (has it been imported from git, included from a plugin, uploaded manually, or is it an application archive)</li>
+  <li>the description of the archive if any was provided in the tosca file.</li>
+  <li>a brief overview of the archive content, the following icon <img src="../../images/3.4.0/user_guide/catalog/archives/topology_icon.png" alt="Archive list" height="22px" class="inline" /> shows if the archive contains a topology template and the following icon <img src="../../images/3.4.0/user_guide/catalog/archives/type_icon.png" alt="Archive list" height="22px" class="inline" /> shows that the archive contains some node types (the number of nodes is indicated).</li>
+</ul>
+
+<p>You can perform the following actions from the list:</p>
+
+<ul>
+  <li>Click on an element of the list to go to the archive detail screen.</li>
+  <li>Click on <img src="../../images/3.4.0/user_guide/catalog/archives/download_archive.png" alt="Download archive" height="22px" class="inline" /> to download the archive as a zip file.</li>
+  <li>You can see the workspace that currently contains the archive, and change it by clicking on the following button <img src="../../images/3.4.0/user_guide/catalog/archives/change_workspace.png" alt="Archive list" height="22px" class="inline" /> (text and icon of the button depends on the workspace). If you move an archive to a workspace on which you don’t have write access, a promotion request will be created. <a href="#/documentation/3.0.0/user_guide/catalog_workspaces.html">More on promotion requests</a>.</li>
+  <li>Click on <img src="../../images/3.4.0/user_guide/catalog/archives/delete.png" alt="Delete" height="22px" class="inline" /> to delete an archive</li>
+</ul>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.5.0/user_guide/catalog_archives.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-3.5.0', 'documentation/3.5.0/user_guide/catalog_archives.md');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>

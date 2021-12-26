@@ -1,0 +1,119 @@
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73216650-1', 'auto');
+ga('set', {
+  page: '/documentation/3.5.0/user_guide/application_roles.html',
+  title: 'Grant authorizations'
+});
+ga('send', 'pageview');
+
+</script>
+
+<div class="container-fluid">
+  <div class="row">
+    
+      <div class="col-sm-4 col-md-3">
+        <div id="sidebar_menu" class="tree" role="complementary"></div>
+      </div>
+      <div id="content" class="col-sm-8 col-md-9">
+    
+        <div style="height: 50px;">
+          <h1 class="pull-left" style="margin-top: 0px;">Grant authorizations</h1>
+          <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.5.0/user_guide/application_roles.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+        </div>
+        <p>To grant the authorizations for a platform <strong>ADMIN</strong> or a user with the <strong>APPLICATION_MANAGER</strong> role to the given application must go to the target application and click on the <img src="../../images/3.4.0/user_guide/applications/app_roles_button.png" alt="Applications roles navigation button" height="26px" class="inline" /> button found in the application main page.</p>
+
+<p><img src="../../images/3.4.0/user_guide/applications/app_main_page.png" alt="Application role edition" /></p>
+
+<div class="note info">
+<h5>Roles information</h5>
+<p>The available list of roles for the application or its environment and their definition is available at the bottom of this page.</p>
+</div>
+
+<p>Some roles are specified for the whole application, for example the <strong>APPLICATION_MANAGER</strong> role and <strong>APPLICATION_DEVOPS</strong> (they are allowed to the edition and deployment of topologies) are available for the whole application. Some roles, however, such as the deployment role are specified in each environment.</p>
+
+<p>In order to assign a role to a user, just click on the key button on the user row and assign the role of your choice. you can also assign a role to a user group in the same way by going on the <em>Groups</em> tab.</p>
+
+<p><img src="../../images/3.4.0/user_guide/applications/app_role_edit.png" alt="Application role edition" /></p>
+
+<p>For choosing the roles related to the, just click on the environment dropdown list and select the environment that your need.</p>
+
+<p><img src="../../images/3.4.0/user_guide/applications/app_role_env_choice.png" alt="Application role environment switch" style="width: 240px; margin: 0 auto" /></p>
+
+<h2 id="applications-roles">Application’s roles</h2>
+
+<p>The following <em>roles</em> define the authorized actions which can be executed on a given application :</p>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Role</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">APPLICATION_MANAGER</td>
+      <td style="text-align: left">Application manager can manage the application configuration, its versions and environments as well as user management for the application.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">APPLICATION_DEVOPS</td>
+      <td style="text-align: left">Dev ops role should be given to the applications developer. In <strong>ALIEN</strong> users with devops role on an application can edit the topologies of every SNAPSHOT version.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="environments-roles">Environment’s roles</h2>
+
+<p>In addition to the application roles, <strong>Application manager</strong> can specify some roles related to every single environment defined for the application.</p>
+
+<p>The following <em>roles</em> define the authorized actions which can be executed on a given application :</p>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="text-align: left">Role</th>
+      <th style="text-align: left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">APPLICATION_USER</td>
+      <td style="text-align: left">An application user on an environment is not only allowed to see the environment status but also has access to the deployment output properties.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">DEPLOYMENT_MANAGER</td>
+      <td style="text-align: left">Deployment manager for an environment is responsible for the configuration as well as the deployment/undeployment of an environment. In order to be able to deploy/undeploy an environment, the user need to have also a DEPLOYER role on the location where he wants to deploy. <strong>DEPLOYER</strong> role is configured on the location configuration by any user who has the global <strong>ADMIN</strong> role.</td>
+    </tr>
+  </tbody>
+</table>
+
+        <a class="btn btn-primary pull-right" href="http://prose.io/#alien4cloud/alien4cloud.github.io/edit/sources/documentation/3.5.0/user_guide/application_roles.md"><i class="fa fa-pencil-square-o"></i> Edit (pull request)</a>
+	  </div>
+    </div>
+  </div>
+</div><!-- /container -->
+
+<script>
+var hash = location.hash.replace( /^#/, '' );
+if(hash && hash!== null && hash.match(/html$/)) {
+} else {
+  var newLocation = location.protocol+"//"+location.host+"#"+location.pathname;
+  location.replace(newLocation);
+}
+</script>
+<script type="text/javascript" src="/js/post-layout.js"></script>
+<script>
+$(document).ready(function () {
+  makeSideBar('DOCUMENTATION-3.5.0', 'documentation/3.5.0/user_guide/application_roles.md');
+});
+</script>
+
+<script>
+$("div[data-gist]").gist();
+</script>
