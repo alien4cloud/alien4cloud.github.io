@@ -1,0 +1,75 @@
+---
+layout: post
+title:  ALIEN for Cloud 3.5.0
+root: ../
+categories: RELEASE_NOTES
+parent: [release_note]
+node_name: 3.5.0
+weight: 9884
+exclude_from_search: true
+---
+
+
+
+
+<i class="fa fa-plus text-success"></i> New feature <i class="fa fa-level-up text-primary"></i> Improvement  <i class="fa fa-bug text-danger"></i> Bug <i class="fa fa-exclamation-triangle text-warning"></i> Breaking change
+
+
+### Alien 4 Cloud K8S plugin
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-3748 | Tosca token function feature  |
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-3746 | Check resources existence before trying to create them  |
+    
+
+
+### Alien 4 Cloud Portal Plugin
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-3751 | Ignore error at uninstall workflow  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-3752 | Variables substitution in options  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-3754 | iamapiaccess credentials substition  |
+    
+
+
+### Alien 4 Cloud Spray
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-3750 | Elastic search engine upgrade  |
+      
+
+
+### Alien 4 Cloud
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+    |  <i class="fa fa-plus text-success"></i> | ALIEN-3749 | Alien4cloud Elastic Search client version upgrade to 6.8.22  |
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-3747 | Alien4cloud log4j version upgrade  |
+    
+
+
+### Alien 4 Cloud Network policies
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-3753 | API gateway egress access  |
+    
+
