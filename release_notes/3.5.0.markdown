@@ -60,7 +60,7 @@ exclude_from_search: true
   |:------------|:-----------|:------------|
     |  <i class="fa fa-plus text-success"></i> | ALIEN-3749 | Alien4cloud Elastic Search client version upgrade to 6.8.22  |
       |  <i class="fa fa-level-up text-primary"></i> | ALIEN-3747 | Alien4cloud log4j version upgrade  |
-      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-3745 | Saving search criteria in "Work an Environment page" |
+    
 
 
 ### Alien 4 Cloud Network policies
