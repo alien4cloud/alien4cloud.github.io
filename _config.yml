@@ -7,10 +7,10 @@ encoding: UTF-8
 
 categories-list: ["DOCUMENTATION", "DOCUMENTATION-1.3.0", "DOCUMENTATION-1.4.0", "DOCUMENTATION-2.0.0", "DOCUMENTATION-2.1.0", "DOCUMENTATION-2.2.0","DOCUMENTATION-3.0.0","DOCUMENTATION-3.1.0","DOCUMENTATION-3.2.0", "DOCUMENTATION-3.3.0","DOCUMENTATION-3.4.0", "DOCUMENTATION-3.5.0", "RELEASE_NOTES", "MIGRATION_GUIDES", "DEVELOPER_GUIDE", "ROADMAP"]
 
-stable-version: "3.4.0"
-premium-stable-version: "3.3.0"
-last-version: "3.4.0"
-last-snapshot: "3.5.0-SNAPSHOT"
+stable-version: "3.6.0"
+premium-stable-version: "3.6.0"
+last-version: "3.6.0"
+last-snapshot: "3.7.0-SNAPSHOT"
 old-stables: ["3.0.0"]
 log_app_version: 1.4.6
 
