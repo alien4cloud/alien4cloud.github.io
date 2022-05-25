@@ -1,18 +1,20 @@
 ---
 layout: post
-title:  TOSCA grammar
+title: TOSCA grammar
 root: ../../../
 categories: DOCUMENTATION-3.4.0
-parent: [devops]
+parent:
+  - devops
 node_name: tosca_grammar
 weight: 1
+published: true
 ---
 
 This section describes the TOSCA grammar as supported in latest alien4cloud version.
 
 Alien4cloud supports multiple versions of the __tosca_definitions_version__:
 
-* alien_dsl_3.0.0: DSL used in alien4cloud 2.0.0
+* alien_dsl_2_0_0: DSL used in alien4cloud 2.0.0
 * alien_dsl_1_4_0: DSL used in alien4cloud 1.4.0
 * alien_dsl_1_3_0: DSL used in alien4cloud 1.3.0
 * alien_dsl_1_2_0: DSL used in alien4cloud 1.2.0 _deprecated_
