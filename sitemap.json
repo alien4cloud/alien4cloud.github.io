@@ -771,6 +771,13 @@
 	},
 
 	{
+		"url": "/release_notes/3.7.0.html", 
+		"section": "Release Notes", 
+		"value": "ALIEN for Cloud 3.7.0",
+		"tokens": [ "ALIEN","for","Cloud","3.7.0"]
+	},
+
+	{
 		"url": "/migration_guides/Yorc.4.0.0.M8.html", 
 		"section": "Migration Guides", 
 		"value": "Yorc from < 4.0.0-M8 to >= 4.0.0-M8",
