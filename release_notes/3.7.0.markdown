@@ -1,0 +1,32 @@
+---
+layout: post
+title:  ALIEN for Cloud 3.7.0
+root: ../
+categories: RELEASE_NOTES
+parent: [release_note]
+node_name: 3.7.0
+weight: 9870
+exclude_from_search: true
+---
+
+
+
+
+<i class="fa fa-plus text-success"></i> New feature <i class="fa fa-level-up text-primary"></i> Improvement  <i class="fa fa-bug text-danger"></i> Bug <i class="fa fa-exclamation-triangle text-warning"></i> Breaking change
+
+
+### Alien 4 Cloud
+
+
+
+  {: .table .table-bordered}
+  | Type        | Id         | Description |
+  |:------------|:-----------|:------------|
+      |  <i class="fa fa-level-up text-primary"></i> | ALIEN-3684 | Application variable edition shoud validate YAML structure  |
+    |  <i class="fa fa-level-up text-primary"></i> | ALIEN-3767 | Add ability to hide/display secret buttons via features.client.displaySecretButton  |
+      |  <i class="fa fa-bug text-danger"></i> | ALIEN-3763 | Error when getting/updating/deleting a user with a dot in the username  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-3764 | Issue in workflow display & edition after a4c upgrade  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-3765 | #{variable} syntax not working for list fields of complex properties  |
+    |  <i class="fa fa-bug text-danger"></i> | ALIEN-3766 | Topology copy/paste from YAML editor does not keep DSLversion  |
+  
+
